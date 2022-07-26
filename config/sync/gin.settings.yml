@@ -1,0 +1,20 @@
+_core:
+  default_config_hash: NgGG0IRVV2pgGF9MWl9MIsCUiXcpm9Y3IDZJW2FMbZM
+favicon:
+  use_default: true
+features:
+  comment_user_picture: true
+  comment_user_verification: true
+  favicon: true
+  node_user_picture: true
+third_party_settings:
+  shortcut:
+    module_link: true
+preset_accent_color: blue
+preset_focus_color: gin
+enable_darkmode: '0'
+classic_toolbar: horizontal
+high_contrast_mode: false
+accent_color: ''
+focus_color: ''
+show_user_theme_settings: false

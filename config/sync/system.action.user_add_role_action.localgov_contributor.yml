@@ -1,0 +1,14 @@
+uuid: 8fe45d60-4852-4663-9d73-8edb7ff92436
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.localgov_contributor
+  module:
+    - user
+id: user_add_role_action.localgov_contributor
+label: 'Add the Contributor role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: localgov_contributor

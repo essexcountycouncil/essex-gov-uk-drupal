@@ -1,0 +1,22 @@
+uuid: f915e943-61a9-4ace-ba26-a6717d51290a
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - essex
+_core:
+  default_config_hash: HMT0p1pe6D6hsYTqyWbzK2nquVWT6anaDXoNu7WYvPI
+id: essex_localgov_breadcrumbs_scarfolk
+theme: essex
+region: breadcrumb
+weight: 0
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  label_display: '0'
+  provider: system
+visibility: {  }

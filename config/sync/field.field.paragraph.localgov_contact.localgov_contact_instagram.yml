@@ -1,0 +1,25 @@
+uuid: 14b61705-a932-4e28-a2d6-885b95a56411
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.localgov_contact_instagram
+    - paragraphs.paragraphs_type.localgov_contact
+  module:
+    - link
+_core:
+  default_config_hash: ZGaXZTds-qr_7ADVTbZfD752iI_M12LVxGGhtev2XWo
+id: paragraph.localgov_contact.localgov_contact_instagram
+field_name: localgov_contact_instagram
+entity_type: paragraph
+bundle: localgov_contact
+label: Instagram
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 16
+  title: 1
+field_type: link

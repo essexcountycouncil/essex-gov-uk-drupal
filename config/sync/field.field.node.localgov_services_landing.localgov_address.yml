@@ -1,0 +1,23 @@
+uuid: c20c043a-c210-4806-9ffc-19d16fd2f353
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.localgov_address
+    - node.type.localgov_services_landing
+  module:
+    - text
+_core:
+  default_config_hash: nP2NgUkkGdM1faHaG3Hh-PdcOB4j5PNJ2iCGCjxO_iE
+id: node.localgov_services_landing.localgov_address
+field_name: localgov_address
+entity_type: node
+bundle: localgov_services_landing
+label: Address
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

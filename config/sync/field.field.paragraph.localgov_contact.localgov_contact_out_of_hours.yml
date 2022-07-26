@@ -1,0 +1,23 @@
+uuid: f803b25c-b457-4903-8fb9-129b37c8ff59
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.localgov_contact_out_of_hours
+    - paragraphs.paragraphs_type.localgov_contact
+  module:
+    - telephone
+_core:
+  default_config_hash: ku-45jBBe6-zBUAHT4SfmUkfSiFWK0GhUlcPfx2xuvk
+id: paragraph.localgov_contact.localgov_contact_out_of_hours
+field_name: localgov_contact_out_of_hours
+entity_type: paragraph
+bundle: localgov_contact
+label: 'Out of hours'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: telephone

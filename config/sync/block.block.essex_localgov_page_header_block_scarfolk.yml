@@ -1,0 +1,22 @@
+uuid: e6ec0b13-5d0a-452a-91dc-8db707fb9254
+langcode: en
+status: true
+dependencies:
+  module:
+    - localgov_core
+  theme:
+    - essex
+_core:
+  default_config_hash: f0iKCYeeRkvUMJ87FM2sOkHWRyk74xQsanz5TniJSG8
+id: essex_localgov_page_header_block_scarfolk
+theme: essex
+region: content_top
+weight: -10
+provider: null
+plugin: localgov_page_header_block
+settings:
+  id: localgov_page_header_block
+  label: 'Page header block'
+  label_display: '0'
+  provider: localgov_core
+visibility: {  }

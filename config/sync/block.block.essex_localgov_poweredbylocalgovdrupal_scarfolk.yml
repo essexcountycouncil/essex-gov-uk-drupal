@@ -1,0 +1,22 @@
+uuid: eb7ab72f-65d6-4f3c-a9cc-dc08ade65f06
+langcode: en
+status: true
+dependencies:
+  module:
+    - localgov_core
+  theme:
+    - essex
+_core:
+  default_config_hash: _rLbHDXkhDWmFVzav5liiDU56NLoRKtMPaN4iMX-p-M
+id: essex_localgov_poweredbylocalgovdrupal_scarfolk
+theme: essex
+region: footer_second
+weight: 0
+provider: null
+plugin: localgov_powered_by_block
+settings:
+  id: localgov_powered_by_block
+  label: 'Powered by LocalGovDrupal'
+  label_display: '0'
+  provider: localgov_core
+visibility: {  }

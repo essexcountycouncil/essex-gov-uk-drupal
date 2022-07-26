@@ -1,0 +1,22 @@
+uuid: 87cb60d2-a7fb-4e91-a247-71ebf2e98b61
+langcode: en
+status: true
+dependencies:
+  module:
+    - localgov_services
+  theme:
+    - localgov_scarfolk
+_core:
+  default_config_hash: cGQX48mjw70XY9gxwrTgcrYtPnq2iAIPiqUVk5t5Otg
+id: localgov_servicescalltoaction_scarfolk
+theme: localgov_scarfolk
+region: content_top
+weight: 1
+provider: null
+plugin: localgov_service_cta_block
+settings:
+  id: localgov_service_cta_block
+  label: 'Services call to action'
+  label_display: '0'
+  provider: localgov_services
+visibility: {  }

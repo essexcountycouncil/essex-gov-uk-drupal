@@ -1,0 +1,27 @@
+uuid: 4aa889ab-a62f-4892-9dcd-e41bff74265c
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - system
+  theme:
+    - localgov_base
+_core:
+  default_config_hash: C2U-2F1I6w_9hkcddTrFlQ9NSXmHnxMNNrb8mJ0lk2w
+id: localgov_mainnavigation_base
+theme: localgov_base
+region: primary_menu
+weight: -1
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  id: 'system_menu_block:main'
+  label: 'Main navigation'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

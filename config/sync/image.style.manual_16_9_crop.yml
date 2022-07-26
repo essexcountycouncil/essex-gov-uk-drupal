@@ -1,0 +1,20 @@
+uuid: 5b027a87-d2b2-4446-a835-b0cfcc843961
+langcode: en
+status: true
+dependencies:
+  config:
+    - crop.type.16_9
+  module:
+    - crop
+_core:
+  default_config_hash: UFmtficYNGlXc9ZNqyNENWkdOoPCoZ9YfpfSgkNq_yo
+name: manual_16_9_crop
+label: 'Manual 16:9 crop'
+effects:
+  bd80ba57-385e-4fa7-a89f-37889c221862:
+    uuid: bd80ba57-385e-4fa7-a89f-37889c221862
+    id: crop_crop
+    weight: 1
+    data:
+      crop_type: '16_9'
+      automatic_crop_provider: null

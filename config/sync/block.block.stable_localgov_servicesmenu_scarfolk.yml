@@ -1,0 +1,27 @@
+uuid: eb6e97af-3547-4cc0-9807-a28a5e1deeae
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.localgov_services_menu
+  module:
+    - system
+  theme:
+    - stable
+_core:
+  default_config_hash: ktIjCIva-IVWOE3So6VaszYRegx4N9LlONs2FVGp3do
+id: stable_localgov_servicesmenu_scarfolk
+theme: stable
+region: secondary_menu
+weight: -6
+provider: null
+plugin: 'system_menu_block:localgov_services_menu'
+settings:
+  id: 'system_menu_block:localgov_services_menu'
+  label: 'Services menu'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

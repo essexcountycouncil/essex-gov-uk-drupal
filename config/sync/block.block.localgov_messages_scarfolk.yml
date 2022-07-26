@@ -1,0 +1,22 @@
+uuid: ad65547a-a053-41d0-8d6a-a711b08d93a9
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - localgov_scarfolk
+_core:
+  default_config_hash: XqdhRTIfjgkSTBL-WtfsStngpA1B7I9_ajAh3cVOk5s
+id: localgov_messages_scarfolk
+theme: localgov_scarfolk
+region: messages
+weight: 0
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: Messages
+  label_display: '0'
+  provider: system
+visibility: {  }

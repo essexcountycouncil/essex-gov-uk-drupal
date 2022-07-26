@@ -1,0 +1,148 @@
+{
+    "name": "localgovdrupal/localgov-project",
+    "description": "Project template for the LocalGov Drupal distribution.",
+    "type": "project",
+    "license": "GPL-2.0-or-later",
+    "homepage": "https://github.com/localgovdrupal/localgov_project",
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        }
+    ],
+    "require": {
+        "composer/installers": "^1.10",
+        "cweagans/composer-patches": "^1.6",
+        "drupal/core-composer-scaffold": "^9.1",
+        "drupal/core-project-message": "^9.1",
+        "drupal/core-recommended": "^9.1",
+        "localgovdrupal/localgov": "^2.0"
+    },
+    "require-dev": {
+        "brianium/paratest": "^6.0",
+        "drupal/coder": "^8.3",
+        "drupal/config_inspector": "^1.3",
+        "drupal/core-dev": "^9.1",
+        "mglaman/phpstan-drupal": "^1.0",
+        "phpspec/prophecy-phpunit": "^2",
+        "phpstan/phpstan": "^1.0",
+        "phpstan/phpstan-deprecation-rules": "^1.0",
+        "roave/security-advisories": "dev-latest",
+        "squizlabs/php_codesniffer": "^3.6"
+    },
+    "conflict": {
+        "drupal/drupal": "*"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "sort-packages": true,
+        "bin-dir": "bin/",
+        "allow-plugins": {
+            "composer/installers": true,
+            "cweagans/composer-patches": true,
+            "drupal/core-composer-scaffold": true,
+            "drupal/core-project-message": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    },
+    "autoload": {
+        "classmap": [
+            "scripts/composer/ScriptHandler.php"
+        ]
+    },
+    "extra": {
+        "enable-patching": true,
+        "drupal-scaffold": {
+            "locations": {
+                "web-root": "web/"
+            },
+            "file-mapping": {
+                "[web-root]/sites/default/settings.php": {
+                    "mode": "replace",
+                    "path": "assets/composer/settings.php",
+                    "overwrite": false
+                },
+                "[web-root]/sites/default/settings.lando.php": {
+                    "mode": "replace",
+                    "path": "assets/composer/settings.lando.php",
+                    "overwrite": false
+                },
+                "[web-root]/sites/development.services.yml": "assets/composer/development.services.yml"
+            }
+        },
+        "installer-paths": {
+            "web/core": ["type:drupal-core"],
+            "web/libraries/{$name}": ["type:drupal-library"],
+            "web/modules/contrib/{$name}": ["type:drupal-module"],
+            "web/profiles/contrib/{$name}": ["type:drupal-profile"],
+            "web/themes/contrib/{$name}": ["type:drupal-theme"],
+            "drush/Commands/contrib/{$name}": ["type:drupal-drush"],
+            "web/modules/custom/{$name}": ["type:drupal-custom-module"],
+            "web/themes/custom/{$name}": ["type:drupal-custom-theme"]
+        },
+        "drupal-core-project-message": {
+            "post-create-project-cmd-message": [
+                "<bg=blue;fg=white>                                                                  </>",
+                "<bg=blue;fg=white>  Congratulations, you’ve installed the LocalGov Drupal codebase  </>",
+                "<bg=blue;fg=white>                                                                  </>",
+                "",
+                "<bg=yellow;fg=black>Next steps</>:",
+
+                "  * Install the site: https://www.drupal.org/docs/8/install",
+                "  * Remove the plugin that prints this message:",
+                "      composer remove drupal/core-project-message"
+            ]
+        }
+    },
+    "scripts": {
+        "pre-install-cmd": [
+            "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
+        ],
+        "pre-update-cmd": [
+            "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
+        ],
+        "post-install-cmd": "@drupal-build",
+        "post-update-cmd": "@drupal-build",
+        "drupal-build": [
+            "Composer\\Config::disableProcessTimeout",
+            "@prepare-filesystem-for-update",
+            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles",
+            "@secure-site",
+            "[ -h vendor/bin/cghooks -a -w ../.git ] && vendor/bin/cghooks --git-dir=../.git update; true"
+        ],
+        "reinstall-drupal": [
+            "Composer\\Config::disableProcessTimeout",
+            "vendor/bin/drush --yes -l default sql-drop",
+            "vendor/bin/drush --yes -l default sqlc < database/reinstall.sql",
+            "vendor/bin/drush --yes -l default deploy"
+        ],
+        "update-drupal": [
+            "Composer\\Config::disableProcessTimeout",
+            "vendor/bin/drush --yes -l default deploy",
+            "vendor/bin/drush --yes -l default cache:rebuild"
+        ],
+        "prepare-filesystem-for-update": [
+            "chmod 777 --quiet web/sites/default/default.*.yml; true"
+        ],
+        "secure-site": [
+            "chmod 444 web/sites/default/default.*.yml",
+            "chmod 444 web/sites/default/*.services.yml"
+        ],
+        "checker-security": "vendor/bin/drush pm:security",
+        "checker-php-compatibility": "vendor/bin/phpcs --standard=vendor/phpcompatibility/php-compatibility/PHPCompatibility/ruleset.xml --runtime-set testVersion 7.2 src",
+        "checker-drupal": "vendor/bin/drupal-check -ad src",
+        "checker-drupal-3rd": "vendor/bin/drupal-check -ad web/themes web/modules",
+        "checker-php-lint": "vendor/bin/parallel-lint src",
+        "checker-phpmetrics": [
+            "mkdir -p data/phpmetrics",
+            "./vendor/bin/phpmetrics --report-html=data/phpmetrics --extensions=php,inc,module,theme,profile,install ./modules"
+        ],
+        "phpunit-modules": "sudo -u www-data -E vendor/bin/phpunit -v --debug modules",
+        "cghooks": "[ -h vendor/bin/cghooks -a -w ../.git ] && vendor/bin/cghooks --git-dir=../.git",
+        "phpcs": "vendor/bin/phpcs --ignore=*.js --standard=Drupal,DrupalPractice modules/custom",
+        "phpcbf": "vendor/bin/phpcbf --ignore=*.js --standard=Drupal,DrupalPractice modules/custom",
+        "phpcs-setup": "vendor/bin/phpcs --config-set installed_paths vendor/drupal/coder/coder_sniffer",
+        "composer-validate": "composer validate"
+    }
+}

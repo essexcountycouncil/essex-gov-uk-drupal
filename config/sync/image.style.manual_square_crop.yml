@@ -1,0 +1,20 @@
+uuid: 8c6fee14-f854-495a-80ff-e20b8f373259
+langcode: en
+status: true
+dependencies:
+  config:
+    - crop.type.square
+  module:
+    - crop
+_core:
+  default_config_hash: FtyhNwfeGGu5uihoLdf3frBJRav1JideOAoEc5BF2vM
+name: manual_square_crop
+label: 'Manual square crop'
+effects:
+  e099efd8-f1ae-499d-9276-21affb2a65df:
+    uuid: e099efd8-f1ae-499d-9276-21affb2a65df
+    id: crop_crop
+    weight: 1
+    data:
+      crop_type: square
+      automatic_crop_provider: null

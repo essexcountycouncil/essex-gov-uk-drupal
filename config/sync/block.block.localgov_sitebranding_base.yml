@@ -1,0 +1,25 @@
+uuid: a5f6b8ca-e90f-40a9-8e7d-1cf2ab048508
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - localgov_base
+_core:
+  default_config_hash: 2QGMvZQhIdCkbgc0V5-CDxfVqnJSMuIQbOXricmfMmc
+id: localgov_sitebranding_base
+theme: localgov_base
+region: header
+weight: 0
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  label_display: '0'
+  provider: system
+  use_site_logo: true
+  use_site_name: true
+  use_site_slogan: false
+visibility: {  }
