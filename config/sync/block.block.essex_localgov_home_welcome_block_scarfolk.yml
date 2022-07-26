@@ -21,7 +21,7 @@ settings:
   label_display: '0'
   provider: localgov
   localgov_home_welcome_message:
-    value: "<p>Welcome to Essex</p>\r\n"
+    value: "<h1>Welcome to Essex</h1>\r\n"
     format: wysiwyg
 visibility:
   request_path:
