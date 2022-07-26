@@ -17,14 +17,14 @@ bundle: image
 mode: localgov_featured
 content:
   field_media_image:
+    type: image
     label: visually_hidden
     settings:
-      image_style: localgov_248x181
       image_link: ''
+      image_style: localgov_248x181
       image_loading:
         attribute: lazy
     third_party_settings: {  }
-    type: image
     weight: 1
     region: content
 hidden:

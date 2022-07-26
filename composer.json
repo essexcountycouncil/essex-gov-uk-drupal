@@ -111,12 +111,6 @@
             "@secure-site",
             "[ -h vendor/bin/cghooks -a -w ../.git ] && vendor/bin/cghooks --git-dir=../.git update; true"
         ],
-        "reinstall-drupal": [
-            "Composer\\Config::disableProcessTimeout",
-            "vendor/bin/drush --yes -l default sql-drop",
-            "vendor/bin/drush --yes -l default sqlc < database/reinstall.sql",
-            "vendor/bin/drush --yes -l default deploy"
-        ],
         "update-drupal": [
             "Composer\\Config::disableProcessTimeout",
             "vendor/bin/drush --yes -l default deploy",
@@ -126,6 +120,7 @@
             "chmod 777 --quiet web/sites/default/default.*.yml; true"
         ],
         "secure-site": [
+            "chmod 444 web/sites/default/settings.php",
             "chmod 444 web/sites/default/default.*.yml",
             "chmod 444 web/sites/default/*.services.yml"
         ],
@@ -140,8 +135,8 @@
         ],
         "phpunit-modules": "sudo -u www-data -E vendor/bin/phpunit -v --debug modules",
         "cghooks": "[ -h vendor/bin/cghooks -a -w ../.git ] && vendor/bin/cghooks --git-dir=../.git",
-        "phpcs": "vendor/bin/phpcs --ignore=*.js --standard=Drupal,DrupalPractice modules/custom",
-        "phpcbf": "vendor/bin/phpcbf --ignore=*.js --standard=Drupal,DrupalPractice modules/custom",
+        "phpcs": "vendor/bin/phpcs --standard=Drupal,DrupalPractice modules/custom",
+        "phpcbf": "vendor/bin/phpcbf --standard=Drupal,DrupalPractice modules/custom",
         "phpcs-setup": "vendor/bin/phpcs --config-set installed_paths vendor/drupal/coder/coder_sniffer",
         "composer-validate": "composer validate"
     }

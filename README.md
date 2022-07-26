@@ -1,3 +1,3 @@
-# LocalGov Drupal Composer project template
+# Prototype for essex.gov.uk Drupal project
 
-A Composer-based installer for the LocalGov Drupal distribution.
+Built using the LocalGov Drupal distribution.
