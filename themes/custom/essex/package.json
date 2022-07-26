@@ -1,0 +1,18 @@
+{
+  "name": "localgov_subtheme",
+  "version": "1.0.0",
+  "description": "NPM scripts for the localgov_base subtheme.",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run get-stylelint-file && npm run lint:css",
+    "get-stylelint-file": "cp ../../../core/.stylelintrc.json .",
+    "lint:css": "npm run get-stylelint-file && stylelint \"**/*.css\" --fix"
+  },
+  "author": "Mark Conroy",
+  "license": "ISC",
+  "devDependencies": {
+    "stylelint": "^13.13.1",
+    "stylelint-config-standard": "^22.0.0",
+    "stylelint-order": "^4.1.0"
+  }
+}

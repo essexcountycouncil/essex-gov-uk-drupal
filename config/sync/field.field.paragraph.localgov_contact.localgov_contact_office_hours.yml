@@ -1,0 +1,23 @@
+uuid: 872a4496-1a4c-4491-a27d-ade3a9149f3e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.localgov_contact_office_hours
+    - paragraphs.paragraphs_type.localgov_contact
+  module:
+    - office_hours
+_core:
+  default_config_hash: LpGL2EsTbr1SvQ4CVvWG3UYIhwyw9LCFhK7QobUyrqM
+id: paragraph.localgov_contact.localgov_contact_office_hours
+field_name: localgov_contact_office_hours
+entity_type: paragraph
+bundle: localgov_contact
+label: 'Office hours'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: office_hours

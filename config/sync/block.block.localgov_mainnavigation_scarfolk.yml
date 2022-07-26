@@ -1,0 +1,27 @@
+uuid: 0550ce2e-3ce6-4e6c-a600-b5a0de381c0d
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - system
+  theme:
+    - localgov_scarfolk
+_core:
+  default_config_hash: wTuUnaKnGKQiwFQ9bz_B1kDs3FfXc_ujSdtvk4tF88g
+id: localgov_mainnavigation_scarfolk
+theme: localgov_scarfolk
+region: primary_menu
+weight: -1
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  id: 'system_menu_block:main'
+  label: 'Main navigation'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

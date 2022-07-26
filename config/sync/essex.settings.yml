@@ -1,0 +1,12 @@
+features:
+  node_user_picture: true
+  comment_user_picture: true
+  comment_user_verification: true
+  favicon: 1
+logo:
+  use_default: 0
+  path: themes/custom/essex/assets/images/seax.png
+favicon:
+  use_default: 1
+localgov_base_remove_css: 0
+localgov_base_remove_js: 0

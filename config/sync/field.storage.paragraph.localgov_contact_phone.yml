@@ -1,0 +1,21 @@
+uuid: 1566e67d-5098-4295-9e35-0faef60d4b94
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+    - telephone
+_core:
+  default_config_hash: kiM0tTCz0bqKApdTNqW6E0l0Urkee5yimPh04Ffhu7E
+id: paragraph.localgov_contact_phone
+field_name: localgov_contact_phone
+entity_type: paragraph
+type: telephone
+settings: {  }
+module: telephone
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

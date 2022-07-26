@@ -1,0 +1,22 @@
+uuid: 733ce62a-0f52-4bd2-ad65-c5db49cc060a
+langcode: und
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+_core:
+  default_config_hash: LpaMBHUFq6ehrHE0gaJ6dQg_9thCgltTq_SnFZHdzD8
+id: node.localgov_popular_topics
+field_name: localgov_popular_topics
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

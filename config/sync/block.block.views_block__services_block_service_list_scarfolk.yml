@@ -1,0 +1,32 @@
+uuid: 0c2cdb19-a3df-4101-8c72-7b792c703d32
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.services
+  module:
+    - system
+    - views
+  theme:
+    - localgov_scarfolk
+_core:
+  default_config_hash: dIZQveClXGuKNNnnZIszG9I_DBPhQp4eMCPkbYqVkOg
+id: views_block__services_block_service_list_scarfolk
+theme: localgov_scarfolk
+region: content_top
+weight: 5
+provider: null
+plugin: 'views_block:services-block_service_list'
+settings:
+  id: 'views_block:services-block_service_list'
+  label: 'Services list block'
+  label_display: '0'
+  provider: views
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

@@ -1,0 +1,32 @@
+uuid: 201a8464-cab9-4ada-b399-f787ba9d7a6b
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.services
+  module:
+    - system
+    - views
+  theme:
+    - stable
+_core:
+  default_config_hash: dIZQveClXGuKNNnnZIszG9I_DBPhQp4eMCPkbYqVkOg
+id: stable_views_block__services_block_service_list_scarfolk
+theme: stable
+region: sidebar_first
+weight: 5
+provider: null
+plugin: 'views_block:services-block_service_list'
+settings:
+  id: 'views_block:services-block_service_list'
+  label: 'Services list block'
+  label_display: '0'
+  provider: views
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    context_mapping: {  }
+    pages: '<front>'

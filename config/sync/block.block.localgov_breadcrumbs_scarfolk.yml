@@ -1,0 +1,22 @@
+uuid: bf86f04c-7572-4bd7-bf0b-2a6cb02ca399
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - localgov_scarfolk
+_core:
+  default_config_hash: HMT0p1pe6D6hsYTqyWbzK2nquVWT6anaDXoNu7WYvPI
+id: localgov_breadcrumbs_scarfolk
+theme: localgov_scarfolk
+region: breadcrumb
+weight: 0
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  label_display: '0'
+  provider: system
+visibility: {  }

@@ -1,0 +1,22 @@
+uuid: 4846ac51-d039-4316-abdd-9ead0056a0ec
+langcode: en
+status: true
+dependencies:
+  module:
+    - localgov_services_page
+  theme:
+    - localgov_base
+_core:
+  default_config_hash: L2GOA4ZY9yBkEx5K8m-IBYwG8Ku_T9Q7xUZhmKOPfBc
+id: localgov_servicepagerelatedtopics_base
+theme: localgov_base
+region: sidebar_second
+weight: 1
+provider: null
+plugin: localgov_services_related_topics_block
+settings:
+  id: localgov_services_related_topics_block
+  label: 'Service page related topics'
+  label_display: '0'
+  provider: localgov_services_page
+visibility: {  }

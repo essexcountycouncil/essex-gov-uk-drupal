@@ -1,0 +1,20 @@
+uuid: 33e2d3d9-f377-4a85-951b-052476ca2797
+langcode: und
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: UmvMR_R17yKfn6RdiFKgKKx9vACIymH_vsOdNvwAop0
+id: node.localgov_hide_related_topics
+field_name: localgov_hide_related_topics
+entity_type: node
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

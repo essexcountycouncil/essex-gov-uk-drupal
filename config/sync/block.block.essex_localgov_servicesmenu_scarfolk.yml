@@ -1,0 +1,27 @@
+uuid: 498592de-cf29-4b72-8e5e-8acd941d8a13
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.localgov_services_menu
+  module:
+    - system
+  theme:
+    - essex
+_core:
+  default_config_hash: ktIjCIva-IVWOE3So6VaszYRegx4N9LlONs2FVGp3do
+id: essex_localgov_servicesmenu_scarfolk
+theme: essex
+region: secondary_menu
+weight: -6
+provider: null
+plugin: 'system_menu_block:localgov_services_menu'
+settings:
+  id: 'system_menu_block:localgov_services_menu'
+  label: 'Services menu'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

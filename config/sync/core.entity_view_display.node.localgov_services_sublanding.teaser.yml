@@ -1,0 +1,33 @@
+uuid: 316682c6-a0ee-4a5b-ae21-7fbdf0f58f88
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.localgov_services_sublanding.body
+    - field.field.node.localgov_services_sublanding.localgov_services_parent
+    - field.field.node.localgov_services_sublanding.localgov_topics
+    - node.type.localgov_services_sublanding
+  module:
+    - text
+    - user
+_core:
+  default_config_hash: TeT4QkzY56CVNeu2wggamfJjgnYIbNYVZcnnD5iEv1k
+id: node.localgov_services_sublanding.teaser
+targetEntityType: node
+bundle: localgov_services_sublanding
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 0
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+hidden:
+  content_moderation_control: true
+  links: true
+  localgov_services_parent: true
+  localgov_topics: true
