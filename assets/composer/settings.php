@@ -757,3 +757,8 @@ if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
 elseif (file_exists($app_root . '/' . $site_path . '/settings.lando.php')) {
   include $app_root . '/' . $site_path . '/settings.lando.php';
 }
+
+// Automatically generated include for settings managed by ddev.
+if (file_exists($app_root . '/' . $site_path . '/settings.ddev.php') && getenv('IS_DDEV_PROJECT') == 'true') {
+  include __DIR__ . '/settings.ddev.php';
+}
