@@ -1,0 +1,104 @@
+FROM debian:bullseye-slim as drupal-build
+
+# For php8.1
+RUN apt-get update \
+    && DEBIAN_FRONTEND=noninteractive \
+    && apt-get -y install \
+    curl \
+    lsb-release
+
+RUN curl -so /usr/share/keyrings/deb.sury.org-php.gpg https://packages.sury.org/php/apt.gpg \
+    && sh -c 'echo "deb [signed-by=/usr/share/keyrings/deb.sury.org-php.gpg] https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list'
+
+# Install needed packages  
+RUN apt-get update \
+  && DEBIAN_FRONTEND=noninteractive \
+  && apt-get -y install \
+  git \
+  unzip \
+  sudo \
+  procps \
+  php-apcu \
+  php-uploadprogress \
+  php8.1-fpm \
+  php8.1-xml \
+  php8.1-mbstring \
+  php8.1-mysqli \
+  php8.1-pgsql \
+  php8.1-gd \
+  php8.1-curl \
+  php8.1-zip \
+  php8.1-imagick \
+  default-mysql-client \
+  libmemcached11 \
+  libmemcachedutil2 \
+  libmemcached-dev \
+  php-pear \
+  php-dev \
+  gnupg2 \
+  zlib1g-dev \
+  apt-transport-https \
+  ca-certificates \
+  software-properties-common \
+  libxml2-dev \
+  libcurl4-openssl-dev \
+  imagemagick \
+  libmagickwand-dev \
+  libonig-dev \
+  libzip-dev \
+  rsync \
+  libwebp-dev \
+  libjpeg62-turbo-dev \
+  libpng-dev \
+  libxpm-dev \
+  libfreetype6-dev \
+  && apt-get clean all
+
+RUN pecl channel-update pecl.php.net \
+    && pecl install xdebug imagick memcached
+
+# Download and install Composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+# Download and install security checker
+ENV PHP_CHECKER_VERSION=1.0.0
+RUN curl -o /tmp/security_checker -L "https://github.com/fabpot/local-php-security-checker/releases/download/v${PHP_CHECKER_VERSION}/local-php-security-checker_${PHP_CHECKER_VERSION}_linux_amd64" \
+    && mv /tmp/security_checker /usr/bin/local-php-security-checker \
+    && chmod +x /usr/bin/local-php-security-checker
+
+
+# create Drupal folders
+RUN mkdir -p /drupal/web/sites/default/files \
+  && mkdir -p /drupal/data/default/private \
+  && mkdir -p /drupal/data/default/temp \
+  && mkdir -p /drupal/config/default \
+  && usermod -d /drupal www-data \
+  && chown -hR www-data:www-data /drupal
+
+RUN update-rc.d php8.1-fpm disable
+
+COPY --chown=www-data:www-data ./ /drupal
+
+COPY scripts/. /scripts
+
+WORKDIR /drupal
+
+RUN sed -i 's;listen = /run/php/php8.1-fpm.sock;listen = 9000;' /etc/php/8.1/fpm/pool.d/www.conf
+RUN echo "clear_env = no" >> /etc/php/8.1/fpm/pool.d/www.conf
+RUN echo 'extension="memcached.so"' >> /etc/php/8.1/fpm/conf.d/20-memcached.ini
+RUN sed -i 's;expose_php = on;expose_php = off;' /etc/php/8.1/fpm/php.ini && mkdir -p /run/php
+RUN sed -i 's;memory_limit = 128M;memory_limit = 384M;' /etc/php/8.1/fpm/php.ini
+RUN sed -i 's;upload_max_filesize = 2M;upload_max_filesize = 128M;' /etc/php/8.1/fpm/php.ini
+RUN sed -i 's;post_max_size = 8M;post_max_size = 128M;' /etc/php/8.1/fpm/php.ini
+
+RUN export HOME=/tmp \
+  && sudo -E -u www-data composer install
+
+RUN ln -s /drupal/vendor/drush/drush/drush /usr/bin/drush
+
+RUN composer update \
+    && composer install
+
+EXPOSE 80
+
+CMD php-fpm8.1 -F -R

@@ -1,0 +1,4 @@
+export ARM_SUBSCRIPTION_ID="3246e2d4-9f2e-4f81-9c7c-6c5327e8883e"
+export ARM_TENANT_ID="ebea4ad6-fbbf-43bd-8449-c56e26692c35"
+export ARM_CLIENT_ID="da78ca5f-8a6f-4504-99b8-edb212fb3b3a"
+export ARM_CLIENT_SECRET="-HD8Q~H6eKPxmoBbPkMoyadTK1mgawU8CoGHAa9o"
