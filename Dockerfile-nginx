@@ -1,0 +1,27 @@
+FROM docker.io/nginx:1.22 as nginx-drupal
+
+RUN apt-get update \
+  && apt-get install -y \
+  wget \
+  && mkdir -p /drupal/web/sites/default/files \
+  && echo "Server running" > /drupal/web/index.html \
+  && usermod -d /drupal www-data
+
+RUN chown -hR 33:33 /drupal
+
+
+# generate self-signed certificate
+RUN mkdir -p /etc/nginx/ssl
+  # && openssl genrsa -des3 -passout pass:2244 -out /etc/nginx/ssl/ssl.pass.key 2048 \
+  # && openssl rsa -passin pass:2244 -in /etc/nginx/ssl/ssl.pass.key -out /etc/nginx/ssl/ssl.key \
+  # && rm /etc/nginx/ssl/ssl.pass.key \
+  # && openssl req -new -key /etc/nginx/ssl/ssl.key -out /etc/nginx/ssl/ssl.csr -subj "/C=UK/ST=Somerset/L=Bristol/O=Nomensa/OU=IT Department/CN=essex-intranet-selfsigned" \
+  # && openssl x509 -req -days 2065 -in /etc/nginx/ssl/ssl.csr -signkey /etc/nginx/ssl/ssl.key -out /etc/nginx/ssl/ssl.crt
+
+COPY ./certs/ /etc/nginx/ssl/
+
+COPY --chown=www-data:www-data --from=drupal-fpm /drupal /drupal
+
+COPY nginx-conf/nginx.conf /etc/nginx/nginx.conf
+
+EXPOSE 443
