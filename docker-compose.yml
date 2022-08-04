@@ -1,0 +1,32 @@
+version: '3.8'
+services:
+  nginx-drupal:
+    depends_on:
+      - drupal-fpm
+    hostname: nginx-drupal
+    container_name: nginx-drupal
+    image: "eccgovreg.azurecr.io/nginx-drupal:latest"
+    restart: unless-stopped
+    ports:
+      - "443:443"
+  
+  drupal-fpm:
+    image: "eccgovreg.azurecr.io/drupal-fpm:latest"
+    restart: unless-stopped
+    hostname: drupal-fpm
+    container_name: drupal-fpm
+    environment:
+      MYSQL_HOST: "mariadb-ecc-gov-dev-svr.mariadb.database.azure.com"
+      MYSQL_USER: "mariadb-root"
+      MYSQL_PASSWORD: "ObR:)Ki#rY22w{@I5B3LU9tV"
+      MYSQL_DATABASE: "drupal"
+
+
+  
+
+
+
+
+
+
+
