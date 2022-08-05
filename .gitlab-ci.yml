@@ -5,13 +5,15 @@ stages:
 
 build_image:
   stage: build-and-push-images
-  image: docker:20.10.16
+  image: docker:20.10
   services:
-    - docker:20.10.16-dind
+    - docker:20.10-dind
   variables:
     DOCKER_PASS: ""
   before_script:
-    - curl -sL https://aka.ms/InstallAzureCLIDeb | bash
+    - apk add py3-pip gcc musl-dev python3-dev libffi-dev openssl-dev cargo make
+    - pip install --upgrade pip
+    - pip install azure-cli
     - DOCKER_PASS=$(az keyvault secret show --name "acr-admin-password" --vault-name "ecc-dev-kv-de123d9" --query "value")
     - docker login -u${DOCKER_USER} -p${DOCKER_PASS} ${DOCKER_REGISTRY}
   script:
