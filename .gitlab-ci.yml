@@ -1,0 +1,40 @@
+stages:
+  - build-and-push-images
+  - provision-database
+  - update-app-service
+
+build_image:
+  stage: build-and-push-images
+  image: docker:20.10.16
+  services:
+    - docker:20.10.16-dind
+  before_script:
+    - docker login -u${DOCKER_USER} -p${DOCKER_PASSWORD} ${DOCKER_REGISTRY}
+  script:
+    - docker build -t ${DOCKER_REGISTRY}/drupal-fpm -t drupal-fpm -f Dockerfile-drupal .
+    - docker build -t ${DOCKER_REGISTRY}/nginx-drupal -t nginx-drupal -f Dockerfile-nginx .
+    - docker push ${DOCKER_REGISTRY}/nginx-drupal
+    - docker push ${DOCKER_REGISTRY}/drupal-fpm
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "master"'
+    
+
+provision-database:
+  stage: provision-database
+  script:
+    - echo "To do - Provision database scripting when confirmed with devs"
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "master"'
+
+update-app-service:
+  stage: update-app-service
+  script:
+    - echo "Container app is restarting - environment will be down temporarily"
+    - az container restart --name lgDrupalContainerGroup --resource-group ecc-drupal-gov-dev
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "master"'
+      when: manual
+
+
+
+
