@@ -1,0 +1,21 @@
+uuid: e7d1e9b8-de99-4867-a375-d2b954a6db4d
+langcode: en
+status: true
+dependencies:
+  module:
+    - link
+    - paragraphs
+_core:
+  default_config_hash: Qspe4o4vKh6kBm_B1lDOZzsn7EleuQEs3Q9Kc0k4lro
+id: paragraph.localgov_newsroom_teaser_link
+field_name: localgov_newsroom_teaser_link
+entity_type: paragraph
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

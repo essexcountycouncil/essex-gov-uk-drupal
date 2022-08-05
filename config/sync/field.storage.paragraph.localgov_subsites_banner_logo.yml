@@ -1,0 +1,22 @@
+uuid: 5e2a6ddf-dda9-4f31-9ff4-8e74a31020e9
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+    - paragraphs
+_core:
+  default_config_hash: 8_m8prEWoFd5mQD3SzbS6qcbED0PY4d_kJUhHMQ3yZo
+id: paragraph.localgov_subsites_banner_logo
+field_name: localgov_subsites_banner_logo
+entity_type: paragraph
+type: entity_reference
+settings:
+  target_type: media
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

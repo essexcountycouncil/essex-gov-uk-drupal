@@ -2,7 +2,12 @@ uuid: 0e7b599f-18be-488f-9300-0ae200308567
 langcode: en
 status: true
 dependencies:
+  config:
+    - filter.format.wysiwyg
   module:
+    - filter
+    - fontawesome
+    - localgov_geo
     - media
     - system
 _core:
@@ -13,5 +18,7 @@ weight: 1
 is_admin: false
 permissions:
   - 'access content'
+  - 'access fontawesome additional settings'
   - 'use text format wysiwyg'
+  - 'view geo'
   - 'view media'

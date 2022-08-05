@@ -1,0 +1,12 @@
+uuid: 4da826bd-0855-4a9f-9477-e59f1db81156
+langcode: en
+status: true
+dependencies:
+  module:
+    - localgov_geo
+_core:
+  default_config_hash: uh4Qm1-_I0AQ3pojBu1RkAcbwtbFYsGfLlvflYUjhes
+id: localgov_geo.inline
+label: Inline
+targetEntityType: localgov_geo
+cache: true

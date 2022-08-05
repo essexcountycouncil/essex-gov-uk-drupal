@@ -1,0 +1,12 @@
+uuid: ca8d80c5-2a21-4671-8264-4fcb36f564a3
+langcode: en
+status: true
+dependencies:
+  module:
+    - geocoder_geofield
+_core:
+  default_config_hash: MUY5wbLRpAnVFjMmQcfHrZ-rzoTvX-xeX8VT-T8yH2M
+id: gpx_file
+label: 'GPX File'
+plugin: gpxfile
+configuration: {  }

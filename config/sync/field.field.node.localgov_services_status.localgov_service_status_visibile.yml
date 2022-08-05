@@ -1,0 +1,27 @@
+uuid: 0b87a959-2354-4e50-b3b7-633bee912055
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.localgov_service_status_visibile
+    - node.type.localgov_services_status
+  module:
+    - condition_field
+_core:
+  default_config_hash: ABs0u6Y6KPKuJ6H5zb-bQQ7bgcua5REPgrkfJbgp_Is
+id: node.localgov_services_status.localgov_service_status_visibile
+field_name: localgov_service_status_visibile
+entity_type: node
+bundle: localgov_services_status
+label: Visibility
+description: 'Set the visibility of the status message to only show it on specific conditions.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  enabled_plugins:
+    request_path: true
+    'entity_bundle:node': false
+    user_role: false
+field_type: condition_field

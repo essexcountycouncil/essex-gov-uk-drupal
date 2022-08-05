@@ -1,0 +1,25 @@
+uuid: 9d7a99e1-188f-42ab-8019-dc507c25d4c3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.localgov_box_listing_theme
+    - paragraphs.paragraphs_type.localgov_box_links_listing
+  module:
+    - options
+_core:
+  default_config_hash: UmM8yM1pUbL2FXTxqs5z33HwmYAiwjTqvizlaV9BJKI
+id: paragraph.localgov_box_links_listing.localgov_box_listing_theme
+field_name: localgov_box_listing_theme
+entity_type: paragraph
+bundle: localgov_box_links_listing
+label: 'Box listing theme'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: grid
+default_value_callback: ''
+settings: {  }
+field_type: list_string

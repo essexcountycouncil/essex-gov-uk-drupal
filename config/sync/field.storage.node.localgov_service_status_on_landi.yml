@@ -1,0 +1,20 @@
+uuid: 1575baf1-ade2-4da2-8120-2de3e7482685
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: X1boV4NGdChOXBnCsjJct4E3GJoD3HwvE8YMIF3SwwM
+id: node.localgov_service_status_on_landi
+field_name: localgov_service_status_on_landi
+entity_type: node
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

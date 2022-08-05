@@ -1,0 +1,12 @@
+uuid: 14cc67fc-3728-449e-b754-f83f36c49002
+langcode: en
+status: true
+dependencies:
+  module:
+    - geocoder_geofield
+_core:
+  default_config_hash: hPsWn6WhIbkx1E0xAlZ5n_C8aBY2x67swLbXXl8kGrQ
+id: geojson_file
+label: 'GeoJson File'
+plugin: geojsonfile
+configuration: {  }

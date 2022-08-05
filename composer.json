@@ -63,6 +63,11 @@
                     "path": "assets/composer/settings.php",
                     "overwrite": false
                 },
+                "[web-root]/sites/default/settings.local.php": {
+                    "mode": "replace",
+                    "path": "assets/composer/settings.local.php",
+                    "overwrite": false
+                },
                 "[web-root]/sites/default/settings.lando.php": {
                     "mode": "replace",
                     "path": "assets/composer/settings.lando.php",
@@ -113,8 +118,10 @@
         ],
         "update-drupal": [
             "Composer\\Config::disableProcessTimeout",
-            "vendor/bin/drush --yes -l default deploy",
-            "vendor/bin/drush --yes -l default cache:rebuild"
+            "vendor/drush/drush/drush --yes -l default cache:rebuild",
+            "vendor/drush/drush/drush --yes -l default config-import",
+            "vendor/drush/drush/drush --yes -l default config-import",
+            "vendor/drush/drush/drush --yes -l default cache:rebuild"
         ],
         "prepare-filesystem-for-update": [
             "chmod 777 --quiet web/sites/default/default.*.yml; true"

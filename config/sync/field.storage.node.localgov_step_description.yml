@@ -1,0 +1,21 @@
+uuid: a17f1b37-f734-4065-b1ca-476b917c03dc
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: 3TvQSrIO4LgEqr1LyzeXghNWdd0a5_4KPiaFl3mTdUc
+id: node.localgov_step_description
+field_name: localgov_step_description
+entity_type: node
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

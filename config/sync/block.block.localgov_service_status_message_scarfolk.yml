@@ -1,0 +1,22 @@
+uuid: 3d8ee178-a7fe-4d74-ab9e-ee66939b59c2
+langcode: en
+status: true
+dependencies:
+  module:
+    - localgov_services_status
+  theme:
+    - localgov_scarfolk
+_core:
+  default_config_hash: m4ROUzpnDZbjZscfBsR8oJWWzhZFJwJR1t40bCePzlI
+id: localgov_service_status_message_scarfolk
+theme: localgov_scarfolk
+region: content_top
+weight: 1
+provider: null
+plugin: localgov_service_status_message
+settings:
+  id: service_status_message
+  label: 'Service status message'
+  label_display: '0'
+  provider: localgov_services_status
+visibility: {  }

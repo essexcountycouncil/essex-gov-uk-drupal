@@ -1,0 +1,12 @@
+uuid: 3e3540d5-2360-4873-9d8d-2a9d2969407f
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: zk9p0hTwgcGBC2be_Z-iLXxdlv-NavrXif2zZLWNd2g
+id: localgov_accordion_pane
+label: 'Accordion pane'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

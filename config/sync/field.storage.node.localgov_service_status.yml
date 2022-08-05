@@ -1,0 +1,32 @@
+uuid: 1340d4f3-9bd2-45f9-9117-37e9ee9ba5be
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+_core:
+  default_config_hash: 5ErSpqGeym7NA4UzJbiU7ENPF3QnWsq3xeDBIFPbXBc
+id: node.localgov_service_status
+field_name: localgov_service_status
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: 0-severe-impact
+      label: 'Limited service'
+    -
+      value: 1-has-issues
+      label: 'Revised service'
+    -
+      value: 2-no-issues
+      label: 'Normal service'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

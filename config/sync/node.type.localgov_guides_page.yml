@@ -1,0 +1,13 @@
+uuid: d8d8336a-bdbe-4da0-b78f-7f482a80e6fe
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: PTUm9cKlwFKCj6fxSWFOWCYukL5L6OjDPg4ioi3Lfeg
+name: 'Guide page'
+type: localgov_guides_page
+description: 'Page associated with a guide overview page.'
+help: ''
+new_revision: true
+preview_mode: 0
+display_submitted: false

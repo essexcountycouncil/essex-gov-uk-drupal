@@ -1,0 +1,22 @@
+uuid: 4568329c-102f-4063-b95b-ee661d574f99
+langcode: en
+status: true
+dependencies:
+  module:
+    - localgov_step_by_step
+  theme:
+    - localgov_scarfolk
+_core:
+  default_config_hash: jfJ2x2-k-K8Yg1_sdXfXxEaxq2HODqH4b0oxN3IwkUc
+id: localgov_part_of_step_heading_scarfolk
+theme: localgov_scarfolk
+region: content
+weight: -8
+provider: null
+plugin: step_part_of_block
+settings:
+  id: step_part_of_block
+  label: 'Part of step heading'
+  label_display: '0'
+  provider: localgov_step_by_step
+visibility: {  }
