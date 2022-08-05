@@ -1,0 +1,43 @@
+uuid: f1cab595-3a0b-4036-9355-d19ffeddb9f9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.localgov_geo.location
+    - localgov_geo.localgov_geo_type.area
+  module:
+    - geocoder_field
+    - geofield
+third_party_settings:
+  geocoder_field:
+    method: geocode
+    weight: 0
+    skip_not_empty_value: false
+    disabled: false
+    hidden: true
+    providers:
+      - gpx_file
+      - kml_file
+      - geojson_file
+      - file
+    dumper: wkt
+    failure:
+      handling: preserve
+      status_message: true
+      log: true
+    field: geo_file
+    delta_handling: default
+_core:
+  default_config_hash: DI4biAttReU0XraC6ZI45A-fdPMfyRcndB0yPn5ZnjM
+id: localgov_geo.area.location
+field_name: location
+entity_type: localgov_geo
+bundle: area
+label: location
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: geofield

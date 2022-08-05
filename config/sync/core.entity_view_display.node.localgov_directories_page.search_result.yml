@@ -1,0 +1,73 @@
+uuid: 518a99ca-a348-4b2b-8650-b4fbb04aca79
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.search_result
+    - field.field.node.localgov_directories_page.body
+    - field.field.node.localgov_directories_page.localgov_directory_address
+    - field.field.node.localgov_directories_page.localgov_directory_channels
+    - field.field.node.localgov_directories_page.localgov_directory_email
+    - field.field.node.localgov_directories_page.localgov_directory_facets_select
+    - field.field.node.localgov_directories_page.localgov_directory_files
+    - field.field.node.localgov_directories_page.localgov_directory_job_title
+    - field.field.node.localgov_directories_page.localgov_directory_name
+    - field.field.node.localgov_directories_page.localgov_directory_phone
+    - field.field.node.localgov_directories_page.localgov_directory_title_sort
+    - field.field.node.localgov_directories_page.localgov_directory_website
+    - node.type.localgov_directories_page
+  module:
+    - field_group
+    - text
+    - user
+  enforced:
+    module:
+      - localgov_directories
+third_party_settings:
+  field_group:
+    group_enquiries:
+      children:
+        - localgov_directory_name
+        - localgov_directory_job_title
+        - localgov_directory_phone
+        - localgov_directory_email
+        - localgov_directory_address
+        - localgov_directory_website
+      parent_name: ''
+      weight: 1
+      format_type: fieldset
+      region: hidden
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+      label: Enquiries
+_core:
+  default_config_hash: e6U6E8sPINBySE8owTb8nBAYBJCbBT9ZNL2oRte7StQ
+id: node.localgov_directories_page.search_result
+targetEntityType: node
+bundle: localgov_directories_page
+mode: search_result
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 0
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+hidden:
+  links: true
+  localgov_directory_address: true
+  localgov_directory_channels: true
+  localgov_directory_email: true
+  localgov_directory_facets_select: true
+  localgov_directory_files: true
+  localgov_directory_job_title: true
+  localgov_directory_name: true
+  localgov_directory_phone: true
+  localgov_directory_search: true
+  localgov_directory_title_sort: true
+  localgov_directory_website: true
+  search_api_excerpt: true

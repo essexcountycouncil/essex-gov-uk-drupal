@@ -1,0 +1,24 @@
+uuid: 82f95161-1487-4bc9-be22-cceb2509fb36
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.localgov_directories_org
+_core:
+  default_config_hash: TMXMvKmSCDYL99rted26UGgtEvAFzb63y7kmCmDFA2w
+id: node.localgov_directories_org.promote
+field_name: promote
+entity_type: node
+bundle: localgov_directories_org
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

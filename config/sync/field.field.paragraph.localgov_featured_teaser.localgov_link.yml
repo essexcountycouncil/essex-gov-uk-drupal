@@ -1,0 +1,25 @@
+uuid: 40443226-f5da-48f0-ab21-606738ab3c52
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.localgov_link
+    - paragraphs.paragraphs_type.localgov_featured_teaser
+  module:
+    - link
+_core:
+  default_config_hash: lmGJrGy8XJ4544-_cYEyJ3ho25MAFOPPJiVvpXpKRms
+id: paragraph.localgov_featured_teaser.localgov_link
+field_name: localgov_link
+entity_type: paragraph
+bundle: localgov_featured_teaser
+label: Link
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

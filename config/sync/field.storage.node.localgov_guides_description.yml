@@ -1,0 +1,21 @@
+uuid: 147c16e9-7fa2-4239-a7a7-f925e5c01e91
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: SHzJ-AorJetl5fRVhvEb_TNUrF2suXSb1K7WreCG_7s
+id: node.localgov_guides_description
+field_name: localgov_guides_description
+entity_type: node
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

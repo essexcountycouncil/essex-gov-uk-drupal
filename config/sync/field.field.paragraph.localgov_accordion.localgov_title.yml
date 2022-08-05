@@ -1,0 +1,21 @@
+uuid: 1a35a8e3-b781-4044-a267-240d36342db8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.localgov_title
+    - paragraphs.paragraphs_type.localgov_accordion
+_core:
+  default_config_hash: utK3nZL3BYudppsFsIjUxzWpgM5DdlwXe5sCRB_VC7g
+id: paragraph.localgov_accordion.localgov_title
+field_name: localgov_title
+entity_type: paragraph
+bundle: localgov_accordion
+label: Title
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,21 @@
+uuid: 6177d1f1-0458-43a6-9c62-2de54a213aa2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.localgov_geo.external_id
+    - localgov_geo.localgov_geo_type.area
+_core:
+  default_config_hash: JSigzl0RXkovNr-7qTnjG5lJwb6jcwTnc4cAv9L8oEg
+id: localgov_geo.area.external_id
+field_name: external_id
+entity_type: localgov_geo
+bundle: area
+label: 'External ID'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

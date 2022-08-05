@@ -1,0 +1,24 @@
+uuid: dd50ed79-281b-4601-aa26-4bf4253f6100
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.localgov_subsites_page
+_core:
+  default_config_hash: aQHDF8xxqdDXma7WKwkLjADl2NW2BXXdUq0K5FXbtP4
+id: node.localgov_subsites_page.promote
+field_name: promote
+entity_type: node
+bundle: localgov_subsites_page
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

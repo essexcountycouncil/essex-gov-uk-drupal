@@ -1,0 +1,24 @@
+uuid: ae4324eb-4711-42c4-9f0b-189e6db490f6
+langcode: en
+status: true
+dependencies:
+  module:
+    - localgov_subsites
+  theme:
+    - localgov_scarfolk
+_core:
+  default_config_hash: 6Ym-6L6xacL_oJFqjwSxQf9n3FZRn1T0wCueJCxJVtI
+id: localgov_subsite_navigation_scarfolk
+theme: localgov_scarfolk
+region: sidebar_second
+weight: -4
+provider: null
+plugin: localgov_subsite_navigation
+settings:
+  id: localgov_subsite_navigation
+  label: 'Subsite navigation'
+  label_display: '0'
+  provider: localgov_subsites
+  context_mapping:
+    node: '@node.node_route_context:node'
+visibility: {  }

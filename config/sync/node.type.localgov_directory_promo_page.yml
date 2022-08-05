@@ -1,0 +1,19 @@
+uuid: 3c35d475-450c-4395-8744-0d93f99cb920
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+_core:
+  default_config_hash: lo2_0Dex7tp30Kf_cdR_qtAxBT6-2LEH55P-dkIwU68
+name: 'Directory promotional page'
+type: localgov_directory_promo_page
+description: 'A directory page allowing unstructured content areas.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

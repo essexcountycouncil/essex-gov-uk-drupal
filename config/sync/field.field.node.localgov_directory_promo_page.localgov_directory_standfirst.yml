@@ -1,0 +1,21 @@
+uuid: 998063d4-3ab4-481f-8af0-4cd5846a81ea
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.localgov_directory_standfirst
+    - node.type.localgov_directory_promo_page
+_core:
+  default_config_hash: UuPXWqXVmYYTLFBoe__h9LFWMsXJP5Es4QNN6sTGhoA
+id: node.localgov_directory_promo_page.localgov_directory_standfirst
+field_name: localgov_directory_standfirst
+entity_type: node
+bundle: localgov_directory_promo_page
+label: Standfirst
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

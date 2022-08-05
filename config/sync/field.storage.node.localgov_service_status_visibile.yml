@@ -1,0 +1,21 @@
+uuid: 238eb93a-bb50-4567-abe5-cf500358839d
+langcode: en
+status: true
+dependencies:
+  module:
+    - condition_field
+    - node
+_core:
+  default_config_hash: OVVgRByXPUgwQjTq78myYUxBQOWU8RKuj7UNss90kOc
+id: node.localgov_service_status_visibile
+field_name: localgov_service_status_visibile
+entity_type: node
+type: condition_field
+settings: {  }
+module: condition_field
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

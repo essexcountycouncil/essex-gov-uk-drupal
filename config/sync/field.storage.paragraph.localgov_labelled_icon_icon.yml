@@ -1,0 +1,21 @@
+uuid: af48a322-9f11-4b48-8624-1f6c2c14bed8
+langcode: en
+status: true
+dependencies:
+  module:
+    - fontawesome
+    - paragraphs
+_core:
+  default_config_hash: DxRy-s_vfcy3HJpCp_-9AL4lS0ooK1JPuyqjxXGRz0c
+id: paragraph.localgov_labelled_icon_icon
+field_name: localgov_labelled_icon_icon
+entity_type: paragraph
+type: fontawesome_icon
+settings: {  }
+module: fontawesome
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

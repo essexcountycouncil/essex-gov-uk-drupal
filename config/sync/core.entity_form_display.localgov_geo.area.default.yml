@@ -1,0 +1,65 @@
+uuid: beac9392-7fcf-4c66-b338-c2cca94d79d3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.localgov_geo.area.external_id
+    - field.field.localgov_geo.area.geo_file
+    - field.field.localgov_geo.area.location
+    - localgov_geo.localgov_geo_type.area
+  module:
+    - file
+    - geofield
+_core:
+  default_config_hash: HzLeDysnJPtSmzQuGdgN6uSOUPx8f1vwBROy-OLjPiI
+id: localgov_geo.area.default
+targetEntityType: localgov_geo
+bundle: area
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  geo_file:
+    weight: 2
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+    type: file_generic
+    region: content
+  label:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  location:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    type: geofield_default
+    region: content
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: false
+    weight: 3
+    region: content
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+      match_limit: 10
+    weight: 4
+    region: content
+    third_party_settings: {  }
+hidden:
+  external_id: true

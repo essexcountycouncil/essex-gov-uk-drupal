@@ -1,0 +1,22 @@
+uuid: 62532537-f179-462e-ae38-86c6fd438f1c
+langcode: en
+status: true
+dependencies:
+  module:
+    - localgov_search
+  theme:
+    - localgov_base
+_core:
+  default_config_hash: X7DKcKyr9C1oPveqQyRWW6mh8rvKXaoXZfXZJCRcWPQ
+id: localgov_sitewide_search_block_base
+theme: localgov_base
+region: search
+weight: -16
+provider: null
+plugin: localgov_sitewide_search_block
+settings:
+  id: broken
+  label: 'Sitewide search block'
+  label_display: '0'
+  provider: localgov_search
+visibility: {  }

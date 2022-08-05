@@ -1,0 +1,33 @@
+uuid: 5780fa91-5d07-4a10-8323-801b76a5fc87
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.localgov_directories_facets
+  module:
+    - facets
+    - node
+  theme:
+    - localgov_scarfolk
+_core:
+  default_config_hash: sZWpdEkKkKbgYlqkr1xtYIeJ6FJld4Mut_Qqs4BgmBk
+id: localgov_directories_facets_scarfolk
+theme: localgov_scarfolk
+region: sidebar_first
+weight: 5
+provider: null
+plugin: 'facet_block:localgov_directories_facets'
+settings:
+  id: 'facet_block:localgov_directories_facets'
+  label: 'Directory facets'
+  label_display: '0'
+  provider: facets
+  block_id: localgov_directories_facets
+visibility:
+  node_type:
+    id: node_type
+    bundles:
+      localgov_directory: localgov_directory
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'

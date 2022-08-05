@@ -1,0 +1,22 @@
+uuid: 579819cc-f3cf-4346-8656-15553add66bb
+langcode: en
+status: true
+dependencies:
+  module:
+    - localgov_services_status
+  theme:
+    - localgov_base
+_core:
+  default_config_hash: Gr6qbTsyy-nW-YCIb9X-Y-6ahfN9GHL02_TuuwUiWCo
+id: localgov_service_status_message_base
+theme: localgov_base
+region: content_top
+weight: 1
+provider: null
+plugin: localgov_service_status_message
+settings:
+  id: service_status_message
+  label: 'Service status message'
+  label_display: '0'
+  provider: localgov_services_status
+visibility: {  }

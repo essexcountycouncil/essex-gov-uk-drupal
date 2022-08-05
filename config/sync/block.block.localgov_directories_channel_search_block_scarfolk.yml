@@ -1,0 +1,32 @@
+uuid: 0165bf17-cfc3-4556-854f-d0d542e2961d
+langcode: en
+status: true
+dependencies:
+  module:
+    - localgov_directories
+    - node
+  theme:
+    - localgov_scarfolk
+_core:
+  default_config_hash: 2Li2uh4PXOvzomlmgSEefUuULCgHinPybwTIrjwK-gI
+id: localgov_directories_channel_search_block_scarfolk
+theme: localgov_scarfolk
+region: sidebar_first
+weight: 0
+provider: null
+plugin: localgov_directories_channel_search_block
+settings:
+  id: localgov_directories_channel_search_block
+  label: 'Directory channel search'
+  label_display: '0'
+  provider: localgov_directories
+  context_mapping:
+    node: '@node.node_route_context:node'
+visibility:
+  node_type:
+    id: node_type
+    bundles:
+      localgov_directory: localgov_directory
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'

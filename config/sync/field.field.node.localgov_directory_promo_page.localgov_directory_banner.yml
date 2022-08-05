@@ -1,0 +1,138 @@
+uuid: 31ea9507-2940-413f-b997-860263c25fb9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.localgov_directory_banner
+    - node.type.localgov_directory_promo_page
+    - paragraphs.paragraphs_type.localgov_banner_secondary
+  module:
+    - entity_reference_revisions
+_core:
+  default_config_hash: JtTdyWjceic7G5ZOgt_7JP-f5mJa4hsVOenysC0jKi8
+id: node.localgov_directory_promo_page.localgov_directory_banner
+field_name: localgov_directory_banner
+entity_type: node
+bundle: localgov_directory_promo_page
+label: Banner
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      localgov_banner_secondary: localgov_banner_secondary
+    negate: 0
+    target_bundles_drag_drop:
+      from_library:
+        weight: 37
+        enabled: false
+      localgov_accordion:
+        weight: 38
+        enabled: false
+      localgov_accordion_pane:
+        weight: 39
+        enabled: false
+      localgov_banner_primary:
+        weight: 40
+        enabled: false
+      localgov_banner_secondary:
+        weight: 41
+        enabled: true
+      localgov_block_view:
+        weight: 42
+        enabled: false
+      localgov_box_link:
+        weight: 43
+        enabled: false
+      localgov_box_links_listing:
+        weight: 44
+        enabled: false
+      localgov_call_out_box:
+        weight: 45
+        enabled: false
+      localgov_contact:
+        weight: 46
+        enabled: false
+      localgov_documents:
+        weight: 47
+        enabled: false
+      localgov_fact_box:
+        weight: 48
+        enabled: false
+      localgov_featured_campaign:
+        weight: 49
+        enabled: false
+      localgov_featured_subsite:
+        weight: 50
+        enabled: false
+      localgov_featured_teaser:
+        weight: 51
+        enabled: false
+      localgov_featured_teasers:
+        weight: 52
+        enabled: false
+      localgov_ia_block:
+        weight: 53
+        enabled: false
+      localgov_image:
+        weight: 54
+        enabled: false
+      localgov_key_contact_item:
+        weight: 56
+        enabled: false
+      localgov_key_contacts:
+        weight: 55
+        enabled: false
+      localgov_key_fact:
+        weight: 57
+        enabled: false
+      localgov_key_facts:
+        weight: 58
+        enabled: false
+      localgov_labelled_icon:
+        weight: 59
+        enabled: false
+      localgov_link:
+        weight: 60
+        enabled: false
+      localgov_link_and_summary:
+        weight: 61
+        enabled: false
+      localgov_media_with_text:
+        weight: 62
+        enabled: false
+      localgov_newsroom_teaser:
+        weight: 63
+        enabled: false
+      localgov_page_section:
+        weight: 64
+        enabled: false
+      localgov_quote:
+        weight: 65
+        enabled: false
+      localgov_subscribe_panel:
+        weight: 66
+        enabled: false
+      localgov_tab_panel:
+        weight: 69
+        enabled: false
+      localgov_table:
+        weight: 67
+        enabled: false
+      localgov_tabs:
+        weight: 68
+        enabled: false
+      localgov_text:
+        weight: 70
+        enabled: false
+      localgov_video:
+        weight: 71
+        enabled: false
+      page_section:
+        weight: 72
+        enabled: false
+field_type: entity_reference_revisions

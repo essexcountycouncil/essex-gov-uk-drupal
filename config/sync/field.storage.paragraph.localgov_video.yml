@@ -1,0 +1,22 @@
+uuid: 3b83cfde-4a12-4024-9552-57a96b774b69
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+    - paragraphs
+_core:
+  default_config_hash: kYaNupN6uFdKCBQlb1AVLmUbNGL7ZlW-NqZbKLdNUXo
+id: paragraph.localgov_video
+field_name: localgov_video
+entity_type: paragraph
+type: entity_reference
+settings:
+  target_type: media
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

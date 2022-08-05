@@ -1,0 +1,25 @@
+uuid: 4aede231-e7c7-4897-8e64-f1cd6826a30f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.localgov_heading_level
+    - paragraphs.paragraphs_type.localgov_featured_teasers
+  module:
+    - options
+_core:
+  default_config_hash: qg1iZjjFjAcou6eGY03Thl60XGB-AViOLbMydTH1YrQ
+id: paragraph.localgov_featured_teasers.localgov_heading_level
+field_name: localgov_heading_level
+entity_type: paragraph
+bundle: localgov_featured_teasers
+label: 'Heading level'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: h2
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,22 @@
+uuid: f3c55072-d30b-4dd8-b8e9-ebe9c37870ca
+langcode: en
+status: true
+dependencies:
+  module:
+    - localgov_guides
+  theme:
+    - localgov_scarfolk
+_core:
+  default_config_hash: VHCMno_qHX2fv3-pxQuxfJRTyjPz57Guv4sRJ7Y1-ds
+id: localgov_guides_prev_next_block_scarfolk
+theme: localgov_scarfolk
+region: content_bottom
+weight: -6
+provider: null
+plugin: localgov_guides_prev_next_block
+settings:
+  id: localgov_guides_prev_next_block
+  label: 'Guides prev next block'
+  label_display: '0'
+  provider: localgov_guides
+visibility: {  }
