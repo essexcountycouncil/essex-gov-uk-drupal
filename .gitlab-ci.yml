@@ -14,7 +14,7 @@ build_image:
     - apk add py3-pip gcc musl-dev python3-dev libffi-dev openssl-dev cargo make
     - pip install --upgrade pip
     - pip install azure-cli
-    - # DOCKER_PASSWORD=$(az keyvault secret show --name "acr-admin-password" --vault-name "ecc-dev-kv-de123d9" --query "value")
+    # - DOCKER_PASSWORD=$(az keyvault secret show --name "acr-admin-password" --vault-name "ecc-dev-kv-de123d9" --query "value")
     - docker login -u${DOCKER_USER} -p${DOCKER_PASSWORD} ${DOCKER_REGISTRY}
   script:
     - docker build -t ${DOCKER_REGISTRY}/drupal-fpm -t drupal-fpm -f Dockerfile-drupal .
