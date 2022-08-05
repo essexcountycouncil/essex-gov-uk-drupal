@@ -9,7 +9,7 @@ build_image:
   services:
     - docker:20.10.16-dind
   variables:
-    - DOCKER_PASS=""
+    - DOCKER_PASS: ""
   before_script:
     - curl -sL https://aka.ms/InstallAzureCLIDeb | bash
     - DOCKER_PASS=$(az keyvault secret show --name "acr-admin-password" --vault-name "ecc-dev-kv-de123d9" --query "value")
