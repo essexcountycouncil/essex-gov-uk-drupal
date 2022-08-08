@@ -24,22 +24,28 @@ build_image:
     - docker push ${DOCKER_REGISTRY}/drupal-fpm
   rules:
     - if: '$CI_COMMIT_BRANCH == "master"'
-    
+
+# We need a newer version of gitlab to do this :(    
 # test-build:
 #   stage: test-build
 #   image: docker:20.10
 #   services:
-#     - docker:20.10-dind
+#     - name: ${DOCKER_REGISTRY}/drupal-fpm:latest 
+#       variables:
+#         MYSQL_DATABASE: ${MYSQL_DATABASE} 
+#         MYSQL_HOST: ${MYSQL_HOST}
+#         MYSQL_USER: ${MYSQL_USER}
+#         MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+#       command: ["echo 1"]
 #   variables:
 #     DB_CONN_TEST: ""
 #   script:
 #       | 
-#     # Performs a basic test on the drupal image to ensure it can connect to the Database
-#         - echo 'Test drupal image for database connectivity....'
-#         - docker run -t -e MYSQL_DATABASE=${MYSQL_DATABASE} -e MYSQL_HOST=${MYSQL_HOST} -e MYSQL_USER=${MYSQL_USER} -e MYSQL_PASSWORD=${MYSQL_PASSWORD} ${DOCKER_REGISTRY}/drupal-fpm:latest vendor/drush/drush/drush st >> DBTestOutput.txt
-#         - DB_CONN_TEST=$(cat DBTestOutput.txt | grep -E '^Database\s+:\sConnected')
-#         - if [ -z "$DB_CONN_TEST" ]; then echo "Database connection error in drupal container\n" && exit 1; fi
-#     artifacts:
+#       # Performs a basic test on the drupal image to ensure it can connect to the Database
+#       - echo 'Test drupal image for database connectivity....'
+#       - DB_CONN_TEST=$(cat DBTestOutput.txt | grep -E '^Database\s+:\sConnected')
+#       - if [ -z "$DB_CONN_TEST" ]; then echo "Database connection error in drupal container\n" && exit 1; fi
+#   artifacts:
 #     paths:
 #       - DBTestOutput.txt
 
