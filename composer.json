@@ -13,9 +13,11 @@
     "require": {
         "composer/installers": "^1.10",
         "cweagans/composer-patches": "^1.6",
+        "drupal/config_split": "^2.0@RC",
         "drupal/core-composer-scaffold": "^9.1",
         "drupal/core-project-message": "^9.1",
         "drupal/core-recommended": "^9.1",
+        "drupal/stage_file_proxy": "^1.2",
         "localgovdrupal/localgov": "^2.0"
     },
     "require-dev": {
@@ -53,6 +55,11 @@
     },
     "extra": {
         "enable-patching": true,
+        "patches": {
+            "drupal/core": {
+                "Allow an install hook in profiles installing from configuration. See https://www.drupal.org/project/drupal/issues/2982052": "https://www.drupal.org/files/issues/2022-05-19/2982052-80.patch"
+            }
+        },
         "drupal-scaffold": {
             "locations": {
                 "web-root": "web/"
@@ -61,12 +68,12 @@
                 "[web-root]/sites/default/settings.php": {
                     "mode": "replace",
                     "path": "assets/composer/settings.php",
-                    "overwrite": false
+                    "overwrite": true
                 },
                 "[web-root]/sites/default/settings.local.php": {
                     "mode": "replace",
                     "path": "assets/composer/settings.local.php",
-                    "overwrite": false
+                    "overwrite": true
                 },
                 "[web-root]/sites/default/settings.lando.php": {
                     "mode": "replace",

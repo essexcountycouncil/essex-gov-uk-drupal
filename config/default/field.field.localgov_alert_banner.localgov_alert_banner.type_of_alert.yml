@@ -1,0 +1,26 @@
+uuid: 0b653da3-4eab-4655-8012-bf63acb4f7ee
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.localgov_alert_banner.type_of_alert
+    - localgov_alert_banner.localgov_alert_banner_type.localgov_alert_banner
+  module:
+    - options
+  enforced:
+    module:
+      - localgov_alert_banner
+_core:
+  default_config_hash: msEufh-5tbwihTqsTtCuTTotYFLngo_cl2dZ4CieQek
+id: localgov_alert_banner.localgov_alert_banner.type_of_alert
+field_name: type_of_alert
+entity_type: localgov_alert_banner
+bundle: localgov_alert_banner
+label: 'Type of alert'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

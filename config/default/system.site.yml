@@ -1,0 +1,15 @@
+_core:
+  default_config_hash: yTxtFqBHnEWxQswuWvkjE8mKw2t8oKuCL1q8KnfHuGE
+langcode: en
+uuid: 4f2e49bc-f347-4209-9c83-27bb06586457
+name: Essex.gov.uk
+mail: admin@example.com
+slogan: ''
+page:
+  403: ''
+  404: ''
+  front: /localgov-drupal-demo
+admin_compact_mode: false
+weight_select_max: 100
+default_langcode: en
+mail_notification: ''

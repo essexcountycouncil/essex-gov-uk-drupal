@@ -1,0 +1,31 @@
+uuid: e3c0baa3-00a7-4b77-90c7-120af2f06349
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.localgov_events_category
+  module:
+    - facets
+    - system
+  theme:
+    - localgov_base
+_core:
+  default_config_hash: FnR8AOSvL7jDIJ08dH1KoM1XA6CcGcfN9KWYLSo2GjI
+id: localgov_events_category_base
+theme: localgov_base
+region: sidebar_first
+weight: -5
+provider: null
+plugin: 'facet_block:localgov_events_category'
+settings:
+  id: 'facet_block:localgov_events_category'
+  label: 'Events category'
+  label_display: '0'
+  provider: facets
+  block_id: localgov_events_category
+visibility:
+  request_path:
+    id: request_path
+    pages: /events/search
+    negate: false
+    context_mapping: {  }

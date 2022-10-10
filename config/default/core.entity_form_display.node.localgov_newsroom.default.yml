@@ -1,0 +1,81 @@
+uuid: 4e121d12-b306-418a-bcd4-20a8632d5cf6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.localgov_newsroom.localgov_newsroom_featured
+    - node.type.localgov_newsroom
+  module:
+    - path
+  enforced:
+    module:
+      - localgov_news
+_core:
+  default_config_hash: EOlgwH-ZTTQfw3vHplcljB2T53FlHdxALTqbsJofGaE
+id: node.localgov_newsroom.default
+targetEntityType: node
+bundle: localgov_newsroom
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  localgov_newsroom_featured:
+    type: entity_reference_autocomplete
+    weight: 1
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    weight: 4
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 7
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    weight: 5
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 2
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

@@ -1,0 +1,31 @@
+uuid: 149f24f6-1ab4-4aa2-be62-91b31ef2796d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.localgov_event_locality
+    - node.type.localgov_event
+    - taxonomy.vocabulary.localgov_event_locality
+_core:
+  default_config_hash: HB9MjVqlhdhQiIDO94TOQXLkgZBgx0zUNPhjvqK1hJQ
+id: node.localgov_event.localgov_event_locality
+field_name: localgov_event_locality
+entity_type: node
+bundle: localgov_event
+label: Neighbourhood
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      localgov_event_locality: localgov_event_locality
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

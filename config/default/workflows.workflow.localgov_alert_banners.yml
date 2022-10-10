@@ -1,0 +1,59 @@
+uuid: 30a50980-7e6e-44bd-b6ee-d33997719954
+langcode: en
+status: true
+dependencies:
+  config:
+    - localgov_alert_banner.localgov_alert_banner_type.localgov_alert_banner
+  module:
+    - content_moderation
+_core:
+  default_config_hash: gXzVHVWXSfC64F7612Y1hbMWMnEqDwRkn1E7ucoG_78
+id: localgov_alert_banners
+label: 'Alert banners'
+type: content_moderation
+type_settings:
+  states:
+    draft:
+      published: false
+      default_revision: false
+      label: Draft
+      weight: 0
+    published:
+      label: Published
+      published: true
+      default_revision: true
+      weight: 1
+    unpublished:
+      label: Unpublished
+      published: false
+      default_revision: true
+      weight: 2
+  transitions:
+    create_new_draft:
+      label: 'Create New Draft'
+      to: draft
+      weight: 0
+      from:
+        - draft
+        - published
+        - unpublished
+    publish:
+      label: Publish
+      to: published
+      weight: 1
+      from:
+        - draft
+        - published
+        - unpublished
+    unpublish:
+      label: Unpublish
+      to: unpublished
+      weight: 2
+      from:
+        - draft
+        - published
+        - unpublished
+  entity_types:
+    localgov_alert_banner:
+      - localgov_alert_banner
+  default_moderation_state: unpublished
