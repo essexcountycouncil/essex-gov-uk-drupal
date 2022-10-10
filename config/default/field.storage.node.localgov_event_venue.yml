@@ -1,0 +1,21 @@
+uuid: 11d4a555-9d21-4ec8-882d-5df58cc12aea
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: 0VlFDF7Gju6mEUHI3__VOjdzGFZSCLYwmxjfmaUC4Mw
+id: node.localgov_event_venue
+field_name: localgov_event_venue
+entity_type: node
+type: entity_reference
+settings:
+  target_type: node
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

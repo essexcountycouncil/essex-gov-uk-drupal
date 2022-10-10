@@ -1,0 +1,67 @@
+_core:
+  default_config_hash: blfmQx2l-O0o6lCjybd2SQ2mMo0Qv7USRev0G4O--QE
+mirror_operations:
+  'view scheduled transition': update
+  'add scheduled transition': update
+  'reschedule scheduled transitions': update
+automation:
+  cron_create_queue_items: true
+bundles:
+  -
+    entity_type: node
+    bundle: localgov_directories_org
+  -
+    entity_type: node
+    bundle: localgov_directories_page
+  -
+    entity_type: node
+    bundle: localgov_directories_venue
+  -
+    entity_type: node
+    bundle: localgov_directory
+  -
+    entity_type: node
+    bundle: localgov_directory_promo_page
+  -
+    entity_type: node
+    bundle: localgov_event
+  -
+    entity_type: node
+    bundle: localgov_guides_overview
+  -
+    entity_type: node
+    bundle: localgov_guides_page
+  -
+    entity_type: node
+    bundle: localgov_newsroom
+  -
+    entity_type: node
+    bundle: localgov_news_article
+  -
+    entity_type: node
+    bundle: localgov_services_landing
+  -
+    entity_type: node
+    bundle: localgov_services_page
+  -
+    entity_type: node
+    bundle: localgov_services_status
+  -
+    entity_type: node
+    bundle: localgov_services_sublanding
+  -
+    entity_type: node
+    bundle: localgov_step_by_step_overview
+  -
+    entity_type: node
+    bundle: localgov_step_by_step_page
+  -
+    entity_type: node
+    bundle: localgov_subsites_overview
+  -
+    entity_type: node
+    bundle: localgov_subsites_page
+message_transition_latest: 'Scheduled transition: transitioning latest revision from [scheduled-transitions:from-state] to [scheduled-transitions:to-state]'
+message_transition_historical: 'Scheduled transition: copied revision #[scheduled-transitions:from-revision-id] and changed from [scheduled-transitions:from-state] to [scheduled-transitions:to-state]'
+message_transition_copy_latest_draft: 'Scheduled transition: reverted [scheduled-transitions:latest-state] revision #[scheduled-transitions:latest-revision-id] back to top'
+message_override: false

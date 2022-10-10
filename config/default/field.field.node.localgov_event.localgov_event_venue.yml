@@ -1,0 +1,30 @@
+uuid: 4f8f40a4-cbfb-47e3-916f-22f99ca98f89
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.localgov_event_venue
+    - node.type.localgov_directories_venue
+    - node.type.localgov_event
+_core:
+  default_config_hash: a41UiwIoXqgJj0bc2oatun8zruKhTF6EIHPBRsUKWxw
+id: node.localgov_event.localgov_event_venue
+field_name: localgov_event_venue
+entity_type: node
+bundle: localgov_event
+label: Venue
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      localgov_directories_venue: localgov_directories_venue
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

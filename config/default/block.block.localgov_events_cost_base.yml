@@ -1,0 +1,31 @@
+uuid: e2b79fa3-72bf-4c26-99f5-0a35eba4d69a
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.localgov_events_price
+  module:
+    - facets
+    - system
+  theme:
+    - localgov_base
+_core:
+  default_config_hash: u6JrS_RP1c2iYwFdcBQCO70FuOr4EOxpMsvEsWDRpic
+id: localgov_events_cost_base
+theme: localgov_base
+region: sidebar_first
+weight: -6
+provider: null
+plugin: 'facet_block:localgov_events_price'
+settings:
+  id: 'facet_block:localgov_events_price'
+  label: 'Events cost'
+  label_display: '0'
+  provider: facets
+  block_id: localgov_events_cost
+visibility:
+  request_path:
+    id: request_path
+    pages: /events/search
+    negate: false
+    context_mapping: {  }

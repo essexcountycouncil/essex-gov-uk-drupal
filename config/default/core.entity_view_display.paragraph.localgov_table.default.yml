@@ -1,0 +1,29 @@
+uuid: de7c87fe-447a-4789-9063-a3cb5bccb784
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.localgov_table.localgov_table
+    - field.field.paragraph.localgov_table.localgov_table_theme
+    - paragraphs.paragraphs_type.localgov_table
+  module:
+    - tablefield
+_core:
+  default_config_hash: ILt1AUKFKi0_Lt0LKk6bzffnA0QAzFjDnBVJKZIs4es
+id: paragraph.localgov_table.default
+targetEntityType: paragraph
+bundle: localgov_table
+mode: default
+content:
+  localgov_table:
+    type: tablefield
+    label: hidden
+    settings:
+      row_header: true
+      column_header: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  localgov_table_theme: true
+  search_api_excerpt: true

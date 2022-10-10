@@ -1,0 +1,132 @@
+uuid: 14134933-6204-45a2-8484-9e6399d2cc3e
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.localgov_directories_org
+    - node.type.localgov_directories_page
+    - node.type.localgov_directories_venue
+    - node.type.localgov_directory
+    - node.type.localgov_directory_promo_page
+    - node.type.localgov_event
+    - node.type.localgov_guides_overview
+    - node.type.localgov_guides_page
+    - node.type.localgov_news_article
+    - node.type.localgov_newsroom
+    - node.type.localgov_services_landing
+    - node.type.localgov_services_page
+    - node.type.localgov_services_status
+    - node.type.localgov_services_sublanding
+    - node.type.localgov_step_by_step_overview
+    - node.type.localgov_step_by_step_page
+    - node.type.localgov_subsites_overview
+    - node.type.localgov_subsites_page
+  module:
+    - content_moderation
+  enforced:
+    module:
+      - localgov_workflows
+_core:
+  default_config_hash: EqvffpoWKAAx2ALGL8QNQEB_Ryy02Y53ewMe7Ki8__k
+id: localgov_editorial
+label: Editorial
+type: content_moderation
+type_settings:
+  states:
+    archived:
+      label: Archived
+      weight: 3
+      published: false
+      default_revision: true
+    draft:
+      label: Draft
+      weight: 0
+      published: false
+      default_revision: false
+    published:
+      label: Published
+      weight: 2
+      published: true
+      default_revision: true
+    review:
+      label: Review
+      weight: 1
+      published: false
+      default_revision: false
+  transitions:
+    approve:
+      label: Approve
+      from:
+        - review
+      to: published
+      weight: 2
+    archive:
+      label: Archive
+      from:
+        - draft
+        - review
+        - published
+      to: archived
+      weight: 5
+    archived_draft:
+      label: 'Restore to Draft'
+      from:
+        - archived
+      to: draft
+      weight: 6
+    archived_published:
+      label: Restore
+      from:
+        - archived
+      to: published
+      weight: 7
+    create_new_draft:
+      label: 'Create New Draft'
+      from:
+        - draft
+        - published
+      to: draft
+      weight: 0
+    publish:
+      label: Publish
+      from:
+        - draft
+        - published
+      to: published
+      weight: 4
+    reject:
+      label: Reject
+      from:
+        - review
+      to: draft
+      weight: 3
+    submit_for_review:
+      label: 'Submit for review'
+      from:
+        - archived
+        - draft
+        - published
+        - review
+      to: review
+      weight: 1
+  entity_types:
+    node:
+      - localgov_directories_org
+      - localgov_directories_page
+      - localgov_directories_venue
+      - localgov_directory
+      - localgov_directory_promo_page
+      - localgov_event
+      - localgov_guides_overview
+      - localgov_guides_page
+      - localgov_news_article
+      - localgov_newsroom
+      - localgov_services_landing
+      - localgov_services_page
+      - localgov_services_status
+      - localgov_services_sublanding
+      - localgov_step_by_step_overview
+      - localgov_step_by_step_page
+      - localgov_subsites_overview
+      - localgov_subsites_page
+  default_moderation_state: draft

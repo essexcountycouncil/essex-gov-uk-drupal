@@ -1,0 +1,26 @@
+uuid: f083e222-8ff6-424f-a630-03ff95c56743
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.localgov_alert_banner.short_description
+    - localgov_alert_banner.localgov_alert_banner_type.localgov_alert_banner
+  module:
+    - text
+  enforced:
+    module:
+      - localgov_alert_banner
+_core:
+  default_config_hash: vwxQU07oUFOrvehhu_NyP6TvNJOEFqE67HajFUVb1pM
+id: localgov_alert_banner.localgov_alert_banner.short_description
+field_name: short_description
+entity_type: localgov_alert_banner
+bundle: localgov_alert_banner
+label: 'Short description'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

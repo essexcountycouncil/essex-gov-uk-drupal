@@ -1,0 +1,25 @@
+uuid: 7369e1ae-8cb9-460a-a3ce-6e29dbda8836
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.localgov_event_call_to_action
+    - node.type.localgov_event
+  module:
+    - link
+_core:
+  default_config_hash: l-ZvcPYaiILIgwuq4fVAlVLw4ykBRo00GMnybWuEuLk
+id: node.localgov_event.localgov_event_call_to_action
+field_name: localgov_event_call_to_action
+entity_type: node
+bundle: localgov_event
+label: 'Call to action'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 2
+field_type: link

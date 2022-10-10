@@ -1,0 +1,27 @@
+uuid: 5052382a-8ae2-4829-b6f8-9981d5f1f321
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.localgov_alert_banner.visibility
+    - localgov_alert_banner.localgov_alert_banner_type.localgov_alert_banner
+  module:
+    - condition_field
+_core:
+  default_config_hash: '-KjNjwr9kr92eykeuKAxDc5HvN3FvYZoW5XRco6zpmA'
+id: localgov_alert_banner.localgov_alert_banner.visibility
+field_name: visibility
+entity_type: localgov_alert_banner
+bundle: localgov_alert_banner
+label: Visibility
+description: 'Set the visibility of the alert to only show it on specific conditions.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  enabled_plugins:
+    'entity_bundle:node': false
+    request_path: true
+    user_role: false
+field_type: condition_field
