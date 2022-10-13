@@ -9,6 +9,8 @@ libraries-extend:
   # of those extending localgov_base/global
   localgov_base/global:
     - essex/variables
+    - essex/overrides
+    - essex/fonts
     # - essex/other-library-to-load-on-every-page
     # - essex/other-library-to-load-on-every-page
   # Add libraries here that extend specific libraries.

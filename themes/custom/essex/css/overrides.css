@@ -1,0 +1,12 @@
+.lgd-header {
+    background-image: url('../assets/images/red-gradient-curve-xl.png');
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@media only screen and (max-width: 767px) {
+    .lgd-header__nav--primary {
+        margin-top: 2rem;
+    }
+}
