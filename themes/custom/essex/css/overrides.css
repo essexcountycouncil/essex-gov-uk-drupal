@@ -10,3 +10,7 @@
         margin-top: 2rem;
     }
 }
+
+.lgd-guide-nav .lgd-guide-nav__list-item > a {
+    font-weight: 600;
+}
