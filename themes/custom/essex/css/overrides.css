@@ -5,9 +5,34 @@
     background-size: cover;
 }
 
+.lgd-footer__pre-footer {
+    background-image: url('../assets/images/grey-gradient-xl.png');
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 @media only screen and (max-width: 767px) {
+    .lgd-header {
+        background-image: url('../assets/images/red-gradient-curve-sm.png');
+    }
+
     .lgd-header__nav--primary {
         margin-top: 2rem;
+    }
+
+    .lgd-footer__pre-footer {
+        background-image: url('../assets/images/grey-gradient-sm.png');
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+    .lgd-header {
+        background-image: url('../assets/images/red-gradient-curve-lg.png');
+    }
+
+    .lgd-footer__pre-footer {
+        background-image: url('../assets/images/grey-gradient-lg.png');
     }
 }
 
@@ -68,4 +93,8 @@ input[type="submit"],
 
 .step-by-step-pages ol.step-list .step .step__title .step-show {
     display: block;
+}
+
+.banner--primary .field--name-localgov-title {
+    font-weight: 600;
 }

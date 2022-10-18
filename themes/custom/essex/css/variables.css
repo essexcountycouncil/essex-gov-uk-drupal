@@ -48,12 +48,7 @@ body {
   --heading-2-font-weight: 600;
   --heading-3-font-weight: 600;
   --header-logo-width: 200px;
-}
-
-.lgd-header {
+  --banner-content-bg-color: #414745;
+  --color-section-pre-footer-bg: transparent;
   --color-section-header-bg: transparent;
-}
-
-.lgd-footer__pre-footer {
-  --color-section-pre-footer-bg: #414745;
 }
