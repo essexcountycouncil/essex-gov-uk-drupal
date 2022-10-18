@@ -38,6 +38,7 @@ body {
   --color-accent: #e40037;
   --font-secondary: var(--font-primary);
   --line-height: 1.3;
+  --alert-banner-bg-color-minor: #ecb720;
   --color-grey-lighter: #d4d4d4;
   --color-link: #4179aa;
   --call-out-box-bg-color: #4179aa;

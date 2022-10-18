@@ -36,6 +36,19 @@
     }
 }
 
+.localgov-alert-banner {
+    margin: var(--spacing-large);
+}
+
+.localgov-alert-banner--announcement {
+    background-color: #3a7d64;
+}
+
+.localgov-alert-banner--major .localgov-alert-banner__title,
+.localgov-alert-banner--announcement .localgov-alert-banner__title {
+    color: var(--color-white);
+}
+
 .lgd-guide-nav .lgd-guide-nav__list-item > a {
     font-weight: 600;
 }
@@ -97,4 +110,12 @@ input[type="submit"],
 
 .banner--primary .field--name-localgov-title {
     font-weight: 600;
+}
+
+.service-landing-page__contact {
+    border-color: var(--color-link);
+}
+
+.step-by-step-pages .step-master {
+    color: var(--color-black);
 }
