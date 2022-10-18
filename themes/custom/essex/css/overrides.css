@@ -1,0 +1,71 @@
+.lgd-header {
+    background-image: url('../assets/images/red-gradient-curve-xl.png');
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@media only screen and (max-width: 767px) {
+    .lgd-header__nav--primary {
+        margin-top: 2rem;
+    }
+}
+
+.lgd-guide-nav .lgd-guide-nav__list-item > a {
+    font-weight: 600;
+}
+
+.service-cta-block .service-cta-block__link--cta-info {
+    background-color: var(--color-link);
+}
+  
+.service-cta-block .service-cta-block__link--cta-action {
+    background-color: var(--color-black);
+}
+  
+.service-cta-block .service-cta-block__link:focus {
+    background-color: var(--color-focus);
+    color: var(--color-black);
+}
+  
+.service-cta-block .service-cta-block__link:hover .service-cta-block__link-icon svg path,
+.service-cta-block .service-cta-block__link:focus .service-cta-block__link-icon svg path {
+    fill: var(--color-black);
+}
+  
+.service-statuses__label {
+    color: var(--color-white);
+    font-weight: 600;
+}
+  
+.call-out-box__content {
+    background: var(--call-out-box-bg-color)
+}
+  
+.call-out-box__content h2 {
+    color: var(--color-white);
+}
+  
+p.callout {
+    font-weight: 600;
+}
+  
+.callout.callout-primary {
+    background-color: var(--color-black);
+}
+  
+input[type="submit"],
+.lgd-prev-next__list .lgd-prev-next__link {
+    background-color: var(--color-black);
+    border-color: var(--color-black);
+}
+  
+.step-by-step-pages ol.step-list .step .step__title a {
+    color: var(--color-link);
+    display: inline-block;
+    font-weight: 600;
+}
+
+.step-by-step-pages ol.step-list .step .step__title .step-show {
+    display: block;
+}

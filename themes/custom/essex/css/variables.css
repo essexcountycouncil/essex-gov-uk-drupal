@@ -32,8 +32,28 @@
   - The accent colour in our base theme is purple. If you would like it to be
     hotpink, just set `--color-accent: hotpink;`
 */
+
 body {
-  --color-accent: green;
-  --font-secondary: oswald, var(--font-primary);
+  --font-primary: 'Lexend', Arial, Helvetica, sans-serif;
+  --color-accent: #e40037;
+  --font-secondary: var(--font-primary);
   --line-height: 1.3;
+  --color-grey-lighter: #d4d4d4;
+  --color-link: #4179aa;
+  --call-out-box-bg-color: #4179aa;
+  --color-blue: #4179aa;
+  --service-statuses-container-bg-color: #4179aa;
+  --color-danger: #e40037;
+  --color-success: #9361b3;
+  --heading-2-font-weight: 600;
+  --heading-3-font-weight: 600;
+  --header-logo-width: 200px;
+}
+
+.lgd-header {
+  --color-section-header-bg: transparent;
+}
+
+.lgd-footer__pre-footer {
+  --color-section-pre-footer-bg: #414745;
 }
