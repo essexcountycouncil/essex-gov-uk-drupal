@@ -61,6 +61,7 @@
     background-color: var(--color-black);
 }
   
+.service-cta-block .service-cta-block__link:hover,
 .service-cta-block .service-cta-block__link:focus {
     background-color: var(--color-focus);
     color: var(--color-black);
