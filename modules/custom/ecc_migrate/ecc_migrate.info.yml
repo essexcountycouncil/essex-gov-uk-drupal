@@ -1,0 +1,8 @@
+name: Essex County Council Migrate
+type: module
+description: Migrates the content from the previous site.
+package: Custom
+core_version_requirement: ^9 || ^10
+dependencies:
+  - migrate
+  - migrate_plus
