@@ -31,3 +31,6 @@
 certs/
 
 .DS_Store
+
+# Ignore private folder
+/private
