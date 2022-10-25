@@ -25,6 +25,7 @@ module:
   diff: 0
   dynamic_entity_reference: 0
   dynamic_page_cache: 0
+  ecc_migrate: 0
   editor: 0
   entity_browser: 0
   entity_browser_entity_form: 0
@@ -103,6 +104,8 @@ module:
   menu_link_content: 0
   menu_ui: 0
   metatag: 0
+  migrate: 0
+  migrate_plus: 0
   mysql: 0
   node: 0
   office_hours: 0
