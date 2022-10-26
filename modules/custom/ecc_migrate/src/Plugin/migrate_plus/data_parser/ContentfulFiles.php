@@ -12,12 +12,30 @@ use Drupal\migrate_plus\Plugin\migrate_plus\data_parser\Json;
  * in content. This source plugin cross-references the files from contentful
  * to the export of a web spider of the legacy site.
  *
+ * This parser also supports filtering by content type. This allows it to be
+ * used for separate image/document media migrations purely by migration config.
+ *
  * @DataParser(
  *   id = "contentful_files",
  *   title = @Translation("Contentful Files")
  * )
  */
 class ContentfulFiles extends Json {
+
+  /**
+   * Optional array of mime types to include in this source.
+   *
+   * @var array
+   */
+  protected array $contentTypes;
+
+  /**
+   * {@inheritdoc}
+   */
+  public function __construct(array $configuration, $plugin_id, $plugin_definition) {
+    parent::__construct($configuration, $plugin_id, $plugin_definition);
+    $this->contentTypes = $configuration['content_types'] ?? [];
+  }
 
   /**
    * {@inheritdoc}
@@ -49,6 +67,12 @@ class ContentfulFiles extends Json {
       // Ignore files with an empty URL. We can't migrate them.
       if (empty($value['fields']['file']['en-GB']['url'])) {
         return FALSE;
+      }
+      // Ignore files of unsupported type.
+      if (!empty($this->contentTypes)) {
+        if (!in_array($value['fields']['file']['en-GB']['contentType'], $this->contentTypes)) {
+          return FALSE;
+        }
       }
       // Include files that are in the usage spreadsheet.
       if (in_array($value['fields']['file']['en-GB']['url'], $used_urls)) {

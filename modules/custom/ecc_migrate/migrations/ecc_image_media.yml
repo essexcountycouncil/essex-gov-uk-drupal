@@ -1,18 +1,54 @@
-# Migration configuration for migrating image media from migrated files.
+# Migration configuration for migrating image media.
 id: ecc_image_media
 label: Image Media
 migration_tags:
   - ECC
   - assets
 source:
-  plugin: ecc_image_media
-  key: default
+  plugin: url
+  data_fetcher_plugin: file
+  data_parser_plugin: contentful_files
+  urls:
+    - 'private://migration_data/contentful_export.json'
+  item_selector: assets
+  content_types:
+    - 'image/gif'
+    - 'image/jpeg'
+    - 'image/png'
+  fields:
+    -
+      name: content_type
+      label: "Content type"
+      selector: 'fields/file/en-GB/contentType'
+    -
+      name: id
+      label: 'Contentful ID'
+      selector: sys/id
+    -
+      name: description
+      label: 'Description'
+      selector: 'fields/description/en-GB'
+    -
+      name: title
+      label: 'Title'
+      selector: 'fields/title/en-GB'
+  ids:
+    id:
+      type: string
 destination:
   plugin: entity:media
   default_bundle: image
 process:
-  name: filename
-  field_media_image/target_id: fid
+  name: title
+  field_media_image/target_id:
+    plugin: migration_lookup
+    migration: ecc_files
+    source: id
+    no_stub: true
+  field_media_image/alt:
+    plugin: substr
+    source: description
+    length: 500
 migration_dependencies:
   required:
     - ecc_files
