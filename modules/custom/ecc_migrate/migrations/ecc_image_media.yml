@@ -1,0 +1,18 @@
+# Migration configuration for migrating image media from migrated files.
+id: ecc_image_media
+label: Image Media
+migration_tags:
+  - ECC
+  - assets
+source:
+  plugin: ecc_image_media
+  key: default
+destination:
+  plugin: entity:media
+  default_bundle: image
+process:
+  name: filename
+  field_media_image/target_id: fid
+migration_dependencies:
+  required:
+    - ecc_files

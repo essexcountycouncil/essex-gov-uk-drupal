@@ -1,0 +1,18 @@
+# Migration configuration for migrating document media from migrated files.
+id: ecc_document_media
+label: Document Media
+migration_tags:
+  - ECC
+  - assets
+source:
+  plugin: ecc_document_media
+  key: default
+destination:
+  plugin: entity:media
+  default_bundle: document
+process:
+  name: filename
+  field_media_document/target_id: fid
+migration_dependencies:
+  required:
+    - ecc_files
