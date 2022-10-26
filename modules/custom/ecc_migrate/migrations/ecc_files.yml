@@ -7,7 +7,7 @@ migration_tags:
 source:
   plugin: url
   data_fetcher_plugin: file
-  data_parser_plugin: json
+  data_parser_plugin: contentful_files
   urls:
     - 'private://migration_data/contentful_export.json'
   item_selector: assets
