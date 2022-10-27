@@ -5,14 +5,57 @@ migration_tags:
   - ECC
   - assets
 source:
-  plugin: ecc_document_media
-  key: default
+  plugin: url
+  data_fetcher_plugin: file
+  data_parser_plugin: contentful_files
+  urls:
+    - 'private://migration_data/contentful_export.json'
+  item_selector: assets
+  content_types:
+    - 'application/CDFV2'
+    - 'application/octet-stream'
+    - 'application/pdf'
+    - 'application/vnd.google-earth.kml+xml'
+    - 'application/vnd.openxmlformats-officedocument.presentationml.presentation'
+    - 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+    - 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+    - 'application/zip'
+  fields:
+    -
+      name: content_type
+      label: "Content type"
+      selector: 'fields/file/en-GB/contentType'
+    -
+      name: id
+      label: 'Contentful ID'
+      selector: sys/id
+    -
+      name: title
+      label: 'Title'
+      selector: 'fields/title/en-GB'
+    -
+      name: created_by
+      label: 'Created by'
+      selector: sys/createdBy/sys/id
+  ids:
+    id:
+      type: string
 destination:
   plugin: entity:media
   default_bundle: document
 process:
-  name: filename
-  field_media_document/target_id: fid
+  name: title
+  field_media_document/target_id:
+    plugin: migration_lookup
+    migration: ecc_files
+    source: id
+    no_stub: true
+  uid:
+    plugin: migration_lookup
+    migration: ecc_users
+    source: created_by
+    no_stub: true
 migration_dependencies:
   required:
     - ecc_files
+    - ecc_users
