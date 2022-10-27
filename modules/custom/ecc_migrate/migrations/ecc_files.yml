@@ -1,0 +1,73 @@
+# Migration configuration for migrating files.
+id: ecc_files
+label: Files
+migration_tags:
+  - ECC
+  - assets
+source:
+  plugin: url
+  data_fetcher_plugin: file
+  data_parser_plugin: contentful_files
+  urls:
+    - 'private://migration_data/contentful_export.json'
+  item_selector: assets
+  fields:
+    -
+      name: source_url
+      label: 'Email'
+      selector: 'fields/file/en-GB/url'
+    -
+      name: content_type
+      label: "Content type"
+      selector: 'fields/file/en-GB/contentType'
+    -
+      name: created_by
+      label: 'Created by'
+      selector: sys/createdBy/sys/id
+    -
+      name: id
+      label: 'Contentful ID'
+      selector: sys/id
+  ids:
+    id:
+      type: string
+  constants:
+    source_base_path: 'private://migration_data/files'
+    destination_base_path: 'public://migration_data/files'
+destination:
+  plugin: entity:file
+process:
+  filename:
+    plugin: callback
+    callable: basename
+    source: source_url
+  filemime: content_type
+  source_stripped_double_slash:
+    plugin: substr
+    source: source_url
+    start: 1
+  source_full_path:
+    plugin: concat
+    source:
+      - constants/source_base_path
+      - '@source_stripped_double_slash'
+  destination_full_path:
+    plugin: concat
+    source:
+      - constants/destination_base_path
+      - '@source_stripped_double_slash'
+  uri:
+    plugin: file_copy
+    source:
+      - '@source_full_path'
+      - '@destination_full_path'
+  status:
+    plugin: default_value
+    default_value: 1
+  uid:
+    plugin: migration_lookup
+    migration: ecc_users
+    source: created_by
+    no_stub: true
+
+
