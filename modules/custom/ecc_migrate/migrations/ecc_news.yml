@@ -29,6 +29,10 @@ source:
       name: created_by
       label: 'Created by'
       selector: sys/createdBy/sys/id
+    -
+      name: image_id
+      label: 'Image ID'
+      selector: 'fields/image/en-GB/sys/id'
   ids:
     id:
       type: string
@@ -57,6 +61,11 @@ process:
     plugin: migration_lookup
     migration: ecc_newsrooms
     source: constants/newsroom
+  field_media_image/target_id:
+    plugin: migration_lookup
+    migration: ecc_image_media
+    source: image_id
+    no_stub: true
 #  'body/value': body
 #  'body/summary': excerpt
 migration_dependencies:
