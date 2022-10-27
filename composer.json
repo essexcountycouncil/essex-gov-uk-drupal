@@ -39,7 +39,8 @@
         "drupal/migrate_process_markdown_to_html": "^1",
         "drupal/stage_file_proxy": "^1.2",
         "localgovdrupal/localgov": "^2.0",
-        "wa72/htmlpagedom": "*"
+        "wa72/htmlpagedom": "*",
+        "localgovdrupal/localgov_forms": "1.x-dev"
     },
     "require-dev": {
         "brianium/paratest": "^6.0",
