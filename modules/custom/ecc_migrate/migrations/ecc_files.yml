@@ -21,9 +21,9 @@ source:
       label: "Content type"
       selector: 'fields/file/en-GB/contentType'
     -
-      name: published_by
-      label: "Published by"
-      selector: sys/publishedBy/sys/id
+      name: created_by
+      label: 'Created by'
+      selector: sys/createdBy/sys/id
     -
       name: id
       label: 'Contentful ID'
@@ -64,4 +64,10 @@ process:
   status:
     plugin: default_value
     default_value: 1
+  uid:
+    plugin: migration_lookup
+    migration: ecc_users
+    source: created_by
+    no_stub: true
+
 
