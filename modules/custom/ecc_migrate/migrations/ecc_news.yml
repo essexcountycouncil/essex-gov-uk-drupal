@@ -32,6 +32,8 @@ source:
   ids:
     id:
       type: string
+  constants:
+    newsroom: news
 destination:
   plugin: entity:node
 process:
@@ -51,9 +53,13 @@ process:
     migration: ecc_users
     source: created_by
     no_stub: true
-
+  localgov_newsroom/target_id:
+    plugin: migration_lookup
+    migration: ecc_newsrooms
+    source: constants/newsroom
 #  'body/value': body
 #  'body/summary': excerpt
 migration_dependencies:
   required:
+    - ecc_newsrooms
     - ecc_users
