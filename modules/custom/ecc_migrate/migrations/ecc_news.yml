@@ -33,6 +33,10 @@ source:
       name: image_id
       label: 'Image ID'
       selector: 'fields/image/en-GB/sys/id'
+    -
+      name: body
+      label: 'Body'
+      selector: 'fields/body/en-GB'
   ids:
     id:
       type: string
@@ -66,7 +70,12 @@ process:
     migration: ecc_image_media
     source: image_id
     no_stub: true
-#  'body/value': body
+  'body/value':
+    plugin: markdown_to_html
+    source: body
+  'body/format':
+    plugin: default_value
+    default_value: wysiwyg
 #  'body/summary': excerpt
 migration_dependencies:
   required:
