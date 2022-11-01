@@ -37,6 +37,10 @@ source:
       name: body
       label: 'Body'
       selector: 'fields/body/en-GB'
+    -
+      name: teaser
+      label: 'Teaser'
+      selector: 'fields/teaser/en-GB'
   ids:
     id:
       type: string
@@ -76,7 +80,7 @@ process:
   'body/format':
     plugin: default_value
     default_value: wysiwyg
-#  'body/summary': excerpt
+  'body/summary': teaser
   status:
     plugin: default_value
     default_value: 1
