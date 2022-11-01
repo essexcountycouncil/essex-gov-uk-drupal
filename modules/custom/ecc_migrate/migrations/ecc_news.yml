@@ -75,8 +75,11 @@ process:
     source: image_id
     no_stub: true
   'body/value':
-    plugin: markdown_to_html
-    source: body
+    -
+      plugin: markdown_to_html
+      source: body
+    -
+      plugin: map_asset_urls
   'body/format':
     plugin: default_value
     default_value: wysiwyg
