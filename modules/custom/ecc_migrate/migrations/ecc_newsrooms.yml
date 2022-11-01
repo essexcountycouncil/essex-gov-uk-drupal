@@ -23,7 +23,6 @@ process:
     plugin: default_value
     default_value: localgov_newsroom
   title: title
-# todo: setting published this way on migrate doesn't work with workflow.
   status:
     plugin: default_value
     default_value: 1
