@@ -7,3 +7,4 @@ dependencies:
   - drupal:migrate
   - drupal:migrate_plus
   - migrate_process_markdown_to_html:migrate_process_markdown_to_html
+  - redirect:redirect

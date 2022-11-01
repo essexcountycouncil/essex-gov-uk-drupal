@@ -21,6 +21,13 @@ class EccMigrateSubscriber implements EventSubscriberInterface {
   protected EntityStorageInterface $nodeStorage;
 
   /**
+   * Redirect storage. For creating redirects from legacy urls.
+   *
+   * @var \Drupal\Core\Entity\EntityStorageInterface
+   */
+  protected EntityStorageInterface $redirectStorage;
+
+  /**
    * Constructor.
    *
    * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entityTypeManager
@@ -31,10 +38,26 @@ class EccMigrateSubscriber implements EventSubscriberInterface {
    */
   public function __construct(EntityTypeManagerInterface $entityTypeManager) {
     $this->nodeStorage = $entityTypeManager->getStorage('node');
+    $this->redirectStorage = $entityTypeManager->getStorage('redirect');
   }
 
   /**
-   * Migrate post row save event handler.
+   * Post row save central handler.
+   *
+   * Calls other functions to actually do things.
+   *
+   * @param \Drupal\migrate\Event\MigratePostRowSaveEvent $event
+   *   Event that happened.
+   *
+   * @throws \Drupal\Core\Entity\EntityStorageException
+   */
+  public function onPostRowSave(MigratePostRowSaveEvent $event) {
+    $this->setAuthors($event);
+    $this->createLegacyRedirect($event);
+  }
+
+  /**
+   * Sets created/updated authors.
    *
    * Used to set the author of a node after it has been saved.
    * This allows us to have separate node and revision UIDs, even when there
@@ -45,7 +68,7 @@ class EccMigrateSubscriber implements EventSubscriberInterface {
    *
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
-  public function onPostRowSave(MigratePostRowSaveEvent $event) {
+  public function setAuthors(MigratePostRowSaveEvent $event) {
     // Don't do this for all migrations.
     if (!in_array($event->getMigration()->getPluginId(), ['ecc_news'])) {
       return;
@@ -64,6 +87,28 @@ class EccMigrateSubscriber implements EventSubscriberInterface {
     $node = $this->nodeStorage->load($event->getDestinationIdValues()[0]);
     $node->uid = $destination['pseudo_uid'];
     $node->save();
+  }
+
+  /**
+   * Creates a redirect from the legacy url to the newly created entity.
+   *
+   * @param \Drupal\migrate\Event\MigratePostRowSaveEvent $event
+   *   Event being processed.
+   *
+   * @throws \Drupal\Core\Entity\EntityStorageException
+   */
+  public function createLegacyRedirect(MigratePostRowSaveEvent $event) {
+    $legacy_url = $event->getRow()->getDestinationProperty('legacy_url');
+    // If we didn't set a legacy url in the migration..
+    if (!$legacy_url) {
+      // ..then we don't want to create a redirect.
+      return;
+    }
+    $this->redirectStorage->create([
+      'redirect_source' => $legacy_url,
+      'redirect_redirect' => 'internal:/node/' . $event->getDestinationIdValues()[0],
+      'status_code' => '301',
+    ])->save();
   }
 
   /**

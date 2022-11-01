@@ -41,11 +41,16 @@ source:
       name: teaser
       label: 'Teaser'
       selector: 'fields/teaser/en-GB'
+    -
+      name: slug
+      label: 'Slug'
+      selector: 'fields/slug/en-GB'
   ids:
     id:
       type: string
   constants:
     newsroom: news
+    legacy_url_base: news
 destination:
   plugin: entity:node
 process:
@@ -59,11 +64,6 @@ process:
     plugin: migration_lookup
     migration: ecc_users
     source: updated_by
-    no_stub: true
-  pseudo_uid:
-    plugin: migration_lookup
-    migration: ecc_users
-    source: created_by
     no_stub: true
   localgov_newsroom/target_id:
     plugin: migration_lookup
@@ -87,6 +87,19 @@ process:
   moderation_state:
     plugin: default_value
     default_value: published
+# These final fields are not saved directly onto the entity but are available for
+# post-migrate events.
+  pseudo_uid:
+    plugin: migration_lookup
+    migration: ecc_users
+    source: created_by
+    no_stub: true
+  legacy_url:
+    plugin: concat
+    source:
+      - constants/legacy_url_base
+      - slug
+    delimiter: /
 migration_dependencies:
   required:
     - ecc_newsrooms
