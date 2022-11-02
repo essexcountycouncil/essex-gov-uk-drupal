@@ -45,6 +45,18 @@ source:
       name: slug
       label: 'Slug'
       selector: 'fields/slug/en-GB'
+    -
+      name: createdAt
+      label: 'Created at'
+      selector: 'sys/createdAt'
+    -
+      name: updatedAt
+      label: 'Updated at'
+      selector: 'sys/updatedAt'
+    -
+      name: firstPublishedAt
+      label: 'First published at'
+      selector: 'sys/firstPublishedAt'
   ids:
     id:
       type: string
@@ -90,6 +102,21 @@ process:
   moderation_state:
     plugin: default_value
     default_value: published
+  created:
+    plugin: callback
+    callable: strtotime
+    source: createdAt
+  changed:
+    plugin: callback
+    callable: strtotime
+    source: updatedAt
+  localgov_news_date:
+    plugin: format_date
+    from_format: 'Y-m-d\TH:i:s.vP'
+    to_format: 'Y-m-d'
+    source: firstPublishedAt
+    settings:
+      validate_format: false
 # These final fields are not saved directly onto the entity but are available for
 # post-migrate events.
   pseudo_uid:
