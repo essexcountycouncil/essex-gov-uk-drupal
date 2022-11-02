@@ -34,16 +34,19 @@ class MapAssetUrls extends ProcessPluginBase {
   public function transform($value, MigrateExecutableInterface $migrate_executable, Row $row, $destination_property) {
     $html_page_crawler = new HtmlPageCrawler($value);
 
+    // For all the <a> tags in the document..
     $html_page_crawler->filter('a')->each(function (HtmlPageCrawler $node) {
+      // ..that have an href..
       $href = $node->getAttribute('href');
       if ($href) {
-        // Strip protocol header.
+        // ..strip the protocol header.
         if (str_starts_with(strtolower($href), 'https:')) {
           $href = substr($href, strlen('https:'));
         }
         if (str_starts_with(strtolower($href), 'http:')) {
           $href = substr($href, strlen('http:'));
         }
+        // ..and check if it points to an address used by the legacy site.
         if (str_starts_with($href, '//assets.ctfassets.net/knkzaf64jx5x')
         || str_starts_with($href, '//downloads.ctfassets.net/knkzaf64jx5x')
         || str_starts_with($href, '//images.ctfassets.net/knkzaf64jx5x')) {
@@ -54,6 +57,33 @@ class MapAssetUrls extends ProcessPluginBase {
           $href = '/sites/default/files/migration_data/files' . $href;
           // And save it back to our html.
           $node->setAttribute('href', $href);
+        }
+      }
+    });
+
+    // For all the <img> tags in the document..
+    $html_page_crawler->filter('img')->each(function (HtmlPageCrawler $node) {
+      // ..that have an src..
+      $src = $node->getAttribute('src');
+      if ($src) {
+        // ..strip the protocol header.
+        if (str_starts_with(strtolower($src), 'https:')) {
+          $src = substr($src, strlen('https:'));
+        }
+        if (str_starts_with(strtolower($src), 'http:')) {
+          $src = substr($src, strlen('http:'));
+        }
+        // ..and check if it points to an address used by the legacy site.
+        if (str_starts_with($src, '//assets.ctfassets.net/knkzaf64jx5x')
+          || str_starts_with($src, '//downloads.ctfassets.net/knkzaf64jx5x')
+          || str_starts_with($src, '//images.ctfassets.net/knkzaf64jx5x')) {
+          // This is a migrated asset. Change the link to be relative.
+          // First remove the first /.
+          $src = substr($src, 1);
+          // Then set it within Drupal's public file system.
+          $src = '/sites/default/files/migration_data/files' . $src;
+          // And save it back to our html.
+          $node->setAttribute('src', $src);
         }
       }
     });
