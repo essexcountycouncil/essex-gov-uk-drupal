@@ -92,6 +92,10 @@ process:
       source: body
     -
       plugin: map_asset_urls
+    -
+      plugin: map_youtube_embeds
+    -
+      plugin: strip_styles
   'body/format':
     plugin: default_value
     default_value: wysiwyg
@@ -134,3 +138,5 @@ migration_dependencies:
   required:
     - ecc_newsrooms
     - ecc_users
+    - ecc_youtube_embeds
+    - ecc_image_media
