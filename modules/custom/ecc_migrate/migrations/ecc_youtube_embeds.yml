@@ -1,0 +1,43 @@
+# Migration configuration for creating youtube media items from embedded iframes.
+id: ecc_youtube_embeds
+label: YouTube Embeds
+migration_tags:
+  - ECC
+  - assets
+source:
+  plugin: url
+  data_fetcher_plugin: file
+  data_parser_plugin: contentful_youtube_embeds
+  urls:
+    - 'private://migration_data/contentful_export.json'
+  item_selector: entries
+  fields:
+    # We consider the entire YouTube embed URL to be the ID, stripped of any
+    # double slashes or # suffix.
+    -
+      name: id
+      label: 'ID'
+      selector: 'id'
+  ids:
+    id:
+      type: string
+  constants:
+    youtube_oembed_base: 'https://www.youtube.com/watch?v='
+destination:
+  plugin: entity:media
+process:
+  bundle:
+    plugin: default_value
+    default_value: remote_video
+  # The source will retrieve the YouTube embed URL - for example https://www.youtube.com/embed/dSVIJVvuQ-8
+  # We want to convert that to https://www.youtube.com/watch?v=dSVIJVvuQ-8 for oembed.
+  youtube_id:
+    plugin: substr
+    start: 30
+    source: id
+  field_media_oembed_video:
+    -
+      plugin: concat
+      source:
+        - constants/youtube_oembed_base
+        - '@youtube_id'
