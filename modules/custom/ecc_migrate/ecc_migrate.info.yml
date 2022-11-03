@@ -4,5 +4,7 @@ description: Migrates the content from the previous site.
 package: Custom
 core_version_requirement: ^9 || ^10
 dependencies:
-  - migrate
-  - migrate_plus
+  - drupal:migrate
+  - migrate_plus:migrate_plus
+  - migrate_process_markdown_to_html:migrate_process_markdown_to_html
+  - redirect:redirect
