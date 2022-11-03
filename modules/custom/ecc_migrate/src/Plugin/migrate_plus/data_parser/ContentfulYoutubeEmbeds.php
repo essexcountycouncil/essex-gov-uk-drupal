@@ -71,6 +71,11 @@ class ContentfulYoutubeEmbeds extends Json {
           if (str_contains($src, '#')) {
             $src = substr($src, 0, strpos($src, '#'));
           }
+          // Some have a double slash after the embed. Remove that to normalise
+          // the data.
+          if (str_starts_with($src, 'https://www.youtube.com/embed//')) {
+            $src = 'https://www.youtube.com/embed/' . substr($src, 31);
+          }
           $youtube_srcs[] = $src;
         }
       });
