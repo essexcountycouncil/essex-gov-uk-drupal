@@ -5,7 +5,7 @@ namespace Drupal\ecc_migrate\Plugin\migrate_plus\data_parser;
 use Drupal\migrate_plus\Plugin\migrate_plus\data_parser\Json;
 
 /**
- * Extend the Json data parser for Contentful Content Types.
+ * Extend the Json data parser for embedded YouTube videos.
  *
  * The selectors provided by the migrate_plus JSON data parser don't allow us
  * to restrict content by type. This could just be done at migrate time but
@@ -19,37 +19,17 @@ use Drupal\migrate_plus\Plugin\migrate_plus\data_parser\Json;
  * @code
  *   source:
  *     plugin: url
- *     urls:
- *       - 'private://path/to/export.json'
  *     data_fetcher_plugin: file
- *     data_parser_plugin: json_contentful
+ *     data_parser_plugin: contentful_youtube_embeds
  *     item_selector: entries
- *     content_type: news
- *
  * @endcode
  *
  * @DataParser(
- *   id = "json_contentful",
+ *   id = "contentful_youtube_embeds",
  *   title = @Translation("JSON Contentful")
  * )
  */
-class JsonContentful extends Json {
-
-  /**
-   * Content type for this source in the JSON export from Contentful.
-   *
-   * @var string
-   */
-  protected string $contentType;
-
-  /**
-   * {@inheritdoc}
-   */
-  public function __construct(array $configuration, $plugin_id, $plugin_definition) {
-    parent::__construct($configuration, $plugin_id, $plugin_definition);
-    $this->contentType = $configuration['content_type'] ?? '';
-  }
-
+class ContentfulYoutubeEmbeds extends Json {
   /**
    * {@inheritdoc}
    */
