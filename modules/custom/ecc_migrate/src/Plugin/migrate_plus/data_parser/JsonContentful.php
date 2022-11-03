@@ -14,6 +14,17 @@ use Drupal\migrate_plus\Plugin\migrate_plus\data_parser\Json;
  * This subclass allows a Contentful content type to be specified and all
  * non-matching content will be filtered out at the source.
  *
+ * Usage:
+ *
+ * @code
+ *   source:
+ *     plugin: url
+ *     data_fetcher_plugin: file
+ *     data_parser_plugin: json_contentful
+ *     item_selector: entries
+ *     content_type: news
+ * @endcode
+ *
  * @DataParser(
  *   id = "json_contentful",
  *   title = @Translation("JSON Contentful")
