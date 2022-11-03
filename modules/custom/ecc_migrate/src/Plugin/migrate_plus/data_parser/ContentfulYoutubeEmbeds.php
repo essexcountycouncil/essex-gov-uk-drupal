@@ -67,6 +67,10 @@ class ContentfulYoutubeEmbeds extends Json {
       $body_crawler->filter('iframe[src]')->each(function (HtmlPageCrawler $node) use (&$youtube_srcs) {
         $src = $node->getAttribute('src');
         if (str_starts_with(strtolower($src), 'https://www.youtube.com/embed')) {
+          // Remove # at the end and anything after.
+          if (str_contains($src, '#')) {
+            $src = substr($src, 0, strpos($src, '#'));
+          }
           $youtube_srcs[] = $src;
         }
       });
