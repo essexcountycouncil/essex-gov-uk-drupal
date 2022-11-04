@@ -12,7 +12,7 @@ build_image:
   variables:
     DOCKER_PASS: ""
   before_script:
-    - apk add py3-pip gcc musl-dev python3-dev libffi-dev openssl-dev cargo make
+    - apk add py3-pip gcc musl-dev python3-dev libffi-dev openssl openssl-dev cargo make
     - pip install --upgrade pip
     - pip install azure-cli
     - az login --service-principal -u${ARM_CLIENT_ID} -p${ARM_CLIENT_SECRET} -t${ARM_TENANT_ID}
