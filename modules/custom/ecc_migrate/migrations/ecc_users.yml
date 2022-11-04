@@ -1,0 +1,37 @@
+# Migration configuration for ecc_users content.
+id: ecc_users
+label: Users
+migration_tags:
+  - ECC
+  - users
+source:
+  plugin: url
+  data_fetcher_plugin: file
+  data_parser_plugin: json
+  urls:
+    - 'private://migration_data/contentful_users.json'
+  item_selector: items
+  fields:
+    -
+      name: email
+      label: 'Email'
+      selector: email
+    -
+      name: id
+      label: 'Contentful ID'
+      selector: sys/id
+  ids:
+    id:
+      type: string
+destination:
+  plugin: entity:user
+process:
+  name: email
+  mail: email
+  timezone:
+    plugin: default_value
+    default_value: 'Europe/London'
+  status:
+    plugin: default_value
+    default_value: 1
+
