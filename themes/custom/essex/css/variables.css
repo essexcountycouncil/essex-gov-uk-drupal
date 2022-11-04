@@ -52,4 +52,7 @@ body {
   --banner-content-bg-color: #414745;
   --color-section-pre-footer-bg: transparent;
   --color-section-header-bg: transparent;
+  --breadcrumbs-link-color: var(--color-black);
+  --quote-author-color: var(--color-black);
+  --tabs-button-bg-color: var(--color-grey-lighter);
 }

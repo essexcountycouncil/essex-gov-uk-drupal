@@ -45,7 +45,8 @@
 }
 
 .localgov-alert-banner--major .localgov-alert-banner__title,
-.localgov-alert-banner--announcement .localgov-alert-banner__title {
+.localgov-alert-banner--announcement .localgov-alert-banner__title,
+.localgov-alert-banner--notable-person .localgov-alert-banner__title {
     color: var(--color-white);
 }
 
@@ -119,4 +120,15 @@ input[type="submit"],
 
 .step-by-step-pages .step-master {
     color: var(--color-black);
+}
+
+.accordion-pane button {
+    background-color: var(--color-link);
+    border-color: var(--color-link);
+}
+
+.accordion-pane button:hover,
+.accordion-pane button:focus {
+    background-color: var(--color-white);
+    color: var(--color-link);
 }
