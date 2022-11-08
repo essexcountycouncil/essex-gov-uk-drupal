@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.localgov_services_landing.body
+    - field.field.node.localgov_services_landing.field_non_publishable_notes
     - field.field.node.localgov_services_landing.localgov_address
     - field.field.node.localgov_services_landing.localgov_address_first_line
     - field.field.node.localgov_services_landing.localgov_common_tasks
@@ -177,6 +178,14 @@ content:
     weight: 5
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_non_publishable_notes:
+    type: text_textarea
+    weight: 101
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
     third_party_settings: {  }
   localgov_address:
     type: text_textarea
