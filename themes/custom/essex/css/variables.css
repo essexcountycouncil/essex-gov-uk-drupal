@@ -48,10 +48,10 @@ body {
   --color-success: #9361b3;
   --heading-2-font-weight: 600;
   --heading-3-font-weight: 600;
-  --header-logo-width: 200px;
+  --header-logo-width: 100%;
   --banner-content-bg-color: #414745;
-  --color-section-pre-footer-bg: transparent;
-  --color-section-header-bg: transparent;
+  --color-section-pre-footer-bg: var(--color-black);
+  --color-section-header-bg: var(--color-white);
   --breadcrumbs-link-color: var(--color-black);
   --quote-author-color: var(--color-black);
   --tabs-button-bg-color: var(--color-grey-lighter);
