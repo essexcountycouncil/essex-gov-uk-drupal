@@ -7,8 +7,8 @@ namespace Drupal\ecc_migrate\Plugin\migrate_plus\data_parser;
  */
 enum sectionOptions {
   case IncludeAll;
-  case ExcludeWithSections;
-  case ExcludeWithoutSections;
+  case IncludeWithoutSections;
+  case IncludeWithSections;
 }
 
 /**
@@ -35,9 +35,9 @@ class ContentfulInformationPages extends JsonContentful {
 
     $this->sectionOptions = sectionOptions::IncludeAll;
     if (isset($configuration['with_sections'])) {
-      $this->sectionOptions = sectionOptions::ExcludeWithoutSections;
-      if ($configuration['with_sections']) {
-        $this->sectionOptions = sectionOptions::ExcludeWithSections;
+      $this->sectionOptions = sectionOptions::IncludeWithSections;
+      if (!$configuration['with_sections']) {
+        $this->sectionOptions = sectionOptions::IncludeWithoutSections;
       }
     }
 
@@ -48,14 +48,18 @@ class ContentfulInformationPages extends JsonContentful {
    */
   protected function getSourceData(string $url): array {
     $data = parent::getSourceData($url);
+    // If we're including all sections, we already have the data we need.
     if ($this->sectionOptions == sectionOptions::IncludeAll) {
       return $data;
     }
-    $data = array_filter($data, function ($node) {
-      // @todo Complete this closure.
-      return TRUE;
+    return array_filter($data, function ($datum) {
+      // Otherwise, filter our data depending on whether the source item has
+      // sections or not.
+      if (empty($datum['fields']['sections'])) {
+        return ($this->sectionOptions == sectionOptions::IncludeWithoutSections);
+      }
+      return ($this->sectionOptions == sectionOptions::IncludeWithSections);
     });
-    return $data;
   }
 
 }
