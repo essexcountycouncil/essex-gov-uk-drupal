@@ -1,4 +1,4 @@
-# Migration configuration for Service Landing Pages.
+# Migration configuration for Service Pages.
 id: ecc_service_pages
 label: Service Pages
 migration_tags:
@@ -7,11 +7,11 @@ migration_tags:
 source:
   plugin: url
   data_fetcher_plugin: file
-  data_parser_plugin: json_contentful
+  data_parser_plugin: contentful_information_pages
   urls:
     - 'private://migration_data/contentful_export.json'
   item_selector: entries
-  content_type: article
+  with_sections: false
   fields:
     -
       name: name
