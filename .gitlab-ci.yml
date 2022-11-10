@@ -30,14 +30,14 @@ build_image:
   rules:
     - if: '$CI_COMMIT_BRANCH == "master"'
 
-# We need a newer version of gitlab to do this :(    
+# We need a newer version of gitlab to do this :(
 # test-build:
 #   stage: test-build
 #   image: docker:20.10
 #   services:
-#     - name: ${DOCKER_REGISTRY}/drupal-fpm:latest 
+#     - name: ${DOCKER_REGISTRY}/drupal-fpm:latest
 #       variables:
-#         MYSQL_DATABASE: ${MYSQL_DATABASE} 
+#         MYSQL_DATABASE: ${MYSQL_DATABASE}
 #         MYSQL_HOST: ${MYSQL_HOST}
 #         MYSQL_USER: ${MYSQL_USER}
 #         MYSQL_PASSWORD: ${MYSQL_PASSWORD}
@@ -45,7 +45,7 @@ build_image:
 #   variables:
 #     DB_CONN_TEST: ""
 #   script:
-#       | 
+#       |
 #       # Performs a basic test on the drupal image to ensure it can connect to the Database
 #       - echo 'Test drupal image for database connectivity....'
 #       - DB_CONN_TEST=$(cat DBTestOutput.txt | grep -E '^Database\s+:\sConnected')
