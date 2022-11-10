@@ -140,3 +140,11 @@ input[type="submit"],
     background-color: var(--color-white);
     color: var(--color-link);
 }
+
+.media-with-text {
+    border: 2px solid var(--color-accent);
+}
+
+.media-with-text__body {
+    padding: 1.75rem;
+}
