@@ -107,6 +107,7 @@ module:
   metatag: 0
   migrate: 0
   migrate_plus: 0
+  migrate_process_markdown_to_html: 0
   mysql: 0
   node: 0
   office_hours: 0
@@ -117,6 +118,7 @@ module:
   path_alias: 0
   preview_link: 0
   quickedit: 0
+  redirect: 0
   responsive_image: 0
   responsive_preview: 0
   role_delegation: 0
