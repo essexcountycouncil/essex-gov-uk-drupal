@@ -8,6 +8,21 @@
         {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "ckeditor/div",
+                "version": "4.10.1",
+                "type": "drupal-library",
+                "extra": {
+                    "installer-name": "ckeditor/plugins/div"
+                },
+                "dist": {
+                    "url": "https://download.ckeditor.com/div/releases/div_4.10.1.zip",
+                    "type": "zip"
+                }
+            }
         }
     ],
     "require": {
@@ -22,7 +37,8 @@
         "drupal/migrate_process_markdown_to_html": "^1",
         "drupal/stage_file_proxy": "^1.2",
         "localgovdrupal/localgov": "^2.0",
-        "wa72/htmlpagedom": "*"
+        "wa72/htmlpagedom": "*",
+        "ckeditor/div": "4.10.1"
     },
     "require-dev": {
         "brianium/paratest": "^6.0",
