@@ -5,6 +5,8 @@ package: Custom
 core_version_requirement: ^9 || ^10
 dependencies:
   - drupal:migrate
+  - migmag:migmag
+  - migmag:migmag_process
   - migrate_plus:migrate_plus
   - migrate_process_markdown_to_html:migrate_process_markdown_to_html
   - redirect:redirect
