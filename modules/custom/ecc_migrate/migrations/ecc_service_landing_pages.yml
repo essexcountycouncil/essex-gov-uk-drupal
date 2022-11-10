@@ -48,11 +48,11 @@ source:
     -
       name: primary_items
       label: 'Primary items'
-      selector: 'fields/subItems'
+      selector: 'fields/subItems/en-GB'
     -
       name: secondary_items
       label: 'Secondary items'
-      selector: 'fields/secondaryItems'
+      selector: 'fields/secondaryItems/en-GB'
     -
       name: parent_page
       label: 'Parent page'
@@ -94,25 +94,44 @@ process:
     plugin: callback
     callable: strtotime
     source: updatedAt
-#  localgov_destinations:
-#    -
-#      plugin: callback
-#      callable: array_merge
-#      source:
-#        - primary_items
-#        - secondary_items
-#      unpack_source: true
-#    -
+  # We use the two intermediaries x and y to convert a missing set of primary
+  # or secondary items from NULL to an empty array.
+  # If we don't do that, the callback to array_merge in localgov_destinations
+  # will throw an unrecoverable exception.
+  'x':
+    plugin: default_value
+    source: primary_items
+    default_value: []
+  'y':
+     plugin: default_value
+     source: secondary_items
+     default_value: []
+  localgov_destinations:
+    -
+      plugin: callback
+      callable: array_merge
+      source:
+        - '@x'
+        - '@y'
+      unpack_source: true
+    -
+      plugin: sub_process
+      process:
+        target_id:
+          plugin: migmag_lookup
+          source: sys/id
+          migration:
+            - ecc_guide_overviews
+            - ecc_service_pages
 #      plugin: extract
 #      index:
-#        - 'en-GB'
 #        - sys
 #        - id
 #    -
 #      plugin: migration_lookup
 #      migration:
-#        -
-#        -
+#        - ecc_guide_overviews
+#        - ecc_service_pages
   localgov_services_parent:
     # Use a static map to filter out the homepage. We are not migrating the
     # homepage and do not wish to stub it in the subsequent migration lookup.
