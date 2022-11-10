@@ -194,6 +194,14 @@ input[type="submit"],
     color: var(--color-link);
 }
 
+.media-with-text {
+    border: 2px solid var(--color-accent);
+}
+
+.media-with-text__body {
+    padding: 1.75rem;
+}
+
 .inset {
     background: #f5f5f5;
     border-left: 12px solid #dee0e2;
