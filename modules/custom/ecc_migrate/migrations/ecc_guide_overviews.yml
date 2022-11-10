@@ -14,9 +14,9 @@ source:
   with_sections: true
   fields:
     -
-      name: name
-      label: 'Name'
-      selector: 'fields/name/en-GB'
+      name: title
+      label: 'Title'
+      selector: 'fields/title/en-GB'
     -
       name: id
       label: 'Contentful ID'
@@ -68,7 +68,7 @@ process:
   type:
     plugin: default_value
     default_value: localgov_services_landing
-  title: name
+  title: title
   # Set the UID according to the updated_by user. This will set the node uid and the revision uid.
   # We then set the uid of the node (not the revision) to be the created_by user in a post migrate event.
   uid:
