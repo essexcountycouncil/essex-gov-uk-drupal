@@ -212,7 +212,7 @@ h2 {
 h1:after,
 h2:after {
     content: '';
-    background-color: #e40037;
+    background-color: var(--color-accent);
     width: 250px;
     height: 8px;
     position: absolute;
