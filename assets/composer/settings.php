@@ -530,7 +530,7 @@ if ($settings['hash_salt']) {
  * See https://www.drupal.org/documentation/modules/file for more information
  * about securing private files.
  */
-$settings['file_private_path'] = '../data/default/private';
+$settings['file_private_path'] = '/drupal/data/default/private';
 
 /**
  * Temporary file path:
@@ -543,7 +543,7 @@ $settings['file_private_path'] = '../data/default/private';
  *
  * @see \Drupal\Component\FileSystem\FileSystem::getOsTemporaryDirectory()
  */
-$settings['file_temp_path'] = '../data/default/temp';
+$settings['file_temp_path'] = '/drupal/data/default/temp';
 
 /**
  * Session write interval:
