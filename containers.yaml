@@ -31,7 +31,7 @@ properties:
       volumeMounts:
       - mountPath: /drupal/web/sites/default/files
         name: filesharevol
-      - mountPath: /drupal/private
+      - mountPath: /drupal/data/default/private
         name: privsharevol
   osType: Linux
   ipAddress:
