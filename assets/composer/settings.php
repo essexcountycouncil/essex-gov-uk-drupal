@@ -761,11 +761,6 @@ $settings['entity_update_backup'] = TRUE;
  *
  * Keep this code block at the end of this file to take full effect.
  */
-if (file_exists($app_root . '/' . $site_path . '/settings.lando.php')) {
-  include $app_root . '/' . $site_path . '/settings.lando.php';
-  $settings['file_private_path'] = '/var/www/html/private';
-  $settings['file_temp_path'] = '/tmp';
-}
 
 // Automatically generated include for settings managed by ddev.
 if (file_exists($app_root . '/' . $site_path . '/settings.ddev.php') && getenv('IS_DDEV_PROJECT') == 'true') {
