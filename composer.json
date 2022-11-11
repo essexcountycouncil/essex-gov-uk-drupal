@@ -90,11 +90,6 @@
                     "path": "assets/composer/settings.php",
                     "overwrite": true
                 },
-                "[web-root]/sites/default/settings.local.php": {
-                    "mode": "replace",
-                    "path": "assets/composer/settings.local.php",
-                    "overwrite": true
-                },
                 "[web-root]/sites/default/settings.lando.php": {
                     "mode": "replace",
                     "path": "assets/composer/settings.lando.php",
