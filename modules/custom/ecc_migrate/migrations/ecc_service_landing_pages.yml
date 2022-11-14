@@ -121,6 +121,7 @@ process:
           plugin: migmag_lookup
           source: sys/id
           migration:
+            - ecc_service_landing_pages
             - ecc_guide_overviews
             - ecc_service_pages
   localgov_services_parent:
