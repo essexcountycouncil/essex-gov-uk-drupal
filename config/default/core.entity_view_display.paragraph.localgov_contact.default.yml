@@ -3,13 +3,12 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.localgov_contact.field_localgov_contact_textphone
     - field.field.paragraph.localgov_contact.localgov_contact_address
     - field.field.paragraph.localgov_contact.localgov_contact_email
     - field.field.paragraph.localgov_contact.localgov_contact_facebook
     - field.field.paragraph.localgov_contact.localgov_contact_heading
     - field.field.paragraph.localgov_contact.localgov_contact_instagram
-    - field.field.paragraph.localgov_contact.localgov_contact_location
-    - field.field.paragraph.localgov_contact.localgov_contact_minicom
     - field.field.paragraph.localgov_contact.localgov_contact_mobile
     - field.field.paragraph.localgov_contact.localgov_contact_office_hours
     - field.field.paragraph.localgov_contact.localgov_contact_other_social
@@ -22,7 +21,7 @@ dependencies:
     - paragraphs.paragraphs_type.localgov_contact
   module:
     - address
-    - geolocation
+    - field_formatter_class
     - link
     - office_hours
     - telephone
@@ -33,6 +32,14 @@ targetEntityType: paragraph
 bundle: localgov_contact
 mode: default
 content:
+  field_localgov_contact_textphone:
+    type: telephone_link
+    label: inline
+    settings:
+      title: ''
+    third_party_settings: {  }
+    weight: 2
+    region: content
   localgov_contact_address:
     type: address_default
     label: above
@@ -79,55 +86,13 @@ content:
     third_party_settings: {  }
     weight: 12
     region: content
-  localgov_contact_location:
-    type: geolocation_map
-    label: hidden
-    settings:
-      set_marker: true
-      common_map: false
-      use_overridden_map_settings: false
-      title: ''
-      info_text: {  }
-      map_provider_id: google_maps
-      map_provider_settings:
-        type: ROADMAP
-        zoom: 13
-        minZoom: 0
-        maxZoom: 18
-        rotateControl: false
-        height: 400px
-        width: 100%
-        gestureHandling: auto
-        mapTypeControl: 1
-        streetViewControl: 1
-        zoomControl: 1
-        scrollwheel: 1
-        draggable: 1
-        info_auto_display: 1
-        style: ''
-        marker_icon_path: ''
-        disableAutoPan: 1
-        fullscreenControl: 0
-        preferScrollingToZooming: 0
-        disableDoubleClickZoom: 0
-    third_party_settings: {  }
-    weight: 15
-    region: content
-  localgov_contact_minicom:
-    type: telephone_link
-    label: inline
-    settings:
-      title: ''
-    third_party_settings: {  }
-    weight: 5
-    region: content
   localgov_contact_mobile:
     type: telephone_link
     label: inline
     settings:
       title: ''
     third_party_settings: {  }
-    weight: 3
+    weight: 4
     region: content
   localgov_contact_office_hours:
     type: office_hours
@@ -135,9 +100,9 @@ content:
     settings:
       day_format: long
       time_format: g
-      compress: false
+      compress: true
       grouped: true
-      show_closed: all
+      show_closed: open
       closed_format: Closed
       separator:
         days: '<br />'
@@ -149,11 +114,17 @@ content:
         position: ''
         open_text: 'Currently open!'
         closed_text: 'Currently closed'
+      exceptions:
+        restrict_exceptions_to_num_days: 7
+        date_format: long
+        title: 'Exception hours'
       timezone_field: ''
       office_hours_first_day: ''
       schema:
         enabled: true
-    third_party_settings: {  }
+    third_party_settings:
+      field_formatter_class:
+        class: ''
     weight: 10
     region: content
   localgov_contact_other_social:
@@ -186,7 +157,7 @@ content:
     settings:
       title: ''
     third_party_settings: {  }
-    weight: 4
+    weight: 5
     region: content
   localgov_contact_phone:
     type: telephone_link
@@ -194,7 +165,7 @@ content:
     settings:
       title: ''
     third_party_settings: {  }
-    weight: 2
+    weight: 3
     region: content
   localgov_contact_subheading:
     type: string

@@ -1,19 +1,17 @@
-uuid: 45ee5bf4-6c3c-4b0f-bc72-c430db942d18
+uuid: b8731e37-716f-407f-a970-1c5b735af47f
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.paragraph.localgov_contact_minicom
+    - field.storage.paragraph.field_localgov_contact_textphone
     - paragraphs.paragraphs_type.localgov_contact
   module:
     - telephone
-_core:
-  default_config_hash: pQM0S946-K2VG3_qC8kyKHbnJLXNaW86BVFQloa9b60
-id: paragraph.localgov_contact.localgov_contact_minicom
-field_name: localgov_contact_minicom
+id: paragraph.localgov_contact.field_localgov_contact_textphone
+field_name: field_localgov_contact_textphone
 entity_type: paragraph
 bundle: localgov_contact
-label: Minicom
+label: Textphone
 description: ''
 required: false
 translatable: false
