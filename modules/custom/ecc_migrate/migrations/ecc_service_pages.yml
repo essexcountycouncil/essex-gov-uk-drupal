@@ -113,17 +113,23 @@ process:
 #      migration:
 #        -
 #        -
-  localgov_services_parent:
-    # Use a static map to filter out the homepage. We are not migrating the
-    # homepage and do not wish to stub it in the subsequent migration lookup.
-    - plugin: static_map
-      source: parent_page
-      map:
-        '4I5peHWWwUWOyoyCAcs4C2': NULL
-      bypass: TRUE
-    -
-      plugin: migration_lookup
-      migration: ecc_service_landing_pages
+
+# temp commented out due to cyclical stuff with ecc_service_landing_pages migration.
+# When running ecc_service_landing_pages, it tries to stub the child pages.
+# That then tries to stub ecc_service_landing_pages with 0 values. Callback throws an exception trying
+# to merge two NULL arrays.
+#  localgov_services_parent:
+#    # Use a static map to filter out the homepage. We are not migrating the
+#    # homepage and do not wish to stub it in the subsequent migration lookup.
+#    - plugin: static_map
+#      source: parent_page
+#      map:
+#        '4I5peHWWwUWOyoyCAcs4C2': NULL
+#      bypass: TRUE
+#    -
+#      plugin: migration_lookup
+#      migration: ecc_service_landing_pages
+
 # These final fields are not saved directly onto the entity but are available for
 # post-migrate events.
   pseudo_uid:
