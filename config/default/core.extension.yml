@@ -105,6 +105,8 @@ module:
   menu_link_content: 0
   menu_ui: 0
   metatag: 0
+  migmag: 0
+  migmag_process: 0
   migrate: 0
   migrate_plus: 0
   migrate_process_markdown_to_html: 0
