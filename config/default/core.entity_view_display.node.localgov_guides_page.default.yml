@@ -31,10 +31,23 @@ content:
     third_party_settings: {  }
     weight: -20
     region: content
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
   links:
     settings: {  }
     third_party_settings: {  }
     weight: 1
+    region: content
+  localgov_page_components:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 2
     region: content
   localgov_page_components:
     type: entity_reference_label
