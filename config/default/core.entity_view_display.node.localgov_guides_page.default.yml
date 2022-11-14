@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.localgov_guides_page.field_non_publishable_notes
     - field.field.node.localgov_guides_page.localgov_guides_parent
     - field.field.node.localgov_guides_page.localgov_guides_section_title
+    - field.field.node.localgov_guides_page.localgov_page_components
     - node.type.localgov_guides_page
   module:
     - text
@@ -28,12 +29,20 @@ content:
   content_moderation_control:
     settings: {  }
     third_party_settings: {  }
-    weight: 0
+    weight: -20
     region: content
   links:
     settings: {  }
     third_party_settings: {  }
     weight: 1
+    region: content
+  localgov_page_components:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 2
     region: content
 hidden:
   field_non_publishable_notes: true

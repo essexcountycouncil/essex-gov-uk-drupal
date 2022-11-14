@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.localgov_guides_page.field_non_publishable_notes
     - field.field.node.localgov_guides_page.localgov_guides_parent
     - field.field.node.localgov_guides_page.localgov_guides_section_title
+    - field.field.node.localgov_guides_page.localgov_page_components
     - node.type.localgov_guides_page
   module:
     - text
@@ -27,9 +28,15 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
 hidden:
   field_non_publishable_notes: true
   links: true
   localgov_guides_parent: true
   localgov_guides_section_title: true
+  localgov_page_components: true
   search_api_excerpt: true

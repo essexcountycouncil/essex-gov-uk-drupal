@@ -10,6 +10,7 @@ dependencies:
     - field.field.node.localgov_guides_overview.localgov_guides_list_format
     - field.field.node.localgov_guides_overview.localgov_guides_pages
     - field.field.node.localgov_guides_overview.localgov_guides_section_title
+    - field.field.node.localgov_guides_overview.localgov_page_components
     - field.field.node.localgov_guides_overview.localgov_services_parent
     - field.field.node.localgov_guides_overview.localgov_topic_classified
     - node.type.localgov_guides_overview
@@ -29,6 +30,11 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 0
+    region: content
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
     region: content
   localgov_guides_description:
     type: basic_string
@@ -73,4 +79,5 @@ hidden:
   field_non_publishable_notes: true
   links: true
   localgov_guides_list_format: true
+  localgov_page_components: true
   search_api_excerpt: true

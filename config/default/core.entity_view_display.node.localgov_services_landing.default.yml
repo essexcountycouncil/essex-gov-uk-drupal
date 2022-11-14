@@ -8,15 +8,9 @@ dependencies:
     - field.field.node.localgov_services_landing.localgov_address
     - field.field.node.localgov_services_landing.localgov_address_first_line
     - field.field.node.localgov_services_landing.localgov_common_tasks
-    - field.field.node.localgov_services_landing.localgov_contact_us_online
     - field.field.node.localgov_services_landing.localgov_destinations
-    - field.field.node.localgov_services_landing.localgov_email_address
     - field.field.node.localgov_services_landing.localgov_facebook
-    - field.field.node.localgov_services_landing.localgov_hearing_difficulties_ph
     - field.field.node.localgov_services_landing.localgov_link_to_map
-    - field.field.node.localgov_services_landing.localgov_opening_hours
-    - field.field.node.localgov_services_landing.localgov_other_team_contacts
-    - field.field.node.localgov_services_landing.localgov_phone
     - field.field.node.localgov_services_landing.localgov_popular_topics
     - field.field.node.localgov_services_landing.localgov_services_parent
     - field.field.node.localgov_services_landing.localgov_twitter
@@ -64,14 +58,6 @@ content:
     third_party_settings: {  }
     weight: 1
     region: content
-  localgov_email_address:
-    type: string
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 5
-    region: content
   localgov_facebook:
     type: string
     label: hidden
@@ -79,14 +65,6 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     weight: 7
-    region: content
-  localgov_hearing_difficulties_ph:
-    type: string
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 10
     region: content
   localgov_link_to_map:
     type: link
@@ -99,21 +77,6 @@ content:
       target: ''
     third_party_settings: {  }
     weight: 9
-    region: content
-  localgov_opening_hours:
-    type: text_default
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    weight: 2
-    region: content
-  localgov_phone:
-    type: string
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 6
     region: content
   localgov_popular_topics:
     type: taxonomy_vertical_list
@@ -144,6 +107,4 @@ hidden:
   field_non_publishable_notes: true
   links: true
   localgov_common_tasks: true
-  localgov_contact_us_online: true
-  localgov_other_team_contacts: true
   search_api_excerpt: true
