@@ -1,39 +1,6 @@
-.lgd-header {
-    background-image: url('../assets/images/red-gradient-curve-xl.png');
-    background-position: 0 0;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
 
-.lgd-footer__pre-footer {
-    background-image: url('../assets/images/grey-gradient-xl.png');
-    background-position: 0 0;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-@media only screen and (max-width: 767px) {
-    .lgd-header {
-        background-image: url('../assets/images/red-gradient-curve-sm.png');
-    }
-
-    .lgd-header__nav--primary {
-        margin-top: 2rem;
-    }
-
-    .lgd-footer__pre-footer {
-        background-image: url('../assets/images/grey-gradient-sm.png');
-    }
-}
-
-@media only screen and (min-width: 768px) and (max-width: 1024px) {
-    .lgd-header {
-        background-image: url('../assets/images/red-gradient-curve-lg.png');
-    }
-
-    .lgd-footer__pre-footer {
-        background-image: url('../assets/images/grey-gradient-lg.png');
-    }
+.views-col:nth-child(2) {
+    padding: 0 2rem;
 }
 
 .localgov-alert-banner {
@@ -50,27 +17,121 @@
     color: var(--color-white);
 }
 
+.localgov-alert-banner__actions {
+    align-items: flex-start;
+}
+
+.localgov-alert-banner__close {
+    font-weight: 400;
+    font-size: 0.8rem;
+}
+
+.banner--primary .banner__content {
+    border: 1px solid var(--color-black);
+    margin-top: -3rem;
+}
+
+.lgd-header {
+    padding-top: 2.5rem;
+    padding-bottom: 1.25rem;
+}
+
+.localgov-alert-banner--major .localgov-alert-banner__title,
+.localgov-alert-banner--announcement .localgov-alert-banner__title,
+.localgov-alert-banner--notable-person .localgov-alert-banner__title {
+    color: var(--color-white);
+}
+
+.lgd-header {
+    padding-top: 2.5rem;
+    padding-bottom: 1.25rem;
+}
+
+@media only screen and (min-width: 768px) {
+    .lgd-header {
+        padding-top: 3.5rem;
+        padding-bottom: 2rem;
+    }
+}
+
+.lgd-header__inner {
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+.lgd-header .lgd-region--header,
+.lgd-header__toggles {
+    margin: 0;
+}
+
+.lgd-header__toggle {
+    color: var(--color-black);
+    border-color: var(--color-black);
+    margin-left: 3rem;
+}
+
+.lgd-header .branding {
+    max-width: 460px;
+}
+
+.lgd-header__inner {
+    justify-content: start;
+}
+
+.localgov-alert-banner {
+    margin: var(--spacing-large);
+}
+
+.branding__item--logo a {
+    display: block; 
+}
+
+.branding__item--logo a:focus {
+    box-shadow: 0 0 0 3px var(--color-black);
+    outline: none;
+}
+
+.menu--main > .menu-item a {
+    color: var(--color-black);
+    font-weight: 600;
+}
+
+.banner__image img {
+    max-height: 350px;
+}
+
 .lgd-guide-nav .lgd-guide-nav__list-item > a {
     font-weight: 600;
 }
 
-.service-cta-block .service-cta-block__link--cta-info {
-    background-color: var(--color-link);
-}
-  
+.service-cta-block .service-cta-block__link--cta-info,
 .service-cta-block .service-cta-block__link--cta-action {
-    background-color: var(--color-black);
+    background-color: var(--btn-start-bg-color);
+    border: 1px solid var(--btn-start-bg-color);
+}
+
+.service-cta-block .service-cta-block__link--cta-info,
+.service-cta-block .service-cta-block__link--cta-action,
+.btn.btn-start {
+    font-weight: 600;
+    font-size: 1.2rem;
+    line-height: inherit;
+}
+
+.btn-start:after {
+    font-weight: 400;
 }
   
 .service-cta-block .service-cta-block__link:hover,
 .service-cta-block .service-cta-block__link:focus {
-    background-color: var(--color-focus);
-    color: var(--color-black);
+    background-color: var(--color-white);
+    color: var(--btn-start-bg-color);
+    border-color: var(--btn-start-bg-color);
 }
   
 .service-cta-block .service-cta-block__link:hover .service-cta-block__link-icon svg path,
 .service-cta-block .service-cta-block__link:focus .service-cta-block__link-icon svg path {
-    fill: var(--color-black);
+    fill: var(--btn-start-bg-color);
 }
   
 .service-statuses__label {
@@ -78,12 +139,12 @@
     font-weight: 600;
 }
   
-.call-out-box__content {
-    background: var(--call-out-box-bg-color)
-}
-  
 .call-out-box__content h2 {
     color: var(--color-white);
+}
+
+.call-out-box__link {
+    color: var(--color-link);
 }
   
 p.callout {
@@ -115,7 +176,7 @@ input[type="submit"],
 }
 
 .service-landing-page__contact {
-    border-color: var(--color-link);
+    background-color: var(--color-white);
 }
 
 .step-by-step-pages .step-master {
@@ -131,4 +192,45 @@ input[type="submit"],
 .accordion-pane button:focus {
     background-color: var(--color-white);
     color: var(--color-link);
+}
+
+.media-with-text {
+    border: 2px solid var(--color-accent);
+}
+
+.media-with-text__body {
+    padding: 1.75rem;
+}
+
+.inset {
+    background: #f5f5f5;
+    border-left: 12px solid #dee0e2;
+    padding: 1.625rem 7.5px;
+    margin-bottom: 1.625rem;
+    line-height: 1.625rem;
+}
+
+h1,
+h2 {
+    position: relative;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+}
+
+h1:after,
+h2:after {
+    content: '';
+    background-color: var(--color-accent);
+    width: 250px;
+    height: 8px;
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+}
+
+.service-landing-page__contact h2:after,
+.localgov-alert-banner h2:after,
+.call-out-box h2:after,
+.service-landing-page__sidebar h2:after {
+    content: none;
 }

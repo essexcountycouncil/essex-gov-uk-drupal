@@ -5,7 +5,7 @@ features:
   favicon: 1
 logo:
   use_default: 0
-  path: themes/custom/essex/assets/images/seax.png
+  path: themes/custom/essex/assets/images/ESS_logo_long_red.svg
 favicon:
   use_default: 1
 localgov_base_remove_css: 0

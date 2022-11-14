@@ -9,6 +9,7 @@ module:
   block_content: 0
   breakpoint: 0
   ckeditor: 0
+  ckeditor_div_manager: 0
   condition_field: 0
   config: 0
   content_moderation: 0
@@ -106,6 +107,7 @@ module:
   metatag: 0
   migrate: 0
   migrate_plus: 0
+  migrate_process_markdown_to_html: 0
   mysql: 0
   node: 0
   office_hours: 0
@@ -116,6 +118,7 @@ module:
   path_alias: 0
   preview_link: 0
   quickedit: 0
+  redirect: 0
   responsive_image: 0
   responsive_preview: 0
   role_delegation: 0

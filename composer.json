@@ -8,11 +8,27 @@
         {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "ckeditor/div",
+                "version": "4.10.1",
+                "type": "drupal-library",
+                "extra": {
+                    "installer-name": "ckeditor/plugins/div"
+                },
+                "dist": {
+                    "url": "https://download.ckeditor.com/div/releases/div_4.10.1.zip",
+                    "type": "zip"
+                }
+            }
         }
     ],
     "require": {
         "composer/installers": "^1.10",
         "cweagans/composer-patches": "^1.6",
+        "drupal/ckeditor_div_manager": "^2.0",
         "drupal/config_split": "^2.0@RC",
         "drupal/core-composer-scaffold": "^9.1",
         "drupal/core-project-message": "^9.1",
@@ -22,7 +38,8 @@
         "drupal/migrate_process_markdown_to_html": "^1",
         "drupal/stage_file_proxy": "^1.2",
         "localgovdrupal/localgov": "^2.0",
-        "wa72/htmlpagedom": "*"
+        "wa72/htmlpagedom": "*",
+        "ckeditor/div": "4.10.1"
     },
     "require-dev": {
         "brianium/paratest": "^6.0",
@@ -72,11 +89,6 @@
                 "[web-root]/sites/default/settings.php": {
                     "mode": "replace",
                     "path": "assets/composer/settings.php",
-                    "overwrite": true
-                },
-                "[web-root]/sites/default/settings.local.php": {
-                    "mode": "replace",
-                    "path": "assets/composer/settings.local.php",
                     "overwrite": true
                 },
                 "[web-root]/sites/default/settings.lando.php": {
