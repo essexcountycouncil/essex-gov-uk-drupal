@@ -42,6 +42,38 @@
     color: var(--color-white);
 }
 
+.localgov-alert-banner .localgov-alert-banner__title {
+    padding-bottom: 0;
+    margin-bottom: 1rem;
+}
+
+.localgov-alert-banner .localgov-alert-banner__inner {
+    background-position: 0 35px;
+    background-repeat: no-repeat;
+    background-size: 35px;
+    padding-left: 3rem;
+    padding-top: 2rem;
+}
+
+@media only screen and (min-width: 768px) {
+    .localgov-alert-banner .localgov-alert-banner__inner {
+        background-size: 45px;
+        padding-left: 9rem;
+    }
+}
+
+.localgov-alert-banner--major .localgov-alert-banner__inner {
+    background-image: url('../assets/images/icons/warning_white_triangle.svg');
+}
+
+.localgov-alert-banner--announcement .localgov-alert-banner__inner {
+    background-image: url('../assets/images/icons/info_white.svg');
+}
+
+.localgov-alert-banner--minor .localgov-alert-banner__inner {
+    background-image: url('../assets/images/icons/warning_white_round.svg');
+}
+
 .lgd-header {
     padding-top: 2.5rem;
     padding-bottom: 1.25rem;
@@ -112,14 +144,37 @@
 
 .service-cta-block .service-cta-block__link--cta-info,
 .service-cta-block .service-cta-block__link--cta-action,
-.btn.btn-start {
+.button-start {
     font-weight: 600;
     font-size: 1.2rem;
     line-height: inherit;
 }
 
-.btn-start:after {
+.button-start {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--btn-start-padding-vertical) var(--btn-start-padding-horizontal);
+    text-decoration: none;
+    color: var(--btn-start-color);
+    border: var(--btn-start-border);
+    border-color: var(--btn-start-border-color);
+    background-color: var(--btn-start-bg-color);
+    line-height: 1;
+}
+
+.button-start:after {
+    position: relative;
+    top: var(--btn-start-icon-top);
+    margin-left: 0.5rem;
+    content: var(--btn-start-icon);
+    font-size: var(--btn-start-icon-size);
+    line-height: 0;
     font-weight: 400;
+}
+
+.button-start:hover {
+    color: var(--btn-start-color-hover);
+    background-color: var(--btn-start-bg-color-hover);
 }
   
 .service-cta-block .service-cta-block__link:hover,
@@ -231,6 +286,9 @@ h2:after {
 .service-landing-page__contact h2:after,
 .localgov-alert-banner h2:after,
 .call-out-box h2:after,
-.service-landing-page__sidebar h2:after {
+.service-landing-page__sidebar h2:after,
+.media-with-text h2:after,
+.service-statuses h2:after,
+.sidebar h2:after {
     content: none;
 }
