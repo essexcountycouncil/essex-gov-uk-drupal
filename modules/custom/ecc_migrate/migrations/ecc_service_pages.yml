@@ -88,6 +88,8 @@ process:
     -
       plugin: markdown_to_html
       source: body
+      markdown_extensions:
+        - table
     -
       plugin: map_asset_urls
     -
