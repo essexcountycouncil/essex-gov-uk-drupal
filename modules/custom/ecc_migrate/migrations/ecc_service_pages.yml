@@ -57,6 +57,10 @@ source:
       name: parent_page
       label: 'Parent page'
       selector: 'fields/parentPage/en-GB/sys/id'
+    -
+      name: body
+      label: 'Body'
+      selector: 'fields/body/en-GB'
   ids:
     id:
       type: string
@@ -80,6 +84,16 @@ process:
     plugin: default_value
     default_value: wysiwyg
   'body/summary': teaser
+  'body/value':
+    -
+      plugin: markdown_to_html
+      source: body
+    -
+      plugin: map_asset_urls
+    -
+      plugin: map_youtube_embeds
+    -
+      plugin: strip_styles
   status:
     plugin: default_value
     default_value: 1
@@ -118,3 +132,5 @@ process:
 migration_dependencies:
   required:
     - ecc_users
+    - ecc_youtube_embeds
+    - ecc_image_media
