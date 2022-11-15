@@ -46,14 +46,6 @@ source:
       label: 'Updated at'
       selector: 'sys/updatedAt'
     -
-      name: primary_items
-      label: 'Primary items'
-      selector: 'fields/subItems'
-    -
-      name: secondary_items
-      label: 'Secondary items'
-      selector: 'fields/secondaryItems'
-    -
       name: parent_page
       label: 'Parent page'
       selector: 'fields/parentPage/en-GB/sys/id'
