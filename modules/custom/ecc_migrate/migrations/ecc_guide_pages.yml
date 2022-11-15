@@ -86,6 +86,10 @@ process:
     plugin: callback
     callable: strtotime
     source: updatedAt
+  localgov_guides_parent:
+    plugin: migration_lookup
+    source: parent_page
+    migration: ecc_guide_overviews
 # todo verify this is used in post migrate event
   pseudo_uid:
     plugin: migration_lookup
