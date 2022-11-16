@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "55ca336df577a6737e2eba9a3e8ac543",
+    "content-hash": "da4e05fe7cf4f1047c7e00ff69ff768b",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -5189,6 +5189,67 @@
                 "source": "https://git.drupalcode.org/project/metatag",
                 "issues": "https://www.drupal.org/project/issues/metatag",
                 "docs": "https://www.drupal.org/docs/8/modules/metatag"
+            }
+        },
+        {
+            "name": "drupal/migmag",
+            "version": "1.8.1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/migmag.git",
+                "reference": "1.8.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/migmag-1.8.1.zip",
+                "reference": "1.8.1",
+                "shasum": "d944bb896ff84d3df5d5177febacd5b3559955b1"
+            },
+            "require": {
+                "drupal/core": "^8.9 || ^9 || ^10"
+            },
+            "replace": {
+                "drupal/migmag_callback_upgrade": "self.version",
+                "drupal/migmag_menu_link_migrate": "self.version",
+                "drupal/migmag_process": "self.version",
+                "drupal/migmag_process_lookup_replace": "self.version",
+                "drupal/migmag_rollbackable": "self.version",
+                "drupal/migmag_rollbackable_replace": "self.version"
+            },
+            "require-dev": {
+                "drupal/eme": "^1@alpha",
+                "drupal/migmag_process": "*",
+                "drupal/migmag_rollbackable": "*",
+                "drupal/smart_sql_idmap": "^1.1@beta",
+                "drupal/tecla": "^1@RC",
+                "drush/drush": "^10 || ^11"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "1.8.1",
+                    "datestamp": "1659090450",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "huzooka",
+                    "homepage": "https://www.drupal.org/user/281301"
+                }
+            ],
+            "description": "Toolset and utilities for Drupal migrations.",
+            "homepage": "https://www.drupal.org/project/migmag",
+            "support": {
+                "source": "https://git.drupalcode.org/project/migmag",
+                "issues": "https://www.drupal.org/project/issues/migmag"
             }
         },
         {
