@@ -45,6 +45,10 @@ source:
       name: parent_page
       label: 'Parent page'
       selector: 'fields/parentPage/en-GB/sys/id'
+    -
+      name: body
+      label: 'Body'
+      selector: 'fields/body/en-GB'
   ids:
     id:
       type: string
@@ -61,13 +65,27 @@ process:
   title: title
   # Set the UID according to the updated_by user. This will set the node uid and the revision uid.
   # We then set the uid of the node (not the revision) to be the created_by user in a post migrate event.
+  localgov_guides_section_title: title
   uid:
     plugin: migration_lookup
     migration: ecc_users
     source: updated_by
     no_stub: true
-# todo map body field.
-#  'body/value':
+  'body/value':
+    -
+      plugin: skip_on_empty
+      method: process
+      source: body
+    -
+      plugin: markdown_to_html
+      markdown_extensions:
+        - table
+    -
+      plugin: map_asset_urls
+    -
+      plugin: map_youtube_embeds
+    -
+      plugin: strip_styles
   'body/format':
     plugin: default_value
     default_value: wysiwyg
