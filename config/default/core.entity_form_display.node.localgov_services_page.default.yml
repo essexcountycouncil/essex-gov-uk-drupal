@@ -5,6 +5,7 @@ dependencies:
   config:
     - entity_browser.browser.page_components
     - field.field.node.localgov_services_page.body
+    - field.field.node.localgov_services_page.field_non_publishable_notes
     - field.field.node.localgov_services_page.localgov_common_tasks
     - field.field.node.localgov_services_page.localgov_download_links
     - field.field.node.localgov_services_page.localgov_hide_related_topics
@@ -14,10 +15,13 @@ dependencies:
     - field.field.node.localgov_services_page.localgov_services_parent
     - field.field.node.localgov_services_page.localgov_topic_classified
     - node.type.localgov_services_page
+    - workflows.workflow.localgov_editorial
   module:
+    - content_moderation
     - entity_browser
     - field_group
     - link_attributes
+    - localgov_review_date
     - localgov_services
     - path
     - text
@@ -29,6 +33,7 @@ third_party_settings:
         - title
         - body
         - localgov_page_components
+        - field_non_publishable_notes
       label: Content
       region: content
       parent_name: group_tabs
@@ -79,7 +84,7 @@ third_party_settings:
       label: tabs
       region: content
       parent_name: ''
-      weight: 6
+      weight: 7
       format_type: tabs
       format_settings:
         classes: ''
@@ -104,9 +109,17 @@ content:
     third_party_settings: {  }
   created:
     type: datetime_timestamp
-    weight: 1
+    weight: 2
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_non_publishable_notes:
+    type: text_textarea
+    weight: 11
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
     third_party_settings: {  }
   localgov_common_tasks:
     type: link_with_type
@@ -159,6 +172,12 @@ content:
         class: false
         accesskey: false
     third_party_settings: {  }
+  localgov_review_date:
+    type: review_date
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   localgov_services_parent:
     type: entity_reference_autocomplete
     weight: 7
@@ -187,27 +206,27 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 4
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
-    weight: 2
+    weight: 3
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 5
+    weight: 6
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
-    weight: 3
+    weight: 4
     region: content
     settings:
       display_label: true
@@ -222,7 +241,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 0
+    weight: 1
     region: content
     settings:
       match_operator: CONTAINS
