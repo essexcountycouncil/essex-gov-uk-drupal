@@ -124,4 +124,3 @@ process:
 migration_dependencies:
   required:
     - ecc_users
-    - ecc_guide_pages
