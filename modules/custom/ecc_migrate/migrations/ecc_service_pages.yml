@@ -57,6 +57,10 @@ source:
       name: parent_page
       label: 'Parent page'
       selector: 'fields/parentPage/en-GB/sys/id'
+    -
+      name: body
+      label: 'Body'
+      selector: 'fields/body/en-GB'
   ids:
     id:
       type: string
@@ -80,6 +84,18 @@ process:
     plugin: default_value
     default_value: wysiwyg
   'body/summary': teaser
+  'body/value':
+    -
+      plugin: markdown_to_html
+      source: body
+      markdown_extensions:
+        - table
+    -
+      plugin: map_asset_urls
+    -
+      plugin: map_youtube_embeds
+    -
+      plugin: strip_styles
   status:
     plugin: default_value
     default_value: 1
@@ -94,41 +110,13 @@ process:
     plugin: callback
     callable: strtotime
     source: updatedAt
-#  localgov_destinations:
-#    -
-#      plugin: callback
-#      callable: array_merge
-#      source:
-#        - primary_items
-#        - secondary_items
-#      unpack_source: true
-#    -
-#      plugin: extract
-#      index:
-#        - 'en-GB'
-#        - sys
-#        - id
-#    -
-#      plugin: migration_lookup
-#      migration:
-#        -
-#        -
-
-# temp commented out due to cyclical stuff with ecc_service_landing_pages migration.
-# When running ecc_service_landing_pages, it tries to stub the child pages.
-# That then tries to stub ecc_service_landing_pages with 0 values. Callback throws an exception trying
-# to merge two NULL arrays.
-#  localgov_services_parent:
-#    # Use a static map to filter out the homepage. We are not migrating the
-#    # homepage and do not wish to stub it in the subsequent migration lookup.
-#    - plugin: static_map
-#      source: parent_page
-#      map:
-#        '4I5peHWWwUWOyoyCAcs4C2': NULL
-#      bypass: TRUE
-#    -
-#      plugin: migration_lookup
-#      migration: ecc_service_landing_pages
+  localgov_services_parent:
+    plugin: migmag_lookup
+    source: parent_page
+    migration:
+      - ecc_service_landing_pages
+      - ecc_service_pages
+      - ecc_guide_overviews
 
 # These final fields are not saved directly onto the entity but are available for
 # post-migrate events.
@@ -146,3 +134,5 @@ process:
 migration_dependencies:
   required:
     - ecc_users
+    - ecc_youtube_embeds
+    - ecc_image_media
