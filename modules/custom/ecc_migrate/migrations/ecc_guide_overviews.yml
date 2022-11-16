@@ -49,6 +49,10 @@ source:
       name: parent_page
       label: 'Parent page'
       selector: 'fields/parentPage/en-GB/sys/id'
+    -
+      name: sections
+      label: 'Sections'
+      selector: 'fields/sections/en-GB'
   ids:
     id:
       type: string
@@ -86,26 +90,15 @@ process:
     plugin: callback
     callable: strtotime
     source: updatedAt
-#  localgov_destinations:
-#    -
-#      plugin: callback
-#      callable: array_merge
-#      source:
-#        - primary_items
-#        - secondary_items
-#      unpack_source: true
-#    -
-#      plugin: extract
-#      index:
-#        - 'en-GB'
-#        - sys
-#        - id
-#    -
-#      plugin: migration_lookup
-#      migration:
-#        -
-#        -
-
+  localgov_guides_pages:
+    plugin: sub_process
+    source: sections
+    process:
+      target_id:
+        plugin: migration_lookup
+        source: sys/id
+        migration:
+          - ecc_guide_pages
   localgov_services_parent:
     plugin: migmag_lookup
     source: parent_page
@@ -127,6 +120,8 @@ process:
       - constants/legacy_url_base
       - slug
     delimiter: /
+  sections: sections
 migration_dependencies:
   required:
     - ecc_users
+    - ecc_guide_pages

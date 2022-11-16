@@ -6,6 +6,7 @@ use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\migrate\Event\MigrateEvents;
 use Drupal\migrate\Event\MigratePostRowSaveEvent;
+use Drupal\migrate\MigrateLookupInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 /**
@@ -32,11 +33,13 @@ class EccMigrateSubscriber implements EventSubscriberInterface {
    *
    * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entityTypeManager
    *   Used for obtaining node storage.
+   * @param \Drupal\migrate\MigrateLookupInterface $migrateLookup
+   *   Migrate lookup service.
    *
    * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
    * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    */
-  public function __construct(EntityTypeManagerInterface $entityTypeManager) {
+  public function __construct(EntityTypeManagerInterface $entityTypeManager, protected MigrateLookupInterface $migrateLookup) {
     $this->nodeStorage = $entityTypeManager->getStorage('node');
     $this->redirectStorage = $entityTypeManager->getStorage('redirect');
   }
@@ -54,6 +57,7 @@ class EccMigrateSubscriber implements EventSubscriberInterface {
   public function onPostRowSave(MigratePostRowSaveEvent $event) {
     $this->setAuthors($event);
     $this->createLegacyRedirect($event);
+    $this->reorderGuidePages($event);
   }
 
   /**
@@ -112,6 +116,60 @@ class EccMigrateSubscriber implements EventSubscriberInterface {
       'redirect_redirect' => 'internal:/node/' . $event->getDestinationIdValues()[0],
       'status_code' => '301',
     ])->save();
+  }
+
+  /**
+   * Reorder the child guide pages of an overview after migration.
+   *
+   * This is necessary because the order of guide pages contained within a
+   * guide overview comes from the Sections field of the ecc_guide_overviews
+   * migration. But, because of the way LocalGov Drupal maintains
+   * back-references, the guide pages are attributed to guide overviews in the
+   * evv_guide_pages migration. This means that the order cannot be set when
+   * that relationship was made.
+   *
+   * Therefore, we have a post-row save event on the ecc_guide_overviews
+   * migration, when the guide overview has all its pages assigned, but they
+   * are not in the correct order. We then have to compare the guide pages we
+   * have with the order specified in the sections field of the
+   * ecc_guide_overviews migration, and re-save the node in that order.
+   *
+   * Note that the source system does not enforce that guide pages with a given
+   * parent are reciprocally children of that parent. So the sections field
+   * may contain references that are not saved against the row.
+   *
+   * @param \Drupal\migrate\Event\MigratePostRowSaveEvent $event
+   *   Post row save event.
+   *
+   * @throws \Drupal\Component\Plugin\Exception\PluginException
+   * @throws \Drupal\Core\Entity\EntityStorageException
+   * @throws \Drupal\migrate\MigrateException
+   */
+  public function reorderGuidePages(MigratePostRowSaveEvent $event) {
+    if ($event->getMigration()->getPluginId() != 'ecc_guide_overviews') {
+      return;
+    }
+    $node = $this->nodeStorage->load($event->getDestinationIdValues()[0]);
+    $row = $event->getRow();
+    $unsorted_target_ids = [];
+    foreach ($node->localgov_guides_pages as $entity_reference) {
+      $unsorted_target_ids[] = $entity_reference->target_id;
+    }
+    if (!$unsorted_target_ids) {
+      return;
+    }
+    $sorted_target_ids = [];
+    foreach ($row->get('sections') as $section) {
+      $section_nid = $this->migrateLookup->lookup(['ecc_guide_pages'], [$section['sys']['id']]);
+      $section_nid = reset($section_nid);
+      if (in_array($section_nid['nid'], $unsorted_target_ids)) {
+        $sorted_target_ids[] = $section_nid['nid'];
+      }
+    }
+    if ($sorted_target_ids) {
+      $node->localgov_guides_pages = $sorted_target_ids;
+      $node->save();
+    }
   }
 
   /**
