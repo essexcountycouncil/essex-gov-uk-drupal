@@ -179,6 +179,20 @@ class EccMigrateSubscriber implements EventSubscriberInterface {
       $guide_overview_node->set('localgov_guides_pages', $sorted_guide_page_nids);
       $guide_overview_node->save();
     }
+
+    // There is another post-migrate issue to deal with for guide overviews and
+    // pages; the guide pages are migrated first and stub the guide overviews as
+    // their parent page. This means the titles of the guide overviews are
+    // random when the guide pages are saved. Because the guide pages use the
+    // parent guide overview title in their path, they are saved with a path
+    // like /askjdhaksjdhakdhaksjdhasd/help-with-your-blue-badge.
+    //
+    // In order to correct these paths, we re-save all the guide section parents
+    // at this point in time, when we know we have a real parent guide overview
+    // in place for them.
+    foreach ($unsorted_guide_page_nids as $nid) {
+      $this->nodeStorage->load($nid)->save();
+    }
   }
 
   /**
