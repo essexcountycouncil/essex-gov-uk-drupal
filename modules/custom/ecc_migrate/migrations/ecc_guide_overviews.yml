@@ -72,6 +72,9 @@ process:
     migration: ecc_users
     source: updated_by
     no_stub: true
+  localgov_guides_section_title:
+    plugin: default_value
+    default_value: 'Overview'
   'body/format':
     plugin: default_value
     default_value: wysiwyg
