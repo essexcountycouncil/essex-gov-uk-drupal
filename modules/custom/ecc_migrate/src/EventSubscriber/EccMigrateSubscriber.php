@@ -149,26 +149,35 @@ class EccMigrateSubscriber implements EventSubscriberInterface {
     if ($event->getMigration()->getPluginId() != 'ecc_guide_overviews') {
       return;
     }
-    $node = $this->nodeStorage->load($event->getDestinationIdValues()[0]);
+    // Get the current unsorted list of node IDs...
+    /** @var \Drupal\node\NodeInterface $guide_overview_node */
+    $guide_overview_node = $this->nodeStorage->load($event->getDestinationIdValues()[0]);
     $row = $event->getRow();
-    $unsorted_target_ids = [];
-    foreach ($node->localgov_guides_pages as $entity_reference) {
-      $unsorted_target_ids[] = $entity_reference->target_id;
+    $unsorted_guide_page_nids = [];
+    foreach ($guide_overview_node->get('localgov_guides_pages') as $entity_reference) {
+      $unsorted_guide_page_nids[] = $entity_reference->target_id;
     }
-    if (!$unsorted_target_ids) {
+    if (!$unsorted_guide_page_nids) {
       return;
     }
-    $sorted_target_ids = [];
+    // ..then get the sorted list of source IDs from the migration..
+    $sorted_guide_page_nids = [];
     foreach ($row->get('sections') as $section) {
+      // .. and convert each to its destination ID..
       $section_nid = $this->migrateLookup->lookup(['ecc_guide_pages'], [$section['sys']['id']]);
-      $section_nid = reset($section_nid);
-      if (in_array($section_nid['nid'], $unsorted_target_ids)) {
-        $sorted_target_ids[] = $section_nid['nid'];
+      $section_nid = reset($section_nid)['nid'];
+      // ..and if the destination ID is in the unsorted list..
+      if (in_array($section_nid, $unsorted_guide_page_nids)) {
+        // ..add it to the sorted list.
+        $sorted_guide_page_nids[] = $section_nid;
       }
     }
-    if ($sorted_target_ids) {
-      $node->localgov_guides_pages = $sorted_target_ids;
-      $node->save();
+    // If we actually made a sorted list with anything in it..
+    if ($sorted_guide_page_nids) {
+      // ..save it against the guide overview page so that all the guide pages
+      // ..are listed in the same order as the source system.
+      $guide_overview_node->set('localgov_guides_pages', $sorted_guide_page_nids);
+      $guide_overview_node->save();
     }
   }
 
