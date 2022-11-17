@@ -10,6 +10,10 @@
             "url": "https://packages.drupal.org/8"
         },
         {
+            "type": "github",
+            "url":  "https://github.com/essexcountycouncil/content_ownership"
+        },
+        {
             "type": "package",
             "package": {
                 "name": "ckeditor/div",
@@ -38,6 +42,7 @@
         "drupal/migrate_plus": "^6.0",
         "drupal/migrate_process_markdown_to_html": "^1",
         "drupal/stage_file_proxy": "^1.2",
+        "essexcountycouncil/content_ownership": "dev-main",
         "localgovdrupal/localgov": "^2.0",
         "wa72/htmlpagedom": "*"
     },
