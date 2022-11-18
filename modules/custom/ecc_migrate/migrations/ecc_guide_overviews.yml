@@ -79,6 +79,7 @@ process:
     plugin: default_value
     default_value: wysiwyg
   'body/summary': teaser
+  localgov_guides_description: teaser
   status:
     plugin: default_value
     default_value: 1
