@@ -8,15 +8,33 @@
         {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "ckeditor/div",
+                "version": "4.10.1",
+                "type": "drupal-library",
+                "extra": {
+                    "installer-name": "ckeditor/plugins/div"
+                },
+                "dist": {
+                    "url": "https://download.ckeditor.com/div/releases/div_4.10.1.zip",
+                    "type": "zip"
+                }
+            }
         }
     ],
     "require": {
+        "ckeditor/div": "4.10.1",
         "composer/installers": "^1.10",
         "cweagans/composer-patches": "^1.6",
+        "drupal/ckeditor_div_manager": "^2.0",
         "drupal/config_split": "^2.0@RC",
         "drupal/core-composer-scaffold": "^9.1",
         "drupal/core-project-message": "^9.1",
         "drupal/core-recommended": "^9.1",
+        "drupal/migmag": "^1.8",
         "drupal/migrate_plus": "^6.0",
         "drupal/migrate_process_markdown_to_html": "^1",
         "drupal/stage_file_proxy": "^1.2",
@@ -61,6 +79,9 @@
         "patches": {
             "drupal/core": {
                 "Allow an install hook in profiles installing from configuration. See https://www.drupal.org/project/drupal/issues/2982052": "https://www.drupal.org/files/issues/2022-05-19/2982052-80.patch"
+            },
+            "drupal/migmag": {
+                "Fix migmag_lookup exception when stubbing non-sql sources. See https://www.drupal.org/project/migmag/issues/3321292#comment-14785506": "https://www.drupal.org/files/issues/2022-11-14/migmag-remove_double_prepareRow-3321292_3.patch"
             }
         },
         "drupal-scaffold": {
@@ -72,16 +93,6 @@
                     "mode": "replace",
                     "path": "assets/composer/settings.php",
                     "overwrite": true
-                },
-                "[web-root]/sites/default/settings.local.php": {
-                    "mode": "replace",
-                    "path": "assets/composer/settings.local.php",
-                    "overwrite": true
-                },
-                "[web-root]/sites/default/settings.lando.php": {
-                    "mode": "replace",
-                    "path": "assets/composer/settings.lando.php",
-                    "overwrite": false
                 },
                 "[web-root]/sites/development.services.yml": "assets/composer/development.services.yml"
             }

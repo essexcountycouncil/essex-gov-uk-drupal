@@ -70,7 +70,10 @@ class EccMigrateSubscriber implements EventSubscriberInterface {
    */
   public function setAuthors(MigratePostRowSaveEvent $event) {
     // Don't do this for all migrations.
-    if (!in_array($event->getMigration()->getPluginId(), ['ecc_news'])) {
+    if (!in_array($event->getMigration()->getPluginId(), [
+      'ecc_news',
+      'ecc_service_landing_pages',
+    ])) {
       return;
     }
     $row = $event->getRow();

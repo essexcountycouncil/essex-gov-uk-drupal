@@ -8,15 +8,9 @@ dependencies:
     - field.field.node.localgov_services_landing.localgov_address
     - field.field.node.localgov_services_landing.localgov_address_first_line
     - field.field.node.localgov_services_landing.localgov_common_tasks
-    - field.field.node.localgov_services_landing.localgov_contact_us_online
     - field.field.node.localgov_services_landing.localgov_destinations
-    - field.field.node.localgov_services_landing.localgov_email_address
     - field.field.node.localgov_services_landing.localgov_facebook
-    - field.field.node.localgov_services_landing.localgov_hearing_difficulties_ph
     - field.field.node.localgov_services_landing.localgov_link_to_map
-    - field.field.node.localgov_services_landing.localgov_opening_hours
-    - field.field.node.localgov_services_landing.localgov_other_team_contacts
-    - field.field.node.localgov_services_landing.localgov_phone
     - field.field.node.localgov_services_landing.localgov_popular_topics
     - field.field.node.localgov_services_landing.localgov_services_parent
     - field.field.node.localgov_services_landing.localgov_twitter
@@ -45,15 +39,9 @@ hidden:
   localgov_address: true
   localgov_address_first_line: true
   localgov_common_tasks: true
-  localgov_contact_us_online: true
   localgov_destinations: true
-  localgov_email_address: true
   localgov_facebook: true
-  localgov_hearing_difficulties_ph: true
   localgov_link_to_map: true
-  localgov_opening_hours: true
-  localgov_other_team_contacts: true
-  localgov_phone: true
   localgov_popular_topics: true
   localgov_services_parent: true
   localgov_twitter: true

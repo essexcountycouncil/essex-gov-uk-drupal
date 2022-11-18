@@ -31,6 +31,8 @@ properties:
       volumeMounts:
       - mountPath: /drupal/web/sites/default/files
         name: filesharevol
+      - mountPath: /drupal/data/default/private
+        name: privsharevol
   osType: Linux
   ipAddress:
     type: Public
@@ -48,5 +50,12 @@ properties:
       sharename: eccgovdrupalshare
       storageAccountName: eccgovdrupalsa
       storageAccountKey: vGHZOkshrjM4oMSO1w2O3Fa98XO836Xd+8Tipztl7qgp6bE/3BYgCJ54A3clCJP7v+wnz5ghZi30+AStlb2lXA==
+  - name: privsharevol
+    azurefile:
+      sharename: eccgovdrupalprivate
+      storageAccountName: eccgovdrupalsa
+      storageAccountKey: vGHZOkshrjM4oMSO1w2O3Fa98XO836Xd+8Tipztl7qgp6bE/3BYgCJ54A3clCJP7v+wnz5ghZi30+AStlb2lXA==
 tags: {owner: devops}
 type: Microsoft.ContainerInstance/containerGroups
+
+

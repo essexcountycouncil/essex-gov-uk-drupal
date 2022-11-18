@@ -6,18 +6,23 @@ stages:
 
 build_image:
   stage: build-and-push-images
-  image: docker:20.10
+  image: docker:20.10.16
   services:
-    - docker:20.10-dind
+    - docker:20.10.16-dind
   variables:
     DOCKER_PASS: ""
   before_script:
-    - apk add py3-pip gcc musl-dev python3-dev libffi-dev openssl-dev cargo make
+    - apk add py3-pip gcc musl-dev python3-dev libffi-dev openssl openssl-dev cargo make
     - pip install --upgrade pip
     - pip install azure-cli
+    - az login --service-principal -u${ARM_CLIENT_ID} -p${ARM_CLIENT_SECRET} -t${ARM_TENANT_ID}
     # - DOCKER_PASSWORD=$(az keyvault secret show --name "acr-admin-password" --vault-name "ecc-dev-kv-de123d9" --query "value")
     - docker login -u${DOCKER_USER} -p${DOCKER_PASSWORD} ${DOCKER_REGISTRY}
   script:
+    - mkdir -p certs
+    - az keyvault secret download --vault-name ${KEY_VAULT} --name ${KEY_NAME} --file nomxyz.combined.pem
+    - openssl pkey -in nomxyz.combined.pem -out certs/privkey.pem
+    - openssl crl2pkcs7 -nocrl -certfile nomxyz.combined.pem | openssl pkcs7 -print_certs -out certs/fullchain.pem
     - docker build -t ${DOCKER_REGISTRY}/drupal-fpm:latest -t drupal-fpm -f Dockerfile-drupal .
     - docker build -t ${DOCKER_REGISTRY}/nginx-drupal:latest -t nginx-drupal -f Dockerfile-nginx .
     - docker push ${DOCKER_REGISTRY}/nginx-drupal
@@ -25,14 +30,14 @@ build_image:
   rules:
     - if: '$CI_COMMIT_BRANCH == "master"'
 
-# We need a newer version of gitlab to do this :(    
+# We need a newer version of gitlab to do this :(
 # test-build:
 #   stage: test-build
 #   image: docker:20.10
 #   services:
-#     - name: ${DOCKER_REGISTRY}/drupal-fpm:latest 
+#     - name: ${DOCKER_REGISTRY}/drupal-fpm:latest
 #       variables:
-#         MYSQL_DATABASE: ${MYSQL_DATABASE} 
+#         MYSQL_DATABASE: ${MYSQL_DATABASE}
 #         MYSQL_HOST: ${MYSQL_HOST}
 #         MYSQL_USER: ${MYSQL_USER}
 #         MYSQL_PASSWORD: ${MYSQL_PASSWORD}
@@ -40,7 +45,7 @@ build_image:
 #   variables:
 #     DB_CONN_TEST: ""
 #   script:
-#       | 
+#       |
 #       # Performs a basic test on the drupal image to ensure it can connect to the Database
 #       - echo 'Test drupal image for database connectivity....'
 #       - DB_CONN_TEST=$(cat DBTestOutput.txt | grep -E '^Database\s+:\sConnected')
@@ -58,6 +63,11 @@ provision-database:
 
 update-app-service:
   stage: update-app-service
+  before_script:
+    - apk add py3-pip gcc musl-dev python3-dev libffi-dev openssl-dev cargo make
+    - pip install --upgrade pip
+    - pip install azure-cli
+    - az login --service-principal -u${ARM_CLIENT_ID} -p${ARM_CLIENT_SECRET} -t${ARM_TENANT_ID}
   script:
     - echo "Container app is restarting - environment will be down temporarily"
     - az container restart --name lgDrupalContainerGroup --resource-group ecc-drupal-gov-dev
