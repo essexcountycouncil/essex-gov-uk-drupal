@@ -27,6 +27,12 @@ source:
 destination:
   plugin: entity:redirect
 process:
+  redirect_source:
+    plugin: process_redirect_source
+    source: target
+  redirect_redirect:
+    plugin: process_redirect_target
+    source: location
   type:
     plugin: default_value
     default_value: redirect

@@ -59,10 +59,15 @@ class ContentfulRedirects extends JsonContentful {
     // migration is run, so we still iterate over the set.
     foreach ($redirect_data as $redirect_datum) {
       foreach ($redirect_datum['fields'][$this->redirectType]['en-GB'] as $target => $location) {
-        $source_data[] = [
-          'target' => $target,
-          'location' => $location,
-        ];
+        // Ignore the wildcard redirects. Unlike Contentful, Drupal does not
+        // support them for performance reasons. These will be moved to server
+        // configuration instead.
+        if (!str_ends_with($target, '*')) {
+          $source_data[] = [
+            'target' => $target,
+            'location' => $location,
+          ];
+        }
       }
     }
 
