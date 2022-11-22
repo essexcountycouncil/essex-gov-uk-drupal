@@ -114,13 +114,6 @@ process:
     migration: ecc_users
     source: created_by
     no_stub: true
-# todo legacy url needs calculating by topic
-#  legacy_url:
-#    plugin: concat
-#    source:
-#      - constants/legacy_url_base
-#      - slug
-#    delimiter: /
 migration_dependencies:
   required:
     - ecc_users
