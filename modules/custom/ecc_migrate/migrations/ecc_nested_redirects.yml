@@ -17,9 +17,13 @@ source:
       label: 'Full path'
       selector: 'full_path'
     -
+      name: section_id
+      label: 'Contentful ID of the section'
+      selector: section_id
+    -
       name: id
-      label: 'Contentful ID'
-      selector: sys/id
+      label: 'Combined Contentful ID of the article and section'
+      selector: migrate_source_id
   ids:
     id:
       type: string
@@ -30,13 +34,11 @@ destination:
 process:
   redirect_source: full_path
   target_nid:
-    plugin: migmag_lookup
-    source: id
+    plugin: migration_lookup
+    source: section_id
     migration:
-      - ecc_service_landing_pages
-      - ecc_service_pages
-      - ecc_guide_overviews
-  redirect_redirect':
+      - ecc_guide_pages
+  redirect_redirect:
       plugin: concat
       source:
         - constants/internal_redirect_base_path
@@ -44,4 +46,6 @@ process:
   status_code:
     plugin: default_value
     default_value: '301'
-
+migration_dependencies:
+  required:
+    - ecc_guide_pages

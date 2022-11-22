@@ -27,60 +27,58 @@ class NestedPathRedirects extends Json {
   protected function getSourceData(string $url): array {
     $source_data = parent::getSourceData($url);
 
-    // Filter out the content types we are not migrating, or that do not use
-    // nested paths.
-    $source_data = array_filter($source_data, function ($datum) {
-      $nested_contentful_content_types = [
-        'topic',
-        'section',
-        'article',
-      ];
+    // We need to create redirects where the source url is in the format
+    // <article slug>/<section slug>.
+    $articles = array_filter($source_data, function ($datum) {
       if (!isset($datum['sys']['contentType']['sys']['id'])) {
         return FALSE;
       }
-      if (in_array($datum['sys']['contentType']['sys']['id'], $nested_contentful_content_types)) {
-        return TRUE;
+      if ($datum['sys']['contentType']['sys']['id'] != 'article') {
+        return FALSE;
       }
-      return FALSE;
-
+      if (!isset($datum['fields']['sections'])) {
+        return FALSE;
+      }
+      return TRUE;
     });
 
-    // We now have the JSON source data for all our content types.
-    // We need to go through that to build a map of paths.
-    $id_slug_map = [];
-    $id_parent_map = [];
-    $id_type_map = [];
+    $sections = array_filter($source_data, function ($datum) {
+      if (!isset($datum['sys']['contentType']['sys']['id'])) {
+        return FALSE;
+      }
+      if ($datum['sys']['contentType']['sys']['id'] != 'section') {
+        return FALSE;
+      }
+      return TRUE;
+    });
 
-    foreach ($source_data as $source_datum) {
-      $id_slug_map[$source_datum['sys']['id']] = $source_datum['fields']['slug']['en-GB'];
-      $id_parent_map[$source_datum['sys']['id']] = $source_datum['fields']['parentPage']['en-GB']['sys']['id'] ?? NULL;
-      $id_type_map[$source_datum['sys']['id']] = $source_datum['sys']['contentType']['sys']['id'] ?? NULL;
-      // If the parent is the homepage, treat it as NULL.
-      if ($id_parent_map[$source_datum['sys']['id']] === NestedPathRedirects::CONTENTFUL_HOMEPAGE_ID) {
-        $id_parent_map[$source_datum['sys']['id']] = NULL;
+    // Create a map of section IDs to their slugs.
+    $map_section_id_to_slug = [];
+    foreach ($sections as $section) {
+      if (isset($section['fields']['slug']['en-GB']) && isset($section['sys']['id'])) {
+        $map_section_id_to_slug[$section['sys']['id']] = $section['fields']['slug']['en-GB'];
       }
     }
 
-    $id_full_path_map = [];
-    foreach ($id_parent_map as $id => $parent_id) {
-      $id_full_path_map[$id] = $id_slug_map[$id];
-      $ultimate_parent_is_topic = $id_type_map[$id] === 'topic';
-      while ($parent_id) {
-        $id_full_path_map[$id] = $id_slug_map[$parent_id] . '/' . $id_full_path_map[$id];
-        $ultimate_parent_is_topic = $id_type_map[$parent_id] === 'topic';
-        $parent_id = $id_parent_map[$parent_id];
+    // Go through all the articles. For each article's sections, work out their
+    // path based on the article slug and the section slug.
+    $source_data = [];
+    foreach ($articles as $article) {
+      foreach ($article['fields']['sections']['en-GB'] as $section) {
+        if (!isset($map_section_id_to_slug[$section['sys']['id']])) {
+          // We don't know the slug for this section so ignore.
+          continue;
+        }
+        // Note we set two IDs in the source. section_id is the ID of the
+        // section; we need this to look up the node ID, but we can't use it
+        // to identify the source row in the migration in case sections are
+        // included in multiple guide pages/articles.
+        $source_data[] = [
+          'full_path' => $article['fields']['slug']['en-GB'] . '/' . $map_section_id_to_slug[$section['sys']['id']],
+          'section_id' => $section['sys']['id'],
+          'migrate_source_id' => $article['sys']['id'] . ':' . $section['sys']['id'],
+        ];
       }
-      // If the final parent in the chain is a topic..
-      if ($ultimate_parent_is_topic) {
-        // ..prefix the path appropriately.
-        $id_full_path_map[$id] = 'topic/' . $id_full_path_map[$id];
-      }
-    }
-
-    // Add the full path back to the source data so it is available to the
-    // migration.
-    foreach ($source_data as $source_datum) {
-      $source_datum['full_path'] = $id_full_path_map[$source_datum['sys']['id']];
     }
 
     return $source_data;
