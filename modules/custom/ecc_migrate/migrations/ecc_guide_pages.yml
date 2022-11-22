@@ -52,10 +52,6 @@ source:
   ids:
     id:
       type: string
-  constants:
-# todo: legacy url needs to be calculated via parent
-#    legacy_url_base: topic
-
 destination:
   plugin: entity:node
 process:

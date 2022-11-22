@@ -56,8 +56,6 @@ source:
   ids:
     id:
       type: string
-  constants:
-    legacy_url_base: topic
 destination:
   plugin: entity:node
 process:
@@ -118,12 +116,7 @@ process:
     migration: ecc_users
     source: created_by
     no_stub: true
-  legacy_url:
-    plugin: concat
-    source:
-      - constants/legacy_url_base
-      - slug
-    delimiter: /
+  legacy_url: slug
   sections: sections
 migration_dependencies:
   required:
