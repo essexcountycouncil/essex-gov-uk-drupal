@@ -1,4 +1,5 @@
 #!/bin/bash
+drush mim ecc_content_owners && \
 drush mim ecc_users && \
 drush mim ecc_files && \
 drush mim ecc_image_media && \
