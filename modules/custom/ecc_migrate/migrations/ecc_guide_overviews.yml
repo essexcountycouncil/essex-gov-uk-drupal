@@ -46,22 +46,16 @@ source:
       label: 'Updated at'
       selector: 'sys/updatedAt'
     -
-      name: primary_items
-      label: 'Primary items'
-      selector: 'fields/subItems'
-    -
-      name: secondary_items
-      label: 'Secondary items'
-      selector: 'fields/secondaryItems'
-    -
       name: parent_page
       label: 'Parent page'
       selector: 'fields/parentPage/en-GB/sys/id'
+    -
+      name: sections
+      label: 'Sections'
+      selector: 'fields/sections/en-GB'
   ids:
     id:
       type: string
-  constants:
-    legacy_url_base: topic
 destination:
   plugin: entity:node
 process:
@@ -76,10 +70,14 @@ process:
     migration: ecc_users
     source: updated_by
     no_stub: true
+  localgov_guides_section_title:
+    plugin: default_value
+    default_value: 'Overview'
   'body/format':
     plugin: default_value
     default_value: wysiwyg
   'body/summary': teaser
+  localgov_guides_description: teaser
   status:
     plugin: default_value
     default_value: 1
@@ -94,38 +92,22 @@ process:
     plugin: callback
     callable: strtotime
     source: updatedAt
-#  localgov_destinations:
-#    -
-#      plugin: callback
-#      callable: array_merge
-#      source:
-#        - primary_items
-#        - secondary_items
-#      unpack_source: true
-#    -
-#      plugin: extract
-#      index:
-#        - 'en-GB'
-#        - sys
-#        - id
-#    -
-#      plugin: migration_lookup
-#      migration:
-#        -
-#        -
-
-# temp commented out due to parent migration.
-#  localgov_services_parent:
-#    # Use a static map to filter out the homepage. We are not migrating the
-#    # homepage and do not wish to stub it in the subsequent migration lookup.
-#    - plugin: static_map
-#      source: parent_page
-#      map:
-#        '4I5peHWWwUWOyoyCAcs4C2': NULL
-#      bypass: TRUE
-#    -
-#      plugin: migration_lookup
-#      migration: ecc_service_landing_pages
+  localgov_guides_pages:
+    plugin: sub_process
+    source: sections
+    process:
+      target_id:
+        plugin: migration_lookup
+        source: sys/id
+        migration:
+          - ecc_guide_pages
+  localgov_services_parent:
+    plugin: migmag_lookup
+    source: parent_page
+    migration:
+      - ecc_service_landing_pages
+      - ecc_service_pages
+      - ecc_guide_overviews
 
 # These final fields are not saved directly onto the entity but are available for
 # post-migrate events.
@@ -134,12 +116,8 @@ process:
     migration: ecc_users
     source: created_by
     no_stub: true
-  legacy_url:
-    plugin: concat
-    source:
-      - constants/legacy_url_base
-      - slug
-    delimiter: /
+  legacy_url: slug
+  sections: sections
 migration_dependencies:
   required:
     - ecc_users
