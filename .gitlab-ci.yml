@@ -19,14 +19,10 @@ build_image:
     # - DOCKER_PASSWORD=$(az keyvault secret show --name "acr-admin-password" --vault-name "ecc-dev-kv-de123d9" --query "value")
     - docker login -u${DOCKER_USER} -p${DOCKER_PASSWORD} ${DOCKER_REGISTRY}
   script:
-    - mkdir -p certs
-    - az keyvault secret download --vault-name ${KEY_VAULT} --name ${KEY_NAME} --file nomxyz.combined.pem
-    - openssl pkey -in nomxyz.combined.pem -out certs/privkey.pem
-    - openssl crl2pkcs7 -nocrl -certfile nomxyz.combined.pem | openssl pkcs7 -print_certs -out certs/fullchain.pem
-    - docker build -t ${DOCKER_REGISTRY}/drupal-fpm:latest -t drupal-fpm -f Dockerfile-drupal .
-    - docker build -t ${DOCKER_REGISTRY}/nginx-drupal:latest -t nginx-drupal -f Dockerfile-nginx .
-    - docker push ${DOCKER_REGISTRY}/nginx-drupal
-    - docker push ${DOCKER_REGISTRY}/drupal-fpm
+    - docker build -t ${DOCKER_REGISTRY}/portal-drupal-fpm:latest -t portal-drupal-fpm -f Dockerfile-drupal .
+    - docker build -t ${DOCKER_REGISTRY}/portal-nginx-drupal:latest -t portal-nginx-drupal -f Dockerfile-nginx .
+    - docker push ${DOCKER_REGISTRY}/portal-nginx-drupal
+    - docker push ${DOCKER_REGISTRY}/portal-drupal-fpm
   rules:
     - if: '$CI_COMMIT_BRANCH == "master"'
 
@@ -69,8 +65,8 @@ update-app-service:
     - pip install azure-cli
     - az login --service-principal -u${ARM_CLIENT_ID} -p${ARM_CLIENT_SECRET} -t${ARM_TENANT_ID}
   script:
-    - echo "Container app is restarting - environment will be down temporarily"
-    - az container restart --name lgDrupalContainerGroup --resource-group ecc-drupal-gov-dev
+    - echo "Creating new revision of Container App"
+    - az containerapp revision --name intranet --resource-group rg-ecc-intranet-uks-dev
   rules:
     - if: '$CI_COMMIT_BRANCH == "master"'
       when: manual
