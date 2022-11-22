@@ -1,0 +1,47 @@
+# Migration configuration for Nested Redirects.
+id: ecc_nested_redirects
+label: Nested Redirects
+migration_tags:
+  - ECC
+  - redirects
+source:
+  plugin: url
+  data_fetcher_plugin: file
+  data_parser_plugin: nested_path_redirects
+  urls:
+    - 'private://migration_data/contentful_export.json'
+  item_selector: entries
+  fields:
+    -
+      name: full_path
+      label: 'Full path'
+      selector: 'full_path'
+    -
+      name: id
+      label: 'Contentful ID'
+      selector: sys/id
+  ids:
+    id:
+      type: string
+  constants:
+    internal_redirect_base_path: 'internal:/node/'
+destination:
+  plugin: entity:redirect
+process:
+  redirect_source: full_path
+  target_nid:
+    plugin: migmag_lookup
+    source: id
+    migration:
+      - ecc_service_landing_pages
+      - ecc_service_pages
+      - ecc_guide_overviews
+  redirect_redirect':
+      plugin: concat
+      source:
+        - constants/internal_redirect_base_path
+        - '@target_nid'
+  status_code:
+    plugin: default_value
+    default_value: '301'
+
