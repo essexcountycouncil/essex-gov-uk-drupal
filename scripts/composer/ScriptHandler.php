@@ -55,16 +55,6 @@ class ScriptHandler {
         ->write('Symbolically linked settings.local.php file');
     }
 
-     // Create a symbolic link for the custom modules directory.
-    if (!$fs->exists($drupalRoot . '/modules/custom')) {
-      $cwd = getcwd();
-      chdir($drupalRoot . '/modules/');
-      $fs->symlink('../../modules/custom', 'custom');
-      chdir($cwd);
-      $event->getIO()
-        ->write('Symbolically linked custom modules directory');
-    }
-
     // Create a symbolic link for the custom themes directory.
     if (!$fs->exists($drupalRoot . '/themes/custom')) {
       $cwd = getcwd();
