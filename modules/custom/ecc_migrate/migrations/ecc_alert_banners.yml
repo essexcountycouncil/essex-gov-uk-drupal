@@ -24,6 +24,10 @@ source:
       name: body
       label: 'Body'
       selector: 'fields/body/en-GB'
+    -
+      name: severity
+      label: 'Severity'
+      selector: 'fields/severity/en-GB'
   ids:
     id:
       type: string
@@ -33,7 +37,12 @@ process:
   type:
     plugin: default_value
     default_value: localgov_alert_banner
-  title: title
+  # Titles are longer in contentful than in localgov.
+  title:
+    plugin: substr
+    source: title
+    start: 0
+    length: 50
   'short_description/format':
     plugin: default_value
     default_value: wysiwyg
@@ -50,3 +59,10 @@ process:
   moderation_state:
     plugin: default_value
     default_value: published
+  type_of_alert:
+    plugin: static_map
+    source: severity
+    map:
+      'Information': '00--announcement'
+      'Warning': '20--minor'
+      'Error': '50--major'
