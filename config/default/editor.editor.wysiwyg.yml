@@ -20,10 +20,6 @@ settings:
             - Format
             - Styles
             - CreateDiv
-            - RemoveFormat
-            - Underline
-            - Bold
-            - Italic
         -
           name: Edit
           items:
@@ -59,7 +55,7 @@ settings:
             - Table
   plugins:
     stylescombo:
-      styles: "mark|Highlight\r\na.external-link|External link\r\na.pdf-link|PDF link\r\na.button.button-start.col-sm-6.mt-3|Start button\r\np.alert.alert-info|Alert info\r\np.alert.alert-danger|Alert warning\r\np.alert.alert-primary|Alert failure\r\np.alert.alert-success|Alert success\r\np.callout.callout-primary|Callout primary\r\np.callout.callout-success|Callout success\r\np.callout.callout-danger|Callout danger\r\np.callout.callout-teal|Callout teal\r\np.callout.callout-carbon|Callout carbon\r\np.callout.callout-yellow|Callout yellow\r\np.inset|Inset text\r\ndiv.alert.alert-info|Container - Alert info\r\ndiv.alert.alert-danger|Container - Alert warning\r\ndiv.alert.alert-primary|Container - Alert failure\r\ndiv.alert.alert-success|Container - Alert success\r\ndiv.callout.callout-primary|Container - Callout primary\r\ndiv.callout.callout-success|Container - Callout success\r\ndiv.callout.callout-danger|Container - Callout danger\r\ndiv.callout.callout-teal|Container - Callout teal\r\ndiv.callout.callout-carbon|Container - Callout carbon\r\ndiv.callout.callout-yellow|Container - Callout yellow\r\nul.list-checked|Green ticks"
+      styles: "mark|Highlight\r\na.external-link|External link\r\na.pdf-link|PDF link\r\na.button.button-start.col-sm-6.mt-3|Start button\r\np.alert.alert-info|Alert info\r\np.inset|Inset text\r\ndiv.alert.alert-info|Container - Alert info"
     drupallink:
       linkit_enabled: true
       linkit_profile: default
