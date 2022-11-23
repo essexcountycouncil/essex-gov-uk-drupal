@@ -18,7 +18,7 @@ services:
     environment:
       MYSQL_HOST: "mariadb-ecc-gov-dev-svr.mariadb.database.azure.com"
       MYSQL_USER: "mariadb-root"
-      MYSQL_PASSWORD: "ObR:)Ki#rY22w{@I5B3LU9tV"
+      MYSQL_PASSWORD: "<PASSWORD>"
       MYSQL_DATABASE: "drupal"
 
 
