@@ -1,0 +1,25 @@
+uuid: 718f357e-f29a-4aca-9f26-c1d7574613bc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_content_owner
+    - node.type.localgov_guides_overview
+id: node.localgov_guides_overview.field_content_owner
+field_name: field_content_owner
+entity_type: node
+bundle: localgov_guides_overview
+label: 'Content Owner'
+description: 'For assigning a content ''Owner'''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: views
+  handler_settings:
+    view:
+      view_name: content_ownership
+      display_name: entity_reference_content_owner
+      arguments: {  }
+field_type: entity_reference

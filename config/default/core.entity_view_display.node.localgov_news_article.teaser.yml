@@ -52,6 +52,7 @@ content:
     weight: 2
     region: content
 hidden:
+  entitygroupfield: true
   links: true
   localgov_news_categories: true
   localgov_news_related: true
