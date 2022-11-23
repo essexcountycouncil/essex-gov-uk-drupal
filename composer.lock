@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "42e8b799fb93343645f2aef463e9bfd7",
+    "content-hash": "ce6d46526b93e244078af7ca32066e60",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -6787,6 +6787,35 @@
                 "source": "https://github.com/enlightn/security-checker/tree/v1.10.0"
             },
             "time": "2022-02-21T22:40:16+00:00"
+        },
+        {
+            "name": "essexcountycouncil/content_ownership",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/essexcountycouncil/content_ownership.git",
+                "reference": "5f88140146519d7b3c2cbf8de4fc95e1573c68f0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/essexcountycouncil/content_ownership/zipball/5f88140146519d7b3c2cbf8de4fc95e1573c68f0",
+                "reference": "5f88140146519d7b3c2cbf8de4fc95e1573c68f0",
+                "shasum": ""
+            },
+            "default-branch": true,
+            "type": "drupal-custom-module",
+            "authors": [
+                {
+                    "name": "Nathan Brettell",
+                    "email": "nbrettell@nomensa.com"
+                }
+            ],
+            "description": "For specifying an entity for the creation/migration of Content Owners/Content SME",
+            "support": {
+                "source": "https://github.com/essexcountycouncil/content_ownership/tree/main",
+                "issues": "https://github.com/essexcountycouncil/content_ownership/issues"
+            },
+            "time": "2022-11-15T11:49:48+00:00"
         },
         {
             "name": "ezyang/htmlpurifier",
@@ -18390,6 +18419,7 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "drupal/config_split": 5,
+        "essexcountycouncil/content_ownership": 20,
         "localgovdrupal/localgov_forms": 20,
         "roave/security-advisories": 20
     },
