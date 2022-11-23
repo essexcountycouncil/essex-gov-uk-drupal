@@ -123,6 +123,7 @@ process:
           migration:
             - ecc_service_landing_pages
             - ecc_guide_overviews
+            - ecc_guide_pages
             - ecc_service_pages
   localgov_services_parent:
     # Use a static map to filter out the homepage. We are not migrating the

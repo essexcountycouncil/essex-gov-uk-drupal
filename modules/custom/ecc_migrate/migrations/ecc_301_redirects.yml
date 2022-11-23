@@ -1,0 +1,41 @@
+# Migration configuration for ecc_301 redirects.
+id: ecc_301_redirects
+label: 301 Redirects
+migration_tags:
+  - ECC
+  - redirects
+source:
+  plugin: url
+  data_fetcher_plugin: file
+  data_parser_plugin: contentful_redirects
+  urls:
+    - 'private://migration_data/contentful_export.json'
+  item_selector: entries
+  redirect_type: legacyUrls
+  fields:
+    -
+      name: target
+      label: 'Target'
+      selector: target
+    -
+      name: location
+      label: 'Location'
+      selector: location
+  ids:
+    target:
+      type: string
+destination:
+  plugin: entity:redirect
+process:
+  redirect_source:
+    plugin: process_redirect_source
+    source: target
+  redirect_redirect:
+    plugin: process_redirect_target
+    source: location
+  type:
+    plugin: default_value
+    default_value: redirect
+  status_code:
+    plugin: default_value
+    default_value: '301'
