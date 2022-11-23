@@ -47,3 +47,6 @@ process:
       plugin: map_youtube_embeds
     -
       plugin: strip_styles
+  moderation_state:
+    plugin: default_value
+    default_value: published
