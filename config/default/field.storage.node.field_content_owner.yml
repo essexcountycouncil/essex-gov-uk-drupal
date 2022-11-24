@@ -1,0 +1,20 @@
+uuid: 031a3369-20a5-4b36-b112-37973dbcb501
+langcode: en
+status: true
+dependencies:
+  module:
+    - content_ownership
+    - node
+id: node.field_content_owner
+field_name: field_content_owner
+entity_type: node
+type: entity_reference
+settings:
+  target_type: content_owner_sme
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

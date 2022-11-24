@@ -4,6 +4,8 @@ status: true
 dependencies:
   config:
     - field.field.node.localgov_services_page.body
+    - field.field.node.localgov_services_page.field_content_owner
+    - field.field.node.localgov_services_page.field_content_sme
     - field.field.node.localgov_services_page.field_non_publishable_notes
     - field.field.node.localgov_services_page.localgov_common_tasks
     - field.field.node.localgov_services_page.localgov_download_links
@@ -31,6 +33,22 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
+  field_content_owner:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_content_sme:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 3
+    region: content
   localgov_page_components:
     type: entity_reference_entity_view
     label: hidden
@@ -42,6 +60,7 @@ content:
     region: content
 hidden:
   content_moderation_control: true
+  entitygroupfield: true
   field_non_publishable_notes: true
   links: true
   localgov_common_tasks: true
