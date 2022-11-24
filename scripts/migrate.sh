@@ -11,4 +11,6 @@ drush migrate:import ecc_guide_pages && \
 drush migrate:import ecc_guide_overviews && \
 drush migrate:import ecc_service_pages && \
 drush migrate:import ecc_service_landing_pages && \
-drush migrate:import ecc_nested_redirects
+drush migrate:import ecc_nested_redirects && \
+drush migrate:import ecc_301_redirects && \
+drush migrate:import ecc_302_redirects
