@@ -3,13 +3,18 @@ langcode: en
 status: true
 dependencies:
   config:
+    - media.type.document
     - media.type.image
+    - media.type.remote_video
     - node.type.localgov_news_article
+    - node.type.localgov_newsroom
     - workflows.workflow.localgov_editorial
   module:
     - content_moderation
     - media
     - node
+    - preview_link
+    - scheduled_transitions
     - system
     - toolbar
   enforced:
@@ -19,22 +24,31 @@ _core:
   default_config_hash: A11-7cjsAJ9YGcWSITuETyg0AoLa2xGtaxuJ-wdcIYU
 id: localgov_news_editor
 label: 'News editor'
-weight: 4
+weight: -4
 is_admin: null
 permissions:
   - 'access content overview'
   - 'access media overview'
   - 'access toolbar'
+  - 'add scheduled transitions node localgov_news_article'
+  - 'add scheduled transitions node localgov_newsroom'
+  - 'create document media'
   - 'create image media'
   - 'create localgov_news_article content'
-  - 'delete any localgov_news_article content'
-  - 'delete own localgov_news_article content'
+  - 'create localgov_newsroom content'
+  - 'create remote_video media'
   - 'delete own media'
   - 'edit any image media'
   - 'edit any localgov_news_article content'
+  - 'edit any localgov_newsroom content'
   - 'edit own image media'
   - 'edit own localgov_news_article content'
+  - 'edit own localgov_newsroom content'
+  - 'generate preview links'
+  - 'reschedule scheduled transitions node localgov_news_article'
+  - 'reschedule scheduled transitions node localgov_newsroom'
   - 'revert localgov_news_article revisions'
+  - 'revert localgov_newsroom revisions'
   - 'update any image media'
   - 'use localgov_editorial transition approve'
   - 'use localgov_editorial transition archive'
@@ -47,7 +61,10 @@ permissions:
   - 'view all localgov_news_article revisions'
   - 'view any unpublished localgov_news_article content'
   - 'view localgov_news_article revisions'
+  - 'view localgov_newsroom revisions'
   - 'view own media'
   - 'view own unpublished localgov_news_article content'
   - 'view own unpublished media'
+  - 'view scheduled transitions node localgov_news_article'
+  - 'view scheduled transitions node localgov_newsroom'
   - 'view the administration theme'

@@ -13,12 +13,17 @@ _core:
   default_config_hash: hQSlQm58sfNt6InM-RrmoR4NWkli3tR9gWr3N37DIoM
 id: localgov_user_manager
 label: 'User manager'
-weight: 5
+weight: -3
 is_admin: null
 permissions:
   - 'access toolbar'
   - 'administer users'
+  - 'assign administrator role'
+  - 'assign all roles'
+  - 'assign emergency_publisher role'
   - 'assign localgov_author role'
   - 'assign localgov_contributor role'
   - 'assign localgov_editor role'
+  - 'assign localgov_news_editor role'
+  - 'assign localgov_user_manager role'
   - 'view the administration theme'

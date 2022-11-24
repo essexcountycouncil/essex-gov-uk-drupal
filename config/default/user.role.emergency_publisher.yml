@@ -15,13 +15,10 @@ _core:
   default_config_hash: 7OgO9TyiKBCFPANLxGdh43Z7ekWYxOpfH76zmol8Nzk
 id: emergency_publisher
 label: 'Emergency publisher'
-weight: -2
+weight: -9
 is_admin: null
 permissions:
   - 'access administration pages'
-  - 'access localgov alert banner listing page'
-  - 'manage all localgov alert banner entities'
   - 'use localgov_alert_banners transition publish'
   - 'use localgov_alert_banners transition unpublish'
   - 'view all localgov alert banner entities'
-  - 'view all localgov alert banner entity pages'
