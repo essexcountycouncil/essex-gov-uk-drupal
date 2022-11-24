@@ -5,6 +5,8 @@ dependencies:
   config:
     - entity_browser.browser.page_components
     - field.field.node.localgov_guides_overview.body
+    - field.field.node.localgov_guides_overview.field_content_owner
+    - field.field.node.localgov_guides_overview.field_content_sme
     - field.field.node.localgov_guides_overview.field_non_publishable_notes
     - field.field.node.localgov_guides_overview.localgov_guides_description
     - field.field.node.localgov_guides_overview.localgov_guides_list_format
@@ -18,10 +20,28 @@ dependencies:
   module:
     - content_moderation
     - entity_browser
+    - field_group
     - localgov_core
     - localgov_review_date
     - path
     - text
+third_party_settings:
+  field_group:
+    group_content_ownership:
+      children:
+        - field_content_owner
+        - field_content_sme
+      label: 'Content Ownership'
+      region: content
+      parent_name: ''
+      weight: 18
+      format_type: fieldset
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        description: ''
+        required_fields: true
 _core:
   default_config_hash: IkWgfbT6C9JrfSG1IGw-3Lqj9UniICWLGFhfgBKdCcw
 id: node.localgov_guides_overview.default
@@ -45,9 +65,29 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_content_owner:
+    type: entity_reference_autocomplete
+    weight: 19
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_content_sme:
+    type: entity_reference_autocomplete
+    weight: 20
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_non_publishable_notes:
     type: text_textarea
-    weight: 26
+    weight: 17
     region: content
     settings:
       rows: 5
@@ -173,8 +213,9 @@ content:
       placeholder: ''
     third_party_settings: {  }
   url_redirects:
-    weight: 9
+    weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  entitygroupfield: true

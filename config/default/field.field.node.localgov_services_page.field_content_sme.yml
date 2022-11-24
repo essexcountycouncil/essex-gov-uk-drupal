@@ -1,0 +1,25 @@
+uuid: aa57ba7c-d13e-4901-83cb-95de5efc1ad7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_content_sme
+    - node.type.localgov_services_page
+id: node.localgov_services_page.field_content_sme
+field_name: field_content_sme
+entity_type: node
+bundle: localgov_services_page
+label: 'Content SME'
+description: 'For assigning content ''Subject matter experts'''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: views
+  handler_settings:
+    view:
+      view_name: content_ownership
+      display_name: entity_reference_content_sme
+      arguments: {  }
+field_type: entity_reference

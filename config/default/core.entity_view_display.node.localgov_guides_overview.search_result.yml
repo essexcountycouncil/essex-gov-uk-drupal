@@ -5,6 +5,8 @@ dependencies:
   config:
     - core.entity_view_mode.node.search_result
     - field.field.node.localgov_guides_overview.body
+    - field.field.node.localgov_guides_overview.field_content_owner
+    - field.field.node.localgov_guides_overview.field_content_sme
     - field.field.node.localgov_guides_overview.field_non_publishable_notes
     - field.field.node.localgov_guides_overview.localgov_guides_description
     - field.field.node.localgov_guides_overview.localgov_guides_list_format
@@ -38,6 +40,9 @@ content:
     weight: -20
     region: content
 hidden:
+  entitygroupfield: true
+  field_content_owner: true
+  field_content_sme: true
   field_non_publishable_notes: true
   links: true
   localgov_guides_description: true
