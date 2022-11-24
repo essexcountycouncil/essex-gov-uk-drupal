@@ -249,14 +249,6 @@ input[type="submit"],
     color: var(--color-link);
 }
 
-.media-with-text {
-    border: 2px solid var(--color-accent);
-}
-
-.media-with-text__body {
-    padding: 1.75rem;
-}
-
 .inset {
     background: #f5f5f5;
     border-left: 12px solid #dee0e2;
@@ -291,4 +283,52 @@ h2:after {
 .service-statuses h2:after,
 .sidebar h2:after {
     content: none;
+}
+
+/* Media with text component */
+.media-with-text__body {
+    padding: 1.75rem;
+}
+
+.media-with-text--default .media-with-text__body {
+    background-color: #c3d3e5;
+}
+
+.media-with-text--default .media-with-text__link {
+    background-color: var(--color-white);
+    padding: var(--spacing-smaller);
+    display: inline-block;
+    margin-top: var(--spacing-large);
+}
+
+.media-with-text--featured {
+    position: relative;
+    overflow: hidden;
+    border: 0;
+    padding: 4rem;
+}
+
+.media-with-text--featured .contextual-region {
+    position: static;
+}
+
+.media-with-text--featured img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    object-fit: cover;
+}
+
+.media-with-text--featured .media-with-text__body {
+    background-color: var(--color-white);
+    position: relative;
+    z-index: 10;
+}
+
+@media only screen and (min-width: 768px) {
+    .media-with-text--featured .media-with-text__body {
+        width: 40%;
+    }
 }
