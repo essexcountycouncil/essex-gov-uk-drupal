@@ -364,10 +364,6 @@ h1:after,
     padding: 0;
 }
 
-.paragraph--type--page-section .layout--threecol-33-34-33 .layout__region {
-    margin-bottom: var(--spacing-larger);
-}
-
 @media only screen and (min-width: 640px) {
     .layout--threecol-33-34-33 > .layout__region--first,
     .layout--threecol-33-34-33 > .layout__region--second,
