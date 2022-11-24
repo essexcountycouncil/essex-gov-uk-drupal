@@ -1,0 +1,83 @@
+{#
+/**
+ * @file
+ * Theme override to display a region.
+ *
+ * Available variables:
+ * - content: The content for this region, typically blocks.
+ * - attributes: HTML attributes for the region <div>.
+ * - region: The name of the region variable as defined in the theme's
+ *   .info.yml file.
+ *
+ * @see template_preprocess_region()
+ */
+#}
+{%
+  set classes = [
+    'lgd-region',
+    'lgd-region--' ~ region|clean_class,
+    'region',
+    'region-' ~ region|clean_class,
+  ]
+%}
+
+{#
+  If we need to create a new template just to add a library to it,
+  let's do that here instead. We could do this in hook_preprocess_region()
+  but I prefer to keep as much as I can in these templates so we don't
+  have to go hunting so much.
+#}
+{% if not localgov_base_remove_css %}
+  {% if region == 'tabs' %}
+    {{ attach_library('localgov_base/region-tabs') }}
+  {% endif %}
+
+  {% if region == 'sidebar_first' or region == 'sidebar_second' %}
+    {{ attach_library('localgov_base/sidebar') }}
+  {% endif %}
+{% endif %}
+
+{#
+  Often if we need a custom region template, it's because that region
+  needs to be full-width. Let's (at least for now), create an
+  array of regions that might need that, and then not print the container
+  class for those regions.
+
+  If it comes to an issue later, we can easily create a region template
+  for each of these.
+
+  The reason the header regions are listed here is because we want them to
+  take up 100% of their container, rather than the screen. We will take care
+  of their layout via CSS in the header.css file.
+#}
+{%
+  set full_width_regions = [
+    'banner',
+    'hero',
+    'header',
+    'primary_menu',
+    'secondary_menu',
+    'search',
+    'sidebar_first',
+    'sidebar_second',
+    'content'
+  ]
+%}
+
+{% if content %}
+  <div{{ attributes.addClass(classes) }}>
+
+    {% if region not in full_width_regions %}
+      <div class="lgd-container padding-horizontal">
+    {% endif %}
+
+    <div class="lgd-region__inner lgd-region__inner--{{ region|clean_class }}">
+      {{ content }}
+    </div>
+
+    {% if region not in full_width_regions %}
+      </div>
+    {% endif %}
+
+  </div>
+{% endif %}

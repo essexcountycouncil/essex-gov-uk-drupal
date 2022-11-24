@@ -109,6 +109,31 @@
     }
 }
 
+/* Hero and Hero content */
+.hero__container {
+  position: relative;
+}
+
+.lgd-region--hero {
+}
+
+.lgd-region--hero .banner--primary .banner__content {
+  margin: 0;
+  position: absolute;
+  top: 1em;
+}
+
+.lgd-region--hero-content {
+  position: absolute;
+  bottom: 1em;
+}
+
+.path-frontpage .banner__content {
+  background: transparent;
+  border: 0;
+  padding: 0;
+}
+
 
 /* Header */
 
@@ -156,7 +181,7 @@
 /* Logo */
 
 .branding__item--logo a {
-    display: block; 
+    display: block;
 }
 
 .branding__item--logo a:focus {
@@ -208,24 +233,24 @@
     color: var(--btn-start-color-hover);
     background-color: var(--btn-start-bg-color-hover);
 }
-  
+
 .service-cta-block .service-cta-block__link:hover,
 .service-cta-block .service-cta-block__link:focus {
     background-color: var(--color-white);
     color: var(--btn-start-bg-color);
     border-color: var(--btn-start-bg-color);
 }
-  
+
 .service-cta-block .service-cta-block__link:hover .service-cta-block__link-icon svg path,
 .service-cta-block .service-cta-block__link:focus .service-cta-block__link-icon svg path {
     fill: var(--btn-start-bg-color);
 }
-  
+
 .service-statuses__label {
     color: var(--color-white);
     font-weight: 600;
 }
-  
+
 .call-out-box__content h2 {
     color: var(--color-white);
 }
@@ -233,21 +258,21 @@
 .call-out-box__link {
     color: var(--color-link);
 }
-  
+
 p.callout {
     font-weight: 600;
 }
-  
+
 .callout.callout-primary {
     background-color: var(--color-black);
 }
-  
+
 input[type="submit"],
 .lgd-prev-next__list .lgd-prev-next__link {
     background-color: var(--color-black);
     border-color: var(--color-black);
 }
-  
+
 .step-by-step-pages ol.step-list .step .step__title a {
     color: var(--color-link);
     display: inline-block;
@@ -314,7 +339,7 @@ h1,
     padding-bottom: 0.5rem;
 }
 
-h1:after,
+body:not(.path-frontpage) h1:after,
 .field--type-text-long h2:after {
     content: '';
     background-color: var(--color-accent);
@@ -323,6 +348,11 @@ h1:after,
     position: absolute;
     bottom: -15px;
     left: 0;
+}
+
+.path-frontpage h1 {
+  background: var(--color-white);
+  padding: 0.35em 1em;
 }
 
 .service-landing-page__contact h2:after,
@@ -354,7 +384,7 @@ h1:after,
 }
 
 .paragraph--type--page-section .layout--threecol-33-34-33 .layout__region--first,
-.paragraph--type--page-section .layout--threecol-33-34-33 .layout__region--second, 
+.paragraph--type--page-section .layout--threecol-33-34-33 .layout__region--second,
 .paragraph--type--page-section .layout--threecol-33-34-33 .layout__region--third {
     padding: 0;
 }
