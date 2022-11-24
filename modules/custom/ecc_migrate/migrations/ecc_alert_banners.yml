@@ -6,11 +6,10 @@ migration_tags:
 source:
   plugin: url
   data_fetcher_plugin: file
-  data_parser_plugin: json_contentful
+  data_parser_plugin: contentful_alerts
   urls:
     - 'private://migration_data/contentful_export.json'
   item_selector: entries
-  content_type: alert
   fields:
     -
       name: title
@@ -28,6 +27,10 @@ source:
       name: severity
       label: 'Severity'
       selector: 'fields/severity/en-GB'
+    -
+      name: pages
+      label: 'Pages'
+      selector: alert_pages
   ids:
     id:
       type: string
@@ -66,3 +69,13 @@ process:
       'Information': '00--announcement'
       'Warning': '20--minor'
       'Error': '50--major'
+  visibility:
+    -
+      plugin: migmag_lookup
+      source: parent_page
+      migration:
+        - ecc_service_landing_pages
+        - ecc_service_pages
+        - ecc_guide_overviews
+    -
+      plugin: alert_pages
