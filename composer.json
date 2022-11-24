@@ -44,6 +44,7 @@
         "drupal/stage_file_proxy": "^1.2",
         "essexcountycouncil/content_ownership": "dev-main",
         "localgovdrupal/localgov": "^2.0",
+        "localgovdrupal/localgov_forms": "1.x-dev",
         "wa72/htmlpagedom": "*"
     },
     "require-dev": {

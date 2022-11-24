@@ -56,6 +56,7 @@ module:
   image: 0
   image_widget_crop: 0
   inline_entity_form: 0
+  inline_form_errors: 0
   layout_discovery: 0
   layout_paragraphs: 0
   leaflet: 0
@@ -75,6 +76,7 @@ module:
   localgov_directories_promo_page: 0
   localgov_directories_venue: 0
   localgov_events: 0
+  localgov_forms: 0
   localgov_geo: 0
   localgov_geo_address: 0
   localgov_geo_area: 0
@@ -122,6 +124,7 @@ module:
   preview_link: 0
   quickedit: 0
   redirect: 0
+  redirect_404: 0
   responsive_image: 0
   responsive_preview: 0
   role_delegation: 0
@@ -143,6 +146,8 @@ module:
   user: 0
   views_ui: 0
   viewsreference: 0
+  webform: 0
+  webform_ui: 0
   workflows: 0
   pathauto: 1
   views: 10
