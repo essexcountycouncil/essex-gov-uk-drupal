@@ -372,6 +372,11 @@ h1:after,
 }
 
 /* Guide navigation */
+.lgd-guide-nav {
+    background-color: var(--color-white) !important;
+    border: 1px solid var(--color-black);
+}
+
 @media only screen and (min-width: 768px) {
     .lgd-guide-nav__list-item {
         margin-right: var(--spacing-large);
@@ -381,4 +386,11 @@ h1:after,
 /* Newsroom teaser */
 .newsroom-teaser img {
     width: 100%;
+}
+
+/* Sidebar blocks */
+.sidebar .lgd-region__inner > *,
+.blog-channel__sidebar > *,
+.newsroom__sidebar > * {
+    border: 1px solid var(--color-black);
 }
