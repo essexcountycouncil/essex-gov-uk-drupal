@@ -39,6 +39,7 @@ body {
   --font-secondary: var(--font-primary);
   --line-height: 1.3;
   --alert-banner-bg-color-minor: #ecb720;
+  --alert-banner-color: var(--color-black);
   --color-grey-lighter: #d4d4d4;
   --color-link: #4179aa;
   --color-blue: #4179aa;
@@ -47,6 +48,7 @@ body {
   --color-success: #9361b3;
   --heading-1-font-weight: 600;
   --heading-2-font-weight: var(--heading-1-font-weight);
+  --font-size-h2: 1.75rem;
   --heading-3-font-weight: var(--heading-1-font-weight);
   --header-logo-width: 100%;
   --banner-content-bg-color: var(--color-white);

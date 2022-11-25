@@ -5,6 +5,8 @@ dependencies:
   config:
     - entity_browser.browser.page_components
     - field.field.node.localgov_guides_page.body
+    - field.field.node.localgov_guides_page.field_content_owner
+    - field.field.node.localgov_guides_page.field_content_sme
     - field.field.node.localgov_guides_page.field_non_publishable_notes
     - field.field.node.localgov_guides_page.localgov_guides_parent
     - field.field.node.localgov_guides_page.localgov_guides_section_title
@@ -14,9 +16,27 @@ dependencies:
   module:
     - content_moderation
     - entity_browser
+    - field_group
     - localgov_review_date
     - path
     - text
+third_party_settings:
+  field_group:
+    group_content_ownership:
+      children:
+        - field_content_owner
+        - field_content_sme
+      label: 'Content Ownership'
+      region: content
+      parent_name: ''
+      weight: 14
+      format_type: fieldset
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        description: ''
+        required_fields: true
 _core:
   default_config_hash: '-wOiWZymqTs3tBYih4T0x3T3m9JIZ4pwtRJo8dSJ01g'
 id: node.localgov_guides_page.default
@@ -40,9 +60,29 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_content_owner:
+    type: entity_reference_autocomplete
+    weight: 15
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_content_sme:
+    type: entity_reference_autocomplete
+    weight: 16
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_non_publishable_notes:
     type: text_textarea
-    weight: 26
+    weight: 13
     region: content
     settings:
       rows: 5
@@ -134,8 +174,9 @@ content:
       placeholder: ''
     third_party_settings: {  }
   url_redirects:
-    weight: 11
+    weight: 12
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  entitygroupfield: true
