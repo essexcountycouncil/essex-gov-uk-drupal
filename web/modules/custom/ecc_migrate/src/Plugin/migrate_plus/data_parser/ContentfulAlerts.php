@@ -23,8 +23,8 @@ use Drupal\migrate_plus\Plugin\migrate_plus\data_parser\Json;
  *   id = "contentful_alerts",
  *   title = @Translation("Contentful Alerts")
  * )
-
  */
+
 class ContentfulAlerts extends Json {
 
   /**
@@ -46,8 +46,17 @@ class ContentfulAlerts extends Json {
       if (!isset($source_row['sys']['contentType']['sys']['id'])) {
         return FALSE;
       }
-      if ($source_row['sys']['contentType']['sys']['id'] == 'alert') {
-        return TRUE;
+      if ($source_row['sys']['contentType']['sys']['id'] != 'alert') {
+        return FALSE;
+      }
+      // We are only interested in alerts tagged 'normalAlertBanner'.
+      if (!isset($source_row['metadata']['tags'])) {
+        return FALSE;
+      }
+      foreach ($source_row['metadata']['tags'] as $tag) {
+        if ($tag['sys']['id'] == 'normalAlertBanner') {
+          return TRUE;
+        }
       }
       return FALSE;
     });
