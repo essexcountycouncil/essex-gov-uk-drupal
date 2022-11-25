@@ -61,6 +61,10 @@ source:
       name: body
       label: 'Body'
       selector: 'fields/body/en-GB'
+    -
+      name: content_owners
+      label: 'Content owners'
+      selector: 'fields/contentOwners/en-GB'
   ids:
     id:
       type: string
@@ -115,6 +119,15 @@ process:
       - ecc_service_landing_pages
       - ecc_service_pages
       - ecc_guide_overviews
+  field_content_owner:
+    plugin: sub_process
+    source: content_owners
+    process:
+      target_id:
+        plugin: migration_lookup
+        source: sys/id
+        migration:
+          - ecc_content_owners
 
 # These final fields are not saved directly onto the entity but are available for
 # post-migrate events.
@@ -129,3 +142,4 @@ migration_dependencies:
     - ecc_users
     - ecc_youtube_embeds
     - ecc_image_media
+    - ecc_content_owners

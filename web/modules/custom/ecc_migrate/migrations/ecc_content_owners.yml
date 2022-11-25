@@ -1,0 +1,44 @@
+# Migration for content owners
+id: ecc_content_owners
+label: Content Owners
+migration_tags:
+  - ECC
+source:
+  plugin: url
+  data_fetcher_plugin: file
+  data_parser_plugin: json_contentful
+  urls:
+    - 'private://migration_data/contentful_export.json'
+  item_selector: entries
+  content_type: contentOwner
+  fields:
+    - name: id
+      label: 'Contentful ID'
+      selector: sys/id
+    - name: name
+      label: 'Name'
+      selector: 'fields/name/en-GB'
+    - name: email
+      label: 'Email'
+      selector: 'fields/email/en-GB'
+    - name: role
+      label: 'Role'
+      selector: 'fields/role/en-GB'
+    - name: notes
+      label: 'Notes'
+      selector: 'fields/notes/en-GB'
+  ids:
+    id:
+      type: string
+destination:
+  plugin: entity:content_owner_sme
+process:
+  name: name
+  email: email
+  role:
+    plugin: static_map
+    source: role
+    map:
+      'Content owner': 'content_owner'
+      'Subject matter expert': 'content_sme'
+  notes: notes

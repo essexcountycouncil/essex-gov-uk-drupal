@@ -57,6 +57,10 @@ source:
       name: parent_page
       label: 'Parent page'
       selector: 'fields/parentPage/en-GB/sys/id'
+    -
+      name: content_owners
+      label: 'Content owners'
+      selector: 'fields/contentOwners/en-GB'
   ids:
     id:
       type: string
@@ -136,6 +140,16 @@ process:
     -
       plugin: migration_lookup
       migration: ecc_service_landing_pages
+  field_content_owner:
+    plugin: sub_process
+    source: content_owners
+    process:
+      target_id:
+        plugin: migration_lookup
+        source: sys/id
+        migration:
+          - ecc_content_owners
+
 # These final fields are not saved directly onto the entity but are available for
 # post-migrate events.
   pseudo_uid:
@@ -152,3 +166,4 @@ process:
 migration_dependencies:
   required:
     - ecc_users
+    - ecc_content_owners
