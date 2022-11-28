@@ -66,6 +66,29 @@ class JsonContentful extends Json {
    * {@inheritdoc}
    */
   protected function getSourceData(string $url): array {
+    // If we need alerts, get them from the source and build them into a map
+    // keyed by ID, for easier cross referencing against each source item.
+    $alerts = [];
+    $map_id_to_alerts = [];
+    if ($this->withAlerts) {
+      $alerts = array_filter(parent::getSourceData($url), function ($value) {
+        if (!isset($value['sys']['contentType']['sys']['id'])) {
+          return FALSE;
+        }
+        if ($value['sys']['contentType']['sys']['id'] != 'alert') {
+          return FALSE;
+        }
+        return TRUE;
+      });
+      foreach ($alerts as $alert) {
+        if (!isset($alert['sys']['id'])) {
+          continue;
+        }
+        $map_id_to_alerts[$alert['sys']['id']] = $alert;
+      }
+    }
+
+    // Filter our source data to the content type in which we are interested.
     $source_data = array_filter(parent::getSourceData($url), function ($value) {
       if (!isset($value['sys']['contentType']['sys']['id'])) {
         return FALSE;
@@ -76,31 +99,24 @@ class JsonContentful extends Json {
       return TRUE;
     });
 
-    // If we don't need the alert information..
+    // If we're not concerned with alerts..
     if ($this->withAlerts === FALSE) {
       // ..that's all we need to do.
       return $source_data;
     }
 
-    // Otherwise, get all the alerts from the JSON file..
-    $alerts = array_filter(parent::getSourceData($url), function ($value) {
-      if (!isset($value['sys']['contentType']['sys']['id'])) {
-        return FALSE;
-      }
-      if ($value['sys']['contentType']['sys']['id'] != 'alert') {
-        return FALSE;
-      }
-      return TRUE;
-    });
-
-    // ..and add each alert to our migration source data, keyed by its ID for
-    // easy lookup in subsequent processing.
-    $source_data['alerts'] = [];
-    foreach ($alerts as $alert) {
-      if (!isset($alert['sys']['id'])) {
+    // Otherwise, go through our source data and add the relevant alert(s)
+    // information to each element.
+    foreach ($source_data as &$datum) {
+      $datum['alerts'] = [];
+      if (!isset($datum['fields']['alertsInline']['en-GB'])) {
         continue;
       }
-      $source_data['alerts'][$alert['sys']['id']] = $alert;
+      foreach ($datum['fields']['alertsInline']['en-GB'] as $alert) {
+        if (array_key_exists($alert['sys']['id'], $map_id_to_alerts)) {
+          $datum['alerts'][$alert['sys']['id']] = $map_id_to_alerts[$alert['sys']['id']];
+        }
+      }
     }
 
     return $source_data;
