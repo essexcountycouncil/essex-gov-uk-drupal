@@ -3,7 +3,6 @@
 namespace Drupal\ecc_migrate\Plugin\migrate\process;
 
 use Drupal\Component\Transliteration\TransliterationInterface;
-use Drupal\Core\Language\LanguageInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\migrate\MigrateExecutableInterface;
 use Drupal\migrate\ProcessPluginBase;
