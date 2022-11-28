@@ -19,8 +19,8 @@ build_image:
     # - DOCKER_PASSWORD=$(az keyvault secret show --name "acr-admin-password" --vault-name "ecc-dev-kv-de123d9" --query "value")
     - docker login -u${DOCKER_USER} -p${DOCKER_PASSWORD} ${DOCKER_REGISTRY}
   script:
-    - docker build -t ${DOCKER_REGISTRY}/portal-drupal-fpm:latest -t portal-drupal-fpm -f Dockerfile-drupal .
-    - docker build -t ${DOCKER_REGISTRY}/portal-nginx-drupal:latest -t portal-nginx-drupal -f Dockerfile-nginx .
+    - docker build -t ${DOCKER_REGISTRY}/portal-drupal-fpm:latest -t ${DOCKER_REGISTRY}/portal-drupal-fpm:${CI_PIPELINE_ID} -t portal-drupal-fpm -f Dockerfile-drupal .
+    - docker build -t ${DOCKER_REGISTRY}/portal-nginx-drupal:latest -t ${DOCKER_REGISTRY}/portal-nginx-drupal:${CI_PIPELINE_ID} -t portal-nginx-drupal -f Dockerfile-nginx .
     - docker push ${DOCKER_REGISTRY}/portal-nginx-drupal
     - docker push ${DOCKER_REGISTRY}/portal-drupal-fpm
   rules:
@@ -63,10 +63,11 @@ update-app-service:
     - apk add py3-pip gcc musl-dev python3-dev libffi-dev openssl-dev cargo make
     - pip install --upgrade pip
     - pip install azure-cli
+    - az extension add --name containerapp
     - az login --service-principal -u${ARM_CLIENT_ID} -p${ARM_CLIENT_SECRET} -t${ARM_TENANT_ID}
   script:
     - echo "Creating new revision of Container App"
-    - az containerapp revision copy --name portal --resource-group rg-ecc-portal-uks-dev
+    - az containerapp revision copy --name portal --resource-group rg-ecc-portal-uks-dev --revision-suffix build-${CI_PIPELINE_ID}
   rules:
     - if: '$CI_COMMIT_BRANCH == "master"'
       when: manual

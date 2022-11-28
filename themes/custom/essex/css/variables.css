@@ -62,4 +62,5 @@ body {
   --tabs-button-bg-color: var(--color-grey-lighter);
   --btn-start-bg-color: #00823b;
   --btn-start-color-hover: #00823b;
+  --sidebar-exposed-form-bg-color: var(--color-white);
 }

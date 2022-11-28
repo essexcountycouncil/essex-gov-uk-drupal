@@ -49,6 +49,10 @@ source:
       name: body
       label: 'Body'
       selector: 'fields/body/en-GB'
+    -
+      name: content_owners
+      label: 'Content owners'
+      selector: 'fields/contentOwners/en-GB'
   ids:
     id:
       type: string
@@ -104,13 +108,22 @@ process:
     plugin: migration_lookup
     source: parent_page
     migration: ecc_guide_overviews
-# todo verify this is used in post migrate event
   pseudo_uid:
     plugin: migration_lookup
     migration: ecc_users
     source: created_by
     no_stub: true
+  field_content_owner:
+    plugin: sub_process
+    source: content_owners
+    process:
+      target_id:
+        plugin: migration_lookup
+        source: sys/id
+        migration:
+          - ecc_content_owners
 migration_dependencies:
   required:
     - ecc_users
-# todo are there more? Embedded media?
+    - ecc_content_owners
+
