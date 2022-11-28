@@ -24,7 +24,6 @@ use Drupal\migrate_plus\Plugin\migrate_plus\data_parser\Json;
  *   title = @Translation("Contentful Alerts")
  * )
  */
-
 class ContentfulAlerts extends Json {
 
   /**
