@@ -37,6 +37,7 @@ body {
   --font-primary: 'Lexend', Arial, Helvetica, sans-serif;
   --color-accent: #e40037;
   --font-secondary: var(--font-primary);
+  --font-semibold: 600;
   --line-height: 1.3;
   --alert-banner-bg-color-minor: #ecb720;
   --alert-banner-color: var(--color-black);
