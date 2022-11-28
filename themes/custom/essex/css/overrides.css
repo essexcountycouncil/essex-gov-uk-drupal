@@ -346,6 +346,11 @@ h1:after,
     padding-left: var(--spacing-padding-horizontal);
 }
 
+@media only screen and (max-width: 767px) {
+    .lgd-row__one-third {
+        margin-bottom: var(--spacing-large);
+    }
+}
 
 /* Three column layout responsiveness */
 
@@ -357,10 +362,6 @@ h1:after,
 .paragraph--type--page-section .layout--threecol-33-34-33 .layout__region--second, 
 .paragraph--type--page-section .layout--threecol-33-34-33 .layout__region--third {
     padding: 0;
-}
-
-.paragraph--type--page-section .layout--threecol-33-34-33 .layout__region {
-    margin-bottom: var(--spacing-larger);
 }
 
 @media only screen and (min-width: 640px) {

@@ -6845,16 +6845,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/essexcountycouncil/content_ownership.git",
-                "reference": "3e26c2d600baeb932609ab4a237a862093ecd679"
+                "reference": "4a8eb0b440ddbcf4aaf26892deb7ee59c4149c60"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/essexcountycouncil/content_ownership/zipball/3e26c2d600baeb932609ab4a237a862093ecd679",
-                "reference": "3e26c2d600baeb932609ab4a237a862093ecd679",
+                "url": "https://api.github.com/repos/essexcountycouncil/content_ownership/zipball/4a8eb0b440ddbcf4aaf26892deb7ee59c4149c60",
+                "reference": "4a8eb0b440ddbcf4aaf26892deb7ee59c4149c60",
                 "shasum": ""
             },
             "default-branch": true,
-            "type": "drupal-custom-module",
+            "type": "drupal-module",
             "authors": [
                 {
                     "name": "Nathan Brettell",
@@ -6866,7 +6866,7 @@
                 "source": "https://github.com/essexcountycouncil/content_ownership/tree/main",
                 "issues": "https://github.com/essexcountycouncil/content_ownership/issues"
             },
-            "time": "2022-11-23T14:32:37+00:00"
+            "time": "2022-11-24T09:25:33+00:00"
         },
         {
             "name": "ezyang/htmlpurifier",
@@ -16394,12 +16394,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                "reference": "a1e30f9773206c2740bdb26d564857fe8ee897ae"
+                "reference": "0399700d159e09b16645945758b65b921d3491fe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/a1e30f9773206c2740bdb26d564857fe8ee897ae",
-                "reference": "a1e30f9773206c2740bdb26d564857fe8ee897ae",
+                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/0399700d159e09b16645945758b65b921d3491fe",
+                "reference": "0399700d159e09b16645945758b65b921d3491fe",
                 "shasum": ""
             },
             "conflict": {
@@ -16631,7 +16631,7 @@
                 "modx/revolution": "<= 2.8.3-pl|<2.8",
                 "mojo42/jirafeau": "<4.4",
                 "monolog/monolog": ">=1.8,<1.12",
-                "moodle/moodle": "<4.0.1",
+                "moodle/moodle": "<4.0.5",
                 "mustache/mustache": ">=2,<2.14.1",
                 "namshi/jose": "<2.2",
                 "neoan3-apps/template": "<1.1.1",
@@ -16927,7 +16927,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-11-22T19:04:21+00:00"
+            "time": "2022-11-23T23:04:03+00:00"
         },
         {
             "name": "sebastian/cli-parser",
