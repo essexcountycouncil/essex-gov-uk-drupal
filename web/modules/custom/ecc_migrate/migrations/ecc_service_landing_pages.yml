@@ -7,11 +7,12 @@ migration_tags:
 source:
   plugin: url
   data_fetcher_plugin: file
-  data_parser_plugin: json_contentful_with_alerts
+  data_parser_plugin: json_contentful
   urls:
     - 'private://migration_data/contentful_export.json'
   item_selector: entries
   content_type: topic
+  with_alerts: true
   fields:
     -
       name: name

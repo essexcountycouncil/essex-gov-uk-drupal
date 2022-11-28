@@ -19,7 +19,7 @@ enum sectionOptions {
  *   title = @Translation("Contentful Information Pages")
  * )
  */
-class ContentfulInformationPages extends JsonContentfulWithAlerts {
+class ContentfulInformationPages extends JsonContentful {
 
   /**
    * Options for restricting data set due to the presence of sections.
