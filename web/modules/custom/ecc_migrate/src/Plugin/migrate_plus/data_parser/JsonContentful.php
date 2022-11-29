@@ -114,7 +114,9 @@ class JsonContentful extends Json {
       }
       foreach ($datum['fields']['alertsInline']['en-GB'] as $alert) {
         if (array_key_exists($alert['sys']['id'], $map_id_to_alerts)) {
-          $datum['alerts'][$alert['sys']['id']] = $map_id_to_alerts[$alert['sys']['id']];
+          // Note that alerts are keyed by title rather than ID, as that is
+          // how they are referred in the body text.
+          $datum['alerts'][$map_id_to_alerts[$alert['sys']['id']]['fields']['title']['en-GB']] = $map_id_to_alerts[$alert['sys']['id']];
         }
       }
     }
