@@ -1,5 +1,7 @@
-# Migration configuration for Contacts.
-id: ecc_contacts
+# Migration configuration for Contacts part one.
+# Contacts require a paragraph item and a paragraph library item.
+# This migration creates the paragraph items.
+id: ecc_contacts_paragraph_items
 label: Contacts
 migration_tags:
   - ECC
@@ -14,9 +16,6 @@ source:
   tags:
     - contactDetails
   fields:
-    - name: title
-      label: 'Title'
-      selector: 'fields/title/en-GB'
     - name: id
       label: 'Contentful ID'
       selector: sys/id
@@ -27,8 +26,8 @@ source:
     id:
       type: string
 destination:
-  plugin: entity:paragraph
+  plugin: entity_reference_revisions:paragraph
 process:
   type:
     plugin: default_value
-    default_value: contact
+    default_value: localgov_contact
