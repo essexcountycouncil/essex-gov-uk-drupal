@@ -1,0 +1,34 @@
+# Migration configuration for Contacts.
+id: ecc_contacts
+label: Contacts
+migration_tags:
+  - ECC
+source:
+  plugin: url
+  data_fetcher_plugin: file
+  data_parser_plugin: json_contentful
+  urls:
+    - 'private://migration_data/contentful_export.json'
+  item_selector: entries
+  content_type: alert
+  tags:
+    - contactDetails
+  fields:
+    - name: title
+      label: 'Title'
+      selector: 'fields/title/en-GB'
+    - name: id
+      label: 'Contentful ID'
+      selector: sys/id
+    - name: body
+      label: 'Body'
+      selector: 'fields/body/en-GB'
+  ids:
+    id:
+      type: string
+destination:
+  plugin: entity:paragraph
+process:
+  type:
+    plugin: default_value
+    default_value: contact
