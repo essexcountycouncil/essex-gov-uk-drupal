@@ -87,7 +87,7 @@ process:
     migration: ecc_image_media
     source: image_id
     no_stub: true
-  'body/value':
+  body_text_intermediate:
     -
       plugin: markdown_to_html
       markdown_extensions:
@@ -99,6 +99,11 @@ process:
       plugin: map_youtube_embeds
     -
       plugin: strip_styles
+  'body/value':
+    plugin: rewrite_alerts
+    source:
+      - '@body_text_intermediate'
+      - alerts
   'body/format':
     plugin: default_value
     default_value: wysiwyg
