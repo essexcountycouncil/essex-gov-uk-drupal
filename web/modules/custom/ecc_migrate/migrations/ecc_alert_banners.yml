@@ -6,10 +6,13 @@ migration_tags:
 source:
   plugin: url
   data_fetcher_plugin: file
-  data_parser_plugin: contentful_alerts
+  data_parser_plugin: json_contentful
   urls:
     - 'private://migration_data/contentful_export.json'
   item_selector: entries
+  content_type: alert
+  tags:
+    - normalAlertBanner
   fields:
     -
       name: title
