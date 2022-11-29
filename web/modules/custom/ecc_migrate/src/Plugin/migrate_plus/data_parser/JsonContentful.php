@@ -17,6 +17,9 @@ use Drupal\migrate_plus\Plugin\migrate_plus\data_parser\Json;
  * Additional alert information will be included in the source if with_alerts
  * is TRUE. By default, alert information is not included.
  *
+ * If tags are specified, the source will be restricted to content matching
+ * one of the specified tag IDs.
+ *
  * Usage:
  *
  * @code
@@ -29,6 +32,8 @@ use Drupal\migrate_plus\Plugin\migrate_plus\data_parser\Json;
  *     item_selector: entries
  *     content_type: news
  *     with_alerts: true
+ *     tags:
+ *       - normalAlertBanner
  *
  * @endcode
  *
@@ -54,12 +59,18 @@ class JsonContentful extends Json {
   protected bool $withAlerts;
 
   /**
+   * Optional list of tags to which to restrict content.
+   */
+  protected array $tags;
+
+  /**
    * {@inheritdoc}
    */
   public function __construct(array $configuration, $plugin_id, $plugin_definition) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
     $this->contentType = $configuration['content_type'] ?? '';
     $this->withAlerts = $configuration['with_alerts'] ?? FALSE;
+    $this->tags = $configuration['tags'] ?? [];
   }
 
   /**
@@ -67,7 +78,7 @@ class JsonContentful extends Json {
    */
   protected function getSourceData(string $url): array {
     // If we need alerts, get them from the source and build them into a map
-    // keyed by ID, for easier cross referencing against each source item.
+    // keyed by ID, for easier cross-referencing against each source item.
     $alerts = [];
     $map_id_to_alerts = [];
     if ($this->withAlerts) {
@@ -95,6 +106,26 @@ class JsonContentful extends Json {
       }
       if ($value['sys']['contentType']['sys']['id'] != $this->contentType) {
         return FALSE;
+      }
+      // If we are filtering by tag..
+      if (!empty($this->tags)) {
+        // ..but the source row has no tags..
+        if (!isset($value['metadata']['tags'])) {
+          // ..remove the row from the data set..
+          return FALSE;
+        }
+        // ..but if we have tags, iterate through to see if this row has a
+        // matching tag.
+        $tag_match = FALSE;
+        foreach ($value['metadata']['tags'] as $source_tag) {
+          if (in_array($source_tag['sys']['id'], $this->tags)) {
+            $tag_match = TRUE;
+          }
+        }
+        // We didn't find a matching tag, so exclude.
+        if (!$tag_match) {
+          return FALSE;
+        }
       }
       return TRUE;
     });
