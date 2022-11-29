@@ -27,10 +27,6 @@ source:
       name: severity
       label: 'Severity'
       selector: 'fields/severity/en-GB'
-    -
-      name: pages
-      label: 'Pages'
-      selector: alert_pages
   ids:
     id:
       type: string
@@ -59,9 +55,6 @@ process:
       plugin: map_youtube_embeds
     -
       plugin: strip_styles
-  moderation_state:
-    plugin: default_value
-    default_value: published
   type_of_alert:
     plugin: static_map
     source: severity
@@ -69,13 +62,3 @@ process:
       'Information': '00--announcement'
       'Warning': '20--minor'
       'Error': '50--major'
-  visibility:
-    -
-      plugin: migmag_lookup
-      source: parent_page
-      migration:
-        - ecc_service_landing_pages
-        - ecc_service_pages
-        - ecc_guide_overviews
-    -
-      plugin: alert_pages
