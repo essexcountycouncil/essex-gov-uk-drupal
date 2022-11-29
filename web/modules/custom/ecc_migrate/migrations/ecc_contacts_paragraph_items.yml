@@ -31,3 +31,10 @@ process:
   type:
     plugin: default_value
     default_value: localgov_contact
+  localgov_contact_email:
+    plugin: contact_email
+    source: body
+  localgov_contact_phone:
+    plugin: contact_phone
+    source: body
+
