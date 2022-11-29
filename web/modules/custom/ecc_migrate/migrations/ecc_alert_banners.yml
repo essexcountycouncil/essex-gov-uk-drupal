@@ -48,6 +48,8 @@ process:
   'short_description/value':
     -
       plugin: markdown_to_html
+      markdown_extensions:
+        - table
       source: body
     -
       plugin: map_asset_urls
