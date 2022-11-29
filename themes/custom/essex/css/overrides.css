@@ -156,7 +156,7 @@
 /* Logo */
 
 .branding__item--logo a {
-    display: block; 
+    display: block;
 }
 
 .branding__item--logo a:focus {
@@ -208,24 +208,24 @@
     color: var(--btn-start-color-hover);
     background-color: var(--btn-start-bg-color-hover);
 }
-  
+
 .service-cta-block .service-cta-block__link:hover,
 .service-cta-block .service-cta-block__link:focus {
     background-color: var(--color-white);
     color: var(--btn-start-bg-color);
     border-color: var(--btn-start-bg-color);
 }
-  
+
 .service-cta-block .service-cta-block__link:hover .service-cta-block__link-icon svg path,
 .service-cta-block .service-cta-block__link:focus .service-cta-block__link-icon svg path {
     fill: var(--btn-start-bg-color);
 }
-  
+
 .service-statuses__label {
     color: var(--color-white);
     font-weight: var(--font-semibold);
 }
-  
+
 .call-out-box__content h2 {
     color: var(--color-white);
 }
@@ -233,21 +233,21 @@
 .call-out-box__link {
     color: var(--color-link);
 }
-  
+
 p.callout {
     font-weight: var(--font-semibold);
 }
-  
+
 .callout.callout-primary {
     background-color: var(--color-black);
 }
-  
+
 input[type="submit"],
 .lgd-prev-next__list .lgd-prev-next__link {
     background-color: var(--color-black);
     border-color: var(--color-black);
 }
-  
+
 .step-by-step-pages ol.step-list .step .step__title a {
     color: var(--color-link);
     display: inline-block;
@@ -307,6 +307,13 @@ input[type="submit"],
     line-height: 1.625rem;
 }
 
+.inset .section-heading {
+  font-weight: 600;
+  font-size: 1.4rem;
+  line-height: 1.625rem;
+  margin-bottom: 0.8125rem;
+}
+
 h1,
 .field--type-text-long h2 {
     position: relative;
@@ -359,7 +366,7 @@ h1:after,
 }
 
 .paragraph--type--page-section .layout--threecol-33-34-33 .layout__region--first,
-.paragraph--type--page-section .layout--threecol-33-34-33 .layout__region--second, 
+.paragraph--type--page-section .layout--threecol-33-34-33 .layout__region--second,
 .paragraph--type--page-section .layout--threecol-33-34-33 .layout__region--third {
     padding: 0;
 }
