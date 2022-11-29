@@ -165,7 +165,7 @@
 }
 
 .lgd-guide-nav .lgd-guide-nav__list-item > a {
-    font-weight: 600;
+    font-weight: var(--font-semibold);
 }
 
 .service-cta-block .service-cta-block__link--cta-info,
@@ -177,7 +177,7 @@
 .service-cta-block .service-cta-block__link--cta-info,
 .service-cta-block .service-cta-block__link--cta-action,
 .button-start {
-    font-weight: 600;
+    font-weight: var(--font-semibold);
     font-size: 1.2rem;
     line-height: inherit;
 }
@@ -223,7 +223,7 @@
   
 .service-statuses__label {
     color: var(--color-white);
-    font-weight: 600;
+    font-weight: var(--font-semibold);
 }
   
 .call-out-box__content h2 {
@@ -235,7 +235,7 @@
 }
   
 p.callout {
-    font-weight: 600;
+    font-weight: var(--font-semibold);
 }
   
 .callout.callout-primary {
@@ -251,7 +251,7 @@ input[type="submit"],
 .step-by-step-pages ol.step-list .step .step__title a {
     color: var(--color-link);
     display: inline-block;
-    font-weight: 600;
+    font-weight: var(--font-semibold);
 }
 
 .step-by-step-pages ol.step-list .step .step__title .step-show {
@@ -259,7 +259,7 @@ input[type="submit"],
 }
 
 .banner--primary .field--name-localgov-title {
-    font-weight: 600;
+    font-weight: var(--font-semibold);
 }
 
 .service-landing-page__contact {
@@ -346,6 +346,11 @@ h1:after,
     padding-left: var(--spacing-padding-horizontal);
 }
 
+@media only screen and (max-width: 767px) {
+    .lgd-row__one-third {
+        margin-bottom: var(--spacing-large);
+    }
+}
 
 /* Three column layout responsiveness */
 
@@ -359,10 +364,6 @@ h1:after,
     padding: 0;
 }
 
-.paragraph--type--page-section .layout--threecol-33-34-33 .layout__region {
-    margin-bottom: var(--spacing-larger);
-}
-
 @media only screen and (min-width: 640px) {
     .layout--threecol-33-34-33 > .layout__region--first,
     .layout--threecol-33-34-33 > .layout__region--second,
@@ -372,6 +373,11 @@ h1:after,
 }
 
 /* Guide navigation */
+.lgd-guide-nav {
+    background-color: var(--color-white) !important;
+    border: 1px solid var(--color-black);
+}
+
 @media only screen and (min-width: 768px) {
     .lgd-guide-nav__list-item {
         margin-right: var(--spacing-large);
@@ -381,4 +387,17 @@ h1:after,
 /* Newsroom teaser */
 .newsroom-teaser img {
     width: 100%;
+}
+
+/* Pagination */
+.pager__item.is-active a {
+    font-weight: var(--font-semibold);
+    text-decoration: none;
+}
+
+/* Sidebar blocks */
+.sidebar .lgd-region__inner > *,
+.blog-channel__sidebar > *,
+.newsroom__sidebar > * {
+    border: 1px solid var(--color-black);
 }
