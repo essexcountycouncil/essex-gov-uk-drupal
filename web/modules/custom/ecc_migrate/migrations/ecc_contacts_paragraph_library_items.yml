@@ -32,7 +32,11 @@ process:
     plugin: default_value
     default_value: localgov_contact
   label: title
-  x:
+  # We use an intermediary compound reference here because the entity we
+  # are looking up has an ID and a revision ID. This means that migration_lookup
+  # will return an array, which we must then further sub_process to split it
+  # into ID and revision ID before storing in the paragraphs field.
+  compound_reference:
     plugin: migration_lookup
     migration: ecc_contacts_paragraph_items
     source: id
@@ -40,7 +44,7 @@ process:
   paragraphs:
     plugin: sub_process
     source:
-      - '@x'
+      - '@compound_reference'
     process:
       target_id: '0'
       target_revision_id: '1'
