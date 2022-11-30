@@ -446,3 +446,31 @@ h1:after,
 .newsroom__sidebar > * {
     border: 1px solid var(--color-black);
 }
+
+/* Tables */
+table {
+    margin-top: 0.8125rem;
+    margin-bottom: 1.625rem;
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+}
+
+table caption {
+    text-align: left;
+    font-weight: var(--font-semibold);
+}
+
+thead th {
+    border-bottom: 2px solid var(--color-black);
+    
+}
+
+thead th,
+tbody td {
+    padding: 1.625rem 1.625rem 1.625rem 0;
+}
+
+tbody tr {
+    border-bottom: 1px solid var(--color-black);
+}

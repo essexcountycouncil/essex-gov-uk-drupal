@@ -63,4 +63,6 @@ body {
   --btn-start-bg-color: #00823b;
   --btn-start-color-hover: #00823b;
   --sidebar-exposed-form-bg-color: var(--color-white);
+  --table-bg-color: transparent;
+  --table-border: none;
 }
