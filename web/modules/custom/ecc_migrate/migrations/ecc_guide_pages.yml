@@ -144,4 +144,5 @@ migration_dependencies:
   required:
     - ecc_users
     - ecc_content_owners
+    - ecc_contacts_paragraph_library_items
 

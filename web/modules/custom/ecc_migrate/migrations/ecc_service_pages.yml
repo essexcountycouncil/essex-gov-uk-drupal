@@ -162,3 +162,4 @@ migration_dependencies:
     - ecc_youtube_embeds
     - ecc_image_media
     - ecc_content_owners
+    - ecc_contacts_paragraph_library_items
