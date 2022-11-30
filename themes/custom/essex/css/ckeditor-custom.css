@@ -6,6 +6,13 @@
   line-height: 1.625rem;
 }
 
+.inset .section-heading {
+  font-weight: 600;
+  font-size: 1.42rem;
+  line-height: 1.625rem;
+  margin-bottom: 0.8125rem;
+}
+
 .button-start {
   font-weight: 600;
   font-size: 1.2rem;
