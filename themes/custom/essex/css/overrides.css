@@ -13,7 +13,7 @@
 .localgov-alert-banner--announcement,
 .localgov-alert-banner--minor {
     background: var(--color-white);
-    border-width: 6px;
+    border-width: 5px;
     border-style: solid;
 }
 
@@ -62,7 +62,6 @@
 
 @media only screen and (min-width: 768px) {
     .localgov-alert-banner .localgov-alert-banner__inner {
-        background-size: 45px;
         padding-left: 9rem;
     }
 }
@@ -77,10 +76,6 @@
 
 .localgov-alert-banner--minor .localgov-alert-banner__inner {
     background-image: url('../assets/images/icons/icon_warning_yellow.svg');
-}
-
-.localgov-alert-banner--notable-person .localgov-alert-banner__inner {
-    background-image: url('../assets/images/icons/warning_white_round.svg');
 }
 
 
