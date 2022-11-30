@@ -92,7 +92,7 @@ class RewriteAlerts extends ProcessPluginBase {
         $alert_html = $this->markdownConverter->convert($alert_markdown);
       }
       if ($alert_source['metadata']['tags'][0]['sys']['id'] == 'inlineAlert') {
-        $alert_html = "<div class='inset'><h3>{$alert_source['fields']['title']['en-GB']}</h3>$alert_html</div>";
+        $alert_html = "<div class=\"inset\"><h3>{$alert_source['fields']['title']['en-GB']}</h3>$alert_html</div>";
       }
       if ($alert_source['metadata']['tags'][0]['sys']['id'] == 'quote') {
         $alert_html = "<blockquote>$alert_html</blockquote>";
