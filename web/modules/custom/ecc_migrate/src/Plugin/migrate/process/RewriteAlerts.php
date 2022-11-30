@@ -77,11 +77,20 @@ class RewriteAlerts extends ProcessPluginBase {
       if (!in_array($alert_source['metadata']['tags'][0]['sys']['id'], [
         'inlineAlert',
         'quote',
+        'contactDetails',
       ])) {
         continue;
       }
-      $alert_markdown = $alert_source['fields']['body']['en-GB'];
-      $alert_html = $this->markdownConverter->convert($alert_markdown);
+      // Only convert the alert from markdown to html if it's not
+      // contactDetails. They are left as '' so they get removed from the body
+      // copy. They are converted to page components elsewhere in the migration.
+      if (in_array($alert_source['metadata']['tags'][0]['sys']['id'], [
+        'inlineAlert',
+        'quote',
+      ])) {
+        $alert_markdown = $alert_source['fields']['body']['en-GB'];
+        $alert_html = $this->markdownConverter->convert($alert_markdown);
+      }
       if ($alert_source['metadata']['tags'][0]['sys']['id'] == 'inlineAlert') {
         $alert_html = "<div class='inset'><h3>{$alert_source['fields']['title']['en-GB']}</h3>$alert_html</div>";
       }

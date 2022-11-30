@@ -26,6 +26,7 @@ source:
     id:
       type: string
 destination:
+#  plugin: entity_reference_revisions:paragraphs_library_item
   plugin: entity:paragraphs_library_item
 process:
   type:

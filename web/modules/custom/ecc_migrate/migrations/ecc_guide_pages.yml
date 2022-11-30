@@ -132,6 +132,14 @@ process:
         source: sys/id
         migration:
           - ecc_content_owners
+  localgov_page_components:
+    -
+      plugin: extract_contact_details
+      source: alerts
+    -
+      plugin: migration_lookup
+      migration: ecc_contacts_paragraph_library_items
+      no_stub: true
 migration_dependencies:
   required:
     - ecc_users

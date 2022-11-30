@@ -140,7 +140,14 @@ process:
         source: sys/id
         migration:
           - ecc_content_owners
-
+  localgov_page_components:
+    -
+      plugin: extract_contact_details
+      source: alerts
+    -
+      plugin: migration_lookup
+      migration: ecc_contacts_paragraph_library_items
+      no_stub: true
 # These final fields are not saved directly onto the entity but are available for
 # post-migrate events.
   pseudo_uid:
