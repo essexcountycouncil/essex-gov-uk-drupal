@@ -7,7 +7,7 @@ use Drupal\migrate\ProcessPluginBase;
 use Drupal\migrate\Row;
 
 /**
- * BETTER NAME HERE.
+ * Extracts contact detail source IDs for a set of all alerts for a page.
  *
  * Usage:
  *
