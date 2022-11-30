@@ -18,17 +18,8 @@
 
 @font-face {
     font-family: 'Lexend';
-    src: url('../assets/fonts/Lexend-Bold.woff2') format('woff2'),
-        url('../assets/fonts/Lexend-Bold.woff') format('woff');
-    font-weight: bold;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Lexend';
-    src: url('../assets/fonts/Lexend-ExtraBold.woff2') format('woff2'),
-        url('../assets/fonts/Lexend-ExtraBold.woff') format('woff');
+    src: url('../assets/fonts/Lexend-SemiBold.woff2') format('woff2'),
+        url('../assets/fonts/Lexend-SemiBold.woff') format('woff');
     font-weight: bold;
     font-style: normal;
     font-display: swap;
