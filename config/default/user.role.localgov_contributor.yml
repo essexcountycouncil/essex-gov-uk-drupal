@@ -27,7 +27,9 @@ dependencies:
     - workflows.workflow.localgov_editorial
   module:
     - content_moderation
+    - content_ownership
     - entity_browser
+    - localgov_alert_banner
     - media
     - node
     - paragraphs
@@ -38,6 +40,7 @@ dependencies:
     - scheduled_transitions
     - system
     - toolbar
+    - webform
   enforced:
     module:
       - localgov_roles
@@ -45,11 +48,12 @@ _core:
   default_config_hash: Fc49dMO9n7Q8f9QB9HvLIHh9LzpRTE0lgYetg1x-4qc
 id: localgov_contributor
 label: Contributor
-weight: -5
+weight: -6
 is_admin: null
 permissions:
   - 'access content overview'
   - 'access in-place editing'
+  - 'access localgov alert banner listing page'
   - 'access media overview'
   - 'access page_components entity browser pages'
   - 'access paragraphs_library_items entity browser pages'
@@ -92,18 +96,21 @@ permissions:
   - 'create paragraph library item'
   - 'create remote_video media'
   - 'create url aliases'
-  - 'delete media'
   - 'edit any document media'
   - 'edit any image media'
   - 'edit any remote_video media'
   - 'edit own document media'
   - 'edit own image media'
+  - 'edit own localgov_directories_org content'
   - 'edit own localgov_directories_page content'
   - 'edit own localgov_directories_venue content'
+  - 'edit own localgov_directory content'
   - 'edit own localgov_directory_promo_page content'
   - 'edit own localgov_event content'
   - 'edit own localgov_guides_overview content'
   - 'edit own localgov_guides_page content'
+  - 'edit own localgov_news_article content'
+  - 'edit own localgov_newsroom content'
   - 'edit own localgov_services_landing content'
   - 'edit own localgov_services_page content'
   - 'edit own localgov_services_status content'
@@ -135,13 +142,19 @@ permissions:
   - 'use localgov_editorial transition create_new_draft'
   - 'use localgov_editorial transition reject'
   - 'use localgov_editorial transition submit_for_review'
+  - 'view all localgov alert banner entity pages'
   - 'view all media revisions'
   - 'view all revisions'
   - 'view all scheduled transitions'
   - 'view any unpublished content'
+  - 'view any webform submission'
+  - 'view content owner/sme entity'
   - 'view latest version'
+  - 'view localgov alert banner localgov_alert_banner pages'
+  - 'view localgov_directories_org revisions'
   - 'view localgov_directories_page revisions'
   - 'view localgov_directories_venue revisions'
+  - 'view localgov_directory revisions'
   - 'view localgov_directory_promo_page revisions'
   - 'view localgov_event revisions'
   - 'view localgov_guides_overview revisions'
@@ -158,8 +171,10 @@ permissions:
   - 'view localgov_subsites_page revisions'
   - 'view own unpublished content'
   - 'view own unpublished media'
+  - 'view scheduled transitions node localgov_directories_org'
   - 'view scheduled transitions node localgov_directories_page'
   - 'view scheduled transitions node localgov_directories_venue'
+  - 'view scheduled transitions node localgov_directory'
   - 'view scheduled transitions node localgov_directory_promo_page'
   - 'view scheduled transitions node localgov_event'
   - 'view scheduled transitions node localgov_guides_overview'

@@ -7,7 +7,6 @@ dependencies:
   module:
     - content_moderation
     - localgov_alert_banner
-    - system
   enforced:
     module:
       - localgov_alert_banner
@@ -18,7 +17,7 @@ label: 'Emergency publisher'
 weight: -9
 is_admin: null
 permissions:
-  - 'access administration pages'
+  - 'use localgov_alert_banners transition create_new_draft'
   - 'use localgov_alert_banners transition publish'
   - 'use localgov_alert_banners transition unpublish'
   - 'view all localgov alert banner entities'
