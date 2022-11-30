@@ -5,6 +5,9 @@ drush migrate:import ecc_files
 drush migrate:import ecc_image_media
 drush migrate:import ecc_document_media
 drush migrate:import ecc_youtube_embeds
+drush migrate:import ecc_alert_banners
+drush migrate:import ecc_contacts_paragraph_items
+drush migrate:import ecc_contacts_paragraph_library_items
 drush migrate:import ecc_newsrooms
 drush migrate:import ecc_news
 drush migrate:import ecc_guide_pages

@@ -12,6 +12,7 @@ source:
     - 'private://migration_data/contentful_export.json'
   item_selector: entries
   with_sections: false
+  with_alerts: true
   fields:
     -
       name: title
@@ -65,6 +66,10 @@ source:
       name: content_owners
       label: 'Content owners'
       selector: 'fields/contentOwners/en-GB'
+    -
+      name: alerts
+      label: 'Alerts'
+      selector: 'alerts'
   ids:
     id:
       type: string
@@ -86,7 +91,9 @@ process:
     plugin: default_value
     default_value: wysiwyg
   'body/summary': teaser
-  'body/value':
+  # Intermediary variable to use for processing of body text before passing
+  # it into rewrite_alerts, which combines two source fields.
+  'body_text_intermediate':
     -
       plugin: markdown_to_html
       source: body
@@ -98,6 +105,11 @@ process:
       plugin: map_youtube_embeds
     -
       plugin: strip_styles
+  'body/value':
+      plugin: rewrite_alerts
+      source:
+        - '@body_text_intermediate'
+        - alerts
   status:
     plugin: default_value
     default_value: 1
@@ -128,7 +140,14 @@ process:
         source: sys/id
         migration:
           - ecc_content_owners
-
+  localgov_page_components:
+    -
+      plugin: extract_contact_details
+      source: alerts
+    -
+      plugin: migration_lookup
+      migration: ecc_contacts_paragraph_library_items
+      no_stub: true
 # These final fields are not saved directly onto the entity but are available for
 # post-migrate events.
   pseudo_uid:
@@ -143,3 +162,4 @@ migration_dependencies:
     - ecc_youtube_embeds
     - ecc_image_media
     - ecc_content_owners
+    - ecc_contacts_paragraph_library_items

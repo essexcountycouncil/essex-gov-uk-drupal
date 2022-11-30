@@ -12,6 +12,7 @@ source:
     - 'private://migration_data/contentful_export.json'
   item_selector: entries
   content_type: topic
+  with_alerts: true
   fields:
     -
       name: name
