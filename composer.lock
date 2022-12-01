@@ -6845,12 +6845,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/essexcountycouncil/content_ownership.git",
-                "reference": "4a8eb0b440ddbcf4aaf26892deb7ee59c4149c60"
+                "reference": "1c6b80b3e41fc28f85db15139d700370908e7a4e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/essexcountycouncil/content_ownership/zipball/4a8eb0b440ddbcf4aaf26892deb7ee59c4149c60",
-                "reference": "4a8eb0b440ddbcf4aaf26892deb7ee59c4149c60",
+                "url": "https://api.github.com/repos/essexcountycouncil/content_ownership/zipball/1c6b80b3e41fc28f85db15139d700370908e7a4e",
+                "reference": "1c6b80b3e41fc28f85db15139d700370908e7a4e",
                 "shasum": ""
             },
             "default-branch": true,
@@ -6866,7 +6866,7 @@
                 "source": "https://github.com/essexcountycouncil/content_ownership/tree/main",
                 "issues": "https://github.com/essexcountycouncil/content_ownership/issues"
             },
-            "time": "2022-11-24T09:25:33+00:00"
+            "time": "2022-12-01T09:58:36+00:00"
         },
         {
             "name": "ezyang/htmlpurifier",
