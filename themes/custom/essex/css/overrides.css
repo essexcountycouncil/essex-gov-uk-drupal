@@ -90,6 +90,10 @@
     max-height: 350px;
 }
 
+.banner__content h1:after {
+    content: none;
+}
+
 @media only screen and (max-width: 768px) {
     .banner--primary .banner__content {
         padding: 2rem;
