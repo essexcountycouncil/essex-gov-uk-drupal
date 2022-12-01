@@ -456,6 +456,17 @@ h1:after,
     border: 1px solid var(--color-black);
 }
 
+/* Related news heading */
+.news-article__related-title {
+    margin-top: var(--spacing-larger);
+}
+
+@media only screen and (min-width: 768px) {
+    .news-article__related-title {
+        margin-top: var(--spacing-mega);
+    }
+}
+
 /* Tables */
 table {
     margin-top: 0.8125rem;
