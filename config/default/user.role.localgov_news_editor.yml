@@ -6,14 +6,35 @@ dependencies:
     - media.type.document
     - media.type.image
     - media.type.remote_video
+    - node.type.localgov_directories_org
+    - node.type.localgov_directories_page
+    - node.type.localgov_directories_venue
+    - node.type.localgov_directory
+    - node.type.localgov_directory_promo_page
+    - node.type.localgov_event
+    - node.type.localgov_guides_overview
+    - node.type.localgov_guides_page
     - node.type.localgov_news_article
     - node.type.localgov_newsroom
+    - node.type.localgov_services_landing
+    - node.type.localgov_services_page
+    - node.type.localgov_services_status
+    - node.type.localgov_services_sublanding
+    - node.type.localgov_step_by_step_overview
+    - node.type.localgov_step_by_step_page
+    - node.type.localgov_subsites_overview
+    - node.type.localgov_subsites_page
+    - workflows.workflow.localgov_alert_banners
     - workflows.workflow.localgov_editorial
   module:
     - content_moderation
     - media
     - node
+    - paragraphs
+    - paragraphs_library
+    - path
     - preview_link
+    - redirect
     - scheduled_transitions
     - system
     - toolbar
@@ -24,7 +45,7 @@ _core:
   default_config_hash: A11-7cjsAJ9YGcWSITuETyg0AoLa2xGtaxuJ-wdcIYU
 id: localgov_news_editor
 label: 'News editor'
-weight: -4
+weight: -8
 is_admin: null
 permissions:
   - 'access content overview'
@@ -32,24 +53,52 @@ permissions:
   - 'access toolbar'
   - 'add scheduled transitions node localgov_news_article'
   - 'add scheduled transitions node localgov_newsroom'
+  - 'administer redirects'
   - 'create document media'
   - 'create image media'
   - 'create localgov_news_article content'
   - 'create localgov_newsroom content'
+  - 'create localgov_subsites_overview content'
+  - 'create paragraph library item'
   - 'create remote_video media'
+  - 'create url aliases'
   - 'delete own media'
   - 'edit any image media'
   - 'edit any localgov_news_article content'
   - 'edit any localgov_newsroom content'
+  - 'edit any localgov_subsites_overview content'
+  - 'edit own document media'
   - 'edit own image media'
+  - 'edit own localgov_directories_org content'
+  - 'edit own localgov_directories_page content'
+  - 'edit own localgov_directories_venue content'
+  - 'edit own localgov_directory content'
+  - 'edit own localgov_directory_promo_page content'
+  - 'edit own localgov_event content'
+  - 'edit own localgov_guides_overview content'
+  - 'edit own localgov_guides_page content'
   - 'edit own localgov_news_article content'
   - 'edit own localgov_newsroom content'
+  - 'edit own localgov_services_landing content'
+  - 'edit own localgov_services_page content'
+  - 'edit own localgov_services_status content'
+  - 'edit own localgov_services_sublanding content'
+  - 'edit own localgov_step_by_step_overview content'
+  - 'edit own localgov_step_by_step_page content'
+  - 'edit own localgov_subsites_overview content'
+  - 'edit own localgov_subsites_page content'
+  - 'edit own remote_video media'
+  - 'edit paragraph library item'
   - 'generate preview links'
   - 'reschedule scheduled transitions node localgov_news_article'
   - 'reschedule scheduled transitions node localgov_newsroom'
   - 'revert localgov_news_article revisions'
   - 'revert localgov_newsroom revisions'
+  - 'revert localgov_subsites_overview revisions'
   - 'update any image media'
+  - 'use localgov_alert_banners transition create_new_draft'
+  - 'use localgov_alert_banners transition publish'
+  - 'use localgov_alert_banners transition unpublish'
   - 'use localgov_editorial transition approve'
   - 'use localgov_editorial transition archive'
   - 'use localgov_editorial transition archived_draft'
@@ -60,11 +109,29 @@ permissions:
   - 'use localgov_editorial transition submit_for_review'
   - 'view all localgov_news_article revisions'
   - 'view any unpublished localgov_news_article content'
+  - 'view localgov_directories_org revisions'
+  - 'view localgov_directories_page revisions'
+  - 'view localgov_directories_venue revisions'
+  - 'view localgov_directory revisions'
+  - 'view localgov_directory_promo_page revisions'
+  - 'view localgov_event revisions'
+  - 'view localgov_guides_overview revisions'
+  - 'view localgov_guides_page revisions'
   - 'view localgov_news_article revisions'
   - 'view localgov_newsroom revisions'
+  - 'view localgov_services_landing revisions'
+  - 'view localgov_services_page revisions'
+  - 'view localgov_services_status revisions'
+  - 'view localgov_services_sublanding revisions'
+  - 'view localgov_step_by_step_overview revisions'
+  - 'view localgov_step_by_step_page revisions'
+  - 'view localgov_subsites_overview revisions'
+  - 'view localgov_subsites_page revisions'
   - 'view own media'
+  - 'view own unpublished content'
   - 'view own unpublished localgov_news_article content'
   - 'view own unpublished media'
   - 'view scheduled transitions node localgov_news_article'
   - 'view scheduled transitions node localgov_newsroom'
   - 'view the administration theme'
+  - 'view unpublished paragraphs'
