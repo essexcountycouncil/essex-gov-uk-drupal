@@ -106,10 +106,18 @@ process:
     -
       plugin: strip_styles
   'body/value':
+    -
       plugin: rewrite_alerts
       source:
         - '@body_text_intermediate'
         - alerts
+    -
+      plugin: rewrite_absolute_urls
+      urls:
+        - 'https://essex.gov.uk'
+        - 'https://www.essex.gov.uk'
+        - 'http://essex.gov.uk'
+        - 'http://www.essex.gov.uk'
   status:
     plugin: default_value
     default_value: 1
