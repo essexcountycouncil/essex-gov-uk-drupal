@@ -38,6 +38,11 @@
     color: var(--color-white);
 }
 
+.localgov-alert-banner--notable-person .localgov-alert-banner__close:hover,
+.localgov-alert-banner--notable-person .localgov-alert-banner__close:focus {
+    color: var(--color-black);
+}
+
 .localgov-alert-banner__actions {
     align-items: flex-start;
 }
