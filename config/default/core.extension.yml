@@ -154,6 +154,7 @@ module:
   views: 10
   paragraphs: 11
   localgov: 1000
+  eu_cookie_compliance: 1001
 theme:
   claro: 0
   stable: 0

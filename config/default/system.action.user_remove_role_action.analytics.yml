@@ -1,0 +1,14 @@
+uuid: 8ea9afb9-68c8-406b-846b-715d0d1bfdb0
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.analytics
+  module:
+    - user
+id: user_remove_role_action.analytics
+label: 'Remove the Analytics role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: analytics
