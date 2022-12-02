@@ -502,3 +502,13 @@ tbody tr {
     height: 100%;
     margin-bottom: var(--spacing-larger);
 }
+
+/* Blockquote */
+blockquote {
+    font-size: var(--font-size-h3);
+    background-image: url('../assets/images/icons/quotation.svg');
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: 30px;
+    padding-left: var(--spacing-largest);
+}
