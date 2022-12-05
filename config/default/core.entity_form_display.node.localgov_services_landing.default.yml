@@ -5,7 +5,6 @@ dependencies:
   config:
     - field.field.node.localgov_services_landing.body
     - field.field.node.localgov_services_landing.field_content_owner
-    - field.field.node.localgov_services_landing.field_content_sme
     - field.field.node.localgov_services_landing.field_non_publishable_notes
     - field.field.node.localgov_services_landing.localgov_address
     - field.field.node.localgov_services_landing.localgov_address_first_line
@@ -177,16 +176,6 @@ content:
   field_content_owner:
     type: entity_reference_autocomplete
     weight: 7
-    region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  field_content_sme:
-    type: entity_reference_autocomplete
-    weight: 8
     region: content
     settings:
       match_operator: CONTAINS

@@ -6,7 +6,6 @@ dependencies:
     - core.entity_view_mode.node.search_index
     - field.field.node.localgov_services_landing.body
     - field.field.node.localgov_services_landing.field_content_owner
-    - field.field.node.localgov_services_landing.field_content_sme
     - field.field.node.localgov_services_landing.field_non_publishable_notes
     - field.field.node.localgov_services_landing.localgov_address
     - field.field.node.localgov_services_landing.localgov_address_first_line
@@ -113,7 +112,6 @@ hidden:
   content_moderation_control: true
   entitygroupfield: true
   field_content_owner: true
-  field_content_sme: true
   field_non_publishable_notes: true
   links: true
   localgov_services_parent: true

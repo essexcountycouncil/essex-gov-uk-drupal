@@ -1,0 +1,25 @@
+uuid: dd2cd58e-528f-4f80-a512-fa2b39bad014
+langcode: en
+status: false
+dependencies:
+  module:
+    - localgov_search
+    - system
+  theme:
+    - essex
+id: sitewidesearchblock
+theme: essex
+region: tabs
+weight: -9
+provider: null
+plugin: localgov_sitewide_search_block
+settings:
+  id: localgov_sitewide_search_block
+  label: 'Sitewide search block'
+  label_display: visible
+  provider: localgov_search
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'
