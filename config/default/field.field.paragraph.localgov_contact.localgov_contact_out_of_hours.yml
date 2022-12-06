@@ -13,7 +13,7 @@ id: paragraph.localgov_contact.localgov_contact_out_of_hours
 field_name: localgov_contact_out_of_hours
 entity_type: paragraph
 bundle: localgov_contact
-label: 'Out of hours'
+label: 'Out of hours telephone'
 description: ''
 required: false
 translatable: false
