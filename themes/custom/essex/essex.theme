@@ -1,6 +1,55 @@
 <?php
 
+use Drupal\block\Entity\Block;
+
 /**
  * @file
  * Theme function for the Essex County Council theme theme.
  */
+
+/**
+ * Implement hook_preprocess_HOOK
+ *
+ * @param $variables
+ *   Template variables
+ * @param $hook
+ *   Type of template.
+ *
+ * Load blocks from specific region, so we can render them within a template.
+ */
+function essex_preprocess_paragraph__localgov_banner_primary(&$variables, $hook) {
+  // Load active theme
+  $theme = \Drupal::theme()->getActiveTheme()->getName();
+  // Load region blocks
+  $blocks = \Drupal::entityTypeManager()
+    ->getStorage('block')
+    ->loadByProperties(array('theme' => $theme, 'region' => 'hero_content'));
+
+  try {
+    // Capture the region's viewable blocks and their settings.
+    $build = [];
+    foreach ($blocks as $key => $block) {
+      if ($block->access('view')) {
+        $block = Block::load($key);
+        $block_content = \Drupal::entityTypeManager()
+          ->getViewBuilder('block')
+          ->view($block);
+        $build[$key] = $block_content;
+      }
+    }
+
+    // Add the region's worth of viewable blocks to the available variables.
+    $variables['banner_content'] = $build;
+  } catch (Exception $e) {
+    $variables['banner_content'] = NULL;
+  }
+
+  try {
+    $variables['is_front'] = Drupal::service('path.matcher')->isFrontPage();
+  }
+  catch (Exception $e) {
+    $variables['is_front'] = FALSE;
+  }
+  // Ensure the cache varies correctly (new in Drupal 8.3).
+  $variables['#cache']['contexts'][] = 'url.path.is_front';
+}
