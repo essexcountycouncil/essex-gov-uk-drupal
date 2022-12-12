@@ -125,22 +125,24 @@
   display: none;
 }
 
-.cludo-search-block-search-form .button.form-submit {
+.banner__content .cludo-search-block-search-form .button.form-submit {
   background: url('../assets/images/search.svg') no-repeat 50% var(--color-white);
-  /*background-color: #565656;*/
-  /*-webkit-mask-image: url(../assets/images/search.svg);*/
   padding: 1em 2em;
   text-indent: -9999px;
   border: 0;
 }
 
-.cludo-search-block-search-form .button.form-submit:focus {
+.banner__content .cludo-search-block-search-form .button.form-submit:focus {
   border: 2px solid var(--color-section-header-bg);
 }
 
 .banner__content .cludo-search-block-search-form .form-item,
 .banner__content .cludo-search-block-search-form .form-submit {
   display: inline-block;
+}
+
+.lgd-region--search .cludo-search-block-search-form .form-text {
+  border: var(--border);
 }
 
 
