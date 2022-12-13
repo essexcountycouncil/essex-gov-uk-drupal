@@ -13,7 +13,7 @@ id: paragraph.localgov_contact.localgov_contact_mobile
 field_name: localgov_contact_mobile
 entity_type: paragraph
 bundle: localgov_contact
-label: Mobile
+label: SMS
 description: ''
 required: false
 translatable: false
