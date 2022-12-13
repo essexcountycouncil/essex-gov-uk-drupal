@@ -8,6 +8,9 @@ automation:
   cron_create_queue_items: true
 bundles:
   -
+    entity_type: localgov_alert_banner
+    bundle: localgov_alert_banner
+  -
     entity_type: node
     bundle: localgov_directories_org
   -
