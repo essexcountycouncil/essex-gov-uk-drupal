@@ -36,7 +36,6 @@
 * - page.primary_menu
 * - page.secondary_menu
 * - page.banner
-* - page.hero
 * - page.breadcrumb
 * - page.messages
 * - page.content_top
@@ -55,31 +54,31 @@
 #}
 
 {#
-We'll use this `footer_regions` array later to check if there is content in
-at least one of them before we start rendering the footer element. It will
-probably always return true, but no harm in checking.
+  We'll use this `footer_regions` array later to check if there is content in
+  at least one of them before we start rendering the footer element. It will
+  probably always return true, but no harm in checking.
 #}
 {%
   set footer_regions = [
-  'has_footer_first',
-  'has_footer_second',
-  'has_footer_third',
-  'footer',
-  'has_lower_footer_first',
-  'has_lower_footer_second',
-  'has_lower_footer_third',
-]
+    'has_footer_first',
+    'has_footer_second',
+    'has_footer_third',
+    'footer',
+    'has_lower_footer_first',
+    'has_lower_footer_second',
+    'has_lower_footer_third',
+  ]
 %}
 
 {#
-We create a dedicated tabs region and place it at the top of the page.
-This is to make sure tabs don't interfere with any other content, but
-especially to make sure other content doesn't interfere with tabs (which)
-can often happen if `position: absolute` further down the page, causing
-content to cover tabs and other issues.
+  We create a dedicated tabs region and place it at the top of the page.
+  This is to make sure tabs don't interfere with any other content, but
+  especially to make sure other content doesn't interfere with tabs (which)
+  can often happen if `position: absolute` further down the page, causing
+  content to cover tabs and other issues.
 
-Taking this approach also means we can have consistent styling for the
-tabs region on all localgov_drupal websites. Yay!
+  Taking this approach also means we can have consistent styling for the
+  tabs region on all localgov_drupal websites. Yay!
 #}
 {% if has_tabs %}
   {{ page.tabs }}
@@ -92,12 +91,6 @@ tabs region on all localgov_drupal websites. Yay!
 {% if has_banner %}
   {{ page.banner }}
 {% endif %}
-
-<section class="hero__container">
-  {% if has_hero %}
-    {{ page.hero }}
-  {% endif %}
-</section>
 
 {% if has_breadcrumb %}
   {{ page.breadcrumb }}
@@ -155,22 +148,22 @@ tabs region on all localgov_drupal websites. Yay!
       </div>
     </div>
 
-  {% else %}
+    {% else %}
     {# When we have no sidebars #}
     {#
-    If there are no sidebars, the content region take up 100% of the space, but:
-    1.  If we are on a node page, we do not constrain the content (this will be handled
-        by the node templates, so some parts of the template (hero, etc) can be the full
-        width of the screen).
-    2.  If we are not on a node page, we'll contain the content, so views pages, taxonomy
-        pages, login page, etc are not bleeding to the edge of the screen.
+      If there are no sidebars, the content region take up 100% of the space, but:
+      1.  If we are on a node page, we do not constrain the content (this will be handled
+          by the node templates, so some parts of the template (hero, etc) can be the full
+          width of the screen).
+      2.  If we are not on a node page, we'll contain the content, so views pages, taxonomy
+          pages, login page, etc are not bleeding to the edge of the screen.
     #}
     {% if not node %}
       <div class="lgd-container padding-horizontal">
         {{ page.content }}
       </div>
-    {% else %}
-      {{ page.content }}
+      {% else %}
+        {{ page.content }}
     {% endif %}
   {% endif %}
   {# End Sidebars #}
@@ -184,88 +177,101 @@ tabs region on all localgov_drupal websites. Yay!
 {% block footer_sections %}
   {% if footer_regions %}
     {#
-    Wrap all of the "lgd-footers" in a `footer` element for semantics.
-    This should ensure that all the contact/housekeeping links/etc
-    are within the footer element to assist screenreaders and other
-    automated tools.
+      Wrap all of the "lgd-footers" in a `footer` element for semantics.
+      This should ensure that all the contact/housekeeping links/etc
+      are within the footer element to assist screenreaders and other
+      automated tools.
     #}
+
+    {%
+      set footer_grid_classes = [
+        has_footer_first and has_footer_second ? 'lgd-row__one-third',
+        has_footer_first and not has_footer_second ? 'lgd-row__two-thirds',
+      ]
+    %}
     <footer class="lgd-footer">
 
-      {# Begin Pre-footer #}
-      {% block pre_footer %}
-        {% if has_footer_first or has_footer_second or has_footer_third %}
-          <div class="lgd-footer__pre-footer">
-            <div class="lgd-container">
-              <div class="lgd-row">
-                {% if has_footer_first %}
-                  <div class="lgd-row__one-third">
-                    {{ page.footer_first }}
-                  </div>
-                {% endif %}
-
-                {% if has_footer_second %}
-                  <div class="lgd-row__one-third">
-                    {{ page.footer_second }}
-                  </div>
-                {% endif %}
-
-                {% if has_footer_third %}
-                  <div class="lgd-row__one-third">
-                    {{ page.footer_third }}
-                  </div>
-                {% endif %}
-              </div>
-            </div>
-          </div>
-        {% endif %}
-      {% endblock %}
-      {# End Pre-footer #}
-
-      {# Begin Footer #}
-      {% block footer %}
-        {% if has_footer %}
-          <div class="lgd-footer__footer">
-            <div class="lgd-container">
-              <div class="lgd-row">
-                <div class="lgd-row__full">
-                  {{ page.footer }}
+    {# Begin Pre-footer #}
+    {% block pre_footer %}
+      {% if has_footer_first or has_footer_second or has_footer_third %}
+        <div class="lgd-footer__pre-footer">
+          <div class="lgd-container">
+            <div class="lgd-row">
+              {% if has_footer_first %}
+                <div{{ attributes.addClass(footer_grid_classes) }}>
+                  {{ page.footer_first }}
                 </div>
+              {% endif %}
+
+              {% if has_footer_second %}
+                <div class="lgd-row__one-third">
+                  {{ page.footer_second }}
+                </div>
+              {% endif %}
+
+              {% if has_footer_third %}
+                <div class="lgd-row__one-third">
+                  {{ page.footer_third }}
+                </div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      {% endif %}
+    {% endblock %}
+    {# End Pre-footer #}
+
+    {# Begin Footer #}
+    {% block footer %}
+      {% if has_footer %}
+        <div class="lgd-footer__footer">
+          <div class="lgd-container">
+            <div class="lgd-row">
+              <div class="lgd-row__full">
+                {{ page.footer }}
               </div>
             </div>
           </div>
-        {% endif %}
-      {% endblock %}
-      {# End Footer #}
+        </div>
+      {% endif %}
+    {% endblock %}
+    {# End Footer #}
 
-      {# Begin Post-footer #}
-      {% block post_footer %}
-        {% if has_lower_footer_first or has_lower_footer_second or has_lower_footer_third %}
-          <div class="lgd-footer__post-footer">
-            <div class="lgd-container">
-              <div class="lgd-row">
-                {% if has_lower_footer_first %}
-                  <div class="lgd-row__one-third">
-                    {{ page.lower_footer_first }}
-                  </div>
-                {% endif %}
+    {%
+        set footer_lower_grid_classes = [
+        has_lower_footer_first and has_lower_footer_second ? 'lgd-row__one-third',
+        has_lower_footer_first and not has_lower_footer_second ? 'lgd-row__two-thirds',
+      ]
+    %}
+    {# Begin Post-footer #}
+    {% block post_footer %}
+      {% if has_lower_footer_first or has_lower_footer_second or has_lower_footer_third %}
+        <div class="lgd-footer__post-footer">
+          <div class="lgd-container">
+            <div class="lgd-row">
+              {% if has_lower_footer_first %}
+              <div{{ attributes.addClass(footer_lower_grid_classes) }}></div>
+                  {{ page.lower_footer_first }}
+                </div>
+              {% endif %}
 
-                {% if has_lower_footer_second %}
-                  <div class="lgd-row__one-third">
-                    {{ page.lower_footer_second }}
-                  </div>
-                {% endif %}
+              {% if has_lower_footer_second %}
+                <div class="lgd-row__one-third sec">
+                  {{ page.lower_footer_second }}
+                </div>
+              {% endif %}
 
-                {% if has_lower_footer_third %}
-                  <div class="lgd-row__one-third">
-                    {{ page.lower_footer_third }}
-                  </div>
-                {% endif %}
-              </div>
+              {% if has_lower_footer_third %}
+                <div class="lgd-row__one-third as">
+                  {{ page.lower_footer_third }}
+                </div>
+              {% endif %}
             </div>
           </div>
-        {% endif %}
-      {% endblock %}
-      {# End Post-footer #}
+        </div>
+      {% endif %}
+    {% endblock %}
+    {# End Post-footer #}
 
     </footer>
   {% endif %}
