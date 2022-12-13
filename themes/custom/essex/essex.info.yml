@@ -29,6 +29,8 @@ regions:
   primary_menu: "Primary menu"
   secondary_menu: "Secondary menu"
   banner: "Banner"
+  hero: "Hero"
+  hero_content: "Hero Content"
   breadcrumb: "Breadcrumb"
   messages: "Messages"
   content_top: "Content top"

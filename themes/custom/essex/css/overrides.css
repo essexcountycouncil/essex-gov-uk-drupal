@@ -83,11 +83,72 @@
     background-image: url('../assets/images/icons/icon_warning_yellow.svg');
 }
 
+/* Hero */
+
+.path-frontpage h1 {
+  background: var(--color-white);
+  padding: 0.35em 1em;
+  font-weight: 600;
+}
+
+.path-frontpage h1:after {
+  content: none;
+}
+
+/* Hero and Hero content */
+.hero__container {
+  position: relative;
+}
+
+.lgd-region--hero .banner--primary .banner__content {
+  margin: 0;
+  position: absolute;
+  top: 4em;
+}
+
+.lgd-region--hero-content {
+  position: absolute;
+  bottom: 1em;
+}
+
+.path-frontpage .banner__content {
+  background: transparent;
+  border: 0;
+  padding: 0;
+}
+
+.lgd-header .cludo-search-block-search-form .form-item-search-keys {
+  margin: 0;
+}
+
+.banner__content .cludo-search-block-search-form .form-item-search-keys > label {
+  display: none;
+}
+
+.banner__content .cludo-search-block-search-form .button.form-submit {
+  background: url('../assets/images/search.svg') no-repeat 50% var(--color-white);
+  padding: 1em 2em;
+  text-indent: -9999px;
+  border: 0;
+}
+
+.banner__content .cludo-search-block-search-form .button.form-submit:focus {
+  border: 2px solid var(--color-section-header-bg);
+}
+
+.banner__content .cludo-search-block-search-form .form-item,
+.banner__content .cludo-search-block-search-form .form-submit {
+  display: inline-block;
+}
+
+.lgd-region--search .cludo-search-block-search-form .form-text {
+  border: var(--border);
+}
+
 
 /* Banner image and text block */
 
 .banner--primary .banner__content {
-    border: 1px solid var(--color-black);
     margin-top: -3rem;
 }
 
@@ -483,7 +544,7 @@ table caption {
 
 thead th {
     border-bottom: 2px solid var(--color-black);
-    
+
 }
 
 thead th,

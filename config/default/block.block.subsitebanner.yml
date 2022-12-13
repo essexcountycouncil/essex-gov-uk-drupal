@@ -9,8 +9,8 @@ dependencies:
     - essex
 id: subsitebanner
 theme: essex
-region: banner
-weight: 0
+region: hero
+weight: -10
 provider: null
 plugin: localgov_subsite_banner
 settings:
