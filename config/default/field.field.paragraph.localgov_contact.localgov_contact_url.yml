@@ -13,7 +13,7 @@ id: paragraph.localgov_contact.localgov_contact_url
 field_name: localgov_contact_url
 entity_type: paragraph
 bundle: localgov_contact
-label: Website
+label: 'Website:'
 description: ''
 required: false
 translatable: false

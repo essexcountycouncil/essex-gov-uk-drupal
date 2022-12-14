@@ -11,7 +11,7 @@ id: paragraph.localgov_contact.field_localgov_contact_textphone
 field_name: field_localgov_contact_textphone
 entity_type: paragraph
 bundle: localgov_contact
-label: Textphone
+label: 'Textphone:'
 description: ''
 required: false
 translatable: false
