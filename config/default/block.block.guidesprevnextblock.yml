@@ -9,7 +9,7 @@ dependencies:
 id: guidesprevnextblock
 theme: essex
 region: content_bottom
-weight: 0
+weight: -11
 provider: null
 plugin: localgov_guides_prev_next_block
 settings:

@@ -12,7 +12,7 @@ dependencies:
 id: views_block__content_feedback_block_feedback_form
 theme: essex
 region: content_bottom
-weight: 0
+weight: -10
 provider: null
 plugin: 'views_block:content_feedback-block_feedback_form'
 settings:

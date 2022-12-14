@@ -13,72 +13,65 @@ title: 'Feedback Form'
 description: "For providing feedback to content\r\n<div id=\"extension-host\">&nbsp;</div>"
 category: ''
 elements: |-
-  feedback:
-    '#type': webform_wizard_page
-    '#title': Feedback
-    reference:
-      '#type': hidden
-      '#title': Reference
-      '#prepopulate': true
-    content_display:
-      '#type': view
-      '#display_on': view
-      '#name': content_feedback
-      '#display_id': embed_feedback_reference
-      '#arguments':
-        - '[webform_submission:values:reference]'
-    how_would_you_rate_our_website:
-      '#type': radios
-      '#title': 'How would you rate our website'
-      '#options':
-        good: Good
-        poor: Poor
-    what_did_you_like_most_about_the_page_:
-      '#type': radios
-      '#title': 'What did you like most about the page?'
-      '#options':
-        found_quickly: 'I found it quickly'
-        correct_information: 'It had the right information'
-        easy_understand: 'The information was easy to understand'
-        other: 'Another reason'
-      '#states':
-        visible:
-          ':input[name="how_would_you_rate_our_website"]':
-            value: good
-    what_did_you_dislike_most_about_the_page_:
-      '#type': radios
-      '#title': 'What did you dislike most about the page?'
-      '#options':
-        hard_find: 'It was hard to find'
-        wrong_information: 'It doesn''t have the information I need'
-        hard_understand: 'It was hard to understand'
-        other: 'Another reason'
-      '#states':
-        visible:
-          ':input[name="how_would_you_rate_our_website"]':
-            value: poor
-    give_us_more_detailed_feedback:
-      '#type': textarea
-      '#title': 'Give us more detailed feedback'
-      '#description': |-
-        Please do not enter any personal information in this space
-        <div id="extension-host">&nbsp;</div>
-  data_protection:
-    '#type': webform_wizard_page
-    '#title': 'Data Protection'
-    '#next_button_label': Finish
-    can_we_contact_you_about_your_feedback_:
-      '#type': radios
-      '#title': 'Can we contact you about your feedback?'
-      '#options': yes_no
-    data_use_policy:
-      '#type': checkbox
-      '#title': 'Data use policy'
-      '#description': |-
-        Please confirm that you have read the data protection and privacy policy and agree to the council using any personal data that you provide in this form to deal wtih your request.
-        <div id="extension-host">&nbsp;</div>
-      '#title_display': before
-      '#required': true
+  reference:
+    '#type': hidden
+    '#title': Reference
+    '#prepopulate': true
+  content_display:
+    '#type': view
+    '#display_on': view
+    '#name': content_feedback
+    '#display_id': embed_feedback_reference
+    '#arguments':
+      - '[webform_submission:values:reference]'
+  how_would_you_rate_our_website:
+    '#type': radios
+    '#title': 'How would you rate our website'
+    '#options':
+      good: Good
+      poor: Poor
+  what_did_you_like_most_about_the_page_:
+    '#type': radios
+    '#title': 'What did you like most about the page?'
+    '#options':
+      found_quickly: 'I found it quickly'
+      correct_information: 'It had the right information'
+      easy_understand: 'The information was easy to understand'
+      other: 'Another reason'
+    '#states':
+      visible:
+        ':input[name="how_would_you_rate_our_website"]':
+          value: good
+  what_did_you_dislike_most_about_the_page_:
+    '#type': radios
+    '#title': 'What did you dislike most about the page?'
+    '#options':
+      hard_find: 'It was hard to find'
+      wrong_information: 'It doesn''t have the information I need'
+      hard_understand: 'It was hard to understand'
+      other: 'Another reason'
+    '#states':
+      visible:
+        ':input[name="how_would_you_rate_our_website"]':
+          value: poor
+  give_us_more_detailed_feedback:
+    '#type': textarea
+    '#title': 'Give us more detailed feedback'
+    '#description': |-
+      Please do not enter any personal information in this space
+      <div id="extension-host">&nbsp;</div>
+  can_we_contact_you_about_your_feedback_:
+    '#type': radios
+    '#title': 'Can we contact you about your feedback?'
+    '#options': yes_no
+  data_use_policy:
+    '#type': checkbox
+    '#title': 'Data use policy'
+    '#description': |-
+      Please confirm that you have read the data protection and privacy policy and agree to the council using any personal data that you provide in this form to deal wtih your request.
+      <div id="extension-host">&nbsp;</div>
+    '#title_display': before
+    '#required': true
 css: ''
 javascript: ''
 settings:
@@ -181,10 +174,10 @@ settings:
   draft_loaded_message: ''
   draft_pending_single_message: ''
   draft_pending_multiple_message: ''
-  confirmation_type: page
+  confirmation_type: inline
   confirmation_url: ''
   confirmation_title: ''
-  confirmation_message: ''
+  confirmation_message: "&nbsp;\r\n<div id=\"coplmfnphahpcknbchcehdikbdieognn\">&nbsp;</div>"
   confirmation_attributes: {  }
   confirmation_back: true
   confirmation_back_label: ''
