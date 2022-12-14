@@ -573,3 +573,65 @@ blockquote {
     background-size: 30px;
     padding-left: var(--spacing-largest);
 }
+
+/* Footer */
+.lgd-footer__pre-footer {
+  background-color: var(--color-black);
+}
+
+.lgd-footer__footer {
+  background-color: var(--color-black);
+}
+
+footer .menu {
+  padding-left: 0;
+}
+
+footer .menu li {
+  display: inline-block;
+  list-style-type: none;
+}
+
+footer .menu--footer li {
+  margin-right: 1em;
+  margin-bottom: 1.625rem;
+}
+
+footer .menu--social-media {
+  display: flex;
+  justify-content: flex-end;
+}
+
+footer .menu--social-media .social-link {
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: 60% 40%;
+  text-indent: -999rem;
+  direction: ltr;
+  min-height: 3.5rem;
+  width: 3rem;
+  display: inline-block;
+  border-bottom: 2px solid black;
+}
+
+footer .menu--social-media .social-link:hover,
+footer .menu--social-media .social-link:focus {
+  border-bottom: 2px solid;
+}
+
+footer .menu--social-media .facebook {
+  background-image: url('../assets/images/icons/facebook_icon_white.svg');
+}
+
+footer .menu--social-media .twitter {
+  background-image: url('../assets/images/icons/twitter_icon_white.svg');
+}
+
+footer .menu--social-media .youtube {
+  background-image: url('../assets/images/icons/youtube_icon_white.svg');
+}
+
+footer .block-localgov-powered-by-block,
+footer .lgd-footer__footer a {
+  color: var(--color-white);
+}
