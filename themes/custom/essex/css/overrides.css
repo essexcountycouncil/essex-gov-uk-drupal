@@ -573,8 +573,6 @@ blockquote {
     background-size: 30px;
     padding-left: var(--spacing-largest);
 }
-<<<<<<< Updated upstream
-=======
 
 /* Footer */
 .lgd-footer__pre-footer {
@@ -637,4 +635,3 @@ footer .block-localgov-powered-by-block,
 footer .lgd-footer__footer a {
   color: var(--color-white);
 }
->>>>>>> Stashed changes
