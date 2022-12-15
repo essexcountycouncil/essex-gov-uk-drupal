@@ -13,7 +13,7 @@ id: paragraph.localgov_contact.localgov_contact_office_hours
 field_name: localgov_contact_office_hours
 entity_type: paragraph
 bundle: localgov_contact
-label: 'Office hours'
+label: 'Office hours:'
 description: ''
 required: false
 translatable: false
