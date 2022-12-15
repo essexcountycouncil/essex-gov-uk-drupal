@@ -92,6 +92,12 @@
   {{ page.banner }}
 {% endif %}
 
+<section class="hero__container">
+  {% if has_hero %}
+    {{ page.hero }}
+  {% endif %}
+</section>
+
 {% if has_breadcrumb %}
   {{ page.breadcrumb }}
 {% endif %}
