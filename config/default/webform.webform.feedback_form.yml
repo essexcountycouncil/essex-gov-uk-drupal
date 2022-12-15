@@ -174,10 +174,10 @@ settings:
   draft_loaded_message: ''
   draft_pending_single_message: ''
   draft_pending_multiple_message: ''
-  confirmation_type: inline
+  confirmation_type: page
   confirmation_url: ''
   confirmation_title: ''
-  confirmation_message: "&nbsp;\r\n<div id=\"coplmfnphahpcknbchcehdikbdieognn\">&nbsp;</div>"
+  confirmation_message: "Thank you for your feedback.\r\n<div id=\"coplmfnphahpcknbchcehdikbdieognn\">&nbsp;</div>"
   confirmation_attributes: {  }
   confirmation_back: true
   confirmation_back_label: ''
