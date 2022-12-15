@@ -684,6 +684,7 @@ footer .lgd-footer__footer a {
 @media only screen and (min-width: 768px) {
     .cookies-notice .row {
         display: flex;
+        flex-wrap: nowrap;
     }
 }
 
