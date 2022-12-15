@@ -365,7 +365,7 @@ display:
           value:
             min: ''
             max: ''
-            value: '242'
+            value: '224'
           group: 1
           exposed: false
           expose:
@@ -406,11 +406,11 @@ display:
         options:
           uses_fields: false
           columns: 3
-          automatic_width: true
+          automatic_width: false
           alignment: horizontal
-          row_class_custom: ''
+          row_class_custom: news-row
           row_class_default: true
-          col_class_custom: ''
+          col_class_custom: news-column
           col_class_default: true
       row:
         type: 'entity:node'
