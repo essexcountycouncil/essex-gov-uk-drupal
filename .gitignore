@@ -34,3 +34,6 @@ certs/
 
 # Ignore private folder
 /private
+
+# Ignore config which may contain secrets
+**/openid_connect.client.azure_b2c.yml
