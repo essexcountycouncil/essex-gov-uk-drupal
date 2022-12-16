@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7d9229e28c5807c831a57a65f304fdd4",
+    "content-hash": "0e3bdf5ebb0c031b10a22b125d2e9fc1",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -4068,6 +4068,60 @@
             }
         },
         {
+            "name": "drupal/externalauth",
+            "version": "2.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/externalauth.git",
+                "reference": "2.0.3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/externalauth-2.0.3.zip",
+                "reference": "2.0.3",
+                "shasum": "dae49e3df8739538d7b9371ab7fb5005b8d953fd"
+            },
+            "require": {
+                "drupal/core": "^9 || ^10"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "2.0.3",
+                    "datestamp": "1668777505",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Sven Decabooter",
+                    "homepage": "https://www.drupal.org/u/svendecabooter",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "snufkin",
+                    "homepage": "https://www.drupal.org/user/58645"
+                },
+                {
+                    "name": "svendecabooter",
+                    "homepage": "https://www.drupal.org/user/35369"
+                }
+            ],
+            "description": "Helper module to authenticate users using an external site / service and storing identification details",
+            "homepage": "https://drupal.org/project/externalauth",
+            "support": {
+                "source": "https://git.drupalcode.org/project/externalauth",
+                "issues": "https://www.drupal.org/project/issues/externalauth"
+            }
+        },
+        {
             "name": "drupal/facets",
             "version": "2.0.5",
             "source": {
@@ -5550,6 +5604,73 @@
                 "source": "http://cgit.drupalcode.org/office_hours",
                 "issues": "http://drupal.org/project/office_hours",
                 "irc": "irc://irc.freenode.org/drupal-contribute"
+            }
+        },
+        {
+            "name": "drupal/openid_connect",
+            "version": "2.0.0-beta3",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/openid_connect.git",
+                "reference": "2.0.0-beta3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/openid_connect-2.0.0-beta3.zip",
+                "reference": "2.0.0-beta3",
+                "shasum": "6307b246f9364e93b00dcd337dea761a243b4c05"
+            },
+            "require": {
+                "drupal/core": "^8.8 || ^9",
+                "drupal/externalauth": "*",
+                "ext-json": "*",
+                "php": ">=7.1.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "2.0.0-beta3",
+                    "datestamp": "1666251325",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Beta releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "bojanz",
+                    "homepage": "https://www.drupal.org/user/86106"
+                },
+                {
+                    "name": "jcnventura",
+                    "homepage": "https://www.drupal.org/user/122464"
+                },
+                {
+                    "name": "pfrilling",
+                    "homepage": "https://www.drupal.org/user/169695"
+                },
+                {
+                    "name": "pjcdawkins",
+                    "homepage": "https://www.drupal.org/user/1025236"
+                },
+                {
+                    "name": "sanduhrs",
+                    "homepage": "https://www.drupal.org/user/28074"
+                }
+            ],
+            "description": "A pluggable client implementation for the OpenID Connect protocol.",
+            "homepage": "https://www.drupal.org/project/openid_connect",
+            "keywords": [
+                "Drupal"
+            ],
+            "support": {
+                "source": "https://git.drupalcode.org/project/openid_connect",
+                "issues": "https://www.drupal.org/project/issues/openid_connect"
             }
         },
         {
@@ -9206,6 +9327,35 @@
                 "source": "https://github.com/Masterminds/html5-php/tree/2.7.6"
             },
             "time": "2022-08-18T16:18:26+00:00"
+        },
+        {
+            "name": "matthewwilkes/openid_connect_azure_b2c",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/MatthewWilkes/openid_connect_azure_b2c.git",
+                "reference": "e94a8f37f0d2091ca5da72e0fcc81d52089b1cdd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/MatthewWilkes/openid_connect_azure_b2c/zipball/e94a8f37f0d2091ca5da72e0fcc81d52089b1cdd",
+                "reference": "e94a8f37f0d2091ca5da72e0fcc81d52089b1cdd",
+                "shasum": ""
+            },
+            "require": {
+                "drupal/openid_connect": "^2.0@beta"
+            },
+            "default-branch": true,
+            "type": "drupal-module",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "description": "Azure B2C plugin for the OpenID Connect module.",
+            "support": {
+                "source": "https://github.com/MatthewWilkes/openid_connect_azure_b2c/tree/main",
+                "issues": "https://github.com/MatthewWilkes/openid_connect_azure_b2c/issues"
+            },
+            "time": "2022-12-15T15:04:17+00:00"
         },
         {
             "name": "mkalkbrenner/php-htmldiff-advanced",
@@ -18598,6 +18748,7 @@
         "drupal/config_split": 5,
         "essexcountycouncil/content_ownership": 20,
         "localgovdrupal/localgov_forms": 20,
+        "matthewwilkes/openid_connect_azure_b2c": 20,
         "roave/security-advisories": 20
     },
     "prefer-stable": true,
