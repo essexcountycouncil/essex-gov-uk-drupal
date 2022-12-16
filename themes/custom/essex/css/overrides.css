@@ -733,6 +733,7 @@ footer .lgd-footer__footer a {
 @media only screen and (min-width: 768px) {
     .cookies-notice .row {
         display: flex;
+        flex-wrap: nowrap;
     }
 }
 
@@ -791,4 +792,17 @@ footer .lgd-footer__footer a {
 
 .eu-cookie-compliance-buttons i {
     display: none;
+}
+
+/* Cookie page */
+.eu-cookie-compliance-category {
+    margin-bottom: 1.5rem;
+}
+
+.eu-cookie-compliance-category h4 {
+    margin-bottom: var(--spacing);
+}
+
+.eu-cookie-compliance-category label {
+    display: inline-block;
 }
