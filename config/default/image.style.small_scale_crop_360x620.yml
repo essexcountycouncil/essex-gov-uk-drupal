@@ -1,0 +1,15 @@
+uuid: 42bb3c1d-beea-471f-8005-eeee76cf8b92
+langcode: en
+status: true
+dependencies: {  }
+name: small_scale_crop_360x620
+label: 'Small Scale Crop (360x620)'
+effects:
+  1f0a8e7d-1672-49a3-8e09-378737897e06:
+    uuid: 1f0a8e7d-1672-49a3-8e09-378737897e06
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 360
+      height: 620
+      anchor: center-center
