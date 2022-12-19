@@ -3,6 +3,8 @@ langcode: en
 status: true
 dependencies:
   module:
+    - cludo_search
+    - eu_cookie_compliance
     - localgov_alert_banner
     - localgov_geo
     - media
@@ -15,7 +17,9 @@ label: 'Anonymous user'
 weight: -10
 is_admin: false
 permissions:
+  - 'access cludo search content'
   - 'access content'
+  - 'display eu cookie compliance popup'
   - 'use search_api_autocomplete for localgov_news_search'
   - 'view all localgov alert banner entities'
   - 'view geo'

@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - facets.facet.localgov_news_category
     - field.field.node.localgov_news_article.body
     - field.field.node.localgov_news_article.field_media_image
     - field.field.node.localgov_news_article.localgov_news_categories
@@ -13,7 +12,6 @@ dependencies:
     - node.type.localgov_news_article
   module:
     - datetime
-    - entity_reference_facet_link
     - text
     - user
   enforced:
@@ -43,14 +41,6 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
-  localgov_news_categories:
-    type: entity_reference_facet_link
-    label: hidden
-    settings:
-      facet: localgov_news_category
-    third_party_settings: {  }
-    weight: 2
-    region: content
   localgov_news_date:
     type: datetime_custom
     label: hidden
@@ -72,5 +62,6 @@ content:
 hidden:
   entitygroupfield: true
   field_media_image: true
+  localgov_news_categories: true
   localgov_newsroom: true
   search_api_excerpt: true

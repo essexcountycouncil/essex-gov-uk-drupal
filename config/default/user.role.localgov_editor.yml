@@ -30,6 +30,7 @@ dependencies:
     - content_moderation
     - content_ownership
     - entity_browser
+    - entity_hierarchy
     - localgov_alert_banner
     - localgov_directories
     - localgov_geo
@@ -67,8 +68,11 @@ permissions:
   - 'access responsive preview'
   - 'access toolbar'
   - 'add content owner/sme entity'
+  - 'add scheduled transitions localgov_alert_banner localgov_alert_banner'
+  - 'add scheduled transitions node localgov_directories_org'
   - 'add scheduled transitions node localgov_directories_page'
   - 'add scheduled transitions node localgov_directories_venue'
+  - 'add scheduled transitions node localgov_directory'
   - 'add scheduled transitions node localgov_directory_promo_page'
   - 'add scheduled transitions node localgov_event'
   - 'add scheduled transitions node localgov_guides_overview'
@@ -113,6 +117,7 @@ permissions:
   - 'create remote_video media'
   - 'create url aliases'
   - 'delete content owner/sme entity'
+  - 'delete geo'
   - 'edit any document media'
   - 'edit any image media'
   - 'edit any localgov_directories_org content'
@@ -163,8 +168,12 @@ permissions:
   - 'edit paragraph library item'
   - 'generate preview links'
   - 'manage localgov alert banner localgov_alert_banner entities'
+  - 'reorder entity_hierarchy children'
+  - 'reschedule scheduled transitions localgov_alert_banner localgov_alert_banner'
+  - 'reschedule scheduled transitions node localgov_directories_org'
   - 'reschedule scheduled transitions node localgov_directories_page'
   - 'reschedule scheduled transitions node localgov_directories_venue'
+  - 'reschedule scheduled transitions node localgov_directory'
   - 'reschedule scheduled transitions node localgov_directory_promo_page'
   - 'reschedule scheduled transitions node localgov_event'
   - 'reschedule scheduled transitions node localgov_guides_overview'
@@ -241,6 +250,7 @@ permissions:
   - 'view localgov_subsites_page revisions'
   - 'view own unpublished content'
   - 'view own unpublished media'
+  - 'view scheduled transitions localgov_alert_banner localgov_alert_banner'
   - 'view scheduled transitions node localgov_directories_org'
   - 'view scheduled transitions node localgov_directories_page'
   - 'view scheduled transitions node localgov_directories_venue'
