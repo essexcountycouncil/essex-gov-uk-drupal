@@ -3,7 +3,9 @@ langcode: en
 status: true
 dependencies:
   module:
+    - cludo_search
     - role_delegation
+    - search_api
     - system
     - toolbar
     - webform
@@ -19,9 +21,12 @@ is_admin: null
 permissions:
   - 'access toolbar'
   - 'access user profiles'
+  - 'administer cludo search'
+  - 'administer search_api'
   - 'administer users'
   - 'assign administrator role'
   - 'assign all roles'
+  - 'assign analytics role'
   - 'assign emergency_publisher role'
   - 'assign localgov_author role'
   - 'assign localgov_contributor role'
@@ -29,5 +34,6 @@ permissions:
   - 'assign localgov_news_editor role'
   - 'assign localgov_user_manager role'
   - 'delete any webform submission'
+  - 'view any webform submission'
   - 'view the administration theme'
   - 'view user email addresses'

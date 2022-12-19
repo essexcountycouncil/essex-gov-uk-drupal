@@ -7,6 +7,9 @@ dependencies:
   module:
     - content_moderation
     - localgov_alert_banner
+    - scheduled_transitions
+    - system
+    - toolbar
   enforced:
     module:
       - localgov_alert_banner
@@ -17,7 +20,16 @@ label: 'Emergency publisher'
 weight: -9
 is_admin: null
 permissions:
+  - 'access localgov alert banner listing page'
+  - 'access toolbar'
+  - 'add scheduled transitions localgov_alert_banner localgov_alert_banner'
+  - 'manage all localgov alert banner entities'
   - 'use localgov_alert_banners transition create_new_draft'
   - 'use localgov_alert_banners transition publish'
   - 'use localgov_alert_banners transition unpublish'
   - 'view all localgov alert banner entities'
+  - 'view all localgov alert banner entity pages'
+  - 'view all scheduled transitions'
+  - 'view localgov alert banner localgov_alert_banner pages'
+  - 'view scheduled transitions localgov_alert_banner localgov_alert_banner'
+  - 'view the administration theme'

@@ -28,13 +28,16 @@ dependencies:
     - workflows.workflow.localgov_editorial
   module:
     - content_moderation
+    - entity_hierarchy
     - media
     - node
     - paragraphs
     - paragraphs_library
     - path
     - preview_link
+    - quickedit
     - redirect
+    - responsive_preview
     - scheduled_transitions
     - system
     - toolbar
@@ -49,7 +52,9 @@ weight: -8
 is_admin: null
 permissions:
   - 'access content overview'
+  - 'access in-place editing'
   - 'access media overview'
+  - 'access responsive preview'
   - 'access toolbar'
   - 'add scheduled transitions node localgov_news_article'
   - 'add scheduled transitions node localgov_newsroom'
@@ -90,6 +95,8 @@ permissions:
   - 'edit own remote_video media'
   - 'edit paragraph library item'
   - 'generate preview links'
+  - 'reorder entity_hierarchy children'
+  - 'reschedule scheduled transitions localgov_alert_banner localgov_alert_banner'
   - 'reschedule scheduled transitions node localgov_news_article'
   - 'reschedule scheduled transitions node localgov_newsroom'
   - 'revert localgov_news_article revisions'
@@ -108,6 +115,7 @@ permissions:
   - 'use localgov_editorial transition reject'
   - 'use localgov_editorial transition submit_for_review'
   - 'view all localgov_news_article revisions'
+  - 'view all scheduled transitions'
   - 'view any unpublished localgov_news_article content'
   - 'view localgov_directories_org revisions'
   - 'view localgov_directories_page revisions'

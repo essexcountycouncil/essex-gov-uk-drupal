@@ -1,0 +1,9 @@
+uuid: bb2138f6-245e-4a7b-9c12-79acc5f49266
+langcode: en
+status: true
+dependencies: {  }
+id: search_api__views_page__localgov_news_search__page_search_news
+name: 'search_api:views_page__localgov_news_search__page_search_news'
+filter_key: null
+url_processor: query_string
+breadcrumb: {  }

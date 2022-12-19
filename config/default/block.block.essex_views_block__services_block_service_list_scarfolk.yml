@@ -13,13 +13,13 @@ _core:
   default_config_hash: dIZQveClXGuKNNnnZIszG9I_DBPhQp4eMCPkbYqVkOg
 id: essex_views_block__services_block_service_list_scarfolk
 theme: essex
-region: content_top
+region: disabled
 weight: 5
 provider: null
 plugin: 'views_block:services-block_service_list'
 settings:
   id: 'views_block:services-block_service_list'
-  label: 'Services list block'
+  label: ''
   label_display: '0'
   provider: views
   views_label: ''

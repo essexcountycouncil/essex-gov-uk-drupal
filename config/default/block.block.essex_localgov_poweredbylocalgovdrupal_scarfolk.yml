@@ -10,8 +10,8 @@ _core:
   default_config_hash: _rLbHDXkhDWmFVzav5liiDU56NLoRKtMPaN4iMX-p-M
 id: essex_localgov_poweredbylocalgovdrupal_scarfolk
 theme: essex
-region: footer_second
-weight: 0
+region: footer
+weight: -11
 provider: null
 plugin: localgov_powered_by_block
 settings:
