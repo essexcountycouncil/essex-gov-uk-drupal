@@ -14,6 +14,10 @@
             "url":  "https://github.com/essexcountycouncil/content_ownership"
         },
         {
+            "type": "github",
+            "url":  "https://github.com/MatthewWilkes/openid_connect_azure_b2c"
+        },
+        {
             "type": "package",
             "package": {
                 "name": "ckeditor/div",
@@ -48,6 +52,7 @@
         "essexcountycouncil/content_ownership": "dev-main",
         "localgovdrupal/localgov": "^2.0",
         "localgovdrupal/localgov_forms": "1.x-dev",
+        "matthewwilkes/openid_connect_azure_b2c": "dev-main",
         "wa72/htmlpagedom": "*"
     },
     "require-dev": {
