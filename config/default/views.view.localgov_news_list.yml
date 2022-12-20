@@ -380,7 +380,7 @@ display:
           value:
             min: ''
             max: ''
-            value: '224'
+            value: '242'
           group: 1
           exposed: false
           expose:
