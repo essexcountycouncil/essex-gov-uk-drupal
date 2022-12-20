@@ -106,6 +106,12 @@
   top: 4em;
 }
 
+@media (max-width: 720px) {
+  .lgd-region--hero .banner--primary .banner__content {
+    top: 0;
+  }
+}
+
 .lgd-region--hero-content {
   position: absolute;
   bottom: 1em;
@@ -117,8 +123,21 @@
   padding: 0;
 }
 
+@media (min-width: 768px) and (max-width: 1128px) {
+  .path-frontpage .banner__content {
+    padding-right: var(--spacing-padding-horizontal);
+    padding-left: var(--spacing-padding-horizontal);
+  }
+}
+
 .lgd-header .cludo-search-block-search-form .form-item-search-keys {
   margin: 0;
+}
+
+@media (max-width: 720px) {
+  .banner__content .cludo-search-block-search-form .form-item-search-keys {
+    width: 80%;
+  }
 }
 
 .banner__content .cludo-search-block-search-form .form-item-search-keys > label {
