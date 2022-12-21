@@ -1,0 +1,90 @@
+{#
+/**
+ * @file
+ * This is a template file for a banner prompting user to give their consent for
+ * the website to set cookies.
+ *
+ * This template overrides the default template for the
+ * eu_cookie_compliance_popup_info theme.  It removes the category settings form
+ * fields.  Those fields are only made available as part of the Cookie settings
+ * block. @see eu-cookie-compliance-popup-info--cookie-settings-block.html.twig
+ *
+ * When overriding this template it is important to note that jQuery will use
+ * the following classes to assign actions to buttons:
+ *
+ * agree-button      - agree to setting cookies
+ * find-more-button  - link to an information page
+ *
+ * Variables available:
+ * - message:  Contains the text that will be display whithin the banner
+ * - agree_button: Label for the primary/agree button. Note that this is the
+ *   primary button. For backwards compatibility, the name remains agree_button.
+ * - disagree_button: Contains Cookie policy button title. (Note: for historical
+ *   reasons, this label is called "disagree" even though it just displays the
+ *   privacy policy.)
+ * - secondary_button_label: Contains the secondary button label. The current
+ *   action depends on whether you're running the module in Opt-out or Opt-in
+ *   mode.
+ * - primary_button_class: Contains class names for the primary button.
+ * - secondary_button_class: Contains class names for the secondary button
+ *   (if visible).
+ * - cookie_categories: Contains a array with cookie categories that can be
+ *   agreed or disagreed to separately.
+ * - save_preferences_button_label: Label text for a button to save the consent
+ *   preferences.
+ * - fix_first_cookie_category: Boolean value to indicate that the first consent
+ *   category cannot be unchecked.
+ * - privacy_settings_tab_label: Label text for the Privacy settings tab.
+ * - withdraw_button_on_info_popup: Show the withdraw button on this popup.
+ * - method: Chosen consent method.
+ * - cookie_settings_page_url: Drupal\Core\Url object.  Site users can update
+ *   their Cookie settings in this page.
+ */
+#}
+{% if privacy_settings_tab_label %}
+  <button type="button" class="eu-cookie-withdraw-tab">{{ privacy_settings_tab_label }}</button>
+{% endif %}
+{% set classes = [
+  'eu-cookie-compliance-banner',
+  'eu-cookie-compliance-banner-info',
+  ['eu-cookie-compliance-banner--', method|replace({'_': '-'})]|join,
+] %}
+
+<div{{ attributes.addClass(classes, 'cookies-notice') }} role="contentinfo" aria-label="cookienotice">
+<div class="container-fluid site-max popup-content">
+	<div class="row">
+
+    <div id="popup-text" class="eu-cookie-compliance-message col-12 col-sm-8 col-md-9 py-2 pt-3">
+      {{ message }}
+    </div>
+
+    <div id="popup-buttons" class="eu-cookie-compliance-buttons{% if cookie_categories %} eu-cookie-compliance-has-categories{% endif %} col-12 col-sm-4 col-md-3 py-2 pb-3 pb-sm-0 pt-sm-3 text-right">
+      <div class="row">
+        <div class="col-12 col-lg-2 d-none d-lg-block"></div>
+        <div class="col-12 col-lg-10 text-left">
+          <i class="fa fa-check pr-1" aria-hidden="true"></i>
+          <a href="#" class="{{ primary_button_class }}">{{ agree_button }}</a>
+        </div>
+      </div>
+      {% if disagree_button %}
+      <div class="row">
+        <div class="col-12 col-lg-2 d-none d-lg-block"></div>
+        <div class="col-12 col-lg-10 text-left">
+          <i class="fa fa-cog pr-1" aria-hidden="true"></i>
+          {{ link(disagree_button, cookie_settings_page_url) }}
+        </div>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+
+{# This hidden markup is needed by Drupal.eu_cookie_compliance.setPreferenceCheckboxes() #}
+{% if cookie_categories %}
+  <div id="eu-cookie-compliance-categories" class="visually-hidden">
+    {% for key, category in cookie_categories %}
+      <input type="checkbox" name="cookie-categories" id="cookie-category-{{ key }}" value="{{ key }}" {% if fix_first_cookie_category and loop.first %} checked disabled{% endif %}>
+    {% endfor %}
+  </div>
+{% endif %}
