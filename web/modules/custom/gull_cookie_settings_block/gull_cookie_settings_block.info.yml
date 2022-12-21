@@ -1,0 +1,8 @@
+name: Gull Cookie settings block
+type: module
+description: Provides a Drupal block that embeds the EU Cookie settings form.
+package: Gull
+core_version_requirement: ^8.8 || ^9
+configure: gull_cookie_settings_block.settings
+dependencies:
+- drupal:eu_cookie_compliance

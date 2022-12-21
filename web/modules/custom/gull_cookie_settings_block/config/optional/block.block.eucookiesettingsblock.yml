@@ -1,0 +1,25 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - gull_cookie_settings_block
+    - system
+  theme:
+    - localgov_theme
+id: eucookiesettingsblock
+theme: localgov_theme
+region: content
+weight: 5
+provider: null
+plugin: cookie_settings_block
+settings:
+  id: cookie_settings_block
+  label: 'EU Cookie settings block'
+  provider: gull_cookie_settings_block
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: /cookies
+    negate: false
+    context_mapping: {  }
