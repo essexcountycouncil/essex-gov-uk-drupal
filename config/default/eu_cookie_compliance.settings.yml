@@ -5,37 +5,36 @@ uuid: c8ad7d35-5126-4956-90aa-ff07b71ec053
 popup_enabled: true
 popup_clicking_confirmation: false
 popup_scrolling_confirmation: false
-eu_countries: {  }
 eu_only: false
 eu_only_js: false
 popup_position: true
 fixed_top_position: false
 popup_info:
-  value: "<h2>We use cookies on this site to enhance your user experience</h2>\r\n\r\n<p>By clicking the Accept button, you agree to us doing so.</p>\r\n"
+  value: "<h2>We use some essential cookies to make this website work.</h2>\r\n\r\n<p>We’d like to set additional cookies to understand how you use this website, remember your settings and improve this service.</p>\r\n"
   format: wysiwyg
 mobile_popup_info:
   value: ''
   format: wysiwyg
 popup_info_template: new
 popup_agree_button_message: Accept
-popup_more_info_button_message: 'More info'
+popup_more_info_button_message: 'No, manage my settings'
 mobile_breakpoint: 768
 popup_agreed_enabled: false
 popup_hide_agreed: false
-disagree_button_label: 'No, thanks'
+disagree_button_label: UNUSED
 popup_agreed:
-  value: '<h2>Thank you for accepting cookies</h2><p>You can now hide this message or find out more about cookies.</p>'
-  format: plain_text
+  value: "<h2>Thank you for accepting cookies</h2>\r\n\r\n<p>You can now hide this message or find out more about cookies.</p>\r\n"
+  format: wysiwyg
 popup_find_more_button_message: 'More info'
 popup_hide_button_message: Hide
-popup_link: '<front>'
+popup_link: /cookies
 popup_link_new_window: true
 popup_height: null
-popup_width: 100%
-popup_delay: 1000
+popup_width: ''
+popup_delay: 0
 show_more_info: true
-popup_bg_hex: f3f2f1
-popup_text_hex: '666666'
+popup_bg_hex: ''
+popup_text_hex: ''
 domain: ''
 domains_option: 1
 domains_list: ''
@@ -45,8 +44,8 @@ cookie_session: 0
 set_cookie_session_zero_on_disagree: 0
 cookie_lifetime: 100
 use_mobile_message: false
-use_bare_css: false
-use_olivero_css: true
+use_bare_css: true
+use_olivero_css: false
 disagree_do_not_show_popup: false
 reload_page: false
 reload_options: 0
@@ -55,7 +54,7 @@ cookie_name: ''
 exclude_uid_1: false
 better_support_for_screen_readers: false
 method: categories
-disabled_javascripts: ''
+disabled_javascripts: 'google_analytics:https://essex-gov.nomensa.xyz/modules/custom/gull_cookie_settings_block/js/deferred-ga-script-runner.js'
 automatic_cookies_removal: true
 allowed_cookies: ''
 consent_storage_method: do_not_store
@@ -67,15 +66,15 @@ withdraw_action_button_label: 'Withdraw consent'
 withdraw_enabled: false
 withdraw_button_on_info_popup: false
 save_preferences_button_label: 'Save preferences'
-accept_all_categories_button_label: 'Accept all cookies'
+accept_all_categories_button_label: 'Accept additional cookies'
 enable_save_preferences_button: true
 domain_all_sites: false
 settings_tab_enabled: false
 containing_element: body
 cookie_policy_version: 1.0.0
-cookie_value_disagreed: '0'
-cookie_value_agreed_show_thank_you: '1'
-cookie_value_agreed: '2'
+cookie_value_disagreed: denied
+cookie_value_agreed_show_thank_you: granted
+cookie_value_agreed: granted
 accessibility_focus: false
 close_button_action: close_banner
 reject_button_label: ''
@@ -83,5 +82,4 @@ reject_button_enabled: false
 close_button_enabled: false
 dependencies:
   config:
-    0: filter.format.plain_text
-    2: filter.format.wysiwyg
+    - filter.format.wysiwyg
