@@ -18,10 +18,18 @@ build-and-push-images:
     - az login --service-principal -u${ARM_CLIENT_ID} -p${ARM_CLIENT_SECRET} -t${ARM_TENANT_ID}
     - docker login -u${DOCKER_USER} -p${DOCKER_PASSWORD} ${DOCKER_REGISTRY}
   script:
-    - docker build -t ${DOCKER_REGISTRY}/portal-drupal-fpm:latest -t ${DOCKER_REGISTRY}/portal-drupal-fpm:${CI_COMMIT_REF_SLUG} -t portal-drupal-fpm -f Dockerfile-drupal .
-    - docker build -t ${DOCKER_REGISTRY}/portal-nginx-drupal:latest -t ${DOCKER_REGISTRY}/portal-nginx-drupal:${CI_COMMIT_REF_SLUG} -t portal-nginx-drupal -f Dockerfile-nginx .
-    - docker push --all-tags ${DOCKER_REGISTRY}/portal-nginx-drupal
-    - docker push --all-tags ${DOCKER_REGISTRY}/portal-drupal-fpm
+    - |
+      if [[ "$CI_COMMIT_BRANCH" == "$CI_DEFAULT_BRANCH" ]]; then
+        tag=""
+        echo "Running on default branch '$CI_DEFAULT_BRANCH': tag = 'latest'"
+      else
+        tag=":$CI_COMMIT_REF_SLUG"
+        echo "Running on branch '$CI_COMMIT_BRANCH': tag = $tag"
+      fi
+    - docker build -t ${DOCKER_REGISTRY}/portal-drupal-fpm${tag} -t portal-drupal-fpm -f Dockerfile-drupal .
+    - docker build -t ${DOCKER_REGISTRY}/portal-nginx-drupal${tag} -t portal-nginx-drupal -f Dockerfile-nginx .
+    - docker push ${DOCKER_REGISTRY}/portal-nginx-drupal${tag}
+    - docker push ${DOCKER_REGISTRY}/portal-drupal-fpm${tag}
   only:
     - develop
     - /^release\//
@@ -37,8 +45,27 @@ update-container-app:
     - az extension add --name containerapp
     - az login --service-principal -u${ARM_CLIENT_ID} -p${ARM_CLIENT_SECRET} -t${ARM_TENANT_ID}
   script:
+    - |
+      if [[ "$CI_COMMIT_BRANCH" == "$CI_DEFAULT_BRANCH" ]]; then
+        tag=""
+        echo "Running on default branch '$CI_DEFAULT_BRANCH': tag = 'latest'"
+      else
+        tag=":$CI_COMMIT_REF_SLUG"
+        echo "Running on branch '$CI_COMMIT_BRANCH': tag = $tag"
+      fi
     - echo "Creating new revision of Container App"
-    - az containerapp revision copy --name portal --resource-group rg-ecc-portal-uks-dev --revision-suffix build-${CI_PIPELINE_ID}
+    - | 
+      cat > revision.yml <<EOF
+      properties:
+        template:
+          revisionSuffix: ${CI_PIPELINE_ID}
+          containers:
+            - image: acreccukspre.azurecr.io/portal-nginx-drupal$tag
+              name: nginx
+            - image: acreccukspre.azurecr.io/portal-drupal-fpm$tag
+              name: drupal        
+      EOF
+    - az containerapp revision copy --name portal --resource-group rg-ecc-portal-uks-dev --yaml revision.yml
   rules:
     - when: manual
 
@@ -51,9 +78,22 @@ deploy-to-preprod:
   before_script:
     - az extension add --name containerapp
     - az login --service-principal -u${ARM_CLIENT_ID} -p${ARM_CLIENT_SECRET} -t${ARM_TENANT_ID}
-  script:
+  script:    
+    - echo "Importing image from Development  into Pre-Production"
+    - az acr import --name acreccukspre --source acreccuksdev.azurecr.io/portal-nginx-drupal:${CI_COMMIT_REF_SLUG} --image portal-nginx-drupal:${CI_COMMIT_REF_SLUG}
+    - | 
+      cat > revision.yml <<EOF
+      properties:
+        template:
+          revisionSuffix: ${CI_PIPELINE_ID}
+          containers:
+            - image: acreccukspre.azurecr.io/portal-nginx-drupal:${CI_COMMIT_REF_SLUG}
+              name: nginx
+            - image: acreccukspre.azurecr.io/portal-drupal-fpm:${CI_COMMIT_REF_SLUG}
+              name: drupal        
+      EOF
     - echo "Creating new revision of Container App"
-    - az acr import --name acreccukspreprod --source acreccuksdev.azurecr.io/portal-nginx-drupal:${CI_COMMIT_REF_SLUG} --image portal-nginx-drupal:${CI_COMMIT_REF_SLUG}
+    - az containerapp revision copy --name portal --resource-group rg-ecc-portal-uks-pre --yaml revision.yml
   rules:
     - if: '$CI_COMMIT_BRANCH == "/^release\//"'
       when: manual
@@ -68,8 +108,21 @@ deploy-to-prod:
     - az extension add --name containerapp
     - az login --service-principal -u${ARM_CLIENT_ID} -p${ARM_CLIENT_SECRET} -t${ARM_TENANT_ID}
   script:
+    - echo "Importing image from Pre-Production into Production"
+    - az acr import --name acreccuksprod --source acreccukspre.azurecr.io/portal-nginx-drupal:${CI_COMMIT_REF_SLUG} --image portal-nginx-drupal:${CI_COMMIT_REF_SLUG}
     - echo "Creating new revision of Container App"
-    - az acr import --name acreccuksprod --source acreccukspreprod.azurecr.io/portal-nginx-drupal:${CI_COMMIT_REF_SLUG} --image portal-nginx-drupal:${CI_COMMIT_REF_SLUG}
+    - | 
+      cat > revision.yml <<EOF
+      properties:
+        template:
+          revisionSuffix: ${CI_PIPELINE_ID}
+          containers:
+            - image: acreccukspre.azurecr.io/portal-nginx-drupal:${CI_COMMIT_REF_SLUG}
+              name: nginx
+            - image: acreccukspre.azurecr.io/portal-drupal-fpm:${CI_COMMIT_REF_SLUG}
+              name: drupal        
+      EOF
+    - az containerapp revision copy --name portal --resource-group rg-ecc-portal-uks-pre --yaml revision.yml    
   rules:
     - if: '$CI_COMMIT_BRANCH == "/^release\//"'
       when: manual
