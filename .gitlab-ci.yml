@@ -60,12 +60,12 @@ update-container-app:
         template:
           revisionSuffix: ${CI_PIPELINE_ID}
           containers:
-            - image: acreccukspre.azurecr.io/portal-nginx-drupal$tag
+            - image: acreccuksdev.azurecr.io/portal-nginx-drupal$tag
               name: nginx
-            - image: acreccukspre.azurecr.io/portal-drupal-fpm$tag
+            - image: acreccuksdev.azurecr.io/portal-drupal-fpm$tag
               name: drupal        
       EOF
-    - az containerapp revision copy --name portal --resource-group rg-ecc-portal-uks-dev --yaml revision.yml
+    - az containerapp revision copy --name portal --resource-group rg-ecc-portal-uks-dev --yaml revision.yml --subscription "Essex County Council (Portal)"
   rules:
     - when: manual
 
@@ -80,7 +80,7 @@ deploy-to-preprod:
     - az login --service-principal -u${ARM_CLIENT_ID} -p${ARM_CLIENT_SECRET} -t${ARM_TENANT_ID}
   script:    
     - echo "Importing image from Development  into Pre-Production"
-    - az acr import --name acreccukspre --source acreccuksdev.azurecr.io/portal-nginx-drupal:${CI_COMMIT_REF_SLUG} --image portal-nginx-drupal:${CI_COMMIT_REF_SLUG}
+    - az acr import --name acreccukspre --source acreccuksdev.azurecr.io/portal-nginx-drupal:${CI_COMMIT_REF_SLUG} --image portal-nginx-drupal:${CI_COMMIT_REF_SLUG} --subscription "Essex County Council (Common)"
     - | 
       cat > revision.yml <<EOF
       properties:
@@ -93,7 +93,7 @@ deploy-to-preprod:
               name: drupal        
       EOF
     - echo "Creating new revision of Container App"
-    - az containerapp revision copy --name portal --resource-group rg-ecc-portal-uks-pre --yaml revision.yml
+    - az containerapp revision copy --name portal --resource-group rg-ecc-portal-uks-pre --yaml revision.yml --subscription "Essex County Council (Portal)"
   rules:
     - if: '$CI_COMMIT_BRANCH == "/^release\//"'
       when: manual
@@ -109,7 +109,7 @@ deploy-to-prod:
     - az login --service-principal -u${ARM_CLIENT_ID} -p${ARM_CLIENT_SECRET} -t${ARM_TENANT_ID}
   script:
     - echo "Importing image from Pre-Production into Production"
-    - az acr import --name acreccuksprod --source acreccukspre.azurecr.io/portal-nginx-drupal:${CI_COMMIT_REF_SLUG} --image portal-nginx-drupal:${CI_COMMIT_REF_SLUG}
+    - az acr import --name acreccuksprod --source acreccukspre.azurecr.io/portal-nginx-drupal:${CI_COMMIT_REF_SLUG} --image portal-nginx-drupal:${CI_COMMIT_REF_SLUG} --subscription "Essex County Council (Common)"
     - echo "Creating new revision of Container App"
     - | 
       cat > revision.yml <<EOF
@@ -117,12 +117,12 @@ deploy-to-prod:
         template:
           revisionSuffix: ${CI_PIPELINE_ID}
           containers:
-            - image: acreccukspre.azurecr.io/portal-nginx-drupal:${CI_COMMIT_REF_SLUG}
+            - image: acreccuksprod.azurecr.io/portal-nginx-drupal:${CI_COMMIT_REF_SLUG}
               name: nginx
-            - image: acreccukspre.azurecr.io/portal-drupal-fpm:${CI_COMMIT_REF_SLUG}
+            - image: acreccuksprod.azurecr.io/portal-drupal-fpm:${CI_COMMIT_REF_SLUG}
               name: drupal        
       EOF
-    - az containerapp revision copy --name portal --resource-group rg-ecc-portal-uks-pre --yaml revision.yml    
+    - az containerapp revision copy --name portal --resource-group rg-ecc-portal-uks-prod --yaml revision.yml --subscription "Essex County Council (Portal)"  
   rules:
     - if: '$CI_COMMIT_BRANCH == "/^release\//"'
       when: manual
