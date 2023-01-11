@@ -18,10 +18,10 @@ build-and-push-images:
     - az login --service-principal -u${ARM_CLIENT_ID} -p${ARM_CLIENT_SECRET} -t${ARM_TENANT_ID}
     - docker login -u${DOCKER_USER} -p${DOCKER_PASSWORD} ${DOCKER_REGISTRY}
   script:
-    - docker build -t ${DOCKER_REGISTRY}/portal-drupal-fpm:latest -t ${DOCKER_REGISTRY}/portal-drupal-fpm:${CI_PIPELINE_ID} -f Dockerfile-drupal .
-    - docker build -t ${DOCKER_REGISTRY}/portal-nginx-drupal:latest -t ${DOCKER_REGISTRY}/portal-nginx-drupal:${CI_PIPELINE_ID} -f Dockerfile-nginx .
-    - docker push --all-tags ${DOCKER_REGISTRY}/portal-nginx-drupal
-    - docker push --all-tags ${DOCKER_REGISTRY}/portal-drupal-fpm
+    - docker build -t ${DOCKER_REGISTRY}/portal-drupal-fpm:latest -t ${DOCKER_REGISTRY}/portal-drupal-fpm:${CI_COMMIT_REF_SLUG} -t portal-drupal-fpm -f Dockerfile-drupal .
+    - docker build -t ${DOCKER_REGISTRY}/portal-nginx-drupal:latest -t ${DOCKER_REGISTRY}/portal-nginx-drupal:${CI_COMMIT_REF_SLUG} -t portal-nginx-drupal -f Dockerfile-nginx .
+    - docker push ${DOCKER_REGISTRY}/portal-nginx-drupal:latest ${DOCKER_REGISTRY}/portal-nginx-drupal:${CI_COMMIT_REF_SLUG}
+    - docker push ${DOCKER_REGISTRY}/portal-drupal-fpm:latest ${DOCKER_REGISTRY}/portal-drupal-fpm:${CI_COMMIT_REF_SLUG}
   only:
     - develop
     - /^release\//
@@ -53,7 +53,7 @@ deploy-to-preprod:
     - az login --service-principal -u${ARM_CLIENT_ID} -p${ARM_CLIENT_SECRET} -t${ARM_TENANT_ID}
   script:
     - echo "Creating new revision of Container App"
-    - az acr import --name acreccukspreprod --source acreccuksdev.azurecr.io/portal-nginx-drupal:${CI_PIPELINE_ID} --image portal-nginx-drupal:${CI_PIPELINE_ID}
+    - az acr import --name acreccukspreprod --source acreccuksdev.azurecr.io/portal-nginx-drupal:${CI_COMMIT_REF_SLUG} --image portal-nginx-drupal:${CI_COMMIT_REF_SLUG}
   rules:
     - if: '$CI_COMMIT_BRANCH == "/^release\//"'
       when: manual
@@ -69,7 +69,7 @@ deploy-to-prod:
     - az login --service-principal -u${ARM_CLIENT_ID} -p${ARM_CLIENT_SECRET} -t${ARM_TENANT_ID}
   script:
     - echo "Creating new revision of Container App"
-    - az acr import --name acreccuksprod --source acreccukspreprod.azurecr.io/portal-nginx-drupal:${CI_PIPELINE_ID} --image portal-nginx-drupal:${CI_PIPELINE_ID}
+    - az acr import --name acreccuksprod --source acreccukspreprod.azurecr.io/portal-nginx-drupal:${CI_COMMIT_REF_SLUG} --image portal-nginx-drupal:${CI_COMMIT_REF_SLUG}
   rules:
     - if: '$CI_COMMIT_BRANCH == "/^release\//"'
       when: manual
