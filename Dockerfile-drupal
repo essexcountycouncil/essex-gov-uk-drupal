@@ -95,7 +95,8 @@ RUN sed -i 's;post_max_size = 8M;post_max_size = 128M;' /etc/php/8.1/fpm/php.ini
 RUN export HOME=/tmp \
   && sudo -E -u www-data composer install
 
-RUN ln -s /drupal/vendor/drush/drush/drush /usr/bin/drush
+RUN ln -s /drupal/vendor/drush/drush/drush /usr/bin/drush \
+  && chmod 755 /drupal/deploy.sh
 
 EXPOSE 80
 
