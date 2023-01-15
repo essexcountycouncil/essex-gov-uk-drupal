@@ -1,8 +1,11 @@
 stages:
   - build
   - development
+  - development-postdeploy
   - preproduction
+  - preproduction-postdeploy
   - production
+  - production-postdeploy
 
 build-and-push-images:
   stage: build
@@ -35,7 +38,7 @@ build-and-push-images:
     - /^release\//
     - feature/pipeline-improvements
 
-update-container-app:
+deploy-to-dev:
   image: mcr.microsoft.com/azure-cli
   stage: development
   environment:
@@ -90,9 +93,10 @@ update-container-app:
   rules:
     - when: manual
 
-drupal-deploy-dev:
+drush-deploy-dev:
   image: mcr.microsoft.com/azure-cli
-  stage: development
+  stage: development-postdeploy
+  needs: ["deploy-to-dev"]
   before_script:
     - az extension add --name containerapp
     - az login --service-principal -u${ARM_CLIENT_ID} -p${ARM_CLIENT_SECRET} -t${ARM_TENANT_ID}
@@ -104,6 +108,7 @@ drupal-deploy-dev:
 deploy-to-preprod:
   image: mcr.microsoft.com/azure-cli
   stage: preproduction
+  needs: ["deploy-to-dev"]
   environment:
     name: preproduction
     url: https://essex-gov-pp.nomensa.xyz/
@@ -151,20 +156,23 @@ deploy-to-preprod:
     - if: '$CI_COMMIT_BRANCH == "/^release\//"'
       when: manual
 
-drupal-deploy-preprod:
+drush-deploy-preprod:
   image: mcr.microsoft.com/azure-cli
-  stage: preproduction
+  stage: preproduction-postdeploy
+  needs: ["deploy-to-preprod"]
   before_script:
     - az extension add --name containerapp
     - az login --service-principal -u${ARM_CLIENT_ID} -p${ARM_CLIENT_SECRET} -t${ARM_TENANT_ID}
   script:
     - az containerapp exec --command /drupal/deploy.sh --name portal --container drupal --resource-group rg-ecc-portal-uks-pre --subscription "Essex County Council (Portal)"
   rules:
-    - when: manual
+    - if: '$CI_COMMIT_BRANCH == "/^release\//"'
+      when: manual
 
 deploy-to-prod:
   image: mcr.microsoft.com/azure-cli
   stage: production
+  needs: ["deploy-to-dev"]
   environment:
     name: production
     url: https://essex.gov.uk/
@@ -212,13 +220,15 @@ deploy-to-prod:
     - if: '$CI_COMMIT_BRANCH == "/^release\//"'
       when: manual
 
-drupal-deploy-prod:
+drush-deploy-prod:
   image: mcr.microsoft.com/azure-cli
-  stage: production
+  stage: production-postdeploy
+  needs: ["deploy-to-prod"]
   before_script:
     - az extension add --name containerapp
     - az login --service-principal -u${ARM_CLIENT_ID} -p${ARM_CLIENT_SECRET} -t${ARM_TENANT_ID}
   script:
-    - az containerapp exec --command /drupal/deploy.sh --name portal --container drupal --resource-group rg-ecc-portal-uks-pre --subscription "Essex County Council (Portal)"
+    - az containerapp exec --command /drupal/deploy.sh --name portal --container drupal --resource-group rg-ecc-portal-uks-prod --subscription "Essex County Council (Portal)"
   rules:
-    - when: manual
+    - if: '$CI_COMMIT_BRANCH == "/^release\//"'
+      when: manual
