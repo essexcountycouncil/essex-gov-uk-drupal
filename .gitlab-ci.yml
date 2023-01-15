@@ -2,6 +2,7 @@ stages:
   - build
   - development
   - development-postdeploy
+  - migration
   - preproduction
   - preproduction-postdeploy
   - production
@@ -79,6 +80,8 @@ deploy-to-dev:
               volumeMounts:
               - mountPath: /drupal/web/sites/default/files
                 volumeName: filesharevol
+              - mountPath: /drupal/data/default/private
+                volumeName: privsharevol
               env:
               - name: MYSQL_HOST
                 value: mariadb-ecc-uks-dev.mariadb.database.azure.com
@@ -104,6 +107,63 @@ deploy-to-dev:
 #     - az containerapp exec --command /drupal/deploy.sh --name portal --container drupal --resource-group rg-ecc-portal-uks-dev --subscription "Essex County Council (Portal)"
 #   rules:
 #     - when: manual
+
+deploy-to-mig:
+  image: mcr.microsoft.com/azure-cli
+  stage: migration
+  needs: ["deploy-to-dev"]
+  environment:
+    name: migration
+  before_script:
+    - az extension add --name containerapp
+    - az login --service-principal -u${ARM_CLIENT_ID} -p${ARM_CLIENT_SECRET} -t${ARM_TENANT_ID}
+  script:
+    - |
+      if [[ "$CI_COMMIT_BRANCH" == "$CI_DEFAULT_BRANCH" ]]; then
+        tag=""
+        echo "Running on default branch '$CI_DEFAULT_BRANCH': tag = 'latest'"
+      else
+        tag=":$CI_COMMIT_REF_SLUG"
+        echo "Running on branch '$CI_COMMIT_BRANCH': tag = $tag"
+      fi
+    - echo "Creating new revision of Container App"
+    - | 
+      cat > revision.yml <<EOF
+      properties:
+        template:
+          revisionSuffix: ${CI_PIPELINE_ID}
+          containers:
+            - image: acreccuksdev.azurecr.io/portal-nginx-drupal$tag
+              name: nginx
+              resources:
+                cpu: 0.25
+                memory: 0.5Gi
+              volumeMounts:
+              - mountPath: /drupal/web/sites/default/files
+                volumeName: filesharevol      
+            - image: acreccuksdev.azurecr.io/portal-drupal-fpm$tag
+              name: drupal
+              resources:
+                cpu: 0.75
+                memory: 1.5Gi
+              volumeMounts:
+              - mountPath: /drupal/web/sites/default/files
+                volumeName: filesharevol
+              - mountPath: /drupal/data/default/private
+                volumeName: privsharevol
+              env:
+              - name: MYSQL_HOST
+                value: mariadb-ecc-uks-mig.mariadb.database.azure.com
+              - name: MYSQL_USER
+                value: mariadb-root
+              - name: MYSQL_DATABASE
+                value: drupal_portal
+              - name: MYSQL_PASSWORD
+                secretRef: mysql-password
+      EOF
+    - az containerapp revision copy --name portal --resource-group rg-ecc-portal-uks-mig --yaml revision.yml --subscription "Essex County Council (Portal)"
+  rules:
+    - when: manual
 
 deploy-to-preprod:
   image: mcr.microsoft.com/azure-cli
