@@ -49,3 +49,9 @@ definitions:
     weight: 10
     expanded: false
     enabled: true
+  'admin_toolbar_tools__extra_links:entity__menu__edit_form__footer':
+    menu_name: admin
+    parent: system.admin_content
+    weight: 13
+    expanded: false
+    enabled: true
