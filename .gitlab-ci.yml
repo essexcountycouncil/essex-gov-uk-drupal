@@ -41,9 +41,10 @@ build-and-push-images:
 deploy-to-dev:
   image: mcr.microsoft.com/azure-cli
   stage: development
+  needs: ["build-and-push-images"]
   environment:
     name: development
-    url: https://essex-gov-pp.nomensa.xyz/
+    url: https://essex-gov.nomensa.xyz/
   before_script:
     - az extension add --name containerapp
     - az login --service-principal -u${ARM_CLIENT_ID} -p${ARM_CLIENT_SECRET} -t${ARM_TENANT_ID}
@@ -163,10 +164,12 @@ drush-deploy-preprod:
   stage: preproduction-postdeploy
   needs: ["deploy-to-preprod"]
   before_script:
+    - apk add socat
     - az extension add --name containerapp
     - az login --service-principal -u${ARM_CLIENT_ID} -p${ARM_CLIENT_SECRET} -t${ARM_TENANT_ID}
+    - az account set --subscription "Essex County Council (Portal)"
   script:
-    - az containerapp exec --command /drupal/deploy.sh --name portal --container drupal --resource-group rg-ecc-portal-uks-pre --subscription "Essex County Council (Portal)"
+    - timeout 1200 socat EXEC:'az containerapp exec --command /drupal/deploy.sh --name portal --container drupal --resource-group rg-ecc-portal-uks-pre',pty,setsid,ctty STDIO,ignoreeof
   rules:
     - if: '$CI_COMMIT_BRANCH == "/^release\//"'
       when: manual
@@ -174,7 +177,7 @@ drush-deploy-preprod:
 deploy-to-prod:
   image: mcr.microsoft.com/azure-cli
   stage: production
-  needs: ["deploy-to-dev"]
+  needs: ["deploy-to-preprod"]
   environment:
     name: production
     url: https://essex.gov.uk/
@@ -227,10 +230,12 @@ drush-deploy-prod:
   stage: production-postdeploy
   needs: ["deploy-to-prod"]
   before_script:
+    - apk add socat
     - az extension add --name containerapp
     - az login --service-principal -u${ARM_CLIENT_ID} -p${ARM_CLIENT_SECRET} -t${ARM_TENANT_ID}
+    - az account set --subscription "Essex County Council (Portal)"
   script:
-    - az containerapp exec --command /drupal/deploy.sh --name portal --container drupal --resource-group rg-ecc-portal-uks-prod --subscription "Essex County Council (Portal)"
+    - timeout 1200 socat EXEC:'az containerapp exec --command /drupal/deploy.sh --name portal --container drupal --resource-group rg-ecc-portal-uks-prod',pty,setsid,ctty STDIO,ignoreeof
   rules:
     - if: '$CI_COMMIT_BRANCH == "/^release\//"'
       when: manual
