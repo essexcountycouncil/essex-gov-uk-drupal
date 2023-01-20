@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - entity_browser.browser.page_components
     - field.field.node.localgov_guides_page.body
     - field.field.node.localgov_guides_page.field_content_owner
     - field.field.node.localgov_guides_page.field_non_publishable_notes
@@ -13,8 +14,8 @@ dependencies:
     - workflows.workflow.localgov_editorial
   module:
     - content_moderation
+    - entity_browser
     - field_group
-    - inline_entity_form
     - localgov_review_date
     - path
     - text
@@ -93,21 +94,18 @@ content:
       placeholder: ''
     third_party_settings: {  }
   localgov_page_components:
-    type: inline_entity_form_complex
+    type: entity_browser_entity_reference
     weight: 5
     region: content
     settings:
-      form_mode: default
-      override_labels: false
-      label_singular: ''
-      label_plural: ''
-      allow_new: true
-      allow_existing: false
-      match_operator: CONTAINS
-      allow_duplicate: false
-      collapsible: false
-      collapsed: false
-      revision: false
+      entity_browser: page_components
+      field_widget_display: label
+      field_widget_edit: true
+      field_widget_remove: true
+      field_widget_replace: false
+      open: true
+      field_widget_display_settings: {  }
+      selection_mode: selection_append
     third_party_settings: {  }
   localgov_review_date:
     type: review_date
