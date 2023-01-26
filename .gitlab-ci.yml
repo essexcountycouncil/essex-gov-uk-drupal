@@ -229,7 +229,7 @@ deploy-to-preprod:
     - echo "Creating new revision of Container App"
     - az containerapp revision copy --name portal --resource-group rg-ecc-portal-uks-pre --yaml revision.yml --subscription "Essex County Council (Portal)"
   rules:
-    - if: '$CI_COMMIT_BRANCH == "/^release\//"'
+    - if: '$CI_COMMIT_BRANCH =~ /^release\//'
       when: manual
 
 drush-deploy-preprod:
@@ -244,7 +244,7 @@ drush-deploy-preprod:
   script:
     - timeout 1200 socat EXEC:'az containerapp exec --command /drupal/deploy.sh --name portal --container drupal --resource-group rg-ecc-portal-uks-pre',pty,setsid,ctty STDIO,ignoreeof
   rules:
-    - if: '$CI_COMMIT_BRANCH == "/^release\//"'
+    - if: '$CI_COMMIT_BRANCH =~ /^release\//'
       when: manual
 
 deploy-to-prod:
@@ -295,7 +295,7 @@ deploy-to-prod:
       EOF
     - az containerapp revision copy --name portal --resource-group rg-ecc-portal-uks-prod --yaml revision.yml --subscription "Essex County Council (Portal)"  
   rules:
-    - if: '$CI_COMMIT_BRANCH == "/^release\//"'
+    - if: '$CI_COMMIT_BRANCH =~ /^release\//'
       when: manual
 
 drush-deploy-prod:
@@ -310,5 +310,5 @@ drush-deploy-prod:
   script:
     - timeout 1200 socat EXEC:'az containerapp exec --command /drupal/deploy.sh --name portal --container drupal --resource-group rg-ecc-portal-uks-prod',pty,setsid,ctty STDIO,ignoreeof
   rules:
-    - if: '$CI_COMMIT_BRANCH == "/^release\//"'
+    - if: '$CI_COMMIT_BRANCH =~ /^release\//'
       when: manual
