@@ -194,6 +194,7 @@ deploy-to-preprod:
   script:    
     - echo "Importing image from Development  into Pre-Production"
     - az acr import --name acreccukspre --source acreccuksdev.azurecr.io/portal-nginx-drupal:${CI_COMMIT_REF_SLUG} --image portal-nginx-drupal:${CI_COMMIT_REF_SLUG} --subscription "Essex County Council (Common)"
+    - az acr import --name acreccukspre --source acreccuksdev.azurecr.io/portal-drupal-fpm:${CI_COMMIT_REF_SLUG} --image portal-drupal-fpm:${CI_COMMIT_REF_SLUG} --subscription "Essex County Council (Common)"
     - | 
       cat > revision.yml <<EOF
       properties:
@@ -260,6 +261,7 @@ deploy-to-prod:
   script:
     - echo "Importing image from Pre-Production into Production"
     - az acr import --name acreccuksprod --source acreccukspre.azurecr.io/portal-nginx-drupal:${CI_COMMIT_REF_SLUG} --image portal-nginx-drupal:${CI_COMMIT_REF_SLUG} --subscription "Essex County Council (Common)"
+    - az acr import --name acreccuksprod --source acreccukspre.azurecr.io/portal-drupal-fpm:${CI_COMMIT_REF_SLUG} --image portal-drupal-fpm:${CI_COMMIT_REF_SLUG} --subscription "Essex County Council (Common)"
     - echo "Creating new revision of Container App"
     - | 
       cat > revision.yml <<EOF
