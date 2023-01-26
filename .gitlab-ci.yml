@@ -3,6 +3,7 @@ stages:
   - development
   - development-postdeploy
   - migration
+  - migration-postdeploy
   - preproduction
   - preproduction-postdeploy
   - production
@@ -16,10 +17,6 @@ build-and-push-images:
   variables:
     DOCKER_PASS: ""
   before_script:
-    - apk add py3-pip gcc musl-dev python3-dev libffi-dev openssl openssl-dev cargo make
-    - pip install --upgrade pip
-    - pip install azure-cli
-    - az login --service-principal -u${ARM_CLIENT_ID} -p${ARM_CLIENT_SECRET} -t${ARM_TENANT_ID}
     - docker login -u${DOCKER_USER} -p${DOCKER_PASSWORD} ${DOCKER_REGISTRY}
   script:
     - |
@@ -30,6 +27,8 @@ build-and-push-images:
         tag=":$CI_COMMIT_REF_SLUG"
         echo "Running on branch '$CI_COMMIT_BRANCH': tag = $tag"
       fi
+    - docker pull ${DOCKER_REGISTRY}/portal-nginx-drupal || true
+    - docker pull ${DOCKER_REGISTRY}/portal-drupal-fpm || true
     - docker build -t ${DOCKER_REGISTRY}/portal-drupal-fpm${tag} -t portal-drupal-fpm -f Dockerfile-drupal .
     - docker build -t ${DOCKER_REGISTRY}/portal-nginx-drupal${tag} -t portal-nginx-drupal -f Dockerfile-nginx .
     - docker push ${DOCKER_REGISTRY}/portal-nginx-drupal${tag}
@@ -42,9 +41,10 @@ build-and-push-images:
 deploy-to-dev:
   image: mcr.microsoft.com/azure-cli
   stage: development
+  needs: ["build-and-push-images"]
   environment:
     name: development
-    url: https://essex-gov-pp.nomensa.xyz/
+    url: https://essex-gov.nomensa.xyz/
   before_script:
     - az extension add --name containerapp
     - az login --service-principal -u${ARM_CLIENT_ID} -p${ARM_CLIENT_SECRET} -t${ARM_TENANT_ID}
@@ -96,22 +96,24 @@ deploy-to-dev:
   rules:
     - when: manual
 
-# drush-deploy-dev:
-#   image: mcr.microsoft.com/azure-cli
-#   stage: development-postdeploy
-#   needs: ["deploy-to-dev"]
-#   before_script:
-#     - az extension add --name containerapp
-#     - az login --service-principal -u${ARM_CLIENT_ID} -p${ARM_CLIENT_SECRET} -t${ARM_TENANT_ID}
-#   script:
-#     - az containerapp exec --command /drupal/deploy.sh --name portal --container drupal --resource-group rg-ecc-portal-uks-dev --subscription "Essex County Council (Portal)"
-#   rules:
-#     - when: manual
+drush-deploy-dev:
+  image: mcr.microsoft.com/azure-cli
+  stage: development-postdeploy
+  needs: ["deploy-to-dev"]
+  before_script:
+    - apk add socat
+    - az extension add --name containerapp
+    - az login --service-principal -u${ARM_CLIENT_ID} -p${ARM_CLIENT_SECRET} -t${ARM_TENANT_ID}
+    - az account set --subscription "Essex County Council (Portal)"
+  script:
+    - timeout 1200 socat EXEC:'az containerapp exec --command /drupal/deploy.sh --name portal --container drupal --resource-group rg-ecc-portal-uks-dev',pty,setsid,ctty STDIO,ignoreeof
+  rules:
+    - when: manual
 
 deploy-to-mig:
   image: mcr.microsoft.com/azure-cli
   stage: migration
-  needs: ["deploy-to-dev"]
+  needs: ["build-and-push-images"]
   environment:
     name: migration
   before_script:
@@ -162,6 +164,20 @@ deploy-to-mig:
                 secretRef: mysql-password
       EOF
     - az containerapp revision copy --name portal --resource-group rg-ecc-portal-uks-mig --yaml revision.yml --subscription "Essex County Council (Portal)"
+  rules:
+    - when: manual
+
+drush-deploy-mig:
+  image: mcr.microsoft.com/azure-cli
+  stage: migration-postdeploy
+  needs: ["deploy-to-mig"]
+  before_script:
+    - apk add socat
+    - az extension add --name containerapp
+    - az login --service-principal -u${ARM_CLIENT_ID} -p${ARM_CLIENT_SECRET} -t${ARM_TENANT_ID}
+    - az account set --subscription "Essex County Council (Portal)"
+  script:
+    - timeout 1200 socat EXEC:'az containerapp exec --command /drupal/deploy.sh --name portal --container drupal --resource-group rg-ecc-portal-uks-mig',pty,setsid,ctty STDIO,ignoreeof
   rules:
     - when: manual
 
@@ -216,23 +232,25 @@ deploy-to-preprod:
     - if: '$CI_COMMIT_BRANCH == "/^release\//"'
       when: manual
 
-# drush-deploy-preprod:
-#   image: mcr.microsoft.com/azure-cli
-#   stage: preproduction-postdeploy
-#   needs: ["deploy-to-preprod"]
-#   before_script:
-#     - az extension add --name containerapp
-#     - az login --service-principal -u${ARM_CLIENT_ID} -p${ARM_CLIENT_SECRET} -t${ARM_TENANT_ID}
-#   script:
-#     - az containerapp exec --command /drupal/deploy.sh --name portal --container drupal --resource-group rg-ecc-portal-uks-pre --subscription "Essex County Council (Portal)"
-#   rules:
-#     - if: '$CI_COMMIT_BRANCH == "/^release\//"'
-#       when: manual
+drush-deploy-preprod:
+  image: mcr.microsoft.com/azure-cli
+  stage: preproduction-postdeploy
+  needs: ["deploy-to-preprod"]
+  before_script:
+    - apk add socat
+    - az extension add --name containerapp
+    - az login --service-principal -u${ARM_CLIENT_ID} -p${ARM_CLIENT_SECRET} -t${ARM_TENANT_ID}
+    - az account set --subscription "Essex County Council (Portal)"
+  script:
+    - timeout 1200 socat EXEC:'az containerapp exec --command /drupal/deploy.sh --name portal --container drupal --resource-group rg-ecc-portal-uks-pre',pty,setsid,ctty STDIO,ignoreeof
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "/^release\//"'
+      when: manual
 
 deploy-to-prod:
   image: mcr.microsoft.com/azure-cli
   stage: production
-  needs: ["deploy-to-dev"]
+  needs: ["deploy-to-preprod"]
   environment:
     name: production
     url: https://essex.gov.uk/
@@ -280,15 +298,17 @@ deploy-to-prod:
     - if: '$CI_COMMIT_BRANCH == "/^release\//"'
       when: manual
 
-# drush-deploy-prod:
-#   image: mcr.microsoft.com/azure-cli
-#   stage: production-postdeploy
-#   needs: ["deploy-to-prod"]
-#   before_script:
-#     - az extension add --name containerapp
-#     - az login --service-principal -u${ARM_CLIENT_ID} -p${ARM_CLIENT_SECRET} -t${ARM_TENANT_ID}
-#   script:
-#     - az containerapp exec --command /drupal/deploy.sh --name portal --container drupal --resource-group rg-ecc-portal-uks-prod --subscription "Essex County Council (Portal)"
-#   rules:
-#     - if: '$CI_COMMIT_BRANCH == "/^release\//"'
-#       when: manual
+drush-deploy-prod:
+  image: mcr.microsoft.com/azure-cli
+  stage: production-postdeploy
+  needs: ["deploy-to-prod"]
+  before_script:
+    - apk add socat
+    - az extension add --name containerapp
+    - az login --service-principal -u${ARM_CLIENT_ID} -p${ARM_CLIENT_SECRET} -t${ARM_TENANT_ID}
+    - az account set --subscription "Essex County Council (Portal)"
+  script:
+    - timeout 1200 socat EXEC:'az containerapp exec --command /drupal/deploy.sh --name portal --container drupal --resource-group rg-ecc-portal-uks-prod',pty,setsid,ctty STDIO,ignoreeof
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "/^release\//"'
+      when: manual
