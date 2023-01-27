@@ -484,7 +484,19 @@ display:
         - 'url.query_args:sort_by'
         - user
         - user.permissions
-      tags: {  }
+      tags:
+        - 'config:core.entity_view_display.media.document.default'
+        - 'config:core.entity_view_display.media.image.default'
+        - 'config:core.entity_view_display.media.image.localgov_event_thumbnail'
+        - 'config:core.entity_view_display.media.image.localgov_featured'
+        - 'config:core.entity_view_display.media.image.localgov_featured_large'
+        - 'config:core.entity_view_display.media.image.localgov_newsroom_teaser'
+        - 'config:core.entity_view_display.media.image.medium_8_7'
+        - 'config:core.entity_view_display.media.image.responsive_3x2'
+        - 'config:core.entity_view_display.media.image.responsive_banner'
+        - 'config:core.entity_view_display.media.image.scale_crop_7_3_large'
+        - 'config:core.entity_view_display.media.image.square'
+        - 'config:core.entity_view_display.media.remote_video.default'
   page:
     id: page
     display_title: Page
@@ -767,8 +779,190 @@ display:
           empty_zero: false
           hide_alter_empty: true
           view_mode: media_library
+      filters:
+        status:
+          id: status
+          table: media_field_data
+          field: status
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: media
+          entity_field: status
+          plugin_id: boolean
+          operator: '='
+          value: '1'
+          group: 1
+          exposed: true
+          expose:
+            operator_id: ''
+            label: 'Publishing status'
+            description: null
+            use_operator: false
+            operator: status_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: status
+            required: true
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: true
+          group_info:
+            label: Published
+            description: ''
+            identifier: status
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: Published
+                operator: '='
+                value: '1'
+              2:
+                title: Unpublished
+                operator: '='
+                value: '0'
+        name:
+          id: name
+          table: media_field_data
+          field: name
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: media
+          entity_field: name
+          plugin_id: string
+          operator: contains
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: name_op
+            label: Name
+            description: ''
+            use_operator: false
+            operator: name_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: name
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        bundle:
+          id: bundle
+          table: media_field_data
+          field: bundle
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: media
+          entity_field: bundle
+          plugin_id: bundle
+          operator: in
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: bundle_op
+            label: 'Media type'
+            description: ''
+            use_operator: false
+            operator: bundle_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: type
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: 'Media type'
+            description: null
+            identifier: bundle
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1: {  }
+              2: {  }
+              3: {  }
+        status_extra:
+          id: status_extra
+          table: media_field_data
+          field: status_extra
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: media
+          plugin_id: media_status
+          operator: '='
+          value: ''
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
       defaults:
         fields: false
+        filters: false
+        filter_groups: false
       display_extenders: {  }
       path: admin/content/media-grid
     cache_metadata:
@@ -781,7 +975,19 @@ display:
         - 'url.query_args:sort_by'
         - user
         - user.permissions
-      tags: {  }
+      tags:
+        - 'config:core.entity_view_display.media.document.default'
+        - 'config:core.entity_view_display.media.image.default'
+        - 'config:core.entity_view_display.media.image.localgov_event_thumbnail'
+        - 'config:core.entity_view_display.media.image.localgov_featured'
+        - 'config:core.entity_view_display.media.image.localgov_featured_large'
+        - 'config:core.entity_view_display.media.image.localgov_newsroom_teaser'
+        - 'config:core.entity_view_display.media.image.medium_8_7'
+        - 'config:core.entity_view_display.media.image.responsive_3x2'
+        - 'config:core.entity_view_display.media.image.responsive_banner'
+        - 'config:core.entity_view_display.media.image.scale_crop_7_3_large'
+        - 'config:core.entity_view_display.media.image.square'
+        - 'config:core.entity_view_display.media.remote_video.default'
   widget:
     id: widget
     display_title: Widget
@@ -1101,7 +1307,19 @@ display:
         - url.query_args
         - 'url.query_args:sort_by'
         - user.permissions
-      tags: {  }
+      tags:
+        - 'config:core.entity_view_display.media.document.default'
+        - 'config:core.entity_view_display.media.image.default'
+        - 'config:core.entity_view_display.media.image.localgov_event_thumbnail'
+        - 'config:core.entity_view_display.media.image.localgov_featured'
+        - 'config:core.entity_view_display.media.image.localgov_featured_large'
+        - 'config:core.entity_view_display.media.image.localgov_newsroom_teaser'
+        - 'config:core.entity_view_display.media.image.medium_8_7'
+        - 'config:core.entity_view_display.media.image.responsive_3x2'
+        - 'config:core.entity_view_display.media.image.responsive_banner'
+        - 'config:core.entity_view_display.media.image.scale_crop_7_3_large'
+        - 'config:core.entity_view_display.media.image.square'
+        - 'config:core.entity_view_display.media.remote_video.default'
   widget_table:
     id: widget_table
     display_title: 'Widget (table)'
