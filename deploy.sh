@@ -1,2 +1,2 @@
 #!/bin/sh
-drush deploy
+drush deploy -vv --yes

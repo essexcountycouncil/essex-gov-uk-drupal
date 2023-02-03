@@ -6025,6 +6025,10 @@
                     "homepage": "https://www.drupal.org/user/395439"
                 },
                 {
+                    "name": "mstrelan",
+                    "homepage": "https://www.drupal.org/user/314289"
+                },
+                {
                     "name": "Sam152",
                     "homepage": "https://www.drupal.org/user/1485048"
                 }
@@ -6833,12 +6837,12 @@
                 "drupal/telephone_validation": "~2.0",
                 "drupal/token": "~1.0",
                 "drupal/variationcache": "~1.0",
+                "drupal/webform-webform_group": "*",
                 "drupal/webform_access": "*",
                 "drupal/webform_attachment": "*",
                 "drupal/webform_clientside_validation": "*",
                 "drupal/webform_devel": "*",
                 "drupal/webform_entity_print": "*",
-                "drupal/webform_group": "*",
                 "drupal/webform_node": "*",
                 "drupal/webform_options_limit": "*",
                 "drupal/webform_scheduled_email": "*",
@@ -9436,12 +9440,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/MatthewWilkes/openid_connect_azure_b2c.git",
-                "reference": "e94a8f37f0d2091ca5da72e0fcc81d52089b1cdd"
+                "reference": "1e0877e4aa6c5ba8062fe535d16e18bce4ff7ca8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/MatthewWilkes/openid_connect_azure_b2c/zipball/e94a8f37f0d2091ca5da72e0fcc81d52089b1cdd",
-                "reference": "e94a8f37f0d2091ca5da72e0fcc81d52089b1cdd",
+                "url": "https://api.github.com/repos/MatthewWilkes/openid_connect_azure_b2c/zipball/1e0877e4aa6c5ba8062fe535d16e18bce4ff7ca8",
+                "reference": "1e0877e4aa6c5ba8062fe535d16e18bce4ff7ca8",
                 "shasum": ""
             },
             "require": {
@@ -9457,7 +9461,7 @@
                 "source": "https://github.com/MatthewWilkes/openid_connect_azure_b2c/tree/main",
                 "issues": "https://github.com/MatthewWilkes/openid_connect_azure_b2c/issues"
             },
-            "time": "2022-12-15T15:04:17+00:00"
+            "time": "2023-01-27T17:18:54+00:00"
         },
         {
             "name": "mkalkbrenner/php-htmldiff-advanced",
