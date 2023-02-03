@@ -32,14 +32,6 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
-  field_content_owner:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 2
-    region: content
   localgov_page_components:
     type: entity_reference_entity_view
     label: hidden
@@ -52,6 +44,7 @@ content:
 hidden:
   content_moderation_control: true
   entitygroupfield: true
+  field_content_owner: true
   field_non_publishable_notes: true
   links: true
   localgov_common_tasks: true

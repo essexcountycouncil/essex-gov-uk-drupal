@@ -25,25 +25,12 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 2
-    region: content
-  content_moderation_control:
-    settings: {  }
-    third_party_settings: {  }
-    weight: -20
-    region: content
-  field_content_owner:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 3
+    weight: 1
     region: content
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 1
+    weight: 0
     region: content
   localgov_page_components:
     type: entity_reference_entity_view
@@ -55,7 +42,9 @@ content:
     weight: 2
     region: content
 hidden:
+  content_moderation_control: true
   entitygroupfield: true
+  field_content_owner: true
   field_non_publishable_notes: true
   localgov_guides_parent: true
   localgov_guides_section_title: true
