@@ -1,0 +1,32 @@
+uuid: 898c544a-9a13-4910-8475-a1cd319f0afa
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.localgov_event_provider
+    - node.type.localgov_directories_page
+    - node.type.localgov_directories_venue
+    - node.type.localgov_event
+_core:
+  default_config_hash: MrDXp1OFxMQEFWjoydS6hCFuF9jkeRrDdIsTp-0iVDM
+id: node.localgov_event.localgov_event_provider
+field_name: localgov_event_provider
+entity_type: node
+bundle: localgov_event
+label: Provider
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      localgov_directories_page: localgov_directories_page
+      localgov_directories_venue: localgov_directories_venue
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: localgov_directories_page
+field_type: entity_reference

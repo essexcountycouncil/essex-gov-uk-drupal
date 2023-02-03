@@ -1,0 +1,262 @@
+uuid: a5372398-c415-4030-b43e-dc9d4c8bd191
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.localgov_contact.field_localgov_contact_textphone
+    - field.field.paragraph.localgov_contact.localgov_contact_address
+    - field.field.paragraph.localgov_contact.localgov_contact_email
+    - field.field.paragraph.localgov_contact.localgov_contact_facebook
+    - field.field.paragraph.localgov_contact.localgov_contact_heading
+    - field.field.paragraph.localgov_contact.localgov_contact_instagram
+    - field.field.paragraph.localgov_contact.localgov_contact_mobile
+    - field.field.paragraph.localgov_contact.localgov_contact_office_hours
+    - field.field.paragraph.localgov_contact.localgov_contact_other_social
+    - field.field.paragraph.localgov_contact.localgov_contact_other_url
+    - field.field.paragraph.localgov_contact.localgov_contact_out_of_hours
+    - field.field.paragraph.localgov_contact.localgov_contact_phone
+    - field.field.paragraph.localgov_contact.localgov_contact_subheading
+    - field.field.paragraph.localgov_contact.localgov_contact_twitter
+    - field.field.paragraph.localgov_contact.localgov_contact_url
+    - paragraphs.paragraphs_type.localgov_contact
+  module:
+    - address
+    - field_group
+    - link
+    - office_hours
+    - telephone
+third_party_settings:
+  field_group:
+    group_contact_tabs:
+      children:
+        - group_description
+        - group_email_url
+        - group_phone
+        - group_social_media
+        - group_office_detail
+        - group_location
+      label: Tabs
+      region: content
+      parent_name: ''
+      weight: 36
+      format_type: tabs
+      format_settings:
+        classes: ''
+        id: ''
+        direction: vertical
+    group_phone:
+      children:
+        - field_localgov_contact_textphone
+        - localgov_contact_phone
+        - localgov_contact_mobile
+        - localgov_contact_out_of_hours
+      label: Telephone
+      region: content
+      parent_name: group_contact_tabs
+      weight: 22
+      format_type: tab
+      format_settings:
+        classes: ''
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_email_url:
+      children:
+        - localgov_contact_email
+        - localgov_contact_url
+        - localgov_contact_other_url
+      label: 'Email and website'
+      region: content
+      parent_name: group_contact_tabs
+      weight: 21
+      format_type: tab
+      format_settings:
+        classes: ''
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_social_media:
+      children:
+        - localgov_contact_facebook
+        - localgov_contact_instagram
+        - localgov_contact_twitter
+        - localgov_contact_other_social
+      label: 'Social media'
+      region: content
+      parent_name: group_contact_tabs
+      weight: 23
+      format_type: tab
+      format_settings:
+        classes: ''
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_office_detail:
+      children:
+        - localgov_contact_address
+        - localgov_contact_office_hours
+      label: 'Office address and hours'
+      region: content
+      parent_name: group_contact_tabs
+      weight: 24
+      format_type: tab
+      format_settings:
+        classes: ''
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_location:
+      children:
+        - localgov_contact_location
+      label: Location
+      region: content
+      parent_name: group_contact_tabs
+      weight: 25
+      format_type: tab
+      format_settings:
+        classes: ''
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_description:
+      children:
+        - localgov_contact_heading
+        - localgov_contact_subheading
+      label: Description
+      region: content
+      parent_name: group_contact_tabs
+      weight: 20
+      format_type: tab
+      format_settings:
+        classes: ''
+        id: ''
+        formatter: open
+        description: ''
+        required_fields: true
+_core:
+  default_config_hash: IvicEhyq4ww8atQAwlWYlU3yVrj6MJSRBoYfaxIYx2c
+id: paragraph.localgov_contact.default
+targetEntityType: paragraph
+bundle: localgov_contact
+mode: default
+content:
+  field_localgov_contact_textphone:
+    type: telephone_default
+    weight: 42
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  localgov_contact_address:
+    type: address_default
+    weight: 35
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  localgov_contact_email:
+    type: email_default
+    weight: 38
+    region: content
+    settings:
+      placeholder: ''
+      size: 60
+    third_party_settings: {  }
+  localgov_contact_facebook:
+    type: link_default
+    weight: 41
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  localgov_contact_heading:
+    type: string_textfield
+    weight: 45
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  localgov_contact_instagram:
+    type: link_default
+    weight: 42
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  localgov_contact_mobile:
+    type: telephone_default
+    weight: 44
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  localgov_contact_office_hours:
+    type: office_hours_default
+    weight: 37
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  localgov_contact_other_social:
+    type: link_default
+    weight: 44
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  localgov_contact_other_url:
+    type: link_default
+    weight: 40
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  localgov_contact_out_of_hours:
+    type: telephone_default
+    weight: 45
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  localgov_contact_phone:
+    type: telephone_default
+    weight: 43
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  localgov_contact_subheading:
+    type: string_textfield
+    weight: 46
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  localgov_contact_twitter:
+    type: link_default
+    weight: 43
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  localgov_contact_url:
+    type: link_default
+    weight: 39
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

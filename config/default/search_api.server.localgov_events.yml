@@ -1,0 +1,19 @@
+uuid: 0cb05489-caa5-4195-8925-36d57f4d9a9f
+langcode: en
+status: true
+dependencies:
+  module:
+    - search_api_db
+_core:
+  default_config_hash: 4RgjgXQKgP86M-fhKTbMsdeZUP6Gi1fwqGuytjktDys
+id: localgov_events
+name: Events
+description: 'Default events search server. For convenience of installation. Can be used or replaced.'
+backend: search_api_db
+backend_config:
+  database: 'default:default'
+  min_chars: 3
+  matching: prefix
+  autocomplete:
+    suggest_suffix: true
+    suggest_words: true

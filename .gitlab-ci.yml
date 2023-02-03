@@ -1,66 +1,316 @@
 stages:
-  - build-and-push-images
-  - test-build
-  - provision-database
-  - update-app-service
+  - build
+  - development
+  - development-postdeploy
+  - migration
+  - migration-postdeploy
+  - preproduction
+  - preproduction-postdeploy
+  - production
+  - production-postdeploy
 
-build_image:
-  stage: build-and-push-images
-  image: docker:20.10
+build-and-push-images:
+  stage: build
+  image: docker:20.10.16
   services:
-    - docker:20.10-dind
+    - docker:20.10.16-dind
   variables:
     DOCKER_PASS: ""
   before_script:
-    - apk add py3-pip gcc musl-dev python3-dev libffi-dev openssl-dev cargo make
-    - pip install --upgrade pip
-    - pip install azure-cli
-    # - DOCKER_PASSWORD=$(az keyvault secret show --name "acr-admin-password" --vault-name "ecc-dev-kv-de123d9" --query "value")
     - docker login -u${DOCKER_USER} -p${DOCKER_PASSWORD} ${DOCKER_REGISTRY}
   script:
-    - docker build -t ${DOCKER_REGISTRY}/drupal-fpm:latest -t drupal-fpm -f Dockerfile-drupal .
-    - docker build -t ${DOCKER_REGISTRY}/nginx-drupal:latest -t nginx-drupal -f Dockerfile-nginx .
-    - docker push ${DOCKER_REGISTRY}/nginx-drupal
-    - docker push ${DOCKER_REGISTRY}/drupal-fpm
-  rules:
-    - if: '$CI_COMMIT_BRANCH == "master"'
+    - |
+      if [[ "$CI_COMMIT_BRANCH" == "$CI_DEFAULT_BRANCH" ]]; then
+        tag=""
+        echo "Running on default branch '$CI_DEFAULT_BRANCH': tag = 'latest'"
+      else
+        tag=":$CI_COMMIT_REF_SLUG"
+        echo "Running on branch '$CI_COMMIT_BRANCH': tag = $tag"
+      fi
+    - docker pull ${DOCKER_REGISTRY}/portal-nginx-drupal || true
+    - docker pull ${DOCKER_REGISTRY}/portal-drupal-fpm || true
+    - docker build -t ${DOCKER_REGISTRY}/portal-drupal-fpm${tag} -t portal-drupal-fpm -f Dockerfile-drupal .
+    - docker build -t ${DOCKER_REGISTRY}/portal-nginx-drupal${tag} -t portal-nginx-drupal -f Dockerfile-nginx .
+    - docker push ${DOCKER_REGISTRY}/portal-nginx-drupal${tag}
+    - docker push ${DOCKER_REGISTRY}/portal-drupal-fpm${tag}
+  only:
+    - develop
+    - /^release\//
+    - feature/pipeline-improvements
 
-# We need a newer version of gitlab to do this :(    
-# test-build:
-#   stage: test-build
-#   image: docker:20.10
-#   services:
-#     - name: ${DOCKER_REGISTRY}/drupal-fpm:latest 
-#       variables:
-#         MYSQL_DATABASE: ${MYSQL_DATABASE} 
-#         MYSQL_HOST: ${MYSQL_HOST}
-#         MYSQL_USER: ${MYSQL_USER}
-#         MYSQL_PASSWORD: ${MYSQL_PASSWORD}
-#       command: ["echo 1"]
-#   variables:
-#     DB_CONN_TEST: ""
-#   script:
-#       | 
-#       # Performs a basic test on the drupal image to ensure it can connect to the Database
-#       - echo 'Test drupal image for database connectivity....'
-#       - DB_CONN_TEST=$(cat DBTestOutput.txt | grep -E '^Database\s+:\sConnected')
-#       - if [ -z "$DB_CONN_TEST" ]; then echo "Database connection error in drupal container\n" && exit 1; fi
-#   artifacts:
-#     paths:
-#       - DBTestOutput.txt
-
-provision-database:
-  stage: provision-database
+deploy-to-dev:
+  image: mcr.microsoft.com/azure-cli
+  stage: development
+  needs: ["build-and-push-images"]
+  environment:
+    name: development
+    url: https://essex-gov.nomensa.xyz/
+  before_script:
+    - az extension add --name containerapp
+    - az login --service-principal -u${ARM_CLIENT_ID} -p${ARM_CLIENT_SECRET} -t${ARM_TENANT_ID}
   script:
-    - echo "To do - Provision database scripting when confirmed with devs"
+    - |
+      if [[ "$CI_COMMIT_BRANCH" == "$CI_DEFAULT_BRANCH" ]]; then
+        tag=""
+        echo "Running on default branch '$CI_DEFAULT_BRANCH': tag = 'latest'"
+      else
+        tag=":$CI_COMMIT_REF_SLUG"
+        echo "Running on branch '$CI_COMMIT_BRANCH': tag = $tag"
+      fi
+    - echo "Creating new revision of Container App"
+    - | 
+      cat > revision.yml <<EOF
+      properties:
+        template:
+          revisionSuffix: ${CI_PIPELINE_ID}
+          containers:
+            - image: acreccuksdev.azurecr.io/portal-nginx-drupal$tag
+              name: nginx
+              resources:
+                cpu: 0.25
+                memory: 0.5Gi
+              volumeMounts:
+              - mountPath: /drupal/web/sites/default/files
+                volumeName: filesharevol      
+            - image: acreccuksdev.azurecr.io/portal-drupal-fpm$tag
+              name: drupal
+              resources:
+                cpu: 0.75
+                memory: 1.5Gi
+              volumeMounts:
+              - mountPath: /drupal/web/sites/default/files
+                volumeName: filesharevol
+              - mountPath: /drupal/data/default/private
+                volumeName: privsharevol
+              env:
+              - name: MYSQL_HOST
+                value: mariadb-ecc-uks-dev.mariadb.database.azure.com
+              - name: MYSQL_USER
+                value: mariadb-root
+              - name: MYSQL_DATABASE
+                value: drupal_portal
+              - name: MYSQL_PASSWORD
+                secretRef: mysql-password
+      EOF
+    - az containerapp revision copy --name portal --resource-group rg-ecc-portal-uks-dev --yaml revision.yml --subscription "Essex County Council (Portal)"
   rules:
-    - if: '$CI_COMMIT_BRANCH == "master"'
+    - when: manual
 
-update-app-service:
-  stage: update-app-service
+drush-deploy-dev:
+  image: mcr.microsoft.com/azure-cli
+  stage: development-postdeploy
+  needs: ["deploy-to-dev"]
+  before_script:
+    - apk add socat
+    - az extension add --name containerapp
+    - az login --service-principal -u${ARM_CLIENT_ID} -p${ARM_CLIENT_SECRET} -t${ARM_TENANT_ID}
+    - az account set --subscription "Essex County Council (Portal)"
   script:
-    - echo "Container app is restarting - environment will be down temporarily"
-    - az container restart --name lgDrupalContainerGroup --resource-group ecc-drupal-gov-dev
+    - timeout 1200 socat EXEC:'az containerapp exec --command /drupal/deploy.sh --name portal --container drupal --resource-group rg-ecc-portal-uks-dev',pty,setsid,ctty STDIO,ignoreeof
   rules:
-    - if: '$CI_COMMIT_BRANCH == "master"'
+    - when: manual
+
+deploy-to-mig:
+  image: mcr.microsoft.com/azure-cli
+  stage: migration
+  needs: ["build-and-push-images"]
+  environment:
+    name: migration
+  before_script:
+    - az extension add --name containerapp
+    - az login --service-principal -u${ARM_CLIENT_ID} -p${ARM_CLIENT_SECRET} -t${ARM_TENANT_ID}
+  script:
+    - |
+      if [[ "$CI_COMMIT_BRANCH" == "$CI_DEFAULT_BRANCH" ]]; then
+        tag=""
+        echo "Running on default branch '$CI_DEFAULT_BRANCH': tag = 'latest'"
+      else
+        tag=":$CI_COMMIT_REF_SLUG"
+        echo "Running on branch '$CI_COMMIT_BRANCH': tag = $tag"
+      fi
+    - echo "Creating new revision of Container App"
+    - | 
+      cat > revision.yml <<EOF
+      properties:
+        template:
+          revisionSuffix: ${CI_PIPELINE_ID}
+          containers:
+            - image: acreccuksdev.azurecr.io/portal-nginx-drupal$tag
+              name: nginx
+              resources:
+                cpu: 0.25
+                memory: 0.5Gi
+              volumeMounts:
+              - mountPath: /drupal/web/sites/default/files
+                volumeName: filesharevol      
+            - image: acreccuksdev.azurecr.io/portal-drupal-fpm$tag
+              name: drupal
+              resources:
+                cpu: 0.75
+                memory: 1.5Gi
+              volumeMounts:
+              - mountPath: /drupal/web/sites/default/files
+                volumeName: filesharevol
+              - mountPath: /drupal/data/default/private
+                volumeName: privsharevol
+              env:
+              - name: MYSQL_HOST
+                value: mariadb-ecc-uks-mig.mariadb.database.azure.com
+              - name: MYSQL_USER
+                value: mariadb-root
+              - name: MYSQL_DATABASE
+                value: drupal_portal
+              - name: MYSQL_PASSWORD
+                secretRef: mysql-password
+      EOF
+    - az containerapp revision copy --name portal --resource-group rg-ecc-portal-uks-mig --yaml revision.yml --subscription "Essex County Council (Portal)"
+  rules:
+    - when: manual
+
+drush-deploy-mig:
+  image: mcr.microsoft.com/azure-cli
+  stage: migration-postdeploy
+  needs: ["deploy-to-mig"]
+  before_script:
+    - apk add socat
+    - az extension add --name containerapp
+    - az login --service-principal -u${ARM_CLIENT_ID} -p${ARM_CLIENT_SECRET} -t${ARM_TENANT_ID}
+    - az account set --subscription "Essex County Council (Portal)"
+  script:
+    - timeout 1200 socat EXEC:'az containerapp exec --command /drupal/deploy.sh --name portal --container drupal --resource-group rg-ecc-portal-uks-mig',pty,setsid,ctty STDIO,ignoreeof
+  rules:
+    - when: manual
+
+deploy-to-preprod:
+  image: mcr.microsoft.com/azure-cli
+  stage: preproduction
+  needs: ["deploy-to-dev"]
+  environment:
+    name: preproduction
+    url: https://essex-gov-pp.nomensa.xyz/
+  before_script:
+    - az extension add --name containerapp
+    - az login --service-principal -u${ARM_CLIENT_ID} -p${ARM_CLIENT_SECRET} -t${ARM_TENANT_ID}
+  script:    
+    - echo "Importing image from Development  into Pre-Production"
+    - az acr import --force --name acreccukspre --source acreccuksdev.azurecr.io/portal-nginx-drupal:${CI_COMMIT_REF_SLUG} --image portal-nginx-drupal:${CI_COMMIT_REF_SLUG} --subscription "Essex County Council (Common)"
+    - az acr import --force --name acreccukspre --source acreccuksdev.azurecr.io/portal-drupal-fpm:${CI_COMMIT_REF_SLUG} --image portal-drupal-fpm:${CI_COMMIT_REF_SLUG} --subscription "Essex County Council (Common)"
+    - | 
+      cat > revision.yml <<EOF
+      properties:
+        template:
+          revisionSuffix: ${CI_PIPELINE_ID}
+          containers:
+            - image: acreccukspre.azurecr.io/portal-nginx-drupal:${CI_COMMIT_REF_SLUG}
+              name: nginx
+              resources:
+                cpu: 0.25
+                memory: 0.5Gi
+              volumeMounts:
+              - mountPath: /drupal/web/sites/default/files
+                volumeName: filesharevol
+            - image: acreccukspre.azurecr.io/portal-drupal-fpm:${CI_COMMIT_REF_SLUG}
+              name: drupal
+              resources:
+                cpu: 0.75
+                memory: 1.5Gi
+              volumeMounts:
+              - mountPath: /drupal/web/sites/default/files
+                volumeName: filesharevol
+              env:
+              - name: MYSQL_HOST
+                value: mariadb-ecc-uks-pre.mariadb.database.azure.com
+              - name: MYSQL_USER
+                value: mariadb-root
+              - name: MYSQL_DATABASE
+                value: drupal_portal
+              - name: MYSQL_PASSWORD
+                secretRef: mysql-password
+      EOF
+    - echo "Creating new revision of Container App"
+    - az containerapp revision copy --name portal --resource-group rg-ecc-portal-uks-pre --yaml revision.yml --subscription "Essex County Council (Portal)"
+  rules:
+    - if: '$CI_COMMIT_BRANCH =~ /^release\//'
+      when: manual
+
+drush-deploy-preprod:
+  image: mcr.microsoft.com/azure-cli
+  stage: preproduction-postdeploy
+  needs: ["deploy-to-preprod"]
+  before_script:
+    - apk add socat
+    - az extension add --name containerapp
+    - az login --service-principal -u${ARM_CLIENT_ID} -p${ARM_CLIENT_SECRET} -t${ARM_TENANT_ID}
+    - az account set --subscription "Essex County Council (Portal)"
+  script:
+    - timeout 1200 socat EXEC:'az containerapp exec --command /drupal/deploy.sh --name portal --container drupal --resource-group rg-ecc-portal-uks-pre',pty,setsid,ctty STDIO,ignoreeof
+  rules:
+    - if: '$CI_COMMIT_BRANCH =~ /^release\//'
+      when: manual
+
+deploy-to-prod:
+  image: mcr.microsoft.com/azure-cli
+  stage: production
+  needs: ["deploy-to-preprod"]
+  environment:
+    name: production
+    url: https://essex.gov.uk/
+  before_script:
+    - az extension add --name containerapp
+    - az login --service-principal -u${ARM_CLIENT_ID} -p${ARM_CLIENT_SECRET} -t${ARM_TENANT_ID}
+  script:
+    - echo "Importing image from Pre-Production into Production"
+    - az acr import --force --name acreccuksprod --source acreccukspre.azurecr.io/portal-nginx-drupal:${CI_COMMIT_REF_SLUG} --image portal-nginx-drupal:${CI_COMMIT_REF_SLUG} --subscription "Essex County Council (Common)"
+    - az acr import --force --name acreccuksprod --source acreccukspre.azurecr.io/portal-drupal-fpm:${CI_COMMIT_REF_SLUG} --image portal-drupal-fpm:${CI_COMMIT_REF_SLUG} --subscription "Essex County Council (Common)"
+    - echo "Creating new revision of Container App"
+    - | 
+      cat > revision.yml <<EOF
+      properties:
+        template:
+          revisionSuffix: ${CI_PIPELINE_ID}
+          containers:
+            - image: acreccuksprod.azurecr.io/portal-nginx-drupal:${CI_COMMIT_REF_SLUG}
+              name: nginx
+              resources:
+                cpu: 0.25
+                memory: 0.5Gi
+              volumeMounts:
+              - mountPath: /drupal/web/sites/default/files
+                volumeName: filesharevol
+            - image: acreccuksprod.azurecr.io/portal-drupal-fpm:${CI_COMMIT_REF_SLUG}
+              name: drupal
+              resources:
+                cpu: 0.75
+                memory: 1.5Gi
+              volumeMounts:
+              - mountPath: /drupal/web/sites/default/files
+                volumeName: filesharevol
+              env:
+              - name: MYSQL_HOST
+                value: mariadb-ecc-uks-prod.mariadb.database.azure.com
+              - name: MYSQL_USER
+                value: mariadb-root
+              - name: MYSQL_DATABASE
+                value: drupal_portal
+              - name: MYSQL_PASSWORD
+                secretRef: mysql-password
+      EOF
+    - az containerapp revision copy --name portal --resource-group rg-ecc-portal-uks-prod --yaml revision.yml --subscription "Essex County Council (Portal)"  
+  rules:
+    - if: '$CI_COMMIT_BRANCH =~ /^release\//'
+      when: manual
+
+drush-deploy-prod:
+  image: mcr.microsoft.com/azure-cli
+  stage: production-postdeploy
+  needs: ["deploy-to-prod"]
+  before_script:
+    - apk add socat
+    - az extension add --name containerapp
+    - az login --service-principal -u${ARM_CLIENT_ID} -p${ARM_CLIENT_SECRET} -t${ARM_TENANT_ID}
+    - az account set --subscription "Essex County Council (Portal)"
+  script:
+    - timeout 1200 socat EXEC:'az containerapp exec --command /drupal/deploy.sh --name portal --container drupal --resource-group rg-ecc-portal-uks-prod',pty,setsid,ctty STDIO,ignoreeof
+  rules:
+    - if: '$CI_COMMIT_BRANCH =~ /^release\//'
       when: manual

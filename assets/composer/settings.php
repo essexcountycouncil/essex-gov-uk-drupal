@@ -89,6 +89,16 @@
  * @endcode
  */
 $databases = [];
+$databases['default']['default'] = array (
+  'database' => $_ENV['MYSQL_DATABASE'] ?? getenv('MYSQL_DATABASE'),
+  'username' => $_ENV['MYSQL_USER'] ?? getenv('MYSQL_USER'),
+  'password' => $_ENV['MYSQL_PASSWORD'] ?? getenv('MYSQL_PASSWORD'),
+  'prefix' => '',
+  'host' => $_ENV['MYSQL_HOST'] ?? getenv('MYSQL_HOST'),
+  'port' => '3306',
+  'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
+  'driver' => 'mysql',
+);
 
 /**
  * Customizing database settings.
@@ -237,7 +247,7 @@ $databases = [];
  * directory in the public files path. The setting below allows you to set
  * its location.
  */
-$settings['config_sync_directory'] = '../config/sync';
+$settings['config_sync_directory'] = '../config/default';
 
 /**
  * Settings:
@@ -520,7 +530,7 @@ if ($settings['hash_salt']) {
  * See https://www.drupal.org/documentation/modules/file for more information
  * about securing private files.
  */
-# $settings['file_private_path'] = '';
+$settings['file_private_path'] = '/drupal/data/default/private';
 
 /**
  * Temporary file path:
@@ -533,7 +543,7 @@ if ($settings['hash_salt']) {
  *
  * @see \Drupal\Component\FileSystem\FileSystem::getOsTemporaryDirectory()
  */
-# $settings['file_temp_path'] = '/tmp';
+$settings['file_temp_path'] = '/drupal/data/default/temp';
 
 /**
  * Session write interval:
@@ -751,14 +761,10 @@ $settings['entity_update_backup'] = TRUE;
  *
  * Keep this code block at the end of this file to take full effect.
  */
-if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
-  include $app_root . '/' . $site_path . '/settings.local.php';
-}
-elseif (file_exists($app_root . '/' . $site_path . '/settings.lando.php')) {
-  include $app_root . '/' . $site_path . '/settings.lando.php';
-}
 
 // Automatically generated include for settings managed by ddev.
 if (file_exists($app_root . '/' . $site_path . '/settings.ddev.php') && getenv('IS_DDEV_PROJECT') == 'true') {
   include __DIR__ . '/settings.ddev.php';
+  $settings['file_private_path'] = '/var/www/html/private';
+  $settings['file_temp_path'] = '/tmp';
 }

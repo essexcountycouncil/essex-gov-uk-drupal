@@ -1,0 +1,30 @@
+uuid: 703cdcaa-879a-4941-bea3-9526b2ac2f6e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.localgov_event_location
+    - localgov_geo.localgov_geo_type.address
+    - node.type.localgov_event
+_core:
+  default_config_hash: GgXBcCdtTaCofg0w7PFGV3PoPhrfYOfNLjERM0FFs7w
+id: node.localgov_event.localgov_event_location
+field_name: localgov_event_location
+entity_type: node
+bundle: localgov_event
+label: Location
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:localgov_geo'
+  handler_settings:
+    target_bundles:
+      address: address
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

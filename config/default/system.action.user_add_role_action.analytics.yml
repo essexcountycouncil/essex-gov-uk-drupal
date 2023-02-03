@@ -1,0 +1,14 @@
+uuid: d54d0973-6e1c-4415-ac67-eda16beac7ed
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.analytics
+  module:
+    - user
+id: user_add_role_action.analytics
+label: 'Add the Analytics role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: analytics

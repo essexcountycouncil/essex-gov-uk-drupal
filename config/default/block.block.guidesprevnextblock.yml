@@ -1,0 +1,20 @@
+uuid: 3574570a-4c07-4ef0-97fe-68c16157d1ea
+langcode: en
+status: true
+dependencies:
+  module:
+    - localgov_guides
+  theme:
+    - essex
+id: guidesprevnextblock
+theme: essex
+region: content_bottom
+weight: -11
+provider: null
+plugin: localgov_guides_prev_next_block
+settings:
+  id: localgov_guides_prev_next_block
+  label: 'Guides prev next block'
+  label_display: '0'
+  provider: localgov_guides
+visibility: {  }

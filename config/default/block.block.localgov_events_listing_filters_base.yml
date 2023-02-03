@@ -1,0 +1,31 @@
+uuid: 75ba1c09-337a-4136-8d09-8ec4384b1787
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.localgov_events_listing
+  module:
+    - system
+    - views
+  theme:
+    - localgov_base
+_core:
+  default_config_hash: hIS4ZwmXP7XwVAbSnEgyMfYWOkhv8RG0X4qxNKUqS8U
+id: localgov_events_listing_filters_base
+theme: localgov_base
+region: sidebar_first
+weight: -9
+provider: null
+plugin: 'views_exposed_filter_block:localgov_events_listing-page_all_events'
+settings:
+  id: 'views_exposed_filter_block:localgov_events_listing-page_all_events'
+  label: ''
+  label_display: '0'
+  provider: views
+  views_label: ''
+visibility:
+  request_path:
+    id: request_path
+    pages: /events
+    negate: false
+    context_mapping: {  }

@@ -5,7 +5,7 @@ properties:
   containers:
   - name: nginx-drupal
     properties:
-      image: eccgovreg.azurecr.io/nginx-drupal:latest
+      image: portal-nginx-drupal:latest
       resources:
         requests:
           cpu: 1
@@ -14,7 +14,7 @@ properties:
         - port: 443
   - name: drupal-fpm
     properties:
-      image: eccgovreg.azurecr.io/drupal-fpm:latest
+      image: portal-drupal-fpm:latest
       resources:
         requests:
           cpu: 1
@@ -25,12 +25,14 @@ properties:
       - name: MYSQL_USER
         value: mariadb-root
       - name: MYSQL_PASSWORD
-        secureValue: ObR:)Ki#rY22w{@I5B3LU9tV
+        secureValue: <PASSWORD>
       - name: MYSQL_DATABASE
         value: drupal
       volumeMounts:
       - mountPath: /drupal/web/sites/default/files
         name: filesharevol
+      - mountPath: /drupal/data/default/private
+        name: privsharevol
   osType: Linux
   ipAddress:
     type: Public
@@ -41,12 +43,19 @@ properties:
   imageRegistryCredentials:
   - server: eccgovreg.azurecr.io
     username: eccgovreg
-    password: p3lLNkbRfI=u5kZtTVhLEkPhwwdHOF68
+    password: <PASSWORD
   volumes:
   - name: filesharevol
     azurefile:
       sharename: eccgovdrupalshare
       storageAccountName: eccgovdrupalsa
-      storageAccountKey: vGHZOkshrjM4oMSO1w2O3Fa98XO836Xd+8Tipztl7qgp6bE/3BYgCJ54A3clCJP7v+wnz5ghZi30+AStlb2lXA==
+      storageAccountKey: <KEY>
+  - name: privsharevol
+    azurefile:
+      sharename: eccgovdrupalprivate
+      storageAccountName: eccgovdrupalsa
+      storageAccountKey: <KEY>
 tags: {owner: devops}
 type: Microsoft.ContainerInstance/containerGroups
+
+

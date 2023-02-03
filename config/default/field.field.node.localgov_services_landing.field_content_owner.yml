@@ -1,0 +1,25 @@
+uuid: 087cad4e-8a6c-4bf7-ad1a-5d41b69aa157
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_content_owner
+    - node.type.localgov_services_landing
+id: node.localgov_services_landing.field_content_owner
+field_name: field_content_owner
+entity_type: node
+bundle: localgov_services_landing
+label: 'Content Owner'
+description: 'For assigning content ''Owners'''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: views
+  handler_settings:
+    view:
+      view_name: content_ownership
+      display_name: entity_reference_content_owner
+      arguments: {  }
+field_type: entity_reference

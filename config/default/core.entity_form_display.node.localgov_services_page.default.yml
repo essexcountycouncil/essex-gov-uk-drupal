@@ -1,0 +1,221 @@
+uuid: 439db5d8-43ff-4a5b-b866-77b76eeec02b
+langcode: en
+status: true
+dependencies:
+  config:
+    - entity_browser.browser.page_components
+    - field.field.node.localgov_services_page.body
+    - field.field.node.localgov_services_page.field_content_owner
+    - field.field.node.localgov_services_page.field_non_publishable_notes
+    - field.field.node.localgov_services_page.localgov_common_tasks
+    - field.field.node.localgov_services_page.localgov_download_links
+    - field.field.node.localgov_services_page.localgov_hide_related_topics
+    - field.field.node.localgov_services_page.localgov_override_related_links
+    - field.field.node.localgov_services_page.localgov_page_components
+    - field.field.node.localgov_services_page.localgov_related_links
+    - field.field.node.localgov_services_page.localgov_services_parent
+    - field.field.node.localgov_services_page.localgov_topic_classified
+    - node.type.localgov_services_page
+    - workflows.workflow.localgov_editorial
+  module:
+    - content_moderation
+    - entity_browser
+    - field_group
+    - localgov_review_date
+    - path
+    - text
+third_party_settings:
+  field_group:
+    group_description:
+      children: {  }
+      label: Content
+      region: hidden
+      parent_name: ''
+      weight: 16
+      format_type: tab
+      format_settings:
+        classes: ''
+        id: ''
+        formatter: open
+        description: ''
+        required_fields: true
+    group_common_tasks:
+      children:
+        - localgov_common_tasks
+      label: 'Task buttons'
+      region: hidden
+      parent_name: ''
+      weight: 19
+      format_type: tab
+      format_settings:
+        classes: ''
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_related_links:
+      children:
+        - localgov_hide_related_topics
+        - localgov_override_related_links
+        - localgov_related_links
+        - localgov_topic_classified
+      label: 'Related content'
+      region: hidden
+      parent_name: ''
+      weight: 17
+      format_type: tab
+      format_settings:
+        classes: ''
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_content_ownership:
+      children: {  }
+      label: 'Content Ownership'
+      region: hidden
+      parent_name: ''
+      weight: 18
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+_core:
+  default_config_hash: NojxFiIDTCq9AdXNx1uEMXcFA70OMuCLaIZpTGau-tI
+id: node.localgov_services_page.default
+targetEntityType: node
+bundle: localgov_services_page
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 10
+    region: content
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+  created:
+    type: datetime_timestamp
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_content_owner:
+    type: entity_reference_autocomplete
+    weight: 12
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_non_publishable_notes:
+    type: text_textarea
+    weight: 13
+    region: content
+    settings:
+      rows: 3
+      placeholder: ''
+    third_party_settings: {  }
+  localgov_page_components:
+    type: entity_browser_entity_reference
+    weight: 11
+    region: content
+    settings:
+      entity_browser: page_components
+      field_widget_display: label
+      field_widget_edit: true
+      field_widget_remove: true
+      field_widget_replace: false
+      open: true
+      field_widget_display_settings: {  }
+      selection_mode: selection_append
+    third_party_settings: {  }
+  localgov_review_date:
+    type: review_date
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  localgov_services_parent:
+    type: entity_reference_autocomplete
+    weight: 8
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  moderation_state:
+    type: moderation_state_default
+    weight: 14
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    weight: 3
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 6
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    weight: 4
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 9
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 1
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  url_redirects:
+    weight: 7
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  entitygroupfield: true
+  localgov_common_tasks: true
+  localgov_download_links: true
+  localgov_hide_related_topics: true
+  localgov_override_related_links: true
+  localgov_related_links: true
+  localgov_topic_classified: true

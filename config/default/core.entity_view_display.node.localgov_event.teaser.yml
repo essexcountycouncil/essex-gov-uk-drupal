@@ -1,0 +1,72 @@
+uuid: ccc05b17-95ac-47da-98c8-a8ab3066b8c8
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.date_format.localgov_event_date_full
+    - core.date_format.localgov_event_date_hour
+    - core.entity_view_mode.node.teaser
+    - field.field.node.localgov_event.body
+    - field.field.node.localgov_event.localgov_event_call_to_action
+    - field.field.node.localgov_event.localgov_event_categories
+    - field.field.node.localgov_event.localgov_event_date
+    - field.field.node.localgov_event.localgov_event_image
+    - field.field.node.localgov_event.localgov_event_locality
+    - field.field.node.localgov_event.localgov_event_location
+    - field.field.node.localgov_event.localgov_event_price
+    - field.field.node.localgov_event.localgov_event_provider
+    - field.field.node.localgov_event.localgov_event_venue
+    - node.type.localgov_event
+  module:
+    - date_recur
+    - text
+    - user
+_core:
+  default_config_hash: ydJMWGHVgdJTIj4omnGi9gjq3FKP91_e3K8YQkBlNCo
+id: node.localgov_event.teaser
+targetEntityType: node
+bundle: localgov_event
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  localgov_event_date:
+    type: date_recur_basic_formatter
+    label: hidden
+    settings:
+      timezone_override: ''
+      format_type: localgov_event_date_full
+      separator: to
+      show_next: 1
+      count_per_item: false
+      occurrence_format_type: localgov_event_date_full
+      same_end_date_format_type: localgov_event_date_hour
+      interpreter: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  localgov_event_image:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: localgov_event_thumbnail
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  links: true
+  localgov_event_call_to_action: true
+  localgov_event_categories: true
+  localgov_event_locality: true
+  localgov_event_location: true
+  localgov_event_price: true
+  localgov_event_provider: true
+  localgov_event_venue: true
+  search_api_excerpt: true

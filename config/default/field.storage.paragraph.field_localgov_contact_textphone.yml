@@ -1,0 +1,19 @@
+uuid: 8fdd2271-c56f-4ffe-b4e5-9be9a052ac29
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+    - telephone
+id: paragraph.field_localgov_contact_textphone
+field_name: field_localgov_contact_textphone
+entity_type: paragraph
+type: telephone
+settings: {  }
+module: telephone
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

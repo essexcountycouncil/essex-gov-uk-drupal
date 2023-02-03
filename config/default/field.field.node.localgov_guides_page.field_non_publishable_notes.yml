@@ -1,0 +1,24 @@
+uuid: fdc38032-bb46-4ded-bdb2-f785e3d46e35
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_non_publishable_notes
+    - node.type.localgov_guides_page
+  module:
+    - text
+id: node.localgov_guides_page.field_non_publishable_notes
+field_name: field_non_publishable_notes
+entity_type: node
+bundle: localgov_guides_page
+label: 'Non-Publishable Notes'
+description: 'These comments can only be seen when users are within the CMS environment itself.'
+required: false
+translatable: true
+default_value:
+  -
+    value: "<p>&nbsp;</p>\r\n\r\n<div id=\"extension-host\">&nbsp;</div>\r\n"
+    format: wysiwyg
+default_value_callback: ''
+settings: {  }
+field_type: text_long

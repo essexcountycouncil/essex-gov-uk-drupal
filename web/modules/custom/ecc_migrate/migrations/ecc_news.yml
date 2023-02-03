@@ -1,0 +1,158 @@
+# Migration configuration for ecc_news content.
+id: ecc_news
+label: News
+migration_tags:
+  - ECC
+  - content
+source:
+  plugin: url
+  data_fetcher_plugin: file
+  data_parser_plugin: json_contentful
+  urls:
+    - 'private://migration_data/contentful_export.json'
+  item_selector: entries
+  content_type: news
+  with_alerts: true
+  fields:
+    -
+      name: title
+      label: 'Title'
+      selector: 'fields/title/en-GB'
+    -
+      name: id
+      label: 'Contentful ID'
+      selector: sys/id
+    -
+      name: updated_by
+      label: 'Updated by'
+      selector: sys/updatedBy/sys/id
+    -
+      name: created_by
+      label: 'Created by'
+      selector: sys/createdBy/sys/id
+    -
+      name: image_id
+      label: 'Image ID'
+      selector: 'fields/image/en-GB/sys/id'
+    -
+      name: body
+      label: 'Body'
+      selector: 'fields/body/en-GB'
+    -
+      name: teaser
+      label: 'Teaser'
+      selector: 'fields/teaser/en-GB'
+    -
+      name: slug
+      label: 'Slug'
+      selector: 'fields/slug/en-GB'
+    -
+      name: createdAt
+      label: 'Created at'
+      selector: 'sys/createdAt'
+    -
+      name: updatedAt
+      label: 'Updated at'
+      selector: 'sys/updatedAt'
+    -
+      name: firstPublishedAt
+      label: 'First published at'
+      selector: 'sys/firstPublishedAt'
+  ids:
+    id:
+      type: string
+  constants:
+    newsroom: news
+    legacy_url_base: news
+destination:
+  plugin: entity:node
+process:
+  type:
+    plugin: default_value
+    default_value: localgov_news_article
+  title: title
+  # Set the UID according to the updated_by user. This will set the node uid and the revision uid.
+  # We then set the uid of the node (not the revision) to be the created_by user in a post migrate event.
+  uid:
+    plugin: migration_lookup
+    migration: ecc_users
+    source: updated_by
+    no_stub: true
+  localgov_newsroom/target_id:
+    plugin: migration_lookup
+    migration: ecc_newsrooms
+    source: constants/newsroom
+  field_media_image/target_id:
+    plugin: migration_lookup
+    migration: ecc_image_media
+    source: image_id
+    no_stub: true
+  body_text_intermediate:
+    -
+      plugin: markdown_to_html
+      markdown_extensions:
+        - table
+      source: body
+    -
+      plugin: map_asset_urls
+    -
+      plugin: map_youtube_embeds
+    -
+      plugin: strip_styles
+  'body/value':
+    -
+      plugin: rewrite_alerts
+      source:
+        - '@body_text_intermediate'
+        - alerts
+    -
+      plugin: rewrite_absolute_urls
+      urls:
+        - 'https://essex.gov.uk'
+        - 'https://www.essex.gov.uk'
+        - 'http://essex.gov.uk'
+        - 'http://www.essex.gov.uk'
+  'body/format':
+    plugin: default_value
+    default_value: wysiwyg
+  'body/summary': teaser
+  status:
+    plugin: default_value
+    default_value: 1
+  moderation_state:
+    plugin: default_value
+    default_value: published
+  created:
+    plugin: callback
+    callable: strtotime
+    source: createdAt
+  changed:
+    plugin: callback
+    callable: strtotime
+    source: updatedAt
+  localgov_news_date:
+    plugin: format_date
+    from_format: 'Y-m-d\TH:i:s.vP'
+    to_format: 'Y-m-d'
+    source: firstPublishedAt
+    settings:
+      validate_format: false
+# These final fields are not saved directly onto the entity but are available for
+# post-migrate events.
+  pseudo_uid:
+    plugin: migration_lookup
+    migration: ecc_users
+    source: created_by
+    no_stub: true
+  legacy_url:
+    plugin: concat
+    source:
+      - constants/legacy_url_base
+      - slug
+    delimiter: /
+migration_dependencies:
+  required:
+    - ecc_newsrooms
+    - ecc_users
+    - ecc_youtube_embeds
+    - ecc_image_media

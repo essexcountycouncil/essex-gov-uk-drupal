@@ -1,0 +1,31 @@
+# Migration configuration for ecc_news_rooms content.
+# This provides a single newsroom called news. This is done by migrate even
+# though there is only a single piece of content, so that the news articles
+# can automatically be attributed to it.
+id: ecc_newsrooms
+label: Newsrooms
+migration_tags:
+  - ECC
+  - content
+source:
+  plugin: embedded_data
+  data_rows:
+    -
+      machine_name: news
+      title: News
+  ids:
+    machine_name:
+      type: string
+destination:
+  plugin: entity:node
+process:
+  type:
+    plugin: default_value
+    default_value: localgov_newsroom
+  title: title
+  status:
+    plugin: default_value
+    default_value: 1
+  moderation_state:
+    plugin: default_value
+    default_value: published

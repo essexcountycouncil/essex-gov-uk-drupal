@@ -1,0 +1,33 @@
+uuid: 29ff2ab9-c9b2-4e91-9648-f2caf715778b
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.localgov_featured_large
+    - field.field.media.image.field_media_image
+    - media.type.image
+    - responsive_image.styles.localgov_newsroom_featured
+  module:
+    - responsive_image
+_core:
+  default_config_hash: ZTv5MiI5gq627gi0TIQLdBGAUhtAEAQk3SSu0-OAGWU
+id: media.image.localgov_featured_large
+targetEntityType: media
+bundle: image
+mode: localgov_featured_large
+content:
+  field_media_image:
+    type: responsive_image
+    label: hidden
+    settings:
+      responsive_image_style: localgov_newsroom_featured
+      image_link: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  created: true
+  name: true
+  search_api_excerpt: true
+  thumbnail: true
+  uid: true

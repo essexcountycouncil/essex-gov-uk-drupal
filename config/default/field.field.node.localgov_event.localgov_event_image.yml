@@ -1,0 +1,30 @@
+uuid: 85fb1f0b-9a0f-43ee-ae18-24f0e2ecd8b8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.localgov_event_image
+    - media.type.image
+    - node.type.localgov_event
+_core:
+  default_config_hash: cvnccWUuVm9JNdV_Mi2Z77Zvua--8LHssyQKWtZXCPc
+id: node.localgov_event.localgov_event_image
+field_name: localgov_event_image
+entity_type: node
+bundle: localgov_event
+label: Image
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

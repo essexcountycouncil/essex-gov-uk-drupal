@@ -1,0 +1,28 @@
+uuid: 393db8f3-36ce-4235-9387-775bb3e71f80
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.localgov_directory_website
+    - node.type.localgov_directories_venue
+  module:
+    - link
+  enforced:
+    module:
+      - localgov_directories
+_core:
+  default_config_hash: 3cjAe-m9YKw1QcI8AK0sWuLMdqCLQkhcbevBL9QghCM
+id: node.localgov_directories_venue.localgov_directory_website
+field_name: localgov_directory_website
+entity_type: node
+bundle: localgov_directories_venue
+label: 'Enquiries website'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 0
+  link_type: 17
+field_type: link

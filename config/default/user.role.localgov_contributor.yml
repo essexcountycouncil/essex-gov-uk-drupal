@@ -1,0 +1,199 @@
+uuid: 36e79304-d6d5-4696-9509-243e7d9e7d5a
+langcode: en
+status: true
+dependencies:
+  config:
+    - media.type.document
+    - media.type.image
+    - media.type.remote_video
+    - node.type.localgov_directories_org
+    - node.type.localgov_directories_page
+    - node.type.localgov_directories_venue
+    - node.type.localgov_directory
+    - node.type.localgov_directory_promo_page
+    - node.type.localgov_event
+    - node.type.localgov_guides_overview
+    - node.type.localgov_guides_page
+    - node.type.localgov_news_article
+    - node.type.localgov_newsroom
+    - node.type.localgov_services_landing
+    - node.type.localgov_services_page
+    - node.type.localgov_services_status
+    - node.type.localgov_services_sublanding
+    - node.type.localgov_step_by_step_overview
+    - node.type.localgov_step_by_step_page
+    - node.type.localgov_subsites_overview
+    - node.type.localgov_subsites_page
+    - workflows.workflow.localgov_editorial
+  module:
+    - content_moderation
+    - content_ownership
+    - entity_browser
+    - entity_hierarchy
+    - localgov_alert_banner
+    - media
+    - node
+    - paragraphs
+    - paragraphs_library
+    - path
+    - preview_link
+    - quickedit
+    - responsive_preview
+    - scheduled_transitions
+    - system
+    - toolbar
+    - webform
+  enforced:
+    module:
+      - localgov_roles
+_core:
+  default_config_hash: Fc49dMO9n7Q8f9QB9HvLIHh9LzpRTE0lgYetg1x-4qc
+id: localgov_contributor
+label: Contributor
+weight: -6
+is_admin: null
+permissions:
+  - 'access content overview'
+  - 'access in-place editing'
+  - 'access localgov alert banner listing page'
+  - 'access media overview'
+  - 'access page_components entity browser pages'
+  - 'access paragraphs_library_items entity browser pages'
+  - 'access responsive preview'
+  - 'access toolbar'
+  - 'add scheduled transitions node localgov_directories_page'
+  - 'add scheduled transitions node localgov_directories_venue'
+  - 'add scheduled transitions node localgov_directory_promo_page'
+  - 'add scheduled transitions node localgov_event'
+  - 'add scheduled transitions node localgov_guides_overview'
+  - 'add scheduled transitions node localgov_guides_page'
+  - 'add scheduled transitions node localgov_news_article'
+  - 'add scheduled transitions node localgov_newsroom'
+  - 'add scheduled transitions node localgov_services_landing'
+  - 'add scheduled transitions node localgov_services_page'
+  - 'add scheduled transitions node localgov_services_status'
+  - 'add scheduled transitions node localgov_services_sublanding'
+  - 'add scheduled transitions node localgov_step_by_step_overview'
+  - 'add scheduled transitions node localgov_step_by_step_page'
+  - 'add scheduled transitions node localgov_subsites_overview'
+  - 'add scheduled transitions node localgov_subsites_page'
+  - 'create document media'
+  - 'create image media'
+  - 'create localgov_directories_org content'
+  - 'create localgov_directories_page content'
+  - 'create localgov_directories_venue content'
+  - 'create localgov_directory content'
+  - 'create localgov_directory_promo_page content'
+  - 'create localgov_event content'
+  - 'create localgov_guides_overview content'
+  - 'create localgov_guides_page content'
+  - 'create localgov_services_landing content'
+  - 'create localgov_services_page content'
+  - 'create localgov_services_status content'
+  - 'create localgov_services_sublanding content'
+  - 'create localgov_step_by_step_overview content'
+  - 'create localgov_step_by_step_page content'
+  - 'create localgov_subsites_overview content'
+  - 'create localgov_subsites_page content'
+  - 'create media'
+  - 'create paragraph library item'
+  - 'create remote_video media'
+  - 'create url aliases'
+  - 'edit any document media'
+  - 'edit any image media'
+  - 'edit any remote_video media'
+  - 'edit own document media'
+  - 'edit own image media'
+  - 'edit own localgov_directories_org content'
+  - 'edit own localgov_directories_page content'
+  - 'edit own localgov_directories_venue content'
+  - 'edit own localgov_directory content'
+  - 'edit own localgov_directory_promo_page content'
+  - 'edit own localgov_event content'
+  - 'edit own localgov_guides_overview content'
+  - 'edit own localgov_guides_page content'
+  - 'edit own localgov_news_article content'
+  - 'edit own localgov_newsroom content'
+  - 'edit own localgov_services_landing content'
+  - 'edit own localgov_services_page content'
+  - 'edit own localgov_services_status content'
+  - 'edit own localgov_services_sublanding content'
+  - 'edit own localgov_step_by_step_overview content'
+  - 'edit own localgov_step_by_step_page content'
+  - 'edit own localgov_subsites_overview content'
+  - 'edit own localgov_subsites_page content'
+  - 'edit own remote_video media'
+  - 'edit paragraph library item'
+  - 'generate preview links'
+  - 'reorder entity_hierarchy children'
+  - 'reschedule scheduled transitions localgov_alert_banner localgov_alert_banner'
+  - 'reschedule scheduled transitions node localgov_directories_page'
+  - 'reschedule scheduled transitions node localgov_directories_venue'
+  - 'reschedule scheduled transitions node localgov_directory_promo_page'
+  - 'reschedule scheduled transitions node localgov_event'
+  - 'reschedule scheduled transitions node localgov_guides_overview'
+  - 'reschedule scheduled transitions node localgov_guides_page'
+  - 'reschedule scheduled transitions node localgov_news_article'
+  - 'reschedule scheduled transitions node localgov_newsroom'
+  - 'reschedule scheduled transitions node localgov_services_landing'
+  - 'reschedule scheduled transitions node localgov_services_page'
+  - 'reschedule scheduled transitions node localgov_services_status'
+  - 'reschedule scheduled transitions node localgov_services_sublanding'
+  - 'reschedule scheduled transitions node localgov_step_by_step_overview'
+  - 'reschedule scheduled transitions node localgov_step_by_step_page'
+  - 'reschedule scheduled transitions node localgov_subsites_overview'
+  - 'reschedule scheduled transitions node localgov_subsites_page'
+  - 'update media'
+  - 'use localgov_editorial transition create_new_draft'
+  - 'use localgov_editorial transition reject'
+  - 'use localgov_editorial transition submit_for_review'
+  - 'view all localgov alert banner entity pages'
+  - 'view all media revisions'
+  - 'view all revisions'
+  - 'view all scheduled transitions'
+  - 'view any unpublished content'
+  - 'view any webform submission'
+  - 'view content owner/sme entity'
+  - 'view latest version'
+  - 'view localgov alert banner localgov_alert_banner pages'
+  - 'view localgov_directories_org revisions'
+  - 'view localgov_directories_page revisions'
+  - 'view localgov_directories_venue revisions'
+  - 'view localgov_directory revisions'
+  - 'view localgov_directory_promo_page revisions'
+  - 'view localgov_event revisions'
+  - 'view localgov_guides_overview revisions'
+  - 'view localgov_guides_page revisions'
+  - 'view localgov_news_article revisions'
+  - 'view localgov_newsroom revisions'
+  - 'view localgov_services_landing revisions'
+  - 'view localgov_services_page revisions'
+  - 'view localgov_services_status revisions'
+  - 'view localgov_services_sublanding revisions'
+  - 'view localgov_step_by_step_overview revisions'
+  - 'view localgov_step_by_step_page revisions'
+  - 'view localgov_subsites_overview revisions'
+  - 'view localgov_subsites_page revisions'
+  - 'view own unpublished content'
+  - 'view own unpublished media'
+  - 'view scheduled transitions localgov_alert_banner localgov_alert_banner'
+  - 'view scheduled transitions node localgov_directories_org'
+  - 'view scheduled transitions node localgov_directories_page'
+  - 'view scheduled transitions node localgov_directories_venue'
+  - 'view scheduled transitions node localgov_directory'
+  - 'view scheduled transitions node localgov_directory_promo_page'
+  - 'view scheduled transitions node localgov_event'
+  - 'view scheduled transitions node localgov_guides_overview'
+  - 'view scheduled transitions node localgov_guides_page'
+  - 'view scheduled transitions node localgov_news_article'
+  - 'view scheduled transitions node localgov_newsroom'
+  - 'view scheduled transitions node localgov_services_landing'
+  - 'view scheduled transitions node localgov_services_page'
+  - 'view scheduled transitions node localgov_services_status'
+  - 'view scheduled transitions node localgov_services_sublanding'
+  - 'view scheduled transitions node localgov_step_by_step_overview'
+  - 'view scheduled transitions node localgov_step_by_step_page'
+  - 'view scheduled transitions node localgov_subsites_overview'
+  - 'view scheduled transitions node localgov_subsites_page'
+  - 'view the administration theme'
+  - 'view unpublished paragraphs'

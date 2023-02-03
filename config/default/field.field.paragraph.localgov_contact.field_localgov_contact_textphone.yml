@@ -1,0 +1,21 @@
+uuid: b8731e37-716f-407f-a970-1c5b735af47f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_localgov_contact_textphone
+    - paragraphs.paragraphs_type.localgov_contact
+  module:
+    - telephone
+id: paragraph.localgov_contact.field_localgov_contact_textphone
+field_name: field_localgov_contact_textphone
+entity_type: paragraph
+bundle: localgov_contact
+label: 'Textphone:'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: telephone

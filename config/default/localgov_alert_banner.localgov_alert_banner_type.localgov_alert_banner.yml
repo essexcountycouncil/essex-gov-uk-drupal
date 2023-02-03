@@ -1,0 +1,11 @@
+uuid: b39dc806-989e-485c-ab3d-8d1fe23b1511
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - localgov_alert_banner
+_core:
+  default_config_hash: _2Mnu_eLZAE9V_IoZPdGwivSfP36FiikQA2MqhZM7Qw
+id: localgov_alert_banner
+label: 'Alert banner'

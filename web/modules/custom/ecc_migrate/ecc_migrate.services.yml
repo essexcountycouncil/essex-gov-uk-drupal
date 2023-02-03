@@ -1,0 +1,6 @@
+services:
+  ecc_migrate.event_subscriber:
+    class: Drupal\ecc_migrate\EventSubscriber\EccMigrateSubscriber
+    tags:
+      - { name: event_subscriber }
+    arguments: ['@entity_type.manager', '@migrate.lookup']

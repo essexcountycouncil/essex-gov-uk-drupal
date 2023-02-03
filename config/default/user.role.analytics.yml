@@ -1,0 +1,18 @@
+uuid: fba73c63-c253-42a4-96fd-4ce725687258
+langcode: en
+status: true
+dependencies:
+  module:
+    - eu_cookie_compliance
+    - system
+    - toolbar
+id: analytics
+label: Analytics
+weight: -7
+is_admin: null
+permissions:
+  - 'access administration pages'
+  - 'access toolbar'
+  - 'administer eu cookie compliance categories'
+  - 'administer eu cookie compliance popup'
+  - 'view the administration theme'

@@ -1,0 +1,21 @@
+uuid: a8fb8707-9303-4e22-b1f7-c6341ce95c21
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: yfPz8PueRbDhbS5FEEy0nmT1X_J8DXrQS0173nOKCdc
+id: node.localgov_event_provider
+field_name: localgov_event_provider
+entity_type: node
+type: entity_reference
+settings:
+  target_type: node
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,24 @@
+uuid: 940217f5-f4dc-4ac8-a1d7-f967cfacd271
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: 8NIsiiwUHixEmKb8I1e3Mvm0Zehwt9mH0n3GVFC5ehE
+id: localgov_service_status
+label: 'Service Status Page'
+type: 'canonical_entities:node'
+pattern: '[node:localgov_services_parent:entity:url:relative]/status/[node:title]'
+selection_criteria:
+  fb899c5a-41f3-4482-9b7d-7f203c4290c4:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: fb899c5a-41f3-4482-9b7d-7f203c4290c4
+    context_mapping:
+      node: node
+    bundles:
+      localgov_services_status: localgov_services_status
+selection_logic: and
+weight: -5
+relationships: {  }

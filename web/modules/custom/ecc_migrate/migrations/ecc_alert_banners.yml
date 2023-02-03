@@ -1,0 +1,69 @@
+# Migration of alert banners
+id: ecc_alert_banners
+label: Alert Banners
+migration_tags:
+  - ECC
+source:
+  plugin: url
+  data_fetcher_plugin: file
+  data_parser_plugin: json_contentful
+  urls:
+    - 'private://migration_data/contentful_export.json'
+  item_selector: entries
+  content_type: alert
+  tags:
+    - normalAlertBanner
+  fields:
+    -
+      name: title
+      label: 'Title'
+      selector: 'fields/title/en-GB'
+    -
+      name: id
+      label: 'Contentful ID'
+      selector: sys/id
+    -
+      name: body
+      label: 'Body'
+      selector: 'fields/body/en-GB'
+    -
+      name: severity
+      label: 'Severity'
+      selector: 'fields/severity/en-GB'
+  ids:
+    id:
+      type: string
+destination:
+  plugin: entity:localgov_alert_banner
+process:
+  type:
+    plugin: default_value
+    default_value: localgov_alert_banner
+  # Titles are longer in contentful than in localgov.
+  title:
+    plugin: substr
+    source: title
+    start: 0
+    length: 50
+  'short_description/format':
+    plugin: default_value
+    default_value: wysiwyg
+  'short_description/value':
+    -
+      plugin: markdown_to_html
+      markdown_extensions:
+        - table
+      source: body
+    -
+      plugin: map_asset_urls
+    -
+      plugin: map_youtube_embeds
+    -
+      plugin: strip_styles
+  type_of_alert:
+    plugin: static_map
+    source: severity
+    map:
+      'Information': '00--announcement'
+      'Warning': '20--minor'
+      'Error': '50--major'

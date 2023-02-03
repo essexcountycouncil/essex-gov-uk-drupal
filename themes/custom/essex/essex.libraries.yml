@@ -10,6 +10,16 @@ variables:
 # `libraries-extend` to add that code to the library from the base theme. See the
 # essex.info.yml file for an example, using this `sample-library`.
 
+overrides:
+  css:
+    theme:
+      css/overrides.css: {}
+
+fonts:
+  css:
+    theme:
+      css/fonts.css: {}
+
 # sample-library
 #   css:
 #     theme:

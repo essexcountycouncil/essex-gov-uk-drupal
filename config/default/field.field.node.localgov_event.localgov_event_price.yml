@@ -1,0 +1,31 @@
+uuid: 34e11470-74f1-46bf-99f3-45183fd774b5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.localgov_event_price
+    - node.type.localgov_event
+    - taxonomy.vocabulary.localgov_event_price
+_core:
+  default_config_hash: sWUo3xE-gbWgvEiMeXn6BsRZXjYJX05EpBKPOz0kGuA
+id: node.localgov_event.localgov_event_price
+field_name: localgov_event_price
+entity_type: node
+bundle: localgov_event
+label: Price
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      localgov_event_price: localgov_event_price
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

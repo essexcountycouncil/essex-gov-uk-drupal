@@ -1,0 +1,45 @@
+uuid: 8a2ab4e3-1a7b-48d2-b3d3-05fde587b746
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.localgov_labelled_icon.localgov_labelled_icon_icon
+    - field.field.paragraph.localgov_labelled_icon.localgov_labelled_icon_link
+    - field.field.paragraph.localgov_labelled_icon.localgov_labelled_icon_title
+    - paragraphs.paragraphs_type.localgov_labelled_icon
+  module:
+    - fontawesome
+    - link
+_core:
+  default_config_hash: diTWK_9c5lw4EJg-MyBh9vno3NUEVdl07yFVwCs6qPc
+id: paragraph.localgov_labelled_icon.default
+targetEntityType: paragraph
+bundle: localgov_labelled_icon
+mode: default
+content:
+  localgov_labelled_icon_icon:
+    type: fontawesome_icon_widget
+    weight: 103
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  localgov_labelled_icon_link:
+    type: link_default
+    weight: 102
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  localgov_labelled_icon_title:
+    type: string_textfield
+    weight: 101
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true
+  uid: true

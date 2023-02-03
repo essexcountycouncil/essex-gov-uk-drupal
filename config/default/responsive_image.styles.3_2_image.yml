@@ -1,0 +1,35 @@
+uuid: 7b2df1e6-5e7d-4b08-9c1d-47fbb456930f
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.large_3_2_2x
+    - image.style.large_3_2_768x512
+    - image.style.small_scale_crop_360x620
+  module:
+    - localgov_media
+_core:
+  default_config_hash: HFXnFJlHvke0K35rRxC42eS-lSiw1-SYVclSjDCAVt8
+id: 3_2_image
+label: '3:2 Image'
+image_style_mappings:
+  -
+    image_mapping_type: image_style
+    image_mapping: large_3_2_2x
+    breakpoint_id: localgov_media.bootstrap4_md_768px
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: large_3_2_768x512
+    breakpoint_id: localgov_media.bootstrap4_sm_576px
+    multiplier: 1x
+  -
+    image_mapping_type: sizes
+    image_mapping:
+      sizes: '(max-width: 400px) 400px, 100vh.'
+      sizes_image_styles:
+        - small_scale_crop_360x620
+    breakpoint_id: localgov_media.bootstrap4_xs
+    multiplier: 1x
+breakpoint_group: localgov_media
+fallback_image_style: large_3_2_768x512

@@ -9,11 +9,17 @@ libraries-extend:
   # of those extending localgov_base/global
   localgov_base/global:
     - essex/variables
+    - essex/overrides
+    - essex/fonts
     # - essex/other-library-to-load-on-every-page
     # - essex/other-library-to-load-on-every-page
   # Add libraries here that extend specific libraries.
   # localgov_base/sample-library:
     # - essex/sample-library
+
+# custom ckeditor css overrides for additional styles
+ckeditor_stylesheets:
+  - css/ckeditor-custom.css
 
 regions:
   tabs: "Tabs"
@@ -23,6 +29,8 @@ regions:
   primary_menu: "Primary menu"
   secondary_menu: "Secondary menu"
   banner: "Banner"
+  hero: "Hero"
+  hero_content: "Hero Content"
   breadcrumb: "Breadcrumb"
   messages: "Messages"
   content_top: "Content top"

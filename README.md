@@ -2,6 +2,13 @@
 
 Built using the LocalGov Drupal distribution.
 
+## Quick start for local development
+Use [DDEV](https://ddev.readthedocs.io/en/latest/users/install/ddev-installation/).
+
+1. Clone this repository.
+2. Run `ddev start` in the project root.
+3. Run `ddev composer install` to install the project dependencies.
+
 ## PHP requirements
 https://www.drupal.org/docs/system-requirements/php-requirements
 PHP 8.1

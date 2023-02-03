@@ -1,0 +1,138 @@
+# Migration configuration for Guide Overviews.
+id: ecc_guide_overviews
+label: Guide Overviews
+migration_tags:
+  - ECC
+  - content
+source:
+  plugin: url
+  data_fetcher_plugin: file
+  data_parser_plugin: contentful_information_pages
+  urls:
+    - 'private://migration_data/contentful_export.json'
+  item_selector: entries
+  with_sections: true
+  with_alerts: true
+  fields:
+    -
+      name: title
+      label: 'Title'
+      selector: 'fields/title/en-GB'
+    -
+      name: id
+      label: 'Contentful ID'
+      selector: sys/id
+    -
+      name: updated_by
+      label: 'Updated by'
+      selector: sys/updatedBy/sys/id
+    -
+      name: created_by
+      label: 'Created by'
+      selector: sys/createdBy/sys/id
+    -
+      name: teaser
+      label: 'Teaser'
+      selector: 'fields/teaser/en-GB'
+    -
+      name: slug
+      label: 'Slug'
+      selector: 'fields/slug/en-GB'
+    -
+      name: createdAt
+      label: 'Created at'
+      selector: 'sys/createdAt'
+    -
+      name: updatedAt
+      label: 'Updated at'
+      selector: 'sys/updatedAt'
+    -
+      name: parent_page
+      label: 'Parent page'
+      selector: 'fields/parentPage/en-GB/sys/id'
+    -
+      name: sections
+      label: 'Sections'
+      selector: 'fields/sections/en-GB'
+    -
+      name: content_owners
+      label: 'Content owners'
+      selector: 'fields/contentOwners/en-GB'
+  ids:
+    id:
+      type: string
+destination:
+  plugin: entity:node
+process:
+  type:
+    plugin: default_value
+    default_value: localgov_guides_overview
+  title: title
+  # Set the UID according to the updated_by user. This will set the node uid and the revision uid.
+  # We then set the uid of the node (not the revision) to be the created_by user in a post migrate event.
+  uid:
+    plugin: migration_lookup
+    migration: ecc_users
+    source: updated_by
+    no_stub: true
+  localgov_guides_section_title:
+    plugin: default_value
+    default_value: 'Overview'
+  'body/format':
+    plugin: default_value
+    default_value: wysiwyg
+  'body/summary': teaser
+  localgov_guides_description: teaser
+  status:
+    plugin: default_value
+    default_value: 1
+  moderation_state:
+    plugin: default_value
+    default_value: published
+  created:
+    plugin: callback
+    callable: strtotime
+    source: createdAt
+  changed:
+    plugin: callback
+    callable: strtotime
+    source: updatedAt
+  localgov_guides_pages:
+    plugin: sub_process
+    source: sections
+    process:
+      target_id:
+        plugin: migration_lookup
+        source: sys/id
+        migration:
+          - ecc_guide_pages
+  localgov_services_parent:
+    plugin: migmag_lookup
+    source: parent_page
+    migration:
+      - ecc_service_landing_pages
+      - ecc_service_pages
+      - ecc_guide_overviews
+  field_content_owner:
+    plugin: sub_process
+    source: content_owners
+    process:
+      target_id:
+        plugin: migration_lookup
+        source: sys/id
+        migration:
+          - ecc_content_owners
+
+# These final fields are not saved directly onto the entity but are available for
+# post-migrate events.
+  pseudo_uid:
+    plugin: migration_lookup
+    migration: ecc_users
+    source: created_by
+    no_stub: true
+  legacy_url: slug
+  sections: sections
+migration_dependencies:
+  required:
+    - ecc_users
+    - ecc_content_owners

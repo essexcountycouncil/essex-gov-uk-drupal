@@ -1,0 +1,22 @@
+uuid: ad1d8bb3-77d2-447c-a56f-b89dc5125930
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - essex
+_core:
+  default_config_hash: xjT-PMJ_X0d1hz-hW2RTS2HI58Nv1lAvwxx7MPSs9-4
+id: essex_localgov_mainpagecontent_scarfolk
+theme: essex
+region: content
+weight: -9
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

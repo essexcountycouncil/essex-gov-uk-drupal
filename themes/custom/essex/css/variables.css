@@ -32,8 +32,37 @@
   - The accent colour in our base theme is purple. If you would like it to be
     hotpink, just set `--color-accent: hotpink;`
 */
+
 body {
-  --color-accent: green;
-  --font-secondary: oswald, var(--font-primary);
+  --font-primary: 'Lexend', Arial, Helvetica, sans-serif;
+  --color-accent: #e40037;
+  --font-secondary: var(--font-primary);
+  --font-semibold: 600;
   --line-height: 1.3;
+  --alert-banner-bg-color-minor: #ecb720;
+  --alert-banner-color: var(--color-black);
+  --color-grey-lighter: #d4d4d4;
+  --color-link: #004c94;
+  --color-blue: #4179aa;
+  --service-statuses-container-bg-color: #4179aa;
+  --color-danger: #e40037;
+  --color-success: #9361b3;
+  --heading-1-font-weight: 600;
+  --heading-2-font-weight: var(--heading-1-font-weight);
+  --font-size-h2: 1.75rem;
+  --heading-3-font-weight: var(--heading-1-font-weight);
+  --header-logo-width: 100%;
+  --banner-content-bg-color: var(--color-white);
+  --banner-content-text-color: var(--color-black);
+  --banner-title-size: var(--font-size-largest);
+  --color-section-pre-footer-bg: var(--color-black);
+  --color-section-header-bg: var(--color-white);
+  --breadcrumbs-link-color: var(--color-black);
+  --quote-author-color: var(--color-black);
+  --tabs-button-bg-color: var(--color-grey-lighter);
+  --btn-start-bg-color: #00823b;
+  --btn-start-color-hover: #00823b;
+  --sidebar-exposed-form-bg-color: var(--color-white);
+  --table-bg-color: transparent;
+  --table-border: none;
 }
