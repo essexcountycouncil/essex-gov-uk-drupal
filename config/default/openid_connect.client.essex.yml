@@ -1,0 +1,19 @@
+uuid: 529fe1b0-dd29-4670-9e02-89396126c8aa
+langcode: en
+status: true
+dependencies:
+  module:
+    - openid_connect_azure_b2c
+id: essex
+label: Essex
+plugin: b2c
+settings:
+  client_id: placeholder
+  client_secret: placeholder
+  iss_allowed_domains: ''
+  tenant: placeholder
+  flow: B2C_1_signup_signin
+  scopes:
+    - openid
+    - email
+    - profile
