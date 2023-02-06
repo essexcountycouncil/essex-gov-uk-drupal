@@ -98,6 +98,7 @@
 /* Hero and Hero content */
 .hero__container {
   position: relative;
+  margin-bottom: var(--spacing-larger)
 }
 
 .lgd-region--hero .banner--primary .banner__content {
