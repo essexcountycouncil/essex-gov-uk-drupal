@@ -65,4 +65,5 @@ body {
   --sidebar-exposed-form-bg-color: var(--color-white);
   --table-bg-color: transparent;
   --table-border: none;
+  --border-width-medium: 2px;
 }

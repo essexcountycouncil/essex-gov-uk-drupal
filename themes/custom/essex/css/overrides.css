@@ -825,3 +825,21 @@ footer .lgd-footer__footer a {
 .eu-cookie-compliance-category label {
     display: inline-block;
 }
+
+/* Search */
+
+.lgd-region--search .form-submit {
+    border-color: var(--header-search-button-bg-color);
+    border-width: var(--border-width-medium);
+}
+
+.lgd-region--search .block-cludo-search input[type="text"],
+#edit-search-keys {
+    --input-border-color: var(--color-black);
+    border: var(--border-width-medium) solid var(--color-black);
+    border-width: var(--border-width-medium);
+}
+
+.path-frontpage #cludo-search-block-search-form input {
+    border-width: 0;
+}
