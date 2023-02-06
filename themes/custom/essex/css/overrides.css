@@ -832,3 +832,26 @@ footer .lgd-footer__footer a {
 .eu-cookie-compliance-category label {
     display: inline-block;
 }
+
+/* search */
+
+/* Search form */
+#cludo-search-block-search-form {
+    display: flex;
+	flex-wrap: nowrap;
+}
+@media only screen and (min-width: 768px) {
+    #cludo-search-block-search-form {
+        max-width: 85%;
+    }
+}
+#cludo-search-block-search-form > * {
+    height: 100%;
+    margin: 0;
+}
+#cludo-search-block-search-form input[type="submit"] {
+    margin: 0 0 0 var(--spacing-smaller);
+}
+#cludo-search-block-search-form input[type="text"] {
+    border: 0;
+}
