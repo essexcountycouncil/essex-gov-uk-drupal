@@ -86,13 +86,6 @@
 /* Hero */
 
 .path-frontpage h1 {
-    --heading-font-weight: 600;
-    background: var(--color-white);
-    padding: var(--spacing-small) var(--spacing-large);
-    margin-bottom: var(--spacing-large);
-}
-
-.path-frontpage h1 {
   background: var(--color-white);
   padding: 0.35em 1em;
   font-weight: 600;
@@ -835,7 +828,6 @@ footer .lgd-footer__footer a {
 
 /* search */
 
-/* Search form */
 #cludo-search-block-search-form {
     display: flex;
 	flex-wrap: nowrap;
