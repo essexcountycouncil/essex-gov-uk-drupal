@@ -524,7 +524,7 @@ h1:after,
     border: 1px solid var(--color-black);
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 1024px) {
     .lgd-guide-nav__list-item {
         margin-right: var(--spacing-large);
     }
@@ -850,4 +850,13 @@ footer .lgd-footer__footer a {
 
 .eu-cookie-compliance-category label {
     display: inline-block;
+}
+
+/* Call out box - variants */
+.call-out-box--blue {
+    --call-out-box-bg-color: var(--background-blue);
+}
+
+.call-out-box--black {
+    --call-out-box-bg-color: var(--color-black);
 }
