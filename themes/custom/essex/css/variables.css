@@ -47,6 +47,7 @@ body {
   --service-statuses-container-bg-color: #4179aa;
   --color-danger: #e40037;
   --color-success: #9361b3;
+  --background-blue: #004C94;
   --heading-1-font-weight: 600;
   --heading-2-font-weight: var(--heading-1-font-weight);
   --font-size-h2: 1.75rem;

@@ -529,6 +529,32 @@ h1:after,
         margin-right: var(--spacing-large);
     }
 }
+/* section paragragh type layout  */
+.paragraph--type--page-section .layout.layout--twocol > * {
+    padding: 0;
+}
+
+.paragraph--type--page-section .layout__region--second {
+    margin-top: var(--spacing-large);
+}
+
+@media only screen and (min-width: 641px) {
+    .paragraph--type--page-section .layout.layout--twocol {
+        flex-direction: row;
+        gap: var(--spacing-small);
+        justify-content: space-between;
+    }
+    .paragraph--type--page-section .layout.layout--twocol > .layout__region--first,
+    .paragraph--type--page-section .layout.layout--twocol > .layout__region--second {
+        flex: 0 1 calc(50% - var(--spacing-small));
+        margin: 0;
+    }
+}
+
+.paragraph--type--page-section .layout.layout--twocol > .layout__region--first > *, 
+.paragraph--type--page-section .layout.layout--twocol > .layout__region--second > *{
+    height: 100%;
+}
 
 /* Newsroom teaser */
 
