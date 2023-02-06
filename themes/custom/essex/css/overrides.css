@@ -835,7 +835,6 @@ footer .lgd-footer__footer a {
 
 .lgd-region--search .block-cludo-search input[type="text"],
 #edit-search-keys {
-    --input-border-color: var(--color-black);
     border: var(--border-width-medium) solid var(--color-black);
     border-width: var(--border-width-medium);
 }
