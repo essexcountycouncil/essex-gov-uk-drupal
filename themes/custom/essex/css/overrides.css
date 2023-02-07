@@ -529,10 +529,36 @@ h1:after,
     border: 1px solid var(--color-black);
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 1024px) {
     .lgd-guide-nav__list-item {
         margin-right: var(--spacing-large);
     }
+}
+/* section paragragh type layout  */
+.paragraph--type--page-section .layout.layout--twocol > * {
+    padding: 0;
+}
+
+.paragraph--type--page-section .layout__region--second {
+    margin-top: var(--spacing-large);
+}
+
+@media only screen and (min-width: 641px) {
+    .paragraph--type--page-section .layout.layout--twocol {
+        flex-direction: row;
+        gap: var(--spacing-small);
+        justify-content: space-between;
+    }
+    .paragraph--type--page-section .layout.layout--twocol > .layout__region--first,
+    .paragraph--type--page-section .layout.layout--twocol > .layout__region--second {
+        flex: 0 1 calc(50% - var(--spacing-small));
+        margin: 0;
+    }
+}
+
+.paragraph--type--page-section .layout.layout--twocol > .layout__region--first > *, 
+.paragraph--type--page-section .layout.layout--twocol > .layout__region--second > *{
+    height: 100%;
 }
 
 /* Newsroom teaser */
@@ -831,6 +857,23 @@ footer .lgd-footer__footer a {
     display: inline-block;
 }
 
+/* Search */
+
+.lgd-region--search .form-submit {
+    border-color: var(--header-search-button-bg-color);
+    border-width: var(--border-width-medium);
+}
+
+.lgd-region--search .block-cludo-search input[type="text"],
+#edit-search-keys {
+    border: var(--border-width-medium) solid var(--color-black);
+    border-width: var(--border-width-medium);
+}
+
+.path-frontpage #cludo-search-block-search-form input {
+    border-width: 0;
+}
+
 /* search */
 
 #cludo-search-block-search-form {
@@ -851,4 +894,13 @@ footer .lgd-footer__footer a {
 }
 #cludo-search-block-search-form input[type="text"] {
     border: 0;
+}
+
+/* Call out box - variants */
+.call-out-box--blue {
+    --call-out-box-bg-color: var(--background-blue);
+}
+
+.call-out-box--black {
+    --call-out-box-bg-color: var(--color-black);
 }
