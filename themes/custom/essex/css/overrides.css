@@ -236,6 +236,10 @@
     outline: none;
 }
 
+.branding__logo img {
+    width: 100%;
+}
+
 .lgd-guide-nav .lgd-guide-nav__list-item > a {
     font-weight: var(--font-semibold);
 }
