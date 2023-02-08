@@ -58,7 +58,7 @@ deploy-to-dev:
         echo "Running on branch '$CI_COMMIT_BRANCH': tag = $tag"
       fi
     - echo "Creating new revision of Container App"
-    - | 
+    - |
       cat > revision.yml <<EOF
       properties:
         template:
@@ -71,7 +71,7 @@ deploy-to-dev:
                 memory: 0.5Gi
               volumeMounts:
               - mountPath: /drupal/web/sites/default/files
-                volumeName: filesharevol      
+                volumeName: filesharevol
             - image: acreccuksdev.azurecr.io/portal-drupal-fpm$tag
               name: drupal
               resources:
@@ -91,6 +91,8 @@ deploy-to-dev:
                 value: drupal_portal
               - name: MYSQL_PASSWORD
                 secretRef: mysql-password
+              - name: OPENID_CONNECT_PARAMS
+                secretRef: openid-connect-params
       EOF
     - az containerapp revision copy --name portal --resource-group rg-ecc-portal-uks-dev --yaml revision.yml --subscription "Essex County Council (Portal)"
   rules:
@@ -129,7 +131,7 @@ deploy-to-mig:
         echo "Running on branch '$CI_COMMIT_BRANCH': tag = $tag"
       fi
     - echo "Creating new revision of Container App"
-    - | 
+    - |
       cat > revision.yml <<EOF
       properties:
         template:
@@ -142,7 +144,7 @@ deploy-to-mig:
                 memory: 0.5Gi
               volumeMounts:
               - mountPath: /drupal/web/sites/default/files
-                volumeName: filesharevol      
+                volumeName: filesharevol
             - image: acreccuksdev.azurecr.io/portal-drupal-fpm$tag
               name: drupal
               resources:
@@ -162,6 +164,8 @@ deploy-to-mig:
                 value: drupal_portal
               - name: MYSQL_PASSWORD
                 secretRef: mysql-password
+              - name: OPENID_CONNECT_PARAMS
+                secretRef: openid-connect-params
       EOF
     - az containerapp revision copy --name portal --resource-group rg-ecc-portal-uks-mig --yaml revision.yml --subscription "Essex County Council (Portal)"
   rules:
@@ -191,11 +195,11 @@ deploy-to-preprod:
   before_script:
     - az extension add --name containerapp
     - az login --service-principal -u${ARM_CLIENT_ID} -p${ARM_CLIENT_SECRET} -t${ARM_TENANT_ID}
-  script:    
+  script:
     - echo "Importing image from Development  into Pre-Production"
     - az acr import --force --name acreccukspre --source acreccuksdev.azurecr.io/portal-nginx-drupal:${CI_COMMIT_REF_SLUG} --image portal-nginx-drupal:${CI_COMMIT_REF_SLUG} --subscription "Essex County Council (Common)"
     - az acr import --force --name acreccukspre --source acreccuksdev.azurecr.io/portal-drupal-fpm:${CI_COMMIT_REF_SLUG} --image portal-drupal-fpm:${CI_COMMIT_REF_SLUG} --subscription "Essex County Council (Common)"
-    - | 
+    - |
       cat > revision.yml <<EOF
       properties:
         template:
@@ -226,6 +230,8 @@ deploy-to-preprod:
                 value: drupal_portal
               - name: MYSQL_PASSWORD
                 secretRef: mysql-password
+              - name: OPENID_CONNECT_PARAMS
+                secretRef: openid-connect-params
       EOF
     - echo "Creating new revision of Container App"
     - az containerapp revision copy --name portal --resource-group rg-ecc-portal-uks-pre --yaml revision.yml --subscription "Essex County Council (Portal)"
@@ -263,7 +269,7 @@ deploy-to-prod:
     - az acr import --force --name acreccuksprod --source acreccukspre.azurecr.io/portal-nginx-drupal:${CI_COMMIT_REF_SLUG} --image portal-nginx-drupal:${CI_COMMIT_REF_SLUG} --subscription "Essex County Council (Common)"
     - az acr import --force --name acreccuksprod --source acreccukspre.azurecr.io/portal-drupal-fpm:${CI_COMMIT_REF_SLUG} --image portal-drupal-fpm:${CI_COMMIT_REF_SLUG} --subscription "Essex County Council (Common)"
     - echo "Creating new revision of Container App"
-    - | 
+    - |
       cat > revision.yml <<EOF
       properties:
         template:
@@ -294,8 +300,10 @@ deploy-to-prod:
                 value: drupal_portal
               - name: MYSQL_PASSWORD
                 secretRef: mysql-password
+              - name: OPENID_CONNECT_PARAMS
+                secretRef: openid-connect-params
       EOF
-    - az containerapp revision copy --name portal --resource-group rg-ecc-portal-uks-prod --yaml revision.yml --subscription "Essex County Council (Portal)"  
+    - az containerapp revision copy --name portal --resource-group rg-ecc-portal-uks-prod --yaml revision.yml --subscription "Essex County Council (Portal)"
   rules:
     - if: '$CI_COMMIT_BRANCH =~ /^release\//'
       when: manual
