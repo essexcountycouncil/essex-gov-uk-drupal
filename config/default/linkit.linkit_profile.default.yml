@@ -26,3 +26,14 @@ matchers:
     uuid: c3257417-fce9-4307-8251-58672edf88be
     settings: {  }
     weight: 0
+  a3189d73-1bdb-418e-98f8-f4ac127c9049:
+    id: 'entity:media'
+    uuid: a3189d73-1bdb-418e-98f8-f4ac127c9049
+    settings:
+      metadata: ''
+      bundles:
+        document: document
+      group_by_bundle: true
+      substitution_type: canonical
+      limit: 100
+    weight: 0
