@@ -86,8 +86,9 @@
 /* Hero */
 
 .path-frontpage h1 {
+display: inline-block;
   background: var(--color-white);
-  padding: 0.35em 1em;
+  padding: 0.2em 0.7rem;
   font-weight: 600;
 }
 
@@ -539,11 +540,14 @@ h1:after,
     padding: 0;
 }
 
-.paragraph--type--page-section .layout__region--second {
+.paragraph--type--page-section .layout__region--second .call-out-box {
     margin-top: var(--spacing-large);
 }
 
 @media only screen and (min-width: 641px) {
+    .paragraph--type--page-section .layout__region--second .call-out-box {
+        margin-top: 0;
+    }
     .paragraph--type--page-section .layout.layout--twocol {
         flex-direction: row;
         gap: var(--spacing-small);
@@ -874,15 +878,18 @@ footer .lgd-footer__footer a {
     display: flex;
 	flex-wrap: nowrap;
 }
+
 @media only screen and (min-width: 768px) {
     #cludo-search-block-search-form {
         max-width: 85%;
     }
 }
+
 #cludo-search-block-search-form > * {
     height: 100%;
     margin: 0;
 }
+
 .path-frontpage #cludo-search-block-search-form input[type="submit"] {
     margin: 0 0 0 var(--spacing-smaller);
 }
