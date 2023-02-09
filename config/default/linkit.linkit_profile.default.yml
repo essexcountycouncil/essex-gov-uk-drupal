@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   module:
+    - file
     - node
 _core:
   default_config_hash: S7ROeLA3vIwOFMHdJksBWTkFO6ImBM2hpkyVMZMrv2c
@@ -26,14 +27,19 @@ matchers:
     uuid: c3257417-fce9-4307-8251-58672edf88be
     settings: {  }
     weight: 0
-  a3189d73-1bdb-418e-98f8-f4ac127c9049:
-    id: 'entity:media'
-    uuid: a3189d73-1bdb-418e-98f8-f4ac127c9049
+  40ed17d5-ca0b-4486-94bd-d13a973dfa27:
+    id: 'entity:file'
+    uuid: 40ed17d5-ca0b-4486-94bd-d13a973dfa27
     settings:
-      metadata: ''
-      bundles:
-        document: document
-      group_by_bundle: true
-      substitution_type: canonical
+      metadata: '[file:size]'
+      bundles: null
+      group_by_bundle: null
+      substitution_type: file
       limit: 100
+      file_extensions: ''
+      file_status: 1
+      images:
+        show_dimensions: false
+        show_thumbnail: false
+        thumbnail_image_style: null
     weight: 0
