@@ -86,10 +86,10 @@
 /* Hero */
 
 .path-frontpage h1 {
-display: inline-block;
-  background: var(--color-white);
-  padding: 0.2em 0.7rem;
-  font-weight: 600;
+    display: inline-block;
+    background: var(--color-white);
+    padding: 0.2em 0.7rem;
+    font-weight: 600;
 }
 
 .path-frontpage h1:after {
