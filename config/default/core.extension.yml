@@ -28,6 +28,7 @@ module:
   diff: 0
   dynamic_entity_reference: 0
   dynamic_page_cache: 0
+  ecc_cookie_compliance: 0
   ecc_migrate: 0
   editor: 0
   entity_browser: 0
@@ -54,7 +55,6 @@ module:
   geolocation: 0
   geolocation_google_maps: 0
   google_tag: 0
-  gull_cookie_settings_block: 0
   help: 0
   history: 0
   image: 0
@@ -62,8 +62,8 @@ module:
   inline_entity_form: 0
   inline_form_errors: 0
   jquery_ui: 0
-  jquery_ui_menu: 0
   jquery_ui_autocomplete: 0
+  jquery_ui_menu: 0
   layout_discovery: 0
   layout_paragraphs: 0
   leaflet: 0
@@ -82,6 +82,7 @@ module:
   localgov_directories_page: 0
   localgov_directories_promo_page: 0
   localgov_directories_venue: 0
+  localgov_eu_cookie_compliance: 0
   localgov_events: 0
   localgov_forms: 0
   localgov_geo: 0
@@ -168,9 +169,9 @@ module:
 theme:
   claro: 0
   stable: 0
-  stable9: 0
   gin: 0
   localgov_base: 0
   localgov_scarfolk: 0
   essex: 0
+  stable9: 0
 profile: localgov

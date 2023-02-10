@@ -1,0 +1,11 @@
+<?php
+
+/**
+ * Implements hook_google_tag_insert_alter().
+ */
+function ecc_cookie_compliance_google_tag_insert_alter(&$satisfied) {
+  $cookie_name = 'cookie-agreed';
+  if (!isset($_COOKIE[$cookie_name])) {
+    $satisfied = FALSE;
+  }
+}
