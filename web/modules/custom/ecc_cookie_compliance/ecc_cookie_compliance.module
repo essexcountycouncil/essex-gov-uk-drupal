@@ -11,6 +11,8 @@ function ecc_cookie_compliance_google_tag_snippets_alter(array &$snippets) {
 }
 
 /**
+ * Based on the implementation at https://git.drupalcode.org/project/cookies/-/blob/2.x/modules/cookies_video/cookies_video.module
+ * 
  * Implements hook_preprocess_HOOK().
  */
 function ecc_cookie_compliance_preprocess_field(&$variables) {
