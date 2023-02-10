@@ -1,0 +1,9 @@
+name: "Essex Cookie Compliance"
+type: module
+description: "For checking the cookie storage and managing consent"
+core_version_requirement: ^9 || ^10
+package: Custom
+dependencies:
+  - drupal:eu_cookie_compliance
+
+
