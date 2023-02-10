@@ -11,6 +11,7 @@
 function ecc_cookie_compliance_google_tag_insert_alter(&$satisfied) {
   $cookie_name = 'cookie-agreed';
   $cookie_categories_name = 'cookie-agreed-categories';
+  $cookie_categories_values = json_decode($_COOKIE[$cookie_categories_name]);
 
   // 1. No preference expressed
   if (!isset($_COOKIE[$cookie_name])) {
@@ -18,13 +19,12 @@ function ecc_cookie_compliance_google_tag_insert_alter(&$satisfied) {
   }
 
   // 2. Consent refused to both analytics and marketing
-  if ($_COOKIE[$cookie_name] === 'denied' || (isset($_COOKIE[$cookie_categories_name]) && empty($_COOKIE[$cookie_categories_name]))) {
+  if ($_COOKIE[$cookie_name] === 'denied' || (isset($_COOKIE[$cookie_categories_name]) && empty($cookie_categories_values))) {
     $satisfied = FALSE;
   }
 
-  if (isset($_COOKIE[$cookie_name]) && isset($_COOKIE[$cookie_categories_name]) && !empty($_COOKIE[$cookie_categories_name])) {
-    $categories = $_COOKIE[$cookie_categories_name];
-    if (in_array("analytics_cookies", $categories)) {
+  if (isset($_COOKIE[$cookie_name]) && isset($_COOKIE[$cookie_categories_name]) && !empty($cookie_categories_values)) {
+    if (in_array("analytics_cookies", $cookie_categories_values)) {
       $satisfied = TRUE; // Consent given to analytics
     } else {
       $satisfied = FALSE;
