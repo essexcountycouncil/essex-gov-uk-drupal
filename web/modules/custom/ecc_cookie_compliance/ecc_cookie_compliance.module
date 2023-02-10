@@ -2,10 +2,37 @@
 
 /**
  * Implements hook_google_tag_insert_alter().
+ *  1. No preference expressed
+ *  2. Consent refused to both analytics and marketing
+ *  3. Consent given to analytics, refused to marketing
+ *  4. Consent refused to analytics, given to marketing
+ *  5. Consent given to both analytics and marketing
  */
 function ecc_cookie_compliance_google_tag_insert_alter(&$satisfied) {
   $cookie_name = 'cookie-agreed';
+  $cookie_categories_name = 'cookie-agreed-categories';
+
+  // 1. No preference expressed
   if (!isset($_COOKIE[$cookie_name])) {
     $satisfied = FALSE;
+  }
+
+  // 2. Consent refused to both analytics and marketing
+  if ($_COOKIE[$cookie_name] === 'denied' || (isset($_COOKIE[$cookie_categories_name]) && empty($_COOKIE[$cookie_categories_name]))) {
+    $satisfied = FALSE;
+  }
+
+  if (isset($_COOKIE[$cookie_name]) && isset($_COOKIE[$cookie_categories_name]) && !empty($_COOKIE[$cookie_categories_name])) {
+    $categories = $_COOKIE[$cookie_categories_name];
+    if (in_array("analytics_cookies", $categories)) {
+      $satisfied = TRUE; // Consent given to analytics
+    } else {
+      $satisfied = FALSE;
+    }
+  }
+
+  // 5. Consent given to both analytics and marketing
+  if ($_COOKIE[$cookie_name] === 'granted') {
+    $satisfied = TRUE;
   }
 }
