@@ -98,6 +98,9 @@
             },
             "drupal/migmag": {
                 "Fix migmag_lookup exception when stubbing non-sql sources. See https://www.drupal.org/project/migmag/issues/3321292#comment-14785506": "https://www.drupal.org/files/issues/2022-11-14/migmag-remove_double_prepareRow-3321292_3.patch"
+            },
+            "drupal/cludo_search": {
+                "Remove search type to use custom template": "patches/cludo_search-0001.patch"
             }
         },
         "drupal-scaffold": {
