@@ -1,38 +1,11 @@
 <?php
 
+
 /**
- * Implements hook_google_tag_insert_alter().
- *  1. No preference expressed
- *  2. Consent refused to both analytics and marketing
- *  3. Consent given to analytics, refused to marketing
- *  4. Consent refused to analytics, given to marketing
- *  5. Consent given to both analytics and marketing
+ * Implements hook_google_tag_snippets_alter().
  */
-function ecc_cookie_compliance_google_tag_insert_alter(&$satisfied) {
-  $cookie_name = 'cookie-agreed';
-  $cookie_categories_name = 'cookie-agreed-categories';
-  $cookie_categories_values = json_decode($_COOKIE[$cookie_categories_name]);
-
-  // 1. No preference expressed
-  if (!isset($_COOKIE[$cookie_name])) {
-    $satisfied = FALSE;
-  }
-
-  // 2. Consent refused to both analytics and marketing
-  if ($_COOKIE[$cookie_name] === 'denied' || (isset($_COOKIE[$cookie_categories_name]) && empty($cookie_categories_values))) {
-    $satisfied = FALSE;
-  }
-
-  if (isset($_COOKIE[$cookie_name]) && isset($_COOKIE[$cookie_categories_name]) && !empty($cookie_categories_values)) {
-    if (in_array("analytics_cookies", $cookie_categories_values)) {
-      $satisfied = TRUE; // Consent given to analytics
-    } else {
-      $satisfied = FALSE;
-    }
-  }
-
-  // 5. Consent given to both analytics and marketing
-  if ($_COOKIE[$cookie_name] === 'granted') {
-    $satisfied = TRUE;
-  }
+function ecc_cookie_compliance_google_tag_snippets_alter(array &$snippets) {
+    // Only add the script snippet if cookie compliance has been agreed.
+    $snippets['script'] = 'if (document.cookie.includes(\'analytics_cookies\')){ ' . $snippets['script'] . '}';
+    $snippets['noscript'] = '';
 }
