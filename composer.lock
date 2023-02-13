@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ab74674c98755000eb19d717533094b0",
+    "content-hash": "8462d088668c06b6a0efae8e87b813c5",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -4068,64 +4068,6 @@
             }
         },
         {
-            "name": "drupal/eu_cookie_compliance_gtm",
-            "version": "1.0.0-alpha2",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/eu_cookie_compliance_gtm.git",
-                "reference": "8.x-1.0-alpha2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/eu_cookie_compliance_gtm-8.x-1.0-alpha2.zip",
-                "reference": "8.x-1.0-alpha2",
-                "shasum": "04ec9d1c356860a2ee36e942e3fd9cc3229606d0"
-            },
-            "require": {
-                "drupal/core": "^8 || ^9",
-                "drupal/eu_cookie_compliance": "*",
-                "drupal/google_tag": "*"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "drupal": {
-                    "version": "8.x-1.0-alpha2",
-                    "datestamp": "1613639828",
-                    "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Alpha releases are not covered by Drupal security advisories."
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "Nick_vh",
-                    "homepage": "https://www.drupal.org/user/122682"
-                },
-                {
-                    "name": "daften",
-                    "homepage": "https://www.drupal.org/user/176274"
-                },
-                {
-                    "name": "nielsaers",
-                    "homepage": "https://www.drupal.org/user/752444"
-                },
-                {
-                    "name": "reszli",
-                    "homepage": "https://www.drupal.org/user/710368"
-                }
-            ],
-            "description": "Integrate cookie compliance with Google Tag Manager.",
-            "homepage": "https://www.drupal.org/project/eu_cookie_compliance_gtm",
-            "support": {
-                "source": "https://git.drupalcode.org/project/eu_cookie_compliance_gtm"
-            }
-        },
-        {
             "name": "drupal/externalauth",
             "version": "2.0.3",
             "source": {
@@ -4913,50 +4855,6 @@
                     "url": "https://paypal.me/saschaeggi"
                 }
             ]
-        },
-        {
-            "name": "drupal/google_tag",
-            "version": "1.6.0",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/google_tag.git",
-                "reference": "8.x-1.6"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/google_tag-8.x-1.6.zip",
-                "reference": "8.x-1.6",
-                "shasum": "d084315e54c2e561b8b64eef86081c2634d054cd"
-            },
-            "require": {
-                "drupal/core": "^8.8 || ^9 || ^10"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "drupal": {
-                    "version": "8.x-1.6",
-                    "datestamp": "1671145853",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "solotandem",
-                    "homepage": "https://www.drupal.org/user/240748"
-                }
-            ],
-            "description": "Allows your website analytics to be managed using Google Tag Manager.",
-            "homepage": "https://www.drupal.org/project/google_tag",
-            "support": {
-                "source": "https://git.drupalcode.org/project/google_tag"
-            }
         },
         {
             "name": "drupal/image_widget_crop",
@@ -19123,7 +19021,6 @@
     "stability-flags": {
         "drupal/cludo_search": 10,
         "drupal/config_split": 5,
-        "drupal/eu_cookie_compliance_gtm": 15,
         "essexcountycouncil/content_ownership": 20,
         "localgovdrupal/localgov_eu_cookie_compliance": 20,
         "localgovdrupal/localgov_forms": 20,
