@@ -1,0 +1,4 @@
+oembed_cookies:
+  version: VERSION
+  js:
+    js/oembed_cookies.js: {}
