@@ -1,0 +1,17 @@
+always_save_userinfo: true
+connect_existing_users: true
+override_registration_settings: true
+end_session_enabled: false
+user_login_display: above
+redirect_login: ''
+redirect_logout: ''
+userinfo_mappings: {  }
+role_mappings:
+  emergency_publisher: {  }
+  localgov_news_editor: {  }
+  analytics: {  }
+  localgov_contributor: {  }
+  localgov_author: {  }
+  localgov_editor: {  }
+  localgov_user_manager: {  }
+  administrator: {  }
