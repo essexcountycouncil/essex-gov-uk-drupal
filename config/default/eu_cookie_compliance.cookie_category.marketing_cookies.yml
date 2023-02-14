@@ -1,13 +1,7 @@
 uuid: d11ea326-1166-406a-a5ea-a3dbcb9a9a34
 langcode: en
 status: true
-dependencies:
-  module:
-    - eu_cookie_compliance_gtm
-third_party_settings:
-  eu_cookie_compliance_gtm:
-    gtm_data:
-      analytics: '@status'
+dependencies: {  }
 id: marketing_cookies
 label: 'Marketing cookies'
 description: 'These cookies may be set by third party websites and do things like measure how you view YouTube videos that are on www.essex.gov.uk.'
