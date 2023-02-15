@@ -305,6 +305,7 @@ display:
     display_plugin: block
     position: 1
     display_options:
+      title: ''
       pager:
         type: some
         options:
@@ -315,7 +316,7 @@ display:
           id: sticky
           table: node_field_data
           field: sticky
-          relationship: none
+          relationship: reverse__node__localgov_newsroom_featured
           group_type: group
           admin_label: ''
           entity_type: node
@@ -432,6 +433,7 @@ display:
         options:
           view_mode: teaser
       defaults:
+        title: false
         pager: false
         style: false
         row: false
