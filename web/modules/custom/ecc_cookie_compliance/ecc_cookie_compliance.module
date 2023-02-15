@@ -88,7 +88,7 @@ function _cookies_video_preprocess_field_item_oembed(&$item) {
 
 function _cookies_video_preprocess_field_item_link(&$item) {
   // Move src to href.
-  $src = $item["content"]["#attributes"]["src"];
+  $src = $item["content"]["#attributes"]["data-src"];
   $title = $item["content"]["#attributes"]["title"];
   $item["content"]["#attributes"] = [];
 
