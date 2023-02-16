@@ -1,3 +1,21 @@
+# To override CSS from the base theme, add your library here, and then use
+# `libraries-extend` to add that code to the library from the base theme. See the
+# essex.info.yml file for an example, using this `sample-library`.
+# sample-library
+#   css:
+#     theme:
+#       css/overrides.css: {}
+##################################################################################
+# If your CSS is for a new component, and is not going to override existing CSS, you
+# can add that to your component in the usual ways - via `{{ attach_library }}` or a
+# preprocess hook, or similar approach.
+
+# sample-library-2
+#   css:
+#     theme:
+#       css/sample.css: {}
+#############################
+
 variables:
   css:
     base:
@@ -5,11 +23,9 @@ variables:
       # This ensures that in the cascade, your variables come after the base theme's
       # variables.
       css/variables.css: {}
-
-# To override CSS from the base theme, add your library here, and then use
-# `libraries-extend` to add that code to the library from the base theme. See the
-# essex.info.yml file for an example, using this `sample-library`.
-
+#
+# Global
+#
 overrides:
   css:
     theme:
@@ -20,16 +36,40 @@ fonts:
     theme:
       css/fonts.css: {}
 
-# sample-library
-#   css:
-#     theme:
-#       css/overrides.css: {}
+stack:
+  css:
+    theme:
+      css/global/stack.css: {}
 
-# If your CSS is for a new component, and is not going to override existing CSS, you
-# can add that to your component in the usual ways - via `{{ attach_library }}` or a
-# preprocess hook, or similar approach.
+#
+# Custom Layouts
+#
+tone_stack:
+  css:
+    theme:
+      layouts/tone_stack/tone-stack.css: {}
 
-# sample-library-2
-#   css:
-#     theme:
-#       css/sample.css: {}
+tone_grid_alt:
+  css:
+    theme:
+      layouts/tone_grid_alt/layout-tone-grid-alt.css: {}
+
+the_center:
+  css:
+    theme:
+      layouts/the_center/the-center.css: {}
+
+the_sidebar:
+  css:
+    theme:
+      layouts/the_sidebar/the-sidebar.css: {}
+#
+# Custom paragraph layouts (Components)
+#
+callout_box_tone:
+  css:
+    theme:
+      templates/paragraphs/callout_box_tone/callout-tone.css: {}
+  js:
+    templates/paragraphs/callout_box_tone/callout-tone.js: {}
+  

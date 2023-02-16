@@ -67,4 +67,6 @@ body {
   --table-bg-color: transparent;
   --table-border: none;
   --border-width-medium: 2px;
+  --measure: 100ch;
+  --min-size: 50%;
 }
