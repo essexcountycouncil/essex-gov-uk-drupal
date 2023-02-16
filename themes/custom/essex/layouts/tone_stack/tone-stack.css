@@ -1,0 +1,15 @@
+.layout-stack .layout__region {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  outline: 3px dotted lime;
+}
+
+.layout-stack .layout__region > * {
+  margin-block: 0;
+} 
+
+.layout-stack .layout__region > * + * {
+  margin-block-start: var(--spacing-small);
+}
+  

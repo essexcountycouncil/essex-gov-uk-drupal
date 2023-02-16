@@ -1,0 +1,11 @@
+.layout--grid-alt > * {
+    display: grid;
+    grid-gap: 1rem;
+    outline: 10px dashed #bada55;
+  }
+  
+  @supports (width: min(250px, 100%)) {
+    .layout--grid-alt > * {
+      grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+    }
+  }

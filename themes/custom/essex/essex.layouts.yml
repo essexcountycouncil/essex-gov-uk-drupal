@@ -1,0 +1,53 @@
+layout_tone_grid_alt:
+  label: 'Tone Grid - Theme'
+  path: layouts/tone_grid_alt
+  template: layout--tonegrid-alt
+  library: essex/tone_grid_alt
+  category: 'Tones'
+  default_region: content
+  icon_map:
+    - [content]
+  regions:
+    content:
+      label: Content
+
+layout_tone_stack:
+  label: 'Tone Stack'
+  path: layouts/tone_stack
+  template: layout--tonestack
+  library: essex/tone_stack
+  category: 'Tones'
+  default_region: content
+  icon_map:
+    - [content]
+  regions:
+    content:
+      label: Content
+
+layout_the_center:
+  label: 'The Center'
+  path: layouts/the_center
+  template: layout--thecenter
+  library: essex/the_center
+  category: 'Columns: 1'
+  default_region: content
+  icon_map:
+    - [side, content, side]
+  regions:
+    content:
+      label: Content
+
+layout_the_sidebar:
+  label: 'The Sidebar'
+  path: layouts/the_sidebar
+  template: layout--thesidebar
+  library: essex/the_sidebar
+  category: 'Columns: 2'
+  default_region: content
+  icon_map:
+    - [sidebar, main]
+  regions:
+    sidebar:
+      label: Sidebar
+    main:
+      label: Main Content
