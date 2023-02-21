@@ -37,6 +37,7 @@
         "ckeditor/div": "4.10.1",
         "composer/installers": "^1.10",
         "cweagans/composer-patches": "^1.6",
+        "drupal/autosave_form": "^1.4",
         "drupal/ckeditor_div_manager": "^2.0",
         "drupal/cludo_search": "^1.0@beta",
         "drupal/config_split": "^2.0@RC",
@@ -103,6 +104,9 @@
             },
             "drupal/cludo_search": {
                 "Remove search type to use custom template": "patches/cludo_search-0001.patch"
+            },
+            "drupal/autosave_form": {
+                "Disable autosaving for layout builder pages": "https://www.drupal.org/files/issues/2022-03-22/3270955-2-layout_builder.patch"
             }
         },
         "drupal-scaffold": {
