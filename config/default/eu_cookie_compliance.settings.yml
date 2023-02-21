@@ -54,7 +54,7 @@ cookie_name: ''
 exclude_uid_1: false
 better_support_for_screen_readers: false
 method: categories
-disabled_javascripts: 'google_analytics:https://essex-gov.nomensa.xyz/modules/custom/gull_cookie_settings_block/js/deferred-ga-script-runner.js'
+disabled_javascripts: 'google_analytics:modules/contrib/localgov_eu_cookie_compliance/js/deferred-ga-script-runner.js'
 automatic_cookies_removal: true
 allowed_cookies: ''
 consent_storage_method: do_not_store
