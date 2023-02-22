@@ -64,7 +64,7 @@ elements: |-
     '#type': checkbox
     '#title': 'Data use policy'
     '#description': |-
-      Please confirm that you have read <a href="https://www-essex-gov-uk.nomensa.xyz/about-essexgovuk/privacy-and-data-protection/your-privacy">the data protection and privacy policy</a> and agree to the council using any personal data that you provide in this form to deal with your request.
+      Please confirm that you have read <a href="/about-essexgovuk/privacy-and-data-protection/your-privacy">the data protection and privacy policy</a> and agree to the council using any personal data that you provide in this form to deal with your request.
       <div id="extension-host">&nbsp;</div>
     '#title_display': before
     '#required': true
