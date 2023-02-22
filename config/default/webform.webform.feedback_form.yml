@@ -60,15 +60,11 @@ elements: |-
     '#description': |-
       Please do not enter any personal information in this space
       <div id="extension-host">&nbsp;</div>
-  can_we_contact_you_about_your_feedback_:
-    '#type': radios
-    '#title': 'Can we contact you about your feedback?'
-    '#options': yes_no
   data_use_policy:
     '#type': checkbox
     '#title': 'Data use policy'
     '#description': |-
-      Please confirm that you have read the data protection and privacy policy and agree to the council using any personal data that you provide in this form to deal wtih your request.
+      Please confirm that you have read <a href="https://www-essex-gov-uk.nomensa.xyz/about-essexgovuk/privacy-and-data-protection/your-privacy">the data protection and privacy policy</a> and agree to the council using any personal data that you provide in this form to deal wtih your request.
       <div id="extension-host">&nbsp;</div>
     '#title_display': before
     '#required': true
