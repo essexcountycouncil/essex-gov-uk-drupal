@@ -489,10 +489,6 @@ h1:after,
 /* RESPONSIVENESS */
 
 .lgd-page-section {
-    margin-bottom: 1.5rem;
-}
-
-.lgd-page-section {
     padding-right: var(--spacing-padding-horizontal);
     padding-left: var(--spacing-padding-horizontal);
 }
@@ -921,7 +917,7 @@ footer .lgd-footer__footer a {
     --call-out-box-bg-color: var(--color-black);
 }
 
-.field__item:first-of-type .field--name-localgov-text:has(> h2) {
+.field__item .field--name-localgov-text:has(> h2) {
     padding-top: clamp(var(--spacing), 3vw, var(--spacing-large))
 }
 
