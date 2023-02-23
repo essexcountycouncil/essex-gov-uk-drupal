@@ -921,8 +921,7 @@ footer .lgd-footer__footer a {
   padding-top: clamp(var(--spacing), 3vw, var(--spacing-large))
 }
 
-.node--type-localgov-news-article picture>img,
-.media-with-text--default picture>img {
+.node--type-localgov-news-article picture>img {
   max-inline-size: 100%;
   block-size: auto;
   height: auto;
