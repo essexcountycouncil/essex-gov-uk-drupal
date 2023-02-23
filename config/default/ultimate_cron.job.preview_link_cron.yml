@@ -1,0 +1,17 @@
+uuid: 76d2b14e-81cb-423e-acca-ec179c8d54de
+langcode: en
+status: true
+dependencies:
+  module:
+    - preview_link
+title: 'Default cron handler'
+id: preview_link_cron
+weight: 0
+module: preview_link
+callback: preview_link_cron
+scheduler:
+  id: simple
+launcher:
+  id: serial
+logger:
+  id: database
