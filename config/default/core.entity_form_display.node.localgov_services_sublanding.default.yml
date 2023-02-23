@@ -7,8 +7,11 @@ dependencies:
     - field.field.node.localgov_services_sublanding.localgov_services_parent
     - field.field.node.localgov_services_sublanding.localgov_topics
     - node.type.localgov_services_sublanding
+    - workflows.workflow.localgov_editorial
   module:
+    - content_moderation
     - field_group
+    - localgov_review_date
     - paragraphs
     - path
     - text
@@ -22,50 +25,46 @@ third_party_settings:
       label: tabs
       region: content
       parent_name: ''
-      weight: 0
+      weight: 6
       format_type: tabs
       format_settings:
         classes: ''
         id: ''
         direction: vertical
     group_description:
-      children:
-        - title
-        - body
+      children: {  }
       label: Content
+      region: hidden
       parent_name: group_tabs
       weight: 1
       format_type: tab
       format_settings:
-        label: Content
         classes: ''
         id: ''
         formatter: closed
         description: ''
         required_fields: true
     group_service:
-      children:
-        - field_service
+      children: {  }
       label: 'Parent page'
+      region: hidden
       parent_name: group_tabs
       weight: 2
       format_type: tab
       format_settings:
-        label: 'Parent page'
         classes: ''
         id: ''
         formatter: closed
         description: ''
         required_fields: true
     group_topics:
-      children:
-        - localgov_topics
+      children: {  }
       label: 'Child pages'
+      region: hidden
       parent_name: group_tabs
       weight: 3
       format_type: tab
       format_settings:
-        label: 'Child pages'
         classes: ''
         id: ''
         formatter: closed
@@ -80,7 +79,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 3
+    weight: 2
     region: content
     settings:
       rows: 9
@@ -90,18 +89,24 @@ content:
     third_party_settings: {  }
   created:
     type: datetime_timestamp
-    weight: 2
+    weight: 8
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  localgov_review_date:
+    type: review_date
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }
   localgov_services_navigation_children:
-    weight: -20
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }
   localgov_services_parent:
     type: entity_reference_autocomplete
-    weight: 101
+    weight: 0
     region: content
     settings:
       match_operator: CONTAINS
@@ -111,7 +116,7 @@ content:
     third_party_settings: {  }
   localgov_topics:
     type: entity_reference_paragraphs
-    weight: 8
+    weight: 3
     region: content
     settings:
       title: Paragraph
@@ -123,40 +128,40 @@ content:
     third_party_settings: {  }
   moderation_state:
     type: moderation_state_default
-    weight: 100
+    weight: 14
     region: content
     settings: {  }
     third_party_settings: {  }
   path:
     type: path
-    weight: 5
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
-    weight: 3
+    weight: 9
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 7
+    weight: 13
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
-    weight: 4
+    weight: 10
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   title:
     type: string_textfield
-    weight: 2
+    weight: 1
     region: content
     settings:
       size: 60
@@ -164,7 +169,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 1
+    weight: 7
     region: content
     settings:
       match_operator: CONTAINS
@@ -173,7 +178,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   url_redirects:
-    weight: 6
+    weight: 12
     region: content
     settings: {  }
     third_party_settings: {  }
