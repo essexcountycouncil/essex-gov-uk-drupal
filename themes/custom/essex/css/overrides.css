@@ -933,3 +933,27 @@ footer .lgd-footer__footer a {
 .path-frontpage .layout--threecol-33-34-33 .layout__region--bottom {
   padding: 0
 }
+
+.website-feedback-form-container {
+  background-color: var(--background-blue);
+}
+
+.website-feedback-form-container>div {
+  color: var(--color-white);
+  max-width: var(--width-container);
+  margin: 0 auto;
+  padding: var(--spacing);
+}
+
+.website-feedback-form-container>div p {
+  margin-bottom: 0;
+}
+
+.website-feedback-form-container>div p strong {
+  display: inline-block;
+  margin-right: var(--spacing-small);
+}
+
+.website-feedback-form-container>div p a {
+  color: var(--color-white);
+}
