@@ -5,7 +5,7 @@ dependencies:
   config:
     - image.style.large_3_2_2x
     - image.style.large_3_2_768x512
-    - image.style.small_scale_crop_360x620
+    - image.style.small_360x200
   module:
     - localgov_media
 _core:
@@ -28,7 +28,7 @@ image_style_mappings:
     image_mapping:
       sizes: '(max-width: 400px) 400px, 100vh.'
       sizes_image_styles:
-        - small_scale_crop_360x620
+        - small_360x200
     breakpoint_id: localgov_media.bootstrap4_xs
     multiplier: 1x
 breakpoint_group: localgov_media
