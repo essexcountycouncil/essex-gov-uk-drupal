@@ -146,7 +146,7 @@
 }
 
 .banner__content .cludo-search-block-search-form .button.form-submit {
-  background: url('../assets/images/search.svg') no-repeat 50% var(--color-white);
+  background: url('../assets/images/icons/search.svg') no-repeat 50% var(--color-white);
   padding: 1em 2em;
   text-indent: -9999px;
   border: 0;
