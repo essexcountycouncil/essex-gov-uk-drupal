@@ -1,0 +1,15 @@
+uuid: 08301fa3-91e4-4405-aac4-d9be37cbaef2
+langcode: en
+status: true
+dependencies: {  }
+name: small_360x200
+label: 'Small (360x200)'
+effects:
+  b1ee7b46-1901-4ccb-9174-3ab7e587992b:
+    uuid: b1ee7b46-1901-4ccb-9174-3ab7e587992b
+    id: image_scale
+    weight: 1
+    data:
+      width: 360
+      height: 200
+      upscale: false
