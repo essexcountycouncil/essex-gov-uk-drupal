@@ -6,7 +6,7 @@
  */
 function ecc_cookie_compliance_google_tag_snippets_alter(array &$snippets) {
     // Only add the script snippet if cookie compliance has been agreed.
-    $snippets['script'] = 'if (document.cookie.includes(\'analytics_cookies\')){ ' . $snippets['script'] . '}';
+    $snippets['script'] = 'window.gtm = function(){ ' . $snippets['script'] . '}; if (document.cookie.includes(\'analytics_cookies\')){ window.gtm(); }';
     $snippets['noscript'] = '';
 }
 
@@ -20,6 +20,16 @@ function ecc_cookie_compliance_preprocess_field(&$variables) {
   if ($formatter === 'oembed') {
     _cookies_video_media_oembed_handler($variables);
   }
+}
+
+
+/**
+ * Implements hook_page_attachments().
+ *
+ * Unconditionally adds the helper for cookie compliance to all pages.
+ */
+function ecc_cookie_compliance_page_attachments(&$variables) {
+  $variables['#attached']['library'][] = 'ecc_cookie_compliance/live_handler';
 }
 
 
