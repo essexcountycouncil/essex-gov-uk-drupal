@@ -38,6 +38,7 @@ regions:
   content_bottom: "Content bottom"
   sidebar_first: "Sidebar first"
   sidebar_second: "Sidebar second"
+  pre_footer: "Before footer"
   footer_first: "Footer first"
   footer_second: "Footer second"
   footer_third: "Footer third"

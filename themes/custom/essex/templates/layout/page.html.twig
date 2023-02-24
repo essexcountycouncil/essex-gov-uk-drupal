@@ -196,6 +196,11 @@
       ]
     %}
     <footer class="lgd-footer">
+      <div class="footer__before-pre">
+        {% if has_pre_footer %}
+          {{ page.pre_footer }}
+        {% endif %}
+      </div>
 
     {# Begin Pre-footer #}
     {% block pre_footer %}
