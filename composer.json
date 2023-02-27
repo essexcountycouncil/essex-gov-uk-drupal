@@ -100,13 +100,14 @@
         "patches": {
             "drupal/core": {
                 "Allow an install hook in profiles installing from configuration. See https://www.drupal.org/project/drupal/issues/2982052": "https://www.drupal.org/files/issues/2022-05-19/2982052-80.patch",
-                "Allow chmod to fail in the public namespace if the resultant mode is 777": "patches/filesystem-chmod-0001.patch" 
+                "Allow chmod to fail in the public namespace if the resultant mode is 777": "patches/filesystem-chmod-0001.patch"
             },
             "drupal/migmag": {
                 "Fix migmag_lookup exception when stubbing non-sql sources. See https://www.drupal.org/project/migmag/issues/3321292#comment-14785506": "https://www.drupal.org/files/issues/2022-11-14/migmag-remove_double_prepareRow-3321292_3.patch"
             },
             "drupal/cludo_search": {
-                "Remove search type to use custom template": "patches/cludo_search-0001.patch"
+                "Remove search type to use custom template": "patches/cludo_search-0001.patch",
+                "Changes to text on the search page.": "patches/cludo_search-0002.patch"
             },
             "drupal/autosave_form": {
                 "Disable autosaving for layout builder pages": "https://www.drupal.org/files/issues/2022-03-22/3270955-2-layout_builder.patch"
