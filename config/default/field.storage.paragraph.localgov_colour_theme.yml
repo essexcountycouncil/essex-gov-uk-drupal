@@ -15,7 +15,7 @@ settings:
   allowed_values:
     -
       value: default
-      label: Default
+      label: Red
     -
       value: blue
       label: Blue
@@ -30,3 +30,4 @@ translatable: true
 indexes: {  }
 persist_with_no_fields: false
 custom_storage: false
+
