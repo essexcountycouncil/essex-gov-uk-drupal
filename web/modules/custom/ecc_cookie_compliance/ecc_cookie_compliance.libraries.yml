@@ -10,3 +10,4 @@ live_handler:
     js/live_handler.js: {}
   dependencies:
     - core/jquery
+    - eu_cookie_compliance
