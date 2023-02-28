@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies: {  }
 name: small_360x200
-label: 'Small (360x200)'
+label: 'Small (360w)'
 effects:
   b1ee7b46-1901-4ccb-9174-3ab7e587992b:
     uuid: b1ee7b46-1901-4ccb-9174-3ab7e587992b
@@ -11,5 +11,6 @@ effects:
     weight: 1
     data:
       width: 360
-      height: 200
-      upscale: false
+      height: null
+      upscale: true
+
