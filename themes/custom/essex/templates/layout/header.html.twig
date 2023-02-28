@@ -7,7 +7,7 @@
   <div class="lgd-container">
     <div class="lgd-row">
       <div class="lgd-row__full">
-        <div class="lgd-header__inner">
+        <div class="lgd-header__inner" style="display: block">
 
           {{ page.header }}
 
@@ -32,11 +32,7 @@
                 </button>
               {% endif %}
 
-              {% if has_primary_menu %}
-              <!-- This has a primary menu -->
-              {% endif %}
-
-              {% if has_primary_menu or has_search %}
+              {% if has_primary_menu and has_search %}
                 <button
                   class="lgd-header__toggle lgd-header__toggle--primary"
                   data-target="lgd-header__nav--primary"
