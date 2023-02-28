@@ -4,20 +4,27 @@
  *
  * Triggers GTM load and GA clear as needed on live preference changes
  */
-(function ($) {
-  
+(function ($, Drupal) {
+
     $(document).on('eu_cookie_compliance.changePreferences', function (event, categories) {
       if (categories.indexOf('analytics_cookies') >= 0) {
         window.gtm();
-      } else {
-        $.each(document.cookie.split(/; */), function()  {
-          var splitCookie = this.split('=');
-          if (splitCookie[0].indexOf('_ga') >= 0) {
-            document.cookie = splitCookie[0] + '=; expires=Thu, 01-Jan-70 00:00:01 GMT;';
-          }
-        });
-      }
-  })
+      };
 
-}) (jQuery)
+      // Enforce cookie validity every time category approvals change
+      // This way, any blocked cookies are removed as early as possible
+      // when settings change, without waiting for the interval.
+      Drupal.eu_cookie_compliance.BlockCookies();
+    });
+
+    $(document).ready(function() {
+      // Also clear unapproved cookies early on page load, before the interval
+      // is set up. This is useful in case a resident script has hooked into the
+      // navigate away event, and sets a cookie during the transition.
+      // While we can't stop that in a generic way, we can minimise the time it's
+      // available for.
+      Drupal.eu_cookie_compliance.BlockCookies();
+    })
+
+}) (jQuery, Drupal)
 
