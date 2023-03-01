@@ -981,7 +981,3 @@ footer .lgd-footer__footer a {
 .website-feedback-form-container>div p a {
   color: var(--color-white);
 }
-
-.website-feedback-form-container>div p a:focus {
-  color: var(--color-black);
-}
