@@ -23,7 +23,7 @@ settings:
   default_form_required: false
   default_form_required_label: 'Indicates required field'
   default_form_unsaved: true
-  default_form_disable_back: true
+  default_form_disable_back: false
   default_form_submit_back: false
   default_form_details_toggle: true
   default_form_file_limit: ''
