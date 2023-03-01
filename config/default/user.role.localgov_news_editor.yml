@@ -41,7 +41,6 @@ dependencies:
     - scheduled_transitions
     - system
     - toolbar
-    - webform
   enforced:
     module:
       - localgov_news
@@ -116,7 +115,6 @@ permissions:
   - 'view all localgov_news_article revisions'
   - 'view all scheduled transitions'
   - 'view any unpublished localgov_news_article content'
-  - 'view any webform submission'
   - 'view localgov_directories_org revisions'
   - 'view localgov_directories_page revisions'
   - 'view localgov_directories_venue revisions'
@@ -143,4 +141,3 @@ permissions:
   - 'view scheduled transitions node localgov_newsroom'
   - 'view the administration theme'
   - 'view unpublished paragraphs'
-
