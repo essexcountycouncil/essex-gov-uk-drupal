@@ -929,7 +929,6 @@ footer .lgd-footer__footer a {
 .path-frontpage #cludo-search-block-search-form input[type="text"] {
   border: 0;
   width: 100%;
-
 }
 
 /* Call out box - variants */
@@ -980,4 +979,7 @@ footer .lgd-footer__footer a {
 
 .website-feedback-form-container>div p a {
   color: var(--color-white);
+}
+.website-feedback-form-container>div p a:focus {
+  color: var(--color-black);
 }
