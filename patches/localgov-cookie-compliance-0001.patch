@@ -1,0 +1,108 @@
+--- a/js/localgov_eu_cookie_compliance.es6.js	2023-02-28 16:24:07.396001890 +0000
++++ b/js/localgov_eu_cookie_compliance.es6.js	2023-02-28 16:29:34.447832799 +0000
+@@ -103,10 +103,23 @@
+    * Provide feedback when the "Save cookie settings" button is clicked.
+    */
+   function setupSaveSettingsFeedback() {
+-    $(".eu-cookie-compliance-save-preferences-button").click(e => {
+-      $(`<p>${Drupal.t("Saved")}</p>`)
+-        .appendTo(e.target)
+-        .hide(2000);
+-    });
++    var saveButton = document.querySelector('.eu-cookie-compliance-save-preferences-button');
++
++    saveButton.addEventListener("click", function () {
++      saveButton.innerHTML = "Saving";
++      saveButton.classList.add('spinning');
++
++      setTimeout(
++        function () {
++          saveButton.classList.remove('spinning');
++          saveButton.innerHTML = "Preferences Saved <i class='fas fa-check'></i>";
++        }, 2000);
++
++    }, false);
++
++    saveButton.addEventListener("blur", function () {
++      saveButton.innerHTML = "Save Preferences  <i class='fas fa-check'></i>";
++    }, false);
++
+   }
+ })(jQuery, Drupal);
+--- a/js/localgov_eu_cookie_compliance.js	2023-02-28 16:44:10.636312437 +0000
++++ b/js/localgov_eu_cookie_compliance.js	2023-02-28 16:45:14.709025374 +0000
+@@ -38,8 +38,20 @@
+     });
+   }
+   function setupSaveSettingsFeedback() {
+-    $(".eu-cookie-compliance-save-preferences-button").click(function (e) {
+-      $("<p>".concat(Drupal.t("Saved"), "</p>")).appendTo(e.target).hide(2000);
+-    });
++    var saveButton = document.querySelector('.eu-cookie-compliance-save-preferences-button');
++
++    saveButton.addEventListener("click", function () {
++      saveButton.innerHTML = "Saving";
++      saveButton.classList.add('spinning');
++
++      setTimeout(function () {
++        saveButton.classList.remove('spinning');
++        saveButton.innerHTML = "Preferences Saved <i class='fas fa-check'></i>";
++      }, 2000);
++    }, false);
++
++    saveButton.addEventListener("blur", function () {
++      saveButton.innerHTML = "Save Preferences  <i class='fas fa-check'></i>";
++    }, false);
+   }
+ })(jQuery, Drupal);
+\ No newline at end of file
+--- a/localgov_eu_cookie_compliance.libraries.yml	2023-02-28 16:50:30.145751700 +0000
++++ b/localgov_eu_cookie_compliance.libraries.yml	2023-02-28 16:50:54.517238574 +0000
+@@ -1,6 +1,9 @@
+ localgov_eu_cookie_compliance:
+   js:
+     js/localgov_eu_cookie_compliance.js: {}
++  css:
++    theme:
++      css/save-animation.css: {}
+   dependencies:
+     - eu_cookie_compliance/eu_cookie_compliance_bare
+ 
+--- a/css/save-animation.css	2023-02-28 16:51:31.008248791 +0000
++++ b/css/save-animation.css	2023-02-28 16:49:13.173233688 +0000
+@@ -0,0 +1,34 @@
++.eu-cookie-compliance-save-preferences-button {
++    position: relative;
++}
++
++.eu-cookie-compliance-save-preferences-button.spinning {
++    padding-right: 40px;
++}   
++
++.eu-cookie-compliance-save-preferences-button.spinning:before {
++    content: "";
++    position: absolute;
++    width: 0px;
++    height: 0px;
++    border-radius: 50%;
++    right: 6px;
++    top: 50%;
++    box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.1);
++    border-right: 3px solid var(--color-accent);
++    animation: rotate360 .5s infinite linear, space .1s forwards ease;
++}
++
++@keyframes rotate360 {
++    100% {
++        transform: rotate(360deg);
++    }
++}
++
++@keyframes space {
++    100% {
++        margin: -8px 5px 0 0;
++        width: 15px;
++        height: 15px;
++    }
++}
+\ No newline at end of file
