@@ -936,6 +936,7 @@ footer .lgd-footer__footer a {
 
 .website-feedback-form-container {
   background-color: var(--background-blue);
+  margin-top: var(--spacing-mega);
 }
 
 .website-feedback-form-container>div {
