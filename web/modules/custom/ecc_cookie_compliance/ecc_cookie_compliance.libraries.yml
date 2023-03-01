@@ -8,6 +8,9 @@ live_handler:
   version: VERSION
   js:
     js/live_handler.js: {}
+  css:
+    component:
+      css/ecc_cookie.css: {}
   dependencies:
     - core/jquery
     - eu_cookie_compliance
