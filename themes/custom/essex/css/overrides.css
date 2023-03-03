@@ -206,6 +206,10 @@
     display: flex;
     justify-content: end;
   }
+
+  .path-frontpage .block-cludo-search {
+    display: block
+  }
 }
 
 .lgd-header .lgd-region--header,
