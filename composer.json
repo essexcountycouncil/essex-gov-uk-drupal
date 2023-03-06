@@ -114,6 +114,9 @@
             },
             "localgovdrupal/localgov_base": {
                 "NULL check for secondary menu": "https://patch-diff.githubusercontent.com/raw/localgovdrupal/localgov_base/pull/382.patch"
+            },
+            "localgovdrupal/localgov_eu_cookie_compliance": {
+                "Improve spinner": "patches/localgov-cookie-compliance-0001.patch"
             }
         },
         "drupal-scaffold": {
