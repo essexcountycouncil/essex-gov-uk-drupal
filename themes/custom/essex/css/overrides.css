@@ -909,6 +909,10 @@ footer .lgd-footer__footer a {
   max-width: 514px;
 }
 
+#block-essex-localgov-mainpagecontent-scarfolk--2 #edit-search-keys {
+  max-width: 100%;
+}
+
 .lgd-region--search .form-submit {
   background: url('../assets/images/icons/search.svg') no-repeat 50% var(--color-white);
   padding: 1em 1.625em;
