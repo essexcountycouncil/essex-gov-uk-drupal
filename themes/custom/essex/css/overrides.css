@@ -132,7 +132,7 @@
 }
 
 .lgd-header .cludo-search-block-search-form #cludo-search-block-search-form .form-item-search-keys {
-  margin: 0 var(--spacing-small) 0;
+  margin: 0 var(--spacing-smaller) 0 0;
 }
 
 @media (max-width: 720px) {
@@ -198,7 +198,7 @@
 /* Header */
 
 .lgd-header {
-  padding: 1rem 0;
+  padding: clamp(0.7rem, 2.5vw, 1rem) 0 0;
 }
 
 @media only screen and (min-width: 1024px) {
@@ -239,6 +239,16 @@
 .lgd-header .branding {
   width: clamp(280px, 25vw, 300px);
   padding: var(--spacing-smaller);
+}
+
+.lgd-header__inner> :first-child {
+  flex-basis: 300px;
+  flex-grow: 9999px;
+}
+
+.lgd-header__inner> :last-child {
+  flex-basis: 400px;
+  flex-grow: 1;
 }
 
 /* Logo */
@@ -896,11 +906,12 @@ footer .lgd-footer__footer a {
 #edit-search-keys {
   border: var(--border-width-medium) solid var(--color-black);
   border-width: var(--border-width-medium);
+  max-width: 514px;
 }
 
 .lgd-region--search .form-submit {
   background: url('../assets/images/icons/search.svg') no-repeat 50% var(--color-white);
-  padding: 1em 2em;
+  padding: 1em 1.625em;
   text-indent: -9999px;
   border: var(--border-width-medium) solid var(--color-black);
   border-width: var(--border-width-medium);
@@ -917,15 +928,16 @@ footer .lgd-footer__footer a {
   flex-wrap: nowrap;
 }
 
-@media only screen and (min-width: 768px) {
-  #cludo-search-block-search-form {
-    max-width: 85%;
-  }
-}
-
 #cludo-search-block-search-form>* {
   height: 100%;
   margin: 0;
+}
+
+#cludo-search-block-search-form input:focus {
+  outline-offset: 0;
+  box-shadow: inset 0 0 0 2px;
+  outline: 3px solid var(--color-focus);
+  color: var(--color-black);
 }
 
 #cludo-search-block-search-form #edit-search-keys.form-text input[type="text"] {
