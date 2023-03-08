@@ -427,7 +427,7 @@ h1:after,
 }
 
 /* Media with text component */
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 889px) {
   .media-with-text--media-left {
     flex-direction: column;
   }
