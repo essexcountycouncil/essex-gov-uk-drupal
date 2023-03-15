@@ -198,7 +198,7 @@
 /* Header */
 
 .lgd-header {
-  padding: clamp(0.7rem, 2.5vw, 1rem) 0 0;
+  padding: clamp(0.5rem, 2.2vw, 0.7rem) 0;
 }
 
 @media only screen and (min-width: 1024px) {
@@ -264,6 +264,7 @@
 
 .branding__logo img {
   width: 100%;
+  padding: clamp(0.45rem, 1.7vw, 0.7rem);
 }
 
 .lgd-guide-nav .lgd-guide-nav__list-item>a {
