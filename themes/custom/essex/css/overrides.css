@@ -264,7 +264,8 @@
 
 .branding__logo img {
   width: 100%;
-  padding: clamp(0.45rem, 1.7vw, 0.7rem);
+  padding-block: clamp(0.45rem, 1.7vw, 0.7rem);
+  padding-inline-end: clamp(0.45rem, 1.7vw, 0.7rem);
 }
 
 .lgd-guide-nav .lgd-guide-nav__list-item>a {
