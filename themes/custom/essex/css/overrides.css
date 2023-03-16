@@ -280,7 +280,7 @@
 .service-cta-block .service-cta-block__link--cta-action,
 .button-start {
   font-weight: var(--font-semibold);
-  font-size: 1.2rem;
+  font-size: var(--font-size-larger);
   line-height: inherit;
 }
 
@@ -294,6 +294,7 @@
   border-color: var(--btn-start-border-color);
   background-color: var(--btn-start-bg-color);
   line-height: 1;
+  margin-bottom: var(--spacing-larger)
 }
 
 .button-start:after {
@@ -301,7 +302,7 @@
   top: var(--btn-start-icon-top);
   margin-left: 0.5rem;
   content: var(--btn-start-icon);
-  font-size: var(--btn-start-icon-size);
+  font-size: var(--font-size-largest);
   line-height: 0;
   font-weight: 400;
 }
@@ -309,6 +310,13 @@
 .button-start:hover {
   color: var(--btn-start-color-hover);
   background-color: var(--btn-start-bg-color-hover);
+}
+
+@media (max-width: 468px) {
+  .button-start {
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 .service-cta-block .service-cta-block__link:hover,
