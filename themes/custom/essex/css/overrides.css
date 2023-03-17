@@ -596,6 +596,10 @@ h1:after,
 
 
 /* Newsroom teaser */
+.lgd-teaser-list .views-row.news-row {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
 
 .news-column {
   margin-bottom: 1.5rem;
