@@ -10,7 +10,7 @@ eu_only_js: false
 popup_position: true
 fixed_top_position: false
 popup_info:
-  value: "<h3>We use some essential cookies to make this website work.</h3>\r\n\r\n<p>We’d like to set additional cookies to understand how you use this website, remember your settings and improve this service.</p>\r\n"
+  value: "<h2>We use some essential cookies to make this website work.</h2>\r\n\r\n<p>We’d like to set additional cookies to understand how you use this website, remember your settings and improve this service.</p>\r\n"
   format: wysiwyg
 mobile_popup_info:
   value: ''
