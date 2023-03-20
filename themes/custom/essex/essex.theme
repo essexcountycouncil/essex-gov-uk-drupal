@@ -8,7 +8,7 @@ use Drupal\block\Entity\Block;
  */
 
 /**
- * Implement hook_preprocess_HOOK
+ * Implements hook_preprocess_HOOK() for block templates.
  *
  * @param $variables
  *   Template variables
@@ -17,7 +17,7 @@ use Drupal\block\Entity\Block;
  *
  * Load blocks from specific region, so we can render them within a template.
  */
-function essex_preprocess_paragraph__localgov_banner_primary(&$variables, $hook) {
+function essex_preprocess_paragraph__localgov_banner_primary(&$variables) {
   // Load active theme
   $theme = \Drupal::theme()->getActiveTheme()->getName();
   // Load region blocks
@@ -54,12 +54,18 @@ function essex_preprocess_paragraph__localgov_banner_primary(&$variables, $hook)
   $variables['#cache']['contexts'][] = 'url.path.is_front';
 }
 
-function essex_preprocess_form_element_label(&$variables) {
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function essex_theme_suggestions_form_element_label_alter(&$suggestions, array $variables) {
 
   switch ($variables['element']['#id']) {
-    case 'edit-data-use-policy':
-      // $variables['element']['theme_hook_suggestions'][] = 'form_element_label__edit_data_use_policy';
-      dsm($variables);
+    case (str_starts_with($variables['element']['#id'], 'edit-data-use-policy')):
+      // The first case is to make the Data use policy checkbox function
+      // properly. It's using `str_starts_with` because if the data use policy
+      // field wasn't selected, the id will have an appended `--<hash>` to
+      // prevent form hijacking.
+      $suggestions[] = 'form_element_label__edit_data_use_policy';
       break;
 
     default:

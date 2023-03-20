@@ -1039,23 +1039,3 @@ body:not(.path-frontpage) .lgd-region--search .form-submit:focus {
 .form-checkboxes input[type="checkbox"] + label {
   height: 50px;
 }
-
-/*.form-checkboxes input[type="checkbox"]:checked + label:after {*/
-/*  opacity: 1;*/
-/*}*/
-
-/*.form-checkboxes #edit-data-use-policy + label::after {*/
-/*  position: absolute;*/
-/*  top: 11px;*/
-/*  left: 9px;*/
-/*  box-sizing: border-box;*/
-/*  width: 23px;*/
-/*  height: 12px;*/
-/*  content: "";*/
-/*  transform: rotate(-45deg);*/
-/*  opacity: 0;*/
-/*  border: solid;*/
-/*  border-width: 0 0 5px 5px;*/
-/*  border-top-color: transparent;*/
-/*  background: transparent;*/
-/*}*/
