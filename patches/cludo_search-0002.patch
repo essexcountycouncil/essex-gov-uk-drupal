@@ -16,11 +16,11 @@ index c936038..5c1be8c 100644
 +++ b/src/Form/CludoSearch.php
 @@ -25,7 +25,6 @@ class CludoSearch extends FormBase {
    public function buildForm(array $form, FormStateInterface $form_state) {
- 
+
      // Build form.
 -    $prompt = $this->t('Enter the terms you wish to search for.');
      $query = '';
- 
+
      // Basic search.
 @@ -36,21 +35,11 @@ class CludoSearch extends FormBase {
        '#type' => 'textfield',
@@ -32,7 +32,7 @@ index c936038..5c1be8c 100644
 -      '#title' => $prompt,
        '#title_display' => 'before',
      ];
- 
+
 -    // Only prompt if we haven't searched yet.
 -    if ($query == '') {
 -      $form['basic']['prompt'] = [
@@ -44,39 +44,3 @@ index c936038..5c1be8c 100644
      $form['basic']['submit'] = [
        '#type' => 'submit',
        '#value' => $this->t('Search'),
-diff --git a/templates/cludo-search-result.html.twig b/templates/cludo-search-result.html.twig
-index 32bd990..6bec395 100644
---- a/templates/cludo-search-result.html.twig
-+++ b/templates/cludo-search-result.html.twig
-@@ -33,7 +33,6 @@
-       <div class="search-filters"></div>
-     </div>
-     <div class="cludo-c-9">
--      <div class="search-result-count"></div>
-       <div class="search-did-you-mean"></div>
-       <div class="search-results"></div>
-     </div>
-diff --git a/templates/cludo-search-results.html.twig b/templates/cludo-search-results.html.twig
-index 0b64746..03413e4 100644
---- a/templates/cludo-search-results.html.twig
-+++ b/templates/cludo-search-results.html.twig
-@@ -20,7 +20,6 @@
-       <div class="search-filters"></div>
-     </div>
-     <div class="cludo-c-9">
--      <div class="search-result-count"></div>
-       <div class="search-did-you-mean"></div>
-       <div class="search-results"></div>
-     </div>
-diff --git a/templates/cludo-search-search-form.html.twig b/templates/cludo-search-search-form.html.twig
-index 8e7757b..7b39ded 100644
---- a/templates/cludo-search-search-form.html.twig
-+++ b/templates/cludo-search-search-form.html.twig
-@@ -19,7 +19,6 @@
- <div id="cludo-search-results">
-   <div class="cludo-r">
-     <div class="cludo-c-12">
--      <div class="search-result-count"></div>
-       <div class="search-did-you-mean"></div>
-       <div class="search-results"></div>
-     </div>
