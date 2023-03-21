@@ -1039,3 +1039,16 @@ body:not(.path-frontpage) .lgd-region--search .form-submit:focus {
 .form-checkboxes input[type="checkbox"] + label {
   height: 50px;
 }
+
+.form-checkboxes.form-item--error input[type="checkbox"].error + label {
+  position: relative;
+}
+
+/** adjust position to counter negative margin space for checkbox */
+.form-checkboxes.form-item--error input[type="checkbox"].error + label:before {
+  left: -40px;
+}
+
+.form-checkboxes.form-item--error input[type="checkbox"].error + label:after {
+  left: -31px;
+}
