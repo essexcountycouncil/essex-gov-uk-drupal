@@ -1,0 +1,34 @@
+uuid: bab64658-d133-4735-a107-5f97929c1162
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.grid_item
+    - field.field.node.localgov_services_sublanding.body
+    - field.field.node.localgov_services_sublanding.localgov_services_parent
+    - field.field.node.localgov_services_sublanding.localgov_topics
+    - node.type.localgov_services_sublanding
+  module:
+    - text
+    - user
+_core:
+  default_config_hash: J91JRLdpwIxXd59-UKAMB_rg0s6JUFRRhDdkN1VS1nA
+id: node.localgov_services_sublanding.grid_item
+targetEntityType: node
+bundle: localgov_services_sublanding
+mode: grid_item
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  content_moderation_control: true
+  links: true
+  localgov_services_parent: true
+  localgov_topics: true
+  search_api_excerpt: true

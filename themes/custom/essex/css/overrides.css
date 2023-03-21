@@ -1012,3 +1012,7 @@ footer .lgd-footer__footer a {
 .website-feedback-form-container>div p a:focus {
   color: var(--color-black);
 }
+
+.field--name-localgov-destinations .node--view-mode-grid-item h2 {
+  font-size: var(--font-size-h3);
+}
