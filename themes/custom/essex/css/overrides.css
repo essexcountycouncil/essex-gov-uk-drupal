@@ -124,7 +124,7 @@
   padding: 0;
 }
 
-@media (min-width: 768px) and (max-width: 1128px) {
+@media (min-width: 768px) and (max-width: 1230px) {
   .path-frontpage .banner__content {
     padding-right: var(--spacing-padding-horizontal);
     padding-left: var(--spacing-padding-horizontal);
