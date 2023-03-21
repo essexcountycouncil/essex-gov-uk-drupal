@@ -8917,12 +8917,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/localgovdrupal/localgov_eu_cookie_compliance.git",
-                "reference": "29226a228caf427b004aa75e88ce847e607f531c"
+                "reference": "979b1402db230a0c161ceeb16a9adff226777b49"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/localgovdrupal/localgov_eu_cookie_compliance/zipball/29226a228caf427b004aa75e88ce847e607f531c",
-                "reference": "29226a228caf427b004aa75e88ce847e607f531c",
+                "url": "https://api.github.com/repos/localgovdrupal/localgov_eu_cookie_compliance/zipball/979b1402db230a0c161ceeb16a9adff226777b49",
+                "reference": "979b1402db230a0c161ceeb16a9adff226777b49",
                 "shasum": ""
             },
             "require": {
@@ -8940,7 +8940,7 @@
                 "issues": "https://github.com/localgovdrupal/localgov_eu_cookie_compliance/issues",
                 "source": "https://github.com/localgovdrupal/localgov_eu_cookie_compliance/tree/1.x"
             },
-            "time": "2023-01-27T17:07:43+00:00"
+            "time": "2023-03-20T14:09:12+00:00"
         },
         {
             "name": "localgovdrupal/localgov_events",
