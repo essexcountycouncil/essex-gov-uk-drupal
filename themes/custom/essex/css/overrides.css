@@ -961,11 +961,6 @@ body:not(.path-frontpage) .lgd-region--search .form-submit:focus {
 
 /* search */
 
-#cludo-search-block-search-form {
-  display: flex;
-  flex-wrap: nowrap;
-}
-
 #cludo-search-block-search-form label {
   position: absolute !important;
   overflow: hidden;
