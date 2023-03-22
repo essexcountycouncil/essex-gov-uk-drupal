@@ -1046,6 +1046,10 @@ body:not(.path-frontpage) .lgd-region--search .form-submit:focus {
   color: var(--color-black);
 }
 
+.field--name-localgov-destinations .node--view-mode-grid-item h2 {
+  font-size: var(--font-size-h3);
+}
+
 .form-checkboxes input[type="checkbox"] + label {
   height: 50px;
 }
