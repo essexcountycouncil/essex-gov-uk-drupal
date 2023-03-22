@@ -619,24 +619,24 @@ h1:after,
   padding: 0;
 }
 
-.lgd-teaser--localgov-news-article {
+.view-localgov-news-list .lgd-teaser--localgov-news-article {
   flex-direction: column;
 }
 
-.lgd-teaser--localgov-news-article .lgd-teaser__image {
+.view-localgov-news-list .lgd-teaser--localgov-news-article .lgd-teaser__image {
   margin-bottom: var(--spacing);
   width: 100%;
 }
 
-.lgd-teaser--localgov-news-article .lgd-teaser__content {
+.view-localgov-news-list .lgd-teaser--localgov-news-article .lgd-teaser__content {
   margin: 0;
 }
 
-.lgd-teaser__content--localgov-news-article h3 {
+.views-row .lgd-teaser__content--localgov-news-article h3 {
   margin-bottom: var(--spacing-smaller);
 }
 
-.lgd-teaser__content--localgov-news-article .field--name-localgov-news-date {
+.views-row .lgd-teaser__content--localgov-news-article .field--name-localgov-news-date {
   color: #6f6f6f;
   font-size: 0.75rem;
   margin-bottom: var(--spacing);
