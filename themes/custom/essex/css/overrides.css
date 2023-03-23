@@ -1066,3 +1066,28 @@ body:not(.path-frontpage) .lgd-region--search .form-submit:focus {
 .form-checkboxes.form-item--error input[type="checkbox"].error + label:after {
   left: -31px;
 }
+
+nav.lgd-prev-next .lgd-prev-next__link--next {
+  flex-direction: column;
+  align-items: initial;
+}
+
+nav.lgd-prev-next .lgd-prev-next__icon--next {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+nav.lgd-prev-next .lgd-prev-next__link--prev span.link_title {
+  display: block;
+}
+
+nav.lgd-prev-next ul.lgd-prev-next__list {
+  flex-direction: column;
+}
+
+nav.lgd-prev-next ul.lgd-prev-next__list li {
+  margin-top: var(--spacing-small);
+  margin-bottom: var(--spacing-small);
+  width: fit-content;
+  width: -moz-fit-content;
+}
