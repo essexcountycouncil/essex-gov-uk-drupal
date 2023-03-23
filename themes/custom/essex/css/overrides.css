@@ -1091,3 +1091,7 @@ nav.lgd-prev-next ul.lgd-prev-next__list li {
   width: fit-content;
   width: -moz-fit-content;
 }
+
+.lgd-region--content-bottom {
+  margin-top: var(--spacing-largest);
+}
