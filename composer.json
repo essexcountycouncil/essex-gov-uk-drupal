@@ -40,6 +40,7 @@
         "drupal/autosave_form": "^1.4",
         "drupal/ckeditor_div_manager": "^2.0",
         "drupal/cludo_search": "^1.0@beta",
+        "drupal/config_ignore": "^2.4",
         "drupal/config_split": "^2.0@RC",
         "drupal/core-composer-scaffold": "^9.1",
         "drupal/core-project-message": "^9.1",
@@ -111,9 +112,6 @@
             },
             "drupal/autosave_form": {
                 "Disable autosaving for layout builder pages": "https://www.drupal.org/files/issues/2022-03-22/3270955-2-layout_builder.patch"
-            },
-            "localgovdrupal/localgov_base": {
-                "NULL check for secondary menu": "https://patch-diff.githubusercontent.com/raw/localgovdrupal/localgov_base/pull/382.patch"
             },
             "localgovdrupal/localgov_eu_cookie_compliance": {
                 "Improve spinner": "patches/localgov-cookie-compliance-0001.patch"
