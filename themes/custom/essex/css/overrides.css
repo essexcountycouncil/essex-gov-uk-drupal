@@ -1112,3 +1112,7 @@ nav.lgd-prev-next ul.lgd-prev-next__list li {
 .lgd-region--content-bottom {
   margin-top: var(--spacing-largest);
 }
+
+.lgd-guide-nav__list .lgd-guide-nav__list-item {
+  font-size: var(--font-size);
+}
