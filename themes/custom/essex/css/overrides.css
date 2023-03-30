@@ -258,9 +258,10 @@
   display: block;
 }
 
-.branding__item--logo a:focus {
+.branding .branding__item--logo a:focus {
   box-shadow: 0 0 0 3px var(--color-black);
   outline: none;
+  background: transparent;
 }
 
 .branding__logo img {
