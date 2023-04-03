@@ -1113,6 +1113,7 @@ nav.lgd-prev-next ul.lgd-prev-next__list li {
   margin-top: var(--spacing-largest);
 }
 
-.lgd-guide-nav__list .lgd-guide-nav__list-item {
-  font-size: var(--font-size);
+/** Correct display of list item marker */
+nav ul li a {
+  display: block;
 }
