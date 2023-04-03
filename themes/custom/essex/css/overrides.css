@@ -1109,6 +1109,10 @@ nav.lgd-prev-next .lgd-prev-next__link span.link_title {
   text-decoration-line: underline;
 }
 
+nav.lgd-prev-next .lgd-prev-next__link:focus span.link_title {
+  text-decoration: none;
+}
+
 nav.lgd-prev-next ul.lgd-prev-next__list {
   flex-direction: column;
 }
