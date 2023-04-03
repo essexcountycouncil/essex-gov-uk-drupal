@@ -1113,3 +1113,8 @@ nav.lgd-prev-next ul.lgd-prev-next__list li {
 .lgd-region--content-bottom {
   margin-top: var(--spacing-largest);
 }
+
+/** Correct display of list item marker */
+nav ul li a {
+  display: block;
+}
