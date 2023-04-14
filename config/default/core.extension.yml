@@ -27,7 +27,6 @@ module:
   datetime: 0
   datetime_range: 0
   dbal: 0
-  dblog: 0
   default_content: 0
   diff: 0
   dynamic_entity_reference: 0
@@ -124,6 +123,7 @@ module:
   migrate: 0
   migrate_plus: 0
   migrate_process_markdown_to_html: 0
+  monolog: 0
   mysql: 0
   node: 0
   office_hours: 0
