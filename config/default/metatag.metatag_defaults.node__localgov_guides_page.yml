@@ -1,0 +1,8 @@
+uuid: 0444dbf0-d549-4d5d-8d77-ab5500feb327
+langcode: en
+status: true
+dependencies: {  }
+id: node__localgov_guides_page
+label: 'Content: Guide page'
+tags:
+  title: '[node:localgov_guides_parent]: [node:localgov_guides_section_title] | [site:name]'

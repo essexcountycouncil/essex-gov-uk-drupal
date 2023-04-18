@@ -1,0 +1,48 @@
+uuid: b70d423d-affe-408a-bef2-02726ab10900
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.grid_item
+    - field.field.node.localgov_services_status.body
+    - field.field.node.localgov_services_status.localgov_service_status
+    - field.field.node.localgov_services_status.localgov_service_status_on_landi
+    - field.field.node.localgov_services_status.localgov_service_status_on_list
+    - field.field.node.localgov_services_status.localgov_service_status_visibile
+    - field.field.node.localgov_services_status.localgov_services_parent
+    - node.type.localgov_services_status
+  module:
+    - text
+    - user
+_core:
+  default_config_hash: V_3JMoDblcWDO-SQCGegeBe6uqv0Vy5KHmp63Q3XNv4
+id: node.localgov_services_status.grid_item
+targetEntityType: node
+bundle: localgov_services_status
+mode: grid_item
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  localgov_service_status: true
+  localgov_service_status_on_landi: true
+  localgov_service_status_on_list: true
+  localgov_service_status_visibile: true
+  localgov_services_parent: true
+  search_api_excerpt: true

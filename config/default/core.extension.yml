@@ -5,6 +5,7 @@ module:
   admin_toolbar: 0
   admin_toolbar_tools: 0
   automated_cron: 0
+  autosave_form: 0
   block: 0
   block_content: 0
   breakpoint: 0
@@ -28,6 +29,7 @@ module:
   diff: 0
   dynamic_entity_reference: 0
   dynamic_page_cache: 0
+  ecc_cookie_compliance: 0
   ecc_migrate: 0
   editor: 0
   entity_browser: 0
@@ -37,7 +39,6 @@ module:
   entity_reference_facet_link: 0
   entity_reference_revisions: 0
   entity_usage: 0
-  eu_cookie_compliance_gtm: 0
   facets: 0
   field: 0
   field_formatter_class: 0
@@ -54,7 +55,6 @@ module:
   geolocation: 0
   geolocation_google_maps: 0
   google_tag: 0
-  gull_cookie_settings_block: 0
   help: 0
   history: 0
   image: 0
@@ -62,8 +62,8 @@ module:
   inline_entity_form: 0
   inline_form_errors: 0
   jquery_ui: 0
-  jquery_ui_menu: 0
   jquery_ui_autocomplete: 0
+  jquery_ui_menu: 0
   layout_discovery: 0
   layout_paragraphs: 0
   leaflet: 0
@@ -82,6 +82,7 @@ module:
   localgov_directories_page: 0
   localgov_directories_promo_page: 0
   localgov_directories_venue: 0
+  localgov_eu_cookie_compliance: 0
   localgov_events: 0
   localgov_forms: 0
   localgov_geo: 0
@@ -152,6 +153,7 @@ module:
   text: 0
   token: 0
   toolbar: 0
+  ultimate_cron: 0
   update: 0
   user: 0
   views_ui: 0
@@ -168,9 +170,9 @@ module:
 theme:
   claro: 0
   stable: 0
-  stable9: 0
   gin: 0
   localgov_base: 0
   localgov_scarfolk: 0
   essex: 0
+  stable9: 0
 profile: localgov

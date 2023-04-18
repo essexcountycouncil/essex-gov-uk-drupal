@@ -1,0 +1,112 @@
+<?php
+
+
+/**
+ * Implements hook_google_tag_snippets_alter().
+ */
+function ecc_cookie_compliance_google_tag_snippets_alter(array &$snippets) {
+    // Only add the script snippet if cookie compliance has been agreed.
+    $snippets['script'] = 'window.gtm = function(){ ' . $snippets['script'] . '}; if (document.cookie.includes(\'analytics_cookies\')){ window.gtm(); }';
+    $snippets['noscript'] = '';
+}
+
+/**
+ * Based on the implementation at https://git.drupalcode.org/project/cookies/-/blob/2.x/modules/cookies_video/cookies_video.module
+ *
+ * Implements hook_preprocess_HOOK().
+ */
+function ecc_cookie_compliance_preprocess_field(&$variables) {
+  $formatter = $variables["element"]["#formatter"];
+  if ($formatter === 'oembed') {
+    _cookies_video_media_oembed_handler($variables);
+  }
+}
+
+
+/**
+ * Implements hook_page_attachments().
+ *
+ * Unconditionally adds the helper for cookie compliance to all pages.
+ */
+function ecc_cookie_compliance_page_attachments(&$variables) {
+  $variables['#attached']['library'][] = 'ecc_cookie_compliance/live_handler';
+}
+
+
+/**
+ * Handling oembed field formatters.
+ *
+ * @param array $variables
+ *   Field template variables (s. cookies_video_preprocess_field()).
+ */
+function _cookies_video_media_oembed_handler(array &$variables) {
+  $formatter = $variables["element"]["#formatter"];
+    /** @var \Drupal\Core\Field\FieldItemList $field_item */
+    $field_item = $variables['element']['#items'];
+    /** @var \Drupal\media\Entity\Media $media */
+    $media = $variables['element']['#object'];
+    $media_id = $media->id();
+    $variables['attributes']['class'][] = "media-oembed-$media_id";
+    $field_value = $field_item->getValue();
+    if (isset($field_value) && !empty($field_value)) {
+      $field_value = reset($field_value);
+      $video_src = $field_value['value'];
+    }
+    foreach ($variables["items"] as &$item) {
+      switch ($formatter) {
+        case 'oembed':
+          $item["content"]["#attributes"]['data-src'] = $video_src;
+
+          $video = _cookies_video_preprocess_field_item_oembed($item);
+          // render default as link element
+          _cookies_video_preprocess_field_item_link($item);
+
+          $elements = [
+            $media->id() => [
+              'video' => Drupal::service('renderer')->render($video, FALSE),
+            ]
+          ];
+          break;
+
+        default:
+      }
+
+      // Attach library.
+      if (!isset($item["content"]["#attached"])) {
+        $item["content"]["#attached"] = ["library" => []];
+      }
+      if (!isset($item["content"]["#attached"]["library"])) {
+        $item["content"]["#attached"]["library"] = [];
+      }
+      $variables["#attached"]["library"][] = 'ecc_cookie_compliance/oembed_cookies';
+      $variables['#attached']['drupalSettings']['ecc_cookie_oembed'] = $elements;
+    }
+}
+
+/**
+ * Handling field_item from oembed formatter.
+ */
+function _cookies_video_preprocess_field_item_oembed(&$item) {
+  // Set marker class.
+  if (!isset($item["content"]["#attributes"]["class"]) || !is_array($item["content"]["#attributes"]["class"])) {
+    $item["content"]["#attributes"]["class"] = [];
+  }
+  $item["content"]["#attributes"]["class"][] = 'cookies-video';
+
+  return $item['content'];
+}
+
+function _cookies_video_preprocess_field_item_link(&$item) {
+  // Move src to href.
+  $src = $item["content"]["#attributes"]["data-src"];
+  $title = $item["content"]["#attributes"]["title"];
+  $item["content"]["#attributes"] = [];
+
+  $item["content"]["#type"] = "html_tag";
+  $item["content"]["#tag"] = "a";
+  $item["content"]["#attributes"]["href"] = $src;
+  $item["content"]["#attributes"]["title"] = $title;
+  $item["content"]["#attributes"]["target"] = "_blank";
+  $item["content"]["#value"] = $title;
+}
+

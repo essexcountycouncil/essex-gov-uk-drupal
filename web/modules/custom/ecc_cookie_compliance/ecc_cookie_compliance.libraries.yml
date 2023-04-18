@@ -1,0 +1,16 @@
+oembed_cookies:
+  version: VERSION
+  js:
+    js/oembed_cookies.js: {}
+  dependencies:
+    - core/jquery
+live_handler:
+  version: VERSION
+  js:
+    js/live_handler.js: {}
+  css:
+    component:
+      css/ecc_cookie.css: {}
+  dependencies:
+    - core/jquery
+    - eu_cookie_compliance

@@ -85,18 +85,18 @@
 {% endif %}
 
 {% block header %}
-  {% include '@localgov_base/layout/header.html.twig' with {'page': page} %}
+  {% include '@essex/layout/header.html.twig' with {'page': page} %}
 {% endblock %}
 
 {% if has_banner %}
   {{ page.banner }}
 {% endif %}
 
+{% if has_hero %}
 <section class="hero__container">
-  {% if has_hero %}
     {{ page.hero }}
-  {% endif %}
 </section>
+{% endif %}
 
 {% if has_breadcrumb %}
   {{ page.breadcrumb }}
@@ -196,6 +196,11 @@
       ]
     %}
     <footer class="lgd-footer">
+      <div class="footer__before-pre">
+        {% if has_pre_footer %}
+          {{ page.pre_footer }}
+        {% endif %}
+      </div>
 
     {# Begin Pre-footer #}
     {% block pre_footer %}

@@ -1,13 +1,7 @@
 uuid: dd2baf13-ea45-4a82-92f3-8b8a4ef5d876
 langcode: en
 status: true
-dependencies:
-  module:
-    - eu_cookie_compliance_gtm
-third_party_settings:
-  eu_cookie_compliance_gtm:
-    gtm_data:
-      analytics_storage: '@status'
+dependencies: {  }
 id: analytics_cookies
 label: 'Analytics cookies'
 description: 'We use Google Analytics cookies to measure how you use www.essex.gov.uk. The data we collect helps us improve the website.'

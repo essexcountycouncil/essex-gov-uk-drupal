@@ -1,0 +1,51 @@
+uuid: 004b5b68-887f-44a6-9dec-acddbdb18719
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.grid_item
+    - field.field.node.localgov_guides_overview.body
+    - field.field.node.localgov_guides_overview.field_content_owner
+    - field.field.node.localgov_guides_overview.field_non_publishable_notes
+    - field.field.node.localgov_guides_overview.localgov_guides_description
+    - field.field.node.localgov_guides_overview.localgov_guides_list_format
+    - field.field.node.localgov_guides_overview.localgov_guides_pages
+    - field.field.node.localgov_guides_overview.localgov_guides_section_title
+    - field.field.node.localgov_guides_overview.localgov_page_components
+    - field.field.node.localgov_guides_overview.localgov_services_parent
+    - field.field.node.localgov_guides_overview.localgov_topic_classified
+    - node.type.localgov_guides_overview
+  module:
+    - user
+_core:
+  default_config_hash: e7PnkPEKsraxo9pXRgK335fRZRMagfTkOOXVlch5khY
+id: node.localgov_guides_overview.grid_item
+targetEntityType: node
+bundle: localgov_guides_overview
+mode: grid_item
+content:
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  localgov_guides_description:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  body: true
+  entitygroupfield: true
+  field_content_owner: true
+  field_non_publishable_notes: true
+  links: true
+  localgov_guides_list_format: true
+  localgov_guides_pages: true
+  localgov_guides_section_title: true
+  localgov_page_components: true
+  localgov_services_parent: true
+  localgov_topic_classified: true
+  search_api_excerpt: true

@@ -1,0 +1,15 @@
+--- a/core/lib/Drupal/Core/File/FileSystem.php	2023-02-27 12:38:42.368159781 +0000
++++ b/core/lib/Drupal/Core/File/FileSystem.php	2023-02-27 12:38:20.107897836 +0000
+@@ -106,6 +106,12 @@
+       return TRUE;
+     }
+ 
++    // We may get forced ogu+rwx permissions from Azure Blob Storage, consider this a success.
++    $actual_perms = substr(sprintf('%o', fileperms($uri)), -3);
++    if (str_starts_with($uri, 'public:/') && $actual_perms == '777') {
++      return TRUE;
++    }
++
+     $this->logger->error('The file permissions could not be set on %uri.', ['%uri' => $uri]);
+     return FALSE;
+   }

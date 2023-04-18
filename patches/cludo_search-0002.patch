@@ -1,0 +1,46 @@
+diff --git a/cludo_search.routing.yml b/cludo_search.routing.yml
+index d91e294..211de80 100644
+--- a/cludo_search.routing.yml
++++ b/cludo_search.routing.yml
+@@ -9,6 +9,6 @@ cludo_search.search:
+   path: '/csearch'
+   defaults:
+     _form: '\Drupal\cludo_search\Form\CludoSearch'
+-    _title: 'Site Search'
++    _title: 'Search'
+   requirements:
+     _permission: 'access cludo search content'
+diff --git a/src/Form/CludoSearch.php b/src/Form/CludoSearch.php
+index c936038..5c1be8c 100644
+--- a/src/Form/CludoSearch.php
++++ b/src/Form/CludoSearch.php
+@@ -25,7 +25,6 @@ class CludoSearch extends FormBase {
+   public function buildForm(array $form, FormStateInterface $form_state) {
+
+     // Build form.
+-    $prompt = $this->t('Enter the terms you wish to search for.');
+     $query = '';
+
+     // Basic search.
+@@ -36,21 +35,11 @@ class CludoSearch extends FormBase {
+       '#type' => 'textfield',
+       '#default_value' => $query,
+       '#attributes' => [
+-        'title' => $prompt,
+         'autocomplete' => 'off',
+       ],
+-      '#title' => $prompt,
+       '#title_display' => 'before',
+     ];
+
+-    // Only prompt if we haven't searched yet.
+-    if ($query == '') {
+-      $form['basic']['prompt'] = [
+-        '#type' => 'item',
+-        '#markup' => '<p><b>' . $prompt . '</b></p>',
+-      ];
+-    }
+-
+     $form['basic']['submit'] = [
+       '#type' => 'submit',
+       '#value' => $this->t('Search'),

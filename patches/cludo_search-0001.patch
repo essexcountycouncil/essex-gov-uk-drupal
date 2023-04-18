@@ -1,0 +1,11 @@
+--- js/cludo_search.js.orig	2023-02-10 17:47:17.603364085 +0000
++++ js/cludo_search.js	2023-02-10 17:47:22.253427853 +0000
+@@ -14,7 +14,7 @@
+         hideSearchFilters: drupalSettings.cludo_search.cludo_searchJS.hideSearchFilters,
+         language: 'en',
+         searchInputs: ["cludo-search-block-form","cludo-search-search-form"],
+-        type: 'inline'
++        //type: 'inline'
+       };
+     CludoSearch = new Cludo(cludoSettings);
+     CludoSearch.init();

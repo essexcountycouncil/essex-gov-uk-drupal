@@ -1,6 +1,6 @@
 uuid: 1b7dd858-6db4-41e0-9d3f-44d2158b2c96
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - system.menu.main
@@ -24,4 +24,8 @@ settings:
   level: 1
   depth: 0
   expand_all_items: false
-visibility: {  }
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    pages: '<front>'
