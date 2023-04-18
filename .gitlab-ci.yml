@@ -93,6 +93,8 @@ deploy-to-dev:
                 secretRef: mysql-password
               - name: OPENID_CONNECT_PARAMS
                 secretRef: openid-connect-params
+              - name: X_ROBOTS_TAG
+                value: noindex
       EOF
     - az containerapp revision copy --name portal --resource-group rg-ecc-portal-uks-dev --yaml revision.yml --subscription "Essex County Council (Portal)"
   rules:
@@ -232,6 +234,8 @@ deploy-to-preprod:
                 secretRef: mysql-password
               - name: OPENID_CONNECT_PARAMS
                 secretRef: openid-connect-params
+              - name: X_ROBOTS_TAG
+                value: noindex
       EOF
     - echo "Creating new revision of Container App"
     - az containerapp revision copy --name portal --resource-group rg-ecc-portal-uks-pre --yaml revision.yml --subscription "Essex County Council (Portal)"
@@ -302,6 +306,8 @@ deploy-to-prod:
                 secretRef: mysql-password
               - name: OPENID_CONNECT_PARAMS
                 secretRef: openid-connect-params
+              - name: X_ROBOTS_TAG
+                value: noindex
       EOF
     - az containerapp revision copy --name portal --resource-group rg-ecc-portal-uks-prod --yaml revision.yml --subscription "Essex County Council (Portal)"
   rules:
