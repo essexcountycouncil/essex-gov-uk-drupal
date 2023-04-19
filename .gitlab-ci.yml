@@ -72,6 +72,9 @@ deploy-to-dev:
               volumeMounts:
               - mountPath: /drupal/web/sites/default/files
                 volumeName: filesharevol
+              env:
+              - name: X_ROBOTS_TAG
+                value: noindex
             - image: acreccuksdev.azurecr.io/portal-drupal-fpm$tag
               name: drupal
               resources:
@@ -93,8 +96,6 @@ deploy-to-dev:
                 secretRef: mysql-password
               - name: OPENID_CONNECT_PARAMS
                 secretRef: openid-connect-params
-              - name: X_ROBOTS_TAG
-                value: noindex
       EOF
     - az containerapp revision copy --name portal --resource-group rg-ecc-portal-uks-dev --yaml revision.yml --subscription "Essex County Council (Portal)"
   rules:
@@ -147,6 +148,9 @@ deploy-to-mig:
               volumeMounts:
               - mountPath: /drupal/web/sites/default/files
                 volumeName: filesharevol
+              env:
+              - name: X_ROBOTS_TAG
+                value: noindex
             - image: acreccuksdev.azurecr.io/portal-drupal-fpm$tag
               name: drupal
               resources:
@@ -215,6 +219,9 @@ deploy-to-preprod:
               volumeMounts:
               - mountPath: /drupal/web/sites/default/files
                 volumeName: filesharevol
+              env:
+              - name: X_ROBOTS_TAG
+                value: noindex
             - image: acreccukspre.azurecr.io/portal-drupal-fpm:${CI_COMMIT_REF_SLUG}
               name: drupal
               resources:
@@ -234,8 +241,6 @@ deploy-to-preprod:
                 secretRef: mysql-password
               - name: OPENID_CONNECT_PARAMS
                 secretRef: openid-connect-params
-              - name: X_ROBOTS_TAG
-                value: noindex
       EOF
     - echo "Creating new revision of Container App"
     - az containerapp revision copy --name portal --resource-group rg-ecc-portal-uks-pre --yaml revision.yml --subscription "Essex County Council (Portal)"
@@ -287,6 +292,9 @@ deploy-to-prod:
               volumeMounts:
               - mountPath: /drupal/web/sites/default/files
                 volumeName: filesharevol
+              env:
+              - name: X_ROBOTS_TAG
+                value: noindex
             - image: acreccuksprod.azurecr.io/portal-drupal-fpm:${CI_COMMIT_REF_SLUG}
               name: drupal
               resources:
@@ -306,8 +314,6 @@ deploy-to-prod:
                 secretRef: mysql-password
               - name: OPENID_CONNECT_PARAMS
                 secretRef: openid-connect-params
-              - name: X_ROBOTS_TAG
-                value: noindex
       EOF
     - az containerapp revision copy --name portal --resource-group rg-ecc-portal-uks-prod --yaml revision.yml --subscription "Essex County Council (Portal)"
   rules:
