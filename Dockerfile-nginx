@@ -1,5 +1,6 @@
 FROM nginx
 
 ENV X_ROBOTS_TAG="none"
+ENV LIMITED_BETA_MODE="0"
 COPY --chown=www-data:www-data --from=portal-drupal-fpm /drupal /drupal
 COPY nginx-conf/nginx.conf /etc/nginx/templates/default.conf.template
