@@ -54,7 +54,7 @@ cookie_name: ''
 exclude_uid_1: false
 better_support_for_screen_readers: false
 method: categories
-disabled_javascripts: "analytics_cookies:modules/contrib/localgov_eu_cookie_compliance/js/deferred-ga-script-runner.js\r\nanalytics_cookies:modules/contrib/localgov_eu_cookie_compliance/js/deferred-hotjar-script-runner.js"
+disabled_javascripts: ''
 automatic_cookies_removal: true
 allowed_cookies: "analytics_cookies:_ga*\r\nanalytics_cookies:_ga\r\nanalytics_cookies:_hj*\r\nanalytics_cookies:hj*"
 consent_storage_method: do_not_store
