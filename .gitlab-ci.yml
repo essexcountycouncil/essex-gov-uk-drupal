@@ -29,10 +29,13 @@ build-and-push-images:
       fi
     - docker pull ${DOCKER_REGISTRY}/portal-nginx-drupal || true
     - docker pull ${DOCKER_REGISTRY}/portal-drupal-fpm || true
+    - docker pull ${DOCKER_REGISTRY}/portal-nginx-redirect || true
     - docker build -t ${DOCKER_REGISTRY}/portal-drupal-fpm${tag} -t portal-drupal-fpm -f Dockerfile-drupal .
     - docker build -t ${DOCKER_REGISTRY}/portal-nginx-drupal${tag} -t portal-nginx-drupal -f Dockerfile-nginx .
+    - docker build -t ${DOCKER_REGISTRY}/portal-nginx-redirect${tag} -t portal-nginx-redirect -f Dockerfile-nginx-redirect .
     - docker push ${DOCKER_REGISTRY}/portal-nginx-drupal${tag}
     - docker push ${DOCKER_REGISTRY}/portal-drupal-fpm${tag}
+    - docker push ${DOCKER_REGISTRY}/portal-nginx-redirect${tag}
   only:
     - develop
     - /^release\//
@@ -318,6 +321,11 @@ deploy-to-prod:
                 secretRef: mysql-password
               - name: OPENID_CONNECT_PARAMS
                 secretRef: openid-connect-params
+            - image: acreccuksprod.azurecr.io/portal-nginx-redirect:${CI_COMMIT_REF_SLUG}
+              name: portal-nginx-redirect
+              resources:
+                cpu: 0.25
+                memory: 0.5Gi
       EOF
     - az containerapp revision copy --name portal --resource-group rg-ecc-portal-uks-prod --yaml revision.yml --subscription "Essex County Council (Portal)"
   rules:
