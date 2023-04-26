@@ -321,13 +321,9 @@ deploy-to-prod:
                 secretRef: mysql-password
               - name: OPENID_CONNECT_PARAMS
                 secretRef: openid-connect-params
-            - image: acreccuksprod.azurecr.io/portal-nginx-redirect:${CI_COMMIT_REF_SLUG}
-              name: portal-nginx-redirect
-              resources:
-                cpu: 0.25
-                memory: 0.5Gi
       EOF
     - az containerapp revision copy --name portal --resource-group rg-ecc-portal-uks-prod --yaml revision.yml --subscription "Essex County Council (Portal)"
+    - az containerapp revision copy --name portal-nginx-redirect --resource-group rg-ecc-portal-redirect-uks-prod --image acreccuksprod.azurecr.io/portal-nginx-redirect:${CI_COMMIT_REF_SLUG} --subscription "Essex County Council (Portal)"
   rules:
     - if: '$CI_COMMIT_BRANCH =~ /^release\//'
       when: manual
