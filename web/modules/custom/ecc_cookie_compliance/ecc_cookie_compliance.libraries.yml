@@ -13,4 +13,4 @@ live_handler:
       css/ecc_cookie.css: {}
   dependencies:
     - core/jquery
-    - eu_cookie_compliance
+    - eu_cookie_compliance/eu_cookie_compliance
