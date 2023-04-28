@@ -17,7 +17,7 @@ mobile_popup_info:
   format: wysiwyg
 popup_info_template: new
 popup_agree_button_message: Accept
-popup_more_info_button_message: 'No, manage my settings'
+popup_more_info_button_message: 'No, manage cookie settings'
 mobile_breakpoint: 768
 popup_agreed_enabled: false
 popup_hide_agreed: false
