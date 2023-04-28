@@ -4,6 +4,6 @@ status: true
 dependencies: {  }
 id: analytics_cookies
 label: 'Analytics cookies'
-description: 'We use Google Analytics cookies to measure how you use www.essex.gov.uk. The data we collect helps us improve the website.'
+description: 'We use Google Analytics and Hotjar cookies to measure how you use www.essex.gov.uk. The data we collect helps us improve the website.'
 checkbox_default_state: unchecked
 weight: -9
