@@ -1132,3 +1132,8 @@ nav.lgd-prev-next ul.lgd-prev-next__list li {
 nav ul li a {
   display: block;
 }
+
+/* Drupal editor toolbar */
+#toolbar-administration * {
+  z-index: 99999;
+}
