@@ -5,3 +5,5 @@ ignored_config_entities:
   - devel.toolbar.settings
   - devel.settings
   - system.menu.devel
+  - 'webform.webform.*'
+  - 'webform.webform_options.*'
