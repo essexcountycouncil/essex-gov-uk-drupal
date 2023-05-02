@@ -94,4 +94,5 @@ body {
   --banner-title-size: var(--font-size-largest);
   --table-border: none;
   --border-width-medium: 2px;
+  --guide-nav-column-count: 1;
 }
