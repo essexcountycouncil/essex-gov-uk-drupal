@@ -5,8 +5,7 @@ dependencies:
   config:
     - image.style.large_28_9
     - image.style.medium_28_9
-    - image.style.small_28_9
-    - image.style.small_scale_crop_360x620
+    - image.style.small_21_9
   module:
     - localgov_media
 _core:
@@ -26,8 +25,8 @@ image_style_mappings:
     multiplier: 1x
   -
     image_mapping_type: image_style
-    image_mapping: small_scale_crop_360x620
+    image_mapping: small_21_9
     breakpoint_id: localgov_media.bootstrap4_xs
     multiplier: 1x
 breakpoint_group: localgov_media
-fallback_image_style: small_28_9
+fallback_image_style: small_21_9
