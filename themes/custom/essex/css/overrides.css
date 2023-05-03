@@ -934,6 +934,16 @@ footer .lgd-footer__footer a {
   max-width: 514px;
 }
 
+.banner__content .block-cludo-search h2 {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
 #block-essex-localgov-mainpagecontent-scarfolk--2 #edit-search-keys {
   max-width: 100%;
 }
