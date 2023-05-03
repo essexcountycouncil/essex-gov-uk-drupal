@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4fdab8cabbf070c112021bfe7c7b1fba",
+    "content-hash": "44605053e6473622931c93578494d9da",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -19705,7 +19705,6 @@
     "stability-flags": {
         "drupal/cludo_search": 10,
         "drupal/config_split": 5,
-        "drupal/core-recommended": 0,
         "drupal/eu_cookie_compliance_gtm": 15,
         "drupal/ultimate_cron": 15,
         "essexcountycouncil/content_ownership": 20,
