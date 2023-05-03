@@ -48,7 +48,7 @@ content:
     weight: 6
     region: content
   localgov_contact_email:
-    type: basic_string
+    type: email_mailto
     label: inline
     settings: {  }
     third_party_settings: {  }
