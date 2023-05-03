@@ -117,6 +117,9 @@
             },
             "localgovdrupal/localgov_eu_cookie_compliance": {
                 "Improve spinner": "patches/localgov-cookie-compliance-0001.patch"
+            },
+            "drupal/health_check_url": {
+                "Fix PHP8.1 deprecation warning": "https://www.drupal.org/files/issues/2022-12-27/3294736-php-8-compatibility-5.patch"
             }
         },
         "drupal-scaffold": {
