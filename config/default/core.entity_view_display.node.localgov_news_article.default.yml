@@ -29,6 +29,17 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
+    weight: 3
+    region: content
+  field_media_image:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: responsive_3x2
+      link: false
+    third_party_settings:
+      field_formatter_class:
+        class: ''
     weight: 2
     region: content
   links:
@@ -52,12 +63,11 @@ content:
       view_mode: teaser
       link: false
     third_party_settings: {  }
-    weight: 3
+    weight: 4
     region: content
 hidden:
   content_moderation_control: true
   entitygroupfield: true
-  field_media_image: true
   localgov_news_categories: true
   localgov_newsroom: true
   search_api_excerpt: true
