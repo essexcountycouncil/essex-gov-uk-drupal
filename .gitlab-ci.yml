@@ -2,8 +2,6 @@ stages:
   - build
   - development
   - development-postdeploy
-  - migration
-  - migration-postdeploy
   - preproduction
   - preproduction-postdeploy
   - production
@@ -66,6 +64,14 @@ deploy-to-dev:
       properties:
         template:
           revisionSuffix: ${CI_PIPELINE_ID}
+          scale:
+            minReplicas: 0
+            maxReplicas: 2
+            rules:
+              - name: "http-rule"
+                http:
+                  metadata:
+                    concurrentRequests: 40
           containers:
             - image: acreccuksdev.azurecr.io/portal-nginx-drupal$tag
               name: nginx
@@ -78,6 +84,13 @@ deploy-to-dev:
               env:
               - name: X_ROBOTS_TAG
                 value: noindex
+              probes:
+              - type: liveness
+                httpGet:
+                  path: "/dd822309-ae33-4e29-addf-869b07453a06"
+                  port: 80
+                initialDelaySeconds: 5
+                periodSeconds: 3
             - image: acreccuksdev.azurecr.io/portal-drupal-fpm$tag
               name: drupal
               resources:
@@ -99,6 +112,12 @@ deploy-to-dev:
                 secretRef: mysql-password
               - name: OPENID_CONNECT_PARAMS
                 secretRef: openid-connect-params
+              probes:
+              - type: liveness
+                tcpSocket:
+                  port: 9000
+                initialDelaySeconds: 5
+                periodSeconds: 3
       EOF
     - az containerapp revision copy --name portal --resource-group rg-ecc-portal-uks-dev --yaml revision.yml --subscription "Essex County Council (Portal)"
   rules:
@@ -115,82 +134,6 @@ drush-deploy-dev:
     - az account set --subscription "Essex County Council (Portal)"
   script:
     - timeout 1200 socat EXEC:'az containerapp exec --command /drupal/deploy.sh --name portal --container drupal --resource-group rg-ecc-portal-uks-dev',pty,setsid,ctty STDIO,ignoreeof
-  rules:
-    - when: manual
-
-deploy-to-mig:
-  image: mcr.microsoft.com/azure-cli
-  stage: migration
-  needs: ["build-and-push-images"]
-  environment:
-    name: migration
-  before_script:
-    - az extension add --name containerapp
-    - az login --service-principal -u${ARM_CLIENT_ID} -p${ARM_CLIENT_SECRET} -t${ARM_TENANT_ID}
-  script:
-    - |
-      if [[ "$CI_COMMIT_BRANCH" == "$CI_DEFAULT_BRANCH" ]]; then
-        tag=""
-        echo "Running on default branch '$CI_DEFAULT_BRANCH': tag = 'latest'"
-      else
-        tag=":$CI_COMMIT_REF_SLUG"
-        echo "Running on branch '$CI_COMMIT_BRANCH': tag = $tag"
-      fi
-    - echo "Creating new revision of Container App"
-    - |
-      cat > revision.yml <<EOF
-      properties:
-        template:
-          revisionSuffix: ${CI_PIPELINE_ID}
-          containers:
-            - image: acreccuksdev.azurecr.io/portal-nginx-drupal$tag
-              name: nginx
-              resources:
-                cpu: 0.25
-                memory: 0.5Gi
-              volumeMounts:
-              - mountPath: /drupal/web/sites/default/files
-                volumeName: filesharevol
-              env:
-              - name: X_ROBOTS_TAG
-                value: noindex
-            - image: acreccuksdev.azurecr.io/portal-drupal-fpm$tag
-              name: drupal
-              resources:
-                cpu: 0.75
-                memory: 1.5Gi
-              volumeMounts:
-              - mountPath: /drupal/web/sites/default/files
-                volumeName: filesharevol
-              - mountPath: /drupal/data/default/private
-                volumeName: privsharevol
-              env:
-              - name: MYSQL_HOST
-                value: mariadb-ecc-uks-mig.mariadb.database.azure.com
-              - name: MYSQL_USER
-                value: mariadb-root
-              - name: MYSQL_DATABASE
-                value: drupal_portal
-              - name: MYSQL_PASSWORD
-                secretRef: mysql-password
-              - name: OPENID_CONNECT_PARAMS
-                secretRef: openid-connect-params
-      EOF
-    - az containerapp revision copy --name portal --resource-group rg-ecc-portal-uks-mig --yaml revision.yml --subscription "Essex County Council (Portal)"
-  rules:
-    - when: manual
-
-drush-deploy-mig:
-  image: mcr.microsoft.com/azure-cli
-  stage: migration-postdeploy
-  needs: ["deploy-to-mig"]
-  before_script:
-    - apk add socat
-    - az extension add --name containerapp
-    - az login --service-principal -u${ARM_CLIENT_ID} -p${ARM_CLIENT_SECRET} -t${ARM_TENANT_ID}
-    - az account set --subscription "Essex County Council (Portal)"
-  script:
-    - timeout 1200 socat EXEC:'az containerapp exec --command /drupal/deploy.sh --name portal --container drupal --resource-group rg-ecc-portal-uks-mig',pty,setsid,ctty STDIO,ignoreeof
   rules:
     - when: manual
 
@@ -214,6 +157,14 @@ deploy-to-preprod:
       properties:
         template:
           revisionSuffix: ${CI_PIPELINE_ID}
+          scale:
+            minReplicas: 1
+            maxReplicas: 3
+            rules:
+              - name: "http-rule"
+                http:
+                  metadata:
+                    concurrentRequests: 40
           containers:
             - image: acreccukspre.azurecr.io/portal-nginx-drupal:${CI_COMMIT_REF_SLUG}
               name: nginx
@@ -228,6 +179,13 @@ deploy-to-preprod:
                 value: noindex
               - name: LIMITED_BETA_MODE
                 value: 1
+              probes:
+              - type: liveness
+                httpGet:
+                  path: "/dd822309-ae33-4e29-addf-869b07453a06"
+                  port: 80
+                initialDelaySeconds: 5
+                periodSeconds: 3
             - image: acreccukspre.azurecr.io/portal-drupal-fpm:${CI_COMMIT_REF_SLUG}
               name: drupal
               resources:
@@ -247,6 +205,12 @@ deploy-to-preprod:
                 secretRef: mysql-password
               - name: OPENID_CONNECT_PARAMS
                 secretRef: openid-connect-params
+              probes:
+              - type: liveness
+                tcpSocket:
+                  port: 9000
+                initialDelaySeconds: 5
+                periodSeconds: 3
       EOF
     - echo "Creating new revision of Container App"
     - az containerapp revision copy --name portal --resource-group rg-ecc-portal-uks-pre --yaml revision.yml --subscription "Essex County Council (Portal)"
@@ -290,6 +254,14 @@ deploy-to-prod:
       properties:
         template:
           revisionSuffix: ${CI_PIPELINE_ID}
+          scale:
+            minReplicas: 1
+            maxReplicas: 3
+            rules:
+              - name: "http-rule"
+                http:
+                  metadata:
+                    concurrentRequests: 40
           containers:
             - image: acreccuksprod.azurecr.io/portal-nginx-drupal:${CI_COMMIT_REF_SLUG}
               name: nginx
@@ -304,6 +276,13 @@ deploy-to-prod:
                 value: noindex
               - name: LIMITED_BETA_MODE
                 value: 1
+              probes:
+              - type: liveness
+                httpGet:
+                  path: "/dd822309-ae33-4e29-addf-869b07453a06"
+                  port: 80
+                initialDelaySeconds: 5
+                periodSeconds: 3
             - image: acreccuksprod.azurecr.io/portal-drupal-fpm:${CI_COMMIT_REF_SLUG}
               name: drupal
               resources:
@@ -323,6 +302,12 @@ deploy-to-prod:
                 secretRef: mysql-password
               - name: OPENID_CONNECT_PARAMS
                 secretRef: openid-connect-params
+              probes:
+              - type: liveness
+                tcpSocket:
+                  port: 9000
+                initialDelaySeconds: 5
+                periodSeconds: 3
       EOF
     - az containerapp revision copy --name portal --resource-group rg-ecc-portal-uks-prod --yaml revision.yml --subscription "Essex County Council (Portal)"
     - az containerapp revision copy --name portal-nginx-redirect --resource-group rg-ecc-portal-redirect-uks-prod --image acreccuksprod.azurecr.io/portal-nginx-redirect:${CI_COMMIT_REF_SLUG} --subscription "Essex County Council (Portal)"
