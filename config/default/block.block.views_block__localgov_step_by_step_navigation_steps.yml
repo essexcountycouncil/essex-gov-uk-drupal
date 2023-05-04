@@ -11,7 +11,7 @@ dependencies:
 id: views_block__localgov_step_by_step_navigation_steps
 theme: essex
 region: content
-weight: -9
+weight: -10
 provider: null
 plugin: 'views_block:localgov_step_by_step_navigation-steps'
 settings:

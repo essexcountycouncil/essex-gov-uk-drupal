@@ -12,7 +12,7 @@ _core:
 id: eucookiesettingsblock
 theme: essex
 region: content_top
-weight: 5
+weight: -8
 provider: null
 plugin: cookie_settings_block
 settings:
