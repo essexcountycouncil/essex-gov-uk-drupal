@@ -1044,6 +1044,7 @@ body:not(.path-frontpage) .lgd-region--search .form-submit:focus {
   height: auto;
   object-fit: cover;
   aspect-ratio: 9/5;
+  padding-bottom: var(--spacing-large);
 }
 
 .path-frontpage .layout--threecol-33-34-33 .layout__region--top,
