@@ -66,6 +66,7 @@ permissions:
   - 'access paragraphs_library_items entity browser pages'
   - 'access responsive preview'
   - 'access toolbar'
+  - 'access webform overview'
   - 'add content owner/sme entity'
   - 'add scheduled transitions localgov_alert_banner localgov_alert_banner'
   - 'add scheduled transitions node localgov_directories_org'
