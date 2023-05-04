@@ -1003,7 +1003,7 @@ footer .lgd-footer__footer a {
 
 body:not(.path-frontpage) .lgd-region--search .form-submit,
 body:not(.path-frontpage) .cludo-search-form .form-submit {
-  background-color: var(--color-link);
+  background-color: var(--color-blue);
   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="26" height="29"><g style="fill:white;fill-opacity:1;stroke:none;stroke-width:1;stroke-opacity:1;fill-rule:nonzero;fill:none;"><g style="stroke:white;stroke-width:3;"><circle cx="11" cy="11" r="9.5"/></g><g style="stroke:white;stroke-width:3;"><line x1="17.1609" y1="18.0501" x2="24.7598" y2="27.3376"/></g></g></svg>')
 }
 
