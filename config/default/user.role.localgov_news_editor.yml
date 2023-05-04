@@ -121,6 +121,7 @@ permissions:
   - 'view all localgov_news_article revisions'
   - 'view all scheduled transitions'
   - 'view any unpublished localgov_news_article content'
+  - 'view localgov alert banner localgov_alert_banner pages'
   - 'view localgov_directories_org revisions'
   - 'view localgov_directories_page revisions'
   - 'view localgov_directories_venue revisions'
