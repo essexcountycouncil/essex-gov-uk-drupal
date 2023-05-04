@@ -683,6 +683,35 @@ h1:after,
   text-decoration: none;
 }
 
+/* Search results page pagination */
+#cludo-search-results .search_page_list .active,
+#cludo-search-results .search_page_list a {
+  padding: 0.5rem 1.1rem;
+}
+
+#cludo-search-results ul.search_page_list li {
+  padding: 0;
+  width: auto;
+}
+
+/* Search results item */
+#cludo-search-results .search-results-item a {
+  text-decoration: none;
+}
+
+#cludo-search-results .search-results-item h2 {
+  color: var(--color-link);
+  text-decoration: underline;
+}
+
+#cludo-search-results .search-results-item a:hover h2 {
+  text-decoration: none;
+}
+
+#cludo-search-results .search-results-item p {
+  color: var(--color-black);
+}
+
 /* Sidebar blocks */
 .sidebar .lgd-region__inner>*,
 .blog-channel__sidebar>*,
@@ -963,7 +992,8 @@ footer .lgd-footer__footer a {
   max-width: 100%;
 }
 
-.lgd-region--search .form-submit {
+.lgd-region--search .form-submit,
+.cludo-search-form .form-submit {
   background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="26" height="29"><g style="fill:black;fill-opacity:1;stroke:none;stroke-width:1;stroke-opacity:1;fill-rule:nonzero;fill:none;"><g style="stroke:black;stroke-width:3;"><circle cx="11" cy="11" r="9.5"/></g><g style="stroke:black;stroke-width:3;"><line x1="17.1609" y1="18.0501" x2="24.7598" y2="27.3376"/></g></g></svg>') no-repeat 50% var(--color-white);
   padding-inline: 1.5em;
   text-indent: -9999px;
@@ -971,13 +1001,25 @@ footer .lgd-footer__footer a {
   border-width: var(--border-width-medium);
 }
 
-body:not(.path-frontpage) .lgd-region--search .form-submit {
+body:not(.path-frontpage) .lgd-region--search .form-submit,
+body:not(.path-frontpage) .cludo-search-form .form-submit {
   background-color: var(--color-link);
   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="26" height="29"><g style="fill:white;fill-opacity:1;stroke:none;stroke-width:1;stroke-opacity:1;fill-rule:nonzero;fill:none;"><g style="stroke:white;stroke-width:3;"><circle cx="11" cy="11" r="9.5"/></g><g style="stroke:white;stroke-width:3;"><line x1="17.1609" y1="18.0501" x2="24.7598" y2="27.3376"/></g></g></svg>')
 }
 
-body:not(.path-frontpage) .lgd-region--search .form-submit:focus {
+body:not(.path-frontpage) .lgd-region--search .form-submit:focus,
+body:not(.path-frontpage) .cludo-search-form .form-submit:focus {
   background-color: var(--color-blue);
+}
+
+.cludo-search-form .form-wrapper {
+  display: flex;
+  margin-bottom: var(--spacing-smaller);
+}
+
+.cludo-search-form .form-wrapper .form-item {
+  margin: 0 var(--spacing-smaller) 0 0;
+  width: 28rem;
 }
 
 .path-frontpage #cludo-search-block-search-form input {
@@ -1157,6 +1199,7 @@ nav.lgd-prev-next ul.lgd-prev-next__list li {
 nav ul li a {
   display: block;
 }
+
 
 /* Drupal editor toolbar */
 #toolbar-administration * {
