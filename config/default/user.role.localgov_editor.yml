@@ -107,6 +107,7 @@ permissions:
   - 'create paragraph library item'
   - 'create remote_video media'
   - 'create url aliases'
+  - 'create webform'
   - 'delete any localgov_guides_overview content'
   - 'delete any localgov_guides_page content'
   - 'delete any localgov_news_article content'
