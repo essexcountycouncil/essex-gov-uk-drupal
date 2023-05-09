@@ -178,7 +178,7 @@ deploy-to-preprod:
               - name: X_ROBOTS_TAG
                 value: noindex
               - name: LIMITED_BETA_MODE
-                value: 1
+                value: 0
               probes:
               - type: liveness
                 httpGet:
