@@ -203,6 +203,9 @@
         "phpunit-modules": "sudo -u www-data -E vendor/bin/phpunit -v --debug modules",
         "cghooks": "[ -h vendor/bin/cghooks -a -w ../.git ] && vendor/bin/cghooks --git-dir=../.git",
         "phpcbf": "bin/phpcbf --standard=Drupal,DrupalPractice web/modules/custom",
-        "composer-validate": "composer validate"
+        "tests-required": [
+            "composer validate",
+            "composer checker-security"
+        ]
     }
 }
