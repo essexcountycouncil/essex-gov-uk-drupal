@@ -69,6 +69,7 @@
         "drupal/config_inspector": "^1.3",
         "drupal/core-dev": "^9.1",
         "drupal/webprofiler": "^9.0",
+        "mglaman/drupal-check": "^1.4",
         "mglaman/phpstan-drupal": "^1.0",
         "php-parallel-lint/php-parallel-lint": "^1.3",
         "phpspec/prophecy-phpunit": "^2",
@@ -191,20 +192,14 @@
             "chmod 444 web/sites/default/default.*.yml",
             "chmod 444 web/sites/default/*.services.yml"
         ],
-        "phpcs": "bin/phpcs --standard=Drupal,DrupalPractice web/modules/custom",
+        "phpcs": "bin/phpcs --standard=Drupal,DrupalPractice --ignore=*/node_modules/* web/modules/custom web/themes/custom",
         "checker-php-lint": "bin/parallel-lint web/modules/custom",
         "phpunit-unit": "bin/phpunit -v --debug -c phpunit-unit.xml",
         "checker-security": [
             "bin/drush pm:security",
             "bin/drush pm:security-php"
         ],
-        "checker-php-compatibility": "vendor/bin/phpcs --standard=vendor/phpcompatibility/php-compatibility/PHPCompatibility/ruleset.xml --runtime-set testVersion 7.2 src",
-        "checker-drupal": "vendor/bin/drupal-check -ad src",
-        "checker-drupal-3rd": "vendor/bin/drupal-check -ad web/themes web/modules",
-        "checker-phpmetrics": [
-            "mkdir -p data/phpmetrics",
-            "./vendor/bin/phpmetrics --report-html=data/phpmetrics --extensions=php,inc,module,theme,profile,install ./modules"
-        ],
+        "checker-drupal": "bin/drupal-check -ad web/modules/custom web/themes/custom",
         "phpunit-modules": "sudo -u www-data -E vendor/bin/phpunit -v --debug modules",
         "cghooks": "[ -h vendor/bin/cghooks -a -w ../.git ] && vendor/bin/cghooks --git-dir=../.git",
         "phpcbf": "bin/phpcbf --standard=Drupal,DrupalPractice web/modules/custom",
