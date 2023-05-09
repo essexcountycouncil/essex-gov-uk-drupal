@@ -18,10 +18,10 @@ interface FormAlterInterface {
    *
    * @param array $form
    *   The form.
-   * @param FormStateInterface $form_alter
-   *   The form_state.
+   * @param string $permission
+   *   Permission required to have access to form.
    *
    * @return void
    */
-  public function hideEntityModerationForm(array &$form, FormStateInterface &$form_alter);
+  public function accessPermission(array &$form, string $permission);
 }
