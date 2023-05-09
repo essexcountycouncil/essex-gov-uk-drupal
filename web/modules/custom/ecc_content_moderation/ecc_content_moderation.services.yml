@@ -1,0 +1,5 @@
+services:
+
+  ecc_content_moderation.form_alter:
+    class: Drupal\ecc_content_moderation\Service\FormAlter
+    arguments: ['@current_user']
