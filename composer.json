@@ -194,7 +194,10 @@
         "phpcs": "bin/phpcs --standard=Drupal,DrupalPractice web/modules/custom",
         "checker-php-lint": "bin/parallel-lint web/modules/custom",
         "phpunit-unit": "bin/phpunit -v --debug -c phpunit-unit.xml",
-        "checker-security": "vendor/bin/drush pm:security",
+        "checker-security": [
+            "bin/drush pm:security",
+            "bin/drush pm:security-php"
+        ],
         "checker-php-compatibility": "vendor/bin/phpcs --standard=vendor/phpcompatibility/php-compatibility/PHPCompatibility/ruleset.xml --runtime-set testVersion 7.2 src",
         "checker-drupal": "vendor/bin/drupal-check -ad src",
         "checker-drupal-3rd": "vendor/bin/drupal-check -ad web/themes web/modules",
