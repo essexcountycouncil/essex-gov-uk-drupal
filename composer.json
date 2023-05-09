@@ -70,6 +70,7 @@
         "drupal/core-dev": "^9.1",
         "drupal/webprofiler": "^9.0",
         "mglaman/phpstan-drupal": "^1.0",
+        "php-parallel-lint/php-parallel-lint": "^1.3",
         "phpspec/prophecy-phpunit": "^2",
         "phpstan/phpstan": "^1.0",
         "phpstan/phpstan-deprecation-rules": "^1.0",
@@ -190,20 +191,19 @@
             "chmod 444 web/sites/default/default.*.yml",
             "chmod 444 web/sites/default/*.services.yml"
         ],
+        "phpcs": "bin/phpcs --standard=Drupal,DrupalPractice web/modules/custom",
+        "checker-php-lint": "bin/parallel-lint web/modules/custom",
         "checker-security": "vendor/bin/drush pm:security",
         "checker-php-compatibility": "vendor/bin/phpcs --standard=vendor/phpcompatibility/php-compatibility/PHPCompatibility/ruleset.xml --runtime-set testVersion 7.2 src",
         "checker-drupal": "vendor/bin/drupal-check -ad src",
         "checker-drupal-3rd": "vendor/bin/drupal-check -ad web/themes web/modules",
-        "checker-php-lint": "vendor/bin/parallel-lint src",
         "checker-phpmetrics": [
             "mkdir -p data/phpmetrics",
             "./vendor/bin/phpmetrics --report-html=data/phpmetrics --extensions=php,inc,module,theme,profile,install ./modules"
         ],
         "phpunit-modules": "sudo -u www-data -E vendor/bin/phpunit -v --debug modules",
         "cghooks": "[ -h vendor/bin/cghooks -a -w ../.git ] && vendor/bin/cghooks --git-dir=../.git",
-        "phpcs": "vendor/bin/phpcs --standard=Drupal,DrupalPractice modules/custom",
-        "phpcbf": "vendor/bin/phpcbf --standard=Drupal,DrupalPractice modules/custom",
-        "phpcs-setup": "vendor/bin/phpcs --config-set installed_paths vendor/drupal/coder/coder_sniffer",
+        "phpcbf": "bin/phpcbf --standard=Drupal,DrupalPractice web/modules/custom",
         "composer-validate": "composer validate"
     }
 }
