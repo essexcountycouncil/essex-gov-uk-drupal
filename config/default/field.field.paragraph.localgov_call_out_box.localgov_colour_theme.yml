@@ -15,7 +15,7 @@ entity_type: paragraph
 bundle: localgov_call_out_box
 label: 'Colour theme'
 description: ''
-required: false
+required: true
 translatable: true
 default_value:
   -
