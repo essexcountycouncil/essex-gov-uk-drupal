@@ -18,7 +18,7 @@ entity_type: localgov_alert_banner
 bundle: localgov_alert_banner
 label: 'Type of alert'
 description: ''
-required: false
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''
