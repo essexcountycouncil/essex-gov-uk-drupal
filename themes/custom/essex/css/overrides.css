@@ -361,6 +361,21 @@ input[type="submit"] {
   border-color: var(--color-black);
 }
 
+/* Step by step navigation */
+
+.block-views-blocklocalgov-step-by-step-navigation-steps-for-overview,
+.block-views-blocklocalgov-step-by-step-navigation-steps {
+  padding-right: var(--spacing-padding-horizontal);
+  padding-left: var(--spacing-padding-horizontal);
+  max-width: var(--width-container);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.step-by-step-pages {
+  max-width: 48rem;
+}
+
 .step-by-step-pages ol.step-list .step .step__title a {
   color: var(--color-link);
   display: inline-block;
@@ -370,6 +385,7 @@ input[type="submit"] {
 .step-by-step-pages ol.step-list .step .step__title .step-show {
   display: block;
 }
+
 
 .banner--primary .field--name-localgov-title {
   font-weight: var(--font-semibold);
