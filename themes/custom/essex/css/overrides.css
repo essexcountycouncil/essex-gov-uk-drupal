@@ -683,6 +683,11 @@ h1:after,
   text-decoration: none;
 }
 
+/* Search results page */
+#cludo-search-results {
+  max-width: var(--page-title-width);
+}
+
 /* Search results page pagination */
 #cludo-search-results .search_page_list .active,
 #cludo-search-results .search_page_list a {
