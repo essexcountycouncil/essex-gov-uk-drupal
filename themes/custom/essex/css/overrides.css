@@ -1216,3 +1216,8 @@ nav ul li a {
 #toolbar-administration * {
   z-index: 99999;
 }
+
+/* WYSIWYG */
+.field--name-body a {
+  display: inline;
+}
