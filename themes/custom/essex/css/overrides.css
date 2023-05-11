@@ -1107,7 +1107,6 @@ body:not(.path-frontpage) .cludo-search-form .form-submit:focus {
   block-size: auto;
   height: auto;
   object-fit: cover;
-  aspect-ratio: 9/5;
   padding-bottom: var(--spacing-large);
 }
 
