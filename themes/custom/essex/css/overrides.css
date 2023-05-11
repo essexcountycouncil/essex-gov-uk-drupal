@@ -728,7 +728,7 @@ h1:after,
 }
 
 #cludo-search-results .search-results-item a:hover h2 {
-  text-decoration: none;
+  text-decoration-thickness: max(3px, 0.225rem, 0.12em);
 }
 
 #cludo-search-results .search-results-item p {
