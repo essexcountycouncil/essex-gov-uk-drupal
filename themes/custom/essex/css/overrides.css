@@ -109,7 +109,8 @@
 
 @media (max-width: 720px) {
   .lgd-region--hero .banner--primary .banner__content {
-    top: 0;
+    top: 50%;
+    transform: translate(0, -50%);
   }
 }
 
@@ -160,6 +161,7 @@
 .banner__content .cludo-search-block-search-form .form-item,
 .banner__content .cludo-search-block-search-form .form-submit {
   display: inline-block;
+  margin-bottom: 0;
 }
 
 .lgd-region--search .cludo-search-block-search-form .form-text {
@@ -191,7 +193,7 @@
   }
 
   .banner__image img {
-    min-height: 250px;
+    min-height: 280px;
   }
 }
 
@@ -1081,7 +1083,7 @@ body:not(.path-frontpage) .cludo-search-form .form-submit:focus {
 }
 
 .path-frontpage #cludo-search-block-search-form input[type="submit"] {
-  margin: 0 0 0 var(--spacing-smaller);
+  margin: 0 0 0 var(--spacing-smallest);
 }
 
 .path-frontpage #cludo-search-block-search-form input[type="text"] {
