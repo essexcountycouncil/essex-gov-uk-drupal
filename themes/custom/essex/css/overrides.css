@@ -37,6 +37,7 @@
   color: var(--color-white);
 }
 
+.localgov-alert-banner--notable-person .localgov-alert-banner__close:hover,
 .localgov-alert-banner--notable-person .localgov-alert-banner__close:focus {
   color: var(--color-black);
 }
@@ -269,10 +270,6 @@
   width: 100%;
   padding-block: clamp(0.45rem, 1.7vw, 0.7rem);
   padding-inline-end: clamp(0.45rem, 1.7vw, 0.7rem);
-}
-
-.lgd-guide-nav .lgd-guide-nav__list-item>a {
-  font-weight: var(--font-semibold);
 }
 
 .service-cta-block .service-cta-block__link--cta-info,
@@ -580,7 +577,8 @@ h1:after,
   border: 1px solid var(--color-black);
 }
 
-.lgd-guide-nav__list-item a {
+.lgd-guide-nav .lgd-guide-nav__list-item>a {
+  font-weight: var(--font-semibold);
   display: inline-block;
 }
 
