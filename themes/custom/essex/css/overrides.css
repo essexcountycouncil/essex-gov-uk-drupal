@@ -37,7 +37,6 @@
   color: var(--color-white);
 }
 
-.localgov-alert-banner--notable-person .localgov-alert-banner__close:hover,
 .localgov-alert-banner--notable-person .localgov-alert-banner__close:focus {
   color: var(--color-black);
 }
@@ -579,6 +578,10 @@ h1:after,
 .lgd-guide-nav {
   background-color: var(--color-white) !important;
   border: 1px solid var(--color-black);
+}
+
+.lgd-guide-nav__list-item a {
+  display: inline-block;
 }
 
 @media only screen and (min-width: 1024px) {
