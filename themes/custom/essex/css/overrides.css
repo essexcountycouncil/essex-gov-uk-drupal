@@ -273,10 +273,6 @@
   padding-inline-end: clamp(0.45rem, 1.7vw, 0.7rem);
 }
 
-.lgd-guide-nav .lgd-guide-nav__list-item>a {
-  font-weight: var(--font-semibold);
-}
-
 .service-cta-block .service-cta-block__link--cta-info,
 .service-cta-block .service-cta-block__link--cta-action {
   background-color: var(--btn-start-bg-color);
@@ -580,6 +576,11 @@ h1:after,
 .lgd-guide-nav {
   background-color: var(--color-white) !important;
   border: 1px solid var(--color-black);
+}
+
+.lgd-guide-nav .lgd-guide-nav__list-item>a {
+  font-weight: var(--font-semibold);
+  display: inline-block;
 }
 
 @media only screen and (min-width: 1024px) {
