@@ -33,7 +33,8 @@
 }
 
 .localgov-alert-banner--notable-person,
-.localgov-alert-banner--notable-person .localgov-alert-banner__close {
+.localgov-alert-banner--notable-person .localgov-alert-banner__close,
+.localgov-alert-banner--notable-person a {
   color: var(--color-white);
 }
 
