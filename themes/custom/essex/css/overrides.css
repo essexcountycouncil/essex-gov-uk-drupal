@@ -718,6 +718,10 @@ h1:after,
 }
 
 /* Search results item */
+#cludo-search-results .cludo-banner {
+  margin: 30px 0;
+}
+
 #cludo-search-results .search-results-item a {
   text-decoration: none;
 }
