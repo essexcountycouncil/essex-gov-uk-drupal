@@ -385,6 +385,15 @@ input[type="submit"] {
   display: block;
 }
 
+/* Step by step navigation sidebar */
+.sidebar .lgd-region__inner .step-by-step__navigation-sidebar {
+  background: #ededed;
+  border-width: 0.3125rem 0 0 0;
+  border-style: solid;
+  border-color: var(--color-accent);
+  margin: 0 0.5rem;
+}
+
 
 .banner--primary .field--name-localgov-title {
   font-weight: var(--font-semibold);
