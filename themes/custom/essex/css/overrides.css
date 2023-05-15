@@ -105,14 +105,8 @@
 .lgd-region--hero .banner--primary .banner__content {
   margin: 0;
   position: absolute;
-  top: 4em;
-}
-
-@media (max-width: 720px) {
-  .lgd-region--hero .banner--primary .banner__content {
-    top: 50%;
-    transform: translate(0, -50%);
-  }
+  top: 50%;
+  transform: translate(0, -50%);
 }
 
 .lgd-region--hero-content {
@@ -126,11 +120,9 @@
   padding: 0;
 }
 
-@media (min-width: 768px) and (max-width: 1230px) {
-  .path-frontpage .banner__content {
-    padding-right: var(--spacing-padding-horizontal);
-    padding-left: var(--spacing-padding-horizontal);
-  }
+.path-frontpage .banner__content {
+  padding-right: var(--spacing-padding-horizontal);
+  padding-left: var(--spacing-padding-horizontal);
 }
 
 .lgd-header .cludo-search-block-search-form [id^="cludo-search-block-search-form"] .form-item-search-keys {
@@ -185,10 +177,6 @@
 }
 
 @media only screen and (max-width: 768px) {
-  .banner--primary .banner__content {
-    padding: 2rem;
-  }
-
   .banner--primary .field--name-localgov-title {
     font-size: 2rem;
   }
