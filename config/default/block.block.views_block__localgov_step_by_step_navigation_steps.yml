@@ -5,9 +5,13 @@ dependencies:
   config:
     - views.view.localgov_step_by_step_navigation
   module:
+    - block_classes
     - views
   theme:
     - essex
+third_party_settings:
+  block_classes:
+    block_class: step-by-step__navigation-sidebar
 id: views_block__localgov_step_by_step_navigation_steps
 theme: essex
 region: sidebar_second
