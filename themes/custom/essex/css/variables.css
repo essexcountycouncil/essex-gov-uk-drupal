@@ -97,4 +97,9 @@ body {
   --table-border: none;
   --border-width-medium: 2px;
   --guide-nav-column-count: 1;
+
+  /**
+  Spacing
+*/
+  --spacing-jumbo: 3rem;
 }
