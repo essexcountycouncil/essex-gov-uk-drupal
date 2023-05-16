@@ -983,6 +983,10 @@ footer .lgd-footer__footer a {
 }
 
 /* Cookie page */
+.eu-cookie-compliance-categories {
+  margin-right: 0;
+}
+
 .eu-cookie-compliance-category {
   margin-bottom: 1.5rem;
 }

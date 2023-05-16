@@ -3,10 +3,14 @@ langcode: en
 status: true
 dependencies:
   module:
+    - block_classes
     - localgov_eu_cookie_compliance
     - system
   theme:
     - essex
+third_party_settings:
+  block_classes:
+    block_class: node__restricted-width-section
 _core:
   default_config_hash: jbXexLitxSKmYHd94c_MxmymM6bi5L1LTMoUjcdtNgI
 id: eucookiesettingsblock
