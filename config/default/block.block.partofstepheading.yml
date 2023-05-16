@@ -1,0 +1,28 @@
+uuid: 94389430-384e-4eff-b3da-3294ca6ba53b
+langcode: en
+status: true
+dependencies:
+  module:
+    - localgov_step_by_step
+    - node
+  theme:
+    - essex
+id: partofstepheading
+theme: essex
+region: content_top
+weight: 0
+provider: null
+plugin: step_part_of_block
+settings:
+  id: step_part_of_block
+  label: 'Part of step heading'
+  label_display: '0'
+  provider: localgov_step_by_step
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      localgov_step_by_step_page: localgov_step_by_step_page

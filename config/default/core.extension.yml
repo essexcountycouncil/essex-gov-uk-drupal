@@ -7,6 +7,7 @@ module:
   automated_cron: 0
   autosave_form: 0
   block: 0
+  block_classes: 0
   block_content: 0
   breakpoint: 0
   ckeditor: 0
@@ -31,6 +32,7 @@ module:
   diff: 0
   dynamic_entity_reference: 0
   dynamic_page_cache: 0
+  ecc_cludo_search: 0
   ecc_content_moderation: 0
   ecc_cookie_compliance: 0
   ecc_menu: 0

@@ -33,7 +33,8 @@
 }
 
 .localgov-alert-banner--notable-person,
-.localgov-alert-banner--notable-person .localgov-alert-banner__close {
+.localgov-alert-banner--notable-person .localgov-alert-banner__close,
+.localgov-alert-banner--notable-person a {
   color: var(--color-white);
 }
 
@@ -104,13 +105,8 @@
 .lgd-region--hero .banner--primary .banner__content {
   margin: 0;
   position: absolute;
-  top: 4em;
-}
-
-@media (max-width: 720px) {
-  .lgd-region--hero .banner--primary .banner__content {
-    top: 0;
-  }
+  top: 50%;
+  transform: translate(0, -50%);
 }
 
 .lgd-region--hero-content {
@@ -124,11 +120,9 @@
   padding: 0;
 }
 
-@media (min-width: 768px) and (max-width: 1230px) {
-  .path-frontpage .banner__content {
-    padding-right: var(--spacing-padding-horizontal);
-    padding-left: var(--spacing-padding-horizontal);
-  }
+.path-frontpage .banner__content {
+  padding-right: var(--spacing-padding-horizontal);
+  padding-left: var(--spacing-padding-horizontal);
 }
 
 .lgd-header .cludo-search-block-search-form [id^="cludo-search-block-search-form"] .form-item-search-keys {
@@ -160,6 +154,7 @@
 .banner__content .cludo-search-block-search-form .form-item,
 .banner__content .cludo-search-block-search-form .form-submit {
   display: inline-block;
+  margin-bottom: 0;
 }
 
 .lgd-region--search .cludo-search-block-search-form .form-text {
@@ -182,16 +177,12 @@
 }
 
 @media only screen and (max-width: 768px) {
-  .banner--primary .banner__content {
-    padding: 2rem;
-  }
-
   .banner--primary .field--name-localgov-title {
     font-size: 2rem;
   }
 
   .banner__image img {
-    min-height: 250px;
+    min-height: 280px;
   }
 }
 
@@ -268,10 +259,6 @@
   width: 100%;
   padding-block: clamp(0.45rem, 1.7vw, 0.7rem);
   padding-inline-end: clamp(0.45rem, 1.7vw, 0.7rem);
-}
-
-.lgd-guide-nav .lgd-guide-nav__list-item>a {
-  font-weight: var(--font-semibold);
 }
 
 .service-cta-block .service-cta-block__link--cta-info,
@@ -361,6 +348,21 @@ input[type="submit"] {
   border-color: var(--color-black);
 }
 
+/* Step by step navigation */
+
+.block-views-blocklocalgov-step-by-step-navigation-steps-for-overview,
+.block-views-blocklocalgov-step-by-step-navigation-steps {
+  padding-right: var(--spacing-padding-horizontal);
+  padding-left: var(--spacing-padding-horizontal);
+  max-width: var(--width-container);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.step-by-step-pages {
+  max-width: 48rem;
+}
+
 .step-by-step-pages ol.step-list .step .step__title a {
   color: var(--color-link);
   display: inline-block;
@@ -370,6 +372,16 @@ input[type="submit"] {
 .step-by-step-pages ol.step-list .step .step__title .step-show {
   display: block;
 }
+
+/* Step by step navigation sidebar */
+.sidebar .lgd-region__inner .step-by-step__navigation-sidebar {
+  background: #ededed;
+  border-width: 0.3125rem 0 0 0;
+  border-style: solid;
+  border-color: var(--color-accent);
+  margin: 0 0.5rem;
+}
+
 
 .banner--primary .field--name-localgov-title {
   font-weight: var(--font-semibold);
@@ -563,6 +575,11 @@ h1:after,
   border: 1px solid var(--color-black);
 }
 
+.lgd-guide-nav .lgd-guide-nav__list-item>a {
+  font-weight: var(--font-semibold);
+  display: inline-block;
+}
+
 @media only screen and (min-width: 1024px) {
   .lgd-guide-nav__list-item {
     margin-right: var(--spacing-large);
@@ -700,6 +717,10 @@ h1:after,
 }
 
 /* Search results item */
+#cludo-search-results .cludo-banner {
+  margin: 30px 0;
+}
+
 #cludo-search-results .search-results-item a {
   text-decoration: none;
 }
@@ -710,7 +731,7 @@ h1:after,
 }
 
 #cludo-search-results .search-results-item a:hover h2 {
-  text-decoration: none;
+  text-decoration-thickness: max(3px, 0.225rem, 0.12em);
 }
 
 #cludo-search-results .search-results-item p {
@@ -974,6 +995,10 @@ footer .lgd-footer__footer a {
   display: inline-block;
 }
 
+.eu-cookie-compliance-content {
+  max-width: none;
+}
+
 /* Search */
 
 .lgd-region--search {
@@ -1065,7 +1090,7 @@ body:not(.path-frontpage) .cludo-search-form .form-submit:focus {
 }
 
 .path-frontpage #cludo-search-block-search-form input[type="submit"] {
-  margin: 0 0 0 var(--spacing-smaller);
+  margin: 0 0 0 var(--spacing-smallest);
 }
 
 .path-frontpage #cludo-search-block-search-form input[type="text"] {
@@ -1091,7 +1116,6 @@ body:not(.path-frontpage) .cludo-search-form .form-submit:focus {
   block-size: auto;
   height: auto;
   object-fit: cover;
-  aspect-ratio: 9/5;
   padding-bottom: var(--spacing-large);
 }
 
