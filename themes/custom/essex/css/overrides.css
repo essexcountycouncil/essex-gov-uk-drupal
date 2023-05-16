@@ -995,6 +995,10 @@ footer .lgd-footer__footer a {
   display: inline-block;
 }
 
+.eu-cookie-compliance-content {
+  max-width: none;
+}
+
 /* Search */
 
 .lgd-region--search {
