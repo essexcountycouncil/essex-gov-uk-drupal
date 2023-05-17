@@ -479,6 +479,10 @@ h1:after,
   margin-top: var(--spacing-large);
 }
 
+.media-with-text__media {
+  min-width: 55%;
+}
+
 .media-with-text--featured {
   position: relative;
   overflow: hidden;
