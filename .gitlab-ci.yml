@@ -290,7 +290,7 @@ deploy-to-prod:
                 volumeName: filesharevol
               env:
               - name: X_ROBOTS_TAG
-                value: noindex
+                value: all
               - name: LIMITED_BETA_MODE
                 value: 0
               probes:
