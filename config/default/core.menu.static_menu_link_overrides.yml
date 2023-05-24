@@ -8,9 +8,9 @@ definitions:
     expanded: false
     enabled: true
   entity__localgov_directories_facets__collection:
-    weight: 2
     menu_name: admin
     parent: system.admin_content
+    weight: 2
     expanded: false
     enabled: true
   'admin_toolbar_tools__extra_links:view__files':
@@ -32,26 +32,26 @@ definitions:
     expanded: false
     enabled: true
   entity__content_owner_sme__collection:
-    weight: 7
     menu_name: admin
     parent: system.admin_content
+    weight: 7
     expanded: false
     enabled: true
   paragraphs_library__paragraphs_library_item__collection:
-    weight: 8
     menu_name: admin
     parent: system.admin_content
+    weight: 8
     expanded: false
     enabled: true
   redirect__list:
-    weight: 9
     menu_name: admin
     parent: system.admin_content
+    weight: 9
     expanded: false
     enabled: true
   'admin_toolbar_tools__extra_links:entity__menu__edit_form__footer':
-    weight: 11
     menu_name: admin
     parent: system.admin_content
+    weight: 11
     expanded: false
     enabled: true
