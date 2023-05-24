@@ -369,7 +369,7 @@ display:
           value:
             min: ''
             max: ''
-            value: '242'
+            value: '250'
           group: 1
           exposed: false
           expose:

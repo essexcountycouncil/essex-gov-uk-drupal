@@ -60,6 +60,7 @@ module:
   geofield_map: 0
   geolocation: 0
   geolocation_google_maps: 0
+  geolocation_search_api: 0
   google_tag: 0
   health_check_url: 0
   help: 0
@@ -153,6 +154,9 @@ module:
   search_api: 0
   search_api_autocomplete: 0
   search_api_db: 0
+  search_api_location: 0
+  search_api_location_geocoder: 0
+  search_api_location_views: 0
   simple_sitemap: 0
   system: 0
   tablefield: 0
