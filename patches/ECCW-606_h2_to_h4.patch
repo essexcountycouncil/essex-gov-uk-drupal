@@ -1,0 +1,14 @@
+diff --git a/templates/eu-cookie-compliance-popup-info--cookie-settings-block.html.twig b/templates/eu-cookie-compliance-popup-info--cookie-settings-block.html.twig
+index 0545213..9a29094 100644
+--- a/templates/eu-cookie-compliance-popup-info--cookie-settings-block.html.twig
++++ b/templates/eu-cookie-compliance-popup-info--cookie-settings-block.html.twig
+@@ -51,7 +51,7 @@
+       <div id="eu-cookie-compliance-categories" class="eu-cookie-compliance-categories">
+         {% for key, category in cookie_categories %}
+           <div class="eu-cookie-compliance-category">
+-            <h2>{{ category.label }}</h2>
++            <h4>{{ category.label }}</h4>
+ 
+             {% if category.description %}
+               <div class="eu-cookie-compliance-category-description">{{ category.description }}</div>
+
