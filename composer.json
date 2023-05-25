@@ -67,6 +67,7 @@
         "wa72/htmlpagedom": "*"
     },
     "require-dev": {
+        "brainmaestro/composer-git-hooks": "^2.8",
         "brianium/paratest": "^6.0",
         "drupal/coder": "^8.3",
         "drupal/config_inspector": "^1.3",
@@ -162,6 +163,76 @@
                 "  * Remove the plugin that prints this message:",
                 "      composer remove drupal/core-project-message"
             ]
+        },
+        "hooks": {
+            "config": {
+                "stop-on-failure": [
+                    "pre-push"
+                ]
+            },
+            "commit-msg": [
+                "# Get the commit message",
+                "COMMIT_MESSAGE=$(cat \"$1\")",
+                "# Define the regex pattern for the Jira ticket number and message format.",
+                "PATTERN=\"^[A-Z]+-[0-9]+: .+$\"",
+                "# Initialize a flag for errors",
+                "ERROR=0",
+                "# Check if the commit message length is within limits.",
+                "if [ ${#COMMIT_MESSAGE} -gt 72 ]; then",
+                "  echo \"Commit message is too long. It should not be more than 100 characters.\"",
+                "  ERROR=1",
+                "fi",
+                "# Check if the commit message matches the pattern.",
+                "if [[ ! ${COMMIT_MESSAGE} =~ ${PATTERN} ]]; then",
+                "  echo \"Invalid commit message format. Please follow the format: JIRA-123: This is a proper sentence.\"",
+                "  ERROR=1",
+                "fi",
+                "# If there's an error, exit with a non-zero status.",
+                "if [ ${ERROR} -eq 1 ]; then",
+                "  exit 1",
+                "fi",
+                "# If everything is fine, allow the commit to proceed.",
+                "exit 0"
+            ],
+            "pre-commit": [
+                "# A fork of a fork (https://gist.github.com/lolandese/84173dbcfbcde534e7cd84a2f4a0b7b2)",
+                "# which has been tweaked to work with cghooks.",
+                "# Work only with staged files to be processed by phpcs.",
+                "FILES=\"$(git diff --staged --name-only HEAD --diff-filter=ACMRUXB)\"",
+                "#Loop over those files with phpcs.",
+                "echo \"Running PHP lint check\" >&2",
+                "LINT_FAIL=0",
+                "for filename in $FILES; do",
+                "  if ! php -l $filename; then",
+                "    LINT_FAIL=1",
+                "  fi",
+                "done;",
+                "# There is no point in running PHP Code Sniffer on broken files.",
+                "if [ $LINT_FAIL -gt 0 ]; then",
+                "  echo \"Commit aborted. Fix your code. Then 'git add' and 'git commit' again.\"",
+                "  exit 1",
+                "fi",
+                "echo \"Running PHP Code Sniffer Checks\" >&2",
+                "echo $FILES | xargs bin/phpcs --standard=Drupal --extensions=php,module,inc,install,test,profile,theme,css,info,txt --ignore=node_modules,bower_components,vendor,*.md",
+                "if [ $? -eq 0 ]; then",
+                " # Exit executing the git commit.",
+                " exit 0",
+                "else",
+                "  # Ask what to do, not executing the commit. Source: https://unix.stackexchange.com/a/121255/139407",
+                "  read -p \"Fix the marked Sniff violations automatically [Y/n]?\" line </dev/tty",
+                "  case \"$line\" in",
+                "    y|Y) echo $FILES | xargs bin/phpcbf --standard=Drupal --extensions=php,module,inc,install,test,profile,theme,css,info,txt --ignore=node_modules,bower_components,vendor,*.md",
+                "      ;;",
+                "    *) echo \"No automatic corrections made.\"",
+                "      ;;",
+                "  esac",
+                "  echo \"Commit aborted. Make remaining manual code fixes if necessary. Then 'git add' and 'git commit' again.\"",
+                "  exit 1",
+                "fi"
+            ],
+            "pre-push": [
+                "echo pushing as $(git config user.name)"
+            ]
         }
     },
     "scripts": {
@@ -171,14 +242,17 @@
         "pre-update-cmd": [
             "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
         ],
-        "post-install-cmd": "@drupal-build",
+        "post-install-cmd": [
+            "@drupal-build",
+            "@cghooks add"
+        ],
         "post-update-cmd": "@drupal-build",
         "drupal-build": [
             "Composer\\Config::disableProcessTimeout",
             "@prepare-filesystem-for-update",
             "DrupalProject\\composer\\ScriptHandler::createRequiredFiles",
             "@secure-site",
-            "[ -h vendor/bin/cghooks -a -w ../.git ] && vendor/bin/cghooks --git-dir=../.git update; true"
+            "@cghooks update"
         ],
         "update-drupal": [
             "Composer\\Config::disableProcessTimeout",
@@ -204,11 +278,12 @@
         ],
         "checker-drupal": "bin/drupal-check -ad web/modules/custom web/themes/custom",
         "phpunit-modules": "sudo -u www-data -E vendor/bin/phpunit -v --debug modules",
-        "cghooks": "[ -h vendor/bin/cghooks -a -w ../.git ] && vendor/bin/cghooks --git-dir=../.git",
+        "cghooks": "bin/cghooks",
         "phpcbf": "bin/phpcbf --standard=Drupal,DrupalPractice web/modules/custom",
         "tests-required": [
             "composer validate",
-            "composer checker-security"
+            "composer checker-security",
+            "composer checker-php-lint"
         ]
     }
 }
