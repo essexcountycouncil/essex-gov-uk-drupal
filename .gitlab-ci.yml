@@ -56,7 +56,7 @@ deploy-to-dev:
     - job: build-and-push-images
   environment:
     name: development
-    url: https://essex-gov.nomensa.xyz/
+    url: https://dev.essex-gov.nomensa.xyz/
   before_script:
     - az extension add --name containerapp
     - az login --service-principal -u${ARM_CLIENT_ID} -p${ARM_CLIENT_SECRET} -t${ARM_TENANT_ID}
@@ -95,6 +95,8 @@ deploy-to-dev:
               env:
               - name: X_ROBOTS_TAG
                 value: noindex
+              - name: CANONICAL_HOST
+                value: dev.essex-gov.nomensa.xyz
               probes:
               - type: liveness
                 httpGet:
@@ -160,7 +162,7 @@ deploy-to-preprod:
   needs: ["deploy-to-dev"]
   environment:
     name: preproduction
-    url: https://essex-gov-pp.nomensa.xyz/
+    url: https://preprod.essex-gov.nomensa.xyz/
   before_script:
     - az extension add --name containerapp
     - az login --service-principal -u${ARM_CLIENT_ID} -p${ARM_CLIENT_SECRET} -t${ARM_TENANT_ID}
@@ -194,6 +196,8 @@ deploy-to-preprod:
               env:
               - name: X_ROBOTS_TAG
                 value: noindex
+              - name: CANONICAL_HOST
+                value: preprod.essex-gov.nomensa.xyz
               - name: LIMITED_BETA_MODE
                 value: 0
               probes:
@@ -293,6 +297,8 @@ deploy-to-prod:
                 value: all
               - name: LIMITED_BETA_MODE
                 value: 0
+              - name: CANONICAL_HOST
+                value: beta.essex.gov.uk
               probes:
               - type: liveness
                 httpGet:
