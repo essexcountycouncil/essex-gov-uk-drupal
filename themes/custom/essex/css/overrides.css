@@ -1254,3 +1254,9 @@ nav ul li a {
 .field--name-body a {
   display: inline;
 }
+
+/* Wrap long email addresses. */
+.lgd-region--content a {
+  word-break: normal;
+  overflow-wrap: break-word;
+}
