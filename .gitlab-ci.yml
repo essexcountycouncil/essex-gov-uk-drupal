@@ -95,8 +95,6 @@ deploy-to-dev:
               env:
               - name: X_ROBOTS_TAG
                 value: noindex
-              - name: CANONICAL_HOST
-                value: dev.essex-gov.nomensa.xyz
               probes:
               - type: liveness
                 httpGet:
@@ -297,8 +295,6 @@ deploy-to-prod:
                 value: all
               - name: LIMITED_BETA_MODE
                 value: 0
-              - name: CANONICAL_HOST
-                value: beta.essex.gov.uk
               probes:
               - type: liveness
                 httpGet:
