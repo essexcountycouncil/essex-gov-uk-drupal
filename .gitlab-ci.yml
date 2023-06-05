@@ -293,6 +293,8 @@ deploy-to-prod:
               env:
               - name: X_ROBOTS_TAG
                 value: all
+              - name: CANONICAL_HOST
+                value: www.essex.gov.uk
               - name: LIMITED_BETA_MODE
                 value: 0
               probes:
