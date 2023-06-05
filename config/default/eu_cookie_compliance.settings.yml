@@ -17,7 +17,7 @@ mobile_popup_info:
   format: wysiwyg
 popup_info_template: new
 popup_agree_button_message: Accept
-popup_more_info_button_message: 'No, manage my settings'
+popup_more_info_button_message: 'No, manage cookie settings'
 mobile_breakpoint: 768
 popup_agreed_enabled: false
 popup_hide_agreed: false
@@ -54,9 +54,9 @@ cookie_name: ''
 exclude_uid_1: false
 better_support_for_screen_readers: false
 method: categories
-disabled_javascripts: 'google_analytics:modules/contrib/localgov_eu_cookie_compliance/js/deferred-ga-script-runner.js'
+disabled_javascripts: ''
 automatic_cookies_removal: true
-allowed_cookies: "analytics_cookies:_ga*\r\nanalytics_cookies:_ga"
+allowed_cookies: "analytics_cookies:_ga*\r\nanalytics_cookies:_ga\r\nanalytics_cookies:_hj*\r\nanalytics_cookies:hj*"
 consent_storage_method: do_not_store
 withdraw_message:
   value: "<h2>We use cookies on this site to enhance your user experience</h2>\r\n\r\n<p>You have given your consent for us to set cookies.</p>\r\n"

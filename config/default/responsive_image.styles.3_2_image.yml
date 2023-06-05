@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - image.style.large_3_2_2x
     - image.style.large_3_2_768x512
     - image.style.small_360x200
   module:
@@ -13,11 +12,6 @@ _core:
 id: 3_2_image
 label: '3:2 Image'
 image_style_mappings:
-  -
-    image_mapping_type: image_style
-    image_mapping: large_3_2_2x
-    breakpoint_id: localgov_media.bootstrap4_md_768px
-    multiplier: 1x
   -
     image_mapping_type: image_style
     image_mapping: large_3_2_768x512

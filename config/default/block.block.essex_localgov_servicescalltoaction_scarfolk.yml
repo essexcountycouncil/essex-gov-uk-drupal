@@ -11,7 +11,7 @@ _core:
 id: essex_localgov_servicescalltoaction_scarfolk
 theme: essex
 region: content_top
-weight: -9
+weight: -11
 provider: null
 plugin: localgov_service_cta_block
 settings:

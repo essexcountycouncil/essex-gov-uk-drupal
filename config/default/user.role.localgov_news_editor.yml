@@ -29,6 +29,7 @@ dependencies:
   module:
     - content_moderation
     - entity_hierarchy
+    - localgov_alert_banner
     - media
     - node
     - paragraphs
@@ -53,11 +54,14 @@ is_admin: null
 permissions:
   - 'access content overview'
   - 'access in-place editing'
+  - 'access localgov alert banner listing page'
   - 'access media overview'
   - 'access responsive preview'
   - 'access toolbar'
+  - 'add scheduled transitions localgov_alert_banner localgov_alert_banner'
   - 'add scheduled transitions node localgov_news_article'
   - 'add scheduled transitions node localgov_newsroom'
+  - 'add scheduled transitions node localgov_subsites_overview'
   - 'administer redirects'
   - 'create document media'
   - 'create image media'
@@ -66,6 +70,7 @@ permissions:
   - 'create remote_video media'
   - 'create url aliases'
   - 'delete any localgov_news_article content'
+  - 'delete any media'
   - 'delete own media'
   - 'edit any image media'
   - 'edit any localgov_news_article content'
@@ -93,10 +98,12 @@ permissions:
   - 'edit own remote_video media'
   - 'edit paragraph library item'
   - 'generate preview links'
+  - 'manage localgov alert banner localgov_alert_banner entities'
   - 'reorder entity_hierarchy children'
   - 'reschedule scheduled transitions localgov_alert_banner localgov_alert_banner'
   - 'reschedule scheduled transitions node localgov_news_article'
   - 'reschedule scheduled transitions node localgov_newsroom'
+  - 'reschedule scheduled transitions node localgov_subsites_overview'
   - 'revert localgov_news_article revisions'
   - 'revert localgov_newsroom revisions'
   - 'revert localgov_subsites_overview revisions'
@@ -112,9 +119,13 @@ permissions:
   - 'use localgov_editorial transition publish'
   - 'use localgov_editorial transition reject'
   - 'use localgov_editorial transition submit_for_review'
+  - 'view all localgov alert banner entity pages'
   - 'view all localgov_news_article revisions'
   - 'view all scheduled transitions'
+  - 'view any unpublished content'
   - 'view any unpublished localgov_news_article content'
+  - 'view latest version'
+  - 'view localgov alert banner localgov_alert_banner pages'
   - 'view localgov_directories_org revisions'
   - 'view localgov_directories_page revisions'
   - 'view localgov_directories_venue revisions'
@@ -137,7 +148,9 @@ permissions:
   - 'view own unpublished content'
   - 'view own unpublished localgov_news_article content'
   - 'view own unpublished media'
+  - 'view scheduled transitions localgov_alert_banner localgov_alert_banner'
   - 'view scheduled transitions node localgov_news_article'
   - 'view scheduled transitions node localgov_newsroom'
+  - 'view scheduled transitions node localgov_subsites_overview'
   - 'view the administration theme'
   - 'view unpublished paragraphs'

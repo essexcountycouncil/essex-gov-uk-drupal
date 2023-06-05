@@ -1,0 +1,12 @@
+<?php
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function ecc_content_moderation_form_content_moderation_entity_moderation_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  /** @var \Drupal\ecc_content_moderation\Service\FormAlter $form_alter_service */
+  $form_alter_service = \Drupal::service('ecc_content_moderation.form_alter');
+  $form_alter_service->accessPermission($form, 'view entity moderation form');
+}

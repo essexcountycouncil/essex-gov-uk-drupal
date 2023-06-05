@@ -15,8 +15,8 @@ provider: null
 plugin: cludo_search
 settings:
   id: cludo_search
-  label: 'Cludo Search block'
-  label_display: '0'
+  label: Search
+  label_display: visible
   provider: cludo_search
 visibility:
   request_path:

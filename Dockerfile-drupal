@@ -86,6 +86,9 @@ WORKDIR /drupal
 
 RUN sed -i 's;listen = /run/php/php8.1-fpm.sock;listen = 9000;' /etc/php/8.1/fpm/pool.d/www.conf
 RUN echo "clear_env = no" >> /etc/php/8.1/fpm/pool.d/www.conf
+RUN echo "catch_workers_output = yes" >> /etc/php/8.1/fpm/pool.d/www.conf
+RUN echo "decorate_workers_output = no" >> /etc/php/8.1/fpm/pool.d/www.conf
+RUN echo "php_admin_flag[fastcgi.logging] = off\nphp_admin_flag[log_errors] = on\nphp_admin_value[error_log] = /proc/self/fd/2\n[global]\nerror_log = /proc/self/fd/2" >> /etc/php/8.1/fpm/pool.d/www.conf
 RUN echo 'extension="memcached.so"' >> /etc/php/8.1/fpm/conf.d/20-memcached.ini
 RUN sed -i 's;expose_php = on;expose_php = off;' /etc/php/8.1/fpm/php.ini && mkdir -p /run/php
 RUN sed -i 's;memory_limit = 128M;memory_limit = 384M;' /etc/php/8.1/fpm/php.ini

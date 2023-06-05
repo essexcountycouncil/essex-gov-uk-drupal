@@ -31,6 +31,7 @@ dependencies:
     - content_ownership
     - entity_browser
     - entity_hierarchy
+    - entity_usage
     - localgov_alert_banner
     - localgov_directories
     - media
@@ -57,6 +58,7 @@ weight: -4
 is_admin: null
 permissions:
   - 'access content overview'
+  - 'access entity usage statistics'
   - 'access in-place editing'
   - 'access localgov alert banner listing page'
   - 'access media overview'
@@ -64,6 +66,7 @@ permissions:
   - 'access paragraphs_library_items entity browser pages'
   - 'access responsive preview'
   - 'access toolbar'
+  - 'access webform overview'
   - 'add content owner/sme entity'
   - 'add scheduled transitions localgov_alert_banner localgov_alert_banner'
   - 'add scheduled transitions node localgov_directories_org'
@@ -97,16 +100,22 @@ permissions:
   - 'create localgov_newsroom content'
   - 'create localgov_services_landing content'
   - 'create localgov_services_page content'
+  - 'create localgov_step_by_step_overview content'
+  - 'create localgov_step_by_step_page content'
   - 'create localgov_subsites_overview content'
   - 'create media'
   - 'create paragraph library item'
   - 'create remote_video media'
   - 'create url aliases'
+  - 'create webform'
   - 'delete any localgov_guides_overview content'
   - 'delete any localgov_guides_page content'
   - 'delete any localgov_news_article content'
   - 'delete any localgov_services_landing content'
   - 'delete any localgov_services_page content'
+  - 'delete any localgov_step_by_step_overview content'
+  - 'delete any localgov_step_by_step_page content'
+  - 'delete any media'
   - 'delete content owner/sme entity'
   - 'edit any document media'
   - 'edit any image media'

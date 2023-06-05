@@ -9,7 +9,7 @@ dependencies:
 id: guidecontents
 theme: essex
 region: content_top
-weight: -10
+weight: -12
 provider: null
 plugin: localgov_guides_contents
 settings:

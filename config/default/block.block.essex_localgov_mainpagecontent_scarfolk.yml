@@ -11,7 +11,7 @@ _core:
 id: essex_localgov_mainpagecontent_scarfolk
 theme: essex
 region: content
-weight: -11
+weight: -12
 provider: null
 plugin: system_main_block
 settings:

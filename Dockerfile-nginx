@@ -1,16 +1,6 @@
-FROM docker.io/nginx:1.22 as nginx-drupal
+FROM nginx
 
-RUN apt-get update \
-  && apt-get install -y \
-  wget \
-  && mkdir -p /drupal/web/sites/default/files \
-  && echo "Server running" > /drupal/web/index.html \
-  && usermod -d /drupal www-data
-
-RUN chown -hR 33:33 /drupal
-
+ENV X_ROBOTS_TAG="none"
+ENV LIMITED_BETA_MODE="0"
 COPY --chown=www-data:www-data --from=portal-drupal-fpm /drupal /drupal
-
-COPY nginx-conf/nginx.conf /etc/nginx/nginx.conf
-
-EXPOSE 80
+COPY nginx-conf/nginx.conf /etc/nginx/templates/default.conf.template

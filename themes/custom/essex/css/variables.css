@@ -76,6 +76,8 @@ body {
   --banner-content-bg-color: var(--color-white);
   --banner-content-text-color: var(--color-black);
   --service-statuses-container-bg-color: #4179aa;
+  --header-search-button-color-hover: var(--color-black);
+
   /**
     Font-weight
   */
@@ -94,4 +96,10 @@ body {
   --banner-title-size: var(--font-size-largest);
   --table-border: none;
   --border-width-medium: 2px;
+  --guide-nav-column-count: 1;
+
+  /**
+  Spacing
+*/
+  --spacing-jumbo: 3rem;
 }

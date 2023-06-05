@@ -1,10 +1,10 @@
 _core:
   default_config_hash: t7clj3mzmOGrXX0HuCH5usf0vEqRtnMTBFVBIEmZ5pc
-first_day: 0
+first_day: 1
 country:
   default: ''
 timezone:
-  default: UTC
+  default: Europe/London
   user:
     configurable: true
     default: 0

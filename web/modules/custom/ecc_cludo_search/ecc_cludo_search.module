@@ -1,0 +1,11 @@
+<?php
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function ecc_cludo_search_form_cludo_search_search_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  $form['basic']['search_keys']['#title'] = t('Enter the terms you wish to search for');
+  $form['basic']['search_keys']['#title_display'] = 'invisible';
+}

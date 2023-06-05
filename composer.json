@@ -38,8 +38,10 @@
         "composer/installers": "^1.10",
         "cweagans/composer-patches": "^1.6",
         "drupal/autosave_form": "^1.4",
+        "drupal/block_classes": "^1.0",
         "drupal/ckeditor_div_manager": "^2.0",
         "drupal/cludo_search": "^1.0@beta",
+        "drupal/config_ignore": "^2.4",
         "drupal/config_split": "^2.0@RC",
         "drupal/core-composer-scaffold": "^9.1",
         "drupal/core-project-message": "^9.1",
@@ -47,11 +49,15 @@
         "drupal/eu_cookie_compliance": "^1.24",
         "drupal/eu_cookie_compliance_gtm": "^1.0@alpha",
         "drupal/google_tag": "^1.6",
+        "drupal/health_check_url": "^3.1",
         "drupal/migmag": "^1.8",
         "drupal/migrate_plus": "^6.0",
         "drupal/migrate_process_markdown_to_html": "^1",
+        "drupal/monolog": "^2.2",
         "drupal/permissions_filter": "^1.3",
+        "drupal/single_content_sync": "^1.3",
         "drupal/stage_file_proxy": "^2.0",
+        "drupal/structure_sync": "^2.0",
         "drupal/ultimate_cron": "^2.0@alpha",
         "essexcountycouncil/content_ownership": "dev-main",
         "localgovdrupal/localgov": "^2.0",
@@ -66,7 +72,9 @@
         "drupal/config_inspector": "^1.3",
         "drupal/core-dev": "^9.1",
         "drupal/webprofiler": "^9.0",
+        "mglaman/drupal-check": "^1.4",
         "mglaman/phpstan-drupal": "^1.0",
+        "php-parallel-lint/php-parallel-lint": "^1.3",
         "phpspec/prophecy-phpunit": "^2",
         "phpstan/phpstan": "^1.0",
         "phpstan/phpstan-deprecation-rules": "^1.0",
@@ -112,11 +120,8 @@
             "drupal/autosave_form": {
                 "Disable autosaving for layout builder pages": "https://www.drupal.org/files/issues/2022-03-22/3270955-2-layout_builder.patch"
             },
-            "localgovdrupal/localgov_base": {
-                "NULL check for secondary menu": "https://patch-diff.githubusercontent.com/raw/localgovdrupal/localgov_base/pull/382.patch"
-            },
-            "localgovdrupal/localgov_eu_cookie_compliance": {
-                "Improve spinner": "patches/localgov-cookie-compliance-0001.patch"
+            "drupal/health_check_url": {
+                "Fix PHP8.1 deprecation warning": "https://www.drupal.org/files/issues/2022-12-27/3294736-php-8-compatibility-5.patch"
             }
         },
         "drupal-scaffold": {
@@ -187,20 +192,20 @@
             "chmod 444 web/sites/default/default.*.yml",
             "chmod 444 web/sites/default/*.services.yml"
         ],
-        "checker-security": "vendor/bin/drush pm:security",
-        "checker-php-compatibility": "vendor/bin/phpcs --standard=vendor/phpcompatibility/php-compatibility/PHPCompatibility/ruleset.xml --runtime-set testVersion 7.2 src",
-        "checker-drupal": "vendor/bin/drupal-check -ad src",
-        "checker-drupal-3rd": "vendor/bin/drupal-check -ad web/themes web/modules",
-        "checker-php-lint": "vendor/bin/parallel-lint src",
-        "checker-phpmetrics": [
-            "mkdir -p data/phpmetrics",
-            "./vendor/bin/phpmetrics --report-html=data/phpmetrics --extensions=php,inc,module,theme,profile,install ./modules"
+        "phpcs": "bin/phpcs --standard=Drupal,DrupalPractice --ignore=*/node_modules/* web/modules/custom web/themes/custom",
+        "checker-php-lint": "bin/parallel-lint web/modules/custom",
+        "phpunit-unit": "bin/phpunit -v --debug -c phpunit-unit.xml",
+        "checker-security": [
+            "bin/drush pm:security",
+            "bin/drush pm:security-php"
         ],
+        "checker-drupal": "bin/drupal-check -ad web/modules/custom web/themes/custom",
         "phpunit-modules": "sudo -u www-data -E vendor/bin/phpunit -v --debug modules",
         "cghooks": "[ -h vendor/bin/cghooks -a -w ../.git ] && vendor/bin/cghooks --git-dir=../.git",
-        "phpcs": "vendor/bin/phpcs --standard=Drupal,DrupalPractice modules/custom",
-        "phpcbf": "vendor/bin/phpcbf --standard=Drupal,DrupalPractice modules/custom",
-        "phpcs-setup": "vendor/bin/phpcs --config-set installed_paths vendor/drupal/coder/coder_sniffer",
-        "composer-validate": "composer validate"
+        "phpcbf": "bin/phpcbf --standard=Drupal,DrupalPractice web/modules/custom",
+        "tests-required": [
+            "composer validate",
+            "composer checker-security"
+        ]
     }
 }

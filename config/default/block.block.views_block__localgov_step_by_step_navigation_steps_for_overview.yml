@@ -10,16 +10,17 @@ dependencies:
     - essex
 id: views_block__localgov_step_by_step_navigation_steps_for_overview
 theme: essex
-region: content
-weight: -10
+region: content_bottom
+weight: -11
 provider: null
 plugin: 'views_block:localgov_step_by_step_navigation-steps_for_overview'
 settings:
   id: 'views_block:localgov_step_by_step_navigation-steps_for_overview'
   label: ''
-  label_display: visible
+  label_display: '0'
   provider: views
-  context_mapping: {  }
+  context_mapping:
+    nid: '@node.node_route_context:node'
   views_label: ''
   items_per_page: none
 visibility: {  }

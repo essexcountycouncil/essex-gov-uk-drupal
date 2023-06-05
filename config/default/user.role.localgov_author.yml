@@ -30,6 +30,7 @@ dependencies:
     - content_ownership
     - entity_browser
     - entity_hierarchy
+    - entity_usage
     - localgov_alert_banner
     - localgov_directories
     - localgov_geo
@@ -56,6 +57,7 @@ weight: -5
 is_admin: null
 permissions:
   - 'access content overview'
+  - 'access entity usage statistics'
   - 'access in-place editing'
   - 'access localgov alert banner listing page'
   - 'access media overview'
