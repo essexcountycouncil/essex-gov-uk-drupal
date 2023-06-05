@@ -123,9 +123,6 @@
             },
             "drupal/health_check_url": {
                 "Fix PHP8.1 deprecation warning": "https://www.drupal.org/files/issues/2022-12-27/3294736-php-8-compatibility-5.patch"
-            },
-            "localgovdrupal/localgov_eu_cookie_compliance": {
-                "ECCW-606: Reverts h2 to h4.": "patches/ECCW-606_h2_to_h4.patch"
             }
         },
         "drupal-scaffold": {
