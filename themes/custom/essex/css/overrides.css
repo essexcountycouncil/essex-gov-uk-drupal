@@ -535,6 +535,10 @@ h1:after,
   display: inline-block;
 }
 
+.lgd-region--content .paragraph--type--localgov-contact a {
+  word-break: break-word;
+}
+
 /* RESPONSIVENESS */
 
 .lgd-page-section {
