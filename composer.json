@@ -177,7 +177,7 @@
                 "ERROR=0",
                 "# Check if the commit message length is within limits.",
                 "if [ ${#COMMIT_MESSAGE} -gt 72 ]; then",
-                "  echo \"Commit message is too long. It should not be more than 100 characters.\"",
+                "  echo \"Commit message is too long. It should not be more than 72 characters.\"",
                 "  ERROR=1",
                 "fi",
                 "# Check if the commit message matches the pattern.",
