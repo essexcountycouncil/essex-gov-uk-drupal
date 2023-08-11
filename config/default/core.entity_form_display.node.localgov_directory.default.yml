@@ -6,9 +6,13 @@ dependencies:
     - field.field.node.localgov_directory.body
     - field.field.node.localgov_directory.localgov_directory_channel_types
     - field.field.node.localgov_directory.localgov_directory_facets_enable
+    - field.field.node.localgov_directory.localgov_proximity_search_cfg
     - field.field.node.localgov_directory.localgov_services_parent
     - node.type.localgov_directory
+    - workflows.workflow.localgov_editorial
   module:
+    - content_moderation
+    - localgov_review_date
     - path
     - text
 _core:
@@ -46,6 +50,19 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  localgov_proximity_search_cfg:
+    type: boolean_checkbox
+    weight: 124
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  localgov_review_date:
+    type: review_date
+    weight: -5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   localgov_services_parent:
     type: entity_reference_autocomplete
     weight: 51
@@ -55,6 +72,12 @@ content:
       match_limit: 10
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  moderation_state:
+    type: moderation_state_default
+    weight: 100
+    region: content
+    settings: {  }
     third_party_settings: {  }
   path:
     type: path
@@ -100,5 +123,10 @@ content:
       match_limit: 10
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  url_redirects:
+    weight: 50
+    region: content
+    settings: {  }
     third_party_settings: {  }
 hidden: {  }

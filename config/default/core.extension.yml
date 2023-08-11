@@ -82,7 +82,6 @@ module:
   localgov_admin_theme_improvements: 0
   localgov_alert_banner: 0
   localgov_core: 0
-  localgov_demo: 0
   localgov_directories: 0
   localgov_directories_db: 0
   localgov_directories_location: 0
@@ -96,6 +95,7 @@ module:
   localgov_geo: 0
   localgov_geo_address: 0
   localgov_geo_area: 0
+  localgov_geo_update: 0
   localgov_guides: 0
   localgov_homepage_paragraphs: 0
   localgov_media: 0
