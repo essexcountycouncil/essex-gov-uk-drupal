@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "574a504da1bdcd95894eb2a931cac795",
+    "content-hash": "03cda3070b959feb8f15a1731e846953",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -4377,6 +4377,54 @@
                 "source": "git://git.drupal.org/project/facets.git",
                 "issues": "https://www.drupal.org/project/issues/facets",
                 "irc": "irc://irc.freenode.org/drupal-search-api"
+            }
+        },
+        {
+            "name": "drupal/fathom_analytics",
+            "version": "3.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/fathom_analytics.git",
+                "reference": "3.0.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/fathom_analytics-3.0.0.zip",
+                "reference": "3.0.0",
+                "shasum": "70d7cd1dc5d5f4bd3af777f69a3722e140271080"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "3.0.0",
+                    "datestamp": "1600331089",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Tina Mrak",
+                    "homepage": "https://www.drupal.org/u/tinamrak"
+                }
+            ],
+            "description": "Track your site with Fathom - a simple, privacy-focused website analytics platform.",
+            "homepage": "https://www.drupal.org/project/fathom_analytics",
+            "keywords": [
+                "Drupal"
+            ],
+            "support": {
+                "source": "http://cgit.drupalcode.org/fathom_analytics",
+                "issues": "http://drupal.org/project/issues/fathom_analytics"
             }
         },
         {
