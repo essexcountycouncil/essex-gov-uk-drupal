@@ -15,11 +15,14 @@ dependencies:
     - field.field.node.localgov_event.localgov_event_provider
     - field.field.node.localgov_event.localgov_event_venue
     - node.type.localgov_event
+    - workflows.workflow.localgov_editorial
   module:
+    - content_moderation
     - date_recur_modular
     - entity_browser
     - field_group
     - link
+    - localgov_review_date
     - media_library
     - path
     - text
@@ -118,7 +121,7 @@ content:
       rows: 9
       summary_rows: 3
       placeholder: ''
-      show_summary: false
+      show_summary: true
     third_party_settings: {  }
   created:
     type: datetime_timestamp
@@ -203,6 +206,18 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  localgov_review_date:
+    type: review_date
+    weight: -5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  moderation_state:
+    type: moderation_state_default
+    weight: 100
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   path:
     type: path
     weight: 14
@@ -247,5 +262,10 @@ content:
       match_limit: 10
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  url_redirects:
+    weight: 50
+    region: content
+    settings: {  }
     third_party_settings: {  }
 hidden: {  }
