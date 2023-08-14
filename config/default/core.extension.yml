@@ -46,6 +46,7 @@ module:
   entity_reference_revisions: 0
   entity_usage: 0
   facets: 0
+  fathom_analytics: 0
   field: 0
   field_formatter_class: 0
   field_group: 0
@@ -82,7 +83,6 @@ module:
   localgov_admin_theme_improvements: 0
   localgov_alert_banner: 0
   localgov_core: 0
-  localgov_demo: 0
   localgov_directories: 0
   localgov_directories_db: 0
   localgov_directories_location: 0

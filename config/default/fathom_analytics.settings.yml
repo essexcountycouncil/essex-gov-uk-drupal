@@ -1,0 +1,20 @@
+_core:
+  default_config_hash: ie9NKhxRjQce5sQnPj76jiUpy1zEx-ndS1d_Iq1UR_4
+site_id: HVSTNHSN
+custom_domain: ''
+tracking:
+  path_mode: '0'
+  path_pages: "/admin\r\n/admin/*\r\n/batch\r\n/node/add*\r\n/node/*/*\r\n/user/*/*"
+  role_mode: '0'
+  role_roles:
+    anonymous: 0
+    emergency_publisher: 0
+    localgov_news_editor: 0
+    analytics: 0
+    authenticated: 0
+    localgov_contributor: 0
+    localgov_author: 0
+    localgov_editor: 0
+    localgov_user_manager: 0
+    administrator: 0
+included_domains: ''
