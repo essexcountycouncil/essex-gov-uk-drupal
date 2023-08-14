@@ -4,12 +4,15 @@ status: true
 dependencies:
   config:
     - field.storage.localgov_geo.location
+    - field.storage.node.body
     - search_api.index.localgov_directories_index_default
   module:
     - geofield
     - leaflet_views
     - localgov_geo
     - search_api
+    - search_api_location_views
+    - text
 _core:
   default_config_hash: eN4zGMUiShe29x5JZoARS7Vsl_Jqsy9sCDbE13bH6pY
 id: localgov_directory_channel
@@ -273,6 +276,7 @@ display:
         - 'user.node_grants:view'
       tags:
         - 'config:search_api.index.localgov_directories_index_default'
+        - 'search_api_list:localgov_directories_index_default'
   embed_map:
     id: embed_map
     display_title: 'Embed: map'
@@ -481,6 +485,118 @@ display:
         options:
           offset: 0
       empty: {  }
+      filters:
+        search_api_fulltext:
+          id: search_api_fulltext
+          table: search_api_index_localgov_directories_index_default
+          field: search_api_fulltext
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_fulltext
+          operator: or
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: search_api_fulltext_op
+            label: Search
+            description: ''
+            use_operator: false
+            operator: search_api_fulltext_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: search_api_fulltext
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          parse_mode: terms
+          min_length: null
+          fields: {  }
+        localgov_location:
+          id: localgov_location
+          table: search_api_index_localgov_directories_index_default
+          field: localgov_location
+          relationship: none
+          group_type: group
+          admin_label: Proximity
+          plugin_id: search_api_location
+          operator: '<'
+          value:
+            value: ''
+            distance:
+              from: '-'
+              to: '-'
+          group: 1
+          exposed: true
+          expose:
+            operator_id: localgov_location_op
+            label: Location
+            description: ''
+            use_operator: false
+            operator: localgov_location_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: localgov_location
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              content_editor: '0'
+              administrator: '0'
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin: geocode
+          plugin-geocode:
+            plugins:
+              localgov_default_osm:
+                checked: '1'
+                weight: '0'
+            radius_type: select
+            radius_options: "- -\r\n1 1/2 mile\r\n2 1 mile\r\n3 2 miles\r\n5 3 miles\r\n8 5 miles\r\n16 10 miles"
+            radius_units: km
+          plugin-geocode_map:
+            radius_border_color: ''
+            radius_border_weight: ''
+            radius_background_color: ''
+            radius_background_transparency: ''
+            marker_image: ''
+          plugin-raw:
+            radius_type: select
+            radius_options: "- -\r\n1 1/2 mile\r\n2 1 mile\r\n3 2 miles\r\n5 3 miles\r\n8 5 miles\r\n16 10 miles"
+            radius_units: km
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
       style:
         type: leaflet_map
         options:
@@ -490,7 +606,6 @@ display:
           entity_source: __base_table
           entity_source_submit: 'Update Entity Source'
           name_field: title
-          description_field: search_api_rendered_item
           view_mode: full
           leaflet_map: 'OSM Mapnik'
           height: '400'
@@ -498,9 +613,6 @@ display:
           hide_empty_map: true
           disable_wheel: false
           gesture_handling: false
-          reset_map:
-            control: false
-            position: topright
           map_position:
             force: false
             center:
@@ -578,6 +690,8 @@ display:
         row: false
         relationships: false
         fields: false
+        filters: false
+        filter_groups: false
       relationships:
         localgov_location:
           id: localgov_location
@@ -602,6 +716,7 @@ display:
       tags:
         - 'config:field.storage.localgov_geo.location'
         - 'config:search_api.index.localgov_directories_index_default'
+        - 'search_api_list:localgov_directories_index_default'
   node_embed:
     id: node_embed
     display_title: Embed
@@ -622,3 +737,406 @@ display:
         - 'user.node_grants:view'
       tags:
         - 'config:search_api.index.localgov_directories_index_default'
+        - 'search_api_list:localgov_directories_index_default'
+  node_embed_for_proximity_search:
+    id: node_embed_for_proximity_search
+    display_title: 'Embed: Proximity search'
+    display_plugin: embed
+    position: 1
+    display_options:
+      fields:
+        title:
+          id: title
+          table: search_api_datasource_localgov_directories_index_default_entity_node
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          plugin_id: search_api_field
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: h2
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          field_rendering: false
+          fallback_handler: search_api
+          fallback_options:
+            link_to_item: true
+            use_highlighting: false
+            multi_type: separator
+            multi_separator: ', '
+        body:
+          id: body
+          table: search_api_datasource_localgov_directories_index_default_entity_node
+          field: body
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          plugin_id: search_api_field
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: text_summary_or_trimmed
+          settings:
+            trim_length: 600
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          field_rendering: true
+          fallback_handler: search_api
+          fallback_options:
+            link_to_item: false
+            use_highlighting: false
+            multi_type: separator
+            multi_separator: ', '
+        localgov_location_distance:
+          id: localgov_location_distance
+          table: search_api_index_localgov_directories_index_default
+          field: localgov_location_distance
+          relationship: none
+          group_type: group
+          admin_label: Proximity
+          plugin_id: search_api_numeric
+          label: ''
+          exclude: false
+          alter:
+            alter_text: true
+            text: '{{ (localgov_location_distance / 1.609) | round(1) }} miles'
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          set_precision: false
+          precision: 0
+          decimal: .
+          separator: ''
+          format_plural: false
+          format_plural_string: !!binary Aw==
+          prefix: ''
+          suffix: ''
+          link_to_item: false
+          use_highlighting: false
+          multi_type: separator
+          multi_separator: ', '
+          format_plural_values: {  }
+      cache:
+        type: none
+      sorts:
+        localgov_location_distance:
+          id: localgov_location_distance
+          table: search_api_index_localgov_directories_index_default
+          field: localgov_location_distance
+          relationship: none
+          group_type: group
+          admin_label: Proximity
+          plugin_id: search_api_location_distance
+          order: ASC
+          expose:
+            label: ''
+            field_identifier: ''
+          exposed: false
+        search_api_relevance:
+          id: search_api_relevance
+          table: search_api_index_localgov_directories_index_default
+          field: search_api_relevance
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: search_api_relevance
+          exposed: false
+        localgov_directory_title_sort:
+          id: localgov_directory_title_sort
+          table: search_api_index_localgov_directories_index_default
+          field: localgov_directory_title_sort
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: ''
+            field_identifier: localgov_directory_title_sort
+          exposed: false
+      filters:
+        search_api_fulltext:
+          id: search_api_fulltext
+          table: search_api_index_localgov_directories_index_default
+          field: search_api_fulltext
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_fulltext
+          operator: or
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: search_api_fulltext_op
+            label: Search
+            description: ''
+            use_operator: false
+            operator: search_api_fulltext_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: search_api_fulltext
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          parse_mode: terms
+          min_length: null
+          fields: {  }
+        localgov_location:
+          id: localgov_location
+          table: search_api_index_localgov_directories_index_default
+          field: localgov_location
+          relationship: none
+          group_type: group
+          admin_label: Proximity
+          plugin_id: search_api_location
+          operator: '<'
+          value:
+            value: ''
+            distance:
+              from: '-'
+              to: '-'
+          group: 1
+          exposed: true
+          expose:
+            operator_id: localgov_location_op
+            label: Location
+            description: 'Proximity from a given location.'
+            use_operator: false
+            operator: localgov_location_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: localgov_location
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              content_editor: '0'
+              administrator: '0'
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin: geocode
+          plugin-geocode:
+            plugins:
+              localgov_default_osm:
+                checked: '1'
+                weight: '0'
+            radius_type: select
+            radius_options: "- -\r\n1 1/2 mile\r\n2 1 mile\r\n3 2 miles\r\n5 3 miles\r\n8 5 miles\r\n16 10 miles"
+            radius_units: km
+          plugin-geocode_map:
+            radius_border_color: ''
+            radius_border_weight: ''
+            radius_background_color: ''
+            radius_background_transparency: ''
+            marker_image: ''
+          plugin-raw:
+            radius_type: select
+            radius_options: "- -\r\n1 1/2 mile\r\n2 1 mile\r\n3 2 miles\r\n5 3 miles\r\n8 5 miles\r\n16 10 miles"
+            radius_units: km
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      style:
+        type: default
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: true
+          uses_fields: false
+      row:
+        type: fields
+        options:
+          default_field_elements: true
+          inline: {  }
+          separator: ''
+          hide_empty: false
+      defaults:
+        cache: false
+        style: false
+        row: false
+        fields: false
+        sorts: false
+        filters: false
+        filter_groups: false
+      display_description: 'Proximity search for Directory entries'
+      display_comment: 'Solr''s distance calculation uses Kilometer as the unit by default.  The "Proximity" field uses the "Rewrite results" settings to display such distances in miles.  1 Mile is 1609 meter.'
+      display_extenders: {  }
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+        - 'user.node_grants:view'
+      tags:
+        - 'config:field.storage.node.body'
+        - 'config:search_api.index.localgov_directories_index_default'
+        - 'search_api_list:localgov_directories_index_default'
