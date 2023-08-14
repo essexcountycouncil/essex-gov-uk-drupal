@@ -50,8 +50,6 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-<<<<<<< HEAD
-=======
   localgov_proximity_search_cfg:
     type: boolean_checkbox
     weight: 124
@@ -59,7 +57,6 @@ content:
     settings:
       display_label: true
     third_party_settings: {  }
->>>>>>> 50780de9fd374945785d39c45077f6f0079cfbbc
   localgov_review_date:
     type: review_date
     weight: -5
@@ -132,9 +129,4 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-<<<<<<< HEAD
-hidden:
-  localgov_proximity_search_cfg: true
-=======
 hidden: {  }
->>>>>>> 50780de9fd374945785d39c45077f6f0079cfbbc
