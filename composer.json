@@ -128,6 +128,12 @@
             },
             "drupal/migmag": {
                 "Fix migmag_lookup exception when stubbing non-sql sources. See https://www.drupal.org/project/migmag/issues/3321292#comment-14785506": "https://www.drupal.org/files/issues/2022-11-14/migmag-remove_double_prepareRow-3321292_3.patch"
+            },
+            "localgovdrupal/localgov_services": {
+                "New parent bundles for ServicesSelection" : "patches/localgov_services.patch"
+            },
+            "localgovdrupal/localgov_subsites": {
+                "Show page heading block for subsites pages" : "patches/localgov_subsites.patch"
             }
         },
         "drupal-scaffold": {

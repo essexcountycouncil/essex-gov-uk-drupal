@@ -676,6 +676,7 @@ display:
               zoom: 16
               popup: false
               options: ''
+          description_field: search_api_rendered_item
       row:
         type: search_api
         options:

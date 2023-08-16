@@ -7,13 +7,15 @@ dependencies:
     - node.type.localgov_services_landing
     - node.type.localgov_services_sublanding
     - node.type.localgov_step_by_step_overview
+    - node.type.localgov_subsites_overview
+    - node.type.localgov_subsites_page
 _core:
   default_config_hash: Q9hwIQL-zSDrPnJ7RhPY1RCS7y7XOE0OYb6gZTBS--s
 id: node.localgov_step_by_step_overview.localgov_services_parent
 field_name: localgov_services_parent
 entity_type: node
 bundle: localgov_step_by_step_overview
-label: 'Services: Parent'
+label: Parent
 description: ''
 required: false
 translatable: true
@@ -25,4 +27,6 @@ settings:
     target_bundles:
       localgov_services_landing: localgov_services_landing
       localgov_services_sublanding: localgov_services_sublanding
+      localgov_subsites_overview: localgov_subsites_overview
+      localgov_subsites_page: localgov_subsites_page
 field_type: entity_reference

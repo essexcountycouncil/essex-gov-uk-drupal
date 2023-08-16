@@ -1,0 +1,14 @@
+diff --git a/src/EventSubscriber/PageHeaderSubscriber.php b/src/EventSubscriber/PageHeaderSubscriber.php
+index 27a6b31..3558b9d 100644
+--- a/src/EventSubscriber/PageHeaderSubscriber.php
++++ b/src/EventSubscriber/PageHeaderSubscriber.php
+@@ -27,8 +27,7 @@ class PageHeaderSubscriber implements EventSubscriberInterface {
+    */
+   public function setPageHeader(PageHeaderDisplayEvent $event) {
+     if ($event->getEntity() instanceof Node &&
+-      ($event->getEntity()->bundle() == 'localgov_subsites_overview' ||
+-      $event->getEntity()->bundle() == 'localgov_subsites_page')
++      $event->getEntity()->bundle() == 'localgov_subsites_overview'
+     ) {
+       $event->setVisibility(FALSE);
+     }

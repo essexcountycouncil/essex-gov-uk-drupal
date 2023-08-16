@@ -1,0 +1,18 @@
+diff --git a/modules/localgov_services_navigation/src/Plugin/EntityReferenceSelection/ServicesSelection.php b/modules/localgov_services_navigation/src/Plugin/EntityReferenceSelection/ServicesSelection.php
+index 2a7f073..91d8041 100644
+--- a/modules/localgov_services_navigation/src/Plugin/EntityReferenceSelection/ServicesSelection.php
++++ b/modules/localgov_services_navigation/src/Plugin/EntityReferenceSelection/ServicesSelection.php
+@@ -133,8 +133,13 @@ class ServicesSelection extends SelectionPluginBase implements ContainerFactoryP
+     $bundles = $this->entityTypeBundleInfo->getBundleInfo('node');
+ 
+     $bundle_options = [
++      'localgov_guides_overview' => $bundles['localgov_guides_overview']['label'],
++      'localgov_guides_page' => $bundles['localgov_guides_page']['label'],
+       'localgov_services_landing' => $bundles['localgov_services_landing']['label'],
+       'localgov_services_sublanding' => $bundles['localgov_services_sublanding']['label'],
++      'localgov_step_by_step_page' => $bundles['localgov_step_by_step_page']['label'],
++      'localgov_subsites_overview' => $bundles['localgov_subsites_overview']['label'],
++      'localgov_subsites_page' => $bundles['localgov_subsites_page']['label'],
+     ];
+ 
+     $form['target_bundles'] = [
