@@ -112,7 +112,7 @@
             "drupal/autosave_form": {
                 "Disable autosaving for layout builder pages": "https://www.drupal.org/files/issues/2022-03-22/3270955-2-layout_builder.patch"
             },
-           "drupal/cludo_search": {
+            "drupal/cludo_search": {
                 "Remove search type to use custom template": "patches/cludo_search-0001.patch",
                 "Changes to text on the search page.": "patches/cludo_search-0002.patch"
             },
