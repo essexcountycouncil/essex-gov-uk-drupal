@@ -88,6 +88,12 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  localgov_review_date:
+    type: review_date
+    weight: -5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   localgov_subsites_banner:
     type: entity_reference_paragraphs
     weight: 37
@@ -136,6 +142,12 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  moderation_state:
+    type: moderation_state_default
+    weight: 100
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   path:
     type: path
     weight: 5
@@ -148,6 +160,11 @@ content:
     region: content
     settings:
       display_label: true
+    third_party_settings: {  }
+  simple_sitemap:
+    weight: 10
+    region: content
+    settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
