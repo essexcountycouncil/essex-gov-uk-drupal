@@ -6,9 +6,13 @@ dependencies:
     - field.storage.node.localgov_directory_channels
     - field.storage.node.localgov_directory_facets_select
     - field.storage.node.localgov_directory_title_sort
+    - field.storage.localgov_geo.location
+    - field.storage.node.localgov_location
     - search_api.server.localgov_directories_default
     - core.entity_view_mode.node.directory_index
   module:
+    - localgov_geo
+    - search_api_location
     - search_api
     - node
 _core:
@@ -42,6 +46,17 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.localgov_directory_title_sort
+  localgov_location:
+    label: 'Location » Geo » location'
+    datasource_id: 'entity:node'
+    property_path: 'localgov_location:entity:location'
+    type: location
+    dependencies:
+      config:
+        - field.storage.localgov_geo.location
+        - field.storage.node.localgov_location
+      module:
+        - localgov_geo
   rendered_item:
     label: 'Rendered HTML output'
     property_path: rendered_item
