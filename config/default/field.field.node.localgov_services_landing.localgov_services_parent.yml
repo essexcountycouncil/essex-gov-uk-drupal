@@ -24,4 +24,9 @@ settings:
       localgov_services_landing: localgov_services_landing
       localgov_subsites_overview: localgov_subsites_overview
       localgov_subsites_page: localgov_subsites_page
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: 0
+    auto_create_bundle: localgov_services_landing
 field_type: entity_reference

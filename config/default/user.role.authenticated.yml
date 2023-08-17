@@ -6,6 +6,7 @@ dependencies:
     - filter.format.wysiwyg
   module:
     - cludo_search
+    - content_moderation
     - content_ownership
     - eu_cookie_compliance
     - filter
@@ -32,8 +33,10 @@ permissions:
   - 'use search_api_autocomplete for localgov_news_search'
   - 'use text format wysiwyg'
   - 'view all localgov alert banner entities'
+  - 'view any unpublished content'
   - 'view content owner/sme entity'
   - 'view geo'
+  - 'view latest version'
   - 'view localgov alert banner localgov_alert_banner entities'
   - 'view media'
   - 'view own webform submission'
