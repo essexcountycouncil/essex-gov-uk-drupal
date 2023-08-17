@@ -4,9 +4,12 @@ status: true
 dependencies:
   config:
     - field.storage.node.localgov_services_parent
+    - node.type.localgov_guides_overview
+    - node.type.localgov_guides_page
     - node.type.localgov_services_landing
     - node.type.localgov_services_page
     - node.type.localgov_services_sublanding
+    - node.type.localgov_step_by_step_page
     - node.type.localgov_subsites_overview
     - node.type.localgov_subsites_page
 _core:
@@ -25,6 +28,8 @@ settings:
   handler: 'entity_hierarchy:node'
   handler_settings:
     target_bundles:
+      localgov_guides_overview: localgov_guides_overview
+      localgov_guides_page: localgov_guides_page
       localgov_services_landing: localgov_services_landing
       localgov_services_sublanding: localgov_services_sublanding
       localgov_subsites_overview: localgov_subsites_overview

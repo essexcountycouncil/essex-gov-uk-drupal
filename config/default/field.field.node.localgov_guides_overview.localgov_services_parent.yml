@@ -15,7 +15,7 @@ id: node.localgov_guides_overview.localgov_services_parent
 field_name: localgov_services_parent
 entity_type: node
 bundle: localgov_guides_overview
-label: 'Services: Parent'
+label: Parent
 description: ''
 required: false
 translatable: true
