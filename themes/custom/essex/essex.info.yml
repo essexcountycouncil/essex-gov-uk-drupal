@@ -21,6 +21,9 @@ libraries-extend:
 ckeditor_stylesheets:
   - css/ckeditor-custom.css
 
+ckeditor5-stylesheets:
+  - css/ckeditor-custom.css
+
 regions:
   tabs: "Tabs"
   header: "Header"

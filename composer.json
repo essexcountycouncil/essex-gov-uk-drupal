@@ -39,7 +39,7 @@
         "cweagans/composer-patches": "^1.6",
         "drupal/autosave_form": "^1.4",
         "drupal/block_classes": "^1.0",
-        "drupal/ckeditor_div_manager": "^2.0",
+        "drupal/ckeditor_div_manager": "^3",
         "drupal/cludo_search": "^1.0@beta",
         "drupal/config_ignore": "^2.4",
         "drupal/config_split": "^2.0@RC",

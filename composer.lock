@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b050ca2256895d51f396b7d4a3ec52dc",
+    "content-hash": "11cb6359eb4ed9bbca5c613e4eb526dd",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1929,6 +1929,40 @@
             "time": "2023-07-27T18:11:59+00:00"
         },
         {
+            "name": "drupal-ckeditor-libraries-group/div",
+            "version": "4.20.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/drupal-ckeditor-libraries-group/div.git",
+                "reference": "b52187f9f38fc6418231e4fb0e3ac30da20159c6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/drupal-ckeditor-libraries-group/div/zipball/b52187f9f38fc6418231e4fb0e3ac30da20159c6",
+                "reference": "b52187f9f38fc6418231e4fb0e3ac30da20159c6",
+                "shasum": ""
+            },
+            "type": "drupal-library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later",
+                "LGPL-2.1-or-later",
+                "MPL-1.1"
+            ],
+            "description": "CKEditor 4 div plugin",
+            "homepage": "https://ckeditor.com/cke4/addon/div",
+            "keywords": [
+                "CKEditor",
+                "div",
+                "plugin"
+            ],
+            "support": {
+                "issues": "https://github.com/ckeditor/ckeditor4/issues",
+                "source": "https://github.com/ckeditor/ckeditor4/tree/master/plugins/div"
+            },
+            "time": "2022-01-25T09:28:39+00:00"
+        },
+        {
             "name": "drupal/address",
             "version": "1.12.0",
             "source": {
@@ -2177,29 +2211,30 @@
         },
         {
             "name": "drupal/ckeditor_div_manager",
-            "version": "2.1.0",
+            "version": "3.0.0-alpha1",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/ckeditor_div_manager.git",
-                "reference": "2.1.0"
+                "reference": "3.0.0-alpha1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/ckeditor_div_manager-2.1.0.zip",
-                "reference": "2.1.0",
-                "shasum": "c74b52b3ceb872f16fae30e06fef7ba66356b5a4"
+                "url": "https://ftp.drupal.org/files/projects/ckeditor_div_manager-3.0.0-alpha1.zip",
+                "reference": "3.0.0-alpha1",
+                "shasum": "d6a60f1a9c28bc421a6bf042ade47b043f9202e5"
             },
             "require": {
-                "drupal/core": "^8 || ^9 || ^10"
+                "drupal-ckeditor-libraries-group/div": "^4.10",
+                "drupal/core": "^9 || ^10"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.1.0",
-                    "datestamp": "1690914004",
+                    "version": "3.0.0-alpha1",
+                    "datestamp": "1690914099",
                     "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
+                        "status": "not-covered",
+                        "message": "Alpha releases are not covered by Drupal security advisories."
                     }
                 }
             },
