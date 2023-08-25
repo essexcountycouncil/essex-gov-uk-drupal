@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - localgov_alert_banner.localgov_alert_banner_type.localgov_alert_banner
     - workflows.workflow.localgov_alert_banners
   module:
     - content_moderation
