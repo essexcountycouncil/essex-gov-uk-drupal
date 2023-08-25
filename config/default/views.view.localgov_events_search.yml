@@ -18,71 +18,23 @@ base_table: search_api_index_localgov_events
 base_field: search_api_id
 display:
   default:
-    display_plugin: default
     id: default
     display_title: Master
+    display_plugin: default
     position: 0
     display_options:
-      access:
-        type: perm
-        options:
-          perm: 'access content'
-      cache:
-        type: none
-        options: {  }
-      query:
-        type: search_api_query
-        options: {  }
-      exposed_form:
-        type: basic
-        options:
-          submit_button: Apply
-          reset_button: false
-          reset_button_label: Reset
-          exposed_sorts_label: 'Sort by'
-          expose_sort_order: true
-          sort_asc_label: Asc
-          sort_desc_label: Desc
-      pager:
-        type: full
-        options:
-          items_per_page: 20
-          offset: 0
-          id: 0
-          total_pages: null
-          tags:
-            previous: ‹‹
-            next: ››
-            first: '« First'
-            last: 'Last »'
-          expose:
-            items_per_page: false
-            items_per_page_label: 'Items per page'
-            items_per_page_options: '5, 10, 25, 50'
-            items_per_page_options_all: false
-            items_per_page_options_all_label: '- All -'
-            offset: false
-            offset_label: Offset
-          quantity: 9
-      style:
-        type: default
-      row:
-        type: search_api
-        options:
-          view_modes:
-            'entity:node':
-              localgov_event: teaser
+      title: 'Events search'
       fields:
         localgov_event_categories:
+          id: localgov_event_categories
           table: search_api_index_localgov_events
           field: localgov_event_categories
-          id: localgov_event_categories
-          entity_type: null
-          entity_field: null
-          plugin_id: search_api_field
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: null
+          entity_field: null
+          plugin_id: search_api_field
           label: ''
           exclude: false
           alter:
@@ -145,6 +97,86 @@ display:
             multi_type: separator
             multi_separator: ', '
             display_methods: {  }
+      pager:
+        type: full
+        options:
+          offset: 0
+          items_per_page: 20
+          total_pages: null
+          id: 0
+          tags:
+            next: ››
+            previous: ‹‹
+            first: '« First'
+            last: 'Last »'
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          quantity: 9
+      exposed_form:
+        type: basic
+        options:
+          submit_button: Apply
+          reset_button: false
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sort by'
+          expose_sort_order: true
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      access:
+        type: perm
+        options:
+          perm: 'access content'
+      cache:
+        type: none
+        options: {  }
+      empty:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: text
+          empty: true
+          content:
+            value: 'No results found for your search.'
+            format: wysiwyg
+          tokenize: false
+      sorts:
+        search_api_relevance:
+          id: search_api_relevance
+          table: search_api_index_localgov_events
+          field: search_api_relevance
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: ''
+            field_identifier: search_api_relevance
+          exposed: false
+        localgov_event_date:
+          id: localgov_event_date
+          table: search_api_index_localgov_events
+          field: localgov_event_date
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: ''
+            field_identifier: localgov_event_date
+          exposed: false
+      arguments: {  }
       filters:
         search_api_fulltext:
           id: search_api_fulltext
@@ -153,6 +185,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: search_api_fulltext
           operator: or
           value: ''
           group: 1
@@ -189,53 +222,20 @@ display:
           min_length: null
           fields:
             - rendered_item
-          plugin_id: search_api_fulltext
-      sorts:
-        search_api_relevance:
-          id: search_api_relevance
-          table: search_api_index_localgov_events
-          field: search_api_relevance
-          relationship: none
-          group_type: group
-          admin_label: ''
-          order: ASC
-          exposed: false
-          expose:
-            label: ''
-            field_identifier: search_api_relevance
-          plugin_id: search_api
-        localgov_event_date:
-          id: localgov_event_date
-          table: search_api_index_localgov_events
-          field: localgov_event_date
-          relationship: none
-          group_type: group
-          admin_label: ''
-          order: ASC
-          exposed: false
-          expose:
-            label: ''
-            field_identifier: localgov_event_date
-          plugin_id: search_api
-      title: 'Events search'
+      style:
+        type: default
+      row:
+        type: search_api
+        options:
+          view_modes:
+            'entity:node':
+              localgov_event: teaser
+      query:
+        type: search_api_query
+        options: {  }
+      relationships: {  }
       header: {  }
       footer: {  }
-      empty:
-        area:
-          id: area
-          table: views
-          field: area
-          relationship: none
-          group_type: group
-          admin_label: ''
-          empty: true
-          tokenize: false
-          content:
-            value: 'No results found for your search.'
-            format: wysiwyg
-          plugin_id: text
-      relationships: {  }
-      arguments: {  }
       display_extenders: {  }
     cache_metadata:
       max-age: -1
@@ -250,18 +250,18 @@ display:
         - 'config:field.storage.node.localgov_event_categories'
         - 'config:search_api.index.localgov_events'
   events_page:
-    display_plugin: page
     id: events_page
     display_title: Page
+    display_plugin: page
     position: 1
     display_options:
-      display_extenders: {  }
-      path: events/search
       cache:
         type: none
       defaults:
         cache: false
       exposed_block: true
+      display_extenders: {  }
+      path: events/search
     cache_metadata:
       max-age: -1
       contexts:
