@@ -535,6 +535,10 @@ h1:after,
   display: inline-block;
 }
 
+.lgd-region--content .paragraph--type--localgov-contact a {
+  word-break: break-word;
+}
+
 /* RESPONSIVENESS */
 
 .lgd-page-section {
@@ -575,9 +579,27 @@ h1:after,
   border: 1px solid var(--color-black);
 }
 
+.lgd-guide-nav__list {
+  padding-left: 1.25rem;
+  list-style: none;
+}
+
 .lgd-guide-nav .lgd-guide-nav__list-item>a {
   font-weight: var(--font-semibold);
   display: inline-block;
+}
+
+.lgd-guide-nav__list-item {
+  position: relative;
+  padding-left: 1.25rem;
+}
+
+.lgd-guide-nav__list-item::before {
+  content: '\2022';
+  position: absolute;
+  left: 0;
+  top: -5px;
+  font-size: 1.75rem;
 }
 
 @media only screen and (min-width: 1024px) {
