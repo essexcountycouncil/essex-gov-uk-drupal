@@ -7,6 +7,8 @@ dependencies:
     - node.type.localgov_services_landing
     - node.type.localgov_services_page
     - node.type.localgov_services_sublanding
+    - node.type.localgov_subsites_overview
+    - node.type.localgov_subsites_page
 _core:
   default_config_hash: AfhE_M8pOksIJo7tZKPQKUSQd8JlS_RcMRYPboA8g24
 id: node.localgov_services_page.localgov_services_parent
@@ -20,9 +22,16 @@ translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  handler: localgov_services
+  handler: 'entity_hierarchy:node'
   handler_settings:
     target_bundles:
       localgov_services_landing: localgov_services_landing
       localgov_services_sublanding: localgov_services_sublanding
+      localgov_subsites_overview: localgov_subsites_overview
+      localgov_subsites_page: localgov_subsites_page
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: 0
+    auto_create_bundle: localgov_services_landing
 field_type: entity_reference

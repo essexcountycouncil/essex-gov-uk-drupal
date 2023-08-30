@@ -1,0 +1,18 @@
+uuid: 56644677-85ac-4b2a-bfc3-9c5bfd80cf65
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.localgov_proximity_search_cfg
+field_name: localgov_proximity_search_cfg
+entity_type: node
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

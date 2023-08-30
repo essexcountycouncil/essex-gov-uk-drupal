@@ -46,6 +46,7 @@ module:
   entity_reference_revisions: 0
   entity_usage: 0
   facets: 0
+  fathom_analytics: 0
   field: 0
   field_formatter_class: 0
   field_group: 0
@@ -96,6 +97,7 @@ module:
   localgov_geo: 0
   localgov_geo_address: 0
   localgov_geo_area: 0
+  localgov_geo_update: 0
   localgov_guides: 0
   localgov_homepage_paragraphs: 0
   localgov_media: 0

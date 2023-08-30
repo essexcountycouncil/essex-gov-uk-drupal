@@ -26,6 +26,11 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
   localgov_directory_facets_enable:
     type: entity_reference_label
     label: hidden
@@ -49,4 +54,5 @@ hidden:
   localgov_directory_map: true
   localgov_directory_view: true
   localgov_directory_view_with_search: true
+  localgov_proximity_search_cfg: true
   search_api_excerpt: true
