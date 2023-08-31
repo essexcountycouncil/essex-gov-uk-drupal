@@ -9,7 +9,10 @@ dependencies:
     - field.field.node.localgov_step_by_step_overview.localgov_step_description
     - field.field.node.localgov_step_by_step_overview.localgov_topic_classified
     - node.type.localgov_step_by_step_overview
+    - workflows.workflow.localgov_editorial
   module:
+    - content_moderation
+    - localgov_review_date
     - path
     - text
 _core:
@@ -27,10 +30,17 @@ content:
       rows: 9
       summary_rows: 3
       placeholder: ''
+      show_summary: true
     third_party_settings: {  }
   created:
     type: datetime_timestamp
     weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  localgov_review_date:
+    type: review_date
+    weight: -5
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -72,6 +82,12 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  moderation_state:
+    type: moderation_state_default
+    weight: 100
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   path:
     type: path
     weight: 6
@@ -84,6 +100,11 @@ content:
     region: content
     settings:
       display_label: true
+    third_party_settings: {  }
+  simple_sitemap:
+    weight: 10
+    region: content
+    settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
