@@ -1,0 +1,20 @@
+uuid: 25b02f66-89b7-4d0c-95bb-38281858df93
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.localgov_event
+id: node.localgov_event.revision_log
+field_name: revision_log
+entity_type: node
+bundle: localgov_event
+label: 'Revision log message'
+description: 'Briefly describe the changes you have made.'
+required: false
+translatable: true
+default_value:
+  -
+    value: ''
+default_value_callback: ''
+settings: {  }
+field_type: string_long

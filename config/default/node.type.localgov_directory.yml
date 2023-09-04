@@ -1,7 +1,14 @@
 uuid: 3bb7dc7a-5c6f-4f6a-a702-ab4f709026ba
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
 _core:
   default_config_hash: '-LoEbQrvqOBYG1UMlsby5bRRe4nfZa3c6znjEohpYXw'
 name: 'Directory channel'
