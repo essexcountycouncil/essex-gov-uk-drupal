@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fb237bb33ecdca4099bdbc7557487873",
+    "content-hash": "6a6f1329f2c350604be5846326acb65a",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -7490,6 +7490,29 @@
                 }
             ],
             "time": "2023-06-06T18:46:18+00:00"
+        },
+        {
+            "name": "ecc_cludo_search/ecc_cludo_search",
+            "version": "1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/essexcountycouncil/ecc_cludo_search.git",
+                "reference": "9dfdfe0263e29e32b758d0d54e078e17ed4454c7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/essexcountycouncil/ecc_cludo_search/zipball/9dfdfe0263e29e32b758d0d54e078e17ed4454c7",
+                "reference": "9dfdfe0263e29e32b758d0d54e078e17ed4454c7",
+                "shasum": ""
+            },
+            "type": "drupal-module",
+            "description": "Shared Drupal cludo_search functionality for Essex County Council",
+            "homepage": "https://github.com/essexcountycouncil/ecc_cludo_search",
+            "support": {
+                "source": "https://github.com/essexcountycouncil/ecc_cludo_search/tree/1.0",
+                "issues": "https://github.com/essexcountycouncil/ecc_cludo_search/issues"
+            },
+            "time": "2023-09-12T19:35:41+00:00"
         },
         {
             "name": "ecc_content_moderation/ecc_content_moderation",
