@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c2ab10e1545a4c29d55d04aa698af410",
+    "content-hash": "fb237bb33ecdca4099bdbc7557487873",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -7490,6 +7490,29 @@
                 }
             ],
             "time": "2023-06-06T18:46:18+00:00"
+        },
+        {
+            "name": "ecc_content_moderation/ecc_content_moderation",
+            "version": "1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/essexcountycouncil/ecc_content_moderation.git",
+                "reference": "0f32c8d8d291746294540f5a7ebab147e4bdd219"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/essexcountycouncil/ecc_content_moderation/zipball/0f32c8d8d291746294540f5a7ebab147e4bdd219",
+                "reference": "0f32c8d8d291746294540f5a7ebab147e4bdd219",
+                "shasum": ""
+            },
+            "type": "drupal-module",
+            "description": "Shared Drupal content moderation functionality for Essex County Council",
+            "homepage": "https://github.com/essexcountycouncil/ecc_content_moderation",
+            "support": {
+                "source": "https://github.com/essexcountycouncil/ecc_content_moderation/tree/1.0",
+                "issues": "https://github.com/essexcountycouncil/ecc_content_moderation/issues"
+            },
+            "time": "2023-09-12T19:01:27+00:00"
         },
         {
             "name": "ecc_cookie_compliance/ecc_cookie_compliance",
