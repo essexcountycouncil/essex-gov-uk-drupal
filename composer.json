@@ -22,6 +22,10 @@
             "url":  "https://github.com/essexcountycouncil/ecc_menu"
         },
         {
+            "type": "github",
+            "url":  "https://github.com/essexcountycouncil/ecc_cookie_compliance"
+        },
+        {
             "type": "package",
             "package": {
                 "name": "ckeditor/div",
@@ -68,6 +72,7 @@
         "drupal/stage_file_proxy": "^2.0",
         "drupal/structure_sync": "^2.0",
         "drupal/ultimate_cron": "^2.0@alpha",
+        "ecc_cookie_compliance/ecc_cookie_compliance": "^1.0",
         "ecc_menu/ecc_menu": "^1.0",
         "essexcountycouncil/content_ownership": "dev-main",
         "localgovdrupal/localgov": "^2.0",

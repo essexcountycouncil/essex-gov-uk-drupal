@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5f73a22978795c6f3ea6b163a89449a7",
+    "content-hash": "c2ab10e1545a4c29d55d04aa698af410",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -7490,6 +7490,29 @@
                 }
             ],
             "time": "2023-06-06T18:46:18+00:00"
+        },
+        {
+            "name": "ecc_cookie_compliance/ecc_cookie_compliance",
+            "version": "1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/essexcountycouncil/ecc_cookie_compliance.git",
+                "reference": "8a27f57f962c32752b8bba33d935d2d4dbaf2d18"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/essexcountycouncil/ecc_cookie_compliance/zipball/8a27f57f962c32752b8bba33d935d2d4dbaf2d18",
+                "reference": "8a27f57f962c32752b8bba33d935d2d4dbaf2d18",
+                "shasum": ""
+            },
+            "type": "drupal-module",
+            "description": "Shared Drupal eu cookie compliance functionality for Essex County Council",
+            "homepage": "https://github.com/essexcountycouncil/ecc_cookie_compliance",
+            "support": {
+                "source": "https://github.com/essexcountycouncil/ecc_cookie_compliance/tree/1.0",
+                "issues": "https://github.com/essexcountycouncil/ecc_cookie_compliance/issues"
+            },
+            "time": "2023-09-12T17:52:40+00:00"
         },
         {
             "name": "ecc_menu/ecc_menu",
