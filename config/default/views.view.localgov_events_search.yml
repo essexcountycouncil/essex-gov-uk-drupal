@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.localgov_event_categories
     - search_api.index.localgov_events
   module:
     - search_api
@@ -178,64 +177,6 @@ display:
             field_identifier: localgov_event_date
           exposed: false
       arguments: {  }
-      filters: {  }
-      style:
-        type: default
-      row:
-        type: search_api
-        options:
-          view_modes:
-            'entity:node':
-              localgov_event: teaser
-      query:
-        type: search_api_query
-        options: {  }
-      relationships: {  }
-      header: {  }
-      footer: {  }
-      display_extenders: {  }
-    cache_metadata:
-      max-age: -1
-      contexts:
-        - 'languages:language_content'
-        - 'languages:language_interface'
-        - url.query_args
-        - 'user.node_grants:view'
-        - user.permissions
-      tags:
-        - 'config:field.storage.node.localgov_event_categories'
-        - 'config:search_api.index.localgov_events'
-        - 'search_api_list:localgov_events'
-  block_1:
-    id: block_1
-    display_title: Block
-    display_plugin: block
-    position: 2
-    display_options:
-      title: ''
-      defaults:
-        title: false
-      display_extenders: {  }
-    cache_metadata:
-      max-age: -1
-      contexts:
-        - 'languages:language_content'
-        - 'languages:language_interface'
-        - url.query_args
-        - 'user.node_grants:view'
-        - user.permissions
-      tags:
-        - 'config:field.storage.node.localgov_event_categories'
-        - 'config:search_api.index.localgov_events'
-        - 'search_api_list:localgov_events'
-  events_page:
-    id: events_page
-    display_title: Page
-    display_plugin: page
-    position: 1
-    display_options:
-      cache:
-        type: none
       filters:
         search_api_fulltext:
           id: search_api_fulltext
@@ -264,17 +205,7 @@ display:
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
-              emergency_publisher: '0'
-              localgov_news_editor: '0'
-              analytics: '0'
-              localgov_contributor: '0'
-              localgov_author: '0'
-              localgov_editor: '0'
-              localgov_user_manager: '0'
-              administrator: '0'
-            expose_fields: false
             placeholder: ''
-            searched_fields_id: search_api_fulltext_searched_fields
           is_grouped: false
           group_info:
             label: ''
@@ -289,15 +220,45 @@ display:
             group_items: {  }
           parse_mode: terms
           min_length: null
-          fields: {  }
-      filter_groups:
-        operator: AND
-        groups:
-          1: AND
+          fields:
+            - rendered_item
+      style:
+        type: default
+      row:
+        type: search_api
+        options:
+          view_modes:
+            'entity:node':
+              localgov_event: teaser
+      query:
+        type: search_api_query
+        options: {  }
+      relationships: {  }
+      header: {  }
+      footer: {  }
+      display_extenders: {  }
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.localgov_event_categories'
+        - 'config:search_api.index.localgov_events'
+  events_page:
+    id: events_page
+    display_title: Page
+    display_plugin: page
+    position: 1
+    display_options:
+      cache:
+        type: none
       defaults:
         cache: false
-        filters: false
-        filter_groups: false
       exposed_block: true
       display_extenders: {  }
       path: events/search
@@ -313,4 +274,3 @@ display:
       tags:
         - 'config:field.storage.node.localgov_event_categories'
         - 'config:search_api.index.localgov_events'
-        - 'search_api_list:localgov_events'
