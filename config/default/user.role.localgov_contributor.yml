@@ -95,6 +95,7 @@ permissions:
   - 'create url aliases'
   - 'delete own localgov_step_by_step_overview content'
   - 'delete own localgov_step_by_step_page content'
+  - 'delete own localgov_subsites_overview content'
   - 'edit any document media'
   - 'edit any image media'
   - 'edit any remote_video media'

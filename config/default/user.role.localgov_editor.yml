@@ -137,6 +137,7 @@ permissions:
   - 'delete own image media'
   - 'delete own localgov_step_by_step_overview content'
   - 'delete own localgov_step_by_step_page content'
+  - 'delete own localgov_subsites_overview content'
   - 'delete own remote_video media'
   - 'delete own webform'
   - 'edit any document media'
