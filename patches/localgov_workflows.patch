@@ -1,0 +1,224 @@
+diff --git a/localgov_workflows.install b/localgov_workflows.install
+index b183240..7c30622 100644
+--- a/localgov_workflows.install
++++ b/localgov_workflows.install
+@@ -5,92 +5,9 @@
+  * Install, update and uninstall functions for the LocalGov Workflow module.
+  */
+
+-use Drupal\Core\Cache\Cache;
+ use Drupal\Core\Config\FileStorage;
+-use Drupal\Core\Site\Settings;
+ use Drupal\localgov_roles\RolesHelper;
+-use Drupal\scheduled_transitions\Form\ScheduledTransitionsSettingsForm;
+ use Drupal\user\Entity\Role;
+-use Drupal\workflows\Entity\Workflow;
+-
+-/**
+- * Implements hook_install().
+- */
+-function localgov_workflows_install($is_syncing) {
+-
+-  // Configure workflow for localgov_ node bundles with no other workflow.
+-  $editorial = Workflow::load('localgov_editorial');
+-  if (!$editorial) {
+-    $config_key = 'workflows.workflow.localgov_editorial';
+-    if ($is_syncing) {
+-      // If syncing config try to load the workflow from exported config.
+-      $config_source = new FileStorage(Settings::get('config_sync_directory'));
+-      $editorial_config = $config_source->read($config_key);
+-    }
+-    if (!$is_syncing || !$editorial_config) {
+-      // If workflow doesn't already exist load it from this module.
+-      $config_file_path = \Drupal::service('extension.path.resolver')->getPath('module', 'localgov_workflows') . '/config/install';
+-      $config_source = new FileStorage($config_file_path);
+-      $editorial_config = $config_source->read($config_key);
+-    }
+-    \Drupal::entityTypeManager()->getStorage('workflow')
+-      ->create($editorial_config)
+-      ->save();
+-    $editorial = Workflow::load('localgov_editorial');
+-  }
+-
+-  $workflow_type = $editorial->getTypePlugin();
+-  $node_types = \Drupal::service('entity_type.bundle.info')->getBundleInfo('node');
+-  $changed = FALSE;
+-  foreach ($node_types as $type_name => $node_type) {
+-    if (strpos($type_name, 'localgov_') === 0 && empty($node_type['workflow'])) {
+-
+-      // Add workflow.
+-      $workflow_type->addEntityTypeAndBundle('node', $type_name);
+-      $changed = TRUE;
+-    }
+-  }
+-
+-  if ($changed) {
+-    $editorial->save();
+-  }
+-
+-  // Enable scheduled transitions for all node bundles.
+-  $scheduled_transitions_config = \Drupal::service('config.factory')->getEditable('scheduled_transitions.settings');
+-  $bundles = $scheduled_transitions_config->get('bundles') ?? [];
+-  foreach ($node_types as $bundle => $node_type) {
+-    if (empty($bundles) || !in_array($bundle, array_column($bundles, 'bundle'))) {
+-      $bundles[] = [
+-        'entity_type' => 'node',
+-        'bundle' => $bundle,
+-      ];
+-    }
+-  }
+-  $scheduled_transitions_config->set('bundles', $bundles);
+-  $scheduled_transitions_config->save();
+-  Cache::invalidateTags([
+-    ScheduledTransitionsSettingsForm::SETTINGS_TAG,
+-    'config:scheduled_transitions.settings',
+-  ]);
+-
+-  // Ensure contributor role exists.
+-  localgov_workflows_update_9001();
+-
+-  // Use the admin theme when checking diffs.
+-  if (\Drupal::moduleHandler()->moduleExists('diff')) {
+-    $config = \Drupal::configFactory()->getEditable('diff.settings');
+-    $settings = $config->get('general_settings');
+-    $settings['visual_inline_theme'] = 'admin';
+-    $config->set('general_settings', $settings);
+-    $config->save();
+-  }
+-
+-  // Reload user permissions defined in hook_localgov_roles_default().
+-  $roles = \Drupal::service('module_handler')->invokeAll('localgov_roles_default');
+-  foreach ($roles as $role => $permissions) {
+-    user_role_grant_permissions($role, $permissions);
+-  }
+-}
+
+ /**
+  * Install the contributor role if it doesn't exist.
+diff --git a/localgov_workflows.module b/localgov_workflows.module
+index 97f1811..2c646e3 100644
+--- a/localgov_workflows.module
++++ b/localgov_workflows.module
+@@ -65,10 +65,12 @@ function localgov_workflows_node_type_insert(NodeTypeInterface $node_type) {
+   if (strpos($node_type->id(), 'localgov_') === 0) {
+     $types = \Drupal::service('entity_type.bundle.info')->getBundleInfo('node');
+     if (empty($types['node']['workflow'])) {
+-      $editorial = Workflow::load('localgov_editorial');
+-      $type = $editorial->getTypePlugin();
+-      $type->addEntityTypeAndBundle('node', $node_type->id());
+-      $editorial->save();
++      // Workflow may not exist during site install.
++      if ($editorial = Workflow::load('localgov_editorial')) {
++        $type = $editorial->getTypePlugin();
++        $type->addEntityTypeAndBundle('node', $node_type->id());
++        $editorial->save();
++      }
+     }
+   }
+ }
+diff --git a/localgov_workflows.post_update.php b/localgov_workflows.post_update.php
+new file mode 100644
+index 0000000..61639eb
+--- /dev/null
++++ b/localgov_workflows.post_update.php
+@@ -0,0 +1,100 @@
++<?php
++
++/**
++ * @file
++ * Post update hooks functions for the LocalGov Workflows module.
++ */
++
++use Drupal\Core\Cache\Cache;
++use Drupal\Core\Config\FileStorage;
++use Drupal\scheduled_transitions\Form\ScheduledTransitionsSettingsForm;
++use Drupal\user\Entity\Role;
++use Drupal\workflows\Entity\Workflow;
++use Drupal\localgov_roles\RolesHelper;
++
++/**
++ * Implements hook_post_update_NAME().
++ */
++function localgov_workflows_post_update_workflow(&$sandbox) {
++
++  // Configure workflow for localgov_ node bundles with no other workflow.
++  $editorial = Workflow::load('localgov_editorial');
++  if (!$editorial) {
++    $config_key = 'workflows.workflow.localgov_editorial';
++    // If workflow doesn't already exist load it from this module.
++    $config_file_path = \Drupal::service('extension.path.resolver')->getPath('module', 'localgov_workflows') . '/config/install';
++    $config_source = new FileStorage($config_file_path);
++    $editorial_config = $config_source->read($config_key);
++
++    \Drupal::entityTypeManager()->getStorage('workflow')
++      ->create($editorial_config)
++      ->save();
++    $editorial = Workflow::load('localgov_editorial');
++  }
++
++  $workflow_type = $editorial->getTypePlugin();
++  $node_types = \Drupal::service('entity_type.bundle.info')->getBundleInfo('node');
++  $changed = FALSE;
++  foreach ($node_types as $type_name => $node_type) {
++    if (strpos($type_name, 'localgov_') === 0 && empty($node_type['workflow'])) {
++
++      // Add workflow.
++      $workflow_type->addEntityTypeAndBundle('node', $type_name);
++      $changed = TRUE;
++    }
++  }
++
++  if ($changed) {
++    $editorial->save();
++  }
++
++  // Enable scheduled transitions for all node bundles.
++  $scheduled_transitions_config = \Drupal::service('config.factory')->getEditable('scheduled_transitions.settings');
++  $bundles = $scheduled_transitions_config->get('bundles') ?? [];
++  foreach ($node_types as $bundle => $node_type) {
++    if (empty($bundles) || !in_array($bundle, array_column($bundles, 'bundle'))) {
++      $bundles[] = [
++        'entity_type' => 'node',
++        'bundle' => $bundle,
++      ];
++    }
++  }
++  $scheduled_transitions_config->set('bundles', $bundles);
++  $scheduled_transitions_config->save();
++  Cache::invalidateTags([
++    ScheduledTransitionsSettingsForm::SETTINGS_TAG,
++    'config:scheduled_transitions.settings',
++  ]);
++
++  // Copied from localgov_workflows_update_9001().
++  // Workflow assumes that editor, author and contributor roles exists. The
++  // first two have been included in the LocalGov Roles module from the
++  // beginning, but the contributor role is new and so should be added if it's
++  // not present.
++  if (!Role::load(RolesHelper::CONTRIBUTOR_ROLE)) {
++    $config_key = 'user.role.' . RolesHelper::CONTRIBUTOR_ROLE;
++    $config_file_path = \Drupal::service('extension.path.resolver')->getPath('module', 'localgov_roles') . '/config/install';
++    $source = new FileStorage($config_file_path);
++    $contributor_config = $source->read($config_key);
++    \Drupal::entityTypeManager()->getStorage('user_role')
++      ->create($contributor_config)
++      ->save();
++  }
++
++  // Use the admin theme when checking diffs.
++  if (\Drupal::moduleHandler()->moduleExists('diff')) {
++    $config = \Drupal::configFactory()->getEditable('diff.settings');
++    $settings = $config->get('general_settings');
++    $settings['visual_inline_theme'] = 'admin';
++    $config->set('general_settings', $settings);
++    $config->save();
++  }
++
++  // Reload user permissions defined in hook_localgov_roles_default().
++  $roles = \Drupal::service('module_handler')->invokeAll('localgov_roles_default');
++  foreach ($roles as $role => $permissions) {
++    user_role_grant_permissions($role, $permissions);
++  }
++
++}
++

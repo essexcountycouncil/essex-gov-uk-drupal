@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7700144f1341c0c259ebce992da52ac2",
+    "content-hash": "049fb1abadb1322e267b0ea24791e5fc",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -4510,17 +4510,17 @@
         },
         {
             "name": "drupal/gin",
-            "version": "3.0.0-rc5",
+            "version": "3.0.0-rc6",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/gin.git",
-                "reference": "8.x-3.0-rc5"
+                "reference": "8.x-3.0-rc6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/gin-8.x-3.0-rc5.zip",
-                "reference": "8.x-3.0-rc5",
-                "shasum": "81010b540822f0cfc114fd0548e4e27e56b6dc1c"
+                "url": "https://ftp.drupal.org/files/projects/gin-8.x-3.0-rc6.zip",
+                "reference": "8.x-3.0-rc6",
+                "shasum": "45d1939be11592cff64e0e3fe4e17553e754175a"
             },
             "require": {
                 "drupal/core": "^9 || ^10",
@@ -4529,8 +4529,8 @@
             "type": "drupal-theme",
             "extra": {
                 "drupal": {
-                    "version": "8.x-3.0-rc5",
-                    "datestamp": "1689504430",
+                    "version": "8.x-3.0-rc6",
+                    "datestamp": "1693299666",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "RC releases are not covered by Drupal security advisories."
@@ -5251,17 +5251,17 @@
         },
         {
             "name": "drupal/leaflet",
-            "version": "10.0.19",
+            "version": "10.2.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/leaflet.git",
-                "reference": "10.0.19"
+                "reference": "10.2.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/leaflet-10.0.19.zip",
-                "reference": "10.0.19",
-                "shasum": "16194181219bb197b4260ad82519bb114ffdbb8a"
+                "url": "https://ftp.drupal.org/files/projects/leaflet-10.2.0.zip",
+                "reference": "10.2.0",
+                "shasum": "3d2a3d9fb31d7f4fd2d30d863a8254ddb1b2d406"
             },
             "require": {
                 "drupal/core": "^9 || ^10",
@@ -5270,8 +5270,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "10.0.19",
-                    "datestamp": "1690895717",
+                    "version": "10.2.0",
+                    "datestamp": "1693520466",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -8821,16 +8821,16 @@
         },
         {
             "name": "localgovdrupal/localgov_base",
-            "version": "1.4.11",
+            "version": "1.4.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/localgovdrupal/localgov_base.git",
-                "reference": "58e2a1309454e2d525f2081eca89792eaf2ea9da"
+                "reference": "f8d644be55429ec1aaa0e03246d0346178423660"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/localgovdrupal/localgov_base/zipball/58e2a1309454e2d525f2081eca89792eaf2ea9da",
-                "reference": "58e2a1309454e2d525f2081eca89792eaf2ea9da",
+                "url": "https://api.github.com/repos/localgovdrupal/localgov_base/zipball/f8d644be55429ec1aaa0e03246d0346178423660",
+                "reference": "f8d644be55429ec1aaa0e03246d0346178423660",
                 "shasum": ""
             },
             "type": "drupal-theme",
@@ -8842,9 +8842,9 @@
             "homepage": "https://github.com/localgovdrupal/localgov_base",
             "support": {
                 "issues": "https://github.com/localgovdrupal/localgov_base/issues",
-                "source": "https://github.com/localgovdrupal/localgov_base/tree/1.4.11"
+                "source": "https://github.com/localgovdrupal/localgov_base/tree/1.4.13"
             },
-            "time": "2023-07-10T13:58:22+00:00"
+            "time": "2023-09-04T13:33:33+00:00"
         },
         {
             "name": "localgovdrupal/localgov_core",
@@ -20238,6 +20238,7 @@
         "drupal/cludo_search": 10,
         "drupal/config_split": 5,
         "drupal/eu_cookie_compliance_gtm": 15,
+        "drupal/gin": 5,
         "drupal/ultimate_cron": 15,
         "essexcountycouncil/content_ownership": 20,
         "localgovdrupal/localgov_eu_cookie_compliance": 20,

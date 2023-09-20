@@ -1282,3 +1282,54 @@ nav ul li a {
   word-break: normal;
   overflow-wrap: break-word;
 }
+
+/* Events View */
+
+.view-localgov-events-listing .views-col {
+  display: flex;
+  padding: var(--spacing) 0;
+}
+
+@media only screen and (min-width: 642px) {
+  .view-localgov-events-listing .views-col {
+    margin-right: var(--spacing-large);
+  }
+
+  .view-localgov-events-listing .views-col.col-3 {
+    margin-right: 0;
+  }
+}
+
+.view-localgov-events-listing .calendar {
+  padding: var(--spacing-small);
+  background: #dcd9d9;
+  text-align: center;
+  font-weight: var(--heading-font-weight);
+  margin-right: var(--spacing-small);
+}
+
+.view-localgov-events-listing .calendar .inner {
+  background: #f2f2f2;
+  padding: var(--spacing-smallest) var(--spacing-small);
+  margin-top: 0.25em;
+}
+
+.view-localgov-events-listing .calendar .inner .month {
+  color: var(--color-accent);
+}
+
+.view-localgov-events-listing .event-info h3 a,
+.view-localgov-events-listing .more-link a {
+  color: var(--color-black);
+}
+
+.view-localgov-events-listing .more-link a:after {
+  content: "";
+  /* space for adding chevron image */
+  padding: 1em;
+}
+
+.field__item:first-of-type .field--name-localgov-text:has(> h2),
+.path-frontpage article>.field__items {
+  padding-top: clamp(0.75rem, 2vw, var(--spacing))
+}

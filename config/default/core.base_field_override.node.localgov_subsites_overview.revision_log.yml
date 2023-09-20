@@ -1,0 +1,20 @@
+uuid: 5fd95db6-f966-4608-93aa-ed6245a6fe94
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.localgov_subsites_overview
+id: node.localgov_subsites_overview.revision_log
+field_name: revision_log
+entity_type: node
+bundle: localgov_subsites_overview
+label: 'Revision log message'
+description: 'Briefly describe the changes you have made.'
+required: false
+translatable: true
+default_value:
+  -
+    value: ''
+default_value_callback: ''
+settings: {  }
+field_type: string_long
