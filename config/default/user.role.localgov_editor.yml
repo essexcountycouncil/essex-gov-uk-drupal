@@ -37,6 +37,7 @@ dependencies:
     - localgov_directories
     - localgov_geo
     - media
+    - menu_admin_per_menu
     - node
     - paragraphs
     - paragraphs_library
@@ -92,8 +93,11 @@ permissions:
   - 'add scheduled transitions node localgov_subsites_overview'
   - 'add scheduled transitions node localgov_subsites_page'
   - 'administer content owner/sme entity'
+  - 'administer footer menu items'
   - 'administer paragraphs library'
   - 'administer redirects'
+  - 'administer social-media menu items'
+  - 'administer tools menu items'
   - 'create directory facets'
   - 'create document media'
   - 'create geo'
