@@ -89,7 +89,6 @@ permissions:
   - 'add scheduled transitions node localgov_subsites_overview'
   - 'add scheduled transitions node localgov_subsites_page'
   - 'administer content owner/sme entity'
-  - 'administer menu'
   - 'administer paragraphs library'
   - 'administer redirects'
   - 'create directory facets'
