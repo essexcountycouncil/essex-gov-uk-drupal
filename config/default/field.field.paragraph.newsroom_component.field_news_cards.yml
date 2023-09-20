@@ -1,0 +1,95 @@
+uuid: 31ea6f68-ca96-48f3-87bd-ce7abb8bb7f8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_news_cards
+    - node.type.localgov_news_article
+    - paragraphs.paragraphs_type.newsroom_component
+  module:
+    - dynamic_entity_reference
+id: paragraph.newsroom_component.field_news_cards
+field_name: field_news_cards
+entity_type: paragraph
+bundle: newsroom_component
+label: 'News cards'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  node:
+    handler: 'default:node'
+    handler_settings:
+      target_bundles:
+        localgov_news_article: localgov_news_article
+      sort:
+        field: _none
+        direction: ASC
+      auto_create: false
+      auto_create_bundle: ''
+  localgov_alert_banner:
+    handler: 'default:localgov_alert_banner'
+    handler_settings: {  }
+  content_owner_sme:
+    handler: 'default:content_owner_sme'
+    handler_settings: {  }
+  content_moderation_state:
+    handler: 'default:content_moderation_state'
+    handler_settings: {  }
+  crop:
+    handler: 'default:crop'
+    handler_settings: {  }
+  block_content:
+    handler: 'default:block_content'
+    handler_settings: {  }
+  menu_link_content:
+    handler: 'default:menu_link_content'
+    handler_settings: {  }
+  localgov_directories_facets:
+    handler: 'default:localgov_directories_facets'
+    handler_settings: {  }
+  file:
+    handler: 'default:file'
+    handler_settings: {  }
+  localgov_geo:
+    handler: 'default:localgov_geo'
+    handler_settings: {  }
+  media:
+    handler: 'default:media'
+    handler_settings: {  }
+  paragraphs_library_item:
+    handler: 'default:paragraphs_library_item'
+    handler_settings: {  }
+  paragraph:
+    handler: 'default:paragraph'
+    handler_settings: {  }
+  preview_link:
+    handler: 'default:preview_link'
+    handler_settings: {  }
+  redirect:
+    handler: 'default:redirect'
+    handler_settings: {  }
+  review_date:
+    handler: 'default:review_date'
+    handler_settings: {  }
+  search_api_task:
+    handler: 'default:search_api_task'
+    handler_settings: {  }
+  taxonomy_term:
+    handler: 'default:taxonomy_term'
+    handler_settings: {  }
+  path_alias:
+    handler: 'default:path_alias'
+    handler_settings: {  }
+  user:
+    handler: 'default:user'
+    handler_settings: {  }
+  webform_submission:
+    handler: 'default:webform_submission'
+    handler_settings: {  }
+  scheduled_transition:
+    handler: 'default:scheduled_transition'
+    handler_settings: {  }
+field_type: dynamic_entity_reference
