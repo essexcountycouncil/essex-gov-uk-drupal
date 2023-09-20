@@ -112,6 +112,7 @@ permissions:
   - 'create localgov_step_by_step_overview content'
   - 'create localgov_step_by_step_page content'
   - 'create localgov_subsites_overview content'
+  - 'create localgov_subsites_page content'
   - 'create media'
   - 'create paragraph library item'
   - 'create remote_video media'
