@@ -120,6 +120,7 @@ permissions:
   - 'delete any localgov_step_by_step_page content'
   - 'delete any media'
   - 'delete content owner/sme entity'
+  - 'delete own webform'
   - 'edit any document media'
   - 'edit any image media'
   - 'edit any localgov_directories_org content'
