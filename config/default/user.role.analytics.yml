@@ -4,6 +4,7 @@ status: true
 dependencies:
   module:
     - eu_cookie_compliance
+    - google_tag
     - system
     - toolbar
 id: analytics
@@ -15,4 +16,5 @@ permissions:
   - 'access toolbar'
   - 'administer eu cookie compliance categories'
   - 'administer eu cookie compliance popup'
+  - 'administer google tag manager'
   - 'view the administration theme'
