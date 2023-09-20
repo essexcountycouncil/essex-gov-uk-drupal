@@ -35,6 +35,7 @@ dependencies:
     - entity_usage
     - localgov_alert_banner
     - localgov_directories
+    - localgov_geo
     - media
     - node
     - paragraphs
@@ -59,7 +60,9 @@ weight: -4
 is_admin: null
 permissions:
   - 'access content overview'
+  - 'access directory facets overview'
   - 'access entity usage statistics'
+  - 'access geo overview'
   - 'access in-place editing'
   - 'access localgov alert banner listing page'
   - 'access media overview'
@@ -93,6 +96,7 @@ permissions:
   - 'administer redirects'
   - 'create directory facets'
   - 'create document media'
+  - 'create geo'
   - 'create image media'
   - 'create localgov_guides_overview content'
   - 'create localgov_guides_page content'
@@ -119,6 +123,8 @@ permissions:
   - 'delete any localgov_step_by_step_page content'
   - 'delete any media'
   - 'delete content owner/sme entity'
+  - 'delete directory facets'
+  - 'delete geo'
   - 'delete own webform'
   - 'edit any document media'
   - 'edit any image media'
@@ -144,6 +150,7 @@ permissions:
   - 'edit any webform'
   - 'edit content owner/sme entity'
   - 'edit directory facets'
+  - 'edit geo'
   - 'edit own document media'
   - 'edit own image media'
   - 'edit own localgov_directories_org content'
