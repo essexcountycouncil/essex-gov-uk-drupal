@@ -32,6 +32,7 @@ dependencies:
     - entity_browser
     - entity_hierarchy
     - entity_usage
+    - geocoder
     - localgov_alert_banner
     - localgov_directories
     - localgov_geo
@@ -59,8 +60,10 @@ is_admin: null
 permissions:
   - 'access content overview'
   - 'access entity usage statistics'
+  - 'access geocoder api endpoints'
   - 'access in-place editing'
   - 'access localgov alert banner listing page'
+  - 'access localgov_geo_library entity browser pages'
   - 'access media overview'
   - 'access page_components entity browser pages'
   - 'access paragraphs_library_items entity browser pages'
