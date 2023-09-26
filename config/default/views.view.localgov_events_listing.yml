@@ -594,7 +594,7 @@ display:
           exposed: true
           expose:
             operator_id: localgov_event_locality_target_id_op
-            label: Neighbourhood
+            label: Location
             description: ''
             use_operator: false
             operator: localgov_event_locality_target_id_op
