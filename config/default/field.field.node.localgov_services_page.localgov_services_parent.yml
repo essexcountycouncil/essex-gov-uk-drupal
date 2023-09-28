@@ -9,6 +9,7 @@ dependencies:
     - node.type.localgov_services_landing
     - node.type.localgov_services_page
     - node.type.localgov_services_sublanding
+    - node.type.localgov_step_by_step_page
     - node.type.localgov_subsites_overview
     - node.type.localgov_subsites_page
 _core:
@@ -31,6 +32,7 @@ settings:
       localgov_guides_page: localgov_guides_page
       localgov_services_landing: localgov_services_landing
       localgov_services_sublanding: localgov_services_sublanding
+      localgov_step_by_step_page: localgov_step_by_step_page
       localgov_subsites_overview: localgov_subsites_overview
       localgov_subsites_page: localgov_subsites_page
     sort:
