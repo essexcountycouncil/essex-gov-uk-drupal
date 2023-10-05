@@ -1335,6 +1335,38 @@ nav ul li a {
 }
 
 
+/* Events listing */
+.node--type-localgov-event .date-recur-date {
+  color: #6f6f6f;
+  font-size: 0.75rem;
+  margin-bottom: var(--spacing);
+}
+
+.node--type-localgov-event h2 {
+  font-size: var(--font-size-h3);
+}
+
+.node--type-localgov-event .lgd-teaser__image {
+  margin-bottom: 1.5rem;
+}
+
+@media only screen and (min-width: 768px) {
+  .node--type-localgov-event .lgd-teaser__image {
+    flex-shrink: 0;
+    width: var(--teaser-image-with);
+    margin-bottom: 0;
+  }
+}
+
+.views-exposed-form select {
+  appearance: none;
+  background-image: url('../assets/images/icons/chevron-down-solid.svg');
+  background-position: calc(100% - 1rem) 50%;
+  background-repeat: no-repeat;
+  background-size: 12px;
+}
+
+
 /* Event page */
 
 .page-node-type-localgov-event .lgd-page-title-block {
