@@ -1336,3 +1336,28 @@ nav ul li a {
 .path-frontpage article>.field__items {
   padding-top: clamp(0.75rem, 2vw, var(--spacing))
 }
+
+
+/* Event page */
+
+.page-node-type-localgov-event .lgd-page-title-block {
+  border: 0;
+  margin-bottom: 0;
+}
+
+.page-node-type-localgov-event .field--name-localgov-event-call-to-action {
+  margin: var(--spacing-larger) 0;
+}
+
+.page-node-type-localgov-event .field--name-localgov-event-date:after {
+  content: '';
+  width: calc(100% - 2rem);
+  height: 1px;
+  background: var(--border-color);
+  position: absolute;
+}
+
+.page-node-type-localgov-event .field--name-field-media-image,
+.page-node-type-localgov-event .field--name-body {
+  margin: 3.5rem 0 var(--spacing-large);
+}
