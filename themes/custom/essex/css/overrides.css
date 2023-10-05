@@ -514,16 +514,13 @@ h1:after,
 /* Contact Component */
 
 .paragraph--type--localgov-contact {
-  background: #f5f5f5;
-  border-left: 12px solid #dee0e2;
-  padding: 0.5rem 7.5px 0.5rem 1.5rem;
-  margin-bottom: 1.625rem;
-  line-height: 1.625rem;
-  font-size: 18px;
+  margin: 1em 0;
+  padding: 0.2em 0 0.2em 2em;
+  border-left: 8px solid var(--color-grey-light);
 }
 
 .paragraph--type--localgov-contact .field {
-  margin: var(--spacing) 0;
+  margin: 0.35em 0;
 }
 
 .paragraph--type--localgov-contact .field--name-localgov-contact-heading {
