@@ -6,6 +6,7 @@ dependencies:
     - entity_browser.browser.page_components
     - field.field.node.localgov_guides_overview.body
     - field.field.node.localgov_guides_overview.field_content_owner
+    - field.field.node.localgov_guides_overview.field_display_title
     - field.field.node.localgov_guides_overview.field_non_publishable_notes
     - field.field.node.localgov_guides_overview.localgov_guides_description
     - field.field.node.localgov_guides_overview.localgov_guides_list_format
@@ -195,5 +196,6 @@ content:
     third_party_settings: {  }
 hidden:
   entitygroupfield: true
+  field_display_title: true
   localgov_guides_list_format: true
   localgov_topic_classified: true

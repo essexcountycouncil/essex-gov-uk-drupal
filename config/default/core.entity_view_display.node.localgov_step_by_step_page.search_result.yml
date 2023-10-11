@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.search_result
     - field.field.node.localgov_step_by_step_page.body
+    - field.field.node.localgov_step_by_step_page.field_display_title
     - field.field.node.localgov_step_by_step_page.localgov_step_parent
     - field.field.node.localgov_step_by_step_page.localgov_step_section_title
     - field.field.node.localgov_step_by_step_page.localgov_step_summary
@@ -27,7 +28,13 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
 hidden:
+  field_display_title: true
   links: true
   localgov_step_parent: true
   localgov_step_section_title: true

@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.localgov_step_by_step_overview.body
+    - field.field.node.localgov_step_by_step_overview.field_display_title
     - field.field.node.localgov_step_by_step_overview.localgov_services_parent
     - field.field.node.localgov_step_by_step_overview.localgov_step_by_step_pages
     - field.field.node.localgov_step_by_step_overview.localgov_step_description
@@ -143,4 +144,5 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  field_display_title: true

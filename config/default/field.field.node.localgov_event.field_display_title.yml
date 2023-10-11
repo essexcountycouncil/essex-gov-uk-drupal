@@ -1,0 +1,19 @@
+uuid: ca717dd1-4fdb-41df-a9d4-211deb0c2c4a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_display_title
+    - node.type.localgov_event
+id: node.localgov_event.field_display_title
+field_name: field_display_title
+entity_type: node
+bundle: localgov_event
+label: Title
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

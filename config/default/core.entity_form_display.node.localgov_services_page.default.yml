@@ -6,6 +6,7 @@ dependencies:
     - entity_browser.browser.page_components
     - field.field.node.localgov_services_page.body
     - field.field.node.localgov_services_page.field_content_owner
+    - field.field.node.localgov_services_page.field_display_title
     - field.field.node.localgov_services_page.field_non_publishable_notes
     - field.field.node.localgov_services_page.localgov_common_tasks
     - field.field.node.localgov_services_page.localgov_download_links
@@ -174,6 +175,11 @@ content:
     settings:
       display_label: true
     third_party_settings: {  }
+  simple_sitemap:
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   status:
     type: boolean_checkbox
     weight: 6
@@ -213,6 +219,7 @@ content:
     third_party_settings: {  }
 hidden:
   entitygroupfield: true
+  field_display_title: true
   localgov_common_tasks: true
   localgov_download_links: true
   localgov_hide_related_topics: true

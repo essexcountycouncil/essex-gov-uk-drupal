@@ -1,0 +1,19 @@
+uuid: 6d6a22f2-97d9-4887-b574-a1abe3025e33
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_display_title
+    - node.type.localgov_services_status
+id: node.localgov_services_status.field_display_title
+field_name: field_display_title
+entity_type: node
+bundle: localgov_services_status
+label: Title
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

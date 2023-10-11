@@ -1,0 +1,19 @@
+uuid: 01583524-260f-4156-ad1e-64fb7b116383
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_display_title
+    - node.type.localgov_directory_promo_page
+id: node.localgov_directory_promo_page.field_display_title
+field_name: field_display_title
+entity_type: node
+bundle: localgov_directory_promo_page
+label: Title
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

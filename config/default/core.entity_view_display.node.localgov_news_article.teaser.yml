@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.localgov_news_article.body
+    - field.field.node.localgov_news_article.field_display_title
     - field.field.node.localgov_news_article.field_media_image
     - field.field.node.localgov_news_article.localgov_news_categories
     - field.field.node.localgov_news_article.localgov_news_date
@@ -61,6 +62,7 @@ content:
     region: content
 hidden:
   entitygroupfield: true
+  field_display_title: true
   links: true
   localgov_news_categories: true
   localgov_news_related: true

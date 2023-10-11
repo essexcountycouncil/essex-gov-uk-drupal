@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.directory_index
     - field.field.node.localgov_directories_org.body
+    - field.field.node.localgov_directories_org.field_display_title
     - field.field.node.localgov_directories_org.localgov_directory_channels
     - field.field.node.localgov_directories_org.localgov_directory_email
     - field.field.node.localgov_directories_org.localgov_directory_facets_select
@@ -32,6 +33,11 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 1
+    region: content
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
     region: content
   links:
     settings: {  }
@@ -106,5 +112,6 @@ content:
     weight: 12
     region: content
 hidden:
+  field_display_title: true
   localgov_directory_search: true
   search_api_excerpt: true

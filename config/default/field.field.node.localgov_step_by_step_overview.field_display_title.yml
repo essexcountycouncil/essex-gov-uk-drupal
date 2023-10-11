@@ -1,0 +1,19 @@
+uuid: d453e1a0-2c89-48eb-b1ec-0a62d1c943c0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_display_title
+    - node.type.localgov_step_by_step_overview
+id: node.localgov_step_by_step_overview.field_display_title
+field_name: field_display_title
+entity_type: node
+bundle: localgov_step_by_step_overview
+label: Title
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

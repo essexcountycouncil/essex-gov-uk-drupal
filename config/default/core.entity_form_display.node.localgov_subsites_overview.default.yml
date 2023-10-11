@@ -3,15 +3,19 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.localgov_subsites_overview.field_display_title
     - field.field.node.localgov_subsites_overview.localgov_subsites_banner
     - field.field.node.localgov_subsites_overview.localgov_subsites_content
     - field.field.node.localgov_subsites_overview.localgov_subsites_hide_menu
     - field.field.node.localgov_subsites_overview.localgov_subsites_summary
     - field.field.node.localgov_subsites_overview.localgov_subsites_theme
     - node.type.localgov_subsites_overview
+    - workflows.workflow.localgov_editorial
   module:
+    - content_moderation
     - field_group
     - layout_paragraphs
+    - localgov_review_date
     - paragraphs
     - path
 third_party_settings:
@@ -204,5 +208,6 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  field_display_title: true
   localgov_subsites_colour_accent: true
   localgov_subsites_colour_grad: true

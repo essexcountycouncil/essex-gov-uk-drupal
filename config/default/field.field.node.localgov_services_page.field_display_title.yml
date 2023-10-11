@@ -1,0 +1,19 @@
+uuid: c2462e12-187e-4cf4-aa22-7aa40c30b016
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_display_title
+    - node.type.localgov_services_page
+id: node.localgov_services_page.field_display_title
+field_name: field_display_title
+entity_type: node
+bundle: localgov_services_page
+label: Title
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

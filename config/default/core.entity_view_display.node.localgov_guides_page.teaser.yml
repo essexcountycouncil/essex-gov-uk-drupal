@@ -6,6 +6,7 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.field.node.localgov_guides_page.body
     - field.field.node.localgov_guides_page.field_content_owner
+    - field.field.node.localgov_guides_page.field_display_title
     - field.field.node.localgov_guides_page.field_non_publishable_notes
     - field.field.node.localgov_guides_page.localgov_guides_parent
     - field.field.node.localgov_guides_page.localgov_guides_section_title
@@ -37,6 +38,7 @@ content:
 hidden:
   entitygroupfield: true
   field_content_owner: true
+  field_display_title: true
   field_non_publishable_notes: true
   links: true
   localgov_guides_parent: true

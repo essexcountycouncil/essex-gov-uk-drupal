@@ -5,6 +5,7 @@ dependencies:
   config:
     - entity_browser.browser.localgov_geo_library
     - field.field.node.localgov_event.body
+    - field.field.node.localgov_event.field_display_title
     - field.field.node.localgov_event.localgov_event_call_to_action
     - field.field.node.localgov_event.localgov_event_categories
     - field.field.node.localgov_event.localgov_event_date
@@ -273,4 +274,5 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  field_display_title: true

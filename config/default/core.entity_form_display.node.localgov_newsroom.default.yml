@@ -3,9 +3,13 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.localgov_newsroom.field_display_title
     - field.field.node.localgov_newsroom.localgov_newsroom_featured
     - node.type.localgov_newsroom
+    - workflows.workflow.localgov_editorial
   module:
+    - content_moderation
+    - localgov_review_date
     - path
   enforced:
     module:
@@ -33,6 +37,18 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  localgov_review_date:
+    type: review_date
+    weight: -5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  moderation_state:
+    type: moderation_state_default
+    weight: 100
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   path:
     type: path
     weight: 6
@@ -45,6 +61,11 @@ content:
     region: content
     settings:
       display_label: true
+    third_party_settings: {  }
+  simple_sitemap:
+    weight: 10
+    region: content
+    settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
@@ -78,4 +99,10 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-hidden: {  }
+  url_redirects:
+    weight: 50
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_display_title: true

@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.search_index
+    - field.field.node.localgov_subsites_page.field_display_title
     - field.field.node.localgov_subsites_page.localgov_subsites_banner
     - field.field.node.localgov_subsites_page.localgov_subsites_content
     - field.field.node.localgov_subsites_page.localgov_subsites_parent
@@ -60,6 +61,7 @@ content:
     weight: 3
     region: content
 hidden:
+  field_display_title: true
   links: true
   localgov_subsites_banner: true
   search_api_excerpt: true

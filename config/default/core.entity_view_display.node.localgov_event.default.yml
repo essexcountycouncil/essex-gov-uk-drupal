@@ -6,6 +6,7 @@ dependencies:
     - core.date_format.localgov_event_date_full
     - core.date_format.localgov_event_date_hour
     - field.field.node.localgov_event.body
+    - field.field.node.localgov_event.field_display_title
     - field.field.node.localgov_event.localgov_event_call_to_action
     - field.field.node.localgov_event.localgov_event_categories
     - field.field.node.localgov_event.localgov_event_date
@@ -105,6 +106,7 @@ content:
     weight: 6
     region: content
 hidden:
+  field_display_title: true
   links: true
   localgov_event_categories: true
   localgov_event_locality: true
