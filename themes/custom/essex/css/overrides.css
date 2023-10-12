@@ -1360,11 +1360,11 @@ nav ul li a {
 
 .node--type-localgov-event .lgd-teaser__image {
   margin-bottom: 1.5rem;
-  max-height: 450px;
 }
 
 .node--type-localgov-event .lgd-teaser__image img {
   width: 100%;
+  max-height: 450px;
 }
 
 @media only screen and (min-width: 768px) {
