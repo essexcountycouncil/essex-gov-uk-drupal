@@ -21,9 +21,33 @@ dependencies:
   module:
     - date_recur
     - field_formatter_class
+    - field_group
     - text
     - title_field_for_manage_display
     - user
+third_party_settings:
+  field_group:
+    group_div:
+      children:
+        - field_display_title
+        - localgov_event_date
+        - body
+      label: 'lgd teaser content'
+      parent_name: ''
+      region: content
+      weight: 2
+      format_type: html_element
+      format_settings:
+        classes: lgd-teaser__content
+        show_empty_fields: false
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
 _core:
   default_config_hash: ydJMWGHVgdJTIj4omnGi9gjq3FKP91_e3K8YQkBlNCo
 id: node.localgov_event.teaser
@@ -37,7 +61,7 @@ content:
     settings:
       trim_length: 600
     third_party_settings: {  }
-    weight: 4
+    weight: 5
     region: content
   content_moderation_control:
     settings: {  }
@@ -50,9 +74,11 @@ content:
     settings:
       tag: h2
       linked: '1'
-      classes: ''
-    third_party_settings: {  }
-    weight: 2
+      classes: lgd-teaser__title
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+    weight: 3
     region: content
   localgov_event_date:
     type: date_recur_basic_formatter
@@ -69,13 +95,13 @@ content:
     third_party_settings:
       field_formatter_class:
         class: ''
-    weight: 3
+    weight: 4
     region: content
   localgov_event_image:
     type: entity_reference_entity_view
     label: hidden
     settings:
-      view_mode: localgov_event_thumbnail
+      view_mode: responsive_3x2
       link: false
     third_party_settings:
       field_formatter_class:

@@ -1336,23 +1336,47 @@ nav ul li a {
 
 
 /* Events listing */
+
+.view-localgov-events-listing .views-row {
+  margin-bottom: var(--vertical-rhythm-spacing);
+  padding-bottom: var(--vertical-rhythm-spacing);
+  border-bottom: var(--border);
+}
+
 .node--type-localgov-event .date-recur-date {
   color: #6f6f6f;
   font-size: 0.75rem;
   margin-bottom: var(--spacing);
 }
 
-.node--type-localgov-event h2 {
+.node--type-localgov-event h2:not(.node--type-localgov-event h2.lgd-teaser__title) {
+  display: none;
+}
+
+.node--type-localgov-event .lgd-teaser__title {
   font-size: var(--font-size-h3);
+  margin-bottom: var(--spacing-smaller);
 }
 
 .node--type-localgov-event .lgd-teaser__image {
   margin-bottom: 1.5rem;
+  max-height: 450px;
+}
+
+.node--type-localgov-event .lgd-teaser__image img {
+  width: 100%;
 }
 
 @media only screen and (min-width: 768px) {
+  .node--type-localgov-event .node__content {
+    display: flex;
+  }
+
+  .lgd-teaser__content {
+    margin-left: var(--spacing);
+  }
+
   .node--type-localgov-event .lgd-teaser__image {
-    flex-shrink: 0;
     width: var(--teaser-image-with);
     margin-bottom: 0;
   }
