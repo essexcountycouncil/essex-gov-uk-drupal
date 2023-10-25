@@ -33,6 +33,7 @@ dependencies:
     - entity_browser
     - entity_hierarchy
     - entity_usage
+    - geocoder
     - localgov_alert_banner
     - localgov_directories
     - localgov_geo
@@ -64,8 +65,10 @@ permissions:
   - 'access directory facets overview'
   - 'access entity usage statistics'
   - 'access geo overview'
+  - 'access geocoder api endpoints'
   - 'access in-place editing'
   - 'access localgov alert banner listing page'
+  - 'access localgov_geo_library entity browser pages'
   - 'access media overview'
   - 'access page_components entity browser pages'
   - 'access paragraphs_library_items entity browser pages'
@@ -102,6 +105,7 @@ permissions:
   - 'create document media'
   - 'create geo'
   - 'create image media'
+  - 'create localgov_event content'
   - 'create localgov_guides_overview content'
   - 'create localgov_guides_page content'
   - 'create localgov_news_article content'
@@ -120,6 +124,7 @@ permissions:
   - 'create webform'
   - 'delete any document media'
   - 'delete any image media'
+  - 'delete any localgov_event content'
   - 'delete any localgov_guides_overview content'
   - 'delete any localgov_guides_page content'
   - 'delete any localgov_news_article content'
@@ -133,9 +138,11 @@ permissions:
   - 'delete content owner/sme entity'
   - 'delete directory facets'
   - 'delete geo'
+  - 'delete localgov_event revisions'
   - 'delete media'
   - 'delete own document media'
   - 'delete own image media'
+  - 'delete own localgov_event content'
   - 'delete own localgov_step_by_step_overview content'
   - 'delete own localgov_step_by_step_page content'
   - 'delete own localgov_subsites_overview content'
