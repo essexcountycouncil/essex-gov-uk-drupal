@@ -100,6 +100,11 @@ content:
     third_party_settings: {  }
     weight: 2
     region: content
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
   links:
     settings: {  }
     third_party_settings: {  }
@@ -196,7 +201,7 @@ content:
     label: hidden
     settings:
       view_mode: default
-      link: false
+      link: ''
     third_party_settings: {  }
     weight: 3
     region: content

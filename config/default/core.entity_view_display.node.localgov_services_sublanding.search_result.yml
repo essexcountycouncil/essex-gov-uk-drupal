@@ -31,3 +31,4 @@ hidden:
   links: true
   localgov_services_parent: true
   localgov_topics: true
+  search_api_excerpt: true
