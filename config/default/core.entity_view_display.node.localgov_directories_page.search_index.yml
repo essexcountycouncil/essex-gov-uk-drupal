@@ -112,6 +112,7 @@ content:
     weight: 8
     region: content
 hidden:
+  content_moderation_control: true
   links: true
   localgov_directory_facets_select: true
   localgov_directory_title_sort: true

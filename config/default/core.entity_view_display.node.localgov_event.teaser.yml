@@ -61,6 +61,7 @@ content:
     weight: 0
     region: content
 hidden:
+  content_moderation_control: true
   links: true
   localgov_event_call_to_action: true
   localgov_event_categories: true
