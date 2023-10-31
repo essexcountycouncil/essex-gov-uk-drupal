@@ -24,8 +24,6 @@ permissions:
   - 'administer cludo search'
   - 'administer search_api'
   - 'administer users'
-  - 'assign administrator role'
-  - 'assign all roles'
   - 'assign analytics role'
   - 'assign emergency_publisher role'
   - 'assign localgov_author role'

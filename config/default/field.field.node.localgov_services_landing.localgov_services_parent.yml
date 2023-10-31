@@ -11,7 +11,7 @@ id: node.localgov_services_landing.localgov_services_parent
 field_name: localgov_services_parent
 entity_type: node
 bundle: localgov_services_landing
-label: 'Services: Parent'
+label: Parent
 description: ''
 required: false
 translatable: true

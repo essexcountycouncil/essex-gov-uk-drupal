@@ -1,0 +1,11 @@
+uuid: ca09e500-8d11-4567-999d-18f711c46b54
+langcode: en
+status: true
+dependencies: {  }
+id: simple
+label: Simple
+description: ''
+sitemap_generator: default
+url_generators:
+  custom: custom
+  entity: entity
