@@ -18,6 +18,22 @@
             "url":  "https://github.com/MatthewWilkes/openid_connect_azure_b2c"
         },
         {
+            "type": "github",
+            "url":  "https://github.com/essexcountycouncil/ecc_menu"
+        },
+        {
+            "type": "github",
+            "url":  "https://github.com/essexcountycouncil/ecc_cookie_compliance"
+        },
+        {
+            "type": "github",
+            "url":  "https://github.com/essexcountycouncil/ecc_content_moderation"
+        },
+        {
+            "type": "github",
+            "url":  "https://github.com/essexcountycouncil/ecc_cludo_search"
+        },
+        {
             "type": "package",
             "package": {
                 "name": "ckeditor/div",
@@ -68,6 +84,10 @@
         "drupal/structure_sync": "^2.0",
         "drupal/ultimate_cron": "^2.0@alpha",
         "essexcountycouncil/content_ownership": "dev-main",
+        "essexcountycouncil/ecc_cludo_search": "^1.0",
+        "essexcountycouncil/ecc_content_moderation": "^1.0",
+        "essexcountycouncil/ecc_cookie_compliance": "^1.0",
+        "essexcountycouncil/ecc_menu": "^1.0",
         "localgovdrupal/localgov": "^2.0",
         "localgovdrupal/localgov_base": "^1.4",
         "localgovdrupal/localgov_eu_cookie_compliance": "1.x-dev",
