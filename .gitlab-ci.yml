@@ -52,6 +52,53 @@ build-and-push-images:
     - /^release\//
     - feature/pipeline-improvements
 
+generate-sbom:
+  stage: build
+  image: docker:24
+  services:
+    - docker:24-dind
+  variables:
+    DOCKER_PASS: ""
+  before_script:
+    - docker login -u${DOCKER_USER} -p${DOCKER_PASSWORD} ${DOCKER_REGISTRY}
+    - apk add bash curl --update-cache
+    - curl -sSfL https://raw.githubusercontent.com/anchore/syft/main/install.sh | sh -s -- -b /usr/local/bin
+  script:
+    - docker pull ${DOCKER_REGISTRY}/portal-drupal-fpm${tag}
+    - syft docker:${DOCKER_REGISTRY}/portal-drupal-fpm${tag} -o json=dockerimage.sbom.json
+  only:
+    - develop
+    - /^release\//
+    - feature/pipeline-improvements
+  artifacts:
+    paths:
+      - dockerimage.sbom.json
+    expire_in: 12 weeks
+  needs:
+    - job: build-and-push-images
+  allow_failure: true
+  environment:
+    name: DEV
+    action: access
+
+analyse-sbom:
+  stage: build
+  image: ubuntu:latest
+  before_script:
+    - apt update
+    - apt install -y curl
+    - curl -sSfL https://raw.githubusercontent.com/anchore/grype/main/install.sh | sh -s -- -b /usr/local/bin
+  script:
+    - grype sbom:./dockerimage.sbom.json --only-fixed --add-cpes-if-none --fail-on critical
+  only:
+    - develop
+    - /^release\//
+    - feature/pipeline-improvements
+  needs:
+    - job: generate-sbom
+      artifacts: true
+  allow_failure: true
+
 deploy-to-dev:
   image: mcr.microsoft.com/azure-cli
   stage: development

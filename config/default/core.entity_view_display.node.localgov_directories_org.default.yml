@@ -23,8 +23,6 @@ third_party_settings:
   field_group:
     group_enquiries:
       children:
-        - localgov_directory_name
-        - localgov_directory_job_title
         - localgov_directory_phone
         - localgov_directory_email
         - localgov_directory_website
@@ -40,7 +38,6 @@ third_party_settings:
     group_organisation:
       children:
         - localgov_location
-        - localgov_directory_opening_times
         - localgov_directory_notes
       label: Venue
       parent_name: ''
@@ -122,6 +119,7 @@ content:
     weight: 2
     region: content
 hidden:
+  content_moderation_control: true
   links: true
   localgov_directory_channels: true
   localgov_directory_facets_select: true
