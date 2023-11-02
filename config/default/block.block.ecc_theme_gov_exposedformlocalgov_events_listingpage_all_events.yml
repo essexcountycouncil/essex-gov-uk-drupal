@@ -1,0 +1,28 @@
+uuid: b2e405d8-b8c0-4244-b60a-5e2f1b91bfeb
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.localgov_events_listing
+  module:
+    - system
+    - views
+  theme:
+    - ecc_theme_gov
+id: ecc_theme_gov_exposedformlocalgov_events_listingpage_all_events
+theme: ecc_theme_gov
+region: sidebar_first
+weight: 0
+provider: null
+plugin: 'views_exposed_filter_block:localgov_events_listing-page_all_events'
+settings:
+  id: 'views_exposed_filter_block:localgov_events_listing-page_all_events'
+  label: ''
+  label_display: visible
+  provider: views
+  views_label: ''
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /events

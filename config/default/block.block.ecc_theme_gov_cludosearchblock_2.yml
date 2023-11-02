@@ -1,0 +1,25 @@
+uuid: ff89bd41-f5cb-4b3c-9138-9aa66a2e5929
+langcode: en
+status: true
+dependencies:
+  module:
+    - cludo_search
+    - system
+  theme:
+    - ecc_theme_gov
+id: ecc_theme_gov_cludosearchblock_2
+theme: ecc_theme_gov
+region: search
+weight: 0
+provider: null
+plugin: cludo_search
+settings:
+  id: cludo_search
+  label: 'Cludo Search block'
+  label_display: '0'
+  provider: cludo_search
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    pages: "<front>\r\n/csearch*"

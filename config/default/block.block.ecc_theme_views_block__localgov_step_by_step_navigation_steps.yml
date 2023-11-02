@@ -1,0 +1,29 @@
+uuid: e516c06b-9cb7-48eb-a1c0-efa997d679a5
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.localgov_step_by_step_navigation
+  module:
+    - block_classes
+    - views
+  theme:
+    - ecc_theme
+third_party_settings:
+  block_classes:
+    block_class: step-by-step__navigation-sidebar
+id: ecc_theme_views_block__localgov_step_by_step_navigation_steps
+theme: ecc_theme
+region: sidebar_second
+weight: -10
+provider: null
+plugin: 'views_block:localgov_step_by_step_navigation-steps'
+settings:
+  id: 'views_block:localgov_step_by_step_navigation-steps'
+  label: ''
+  label_display: '0'
+  provider: views
+  context_mapping: {  }
+  views_label: ''
+  items_per_page: none
+visibility: {  }

@@ -1,0 +1,22 @@
+uuid: 7dde48e2-f099-42c6-bd97-74243bb85ddf
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - ecc_theme_gov
+_core:
+  default_config_hash: xjT-PMJ_X0d1hz-hW2RTS2HI58Nv1lAvwxx7MPSs9-4
+id: ecc_theme_gov_localgov_mainpagecontent_scarfolk
+theme: ecc_theme_gov
+region: content
+weight: -12
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

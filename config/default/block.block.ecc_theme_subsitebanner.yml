@@ -1,0 +1,30 @@
+uuid: 42a8874c-caaa-4a72-b192-4916e85a9f95
+langcode: en
+status: true
+dependencies:
+  module:
+    - localgov_subsites
+    - node
+  theme:
+    - ecc_theme
+id: ecc_theme_subsitebanner
+theme: ecc_theme
+region: hero
+weight: -10
+provider: null
+plugin: localgov_subsite_banner
+settings:
+  id: localgov_subsite_banner
+  label: 'Subsite banner'
+  label_display: '0'
+  provider: localgov_subsites
+  context_mapping:
+    node: '@node.node_route_context:node'
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      localgov_subsites_overview: localgov_subsites_overview

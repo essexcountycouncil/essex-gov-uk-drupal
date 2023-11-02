@@ -1,0 +1,46 @@
+uuid: fd83c368-9880-4d00-93f4-f94e7ca9c936
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - system
+  theme:
+    - ecc_theme_gov
+_core:
+  default_config_hash: HMT0p1pe6D6hsYTqyWbzK2nquVWT6anaDXoNu7WYvPI
+id: ecc_theme_gov_localgov_breadcrumbs_scarfolk
+theme: ecc_theme_gov
+region: breadcrumb
+weight: 0
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  label_display: '0'
+  provider: system
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      localgov_directories_org: localgov_directories_org
+      localgov_directories_page: localgov_directories_page
+      localgov_directories_venue: localgov_directories_venue
+      localgov_directory: localgov_directory
+      localgov_directory_promo_page: localgov_directory_promo_page
+      localgov_event: localgov_event
+      localgov_guides_overview: localgov_guides_overview
+      localgov_guides_page: localgov_guides_page
+      localgov_newsroom: localgov_newsroom
+      localgov_news_article: localgov_news_article
+      localgov_services_landing: localgov_services_landing
+      localgov_services_page: localgov_services_page
+      localgov_services_status: localgov_services_status
+      localgov_services_sublanding: localgov_services_sublanding
+      localgov_step_by_step_overview: localgov_step_by_step_overview
+      localgov_step_by_step_page: localgov_step_by_step_page
+      localgov_subsites_page: localgov_subsites_page

@@ -1,0 +1,31 @@
+uuid: e1d77a33-d214-447b-b951-d670dbc5e70a
+langcode: en
+status: false
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - system
+  theme:
+    - ecc_theme_gov
+_core:
+  default_config_hash: wTuUnaKnGKQiwFQ9bz_B1kDs3FfXc_ujSdtvk4tF88g
+id: ecc_theme_gov_localgov_mainnavigation_scarfolk
+theme: ecc_theme_gov
+region: primary_menu
+weight: -1
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  id: 'system_menu_block:main'
+  label: 'Main navigation'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    pages: '<front>'

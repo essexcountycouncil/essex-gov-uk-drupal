@@ -1,0 +1,25 @@
+uuid: e4802a48-a015-4bb3-b0c1-9b4f6729d294
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.footer
+  module:
+    - system
+  theme:
+    - ecc_theme_gov
+id: ecc_theme_gov_footer
+theme: ecc_theme_gov
+region: footer_first
+weight: -11
+provider: null
+plugin: 'system_menu_block:footer'
+settings:
+  id: 'system_menu_block:footer'
+  label: Footer
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

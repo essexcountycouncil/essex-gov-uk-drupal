@@ -1,0 +1,22 @@
+uuid: b2bf9b93-4921-43ca-981b-b472273a2018
+langcode: en
+status: true
+dependencies:
+  module:
+    - localgov_core
+  theme:
+    - ecc_theme
+_core:
+  default_config_hash: f0iKCYeeRkvUMJ87FM2sOkHWRyk74xQsanz5TniJSG8
+id: ecc_theme_localgov_page_header_block_scarfolk
+theme: ecc_theme
+region: content_top
+weight: -13
+provider: null
+plugin: localgov_page_header_block
+settings:
+  id: localgov_page_header_block
+  label: 'Page header block'
+  label_display: '0'
+  provider: localgov_core
+visibility: {  }
