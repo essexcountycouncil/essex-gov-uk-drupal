@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.node.card
     - field.storage.node.body
     - field.storage.node.localgov_event_image
     - node.type.localgov_event
@@ -1403,7 +1404,7 @@ display:
       style:
         type: grid
         options:
-          grouping: {  }
+          uses_fields: false
           columns: 3
           automatic_width: false
           alignment: horizontal
@@ -1412,12 +1413,10 @@ display:
           col_class_custom: ''
           col_class_default: true
       row:
-        type: fields
+        type: 'entity:node'
         options:
-          default_field_elements: false
-          inline: {  }
-          separator: ''
-          hide_empty: false
+          relationship: none
+          view_mode: card
       defaults:
         title: false
         pager: false

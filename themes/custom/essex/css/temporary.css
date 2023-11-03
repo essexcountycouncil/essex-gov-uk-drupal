@@ -1,0 +1,336 @@
+/* START ECCI-474 */
+
+/* Copied from https://nomensa.atlassian.net/browse/ECCI-474 */
+/* Added for https://nomensa.atlassian.net/browse/ECCW-655 */
+.ecc-events-listing-block-view .view-content .ecc-event-listing-wrapper {
+  flex: 0 1 100%;
+  height: auto;
+}
+
+.ecc-events-listing-block-view article > .card-content {
+  padding: 0px var(--spacing);
+}
+
+.ecc-events-listing-block-view article time {
+  display: block;
+  margin-bottom: var(--spacing);
+  color: #6F6F6F;
+  font-size: 0.75rem;
+}
+
+.view-localgov-events-listing .event-info h3 a,
+.view-localgov-events-listing .more-link a {
+  color: var(--color-link);
+}
+
+.newsroom-teaser--has-image img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+@media screen and (min-width: 640px) {
+  .ecc-events-listing-block-view .view-content .ecc-event-listing-wrapper {
+    flex: 0 1 31%;
+  }
+}
+
+/* END ECCI-474 */
+
+/* Start from themes/custom/essex/css/news.css */
+
+@media only screen and (min-width: 768px) {
+  .news-row {
+      display: flex;
+      justify-content: space-between;
+  }
+
+  .news-column {
+      margin-right: 2rem;
+      margin-bottom: 0;
+      width: calc(1/3*100% - (1 - 1/3)*2rem);
+  }
+
+  .news-column:nth-child(3n) {
+      margin-right: 0;
+  }
+
+  .lgd-teaser--localgov-news-article .lgd-teaser__image {
+      margin-bottom: 1.5rem;
+  }
+}
+
+.node--type-localgov-news-article picture>img {
+  max-inline-size: 100%;
+  block-size: auto;
+  height: auto;
+  object-fit: cover;
+  aspect-ratio: 9/5;
+}
+
+
+.link-block__title-wrapper {
+  align-items: flex-start;
+}
+
+
+
+/** News cards */
+div:has(.featured-teaser),
+.featured-teaser {
+  height: 100%;
+}
+
+.newsroom-teaser,
+.featured-news__card article,
+.news-card article {
+  background-color: var(--color-white);
+  border: 1px solid #cdcdcd;
+  border-bottom: 3px solid var(--color-accent);
+  height: 100%;
+  margin-bottom: var(--spacing-large);
+}
+
+.newsroom-teaser {
+  margin-bottom: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 640px) {
+  .newsroom-teaser {
+      padding-bottom: 0;
+      display: flex;
+  }
+
+  .newsroom-teaser__image {
+      flex: 1 0 45%;
+  }
+
+  .newsroom-teaser__image div,
+  .newsroom-teaser__image img {
+      height: 100%;
+  }
+
+  .newsroom-teaser__image img {
+      object-fit: cover;
+  }
+
+  .newsroom-teaser__content {
+      padding-bottom: var(--spacing-large);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .newsroom-teaser {
+      padding-bottom: var(--spacing-large);
+  }
+}
+
+.newsroom-teaser__title,
+.newsroom-teaser__summary {
+  padding: 0 var(--spacing);
+}
+
+.featured-news__card article,
+.news-card article {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-auto-rows: 1fr;
+}
+
+.newsroom-teaser:hover,
+.featured-news__card article:hover,
+.news-card article:hover {
+  cursor: pointer;
+}
+
+.newsroom-teaser:hover .newsroom-teaser__title a,
+.featured-news__card article:hover a,
+.news-card article:hover a {
+  text-decoration-thickness: max(3px,0.1875rem,0.12em);
+}
+
+@media screen and (min-width: 1008px) {
+  .featured-news__card article,
+  .news-card article {
+      margin-bottom: 0;
+  }
+
+  .featured-news__card:first-of-type {
+      margin-bottom: var(--spacing-largest);
+  }
+}
+
+.news-card article a,
+.featured-news__card article a {
+  color: var(--color-black);
+}
+
+.featured-news__card .card-image,
+.news-card .card-image {
+  position: relative;
+}
+
+.featured-news__card .card-image div,
+.news-card .card-image div {
+  height: 100%;
+}
+
+.featured-news__card img,
+.news-card .card-image img {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.featured-news__card article .card-content {
+  font-size: 1.25rem;
+}
+
+
+@media (min-width: 641px) {
+  @supports (subgrid) {
+      .paragraph--type--newsroom-component {
+      display: grid;
+      grid-template-columns: subgrid;
+      }
+  }
+}
+
+.featured-news__card,
+.news-card>.field__item {
+  margin-top: 0;
+}
+
+.featured-news__card article .card-content,
+.news-card article .card-content {
+  grid-column: 2 / span 2;
+  padding: 0.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.featured-news__card article .card-content .node__content,
+.news-card article .card-content .node__content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.news-card .field--type-datetime,
+.featured-news__card .field--type-datetime {
+  text-align: right;
+  font-size: var(--font-size-small);
+  vertical-align: bottom;
+  margin-top: auto;
+}
+
+@media (max-width: 640px) {
+
+  .featured-news__card h3,
+  .news-card h3 {
+      margin-top: 5px;
+      font-size: var(--font-size-h6);
+  }
+
+  .card-content .field--name-body {
+      font-size: 0.875rem;
+  }
+}
+
+.featured-news__card article .node__content {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+}
+
+@media (min-width: 768px) {
+  .news-card article {
+      background: none;
+  }
+
+  .featured-news__card article {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  .news-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-auto-rows: 1fr;
+      grid-gap: 1em;
+      margin: 0;
+  }
+
+  .featured-news__card .card-image {
+      grid-column: 1 / span 2;
+  }
+
+  .featured-news__card article .card-content {
+      grid-column: 3 / span 2;
+      min-height: 240px;
+  }
+
+  .featured-news__card article .card-content {
+      padding: 1.25rem 1rem;
+  }
+
+  .news-card article .card-image,
+  .news-card article .card-content {
+      grid-column: 1 / span 3;
+  }
+
+  .news-card .card-content {
+      box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+  }
+
+  .card-content {
+      position: relative;
+      padding: 10px;
+  }
+
+  .featured-news__card .field--type-datetime {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+  }
+}
+
+/* News 1+4 component */
+
+@media screen and (min-width: 768px) {
+  .paragraph--type--news-1-4 {
+      display: flex;
+      gap: var(--spacing);
+  }
+
+  .paragraph--type--news-1-4 .featured-news__card {
+      flex: 0 0 50%;
+  }
+
+  .paragraph--type--news-1-4 .featured-news__card:first-of-type {
+      margin-bottom: 0;
+  }
+
+  .paragraph--type--news-1-4 .featured-news__card article {
+      display: flex;
+      flex-direction: column;
+  }
+
+  .paragraph--type--news-1-4 .featured-news__card .card-image img {
+      position: static;
+  }
+
+  .paragraph--type--news-1-4 .featured-news__card .card-content {
+      height: 100%;
+  }
+}
+
+/* End of themes/custom/essex/css/news.css */
+
+/* Extra - not too sure where this is from in the CSS, taken from the intranet site in the inspector */
+.newsroom-teaser > * + * {
+  margin-top: var(--vertical-rhythm-spacing);
+}

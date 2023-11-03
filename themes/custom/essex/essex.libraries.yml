@@ -20,6 +20,11 @@ fonts:
     theme:
       css/fonts.css: {}
 
+temporary:
+  css:
+    theme:
+      css/temporary.css: {}
+
 # sample-library
 #   css:
 #     theme:
