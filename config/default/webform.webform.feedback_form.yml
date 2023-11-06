@@ -13,6 +13,14 @@ title: 'Feedback Form'
 description: "For providing feedback to content\r\n<div id=\"extension-host\">&nbsp;</div>"
 category: ''
 elements: |-
+  info:
+    '#type': webform_markup
+    '#markup': |-
+      <p data-renderer-start-pos="99">Only use this form to give us feedback about our new website.</p>
+
+      <p data-renderer-start-pos="225">For all other enquiries, please <a href="/contact-us">contact us</a> directly.</p>
+
+      <p data-renderer-start-pos="296">The information you provide will only be used for the purpose of improving our online services and will not be shared with anyone outside the council.</p>
   reference:
     '#type': hidden
     '#title': Reference
@@ -66,7 +74,9 @@ elements: |-
     '#description': |-
       Please confirm that you have read <a href="/about-essexgovuk/privacy-and-data-protection/your-privacy">the data protection and privacy policy</a> and agree to the council using any personal data that you provide in this form to deal with your request.
       <div id="extension-host">&nbsp;</div>
-    '#title_display': before
+    '#wrapper_attributes':
+      class:
+        - form-checkboxes
     '#required': true
 css: ''
 javascript: ''
