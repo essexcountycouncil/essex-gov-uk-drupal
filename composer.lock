@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "050668b73f1594e44e3c3ab7b746af18",
+    "content-hash": "0fe94f1a3c63a01965cd2dba0fb56c9c",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -6474,6 +6474,63 @@
             }
         },
         {
+            "name": "drupal/openid_connect_azure_b2c",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/openid_connect_azure_b2c.git",
+                "reference": "1.0.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/openid_connect_azure_b2c-1.0.0.zip",
+                "reference": "1.0.0",
+                "shasum": "7f59c13c1696c8792fbe80511808acb6dbd7c896"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9",
+                "drupal/openid_connect": "^2.0@beta"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "1.0.0",
+                    "datestamp": "1695837259",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "andystone78",
+                    "homepage": "https://www.drupal.org/user/263722"
+                },
+                {
+                    "name": "MatthewWilkes",
+                    "homepage": "https://www.drupal.org/user/3708219"
+                },
+                {
+                    "name": "polynya",
+                    "homepage": "https://www.drupal.org/user/795122"
+                },
+                {
+                    "name": "siliconmeadow",
+                    "homepage": "https://www.drupal.org/user/55284"
+                }
+            ],
+            "description": "Azure B2C plugin for the OpenID Connect module.",
+            "homepage": "https://www.drupal.org/project/openid_connect_azure_b2c",
+            "support": {
+                "source": "https://git.drupalcode.org/project/openid_connect_azure_b2c"
+            }
+        },
+        {
             "name": "drupal/paragraphs",
             "version": "1.15.0",
             "source": {
@@ -10722,35 +10779,6 @@
                 "source": "https://github.com/Masterminds/html5-php/tree/2.7.6"
             },
             "time": "2022-08-18T16:18:26+00:00"
-        },
-        {
-            "name": "matthewwilkes/openid_connect_azure_b2c",
-            "version": "dev-main",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/MatthewWilkes/openid_connect_azure_b2c.git",
-                "reference": "1e0877e4aa6c5ba8062fe535d16e18bce4ff7ca8"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/MatthewWilkes/openid_connect_azure_b2c/zipball/1e0877e4aa6c5ba8062fe535d16e18bce4ff7ca8",
-                "reference": "1e0877e4aa6c5ba8062fe535d16e18bce4ff7ca8",
-                "shasum": ""
-            },
-            "require": {
-                "drupal/openid_connect": "^2.0@beta"
-            },
-            "default-branch": true,
-            "type": "drupal-module",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "description": "Azure B2C plugin for the OpenID Connect module.",
-            "support": {
-                "source": "https://github.com/MatthewWilkes/openid_connect_azure_b2c/tree/main",
-                "issues": "https://github.com/MatthewWilkes/openid_connect_azure_b2c/issues"
-            },
-            "time": "2023-01-27T17:18:54+00:00"
         },
         {
             "name": "mkalkbrenner/php-htmldiff-advanced",
@@ -20740,11 +20768,11 @@
         "drupal/config_split": 5,
         "drupal/eu_cookie_compliance_gtm": 15,
         "drupal/gin": 5,
+        "drupal/openid_connect_azure_b2c": 10,
         "drupal/ultimate_cron": 15,
         "essexcountycouncil/content_ownership": 20,
         "localgovdrupal/localgov_eu_cookie_compliance": 20,
         "localgovdrupal/localgov_forms": 20,
-        "matthewwilkes/openid_connect_azure_b2c": 20,
         "roave/security-advisories": 20
     },
     "prefer-stable": true,
