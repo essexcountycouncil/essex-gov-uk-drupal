@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.localgov_services_landing.body
     - field.field.node.localgov_services_landing.field_content_owner
     - field.field.node.localgov_services_landing.field_non_publishable_notes
+    - field.field.node.localgov_services_landing.localgov_access_control
     - field.field.node.localgov_services_landing.localgov_address
     - field.field.node.localgov_services_landing.localgov_address_first_line
     - field.field.node.localgov_services_landing.localgov_common_tasks
@@ -30,7 +31,7 @@ third_party_settings:
       label: Description
       region: hidden
       parent_name: ''
-      weight: 22
+      weight: 24
       format_type: tab
       format_settings:
         classes: ''
@@ -44,7 +45,7 @@ third_party_settings:
       label: 'Common tasks'
       region: hidden
       parent_name: ''
-      weight: 21
+      weight: 23
       format_type: tab
       format_settings:
         classes: ''
@@ -57,7 +58,7 @@ third_party_settings:
       label: 'Child pages'
       region: hidden
       parent_name: ''
-      weight: 17
+      weight: 19
       format_type: tab
       format_settings:
         classes: ''
@@ -71,7 +72,7 @@ third_party_settings:
       label: tabs
       region: hidden
       parent_name: ''
-      weight: 16
+      weight: 18
       format_type: tabs
       format_settings:
         classes: ''
@@ -84,7 +85,7 @@ third_party_settings:
       label: 'Social media'
       region: hidden
       parent_name: ''
-      weight: 19
+      weight: 21
       format_type: tab
       format_settings:
         classes: ''
@@ -98,7 +99,7 @@ third_party_settings:
       label: 'Popular topics'
       region: hidden
       parent_name: ''
-      weight: 18
+      weight: 20
       format_type: tab
       format_settings:
         classes: ''
@@ -114,7 +115,7 @@ third_party_settings:
       label: Location
       region: hidden
       parent_name: ''
-      weight: 20
+      weight: 22
       format_type: tab
       format_settings:
         classes: ''
@@ -167,6 +168,16 @@ content:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
+  localgov_access_control:
+    type: entity_reference_autocomplete
+    weight: 16
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   localgov_destinations:
     type: entity_reference_autocomplete
     weight: 5
@@ -206,7 +217,7 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 12
+    weight: 13
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -218,20 +229,20 @@ content:
       display_label: true
     third_party_settings: {  }
   simple_sitemap:
-    weight: 10
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 14
+    weight: 15
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
-    weight: 11
+    weight: 12
     region: content
     settings:
       display_label: true
@@ -255,7 +266,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   url_redirects:
-    weight: 13
+    weight: 14
     region: content
     settings: {  }
     third_party_settings: {  }

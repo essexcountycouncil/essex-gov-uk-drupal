@@ -1,0 +1,106 @@
+uuid: f3b03695-209b-4c65-a64c-82778b82080f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.localgov_directories_org.localgov_access_control
+    - field.field.node.localgov_directories_page.localgov_access_control
+    - field.field.node.localgov_directories_venue.localgov_access_control
+    - field.field.node.localgov_directory.localgov_access_control
+    - field.field.node.localgov_directory_promo_page.localgov_access_control
+    - field.field.node.localgov_event.localgov_access_control
+    - field.field.node.localgov_guides_overview.localgov_access_control
+    - field.field.node.localgov_guides_page.localgov_access_control
+    - field.field.node.localgov_news_article.localgov_access_control
+    - field.field.node.localgov_newsroom.localgov_access_control
+    - field.field.node.localgov_services_landing.localgov_access_control
+    - field.field.node.localgov_services_page.localgov_access_control
+    - field.field.node.localgov_services_status.localgov_access_control
+    - field.field.node.localgov_services_sublanding.localgov_access_control
+    - field.field.node.localgov_step_by_step_overview.localgov_access_control
+    - field.field.node.localgov_step_by_step_page.localgov_access_control
+    - field.field.node.localgov_subsites_overview.localgov_access_control
+    - field.field.node.localgov_subsites_page.localgov_access_control
+    - taxonomy.vocabulary.access_control
+_core:
+  default_config_hash: On3fSNOuWBdNXh398mhWl1bL0wWUFyU-4YZWvp_YSnU
+id: site_section
+plural_label: 'Site Sections'
+label: 'Site Section'
+scheme: taxonomy
+scheme_settings:
+  vocabularies:
+    - access_control
+  fields:
+    -
+      entity_type: node
+      bundle: localgov_subsites_page
+      field: localgov_access_control
+    -
+      entity_type: node
+      bundle: localgov_subsites_overview
+      field: localgov_access_control
+    -
+      entity_type: node
+      bundle: localgov_services_page
+      field: localgov_access_control
+    -
+      entity_type: node
+      bundle: localgov_services_landing
+      field: localgov_access_control
+    -
+      entity_type: node
+      bundle: localgov_directory
+      field: localgov_access_control
+    -
+      entity_type: node
+      bundle: localgov_directories_org
+      field: localgov_access_control
+    -
+      entity_type: node
+      bundle: localgov_directories_page
+      field: localgov_access_control
+    -
+      entity_type: node
+      bundle: localgov_directory_promo_page
+      field: localgov_access_control
+    -
+      entity_type: node
+      bundle: localgov_directories_venue
+      field: localgov_access_control
+    -
+      entity_type: node
+      bundle: localgov_event
+      field: localgov_access_control
+    -
+      entity_type: node
+      bundle: localgov_guides_overview
+      field: localgov_access_control
+    -
+      entity_type: node
+      bundle: localgov_guides_page
+      field: localgov_access_control
+    -
+      entity_type: node
+      bundle: localgov_news_article
+      field: localgov_access_control
+    -
+      entity_type: node
+      bundle: localgov_newsroom
+      field: localgov_access_control
+    -
+      entity_type: node
+      bundle: localgov_services_status
+      field: localgov_access_control
+    -
+      entity_type: node
+      bundle: localgov_services_sublanding
+      field: localgov_access_control
+    -
+      entity_type: node
+      bundle: localgov_step_by_step_overview
+      field: localgov_access_control
+    -
+      entity_type: node
+      bundle: localgov_step_by_step_page
+      field: localgov_access_control

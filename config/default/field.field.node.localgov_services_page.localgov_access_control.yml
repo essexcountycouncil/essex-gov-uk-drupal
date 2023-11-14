@@ -1,0 +1,31 @@
+uuid: fd873806-d6da-4859-b798-7514b0988ab2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.localgov_access_control
+    - node.type.localgov_services_page
+    - taxonomy.vocabulary.access_control
+_core:
+  default_config_hash: EjC4_r2ltxe7oK2PRvDtn9D1__YXwkmBfGiTbyziKSs
+id: node.localgov_services_page.localgov_access_control
+field_name: localgov_access_control
+entity_type: node
+bundle: localgov_services_page
+label: 'Access Control'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      access_control: access_control
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,22 @@
+uuid: 9f65b5b7-ab8f-46d9-b329-ebb28705f20d
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+_core:
+  default_config_hash: Icq0ygv6J3xSC35BvqLZAxHj-H1jT6XDcX0E4csZ108
+id: node.localgov_access_control
+field_name: localgov_access_control
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: true
+custom_storage: false

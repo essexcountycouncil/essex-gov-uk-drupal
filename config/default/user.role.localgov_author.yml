@@ -48,6 +48,8 @@ dependencies:
     - system
     - toolbar
     - webform
+    - workbench
+    - workbench_access
   enforced:
     module:
       - localgov_roles
@@ -69,6 +71,7 @@ permissions:
   - 'access paragraphs_library_items entity browser pages'
   - 'access responsive preview'
   - 'access toolbar'
+  - 'access workbench'
   - 'add scheduled transitions node localgov_directories_page'
   - 'add scheduled transitions node localgov_directories_venue'
   - 'add scheduled transitions node localgov_directory_promo_page'
@@ -172,6 +175,7 @@ permissions:
   - 'use localgov_editorial transition publish'
   - 'use localgov_editorial transition reject'
   - 'use localgov_editorial transition submit_for_review'
+  - 'use workbench access'
   - 'view all localgov alert banner entity pages'
   - 'view all media revisions'
   - 'view all revisions'
@@ -223,3 +227,4 @@ permissions:
   - 'view scheduled transitions node localgov_subsites_page'
   - 'view the administration theme'
   - 'view unpublished paragraphs'
+  - 'view workbench access information'

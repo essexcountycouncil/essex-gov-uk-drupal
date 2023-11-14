@@ -1,0 +1,10 @@
+uuid: 04ec3968-d9c1-455b-a10f-2a9a2d7a555a
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: _3P89wr0yO4XkiCj5TnkZF204hXPW0HSLcq4YVquprE
+name: 'Access Control'
+vid: access_control
+description: 'We use this taxonomy to control edit/publish/etc access to different site sections.'
+weight: 0

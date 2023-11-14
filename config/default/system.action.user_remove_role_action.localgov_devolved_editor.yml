@@ -1,0 +1,14 @@
+uuid: a1f78283-0aa6-4975-9326-1e679c84909c
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.localgov_devolved_editor
+  module:
+    - user
+id: user_remove_role_action.localgov_devolved_editor
+label: 'Remove the Devolved Editor role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: localgov_devolved_editor

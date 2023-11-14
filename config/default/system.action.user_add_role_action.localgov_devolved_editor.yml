@@ -1,0 +1,14 @@
+uuid: f730444f-3ff4-427b-87e4-7dbcbc206bc1
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.localgov_devolved_editor
+  module:
+    - user
+id: user_add_role_action.localgov_devolved_editor
+label: 'Add the Devolved Editor role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: localgov_devolved_editor
