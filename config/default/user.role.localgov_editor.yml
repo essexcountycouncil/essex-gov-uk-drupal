@@ -25,6 +25,7 @@ dependencies:
     - node.type.localgov_step_by_step_page
     - node.type.localgov_subsites_overview
     - node.type.localgov_subsites_page
+    - taxonomy.vocabulary.access_control
     - workflows.workflow.localgov_alert_banners
     - workflows.workflow.localgov_editorial
   module:
@@ -48,6 +49,7 @@ dependencies:
     - responsive_preview
     - scheduled_transitions
     - system
+    - taxonomy
     - toolbar
     - webform
     - workbench
@@ -118,6 +120,7 @@ permissions:
   - 'create media'
   - 'create paragraph library item'
   - 'create remote_video media'
+  - 'create terms in access_control'
   - 'create url aliases'
   - 'create webform'
   - 'delete any localgov_event content'
@@ -134,6 +137,7 @@ permissions:
   - 'delete geo'
   - 'delete localgov_event revisions'
   - 'delete own localgov_event content'
+  - 'delete terms in access_control'
   - 'edit any document media'
   - 'edit any image media'
   - 'edit any localgov_directories_org content'
@@ -182,6 +186,7 @@ permissions:
   - 'edit own remote_video media'
   - 'edit own webform'
   - 'edit paragraph library item'
+  - 'edit terms in access_control'
   - 'generate preview links'
   - 'manage localgov alert banner localgov_alert_banner entities'
   - 'reorder entity_hierarchy children'
