@@ -125,7 +125,7 @@ display:
           entity_type: node
           entity_field: status
           plugin_id: boolean
-          operator: '!='
+          operator: '='
           value: '1'
           group: 1
           exposed: false

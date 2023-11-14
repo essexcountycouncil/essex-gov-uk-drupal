@@ -39,6 +39,7 @@ dependencies:
     - localgov_directories
     - localgov_geo
     - media
+    - menu_admin_per_menu
     - node
     - paragraphs
     - paragraphs_library
@@ -65,6 +66,7 @@ weight: -4
 is_admin: null
 permissions:
   - 'access content overview'
+  - 'access directory facets overview'
   - 'access entity usage statistics'
   - 'access geo overview'
   - 'access geocoder api endpoints'
@@ -99,9 +101,11 @@ permissions:
   - 'add scheduled transitions node localgov_subsites_overview'
   - 'add scheduled transitions node localgov_subsites_page'
   - 'administer content owner/sme entity'
-  - 'administer menu'
+  - 'administer footer menu items'
   - 'administer paragraphs library'
   - 'administer redirects'
+  - 'administer social-media menu items'
+  - 'administer tools menu items'
   - 'create directory facets'
   - 'create document media'
   - 'create geo'
@@ -117,12 +121,15 @@ permissions:
   - 'create localgov_step_by_step_overview content'
   - 'create localgov_step_by_step_page content'
   - 'create localgov_subsites_overview content'
+  - 'create localgov_subsites_page content'
   - 'create media'
   - 'create paragraph library item'
   - 'create remote_video media'
   - 'create terms in access_control'
   - 'create url aliases'
   - 'create webform'
+  - 'delete any document media'
+  - 'delete any image media'
   - 'delete any localgov_event content'
   - 'delete any localgov_guides_overview content'
   - 'delete any localgov_guides_page content'
@@ -133,11 +140,21 @@ permissions:
   - 'delete any localgov_step_by_step_overview content'
   - 'delete any localgov_step_by_step_page content'
   - 'delete any media'
+  - 'delete any remote_video media'
   - 'delete content owner/sme entity'
+  - 'delete directory facets'
   - 'delete geo'
   - 'delete localgov_event revisions'
+  - 'delete media'
+  - 'delete own document media'
+  - 'delete own image media'
   - 'delete own localgov_event content'
   - 'delete terms in access_control'
+  - 'delete own localgov_step_by_step_overview content'
+  - 'delete own localgov_step_by_step_page content'
+  - 'delete own localgov_subsites_overview content'
+  - 'delete own remote_video media'
+  - 'delete own webform'
   - 'edit any document media'
   - 'edit any image media'
   - 'edit any localgov_directories_org content'

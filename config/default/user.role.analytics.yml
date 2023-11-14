@@ -4,6 +4,8 @@ status: true
 dependencies:
   module:
     - eu_cookie_compliance
+    - google_tag
+    - metatag
     - system
     - toolbar
     - workbench
@@ -19,5 +21,7 @@ permissions:
   - 'administer eu cookie compliance categories'
   - 'administer eu cookie compliance popup'
   - 'use workbench access'
+  - 'administer google tag manager'
+  - 'administer meta tags'
   - 'view the administration theme'
   - 'view workbench access information'
