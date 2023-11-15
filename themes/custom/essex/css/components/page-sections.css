@@ -1,0 +1,53 @@
+.lgd-page-section--regions-margin-small .layout {
+  gap: var(--spacing-small);
+}
+.lgd-page-section--regions-margin-medium .layout {
+  gap: var(--spacing);
+}
+.lgd-page-section--regions-margin-large .layout {
+  gap: var(--spacing-large);
+}
+.lgd-page-section--regions-margin-larger .layout {
+  gap: var(--spacing-larger);
+}
+.lgd-page-section--regions-margin-largest .layout {
+  gap: var(--spacing-largest);
+}
+
+.lgd-page-section--margin-after-small {
+  margin-bottom: var(--spacing-small);
+}
+.lgd-page-section--margin-after-medium {
+  margin-bottom: var(--spacing);
+}
+.lgd-page-section--margin-after-large {
+  margin-bottom: var(--spacing-large);
+}
+.lgd-page-section--margin-after-larger {
+  margin-bottom: var(--spacing-larger);
+}
+.lgd-page-section--margin-after-largest {
+  margin-bottom: var(--spacing-largest);
+}
+
+.layout--threecol-33-34-33,
+.layout--twocol {
+  display: grid;
+}
+
+@media screen and (min-width: 40em) {
+  .layout--threecol-33-34-33 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .layout--twocol {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.lgd-page-section--bg-colour-4 {
+  background-color: var(--color-tint-1);
+}
+
+.lgd-page-section--bg-colour-5 {
+  background-color: var(--color-tint-2);
+}

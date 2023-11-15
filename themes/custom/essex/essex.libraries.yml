@@ -20,6 +20,11 @@ fonts:
     theme:
       css/fonts.css: {}
 
+page-sections:
+  css:
+    theme:
+      css/components/page-sections.css: {}
+
 # sample-library
 #   css:
 #     theme:
