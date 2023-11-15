@@ -28,6 +28,7 @@ content:
     weight: 0
     region: content
 hidden:
+  content_moderation_control: true
   links: true
   localgov_step_parent: true
   localgov_step_section_title: true

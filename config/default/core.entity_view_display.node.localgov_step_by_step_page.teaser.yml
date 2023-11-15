@@ -33,6 +33,7 @@ content:
     weight: 100
     region: content
 hidden:
+  content_moderation_control: true
   localgov_step_parent: true
   localgov_step_section_title: true
   localgov_step_summary: true
