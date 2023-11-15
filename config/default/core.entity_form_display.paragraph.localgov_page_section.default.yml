@@ -1,0 +1,61 @@
+uuid: 9edd7543-1c4e-4e95-bc42-37844e149c64
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.localgov_page_section.field_margin_after_regions
+    - field.field.paragraph.localgov_page_section.field_margin_regions
+    - field.field.paragraph.localgov_page_section.localgov_bg_colour_of_section
+    - field.field.paragraph.localgov_page_section.localgov_padding_bottom_section
+    - field.field.paragraph.localgov_page_section.localgov_padding_top_section
+    - field.field.paragraph.localgov_page_section.localgov_width_of_section
+    - paragraphs.paragraphs_type.localgov_page_section
+id: paragraph.localgov_page_section.default
+targetEntityType: paragraph
+bundle: localgov_page_section
+mode: default
+content:
+  field_margin_after_regions:
+    type: options_select
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_margin_regions:
+    type: options_select
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  layout_paragraphs_fields:
+    weight: -200
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  localgov_bg_colour_of_section:
+    type: options_select
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  localgov_padding_bottom_section:
+    type: options_select
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  localgov_padding_top_section:
+    type: options_select
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  localgov_width_of_section:
+    type: options_select
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true
