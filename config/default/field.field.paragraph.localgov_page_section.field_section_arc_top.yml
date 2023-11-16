@@ -1,0 +1,23 @@
+uuid: 91acb758-cf13-4228-9e26-55eb17836fa8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_section_arc_top
+    - paragraphs.paragraphs_type.localgov_page_section
+id: paragraph.localgov_page_section.field_section_arc_top
+field_name: field_section_arc_top
+entity_type: paragraph
+bundle: localgov_page_section
+label: 'Add Arc to Top of Section'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean
