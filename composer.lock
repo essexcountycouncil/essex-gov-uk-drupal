@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1bb7e0a9a8a8b8087a58845c6ca099cd",
+    "content-hash": "00f4835fb4e9c9b0fa1297e74a05be17",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -9856,7 +9856,7 @@
         },
         {
             "name": "localgovdrupal/localgov_content_access_control",
-            "version": "1.x-dev",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/localgovdrupal/localgov_content_access_control.git",
@@ -9872,7 +9872,6 @@
                 "drupal/workbench": "^1.4",
                 "drupal/workbench_access": "^2.0"
             },
-            "default-branch": true,
             "type": "drupal-module",
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -9882,7 +9881,7 @@
             "homepage": "https://github.com/localgovdrupal/localgov_content_access_control",
             "support": {
                 "issues": "https://github.com/localgovdrupal/localgov_content_access_control/issues",
-                "source": "https://github.com/localgovdrupal/localgov_content_access_control/tree/1.x"
+                "source": "https://github.com/localgovdrupal/localgov_content_access_control/tree/1.0.0"
             },
             "time": "2023-11-03T12:56:17+00:00"
         },
