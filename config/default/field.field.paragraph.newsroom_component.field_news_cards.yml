@@ -92,4 +92,7 @@ settings:
   scheduled_transition:
     handler: 'default:scheduled_transition'
     handler_settings: {  }
+  section_association:
+    handler: 'default:section_association'
+    handler_settings: {  }
 field_type: dynamic_entity_reference

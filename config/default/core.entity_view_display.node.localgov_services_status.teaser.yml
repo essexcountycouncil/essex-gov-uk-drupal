@@ -41,8 +41,8 @@ content:
     weight: 100
     region: content
 hidden:
-  localgov_access_control: true
   content_moderation_control: true
+  localgov_access_control: true
   localgov_service_status: true
   localgov_service_status_on_landi: true
   localgov_service_status_on_list: true
