@@ -67,10 +67,20 @@
   {% set margin_after_regions = paragraph.field_margin_after_regions.value %}
 {% endif %}
 
+{% if paragraph.field_section_arc_top.value %}
+  {% set section_arc_top = true %}
+{% endif %}
+
+{% if paragraph.field_section_arc_bottom.value %}
+  {% set section_arc_bottom = true %}
+{% endif %}
+
 {%
   set classes = [
     'lgd-page-section',
     width ? 'lgd-page-section--' ~ width : 'lgd-container padding-horizontal',
+    section_arc_top ? 'lgd-page-section--arc-top',
+    section_arc_bottom ? 'lgd-page-section--arc-bottom',
     width == 'full-width' ? 'padding-horizontal',
     width == 'contained-content' ? 'padding-horizontal',
     width == 'contained-content' ? 'lgd-container',

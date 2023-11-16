@@ -1,3 +1,7 @@
+/* .lgd-page-section {
+  --arc-height: 200px;
+} */
+
 .lgd-page-section--regions-margin-small .layout {
   gap: var(--spacing-small);
 }
@@ -50,4 +54,33 @@
 
 .lgd-page-section--bg-colour-5 {
   background-color: var(--color-tint-2);
+}
+
+.lgd-page-section--arc-top,
+.lgd-page-section--arc-bottom {
+  --arc-height: 200px;
+  position: relative;
+}
+
+.lgd-page-section--arc-top {
+  margin-top: var(--arc-height);
+}
+
+.lgd-page-section--arc-top::before {
+  border-top-left-radius: 50% 20%;
+  border-top-right-radius: 50% 20%;
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateY(-100%);
+  background-color: inherit;
+  width: 100%;
+  height: var(--arc-height);
+
+
+}
+.lgd-page-section--arc-bottom {
+/*  */
 }
