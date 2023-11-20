@@ -25,6 +25,11 @@ page-sections:
     theme:
       css/components/page-sections.css: {}
 
+featured-teasers:
+  css:
+    theme:
+      css/components/featured-teasers.css: {}
+
 # sample-library
 #   css:
 #     theme:

@@ -58,7 +58,7 @@
 
 .lgd-page-section--arc-top,
 .lgd-page-section--arc-bottom {
-  --arc-height: 200px;
+  --arc-height: 120px;
   position: relative;
 }
 
@@ -81,6 +81,21 @@
 
 
 }
+
 .lgd-page-section--arc-bottom {
-/*  */
+  margin-bottom: var(--arc-height);
+}
+
+.lgd-page-section--arc-bottom::after {
+  border-bottom-left-radius: 50% 20%;
+  border-bottom-right-radius: 50% 20%;
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transform: translateY(100%);
+  background-color: inherit;
+  width: 100%;
+  height: var(--arc-height);
 }
