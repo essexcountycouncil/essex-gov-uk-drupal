@@ -37,7 +37,6 @@ module:
   ecc_content_moderation: 0
   ecc_cookie_compliance: 0
   ecc_menu: 0
-  ecc_migrate: 0
   editor: 0
   entity_browser: 0
   entity_browser_entity_form: 0
@@ -173,6 +172,7 @@ module:
   toolbar: 0
   ultimate_cron: 0
   update: 0
+  upgrade_status: 0
   user: 0
   views_ui: 0
   viewsreference: 0

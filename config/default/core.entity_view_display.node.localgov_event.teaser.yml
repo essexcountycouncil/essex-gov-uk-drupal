@@ -36,6 +36,11 @@ content:
     third_party_settings: {  }
     weight: 2
     region: content
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
   localgov_event_date:
     type: date_recur_basic_formatter
     label: hidden

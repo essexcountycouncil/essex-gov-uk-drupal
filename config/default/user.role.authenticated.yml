@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - filter.format.webform_default
     - filter.format.wysiwyg
     - localgov_alert_banner.localgov_alert_banner_type.localgov_alert_banner
   module:
@@ -32,6 +33,7 @@ permissions:
   - 'edit own webform submission'
   - 'use search_api_autocomplete for localgov_directory_channel'
   - 'use search_api_autocomplete for localgov_news_search'
+  - 'use text format webform_default'
   - 'use text format wysiwyg'
   - 'view all localgov alert banner entities'
   - 'view any unpublished content'
