@@ -1,3 +1,5 @@
+_core:
+  default_config_hash: IQjf_ytthngZTAk_MU8-74VecArWD3G5g0oEH6PM6GA
 toolbar_items:
   - devel.admin_settings_link
   - devel.cache_clear
