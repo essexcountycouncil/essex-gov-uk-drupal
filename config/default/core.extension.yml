@@ -53,6 +53,9 @@ module:
   file: 0
   filter: 0
   fontawesome: 0
+  geo_entity: 0
+  geo_entity_address: 0
+  geo_entity_area: 0
   geocoder: 0
   geocoder_field: 0
   geocoder_geofield: 0
@@ -144,6 +147,7 @@ module:
   path: 0
   path_alias: 0
   permissions_filter: 0
+  phpass: 0
   preview_link: 0
   redirect: 0
   redirect_404: 0

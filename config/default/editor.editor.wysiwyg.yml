@@ -40,14 +40,9 @@ settings:
         - heading2
         - heading3
         - heading4
-    ckeditor5_style:
-      styles:
-        -
-          label: 'Start button'
-          element: '<a class="button button-start col-sm-6 mt-3">'
-        -
-          label: 'Inset text'
-          element: '<div class="inset">'
+    ckeditor5_list:
+      reversed: false
+      startIndex: true
     ckeditor5_sourceEditing:
       allowed_tags:
         - '<cite>'
@@ -66,14 +61,19 @@ settings:
         - '<drupal-media data-caption title>'
         - '<a hreflang title class="external-link pdf-link btn btn-start">'
         - '<p class="alert alert-info alert-danger alert-primary alert-success callout callout-primary callout-success callout-danger callout-teal callout-carbon callout-yellow inset inset-text">'
-    ckeditor5_list:
-      reversed: false
-      startIndex: true
-    media_media:
-      allow_view_mode_override: true
+    ckeditor5_style:
+      styles:
+        -
+          label: 'Start button'
+          element: '<a class="button button-start col-sm-6 mt-3">'
+        -
+          label: 'Inset text'
+          element: '<div class="inset">'
     linkit_extension:
       linkit_enabled: true
       linkit_profile: default
+    media_media:
+      allow_view_mode_override: true
 image_upload:
   status: false
   scheme: public

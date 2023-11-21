@@ -32,10 +32,11 @@ dependencies:
     - entity_browser
     - entity_hierarchy
     - entity_usage
+    - file
+    - geo_entity
     - geocoder
     - localgov_alert_banner
     - localgov_directories
-    - localgov_geo
     - media
     - node
     - paragraphs
@@ -61,7 +62,6 @@ permissions:
   - 'access entity usage statistics'
   - 'access geocoder api endpoints'
   - 'access localgov alert banner listing page'
-  - 'access localgov_geo_library entity browser pages'
   - 'access media overview'
   - 'access page_components entity browser pages'
   - 'access paragraphs_library_items entity browser pages'
@@ -97,6 +97,7 @@ permissions:
   - 'create remote_video media'
   - 'create url aliases'
   - 'delete localgov_event revisions'
+  - 'delete own files'
   - 'delete own localgov_event content'
   - 'edit any document media'
   - 'edit any image media'

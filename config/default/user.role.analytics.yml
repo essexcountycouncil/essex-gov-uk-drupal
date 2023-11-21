@@ -4,6 +4,7 @@ status: true
 dependencies:
   module:
     - eu_cookie_compliance
+    - file
     - system
     - toolbar
 id: analytics
@@ -15,4 +16,5 @@ permissions:
   - 'access toolbar'
   - 'administer eu cookie compliance categories'
   - 'administer eu cookie compliance popup'
+  - 'delete own files'
   - 'view the administration theme'

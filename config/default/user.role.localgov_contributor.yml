@@ -32,6 +32,7 @@ dependencies:
     - entity_browser
     - entity_hierarchy
     - entity_usage
+    - file
     - localgov_alert_banner
     - media
     - node
@@ -89,6 +90,7 @@ permissions:
   - 'create paragraph library item'
   - 'create remote_video media'
   - 'create url aliases'
+  - 'delete own files'
   - 'edit any document media'
   - 'edit any image media'
   - 'edit any remote_video media'

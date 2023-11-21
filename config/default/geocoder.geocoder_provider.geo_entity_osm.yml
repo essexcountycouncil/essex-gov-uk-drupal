@@ -1,0 +1,16 @@
+uuid: 67034612-84ac-41bf-83b7-589e6a8a9c00
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: GK4JEd4BlbkELiwlD3LIUL7MphP8buyKLf6y1Q3u0fM
+id: geo_entity_osm
+label: 'OpenStreetMap Nominatim (default demo configuration)'
+plugin: openstreetmap
+configuration:
+  throttle:
+    period: 2
+    limit: 1
+  rootUrl: 'https://nominatim.openstreetmap.org'
+  userAgent: DrupalGeoDefaultConfig
+  referer: 'https://drupal.org/'
