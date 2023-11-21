@@ -17,8 +17,8 @@ libraries-extend:
   # localgov_base/sample-library:
     # - essex/sample-library
 
-# custom ckeditor css overrides for additional styles
-ckeditor_stylesheets:
+# custom ckeditor5 css overrides for additional styles
+ckeditor5_stylesheets:
   - css/ckeditor-custom.css
 
 regions:

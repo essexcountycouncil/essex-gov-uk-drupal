@@ -37,7 +37,6 @@ dependencies:
     - paragraphs_library
     - path
     - preview_link
-    - quickedit
     - redirect
     - responsive_preview
     - scheduled_transitions
@@ -54,7 +53,6 @@ weight: -8
 is_admin: null
 permissions:
   - 'access content overview'
-  - 'access in-place editing'
   - 'access localgov alert banner listing page'
   - 'access media overview'
   - 'access responsive preview'

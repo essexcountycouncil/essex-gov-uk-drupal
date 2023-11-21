@@ -42,7 +42,6 @@ dependencies:
     - paragraphs_library
     - path
     - preview_link
-    - quickedit
     - responsive_preview
     - scheduled_transitions
     - system
@@ -61,7 +60,6 @@ permissions:
   - 'access content overview'
   - 'access entity usage statistics'
   - 'access geocoder api endpoints'
-  - 'access in-place editing'
   - 'access localgov alert banner listing page'
   - 'access localgov_geo_library entity browser pages'
   - 'access media overview'
