@@ -1,0 +1,11 @@
+uuid: 8fdb179e-3333-45d9-962c-279e223be0a4
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - devel
+id: devel
+label: Development
+description: 'Links related to Devel module.'
+locked: true
