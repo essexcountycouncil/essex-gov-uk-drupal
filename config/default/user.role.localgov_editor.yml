@@ -133,6 +133,8 @@ permissions:
   - 'delete any localgov_services_sublanding content'
   - 'delete any localgov_step_by_step_overview content'
   - 'delete any localgov_step_by_step_page content'
+  - 'delete any localgov_subsites_overview content'
+  - 'delete any localgov_subsites_page content'
   - 'delete any media'
   - 'delete any remote_video media'
   - 'delete content owner/sme entity'
