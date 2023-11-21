@@ -28,12 +28,8 @@ content:
     third_party_settings: {  }
     weight: 1
     region: content
-  content_moderation_control:
-    settings: {  }
-    third_party_settings: {  }
-    weight: 0
-    region: content
 hidden:
+  content_moderation_control: true
   links: true
   localgov_directory_channel_types: true
   localgov_directory_facets: true

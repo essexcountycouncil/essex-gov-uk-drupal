@@ -65,11 +65,6 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
-  content_moderation_control:
-    settings: {  }
-    third_party_settings: {  }
-    weight: -20
-    region: content
   localgov_directory_email:
     type: basic_string
     label: inline
@@ -127,6 +122,7 @@ content:
     weight: 2
     region: content
 hidden:
+  content_moderation_control: true
   links: true
   localgov_directory_channels: true
   localgov_directory_facets_select: true

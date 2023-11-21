@@ -38,11 +38,6 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
-  content_moderation_control:
-    settings: {  }
-    third_party_settings: {  }
-    weight: -20
-    region: content
   localgov_directory_address:
     type: address_default
     label: hidden
@@ -118,6 +113,7 @@ content:
     weight: 7
     region: content
 hidden:
+  content_moderation_control: true
   links: true
   localgov_directory_search: true
   localgov_directory_title_sort: true

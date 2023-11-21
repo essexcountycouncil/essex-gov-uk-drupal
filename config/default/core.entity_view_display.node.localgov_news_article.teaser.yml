@@ -34,11 +34,6 @@ content:
     third_party_settings: {  }
     weight: 3
     region: content
-  content_moderation_control:
-    settings: {  }
-    third_party_settings: {  }
-    weight: 0
-    region: content
   field_media_image:
     type: entity_reference_entity_view
     label: hidden
@@ -60,6 +55,7 @@ content:
     weight: 2
     region: content
 hidden:
+  content_moderation_control: true
   entitygroupfield: true
   links: true
   localgov_news_categories: true

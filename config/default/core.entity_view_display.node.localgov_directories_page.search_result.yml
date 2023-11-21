@@ -27,11 +27,11 @@ third_party_settings:
   field_group:
     group_enquiries:
       children:
-        - localgov_directory_name
-        - localgov_directory_job_title
-        - localgov_directory_phone
-        - localgov_directory_email
         - localgov_directory_address
+        - localgov_directory_email
+        - localgov_directory_job_title
+        - localgov_directory_name
+        - localgov_directory_phone
         - localgov_directory_website
       label: Enquiries
       parent_name: ''
@@ -57,12 +57,8 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
-  content_moderation_control:
-    settings: {  }
-    third_party_settings: {  }
-    weight: -20
-    region: content
 hidden:
+  content_moderation_control: true
   links: true
   localgov_directory_address: true
   localgov_directory_channels: true
