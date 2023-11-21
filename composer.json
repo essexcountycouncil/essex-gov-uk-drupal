@@ -137,34 +137,35 @@
     },
     "extra": {
         "enable-patching": true,
-        "patches": {
-            "drupal/autosave_form": {
-                "Disable autosaving for layout builder pages": "https://www.drupal.org/files/issues/2022-03-22/3270955-2-layout_builder.patch"
-            },
-           "drupal/cludo_search": {
-                "Remove search type to use custom template": "patches/cludo_search-0001.patch",
-                "Changes to text on the search page.": "patches/cludo_search-0002.patch"
-            },
-            "drupal/core": {
-                "Allow an install hook in profiles installing from configuration. See https://www.drupal.org/project/drupal/issues/2982052": "https://www.drupal.org/files/issues/2022-05-19/2982052-80.patch",
-                "Allow chmod to fail in the public namespace if the resultant mode is 777": "patches/filesystem-chmod-0001.patch"
-            },
-            "drupal/fathom_analytics": {
-                "Issue #3380665: Defer attribute should be boolean": "https://git.drupalcode.org/project/fathom_analytics/-/merge_requests/2.diff"
-            },
-            "drupal/migmag": {
-                "Fix migmag_lookup exception when stubbing non-sql sources. See https://www.drupal.org/project/migmag/issues/3321292#comment-14785506": "https://www.drupal.org/files/issues/2022-11-14/migmag-remove_double_prepareRow-3321292_3.patch"
-            },
-            "localgovdrupal/localgov_services": {
-                "New parent bundles for ServicesSelection" : "patches/localgov_services.patch"
-            },
-            "localgovdrupal/localgov_subsites": {
-                "Show page heading block for subsites pages" : "patches/localgov_subsites.patch"
-            },
-            "localgovdrupal/localgov_workflows": {
-                "Fix for drush site-install": "patches/localgov_workflows.patch"
-            }
+      "patches": {
+        "drupal/autosave_form": {
+          "Disable autosaving for layout builder pages": "https://www.drupal.org/files/issues/2022-03-22/3270955-2-layout_builder.patch"
         },
+        "drupal/cludo_search": {
+          "Remove search type to use custom template": "patches/cludo_search-0001.patch",
+          "Changes to text on the search page.": "patches/cludo_search-0002.patch",
+          "Automated Drupal 10 compatibility fixes": "https://www.drupal.org/files/issues/2022-07-18/cludo_search.1.0-beta2.rector.patch"
+        },
+        "drupal/core": {
+          "Allow chmod to fail in the public namespace if the resultant mode is 777": "patches/filesystem-chmod-0001.patch"
+        },
+        "drupal/fathom_analytics": {
+          "Issue #3380665: Defer attribute should be boolean": "https://git.drupalcode.org/project/fathom_analytics/-/merge_requests/2.diff",
+          "Automated Drupal 10 compatibility fixes": "https://www.drupal.org/files/issues/2022-06-15/fathom_analytics.3.0.0.rector.patch"
+        },
+        "drupal/migmag": {
+          "Fix migmag_lookup exception when stubbing non-sql sources. See https://www.drupal.org/project/migmag/issues/3321292#comment-14785506": "https://www.drupal.org/files/issues/2022-11-14/migmag-remove_double_prepareRow-3321292_3.patch"
+        },
+        "localgovdrupal/localgov_services": {
+          "New parent bundles for ServicesSelection" : "patches/localgov_services.patch"
+        },
+        "localgovdrupal/localgov_subsites": {
+          "Show page heading block for subsites pages" : "patches/localgov_subsites.patch"
+        },
+        "localgovdrupal/localgov_workflows": {
+          "Fix for drush site-install": "patches/localgov_workflows.patch"
+        }
+      },
         "drupal-scaffold": {
             "locations": {
                 "web-root": "web/"
@@ -203,7 +204,8 @@
         },
         "drupal-lenient": {
             "allowed-list": [
-                "drupal/webprofiler"
+                "drupal/cludo_search",
+                "drupal/fathom_analytics"
             ]
         }
     },
