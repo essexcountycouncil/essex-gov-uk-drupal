@@ -4,7 +4,7 @@ status: true
 dependencies: {  }
 id: azure
 label: Azure
-description: "Dev, Preprod and Prod. We can't split them until there is an environment variable"
+description: 'Dev, Preprod and Prod'
 weight: 0
 stackable: false
 no_patching: false
