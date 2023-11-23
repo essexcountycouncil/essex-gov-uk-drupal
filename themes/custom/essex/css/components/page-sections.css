@@ -106,4 +106,7 @@
   .media-with-text--default .media-with-text__body {
     background-color: var(--color-white);
   }
+  .media-with-text {
+    height: 100%;
+  }
 }
