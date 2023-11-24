@@ -562,7 +562,6 @@ h1:after,
 /* Three column layout responsiveness */
 
 .layout--threecol-33-34-33 {
-  justify-content: space-between;
   gap: var(--spacing-largest);
 }
 
