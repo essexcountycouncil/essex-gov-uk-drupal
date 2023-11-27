@@ -46,8 +46,11 @@
   --page-section-margin-after: 0;
   --color-page-section-background-color-4: var(--color-tint-1);
   --color-page-section-background-color-5: var(--color-tint-2);
-  gap: var(--page-section-regions-gap);
   margin-bottom: var(--page-section-margin-after);
+}
+
+.lgd-page-section .layout {
+  gap: var(--page-section-regions-gap);
 }
 
 .lgd-page-section--regions-margin-small .layout {
