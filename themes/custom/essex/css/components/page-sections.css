@@ -1,37 +1,85 @@
-/* .lgd-page-section {
-  --arc-height: 200px;
-} */
+/*
+  @todo
+    remove this section once
+    https://github.com/localgovdrupal/localgov_base/pull/516
+    is merged
+*/
+.lgd-page-section {
+  --color-page-section-background-color: transparent;
+  --color-page-section-text-color: var(--color-black);
+  background-color: var(--color-page-section-background-color);
+  color: var(--color-page-section-text-color);
+}
+.lgd-page-section--bg-colour-1 {
+  --color-page-section-background-color: var(--color-page-section-background-color-1);
+  --color-page-section-text-color: var(--color-page-section-background-color-1-text-color);
+}
+.lgd-page-section--bg-colour-2 {
+  --color-page-section-background-color: var(--color-page-section-background-color-2);
+  --color-page-section-text-color: var(--color-page-section-background-color-2-text-color);
+}
+.lgd-page-section--bg-colour-3 {
+  --color-page-section-background-color: var(--color-page-section-background-color-3);
+  --color-page-section-text-color: var(--color-page-section-background-color-3-text-color);
+}
+/*
+  Adding 3 extra colour options here, so they are available if
+  other subthemes/sites need them.
+*/
+.lgd-page-section--bg-colour-4 {
+  --color-page-section-background-color: var(--color-page-section-background-color-4);
+  --color-page-section-text-color: var(--color-page-section-background-color-4-text-color);
+}
+.lgd-page-section--bg-colour-5 {
+  --color-page-section-background-color: var(--color-page-section-background-color-5);
+  --color-page-section-text-color: var(--color-page-section-background-color-5-text-color);
+}
+.lgd-page-section--bg-colour-6 {
+  --color-page-section-background-color: var(--color-page-section-background-color-6);
+  --color-page-section-text-color: var(--color-page-section-background-color-6-text-color);
+}
+/* end @todo */
+
+.lgd-page-section {
+  --arc-height: 120px;
+  --page-section-regions-gap: 0;
+  --page-section-margin-after: 0;
+  --color-page-section-background-color-4: var(--color-tint-1);
+  --color-page-section-background-color-5: var(--color-tint-2);
+  gap: var(--page-section-regions-gap);
+  margin-bottom: var(--page-section-margin-after);
+}
 
 .lgd-page-section--regions-margin-small .layout {
-  gap: var(--spacing-small);
+  --page-section-regions-gap: var(--spacing-small);
 }
 .lgd-page-section--regions-margin-medium .layout {
-  gap: var(--spacing);
+  --page-section-regions-gap: var(--spacing);
 }
 .lgd-page-section--regions-margin-large .layout {
-  gap: var(--spacing-large);
+  --page-section-regions-gap: var(--spacing-large);
 }
 .lgd-page-section--regions-margin-larger .layout {
-  gap: var(--spacing-larger);
+  --page-section-regions-gap: var(--spacing-larger);
 }
 .lgd-page-section--regions-margin-largest .layout {
-  gap: var(--spacing-largest);
+  --page-section-regions-gap: var(--spacing-largest);
 }
 
 .lgd-page-section--margin-after-small {
-  margin-bottom: var(--spacing-small);
+  --page-section-margin-after: var(--spacing-small);
 }
 .lgd-page-section--margin-after-medium {
-  margin-bottom: var(--spacing);
+  --page-section-margin-after: var(--spacing);
 }
 .lgd-page-section--margin-after-large {
-  margin-bottom: var(--spacing-large);
+  --page-section-margin-after: var(--spacing-large);
 }
 .lgd-page-section--margin-after-larger {
-  margin-bottom: var(--spacing-larger);
+  --page-section-margin-after: var(--spacing-larger);
 }
 .lgd-page-section--margin-after-largest {
-  margin-bottom: var(--spacing-largest);
+  --page-section-margin-after: var(--spacing-largest);
 }
 
 .layout--threecol-33-34-33,
@@ -48,17 +96,8 @@
   }
 }
 
-.lgd-page-section--bg-colour-4 {
-  background-color: var(--color-tint-1);
-}
-
-.lgd-page-section--bg-colour-5 {
-  background-color: var(--color-tint-2);
-}
-
 .lgd-page-section--arc-top,
 .lgd-page-section--arc-bottom {
-  --arc-height: 120px;
   position: relative;
 }
 
@@ -66,38 +105,40 @@
   margin-top: var(--arc-height);
 }
 
-.lgd-page-section--arc-top::before {
-  border-top-left-radius: 50% 20%;
-  border-top-right-radius: 50% 20%;
-  content: "";
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  transform: translateY(-100%);
-  background-color: inherit;
-  width: 100%;
-  height: var(--arc-height);
-
-
-}
-
 .lgd-page-section--arc-bottom {
-  margin-bottom: var(--arc-height);
+  margin-bottom: calc(var(--page-section-margin-after) + var(--arc-height));
 }
 
-.lgd-page-section--arc-bottom::after {
-  border-bottom-left-radius: 50% 20%;
-  border-bottom-right-radius: 50% 20%;
+.lgd-page-section__arc {
+  background: var(--color-page-section-background-color);
+  position: relative;
+}
+
+.lgd-page-section__arc--top::before {
+  mask: url(../../assets/images/arcs/arc-up.svg#arc-up);
+  background: inherit;
+  position: absolute;
+  left: calc(var(--spacing) * -1);
+  width: calc(100% + (var(--spacing) * 2));
   content: "";
   display: block;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  transform: translateY(100%);
-  background-color: inherit;
-  width: 100%;
+  mask-size: auto var(--arc-height);
+  mask-repeat: no-repeat;
   height: var(--arc-height);
+  transform: translateY(-100%);
+}
+.lgd-page-section__arc--bottom::after {
+  mask: url(../../assets/images/arcs/arc-down.svg#arc-down);
+  background: inherit;
+  position: absolute;
+  left: calc(var(--spacing) * -1);
+  width: calc(100% + (var(--spacing) * 2));
+  content: "";
+  display: block;
+  mask-size: auto var(--arc-height);
+  height: var(--arc-height);
+  mask-repeat: no-repeat;
+  transform: translateY(-1px);
 }
 
 /* Overrides for specific components when placed in page sections */

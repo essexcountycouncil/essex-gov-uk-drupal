@@ -98,6 +98,10 @@
 %}
 
 <div{{ attributes.addClass(classes) }}>
+  {% if section_arc_top %}
+    <div class="lgd-page-section__arc lgd-page-section__arc--top">
+    </div>
+  {% endif %}
 
   {% if width == 'full-width-contained-content' %}
     <div class="lgd-container padding-horizontal">
@@ -108,6 +112,11 @@
     {{ content }}
 
   {% if width == 'full-width-contained-content' or width == 'contained-breakout' %}
+    </div>
+  {% endif %}
+
+  {% if section_arc_bottom %}
+    <div class="lgd-page-section__arc lgd-page-section__arc--bottom">
     </div>
   {% endif %}
 
