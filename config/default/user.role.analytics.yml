@@ -6,6 +6,8 @@ dependencies:
     - eu_cookie_compliance
     - system
     - toolbar
+    - workbench
+    - workbench_access
 id: analytics
 label: Analytics
 weight: -7
@@ -13,6 +15,9 @@ is_admin: null
 permissions:
   - 'access administration pages'
   - 'access toolbar'
+  - 'access workbench'
   - 'administer eu cookie compliance categories'
   - 'administer eu cookie compliance popup'
+  - 'use workbench access'
   - 'view the administration theme'
+  - 'view workbench access information'

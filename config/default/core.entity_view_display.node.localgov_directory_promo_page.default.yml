@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.localgov_directory_promo_page.body
+    - field.field.node.localgov_directory_promo_page.localgov_access_control
     - field.field.node.localgov_directory_promo_page.localgov_directory_address
     - field.field.node.localgov_directory_promo_page.localgov_directory_banner
     - field.field.node.localgov_directory_promo_page.localgov_directory_channels
@@ -20,6 +21,7 @@ dependencies:
     - node.type.localgov_directory_promo_page
   module:
     - address
+    - entity_reference_revisions
     - field_formatter_class
     - field_group
     - layout_paragraphs
@@ -35,7 +37,7 @@ third_party_settings:
       label: Banner
       parent_name: ''
       region: content
-      weight: 0
+      weight: 1
       format_type: html_element
       format_settings:
         classes: full__banner
@@ -55,7 +57,7 @@ third_party_settings:
       label: 'Page Top'
       parent_name: ''
       region: content
-      weight: 1
+      weight: 2
       format_type: html_element
       format_settings:
         classes: full__page-top
@@ -79,7 +81,7 @@ third_party_settings:
       label: Enquiries
       parent_name: ''
       region: content
-      weight: 6
+      weight: 7
       format_type: fieldset
       format_settings:
         classes: ''
@@ -98,12 +100,17 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 2
+    weight: 3
+    region: content
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
     region: content
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 4
+    weight: 5
     region: content
   localgov_directory_address:
     type: address_default
@@ -113,11 +120,11 @@ content:
     weight: 12
     region: content
   localgov_directory_banner:
-    type: entity_reference_entity_view
+    type: entity_reference_revisions_entity_view
     label: hidden
     settings:
       view_mode: responsive_banner
-      link: false
+      link: ''
     third_party_settings:
       field_formatter_class:
         class: ''
@@ -146,7 +153,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 5
+    weight: 6
     region: content
   localgov_directory_job_title:
     type: string
@@ -196,11 +203,12 @@ content:
     label: hidden
     settings:
       view_mode: default
-      link: false
+      link: ''
     third_party_settings: {  }
-    weight: 3
+    weight: 4
     region: content
 hidden:
+  localgov_access_control: true
   localgov_directory_channels: true
   localgov_directory_search: true
   localgov_directory_title_sort: true

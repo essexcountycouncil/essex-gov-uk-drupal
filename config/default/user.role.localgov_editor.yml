@@ -25,6 +25,7 @@ dependencies:
     - node.type.localgov_step_by_step_page
     - node.type.localgov_subsites_overview
     - node.type.localgov_subsites_page
+    - taxonomy.vocabulary.access_control
     - workflows.workflow.localgov_alert_banners
     - workflows.workflow.localgov_editorial
   module:
@@ -48,8 +49,11 @@ dependencies:
     - responsive_preview
     - scheduled_transitions
     - system
+    - taxonomy
     - toolbar
     - webform
+    - workbench
+    - workbench_access
   enforced:
     module:
       - localgov_roles
@@ -73,6 +77,7 @@ permissions:
   - 'access responsive preview'
   - 'access toolbar'
   - 'access webform overview'
+  - 'access workbench'
   - 'add content owner/sme entity'
   - 'add scheduled transitions localgov_alert_banner localgov_alert_banner'
   - 'add scheduled transitions node localgov_directories_org'
@@ -115,6 +120,7 @@ permissions:
   - 'create media'
   - 'create paragraph library item'
   - 'create remote_video media'
+  - 'create terms in access_control'
   - 'create url aliases'
   - 'create webform'
   - 'delete any localgov_event content'
@@ -131,6 +137,7 @@ permissions:
   - 'delete geo'
   - 'delete localgov_event revisions'
   - 'delete own localgov_event content'
+  - 'delete terms in access_control'
   - 'edit any document media'
   - 'edit any image media'
   - 'edit any localgov_directories_org content'
@@ -179,6 +186,7 @@ permissions:
   - 'edit own remote_video media'
   - 'edit own webform'
   - 'edit paragraph library item'
+  - 'edit terms in access_control'
   - 'generate preview links'
   - 'manage localgov alert banner localgov_alert_banner entities'
   - 'reorder entity_hierarchy children'
@@ -233,6 +241,7 @@ permissions:
   - 'use localgov_editorial transition publish'
   - 'use localgov_editorial transition reject'
   - 'use localgov_editorial transition submit_for_review'
+  - 'use workbench access'
   - 'view all localgov alert banner entity pages'
   - 'view all media revisions'
   - 'view all revisions'
@@ -284,3 +293,4 @@ permissions:
   - 'view scheduled transitions node localgov_subsites_page'
   - 'view the administration theme'
   - 'view unpublished paragraphs'
+  - 'view workbench access information'
