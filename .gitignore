@@ -37,3 +37,4 @@ certs/
 
 # Ignore config which may contain secrets
 .ddev/.env
+.docksal
