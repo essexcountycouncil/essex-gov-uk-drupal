@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for Essex Devolved Editor module.
+ */
+
+use Symfony\Component\HttpFoundation\RedirectResponse;
+
+/**
+ * Implements hook_user_login().
+ */
+function ecc_devolved_editor_user_login($account) {
+  $user = \Drupal::currentUser();
+  if (in_array('localgov_devolved_editor', $user->getRoles())) {
+    $response = new RedirectResponse('/admin/workbench');
+    \Drupal::service('http_middleware.ecc_devolved_editor')->setRedirectResponse($response);
+  }
+}

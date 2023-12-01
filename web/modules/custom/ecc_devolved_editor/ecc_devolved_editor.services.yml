@@ -1,0 +1,5 @@
+services:
+  http_middleware.ecc_devolved_editor:
+    class: Drupal\ecc_devolved_editor\Middleware\Redirect
+    tags:
+      - { name: http_middleware }
