@@ -11,6 +11,10 @@ libraries-extend:
     - essex/variables
     - essex/overrides
     - essex/fonts
+  localgov_base/page-sections:
+    - essex/page-sections
+  localgov_base/featured-teasers:
+    - essex/featured-teasers
     # - essex/other-library-to-load-on-every-page
     # - essex/other-library-to-load-on-every-page
   # Add libraries here that extend specific libraries.
