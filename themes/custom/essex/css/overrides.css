@@ -1333,3 +1333,7 @@ nav ul li a {
 .path-frontpage article>.field__items {
   padding-top: clamp(0.75rem, 2vw, var(--spacing))
 }
+
+.paragraph--type--localgov-text {
+  max-width: var(--width-restricted-width-section);
+}
