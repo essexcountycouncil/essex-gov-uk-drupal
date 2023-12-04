@@ -46,6 +46,8 @@
   --page-section-margin-after: 0;
   --color-page-section-background-color-4: var(--color-tint-1);
   --color-page-section-background-color-5: var(--color-tint-2);
+  --color-page-section-background-color-4-text-color: var(--color-black);
+  --color-page-section-background-color-5-text-color: var(--color-black);
   margin-bottom: var(--page-section-margin-after);
 }
 
