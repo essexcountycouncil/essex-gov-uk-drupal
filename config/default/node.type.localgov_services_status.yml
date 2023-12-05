@@ -9,5 +9,5 @@ type: localgov_services_status
 description: 'Page to display the status of a service on its service landing page and status lists.'
 help: ''
 new_revision: true
-preview_mode: 0
+preview_mode: 1
 display_submitted: false

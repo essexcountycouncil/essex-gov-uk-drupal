@@ -16,5 +16,5 @@ type: localgov_guides_page
 description: 'Page associated with a guide overview page.'
 help: ''
 new_revision: true
-preview_mode: 2
+preview_mode: 1
 display_submitted: false
