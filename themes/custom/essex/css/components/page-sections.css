@@ -122,6 +122,7 @@
 }
 
 .lgd-page-section__arc--top::before {
+  -webkit-mask-image: url(../../assets/images/arcs/arc-up.svg#arc-up);
   mask: url(../../assets/images/arcs/arc-up.svg#arc-up);
   background: inherit;
   position: absolute;
@@ -129,7 +130,9 @@
   width: calc(100% + (var(--spacing) * 2));
   content: "";
   display: block;
+  -webkit-mask-size: auto var(--arc-height);
   mask-size: auto var(--arc-height);
+  -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
   height: var(--arc-height);
   transform: translateY(-100%);
