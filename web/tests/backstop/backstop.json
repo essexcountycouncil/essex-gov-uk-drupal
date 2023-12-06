@@ -1,0 +1,99 @@
+{
+  "id": "backstop_default",
+  "viewports": [
+    {
+      "label": "phone",
+      "width": 320,
+      "height": 480
+    },
+    {
+      "label": "tablet",
+      "width": 768,
+      "height": 800
+    },
+    {
+      "label": "desktop",
+      "width": 1200,
+      "height": 960
+    }
+  ],
+  "onBeforeScript": "puppet/onBefore.js",
+  "onReadyScript": "puppet/onReady.js",
+  "scenarios": [
+    {
+      "label": "homepage",
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "url": "http://essex-gov.mc.anner.ie/",
+      "referenceUrl": "https://www.essex.gov.uk/",
+      "readyEvent": "",
+      "readySelector": "",
+      "delay": 0,
+      "hideSelectors": ["img", "video", "iframe", "picture"],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": [],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold" : 0.1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "guide_overview",
+      "url": "http://essex-gov.mc.anner.ie/business/trading-standards/trading-standards-consumers",
+      "referenceUrl": "https://www.essex.gov.uk/business/trading-standards/trading-standards-consumers"
+    },
+    {
+      "label": "guide_page",
+      "url": "http://essex-gov.mc.anner.ie/children-young-people-and-families/special-guardianship/support-special-guardians",
+      "referenceUrl": "https://www.essex.gov.uk/children-young-people-and-families/special-guardianship/support-special-guardians"
+    },
+    {
+      "label": "newsroom",
+      "url": "http://essex-gov.mc.anner.ie/news",
+      "referenceUrl": "https://www.essex.gov.uk/news"
+    },
+    {
+      "label": "news_article",
+      "url": "http://essex-gov.mc.anner.ie/news/2023/digigo-service-extended-march-2026",
+      "referenceUrl": "https://www.essex.gov.uk/news/2023/digigo-service-extended-march-2026"
+    },
+    {
+      "label": "service_landing_page",
+      "url": "http://essex-gov.mc.anner.ie/schools-and-learning",
+      "referenceUrl": "https://www.essex.gov.uk/schools-and-learning"
+    },
+    {
+      "label": "service_page",
+      "url": "http://essex-gov.mc.anner.ie/adult-social-care-and-health/disabilities-and-health-conditions/accessible-transport-and-mobility-0",
+      "referenceUrl": "https://www.essex.gov.uk/adult-social-care-and-health/disabilities-and-health-conditions/accessible-transport-and-mobility-0"
+    },
+    {
+      "label": "feedback_form",
+      "url": "http://essex-gov.mc.anner.ie/form/feedback-form",
+      "referenceUrl": "https://www.essex.gov.uk/form/feedback-form"
+    },
+    {
+      "label": "page_404",
+      "url": "http://essex-gov.mc.anner.ie/dfghj",
+      "referenceUrl": "https://www.essex.gov.uk/dfghj"
+    }
+  ],
+  "paths": {
+    "bitmaps_reference": "backstop_data/bitmaps_reference",
+    "bitmaps_test": "backstop_data/bitmaps_test",
+    "engine_scripts": "backstop_data/engine_scripts",
+    "html_report": "backstop_data/html_report",
+    "ci_report": "backstop_data/ci_report"
+  },
+  "report": ["browser"],
+  "engine": "puppeteer",
+  "engineOptions": {
+    "args": ["--no-sandbox"]
+  },
+  "asyncCaptureLimit": 5,
+  "asyncCompareLimit": 50,
+  "debug": false,
+  "debugWindow": false
+}

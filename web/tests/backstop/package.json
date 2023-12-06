@@ -1,0 +1,17 @@
+{
+  "name": "backstop",
+  "version": "1.0.0",
+  "description": "Backstop tests for essex.gov.uk",
+  "main": "",
+  "scripts": {
+    "backstop:init": "./node_modules/.bin/backstop init",
+    "backstop:reference": "./node_modules/.bin/backstop reference",
+    "backstop:test": "./node_modules/.bin/backstop test",
+    "backstop:approve": "./node_modules/.bin/backstop approve"
+  },
+  "author": "Mark Conroy",
+  "license": "ISC",
+  "dependencies": {
+    "backstopjs": "^6.2.2"
+  }
+}
