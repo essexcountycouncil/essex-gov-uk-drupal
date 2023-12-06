@@ -149,6 +149,9 @@
             "drupal/health_check_url": {
                 "Fix PHP8.1 deprecation warning": "https://www.drupal.org/files/issues/2022-12-27/3294736-php-8-compatibility-5.patch"
             },
+            "drupal/openid_connect": {
+                "Truncate username if it is greater than 60 characters": "https://www.drupal.org/files/issues/2021-12-08/data_too_long_for_column_name-%203252021-8.patch"
+            },
             "drupal/migmag": {
                 "Fix migmag_lookup exception when stubbing non-sql sources. See https://www.drupal.org/project/migmag/issues/3321292#comment-14785506": "https://www.drupal.org/files/issues/2022-11-14/migmag-remove_double_prepareRow-3321292_3.patch"
             },
