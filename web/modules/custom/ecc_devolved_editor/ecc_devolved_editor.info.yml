@@ -1,0 +1,7 @@
+name: Essex Devolved Editor
+type: module
+description: Custom functions for the devolved editor role.
+package: Custom
+core_version_requirement: ^9 || ^10
+dependencies:
+  - localgov_content_access_control

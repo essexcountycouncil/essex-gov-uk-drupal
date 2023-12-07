@@ -5,8 +5,6 @@ dependencies:
   module:
     - options
     - paragraphs
-_core:
-  default_config_hash: _ld7Fo_3PsUIM8ycZ2Vk5pKuaU0VoycDhFLAUnF9s48
 id: paragraph.localgov_width_of_section
 field_name: localgov_width_of_section
 entity_type: paragraph

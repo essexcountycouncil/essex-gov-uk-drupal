@@ -6,8 +6,6 @@ dependencies:
     - entity_reference_revisions
     - node
     - paragraphs
-_core:
-  default_config_hash: K10LecsnZO2RrQIuVGeUup4OJQ_-V8_GSqJ_8uwysE0
 id: node.localgov_paragraph_content
 field_name: localgov_paragraph_content
 entity_type: node

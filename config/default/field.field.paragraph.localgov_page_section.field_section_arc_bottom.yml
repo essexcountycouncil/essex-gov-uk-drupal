@@ -1,0 +1,23 @@
+uuid: 26b011d7-bc71-4b99-8867-87547bed408f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_section_arc_bottom
+    - paragraphs.paragraphs_type.localgov_page_section
+id: paragraph.localgov_page_section.field_section_arc_bottom
+field_name: field_section_arc_bottom
+entity_type: paragraph
+bundle: localgov_page_section
+label: 'Add Arc to Bottom of Section'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

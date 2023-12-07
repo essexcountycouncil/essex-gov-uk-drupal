@@ -5,14 +5,18 @@ dependencies:
   config:
     - field.field.node.localgov_news_article.body
     - field.field.node.localgov_news_article.field_media_image
+    - field.field.node.localgov_news_article.localgov_access_control
     - field.field.node.localgov_news_article.localgov_news_categories
     - field.field.node.localgov_news_article.localgov_news_date
     - field.field.node.localgov_news_article.localgov_news_related
     - field.field.node.localgov_news_article.localgov_newsroom
     - node.type.localgov_news_article
+    - workflows.workflow.localgov_editorial
   module:
+    - content_moderation
     - datetime
     - field_group
+    - localgov_review_date
     - media_library
     - path
     - text
@@ -125,6 +129,16 @@ content:
     settings:
       media_types: {  }
     third_party_settings: {  }
+  localgov_access_control:
+    type: entity_reference_autocomplete
+    weight: 101
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   localgov_news_categories:
     type: entity_reference_autocomplete
     weight: 4
@@ -191,6 +205,11 @@ content:
     region: content
     settings:
       display_label: true
+    third_party_settings: {  }
+  simple_sitemap:
+    weight: 10
+    region: content
+    settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox

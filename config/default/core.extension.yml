@@ -36,6 +36,7 @@ module:
   ecc_cludo_search: 0
   ecc_content_moderation: 0
   ecc_cookie_compliance: 0
+  ecc_devolved_editor: 0
   ecc_menu: 0
   ecc_migrate: 0
   editor: 0
@@ -85,6 +86,7 @@ module:
   linkit: 0
   localgov_admin_theme_improvements: 0
   localgov_alert_banner: 0
+  localgov_content_access_control: 0
   localgov_core: 0
   localgov_directories: 0
   localgov_directories_db: 0
@@ -102,6 +104,7 @@ module:
   localgov_geo_update: 0
   localgov_guides: 0
   localgov_homepage_paragraphs: 0
+  localgov_login_redirect: 0
   localgov_media: 0
   localgov_menu_link_group: 0
   localgov_news: 0
@@ -178,6 +181,8 @@ module:
   viewsreference: 0
   webform: 0
   webform_ui: 0
+  workbench: 0
+  workbench_access: 0
   workflows: 0
   pathauto: 1
   externalauth: 10
