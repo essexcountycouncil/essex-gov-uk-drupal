@@ -25,6 +25,7 @@ dependencies:
     - node.type.localgov_step_by_step_page
     - node.type.localgov_subsites_overview
     - node.type.localgov_subsites_page
+    - taxonomy.vocabulary.access_control
     - workflows.workflow.localgov_alert_banners
     - workflows.workflow.localgov_editorial
   module:
@@ -38,7 +39,6 @@ dependencies:
     - localgov_directories
     - localgov_geo
     - media
-    - menu_admin_per_menu
     - node
     - paragraphs
     - paragraphs_library
@@ -49,8 +49,11 @@ dependencies:
     - responsive_preview
     - scheduled_transitions
     - system
+    - taxonomy
     - toolbar
     - webform
+    - workbench
+    - workbench_access
   enforced:
     module:
       - localgov_roles
@@ -62,7 +65,6 @@ weight: -4
 is_admin: null
 permissions:
   - 'access content overview'
-  - 'access directory facets overview'
   - 'access entity usage statistics'
   - 'access geo overview'
   - 'access geocoder api endpoints'
@@ -75,6 +77,7 @@ permissions:
   - 'access responsive preview'
   - 'access toolbar'
   - 'access webform overview'
+  - 'access workbench'
   - 'add content owner/sme entity'
   - 'add scheduled transitions localgov_alert_banner localgov_alert_banner'
   - 'add scheduled transitions node localgov_directories_org'
@@ -96,11 +99,9 @@ permissions:
   - 'add scheduled transitions node localgov_subsites_overview'
   - 'add scheduled transitions node localgov_subsites_page'
   - 'administer content owner/sme entity'
-  - 'administer footer menu items'
+  - 'administer menu'
   - 'administer paragraphs library'
   - 'administer redirects'
-  - 'administer social-media menu items'
-  - 'administer tools menu items'
   - 'create directory facets'
   - 'create document media'
   - 'create geo'
@@ -116,14 +117,12 @@ permissions:
   - 'create localgov_step_by_step_overview content'
   - 'create localgov_step_by_step_page content'
   - 'create localgov_subsites_overview content'
-  - 'create localgov_subsites_page content'
   - 'create media'
   - 'create paragraph library item'
   - 'create remote_video media'
+  - 'create terms in access_control'
   - 'create url aliases'
   - 'create webform'
-  - 'delete any document media'
-  - 'delete any image media'
   - 'delete any localgov_event content'
   - 'delete any localgov_guides_overview content'
   - 'delete any localgov_guides_page content'
@@ -133,23 +132,12 @@ permissions:
   - 'delete any localgov_services_sublanding content'
   - 'delete any localgov_step_by_step_overview content'
   - 'delete any localgov_step_by_step_page content'
-  - 'delete any localgov_subsites_overview content'
-  - 'delete any localgov_subsites_page content'
   - 'delete any media'
-  - 'delete any remote_video media'
   - 'delete content owner/sme entity'
-  - 'delete directory facets'
   - 'delete geo'
   - 'delete localgov_event revisions'
-  - 'delete media'
-  - 'delete own document media'
-  - 'delete own image media'
   - 'delete own localgov_event content'
-  - 'delete own localgov_step_by_step_overview content'
-  - 'delete own localgov_step_by_step_page content'
-  - 'delete own localgov_subsites_overview content'
-  - 'delete own remote_video media'
-  - 'delete own webform'
+  - 'delete terms in access_control'
   - 'edit any document media'
   - 'edit any image media'
   - 'edit any localgov_directories_org content'
@@ -198,6 +186,7 @@ permissions:
   - 'edit own remote_video media'
   - 'edit own webform'
   - 'edit paragraph library item'
+  - 'edit terms in access_control'
   - 'generate preview links'
   - 'manage localgov alert banner localgov_alert_banner entities'
   - 'reorder entity_hierarchy children'
@@ -252,6 +241,7 @@ permissions:
   - 'use localgov_editorial transition publish'
   - 'use localgov_editorial transition reject'
   - 'use localgov_editorial transition submit_for_review'
+  - 'use workbench access'
   - 'view all localgov alert banner entity pages'
   - 'view all media revisions'
   - 'view all revisions'
@@ -303,3 +293,4 @@ permissions:
   - 'view scheduled transitions node localgov_subsites_page'
   - 'view the administration theme'
   - 'view unpublished paragraphs'
+  - 'view workbench access information'

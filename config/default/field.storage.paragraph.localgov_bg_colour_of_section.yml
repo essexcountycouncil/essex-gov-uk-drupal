@@ -1,0 +1,36 @@
+uuid: 5af2af97-3833-47f7-be5c-31aba8b9a7bc
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.localgov_bg_colour_of_section
+field_name: localgov_bg_colour_of_section
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: colour-1
+      label: 'Colour: Red'
+    -
+      value: colour-2
+      label: 'Colour: Yellow'
+    -
+      value: colour-3
+      label: 'Colour: Light Grey'
+    -
+      value: colour-4
+      label: 'Tint: Pink'
+    -
+      value: colour-5
+      label: 'Tint: Purple'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

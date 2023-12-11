@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.localgov_directories_venue.body
+    - field.field.node.localgov_directories_venue.localgov_access_control
     - field.field.node.localgov_directories_venue.localgov_directory_channels
     - field.field.node.localgov_directories_venue.localgov_directory_email
     - field.field.node.localgov_directories_venue.localgov_directory_facets_select
@@ -35,7 +36,7 @@ third_party_settings:
       label: Enquiries
       parent_name: ''
       region: content
-      weight: 3
+      weight: 4
       format_type: fieldset
       format_settings:
         classes: ''
@@ -49,7 +50,7 @@ third_party_settings:
       label: Venue
       parent_name: ''
       region: content
-      weight: 2
+      weight: 3
       format_type: fieldset
       format_settings:
         classes: ''
@@ -67,6 +68,11 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
+    weight: 1
+    region: content
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
     weight: 0
     region: content
   localgov_directory_email:
@@ -82,7 +88,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 1
+    weight: 2
     region: content
   localgov_directory_job_title:
     type: string
@@ -144,8 +150,8 @@ content:
     weight: 2
     region: content
 hidden:
-  content_moderation_control: true
   links: true
+  localgov_access_control: true
   localgov_directory_channels: true
   localgov_directory_facets_select: true
   localgov_directory_search: true

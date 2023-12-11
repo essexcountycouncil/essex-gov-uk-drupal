@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.grid_item
     - field.field.node.localgov_directory.body
+    - field.field.node.localgov_directory.localgov_access_control
     - field.field.node.localgov_directory.localgov_directory_channel_types
     - field.field.node.localgov_directory.localgov_directory_facets_enable
     - field.field.node.localgov_directory.localgov_proximity_search_cfg
@@ -28,9 +29,14 @@ content:
     third_party_settings: {  }
     weight: 1
     region: content
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
 hidden:
-  content_moderation_control: true
   links: true
+  localgov_access_control: true
   localgov_directory_channel_types: true
   localgov_directory_facets: true
   localgov_directory_facets_enable: true

@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.localgov_step_by_step_page.body
+    - field.field.node.localgov_step_by_step_page.localgov_access_control
     - field.field.node.localgov_step_by_step_page.localgov_step_parent
     - field.field.node.localgov_step_by_step_page.localgov_step_section_title
     - field.field.node.localgov_step_by_step_page.localgov_step_summary
@@ -23,15 +24,20 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 1
+    weight: 2
     region: content
-  links:
+  content_moderation_control:
     settings: {  }
     third_party_settings: {  }
     weight: 0
     region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
 hidden:
-  content_moderation_control: true
+  localgov_access_control: true
   localgov_step_parent: true
   localgov_step_section_title: true
   localgov_step_summary: true

@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.search_result
+    - field.field.node.localgov_subsites_overview.localgov_access_control
     - field.field.node.localgov_subsites_overview.localgov_subsites_banner
     - field.field.node.localgov_subsites_overview.localgov_subsites_content
     - field.field.node.localgov_subsites_overview.localgov_subsites_hide_menu
@@ -19,6 +20,11 @@ targetEntityType: node
 bundle: localgov_subsites_overview
 mode: search_result
 content:
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
   localgov_subsites_summary:
     type: basic_string
     label: hidden
@@ -27,8 +33,8 @@ content:
     weight: 0
     region: content
 hidden:
-  content_moderation_control: true
   links: true
+  localgov_access_control: true
   localgov_subsites_banner: true
   localgov_subsites_content: true
   localgov_subsites_hide_menu: true

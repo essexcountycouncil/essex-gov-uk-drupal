@@ -1,16 +1,14 @@
-uuid: fa03b38a-7e1e-42c8-8e8a-8b1154eb31e7
+uuid: 45c60b9c-a6bc-4a80-9562-c85603293122
 langcode: en
 status: true
 dependencies:
   module:
-    - node
     - paragraphs
-id: paragraph.field_featured_news
-field_name: field_featured_news
+id: paragraph.field_section_arc_top
+field_name: field_section_arc_top
 entity_type: paragraph
-type: entity_reference
-settings:
-  target_type: node
+type: boolean
+settings: {  }
 module: core
 locked: false
 cardinality: 1

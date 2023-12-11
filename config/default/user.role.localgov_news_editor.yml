@@ -43,6 +43,8 @@ dependencies:
     - scheduled_transitions
     - system
     - toolbar
+    - workbench
+    - workbench_access
   enforced:
     module:
       - localgov_news
@@ -59,6 +61,7 @@ permissions:
   - 'access media overview'
   - 'access responsive preview'
   - 'access toolbar'
+  - 'access workbench'
   - 'add scheduled transitions localgov_alert_banner localgov_alert_banner'
   - 'add scheduled transitions node localgov_news_article'
   - 'add scheduled transitions node localgov_newsroom'
@@ -70,6 +73,7 @@ permissions:
   - 'create paragraph library item'
   - 'create remote_video media'
   - 'create url aliases'
+  - 'delete any localgov_news_article content'
   - 'delete any media'
   - 'delete own media'
   - 'edit any image media'
@@ -103,6 +107,7 @@ permissions:
   - 'reschedule scheduled transitions localgov_alert_banner localgov_alert_banner'
   - 'reschedule scheduled transitions node localgov_news_article'
   - 'reschedule scheduled transitions node localgov_newsroom'
+  - 'reschedule scheduled transitions node localgov_subsites_overview'
   - 'revert localgov_news_article revisions'
   - 'revert localgov_newsroom revisions'
   - 'revert localgov_subsites_overview revisions'
@@ -118,6 +123,7 @@ permissions:
   - 'use localgov_editorial transition publish'
   - 'use localgov_editorial transition reject'
   - 'use localgov_editorial transition submit_for_review'
+  - 'use workbench access'
   - 'view all localgov alert banner entity pages'
   - 'view all localgov_news_article revisions'
   - 'view all scheduled transitions'
@@ -150,5 +156,7 @@ permissions:
   - 'view scheduled transitions localgov_alert_banner localgov_alert_banner'
   - 'view scheduled transitions node localgov_news_article'
   - 'view scheduled transitions node localgov_newsroom'
+  - 'view scheduled transitions node localgov_subsites_overview'
   - 'view the administration theme'
   - 'view unpublished paragraphs'
+  - 'view workbench access information'

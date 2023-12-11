@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.localgov_directory_promo_page.body
+    - field.field.node.localgov_directory_promo_page.localgov_access_control
     - field.field.node.localgov_directory_promo_page.localgov_directory_address
     - field.field.node.localgov_directory_promo_page.localgov_directory_banner
     - field.field.node.localgov_directory_promo_page.localgov_directory_channels
@@ -18,10 +19,11 @@ dependencies:
     - field.field.node.localgov_directory_promo_page.localgov_directory_title_sort
     - field.field.node.localgov_directory_promo_page.localgov_directory_website
     - field.field.node.localgov_directory_promo_page.localgov_paragraph_content
+    - image.style.square_large
     - node.type.localgov_directory_promo_page
   module:
-    - entity_reference_revisions
     - field_formatter_class
+    - media
     - text
     - user
 _core:
@@ -39,20 +41,27 @@ content:
     third_party_settings: {  }
     weight: 1
     region: content
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
   localgov_directory_banner:
-    type: entity_reference_revisions_entity_view
+    type: media_thumbnail
     label: hidden
     settings:
-      view_mode: default
-      link: ''
+      image_link: ''
+      image_style: square_large
+      image_loading:
+        attribute: lazy
     third_party_settings:
       field_formatter_class:
         class: ''
     weight: 0
     region: content
 hidden:
-  content_moderation_control: true
   links: true
+  localgov_access_control: true
   localgov_directory_address: true
   localgov_directory_channels: true
   localgov_directory_email: true

@@ -11,6 +11,8 @@ dependencies:
     - scheduled_transitions
     - system
     - toolbar
+    - workbench
+    - workbench_access
   enforced:
     module:
       - localgov_alert_banner
@@ -23,14 +25,17 @@ is_admin: null
 permissions:
   - 'access localgov alert banner listing page'
   - 'access toolbar'
+  - 'access workbench'
   - 'add scheduled transitions localgov_alert_banner localgov_alert_banner'
   - 'manage all localgov alert banner entities'
   - 'use localgov_alert_banners transition create_new_draft'
   - 'use localgov_alert_banners transition publish'
   - 'use localgov_alert_banners transition unpublish'
+  - 'use workbench access'
   - 'view all localgov alert banner entities'
   - 'view all localgov alert banner entity pages'
   - 'view all scheduled transitions'
   - 'view localgov alert banner localgov_alert_banner pages'
   - 'view scheduled transitions localgov_alert_banner localgov_alert_banner'
   - 'view the administration theme'
+  - 'view workbench access information'

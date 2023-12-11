@@ -10,3 +10,5 @@ favicon:
   use_default: 1
 localgov_base_remove_css: 0
 localgov_base_remove_js: 0
+localgov_base_add_unpublished_background_colour: 0
+localgov_base_add_draft_note_to_unpublished_content: 1

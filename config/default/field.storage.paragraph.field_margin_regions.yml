@@ -1,0 +1,36 @@
+uuid: bac1abe9-9926-4471-84ae-95624992b30d
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_margin_regions
+field_name: field_margin_regions
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: small
+      label: Small
+    -
+      value: medium
+      label: Medium
+    -
+      value: large
+      label: Large
+    -
+      value: larger
+      label: Larger
+    -
+      value: largest
+      label: Largest
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

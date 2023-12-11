@@ -4,10 +4,10 @@ status: true
 dependencies:
   module:
     - eu_cookie_compliance
-    - google_tag
-    - metatag
     - system
     - toolbar
+    - workbench
+    - workbench_access
 id: analytics
 label: Analytics
 weight: -7
@@ -15,8 +15,9 @@ is_admin: null
 permissions:
   - 'access administration pages'
   - 'access toolbar'
+  - 'access workbench'
   - 'administer eu cookie compliance categories'
   - 'administer eu cookie compliance popup'
-  - 'administer google tag manager'
-  - 'administer meta tags'
+  - 'use workbench access'
   - 'view the administration theme'
+  - 'view workbench access information'
