@@ -59,7 +59,7 @@
         "drupal/core-project-message": "^10",
         "drupal/core-recommended": "^10.1",
         "drupal/devel": "^5.1",
-        "drupal/dynamic_entity_reference": "^4",
+        "drupal/dynamic_entity_reference": "^3.1",
         "drupal/eu_cookie_compliance": "^1.24",
         "drupal/fathom_analytics": "^3.0",
         "drupal/geocoder": "^4",
