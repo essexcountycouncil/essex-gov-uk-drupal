@@ -85,7 +85,7 @@
         "drupal/upgrade_status": "^4.0",
         "drupal/webform": "^6.2",
         "drush/drush": "^12",
-        "essexcountycouncil/content_ownership": "dev-main",
+        "essexcountycouncil/content_ownership": "^1.0",
         "essexcountycouncil/ecc_cludo_search": "^1.0",
         "essexcountycouncil/ecc_content_moderation": "^1.0",
         "essexcountycouncil/ecc_cookie_compliance": "^1.0",
@@ -157,6 +157,9 @@
         },
         "drupal/migmag": {
           "Fix migmag_lookup exception when stubbing non-sql sources. See https://www.drupal.org/project/migmag/issues/3321292#comment-14785506": "https://www.drupal.org/files/issues/2022-11-14/migmag-remove_double_prepareRow-3321292_3.patch"
+        },
+        "drupal/openid_connect": {
+          "Truncate username if it is greater than 60 characters": "https://www.drupal.org/files/issues/2021-12-08/data_too_long_for_column_name-%203252021-8.patch"
         },
         "localgovdrupal/localgov_services": {
           "New parent bundles for ServicesSelection" : "patches/localgov_services.patch"

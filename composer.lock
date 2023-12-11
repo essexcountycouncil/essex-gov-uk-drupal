@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c81dea82274cf3eacb0ebf2f32971a6f",
+    "content-hash": "8b3931b20cd64e5b33c01cf0cd9651d0",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -8217,19 +8217,18 @@
         },
         {
             "name": "essexcountycouncil/content_ownership",
-            "version": "dev-main",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/essexcountycouncil/content_ownership.git",
-                "reference": "4f9850460779bfe4195e861c99cf15ca43dae9bb"
+                "reference": "f1963c743b5742870f86f07576bdfae7d8891d6a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/essexcountycouncil/content_ownership/zipball/4f9850460779bfe4195e861c99cf15ca43dae9bb",
-                "reference": "4f9850460779bfe4195e861c99cf15ca43dae9bb",
+                "url": "https://api.github.com/repos/essexcountycouncil/content_ownership/zipball/f1963c743b5742870f86f07576bdfae7d8891d6a",
+                "reference": "f1963c743b5742870f86f07576bdfae7d8891d6a",
                 "shasum": ""
             },
-            "default-branch": true,
             "type": "drupal-module",
             "authors": [
                 {
@@ -8242,7 +8241,7 @@
                 "source": "https://github.com/essexcountycouncil/content_ownership/tree/1.0.0",
                 "issues": "https://github.com/essexcountycouncil/content_ownership/issues"
             },
-            "time": "2023-06-09T08:43:44+00:00"
+            "time": "2023-12-06T15:43:48+00:00"
         },
         {
             "name": "essexcountycouncil/ecc_cludo_search",
@@ -21192,7 +21191,6 @@
         "drupal/cludo_search": 10,
         "drupal/gin": 5,
         "drupal/ultimate_cron": 15,
-        "essexcountycouncil/content_ownership": 20,
         "localgovdrupal/localgov_eu_cookie_compliance": 20,
         "localgovdrupal/localgov_forms": 20,
         "roave/security-advisories": 20
