@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8b3931b20cd64e5b33c01cf0cd9651d0",
+    "content-hash": "9d33c8fad32458734a6af132cc47c9f6",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2307,6 +2307,65 @@
             }
         },
         {
+            "name": "drupal/ckeditor5_show_block",
+            "version": "1.9.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/ckeditor5_show_block.git",
+                "reference": "8.x-1.9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/ckeditor5_show_block-8.x-1.9.zip",
+                "reference": "8.x-1.9",
+                "shasum": "690a0d85fc8c1acca0a7e665341229bf50c76c8b"
+            },
+            "require": {
+                "drupal/core": "^9 || ^10"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.9",
+                    "datestamp": "1697099709",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Project has not opted into security advisory coverage!"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Vipul Tulse",
+                    "homepage": "https://www.drupal.org/user/3615031",
+                    "email": "vipultulse1@gmail.com",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "sachintyagi99",
+                    "homepage": "https://www.drupal.org/user/1816458"
+                },
+                {
+                    "name": "vipul tulse",
+                    "homepage": "https://www.drupal.org/user/3219819"
+                }
+            ],
+            "description": "The Show Block feature allows you to show the html tag blocks in the editor.",
+            "homepage": "https://www.drupal.org/project/ckeditor5_show_block",
+            "keywords": [
+                "CKEditor5 Show Block",
+                "Drupal"
+            ],
+            "support": {
+                "source": "https://cgit.drupalcode.org/ckeditor5_show_block",
+                "issues": "https://www.drupal.org/project/issues/ckeditor5_show_block"
+            }
+        },
+        {
             "name": "drupal/ckeditor_div_manager",
             "version": "3.0.0-alpha1",
             "source": {
@@ -2355,6 +2414,57 @@
             "support": {
                 "source": "https://cgit.drupalcode.org/ckeditor_div_manager",
                 "issues": "https://www.drupal.org/project/issues/ckeditor_div_manager"
+            }
+        },
+        {
+            "name": "drupal/ckeditor_link_styles",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/ckeditor_link_styles.git",
+                "reference": "1.0.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/ckeditor_link_styles-1.0.1.zip",
+                "reference": "1.0.1",
+                "shasum": "eca74d528e1cca27bca06a9157d1b3993d84a6a2"
+            },
+            "require": {
+                "drupal/core": "^9.4 || ^10",
+                "php": ">=8.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "1.0.1",
+                    "datestamp": "1680015141",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Project has not opted into security advisory coverage!"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Chris Snyder",
+                    "homepage": "https://www.drupal.org/user/1988434",
+                    "email": "chris@chrissnyder.org",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "Provides the ability to select styles (css classes) for links within CKEditor5.",
+            "homepage": "https://www.drupal.org/project/ckeditor_link_styles",
+            "keywords": [
+                "Drupal"
+            ],
+            "support": {
+                "source": "https://cgit.drupalcode.org/ckeditor_link_styles",
+                "issues": "https://www.drupal.org/project/issues/ckeditor_link_styles"
             }
         },
         {

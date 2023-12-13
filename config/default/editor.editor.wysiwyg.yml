@@ -13,6 +13,7 @@ settings:
     items:
       - heading
       - style
+      - DivManager
       - '|'
       - undo
       - redo
@@ -25,6 +26,7 @@ settings:
       - blockQuote
       - drupalMedia
       - '|'
+      - ShowBlocks
       - sourceEditing
       - '|'
       - insertTable
@@ -43,24 +45,10 @@ settings:
     ckeditor5_list:
       reversed: false
       startIndex: true
+    ckeditor5_show_block_show_block:
+      enable_show_block_default: 0
     ckeditor5_sourceEditing:
-      allowed_tags:
-        - '<cite>'
-        - '<dl>'
-        - '<dt>'
-        - '<dd>'
-        - '<mark>'
-        - '<img src alt data-entity-type data-entity-uuid data-align data-caption>'
-        - '<div class="alert alert-info alert-danger alert-primary alert-success callout callout-primary callout-success callout-danger callout-teal callout-carbon callout-yellow section-heading">'
-        - '<blockquote cite>'
-        - '<ol type>'
-        - '<h2 id>'
-        - '<h3 id>'
-        - '<h4 id>'
-        - '<ul type class="list-checked">'
-        - '<drupal-media data-caption title>'
-        - '<a hreflang title class="external-link pdf-link btn btn-start">'
-        - '<p class="alert alert-info alert-danger alert-primary alert-success callout callout-primary callout-success callout-danger callout-teal callout-carbon callout-yellow inset inset-text">'
+      allowed_tags: {  }
     ckeditor5_style:
       styles:
         -
@@ -69,6 +57,11 @@ settings:
         -
           label: 'Inset text'
           element: '<div class="inset">'
+    ckeditor_link_styles_linkStyles:
+      styles:
+        -
+          label: 'Start button'
+          element: '<a class="button button-start col-sm-6 mt-3">'
     linkit_extension:
       linkit_enabled: true
       linkit_profile: default

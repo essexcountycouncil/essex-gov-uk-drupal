@@ -18,7 +18,7 @@ libraries-extend:
     # - essex/sample-library
 
 # custom ckeditor5 css overrides for additional styles
-ckeditor5_stylesheets:
+ckeditor5-stylesheets:
   - css/ckeditor-custom.css
 
 regions:
