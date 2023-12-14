@@ -10,9 +10,10 @@ module:
   block_classes: 0
   block_content: 0
   breakpoint: 0
-  ckeditor: 0
   ckeditor5: 0
+  ckeditor5_show_block: 0
   ckeditor_div_manager: 0
+  ckeditor_link_styles: 0
   cludo_search: 0
   condition_field: 0
   config: 0
@@ -38,7 +39,6 @@ module:
   ecc_cookie_compliance: 0
   ecc_devolved_editor: 0
   ecc_menu: 0
-  ecc_migrate: 0
   editor: 0
   entity_browser: 0
   entity_browser_entity_form: 0
@@ -56,6 +56,9 @@ module:
   file: 0
   filter: 0
   fontawesome: 0
+  geo_entity: 0
+  geo_entity_address: 0
+  geo_entity_area: 0
   geocoder: 0
   geocoder_field: 0
   geocoder_geofield: 0
@@ -138,7 +141,6 @@ module:
   migrate: 0
   migrate_plus: 0
   migrate_process_markdown_to_html: 0
-  monolog: 0
   mysql: 0
   node: 0
   office_hours: 0
@@ -150,8 +152,8 @@ module:
   path: 0
   path_alias: 0
   permissions_filter: 0
+  phpass: 0
   preview_link: 0
-  quickedit: 0
   redirect: 0
   redirect_404: 0
   responsive_image: 0
@@ -192,7 +194,6 @@ module:
   eu_cookie_compliance: 1001
 theme:
   claro: 0
-  stable: 0
   gin: 0
   localgov_base: 0
   localgov_scarfolk: 0

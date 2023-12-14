@@ -24,7 +24,7 @@ class ContentfulInformationPages extends JsonContentful {
   /**
    * Options for restricting data set due to the presence of sections.
    */
-  protected sectionOptions $sectionOptions;
+  protected sectionOptions $sectionOptions = sectionOptions::IncludeAll;
 
   /**
    * {@inheritdoc}
@@ -32,8 +32,6 @@ class ContentfulInformationPages extends JsonContentful {
   public function __construct(array $configuration, $plugin_id, $plugin_definition) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
     $this->contentType = 'article';
-
-    $this->sectionOptions = sectionOptions::IncludeAll;
     if (isset($configuration['with_sections'])) {
       $this->sectionOptions = sectionOptions::IncludeWithSections;
       if (!$configuration['with_sections']) {

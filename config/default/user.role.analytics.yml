@@ -4,6 +4,7 @@ status: true
 dependencies:
   module:
     - eu_cookie_compliance
+    - file
     - system
     - toolbar
     - workbench
@@ -19,5 +20,6 @@ permissions:
   - 'administer eu cookie compliance categories'
   - 'administer eu cookie compliance popup'
   - 'use workbench access'
+  - 'delete own files'
   - 'view the administration theme'
   - 'view workbench access information'

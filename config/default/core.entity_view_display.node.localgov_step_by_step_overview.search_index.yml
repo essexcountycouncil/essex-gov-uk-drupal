@@ -65,6 +65,7 @@ content:
     weight: 4
     region: content
 hidden:
+  content_moderation_control: true
   links: true
   localgov_access_control: true
   search_api_excerpt: true

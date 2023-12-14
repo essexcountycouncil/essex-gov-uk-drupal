@@ -25,11 +25,6 @@ targetEntityType: node
 bundle: localgov_guides_overview
 mode: teaser
 content:
-  content_moderation_control:
-    settings: {  }
-    third_party_settings: {  }
-    weight: -20
-    region: content
   localgov_guides_description:
     type: basic_string
     label: hidden
@@ -39,6 +34,7 @@ content:
     region: content
 hidden:
   body: true
+  content_moderation_control: true
   entitygroupfield: true
   field_content_owner: true
   field_non_publishable_notes: true

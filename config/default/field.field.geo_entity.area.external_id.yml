@@ -1,0 +1,21 @@
+uuid: 2606142e-9dc2-484a-9e50-769aac768479
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.geo_entity.external_id
+    - geo_entity.geo_entity_type.area
+_core:
+  default_config_hash: 1QTrlUccFWyZSK8qqp0smXhs61PmsCytaFh2M4ad9VA
+id: geo_entity.area.external_id
+field_name: external_id
+entity_type: geo_entity
+bundle: area
+label: 'External ID'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

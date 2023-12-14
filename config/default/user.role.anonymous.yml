@@ -7,8 +7,8 @@ dependencies:
   module:
     - cludo_search
     - eu_cookie_compliance
+    - geo_entity
     - localgov_alert_banner
-    - localgov_geo
     - media
     - search_api_autocomplete
     - system

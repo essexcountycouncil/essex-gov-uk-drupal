@@ -207,7 +207,8 @@ drush-deploy-dev:
 deploy-to-preprod:
   image: mcr.microsoft.com/azure-cli
   stage: preproduction
-  needs: ["deploy-to-dev"]
+  needs:
+    - job: build-and-push-images
   environment:
     name: preproduction
     url: https://preprod.essex-gov.nomensa.xyz/
