@@ -208,8 +208,8 @@ content:
     weight: 4
     region: content
 hidden:
-  localgov_access_control: true
   content_moderation_control: true
+  localgov_access_control: true
   localgov_directory_channels: true
   localgov_directory_search: true
   localgov_directory_title_sort: true
