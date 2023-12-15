@@ -113,6 +113,7 @@ content:
     weight: 7
     region: content
 hidden:
+  content_moderation_control: true
   links: true
   localgov_directory_search: true
   localgov_directory_title_sort: true

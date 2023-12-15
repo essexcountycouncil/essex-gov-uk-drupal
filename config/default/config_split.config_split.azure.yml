@@ -1,0 +1,17 @@
+uuid: 441d74df-3a37-4aa7-aa72-cc7bc1027cfc
+langcode: en
+status: true
+dependencies: {  }
+id: azure
+label: Azure
+description: 'Dev, Preprod and Prod'
+weight: 0
+stackable: false
+no_patching: false
+storage: folder
+folder: ../config/envs/azure
+module:
+  monolog: 0
+theme: {  }
+complete_list: {  }
+partial_list: {  }

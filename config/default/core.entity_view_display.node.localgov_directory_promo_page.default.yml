@@ -20,6 +20,7 @@ dependencies:
     - node.type.localgov_directory_promo_page
   module:
     - address
+    - entity_reference_revisions
     - field_formatter_class
     - field_group
     - layout_paragraphs
@@ -113,11 +114,11 @@ content:
     weight: 12
     region: content
   localgov_directory_banner:
-    type: entity_reference_entity_view
+    type: entity_reference_revisions_entity_view
     label: hidden
     settings:
       view_mode: responsive_banner
-      link: false
+      link: ''
     third_party_settings:
       field_formatter_class:
         class: ''
@@ -196,11 +197,12 @@ content:
     label: hidden
     settings:
       view_mode: default
-      link: false
+      link: ''
     third_party_settings: {  }
     weight: 3
     region: content
 hidden:
+  content_moderation_control: true
   localgov_directory_channels: true
   localgov_directory_search: true
   localgov_directory_title_sort: true

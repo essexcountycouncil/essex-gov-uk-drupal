@@ -1,7 +1,0 @@
-ecc_menu.system.admin_content.entity.webform.collection:
-  title: 'Webforms overview'
-  description: 'Overview of all webforms for your site'
-  parent: system.admin_content
-  route_name: entity.webform.collection
-  enabled: 1
-  menu_name: admin

@@ -19,11 +19,6 @@ targetEntityType: node
 bundle: localgov_subsites_overview
 mode: teaser
 content:
-  content_moderation_control:
-    settings: {  }
-    third_party_settings: {  }
-    weight: -20
-    region: content
   localgov_subsites_summary:
     type: basic_string
     label: hidden
@@ -32,6 +27,7 @@ content:
     weight: 0
     region: content
 hidden:
+  content_moderation_control: true
   links: true
   localgov_subsites_banner: true
   localgov_subsites_content: true
