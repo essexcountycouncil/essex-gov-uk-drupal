@@ -94,3 +94,24 @@ function essex_preprocess_breadcrumb(&$variables) {
   }
   $variables['#cache']['contexts'][] = 'url';
 }
+
+/**
+ * Implements hook_preprocess_HOOK().
+ * @TODO: remove this function if
+ * https://github.com/localgovdrupal/localgov_base/issues/518
+ * is resolved.
+ */
+function essex_preprocess_block(&$variables) {
+  // Check if user is logged in.
+  $user = \Drupal::currentUser();
+  $variables['logged_in'] = $user->isAuthenticated();
+  if ($variables['logged_in']) {
+    // Get block id.
+    $block_id = $variables['elements']['#id'];
+    $variables['#attached']['library'][] = 'essex/edit-tabs';
+    if ($block_id === 'essex_localgov_tabs_scarfolk') {
+      // Attach library.
+      $variables['#attached']['library'][] = 'essex/edit-tabs';
+    }
+  }
+}
