@@ -1,0 +1,21 @@
+uuid: 9320fca0-4038-4177-8708-863f9acfccc9
+langcode: en
+status: true
+dependencies:
+  module:
+    - address
+    - geo_entity
+_core:
+  default_config_hash: 5fgMkS6rUDVIw10Kc6boB1PzJKaZFCe02oVU2O_oFDQ
+id: geo_entity.postal_address
+field_name: postal_address
+entity_type: geo_entity
+type: address
+settings: {  }
+module: address
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

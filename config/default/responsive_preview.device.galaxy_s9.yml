@@ -11,4 +11,4 @@ orientation: portrait
 dimensions:
   width: 1440
   height: 2960
-  dppx: !!float 4
+  dppx: 4.0

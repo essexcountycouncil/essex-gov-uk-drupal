@@ -1,63 +1,72 @@
-uuid: 8fa9754d-9318-48e6-85cf-edc6bc6b6c74
+uuid: 2a607ab5-b4d2-4c1b-83f2-deed29ac6638
 langcode: en
 status: true
 dependencies:
   config:
     - filter.format.wysiwyg
   module:
-    - ckeditor
-_core:
-  default_config_hash: BYnFpZIRCLycV6n5MmbSZt71mMClHh-9GoNgSaGV3mI
+    - ckeditor5
 format: wysiwyg
-editor: ckeditor
+editor: ckeditor5
 settings:
   toolbar:
-    rows:
-      -
-        -
-          name: Formatting
-          items:
-            - Format
-            - Styles
-            - CreateDiv
-        -
-          name: Edit
-          items:
-            - Copy
-            - Cut
-            - Paste
-            - Undo
-            - Redo
-        -
-          name: Links
-          items:
-            - DrupalLink
-            - DrupalUnlink
-        -
-          name: Lists
-          items:
-            - BulletedList
-            - NumberedList
-        -
-          name: Media
-          items:
-            - Blockquote
-            - DrupalMediaLibrary
-        -
-          name: Tools
-          items:
-            - ShowBlocks
-            - Source
-        -
-          name: Tables
-          items:
-            - Table
+    items:
+      - heading
+      - style
+      - DivManager
+      - '|'
+      - undo
+      - redo
+      - '|'
+      - link
+      - '|'
+      - bulletedList
+      - numberedList
+      - '|'
+      - blockQuote
+      - drupalMedia
+      - '|'
+      - ShowBlocks
+      - sourceEditing
+      - '|'
+      - insertTable
+      - '|'
+      - italic
+      - bold
+      - code
+      - underline
   plugins:
-    drupallink:
+    ckeditor5_heading:
+      enabled_headings:
+        - heading1
+        - heading2
+        - heading3
+        - heading4
+    ckeditor5_list:
+      reversed: false
+      startIndex: true
+    ckeditor5_show_block_show_block:
+      enable_show_block_default: 0
+    ckeditor5_sourceEditing:
+      allowed_tags: {  }
+    ckeditor5_style:
+      styles:
+        -
+          label: 'Start button'
+          element: '<a class="button button-start col-sm-6 mt-3">'
+        -
+          label: 'Inset text'
+          element: '<div class="inset">'
+    ckeditor_link_styles_linkStyles:
+      styles:
+        -
+          label: 'Start button'
+          element: '<a class="button button-start col-sm-6 mt-3">'
+    linkit_extension:
       linkit_enabled: true
       linkit_profile: default
-    stylescombo:
-      styles: "a.button.button-start.col-sm-6.mt-3|Start button\r\ndiv.inset|Inset text"
+    media_media:
+      allow_view_mode_override: true
 image_upload:
   status: false
   scheme: public

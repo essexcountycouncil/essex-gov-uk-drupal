@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - filter.format.webform_default
     - filter.format.wysiwyg
     - localgov_alert_banner.localgov_alert_banner_type.localgov_alert_banner
   module:
@@ -10,10 +11,11 @@ dependencies:
     - content_moderation
     - content_ownership
     - eu_cookie_compliance
+    - file
     - filter
     - fontawesome
+    - geo_entity
     - localgov_alert_banner
-    - localgov_geo
     - media
     - search_api_autocomplete
     - system
@@ -28,10 +30,12 @@ permissions:
   - 'access cludo search content'
   - 'access content'
   - 'access fontawesome additional settings'
+  - 'delete own files'
   - 'display eu cookie compliance popup'
   - 'edit own webform submission'
   - 'use search_api_autocomplete for localgov_directory_channel'
   - 'use search_api_autocomplete for localgov_news_search'
+  - 'use text format webform_default'
   - 'use text format wysiwyg'
   - 'view all localgov alert banner entities'
   - 'view any unpublished content'

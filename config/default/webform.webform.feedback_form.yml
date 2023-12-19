@@ -11,7 +11,7 @@ archive: false
 id: feedback_form
 title: 'Feedback Form'
 description: "For providing feedback to content\r\n<div id=\"extension-host\">&nbsp;</div>"
-category: ''
+categories: {  }
 elements: |-
   info:
     '#type': webform_markup
