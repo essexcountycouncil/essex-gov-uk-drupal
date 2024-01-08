@@ -1,0 +1,28 @@
+uuid: c7eb39bf-e2f0-4313-a2a6-74dd00df5119
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.localgov_events_search
+  module:
+    - system
+    - views
+  theme:
+    - ecc_theme
+id: ecc_theme_exposedformlocalgov_events_searchevents_page
+theme: ecc_theme
+region: sidebar_first
+weight: 0
+provider: null
+plugin: 'views_exposed_filter_block:localgov_events_search-events_page'
+settings:
+  id: 'views_exposed_filter_block:localgov_events_search-events_page'
+  label: ''
+  label_display: visible
+  provider: views
+  views_label: ''
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: "/events\r\n/events/search"

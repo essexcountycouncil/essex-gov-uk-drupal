@@ -4,7 +4,7 @@
     "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
     "This file is @generated automatically"
   ],
-  "content-hash": "ece19ced385c5e09eb9f7c090742df75",
+  "content-hash": "5b54fb85c80b182fd0cc13d44b7ea757",
   "packages": [
     {
       "name": "asm89/stack-cors",
@@ -8572,6 +8572,34 @@
         "issues": "https://github.com/essexcountycouncil/ecc_menu/issues"
       },
       "time": "2023-10-04T08:59:52+00:00"
+    },
+    {
+      "name": "essexcountycouncil/ecc_theme",
+      "version": "1.0.3",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/essexcountycouncil/ecc_theme.git",
+        "reference": "2aa3d2f7813be8dbd5ce2642cfe09bfe777a5b3a"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/essexcountycouncil/ecc_theme/zipball/2aa3d2f7813be8dbd5ce2642cfe09bfe777a5b3a",
+        "reference": "2aa3d2f7813be8dbd5ce2642cfe09bfe777a5b3a",
+        "shasum": ""
+      },
+      "type": "drupal-theme",
+      "authors": [
+        {
+          "name": "ageorge",
+          "email": "ageorge@nomensa.com"
+        }
+      ],
+      "description": "Consolidated Essex County Council Drupal theme",
+      "support": {
+        "source": "https://github.com/essexcountycouncil/ecc_theme/tree/1.0.3",
+        "issues": "https://github.com/essexcountycouncil/ecc_theme/issues"
+      },
+      "time": "2024-01-08T13:47:09+00:00"
     },
     {
       "name": "ezyang/htmlpurifier",

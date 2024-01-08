@@ -200,4 +200,6 @@ theme:
   localgov_scarfolk: 0
   essex: 0
   stable9: 0
+  ecc_theme: 0
+  ecc_theme_gov: 0
 profile: localgov

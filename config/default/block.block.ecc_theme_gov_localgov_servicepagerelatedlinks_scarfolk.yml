@@ -1,0 +1,22 @@
+uuid: 3b240290-8812-4355-87b9-b66cf7ffc0b4
+langcode: en
+status: true
+dependencies:
+  module:
+    - localgov_services_page
+  theme:
+    - ecc_theme_gov
+_core:
+  default_config_hash: wv9PS2Aoyqot66Q61-wRfhbRUnXVHoUSBBVrCeZiP1c
+id: ecc_theme_gov_localgov_servicepagerelatedlinks_scarfolk
+theme: ecc_theme_gov
+region: sidebar_second
+weight: 0
+provider: null
+plugin: localgov_services_related_links_block
+settings:
+  id: localgov_services_related_links_block
+  label: 'Service page related links'
+  label_display: '0'
+  provider: localgov_services_page
+visibility: {  }

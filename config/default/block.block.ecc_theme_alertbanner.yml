@@ -1,0 +1,22 @@
+uuid: d4dd2df6-3e5a-4f33-9e0a-7ba6f39c983e
+langcode: en
+status: true
+dependencies:
+  module:
+    - localgov_alert_banner
+  theme:
+    - ecc_theme
+id: ecc_theme_alertbanner
+theme: ecc_theme
+region: banner
+weight: 0
+provider: null
+plugin: localgov_alert_banner_block
+settings:
+  id: localgov_alert_banner_block
+  label: 'Alert banner'
+  label_display: '0'
+  provider: localgov_alert_banner
+  include_types:
+    localgov_alert_banner: '0'
+visibility: {  }

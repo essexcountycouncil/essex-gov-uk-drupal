@@ -30,6 +30,10 @@
             "url": "https://github.com/essexcountycouncil/ecc_cludo_search"
         },
         {
+            "type": "github",
+            "url":  "https://github.com/essexcountycouncil/ecc_theme"
+        },
+        {
             "type": "package",
             "package": {
                 "name": "ckeditor/div",
@@ -94,6 +98,7 @@
         "essexcountycouncil/ecc_content_moderation": "^1.0",
         "essexcountycouncil/ecc_cookie_compliance": "^1.0",
         "essexcountycouncil/ecc_menu": "^1.0",
+        "essexcountycouncil/ecc_theme": "^1.0",
         "localgovdrupal/localgov": "^3",
         "localgovdrupal/localgov_base": "^1.4",
         "localgovdrupal/localgov_content_access_control": "^1.0",
@@ -281,4 +286,3 @@
         ]
     }
 }
-

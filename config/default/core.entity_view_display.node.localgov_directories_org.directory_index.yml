@@ -107,7 +107,7 @@ content:
     weight: 12
     region: content
 hidden:
-  localgov_access_control: true
   content_moderation_control: true
+  localgov_access_control: true
   localgov_directory_search: true
   search_api_excerpt: true

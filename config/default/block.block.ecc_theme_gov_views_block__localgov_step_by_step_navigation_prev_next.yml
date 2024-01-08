@@ -1,0 +1,26 @@
+uuid: f81e2a80-6d0f-40cd-bd77-2306eb031ff0
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.localgov_step_by_step_navigation
+  module:
+    - views
+  theme:
+    - ecc_theme_gov
+id: ecc_theme_gov_views_block__localgov_step_by_step_navigation_prev_next
+theme: ecc_theme_gov
+region: content_bottom
+weight: 0
+provider: null
+plugin: 'views_block:localgov_step_by_step_navigation-prev_next'
+settings:
+  id: 'views_block:localgov_step_by_step_navigation-prev_next'
+  label: ''
+  label_display: '0'
+  provider: views
+  context_mapping:
+    nid: '@node.node_route_context:node'
+  views_label: ''
+  items_per_page: none
+visibility: {  }
