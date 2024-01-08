@@ -1,0 +1,46 @@
+uuid: b2eb62ca-6441-43fe-87ec-295c00982132
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_form_mode.geo_entity.inline
+    - field.field.geo_entity.area.external_id
+    - field.field.geo_entity.area.geo_file
+    - field.field.geo_entity.area.location
+    - geo_entity.geo_entity_type.area
+  module:
+    - file
+    - geofield
+_core:
+  default_config_hash: UfAXgXvB-zqR07C155DvUNoZR29Q58w6wrYQByIyHWA
+id: geo_entity.area.inline
+targetEntityType: geo_entity
+bundle: area
+mode: inline
+content:
+  geo_file:
+    type: file_generic
+    weight: 2
+    region: content
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+  label:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  location:
+    type: geofield_default
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  external_id: true
+  status: true
+  uid: true

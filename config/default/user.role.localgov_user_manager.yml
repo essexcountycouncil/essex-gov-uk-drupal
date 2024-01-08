@@ -4,6 +4,7 @@ status: true
 dependencies:
   module:
     - cludo_search
+    - file
     - role_delegation
     - search_api
     - system
@@ -36,6 +37,7 @@ permissions:
   - 'assign localgov_user_manager role'
   - 'delete any webform submission'
   - 'use workbench access'
+  - 'delete own files'
   - 'view any webform submission'
   - 'view the administration theme'
   - 'view user email addresses'

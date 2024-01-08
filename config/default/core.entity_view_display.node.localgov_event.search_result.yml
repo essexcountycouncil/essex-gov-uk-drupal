@@ -104,6 +104,7 @@ content:
     weight: 5
     region: content
 hidden:
+  content_moderation_control: true
   links: true
   localgov_access_control: true
   localgov_event_categories: true

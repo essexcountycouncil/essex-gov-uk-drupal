@@ -1,0 +1,29 @@
+uuid: b0058095-ee1a-4514-ab97-f0beb4da45bc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.geo_entity.geo_file
+    - geo_entity.geo_entity_type.area
+  module:
+    - file
+_core:
+  default_config_hash: Gfzsz1qGy0cMnql6MaxyhtOMVFI7WjJMrBrKO09PKC4
+id: geo_entity.area.geo_file
+field_name: geo_file
+entity_type: geo_entity
+bundle: area
+label: 'Geo file'
+description: 'The data file describing the area. Formats currently imported are KML, GPX, WKT and GeoJSON.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'kml gpx wkt json geojson'
+  max_filesize: ''
+  description_field: false
+field_type: file

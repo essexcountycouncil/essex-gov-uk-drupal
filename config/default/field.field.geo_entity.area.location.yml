@@ -1,0 +1,43 @@
+uuid: 023b72b8-589c-48ca-8645-f49553e4f75d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.geo_entity.location
+    - geo_entity.geo_entity_type.area
+  module:
+    - geocoder_field
+    - geofield
+third_party_settings:
+  geocoder_field:
+    method: geocode
+    weight: 0
+    field: geo_file
+    skip_not_empty_value: false
+    disabled: false
+    hidden: true
+    providers:
+      - gpx_file
+      - kml_file
+      - geojson_file
+      - file
+    dumper: wkt
+    delta_handling: default
+    failure:
+      handling: preserve
+      status_message: true
+      log: true
+_core:
+  default_config_hash: wMzhpDns_E2vp32o1Y7klvXqpDVLty-LxntIiyISrbM
+id: geo_entity.area.location
+field_name: location
+entity_type: geo_entity
+bundle: area
+label: location
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: geofield

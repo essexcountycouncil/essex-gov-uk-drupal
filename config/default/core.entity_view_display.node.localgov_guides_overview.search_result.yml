@@ -34,12 +34,8 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
-  content_moderation_control:
-    settings: {  }
-    third_party_settings: {  }
-    weight: -20
-    region: content
 hidden:
+  content_moderation_control: true
   entitygroupfield: true
   field_content_owner: true
   field_non_publishable_notes: true

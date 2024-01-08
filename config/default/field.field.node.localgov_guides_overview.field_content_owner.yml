@@ -10,7 +10,7 @@ field_name: field_content_owner
 entity_type: node
 bundle: localgov_guides_overview
 label: 'Content Owner'
-description: 'For assigning a content ''Owner'''
+description: "For assigning a content 'Owner'"
 required: false
 translatable: false
 default_value: {  }

@@ -19,11 +19,10 @@ dependencies:
     - field.field.node.localgov_directory_promo_page.localgov_directory_title_sort
     - field.field.node.localgov_directory_promo_page.localgov_directory_website
     - field.field.node.localgov_directory_promo_page.localgov_paragraph_content
-    - image.style.square_large
     - node.type.localgov_directory_promo_page
   module:
+    - entity_reference_revisions
     - field_formatter_class
-    - media
     - text
     - user
 _core:
@@ -47,19 +46,18 @@ content:
     weight: -20
     region: content
   localgov_directory_banner:
-    type: media_thumbnail
+    type: entity_reference_revisions_entity_view
     label: hidden
     settings:
-      image_link: ''
-      image_style: square_large
-      image_loading:
-        attribute: lazy
+      view_mode: default
+      link: ''
     third_party_settings:
       field_formatter_class:
         class: ''
     weight: 0
     region: content
 hidden:
+  content_moderation_control: true
   links: true
   localgov_access_control: true
   localgov_directory_address: true
