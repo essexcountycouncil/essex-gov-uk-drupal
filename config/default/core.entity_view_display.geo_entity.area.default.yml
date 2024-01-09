@@ -1,0 +1,111 @@
+uuid: b4aa810e-dc56-4eac-9286-be6ba38a72f2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.geo_entity.area.external_id
+    - field.field.geo_entity.area.geo_file
+    - field.field.geo_entity.area.location
+    - geo_entity.geo_entity_type.area
+  module:
+    - leaflet
+_core:
+  default_config_hash: JAF_ku7fzwb4-LHr8Xd2BYh8wyYrCoP1p1kHdt53EkM
+id: geo_entity.area.default
+targetEntityType: geo_entity
+bundle: area
+mode: default
+content:
+  location:
+    type: leaflet_formatter_default
+    label: visually_hidden
+    settings:
+      multiple_map: false
+      leaflet_map: 'OSM Mapnik'
+      height: 400
+      height_unit: px
+      hide_empty_map: false
+      disable_wheel: false
+      gesture_handling: false
+      reset_map:
+        control: false
+        position: topright
+      popup: false
+      popup_content: ''
+      map_position:
+        force: false
+        center:
+          lat: 0.0
+          lon: 0.0
+        zoom: 12
+        minZoom: 1
+        maxZoom: 18
+        zoomFiner: 0
+      icon:
+        iconType: marker
+        iconUrl: ''
+        shadowUrl: ''
+        className: ''
+        iconSize:
+          x: ''
+          'y': ''
+        iconAnchor:
+          x: ''
+          'y': ''
+        shadowSize:
+          x: ''
+          'y': ''
+        shadowAnchor:
+          x: ''
+          'y': ''
+        popupAnchor:
+          x: ''
+          'y': ''
+        html: '<div></div>'
+        html_class: leaflet-map-divicon
+        circle_marker_options: '{"radius":100,"color":"red","fillColor":"#f03","fillOpacity":0.5}'
+      leaflet_markercluster:
+        control: false
+        options: '{"spiderfyOnMaxZoom":true,"showCoverageOnHover":true,"removeOutsideVisibleBounds": false}'
+        include_path: false
+      fullscreen:
+        control: false
+        options: '{"position":"topleft","pseudoFullscreen":false}'
+      path: '{"color":"#3388ff","opacity":"1.0","stroke":true,"weight":3,"fill":"depends","fillColor":"*","fillOpacity":"0.2","radius":"6"}'
+      geocoder:
+        control: false
+        settings:
+          position: topright
+          input_size: 25
+          providers:
+            file:
+              weight: 0
+              checked: false
+            gpx_file:
+              weight: 0
+              checked: false
+            geojson_file:
+              weight: 0
+              checked: false
+            kml_file:
+              weight: 0
+              checked: false
+            localgov_default_osm:
+              weight: 0
+              checked: false
+          min_terms: 4
+          delay: 800
+          zoom: 16
+          popup: false
+          options: ''
+      weight: null
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  created: true
+  external_id: true
+  geo_file: true
+  search_api_excerpt: true
+  status: true
+  uid: true

@@ -1,0 +1,22 @@
+uuid: 32e2a6e2-2ea5-4191-9e51-2f74de3706e9
+langcode: en
+status: false
+dependencies:
+  theme:
+    - ecc_theme_gov
+_core:
+  default_config_hash: 18k4pNekX8og7ZyuFH_4h0qPH5lm4OKpF5OXvHB2JGc
+id: ecc_theme_gov_localgov_tabs_scarfolk
+theme: ecc_theme_gov
+region: tabs
+weight: 0
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: true
+visibility: {  }

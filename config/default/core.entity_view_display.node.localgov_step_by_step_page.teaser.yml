@@ -28,17 +28,13 @@ content:
     third_party_settings: {  }
     weight: 101
     region: content
-  content_moderation_control:
-    settings: {  }
-    third_party_settings: {  }
-    weight: -20
-    region: content
   links:
     settings: {  }
     third_party_settings: {  }
     weight: 100
     region: content
 hidden:
+  content_moderation_control: true
   localgov_access_control: true
   localgov_step_parent: true
   localgov_step_section_title: true

@@ -1,0 +1,5 @@
+name: Quickedit for Drupal 10 upgrade
+type: module
+description: Delete after Drupal 10 upgrade
+package: Custom
+core_version_requirement: ^10
