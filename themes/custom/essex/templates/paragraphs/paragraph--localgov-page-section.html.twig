@@ -1,0 +1,124 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a paragraph.
+ *
+ * Available variables:
+ * - paragraph: Full paragraph entity.
+ *   Only method names starting with "get", "has", or "is" and a few common
+ *   methods such as "id", "label", and "bundle" are available. For example:
+ *   - paragraph.getCreatedTime() will return the paragraph creation timestamp.
+ *   - paragraph.id(): The paragraph ID.
+ *   - paragraph.bundle(): The type of the paragraph, for example, "image" or "text".
+ *   - paragraph.getOwnerId(): The user ID of the paragraph author.
+ *   See Drupal\paragraphs\Entity\Paragraph for a full list of public properties
+ *   and methods for the paragraph object.
+ * - content: All paragraph items. Use {{ content }} to print them all,
+ *   or print a subset such as {{ content.field_example }}. Use
+ *   {{ content|without('field_example') }} to temporarily suppress the printing
+ *   of a given child element.
+ * - attributes: HTML attributes for the containing element.
+ *   The attributes.class element may contain one or more of the following
+ *   classes:
+ *   - paragraphs: The current template type (also known as a "theming hook").
+ *   - paragraphs--type-[type]: The current paragraphs type. For example, if the paragraph is an
+ *     "Image" it would result in "paragraphs--type--image". Note that the machine
+ *     name will often be in a short form of the human readable label.
+ *   - paragraphs--view-mode--[view_mode]: The View Mode of the paragraph; for example, a
+ *     preview would result in: "paragraphs--view-mode--preview", and
+ *     default: "paragraphs--view-mode--default".
+ * - view_mode: View mode; for example, "preview" or "full".
+ * - logged_in: Flag for authenticated user status. Will be true when the
+ *   current user is a logged-in member.
+ * - is_admin: Flag for admin user status. Will be true when the current user
+ *   is an administrator.
+ *
+ * @see template_preprocess_paragraph()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{% if not localgov_base_remove_css %}
+  {{ attach_library('localgov_base/page-sections') }}
+{% endif %}
+
+{% if paragraph.localgov_width_of_section.value %}
+  {% set width = paragraph.localgov_width_of_section.value %}
+{% endif %}
+
+{% if paragraph.localgov_bg_colour_of_section.value %}
+  {% set bg_colour = paragraph.localgov_bg_colour_of_section.value %}
+{% endif %}
+
+{% if paragraph.localgov_padding_top_section.value %}
+  {% set padding_top = paragraph.localgov_padding_top_section.value %}
+{% endif %}
+
+{% if paragraph.localgov_padding_bottom_section.value %}
+  {% set padding_bottom = paragraph.localgov_padding_bottom_section.value %}
+{% endif %}
+
+{% if paragraph.field_margin_regions.value %}
+  {% set margin_regions = paragraph.field_margin_regions.value %}
+{% endif %}
+
+{% if paragraph.field_margin_after_regions.value %}
+  {% set margin_after_regions = paragraph.field_margin_after_regions.value %}
+{% endif %}
+
+{% if paragraph.field_section_arc_top.value %}
+  {% set section_arc_top = true %}
+{% endif %}
+
+{% if paragraph.field_section_arc_bottom.value %}
+  {% set section_arc_bottom = true %}
+{% endif %}
+
+{%
+  set classes = [
+    'lgd-page-section',
+    width ? 'lgd-page-section--' ~ width : 'lgd-container padding-horizontal',
+    section_arc_top ? 'lgd-page-section--arc-top',
+    section_arc_bottom ? 'lgd-page-section--arc-bottom',
+    width == 'full-width' ? 'padding-horizontal',
+    width == 'contained-content' ? 'padding-horizontal',
+    width == 'contained-content' ? 'lgd-container',
+    bg_colour ? 'lgd-page-section--has-bg-colour' : 'lgd-page-section--no-bg-colour',
+    bg_colour ? 'lgd-page-section--bg-' ~ bg_colour|clean_class,
+    padding_top ? 'lgd-page-section--padding-top-' ~ padding_top|clean_class,
+    padding_bottom ? 'lgd-page-section--padding-bottom-' ~ padding_bottom|clean_class,
+    margin_regions ? 'lgd-page-section--regions-margin-' ~ margin_regions|clean_class,
+    margin_after_regions ? 'lgd-page-section--margin-after-' ~ margin_after_regions|clean_class,
+    'paragraph',
+    'paragraph--type--' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+    not paragraph.isPublished() ? 'paragraph--unpublished'
+  ]
+%}
+
+<div{{ attributes.addClass(classes) }}>
+  {% if section_arc_top %}
+    <div class="lgd-page-section__arc lgd-page-section__arc--top">
+    </div>
+  {% endif %}
+
+  {% if width == 'full-width-contained-content' %}
+    <div class="lgd-container padding-horizontal">
+    {% elseif width == 'contained-breakout' %}
+      <div class="lgd-container lgd-container--mega padding-horizontal">
+  {% endif %}
+
+    {{ content }}
+
+  {% if width == 'full-width-contained-content' or width == 'contained-breakout' %}
+    </div>
+  {% endif %}
+
+  {% if section_arc_bottom %}
+    <div class="lgd-page-section__arc lgd-page-section__arc--bottom">
+    </div>
+  {% endif %}
+
+</div>
+

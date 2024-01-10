@@ -1,0 +1,156 @@
+/*
+  @todo
+    remove this section once
+    https://github.com/localgovdrupal/localgov_base/pull/516
+    is merged
+*/
+.lgd-page-section {
+  --color-page-section-background-color: transparent;
+  --color-page-section-text-color: var(--color-black);
+  background-color: var(--color-page-section-background-color);
+  color: var(--color-page-section-text-color);
+}
+.lgd-page-section--bg-colour-1 {
+  --color-page-section-background-color: var(--color-page-section-background-color-1);
+  --color-page-section-text-color: var(--color-page-section-background-color-1-text-color);
+}
+.lgd-page-section--bg-colour-2 {
+  --color-page-section-background-color: var(--color-page-section-background-color-2);
+  --color-page-section-text-color: var(--color-page-section-background-color-2-text-color);
+}
+.lgd-page-section--bg-colour-3 {
+  --color-page-section-background-color: var(--color-page-section-background-color-3);
+  --color-page-section-text-color: var(--color-page-section-background-color-3-text-color);
+}
+/*
+  Adding 3 extra colour options here, so they are available if
+  other subthemes/sites need them.
+*/
+.lgd-page-section--bg-colour-4 {
+  --color-page-section-background-color: var(--color-page-section-background-color-4);
+  --color-page-section-text-color: var(--color-page-section-background-color-4-text-color);
+}
+.lgd-page-section--bg-colour-5 {
+  --color-page-section-background-color: var(--color-page-section-background-color-5);
+  --color-page-section-text-color: var(--color-page-section-background-color-5-text-color);
+}
+.lgd-page-section--bg-colour-6 {
+  --color-page-section-background-color: var(--color-page-section-background-color-6);
+  --color-page-section-text-color: var(--color-page-section-background-color-6-text-color);
+}
+/* end @todo */
+
+.lgd-page-section {
+  --arc-height: 120px;
+  --page-section-regions-gap: 0;
+  --page-section-margin-after: 0;
+  --color-page-section-background-color-4: var(--color-tint-1);
+  --color-page-section-background-color-5: var(--color-tint-2);
+  margin-bottom: var(--page-section-margin-after);
+}
+
+.lgd-page-section .layout {
+  gap: var(--page-section-regions-gap);
+}
+
+.lgd-page-section--regions-margin-small .layout {
+  --page-section-regions-gap: var(--spacing-small);
+}
+.lgd-page-section--regions-margin-medium .layout {
+  --page-section-regions-gap: var(--spacing);
+}
+.lgd-page-section--regions-margin-large .layout {
+  --page-section-regions-gap: var(--spacing-large);
+}
+.lgd-page-section--regions-margin-larger .layout {
+  --page-section-regions-gap: var(--spacing-larger);
+}
+.lgd-page-section--regions-margin-largest .layout {
+  --page-section-regions-gap: var(--spacing-largest);
+}
+
+.lgd-page-section--margin-after-small {
+  --page-section-margin-after: var(--spacing-small);
+}
+.lgd-page-section--margin-after-medium {
+  --page-section-margin-after: var(--spacing);
+}
+.lgd-page-section--margin-after-large {
+  --page-section-margin-after: var(--spacing-large);
+}
+.lgd-page-section--margin-after-larger {
+  --page-section-margin-after: var(--spacing-larger);
+}
+.lgd-page-section--margin-after-largest {
+  --page-section-margin-after: var(--spacing-largest);
+}
+
+.layout--threecol-33-34-33,
+.layout--twocol {
+  display: grid;
+}
+
+@media screen and (min-width: 40em) {
+  .layout--threecol-33-34-33 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .layout--twocol {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.lgd-page-section--arc-top,
+.lgd-page-section--arc-bottom {
+  position: relative;
+}
+
+.lgd-page-section--arc-top {
+  margin-top: var(--arc-height);
+}
+
+.lgd-page-section--arc-bottom {
+  margin-bottom: calc(var(--page-section-margin-after) + var(--arc-height));
+}
+
+.lgd-page-section__arc {
+  background: var(--color-page-section-background-color);
+  position: relative;
+}
+
+.lgd-page-section__arc--top::before {
+  mask: url(../../assets/images/arcs/arc-up.svg#arc-up);
+  background: inherit;
+  position: absolute;
+  left: calc(var(--spacing) * -1);
+  width: calc(100% + (var(--spacing) * 2));
+  content: "";
+  display: block;
+  mask-size: auto var(--arc-height);
+  mask-repeat: no-repeat;
+  height: var(--arc-height);
+  transform: translateY(-100%);
+}
+.lgd-page-section__arc--bottom::after {
+  mask: url(../../assets/images/arcs/arc-down.svg#arc-down);
+  background: inherit;
+  position: absolute;
+  left: calc(var(--spacing) * -1);
+  width: calc(100% + (var(--spacing) * 2));
+  content: "";
+  display: block;
+  mask-size: auto var(--arc-height);
+  height: var(--arc-height);
+  mask-repeat: no-repeat;
+  transform: translateY(-1px);
+}
+
+/* Overrides for specific components when placed in page sections */
+.lgd-page-section--has-bg-colour {
+  .media-with-text,
+  .media-with-text--default .media-with-text__body {
+    background-color: var(--color-white);
+  }
+  .media-with-text {
+    height: 100%;
+  }
+}
