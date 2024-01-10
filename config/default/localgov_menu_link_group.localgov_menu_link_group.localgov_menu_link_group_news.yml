@@ -1,0 +1,12 @@
+uuid: 7fb693bf-400b-444f-bca9-6fcdd025b9a0
+langcode: en
+status: true
+dependencies: {  }
+id: localgov_menu_link_group_news
+group_label: News
+weight: 0
+parent_menu: admin
+parent_menu_link: 'admin_toolbar_tools.extra_links:node.add'
+child_menu_links:
+  - 'admin_toolbar_tools.extra_links:node.add.localgov_news_article'
+  - 'admin_toolbar_tools.extra_links:node.add.localgov_newsroom'
