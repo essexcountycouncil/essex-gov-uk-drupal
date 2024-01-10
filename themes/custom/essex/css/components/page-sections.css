@@ -88,6 +88,18 @@
 .layout--threecol-33-34-33,
 .layout--twocol {
   display: grid;
+  /*
+    @TOTO:
+      Once we have the subsite landing pages converted to use the new
+      layout, we can remove the following line. It is only here so that
+      old layouts by default do not have a gap of 0 on them, which is the
+      default gap for the new layouts. See line 45 above
+        --page-section-regions-gap: 0;
+
+      Once the subsites are converted, we will be using the "space between regions"
+      field to set the gap witdh.
+   */
+  --page-section-regions-gap: var(--spacing);
 }
 
 @media screen and (min-width: 40em) {
