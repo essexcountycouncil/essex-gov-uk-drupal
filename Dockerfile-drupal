@@ -28,7 +28,6 @@ RUN apt-get update \
   php8.1-gd \
   php8.1-curl \
   php8.1-zip \
-  php8.1-imagick \
   default-mysql-client \
   libmemcached11 \
   libmemcachedutil2 \
@@ -42,7 +41,6 @@ RUN apt-get update \
   software-properties-common \
   libxml2-dev \
   libcurl4-openssl-dev \
-  imagemagick \
   libmagickwand-dev \
   libonig-dev \
   libzip-dev \
@@ -57,6 +55,7 @@ RUN apt-get update \
 RUN update-alternatives --set php /usr/bin/php8.1
 
 RUN pecl channel-update pecl.php.net \
+    && pecl download imagick \
     && pecl install imagick memcached
 
 # Download and install Composer
