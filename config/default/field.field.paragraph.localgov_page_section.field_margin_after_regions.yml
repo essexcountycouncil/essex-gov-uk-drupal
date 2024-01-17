@@ -1,0 +1,23 @@
+uuid: eb67a42b-f8b4-47a0-a2bb-0073483dbceb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_margin_after_regions
+    - paragraphs.paragraphs_type.localgov_page_section
+  module:
+    - options
+id: paragraph.localgov_page_section.field_margin_after_regions
+field_name: field_margin_after_regions
+entity_type: paragraph
+bundle: localgov_page_section
+label: 'Space between this section and the next one'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: largest
+default_value_callback: ''
+settings: {  }
+field_type: list_string

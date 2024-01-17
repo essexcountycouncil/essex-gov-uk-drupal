@@ -17,3 +17,5 @@ child_menu_links:
   - 'admin_toolbar_tools.extra_links:node.add.localgov_directory'
   - 'admin_toolbar_tools.extra_links:node.add.localgov_directories_page'
   - 'admin_toolbar_tools.extra_links:node.add.localgov_directories_venue'
+  - 'admin_toolbar_tools.extra_links:node.add.localgov_directories_org'
+  - 'admin_toolbar_tools.extra_links:node.add.localgov_directory_promo_page'

@@ -12,5 +12,5 @@ type: localgov_news_article
 description: 'A stand-alone news article that may also appear in a news listing page.'
 help: ''
 new_revision: true
-preview_mode: 0
+preview_mode: 1
 display_submitted: false

@@ -7,8 +7,6 @@ dependencies:
     - paragraphs.paragraphs_type.localgov_page_section
   module:
     - options
-_core:
-  default_config_hash: pCUw04yB9x0SfruTRhHo3QXIVaTFU0WQlDXIVjUgwAc
 id: paragraph.localgov_page_section.localgov_width_of_section
 field_name: localgov_width_of_section
 entity_type: paragraph
@@ -17,7 +15,9 @@ label: 'Width of Section'
 description: ''
 required: false
 translatable: false
-default_value: {  }
+default_value:
+  -
+    value: full-width-contained-content
 default_value_callback: ''
 settings: {  }
 field_type: list_string

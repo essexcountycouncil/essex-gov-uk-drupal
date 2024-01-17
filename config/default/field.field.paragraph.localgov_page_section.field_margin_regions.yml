@@ -1,0 +1,23 @@
+uuid: 887fadbc-f959-4650-95fe-b163ab5c7cf3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_margin_regions
+    - paragraphs.paragraphs_type.localgov_page_section
+  module:
+    - options
+id: paragraph.localgov_page_section.field_margin_regions
+field_name: field_margin_regions
+entity_type: paragraph
+bundle: localgov_page_section
+label: 'Space Between Regions in this Layout'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: medium
+default_value_callback: ''
+settings: {  }
+field_type: list_string
