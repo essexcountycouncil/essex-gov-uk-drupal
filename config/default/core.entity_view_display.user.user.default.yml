@@ -1,0 +1,28 @@
+uuid: ac786a79-c2cf-4516-a129-4fc9ca65c61a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.user.user.field_content_access
+  module:
+    - user
+id: user.user.default
+targetEntityType: user
+bundle: user
+mode: default
+content:
+  field_content_access:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  member_for:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 5
+    region: content
+hidden:
+  search_api_excerpt: true

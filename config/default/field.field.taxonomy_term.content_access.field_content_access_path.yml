@@ -1,0 +1,19 @@
+uuid: 414fe72b-f391-42c1-804b-465a2ac986dc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_content_access_path
+    - taxonomy.vocabulary.content_access
+id: taxonomy_term.content_access.field_content_access_path
+field_name: field_content_access_path
+entity_type: taxonomy_term
+bundle: content_access
+label: 'Content Access Path'
+description: 'Add a website path here, e.g. <strong>fostering</strong>. Then anyone with this taxonomy term attached to their user account will be able to edit content that is within that path, such as <strong>/fostering</strong>, <strong>/fostering/about-fostering</strong>, etc.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

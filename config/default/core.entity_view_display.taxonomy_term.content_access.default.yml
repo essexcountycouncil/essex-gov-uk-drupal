@@ -1,0 +1,31 @@
+uuid: 5daae8d3-1549-4a9b-a7d5-ba90c17af5ad
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.content_access.field_content_access_path
+    - taxonomy.vocabulary.content_access
+  module:
+    - text
+id: taxonomy_term.content_access.default
+targetEntityType: taxonomy_term
+bundle: content_access
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_content_access_path:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  search_api_excerpt: true

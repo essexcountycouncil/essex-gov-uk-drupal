@@ -1,0 +1,33 @@
+uuid: be9120cc-7690-4987-b845-79538e8d5b84
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.content_access.field_content_access_path
+    - taxonomy.vocabulary.content_access
+id: taxonomy_term.content_access.default
+targetEntityType: taxonomy_term
+bundle: content_access
+mode: default
+content:
+  field_content_access_path:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  description: true
+  path: true
+  simple_sitemap: true
+  status: true
