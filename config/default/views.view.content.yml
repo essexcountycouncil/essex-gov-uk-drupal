@@ -5,6 +5,7 @@ dependencies:
   module:
     - node
     - user
+    - views_bulk_operations
 _core:
   default_config_hash: vBKWYGGDoAX-tFd1JErB8tZLSxx3lJ0foouVsgpcbB4
 id: content
@@ -23,16 +24,15 @@ display:
     display_options:
       title: Content
       fields:
-        node_bulk_form:
-          id: node_bulk_form
-          table: node
-          field: node_bulk_form
+        views_bulk_operations_bulk_form:
+          id: views_bulk_operations_bulk_form
+          table: views
+          field: views_bulk_operations_bulk_form
           relationship: none
           group_type: group
           admin_label: ''
-          entity_type: node
-          plugin_id: node_bulk_form
-          label: ''
+          plugin_id: views_bulk_operations_bulk_form
+          label: 'Views bulk operations'
           exclude: false
           alter:
             alter_text: false
@@ -65,7 +65,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: false
+          element_label_colon: true
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -73,11 +73,21 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
+          batch: false
+          batch_size: 10
+          form_step: true
+          ajax_loader: false
+          buttons: false
           action_title: Action
-          include_exclude: include
+          clear_on_exposed: true
+          force_selection_info: false
           selected_actions:
-            - node_save_action
-            - pathauto_update_alias_node
+            6:
+              action_id: content_bulk_export
+              preconfiguration:
+                add_confirmation: false
+            7:
+              action_id: views_bulk_operations_delete_entity
         title:
           id: title
           table: node_field_data
