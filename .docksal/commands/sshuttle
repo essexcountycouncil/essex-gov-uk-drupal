@@ -1,0 +1,57 @@
+#!/usr/bin/env bash
+
+## Creates a connection to the remote server.
+##
+## Usage: fin sshuttle [open|close] [username]
+##    -- e.g. fin sshuttle open mike@aegir.annertech.com
+##
+
+source ${DOCKSAL_PATH}/.docksal/helpers
+
+check_override $@
+
+# Check config
+if [[ -z $sshuttle_remote_server || -z $sshuttle_pid_name ]]; then
+  echo-red "Missing sshuttle config in 'docksal.env':"
+  echo-red "See example.docksal.env for settings pid_name & remote_server."
+  exit
+fi
+
+# Check for set vars
+if [[ -z $1 ]]; then
+  echo-red "Command failed: You must include an action for sshuttle to take."
+  echo-green "fin open OR fin close"
+  exit
+elif [[ $1 == "open" ]]; then
+  if [[ -z $2 ]]; then
+    echo-red "=== Connection failed ==="
+    echo-yellow "You need to include a username to open the connection."
+    echo-green "fin open mike@aegir.annertech.com"
+    exit
+  elif [[ -f $sshuttle_pid_name ]]; then
+    echo-red "=== Command failed: Process already running. ==="
+    echo-yellow "Use:"
+    echo-yellow "  fin sshuttle close"
+    exit
+  fi
+
+  echo-yellow "=== Creating connection ==="
+  if sshuttle --daemon --remote=$2 --pidfile=$sshuttle_pid_name $sshuttle_remote_server; then
+    echo-green "=== Connection established ==="
+  else
+    echo-red "=== Connection failed ==="
+  fi
+elif [[ $1 == "close" ]]; then
+  echo-yellow "=== Closing existing connection ==="
+  if [[ -f $sshuttle_pid_name ]]; then
+    conn_id=$(head -n 1 $sshuttle_pid_name)
+    if kill $conn_id; then
+      echo-green "=== Connection terminated ==="
+    else
+      echo-red "=== Command failed ==="
+    fi
+  else
+    echo-red "=== Command failed: Nothing to do ==="
+    echo-yellow "Connection doesn't seem to be running"
+  fi
+fi

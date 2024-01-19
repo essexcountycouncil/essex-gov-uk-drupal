@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+## Sync files from master folder to local site.
+##
+## Usage: fin files-download [public|private]
+##
+
+source ${DOCKSAL_PATH}/.docksal/helpers
+
+check_override $@
+
+cd ${DOCROOT_PATH}
+
+# Forces this to be run on the host machine
+PLATFORM_CMD="platform"
+
+# Grab the default branch for this project
+DEFAULT_BRANCH="$(${PLATFORM_CMD} project:info -p ${PLATFORM_ID} default_branch)"
+
+# Grab the ssh URL for the project (master environment)
+PF_SSH="$(${PLATFORM_CMD} ssh --pipe -p ${PLATFORM_ID} -e ${DEFAULT_BRANCH})"
+
+# Public or Private files?
+if [[ -z $1 || ! $1 == "public" && ! $1 == 'private' ]]; then
+  echo-red "Command failed: You must include whether you want 'public' or 'private', e.g. fin files-download public"
+  exit
+fi
+
+if [[ $1 == "public" ]]; then
+  # Grab public files
+  rsync -rvz --exclude 'js' --exclude 'css' --exclude 'php' --exclude 'ctools' --progress --size-only ${PF_SSH}:/app/${DOCROOT}/sites/${SITE_DIRECTORY}/files ${SITEDIR_PATH}
+elif [[ $1 == 'private' ]]; then
+  # Grab private files
+  rsync -rvz --exclude 'js' --exclude 'css' --exclude 'php' --exclude 'ctools' --progress --size-only ${PF_SSH}:/app/private ${PROJECT_ROOT}
+fi

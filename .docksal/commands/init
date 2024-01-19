@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+
+## Initialize stack and site (setup local config and download master db)
+##
+## Usage: fin init
+##           --no-cache      Use no-cache config files.
+##           --dev           Enable developer tools known to the site
+
+# Abort if anything fails
+set -e
+
+source ${DOCKSAL_PATH}/.docksal/helpers
+ensure_containers_up
+
+check_override $@
+
+if [[ $1 == "--no-cache" || $2 == "--no-cache" ]]; then
+  fin no-cache-config
+else
+  fin local-config
+fi
+
+fin composer install
+
+# Get latest default branch/env database.
+fin remote-db $DEFAULT_BRANCH --fetch
+
+# If dev flag enable development tools.
+if [[ $1 == "--dev" || $2 == "--dev" ]]; then
+  echo-green "Enable development tools"
+  fin devel enable
+  echo-yellow "To disable use: fin devel disable"
+fi
+
+echo-green "Completed all initialisation steps"
+
+# Check uli addon is installed.
+if [[ ! -f ${PROJECT_ROOT}/.docksal/addons/uli/uli ]]; then
+  fin addon install uli
+fi
+
+# Provide a login url for local environment.
+echo-yellow "Let's get you logged-in to http://${VIRTUAL_HOST}${NC}"
+fin uli
+
+echo-yellow "Open http://${VIRTUAL_HOST}${NC} in your browser to verify the setup."

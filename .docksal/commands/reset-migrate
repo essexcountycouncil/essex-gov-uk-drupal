@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+
+## Resets a specific migration.
+##
+## Usage: reset-migrate {module} {migration} {debug}
+##
+
+source ${DOCKSAL_PATH}/.docksal/helpers
+ensure_containers_up
+
+check_override $@
+
+cd "${DOCROOT_PATH}" || exit
+
+if [ -z "$3" ]; then
+  debugOption=0
+else
+  debugOption=$3
+fi
+
+if [ -z "$1" ]; then
+  echo -n "You must provide a module to import the config for"
+  exit 1
+fi
+
+if [ -z "$2" ]; then
+  echo -n "You must provide a migration to run"
+  exit 1
+fi
+
+fin drush cr
+fin drush migrate:rollback $2
+fin drush config-devel-import $1
+if [ "${debugOption}" = 1 ] || [ "${debugOption}" = "TRUE" ] || [ "${debugOption}" = "true" ]; then
+  fin drush migrate:import --migrate-debug --migrate-debug-pre $2
+else
+  fin drush migrate:import $2
+fi
+
+fin drush cr

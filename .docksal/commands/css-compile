@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+
+## Run npm in the theme folder to Compile CSS.
+##
+## Usage: fin css-compile
+##                   --clean reinstalls dependencies (optional)
+##
+
+source ${DOCKSAL_PATH}/.docksal/helpers
+ensure_containers_up
+
+check_override $@
+
+cd ${THEME_PATH}
+
+# Install npm
+fin exec nvm install
+# Set theme nodeJS version as default.
+fin exec nvm alias default $(cat ./.nvmrc)
+fin exec nvm use
+
+if [[ ! -d "node_modules" || $1 == "--clean" ]]; then
+  echo-yellow "Installing dependencies…"
+  fin exec npm ci
+fi
+if [ -d "node_modules" ]; then
+  echo-green "All set up; ready to compile!"
+fi
+
+fin exec npm run build:css
+
+# Provide useful message if fails
+if [ $? -eq 1 ]; then
+  echo-red "Check theme package.json & see https://knowledge.annertech.com/coding/build-tools/"
+fi
+fin cr
