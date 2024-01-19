@@ -20,6 +20,7 @@ module:
   config_filter: 0
   config_ignore: 0
   config_split: 0
+  consumers: 0
   content_moderation: 0
   content_ownership: 0
   contextual: 0
@@ -45,6 +46,9 @@ module:
   entity_hierarchy_breadcrumb: 0
   entity_reference_facet_link: 0
   entity_reference_revisions: 0
+  entity_share: 0
+  entity_share_client: 0
+  entity_share_server: 0
   entity_usage: 0
   facets: 0
   fathom_analytics: 0
@@ -79,6 +83,7 @@ module:
   jquery_ui: 0
   jquery_ui_autocomplete: 0
   jquery_ui_menu: 0
+  jsonapi: 0
   layout_discovery: 0
   layout_paragraphs: 0
   leaflet: 0
@@ -166,6 +171,8 @@ module:
   search_api_location: 0
   search_api_location_geocoder: 0
   search_api_location_views: 0
+  serialization: 0
+  simple_oauth: 0
   simple_sitemap: 0
   single_content_sync: 0
   system: 0
