@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+## Copies config files for local environment.
+##
+## Usage: fin local-config
+##           --no-cache      Use no-cache config files.
+##           --main           Name settings file `settings.php` rather than `settings.local.php`
+##
+
+source ${DOCKSAL_PATH}/.docksal/helpers
+
+check_override $@
+
+# Copy environment config
+copy_environment_configuration $1 $2

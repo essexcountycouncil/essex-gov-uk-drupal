@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+## Run 'composer install' for the project
+##
+## Usage: fin ci
+##
+
+source ${DOCKSAL_PATH}/.docksal/helpers
+ensure_containers_up
+
+check_override $@
+
+fin composer install

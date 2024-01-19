@@ -1,0 +1,11 @@
+
+# -------- Provide project specific OR override helper functions ---------------
+# Copy and rename this example.project-helpers file to project-helpers and edit.
+#
+# Recreate helper functions from command-settings to override.
+
+ensure_containers_up()
+{
+    # Reset error reporting variable
+    echo "Only checking, as overriden!"
+}

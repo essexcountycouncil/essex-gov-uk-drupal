@@ -1,0 +1,58 @@
+#!/usr/bin/env bash
+
+set -eo pipefail
+
+## Runs 'git status' ignoring pattern-lab (and optionally) config files.
+##
+## Arguments:
+##
+##  none
+##    If no argument except for status/diff is provided, the following
+##    directories will be ignored:
+##      - './web/themes/custom/weatherlab/dist/'
+##      - './web/themes/custom/weatherlab/pattern-lab/'
+##
+##  '--no-config':
+##    If this argument is present, 'config/sync/' will also be ignored.
+##
+## Usage:
+##
+## # Run git status ignoring 'pattern-lab/' and 'dist/' folders:
+## fin gs
+##
+## # Run git status ignoring 'pattern-lab/', 'dist/', and 'config/sync/'
+## folders:
+## fin gs --no-config
+##
+source ${DOCKSAL_PATH}/.docksal/helpers
+
+check_override $@
+
+# Discover and change directories to the repo root.
+cd "$(git rev-parse --show-toplevel)"
+
+# Build our set of variables (mostly paths).
+theme_path=$(find . -type d -name weatherlab)
+config_path="./config/sync"
+patternlab_path="$theme_path/pattern-lab"
+dist_path="$theme_path/dist"
+# Ignore pattern-lab/ and dist/ by default.
+ignored_directories=$(printf ":!%s :!%s" "$patternlab_path" "$dist_path")
+
+# Only one useful option at the moment. More could follow.
+case "$1" in
+"--no-config")
+  ignored_directories=$(printf "%s :!%s" "$ignored_directories" "$config_path")
+  ;;
+*)
+  ;;
+esac
+
+# Build the command.
+command_string=$(printf "git status . -- %s" "$1" "$ignored_directories")
+
+# Run the command with a suitable warning.
+$command_string
+echo ''
+echo 'REMEMBER: THIS COMMAND DOES NOT SHOW ALL MODIFIED FILES!'
+echo ''

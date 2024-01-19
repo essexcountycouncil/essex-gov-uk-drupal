@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+## Run 'drush cex' for the project
+##
+## Usage: fin cex
+##
+
+source ${DOCKSAL_PATH}/.docksal/helpers
+ensure_containers_up
+
+check_override $@
+
+cd ${DOCROOT_PATH}
+fin drush cex -y
+cd ${DOCKSAL_PATH}
+git status

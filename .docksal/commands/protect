@@ -1,0 +1,79 @@
+#!/usr/bin/env python3
+
+## Password protect the docksal project
+## Prompts for credentials
+## If an entry is left blank it will not be set.
+##
+## Usage: fin protect
+##
+## Arguments can also be added:
+##   fin protect [-u | --user] [-p | --pass]
+##
+
+import sys, subprocess, re, getopt
+
+def main(argv):
+    authuser=''
+    authpass=''
+    # Check if args are used.
+    # Ask for details, if not.
+    if len(argv) == 0:
+        print("Leave responses blank to keep current setting.")
+        authuser=input("What username should be set? ")
+        authpass=input("What password should be set? ")
+    # Eat up the args and perform the task
+    else:
+        try:
+            opts, args = getopt.getopt(argv, "hu:p:r", ['user=','pass=', 'remove'])
+        except getopt.GetoptError:
+            printhelp()
+            sys.exit(2)
+        for opt, arg in opts:
+            if opt == '-h':
+                printhelp()
+                sys.exit()
+            elif opt in ("-u", "--user"):
+                authuser = arg
+            elif opt in ("-p", "--pass"):
+                authpass = arg
+            elif opt in ("-r", "--remove"):
+                rmdetails()
+                sys.exit()
+
+    # Process the request
+    processrequest(authuser, authpass)
+
+def setuser(authuser, action):
+    subprocess.check_call(['fin', 'config', 'set', '--env=local', 'APACHE_BASIC_AUTH_USER=' + authuser])
+    subprocess.check_call(['fin', 'config', 'set', '--env=local', 'NGINX_BASIC_AUTH_USER=' + authuser])
+
+def setpass(authpass, action):
+    subprocess.check_call(['fin', 'config', 'set', '--env=local', 'APACHE_BASIC_AUTH_PASS=' + authpass])
+    subprocess.check_call(['fin', 'config', 'set', '--env=local', 'NGINX_BASIC_AUTH_PASS=' + authpass])
+
+def rmdetails():
+    subprocess.check_call(['fin', 'config', 'rm', '--env=local', 'APACHE_BASIC_AUTH_USER'])
+    subprocess.check_call(['fin', 'config', 'rm', '--env=local', 'APACHE_BASIC_AUTH_PASS'])
+    subprocess.check_call(['fin', 'config', 'rm', '--env=local', 'NGINX_BASIC_AUTH_USER'])
+    subprocess.check_call(['fin', 'config', 'rm', '--env=local', 'NGINX_BASIC_AUTH_PASS'])
+
+def finrestart():
+    subprocess.run(['fin', 'p', 'restart'])
+
+def processrequest(authuser, authpass):
+    if authuser:
+        setuser(authuser, 'set')
+
+    if authpass:
+        setpass(authpass, 'set')
+
+    if re.match('ye?s?', input("Do you want to restart the project to apply changes? "), flags=re.IGNORECASE):
+        finrestart()
+    else:
+        print("Restart not performed.")
+
+def printhelp():
+    print("syntax: fin protect -u username -p password")
+
+if __name__ == "__main__":
+   main(sys.argv[1:])

@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+set -eo pipefail
+
+## Runs 'git checkout' using fzf to help with the search.
+##
+## Arguments: none
+##
+## Usage:
+##
+## # Search all local and remote git branches:
+## fin gco
+
+source ${DOCKSAL_PATH}/.docksal/helpers
+
+check_override $@
+
+if command -v fzf >/dev/null; then
+  git checkout "$(git branch -a | fzf | cut -c 3-)"
+else
+  echo ''
+  echo "The fzf command must be installed to use this tool."
+  echo ''
+fi

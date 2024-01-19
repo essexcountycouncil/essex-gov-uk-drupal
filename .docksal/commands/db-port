@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+## Displays the port number for the current project
+##
+## Usage: fin db-port
+##
+
+source ${DOCKSAL_PATH}/.docksal/helpers
+ensure_containers_up
+
+check_override $@
+
+docker ps --filter name=$(echo ${PROJECT_ROOT} | sed -e s?.*/?? ) --format "{{.Ports}}" | grep -o '0:\([0-9]*\)' | awk -F ':' '{print $2}'

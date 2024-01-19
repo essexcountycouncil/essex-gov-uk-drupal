@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+## Get the UUID for the installed project
+##
+## Usage: fin uuid
+##
+
+source ${DOCKSAL_PATH}/.docksal/helpers
+ensure_containers_up
+
+check_override $@
+
+fin drush config-get --format=string 'system.site' uuid
