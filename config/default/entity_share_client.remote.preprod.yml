@@ -1,0 +1,13 @@
+uuid: 1e58197e-07fb-4280-a4b8-4e408226a3d2
+langcode: en
+status: true
+dependencies: {  }
+id: preprod
+label: Preprod
+url: 'https://preprod.essex-gov.nomensa.xyz'
+auth:
+  pid: oauth
+  uuid: bee49d05-d46d-41d8-b9c8-33cae7345863
+  data:
+    credential_provider: entity_share
+    storage_key: bee49d05-d46d-41d8-b9c8-33cae7345863

@@ -71,6 +71,7 @@
         "drupal/google_tag": "^1.6",
         "drupal/health_check_url": "^3.2",
         "drupal/imagemagick": "^3.4",
+        "drupal/jsonapi_extras": "^3.24",
         "drupal/leaflet": "^10.2",
         "drupal/migmag": "^1.8",
         "drupal/migrate_plus": "^6.0",

@@ -84,6 +84,7 @@ module:
   jquery_ui_autocomplete: 0
   jquery_ui_menu: 0
   jsonapi: 0
+  jsonapi_extras: 0
   layout_discovery: 0
   layout_paragraphs: 0
   leaflet: 0
