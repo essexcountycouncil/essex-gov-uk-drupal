@@ -1,0 +1,68 @@
+#!/usr/bin/env bash
+
+## Downloads DB from specified environment.
+##
+## Usage: fin db-download [environment]
+##         --fetch Force download
+##
+
+source ${DOCKSAL_PATH}/.docksal/helpers
+ensure_containers_up
+
+check_override $@
+
+# Check for set vars
+if [[ -z $1 || $1 == "--fetch" ]]; then
+  echo-red "Command failed: You must include the environment to download from"
+  exit
+fi
+
+# If there is no db directory
+if [ ! -d ${PROJECT_ROOT}/db ]; then
+  echo-green "Creating directory db"
+  mkdir ${PROJECT_ROOT}/db
+fi
+
+env=$1
+db=$1
+
+if [[ ! -f ${PROJECT_ROOT}/db/${env}--sanitized.sql.gz  || $2 == "--fetch" ]]; then
+  cd ${PROJECT_ROOT}
+  echo-green "Downloading ${env} DB"
+
+  if [[ -n "$ACQUIA_ID" ]]; then
+    if [[ -n "$SECRET_ACQUIA_CLI_KEY" && -n "$SECRET_ACQUIA_CLI_SECRET" ]]; then
+      # Use correct env name if master/main/prod provided.
+      if [[ "$env" == "master" || "$env" == "main" || "$env" == "live" ]]; then
+        env="prod"
+      elif [[ "$env" == "stage" || "$env" == "staging" ]]; then
+        env="test"
+      fi
+      fin exec /var/www/.docksal/commands/db-download-acquia ${env} ${db}
+    else
+      echo-red "You need to create & set an Acquia Cloud API Token,"
+      echo-red "see: https://docs.docksal.io/tools/acquia-cli/#configuration"
+    fi
+  elif [[ -n "$PANTHEON_ID" ]]; then
+    if [[ -n "$SECRET_TERMINUS_TOKEN" ]]; then
+      # Use correct env name if master/main/prod provided.
+      if [[ "$env" == "master" || "$env" == "main" || "$env" == "prod" ]]; then
+        env="live"
+      elif [[ "$env" == "stage" || "$env" == "staging" ]]; then
+        env="test"
+      fi
+      db_url=$(fin terminus backup:get ${PANTHEON_ID}.${env} --element=db)
+      wget ${db_url} -O $PROJECT_ROOT/db/${db}.sql.gz
+    else
+      echo-red "You need to create & set a Terminus machine token on Pantheon,"
+      echo-red "see: https://docs.docksal.io/tools/terminus/#configuration"
+    fi
+  elif [[ -n "$PLATFORM_ID" ]]; then
+    $PLATFORM_CMD db:dump --gzip -p ${PLATFORM_ID} -e ${env} -y -f db/${env}.sql.gz
+  else
+    echo "Sorry no hosting platform information, download DB manually to db/${env}.sql.gz and rerun 'fin remote-db [env]'"
+  fi
+
+else
+  echo-green "Using local copy of ${env} DB"
+fi

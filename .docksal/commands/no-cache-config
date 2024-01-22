@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+## Copies config files which turn off all caching.
+##
+## Usage: fin no-cache-config
+##           --main           Name settings file `settings.php` rather than `settings.local.php`
+##
+
+source ${DOCKSAL_PATH}/.docksal/helpers
+
+check_override $@
+
+# Copy environment no-cache config
+copy_environment_no_cache_configuration $1 $2

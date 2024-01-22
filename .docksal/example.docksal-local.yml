@@ -1,0 +1,24 @@
+# To have local only (as opposed to project wide) services,
+# copy this file and name .docksal/docksal-local.yml
+# This extends .docksal/docksal.yml
+#
+# Add, disable, edit or remove services as needed,
+# see https://docs.docksal.io/service/other/ for examples of additional services
+services:
+  # MailHog
+  # Default URL: http://mail.${VIRTUAL_HOST} e.g mail.project-name.docksal.site
+  mail:
+    extends:
+      file: ${HOME}/.docksal/stacks/services.yml
+      service: mail
+  # PHPMyAdmin
+  # Default URL: http://pma-${VIRTUAL_HOST} e.g. pma-project-name.docksal.site
+  pma:
+    hostname: pma
+    image: phpmyadmin/phpmyadmin
+    environment:
+      - PMA_HOST=db
+      - PMA_USER=root
+      - PMA_PASSWORD=${MYSQL_ROOT_PASSWORD:-root}
+    labels:
+      - io.docksal.virtual-host=pma-${VIRTUAL_HOST}

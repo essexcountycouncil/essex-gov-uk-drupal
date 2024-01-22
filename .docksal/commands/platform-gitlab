@@ -1,0 +1,70 @@
+#!/usr/bin/env bash
+
+## Set-up Gitlab integration with Platform.sh.
+##
+## Usage: fin platform-gitlab [status|integrate]
+##           status      Show the current integration status (default)
+##           integrate   Set-up the integration
+##           remove      Remove the current integration
+##
+
+source ${DOCKSAL_PATH}/.docksal/helpers
+
+check_override $@
+# Check for set vars
+if [[ $1 == "remove" ]]; then
+  echo-red "About to remove integration."
+  read -r -p "Are you sure? [y/N] " response
+
+  if [[ "$response" =~ ^(yes|y)$ ]]; then
+    echo "REMOVE"
+    # Get the integration ID which matches the base_url
+    GITLAB_ID=`$PLATFORM_CMD integration:get --project=${PLATFORM_ID} --format=tsv | awk '/id/ {print $2}'`
+    # echo ${GITLAB_ID}
+    # Run the remove command
+    # Check there's an ID present
+    if [[ ${GITLAB_ID} == 'No integrations found.' ]]; then
+      echo-yellow "No integration present. Aborting command"
+      exit 1
+    else
+      echo-yellow "Deleting integration ID ${GITLAB_ID}"
+      echo “Would run: platform integration:delete --project=${PLATFORM_ID} ${GITLAB_ID}“
+
+    # Report status
+    fi
+  else
+   echo-yellow "Aborting command"
+   exit 1;
+  fi
+elif [[ $1 == "integrate" ]]; then
+  echo-yellow "Provide GitLab Access Token"
+  echo "See 1Password, or create in GitLab project settings > Access Tokens."
+  read -r -p "Token: " GITLAB_ACCESS_TOKEN
+  echo
+  echo-yellow "About to integrate with Gitlab"
+  read -r -p "Are you sure? [y/N] " response
+
+  if [[ "$response" =~ ^(yes|y)$ ]]; then
+    if [[ ${GITLAB_ACCESS_TOKEN} != "{GITLAB-ACCESS-TOKEN}" ]] &&
+     [[ ${GITLAB_PROJECT_NAME} != "{GITLAB-PROJECT-NAME}" ]] &&
+     [[ ${PLATFORM_ID} != "{PSH-PROJECT-ID}" ]]; then
+      echo-yellow "Integrating..."
+      $PLATFORM_CMD integration:add --type=gitlab --token=${GITLAB_ACCESS_TOKEN} --base-url=${GITLAB_BASE_URL} --server-project=${GITLAB_PROJECT_NAME} --project=${PLATFORM_ID} --build-merge-requests=true --merge-requests-clone-parent-data=true --fetch-branches=true
+    else
+      # Report errors
+      echo-red "The following variables need to be properly set for this command to run"
+      echo-yellow "GITLAB_ACCESS_TOKEN, GITLAB_BASE_URL, GITLAB_PROJECT_NAME and PLATFORM_ID"
+      echo-green "      GITLAB_ACCESS_TOKEN = ${GITLAB_ACCESS_TOKEN}
+      GITLAB_PROJECT_NAME = ${GITLAB_PROJECT_NAME}
+      PLATFORM_ID = ${PLATFORM_ID}"
+      exit 1
+    fi
+  else
+   echo-yellow "Aborting command"
+   exit 1;
+  fi
+
+else
+  echo-green "Getting current integration status"
+  $PLATFORM_CMD integration:list --project=${PLATFORM_ID}
+fi

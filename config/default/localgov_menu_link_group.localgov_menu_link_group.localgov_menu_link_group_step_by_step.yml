@@ -1,0 +1,12 @@
+uuid: 3ff8bdc7-6498-4129-a103-1d5dfe5b8b0b
+langcode: en
+status: true
+dependencies: {  }
+id: localgov_menu_link_group_step_by_step
+group_label: Step-by-Step
+weight: 0
+parent_menu: admin
+parent_menu_link: 'admin_toolbar_tools.extra_links:node.add'
+child_menu_links:
+  - 'admin_toolbar_tools.extra_links:node.add.localgov_step_by_step_overview'
+  - 'admin_toolbar_tools.extra_links:node.add.localgov_step_by_step_page'

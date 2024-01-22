@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+## Adds the compiled patternlab files (/public and /dest) to git
+##
+## Commits the compiled files.
+##
+
+source ${DOCKSAL_PATH}/.docksal/helpers
+
+check_override $@
+
+cd ${THEME_PATH}
+
+git checkout dist
+git checkout pattern-lab/public
+cd ${DOCKSAL_PATH}
+git status

@@ -1,0 +1,44 @@
+# Docker and Docker Compose based environment for Drupal.
+# See https://github.com/docksal/docksal for more information and documentation.
+
+# This is a shared configuration file that is intended to be stored in the project repo.
+# For local overrides:
+# - create .docksal/docksal-local.yml file (using example.docksal-local.yml) and put local docker-compose configuration overrides there
+# - ensure .docksal/docksal-local.yml in .gitignore
+
+# Docksal stitches several docker-compose configuration files together.
+# Run "fin config" to see which files are involved and the resulting configuration.
+
+version: "3.9"
+
+services:
+  # Match platform.sh stack
+  web:
+    extends:
+      file: ${HOME}/.docksal/stacks/services.yml
+      service: nginx
+    depends_on:
+      - cli
+
+  redis:
+     hostname: redis
+     image: redis:6.0-alpine
+     volumes:
+       - ${PROJECT_ROOT}/.docksal/etc/redis/redis.conf:/usr/local/etc/redis/redis.conf
+     command: [ "redis-server", "/usr/local/etc/redis/redis.conf" ]
+
+# If extra/updated software needed in CLI, see .docksal/services/cli/Dockerfile
+
+# Add or enable non-standard Project services here
+# See https://docs.docksal.io/service/other/ for extra services examples
+
+  # # Solr
+  # # Ensure version & config matches production stack
+  # # See https://docs.docksal.io/service/other/apache-solr/ for extra settings
+  # solr:
+  #   extends:
+  #     file: ${HOME}/.docksal/stacks/services.yml
+  #     service: solr
+  #   image: docksal/solr:8.1-2.1
+  #   volumes:
+  #     - ${PROJECT_ROOT}/.platform/solr-conf/8.x:/var/lib/solr/conf:ro

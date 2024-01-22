@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+## Run 'drush cr' for the project
+##
+## Usage: fin cr
+##
+
+source ${DOCKSAL_PATH}/.docksal/helpers
+ensure_containers_up
+
+check_override $@
+
+fin drush cr

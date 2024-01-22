@@ -20,6 +20,24 @@ fonts:
     theme:
       css/fonts.css: {}
 
+page-sections:
+  css:
+    theme:
+      css/components/page-sections.css: {}
+
+featured-teasers:
+  css:
+    theme:
+      css/components/featured-teasers.css: {}
+
+# @TODO: remove this library when
+# https://github.com/localgovdrupal/localgov_base/issues/518
+# is resolved
+edit-tabs:
+  css:
+    theme:
+      css/components/edit-tabs.css: {}
+
 # sample-library
 #   css:
 #     theme:
