@@ -5,7 +5,6 @@ dependencies:
   config:
     - field.storage.node.localgov_access_control
     - node.type.localgov_subsites_page
-    - taxonomy.vocabulary.access_control
 _core:
   default_config_hash: KAGh0ddaLzusbioDNzOSzPS-lFUhLozCGmaOwLNhCd8
 id: node.localgov_subsites_page.localgov_access_control
@@ -21,8 +20,7 @@ default_value_callback: ''
 settings:
   handler: 'default:taxonomy_term'
   handler_settings:
-    target_bundles:
-      access_control: access_control
+    target_bundles: {  }
     sort:
       field: name
       direction: asc

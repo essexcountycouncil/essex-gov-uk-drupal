@@ -5,7 +5,6 @@ dependencies:
   config:
     - field.storage.node.localgov_access_control
     - node.type.localgov_event
-    - taxonomy.vocabulary.access_control
 id: node.localgov_event.localgov_access_control
 field_name: localgov_access_control
 entity_type: node
@@ -19,8 +18,7 @@ default_value_callback: ''
 settings:
   handler: 'default:taxonomy_term'
   handler_settings:
-    target_bundles:
-      access_control: access_control
+    target_bundles: {  }
     sort:
       field: name
       direction: asc

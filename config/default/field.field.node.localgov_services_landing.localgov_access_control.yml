@@ -5,7 +5,6 @@ dependencies:
   config:
     - field.storage.node.localgov_access_control
     - node.type.localgov_services_landing
-    - taxonomy.vocabulary.access_control
 _core:
   default_config_hash: 16w3yuLiLXR-sbxqnVXNUifIJqtYv1LrSGLraGfCFmQ
 id: node.localgov_services_landing.localgov_access_control
@@ -21,8 +20,7 @@ default_value_callback: ''
 settings:
   handler: 'default:taxonomy_term'
   handler_settings:
-    target_bundles:
-      access_control: access_control
+    target_bundles: {  }
     sort:
       field: name
       direction: asc

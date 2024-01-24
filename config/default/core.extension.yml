@@ -89,7 +89,6 @@ module:
   linkit: 0
   localgov_admin_theme_improvements: 0
   localgov_alert_banner: 0
-  localgov_content_access_control: 0
   localgov_core: 0
   localgov_directories: 0
   localgov_directories_db: 0
@@ -184,8 +183,6 @@ module:
   viewsreference: 0
   webform: 0
   webform_ui: 0
-  workbench: 0
-  workbench_access: 0
   workflows: 0
   pathauto: 1
   externalauth: 10

@@ -43,8 +43,6 @@ dependencies:
     - scheduled_transitions
     - system
     - toolbar
-    - workbench
-    - workbench_access
   enforced:
     module:
       - localgov_news
@@ -60,7 +58,6 @@ permissions:
   - 'access media overview'
   - 'access responsive preview'
   - 'access toolbar'
-  - 'access workbench'
   - 'add scheduled transitions localgov_alert_banner localgov_alert_banner'
   - 'add scheduled transitions node localgov_news_article'
   - 'add scheduled transitions node localgov_newsroom'
@@ -121,7 +118,6 @@ permissions:
   - 'use localgov_editorial transition publish'
   - 'use localgov_editorial transition reject'
   - 'use localgov_editorial transition submit_for_review'
-  - 'use workbench access'
   - 'view all localgov alert banner entity pages'
   - 'view all scheduled transitions'
   - 'view any unpublished content'
@@ -153,4 +149,3 @@ permissions:
   - 'view scheduled transitions node localgov_subsites_overview'
   - 'view the administration theme'
   - 'view unpublished paragraphs'
-  - 'view workbench access information'
