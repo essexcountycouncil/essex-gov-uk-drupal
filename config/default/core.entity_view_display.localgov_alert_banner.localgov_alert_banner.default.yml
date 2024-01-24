@@ -22,7 +22,7 @@ bundle: localgov_alert_banner
 mode: default
 content:
   link:
-    weight: 2
+    type: link
     label: hidden
     settings:
       trim_length: 80
@@ -31,25 +31,26 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    type: link
+    weight: 2
     region: content
   short_description:
-    weight: 1
+    type: text_default
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: text_default
+    weight: 1
     region: content
   title:
-    label: hidden
     type: string
-    weight: 0
-    region: content
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
+    weight: 0
+    region: content
 hidden:
   content_moderation_control: true
+  search_api_excerpt: true
   type_of_alert: true
   uid: true
   visibility: true

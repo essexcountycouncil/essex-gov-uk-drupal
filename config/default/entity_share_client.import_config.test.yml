@@ -28,6 +28,11 @@ import_processor_settings:
     weights:
       process_entity: 10
     max_recursion_depth: -1
+  language_fallback:
+    weights:
+      prepare_entity_data: 0
+    fallback_language: site_default
+    force_language: false
   link_internal_content_importer:
     weights:
       prepare_importable_entity_data: 20

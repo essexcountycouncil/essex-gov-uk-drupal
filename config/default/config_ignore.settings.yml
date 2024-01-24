@@ -8,3 +8,7 @@ ignored_config_entities:
   - system.site
   - 'webform.webform.*'
   - 'webform.webform_options.*'
+  - ~webform.webform.fostering
+  - ~webform.webform.contact
+  - ~webform.webform.feedback_form
+  - ~webform.webform.occupational_health_consent
