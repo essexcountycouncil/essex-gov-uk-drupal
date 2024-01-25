@@ -26,8 +26,6 @@ dependencies:
     - node
     - system
     - toolbar
-    - workbench
-    - workbench_access
 _core:
   default_config_hash: rwlUC2eR655eEFydq8nHQZJB57N7jR1ZCga82z_lmhY
 id: localgov_devolved_editor
@@ -40,7 +38,6 @@ permissions:
   - 'access site in maintenance mode'
   - 'access toolbar'
   - 'access user profiles'
-  - 'access workbench'
   - 'create localgov_event content'
   - 'create localgov_guides_overview content'
   - 'create localgov_guides_page content'
@@ -74,10 +71,8 @@ permissions:
   - 'use localgov_editorial transition publish'
   - 'use localgov_editorial transition reject'
   - 'use localgov_editorial transition submit_for_review'
-  - 'use workbench access'
   - 'view any unpublished content'
   - 'view latest version'
   - 'view media'
   - 'view own unpublished content'
   - 'view the administration theme'
-  - 'view workbench access information'
