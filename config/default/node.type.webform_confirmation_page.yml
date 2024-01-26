@@ -1,0 +1,19 @@
+uuid: 70ea66e5-6b54-4892-b107-4f261fb07684
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - footer
+      - main
+    parent: 'main:'
+name: 'Webform Confirmation Page'
+type: webform_confirmation_page
+description: 'We use this content type to create confirmation pages for our webforms.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

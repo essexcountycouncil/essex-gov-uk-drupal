@@ -1,0 +1,14 @@
+.webform-response-item {
+  max-width: var(--width-restricted-width-section);
+}
+
+.webform-response-item + * {
+  margin-top: var(--spacing-large);
+  padding-top: var(--spacing-large);
+  border-top: var(--border);
+  border-color: var(--color-accent);
+}
+
+.webform-response-item > .field + .field {
+  margin-top: var(--spacing-large);
+}

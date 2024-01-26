@@ -1,0 +1,20 @@
+uuid: f31b4198-ed53-4483-ad97-e8d918a9bf29
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.webform_confirmation_page
+id: node.webform_confirmation_page.revision_log
+field_name: revision_log
+entity_type: node
+bundle: webform_confirmation_page
+label: 'Revision log message'
+description: 'Briefly describe the changes you have made.'
+required: false
+translatable: true
+default_value:
+  -
+    value: ''
+default_value_callback: ''
+settings: {  }
+field_type: string_long

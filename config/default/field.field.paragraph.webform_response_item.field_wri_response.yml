@@ -1,0 +1,24 @@
+uuid: 16cf8ccc-e8f0-4e1d-87a8-0e8c05fe867d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_wri_response
+    - filter.format.wysiwyg
+    - paragraphs.paragraphs_type.webform_response_item
+  module:
+    - text
+id: paragraph.webform_response_item.field_wri_response
+field_name: field_wri_response
+entity_type: paragraph
+bundle: webform_response_item
+label: 'Our response'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - wysiwyg
+field_type: text_long

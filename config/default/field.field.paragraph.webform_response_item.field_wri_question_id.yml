@@ -1,0 +1,19 @@
+uuid: 2af00512-daee-40b3-9d39-05303b9b54c3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_wri_question_id
+    - paragraphs.paragraphs_type.webform_response_item
+id: paragraph.webform_response_item.field_wri_question_id
+field_name: field_wri_question_id
+entity_type: paragraph
+bundle: webform_response_item
+label: 'Question ID'
+description: 'Enter the question parameter from the URL, e.g. <strong>do_you_have_a_spare_bedroom</strong>'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

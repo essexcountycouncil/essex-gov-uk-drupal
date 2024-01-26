@@ -1,0 +1,52 @@
+uuid: b9f5618a-67a7-4e3f-9ea1-1d87bde36622
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.webform_response_item.field_wri_answer
+    - field.field.paragraph.webform_response_item.field_wri_question
+    - field.field.paragraph.webform_response_item.field_wri_question_id
+    - field.field.paragraph.webform_response_item.field_wri_response
+    - paragraphs.paragraphs_type.webform_response_item
+  module:
+    - text
+id: paragraph.webform_response_item.default
+targetEntityType: paragraph
+bundle: webform_response_item
+mode: default
+content:
+  field_wri_answer:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_wri_question:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_wri_question_id:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_wri_response:
+    type: text_textarea
+    weight: 3
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

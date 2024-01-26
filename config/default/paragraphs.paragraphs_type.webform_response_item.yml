@@ -1,0 +1,10 @@
+uuid: 61552052-ecec-4e50-a555-72faa1c28af8
+langcode: en
+status: true
+dependencies: {  }
+id: webform_response_item
+label: 'Webform Response Item'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

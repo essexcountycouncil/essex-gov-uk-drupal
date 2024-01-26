@@ -1,0 +1,144 @@
+uuid: 576a1be7-0c79-4b14-a4df-4c511345a064
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_webform_response
+    - node.type.webform_confirmation_page
+    - paragraphs.paragraphs_type.localgov_text
+    - paragraphs.paragraphs_type.webform_response_item
+  module:
+    - entity_reference_revisions
+id: node.webform_confirmation_page.field_webform_response
+field_name: field_webform_response
+entity_type: node
+bundle: webform_confirmation_page
+label: 'Webform Response'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      localgov_text: localgov_text
+      webform_response_item: webform_response_item
+    negate: 0
+    target_bundles_drag_drop:
+      from_library:
+        weight: 39
+        enabled: false
+      localgov_accordion:
+        weight: 40
+        enabled: false
+      localgov_accordion_pane:
+        weight: 41
+        enabled: false
+      localgov_banner_primary:
+        weight: 42
+        enabled: false
+      localgov_banner_secondary:
+        weight: 43
+        enabled: false
+      localgov_block_view:
+        weight: 44
+        enabled: false
+      localgov_box_link:
+        weight: 45
+        enabled: false
+      localgov_box_links_listing:
+        weight: 46
+        enabled: false
+      localgov_call_out_box:
+        weight: 47
+        enabled: false
+      localgov_contact:
+        weight: 48
+        enabled: false
+      localgov_documents:
+        weight: 49
+        enabled: false
+      localgov_fact_box:
+        weight: 50
+        enabled: false
+      localgov_featured_campaign:
+        weight: 51
+        enabled: false
+      localgov_featured_subsite:
+        weight: 52
+        enabled: false
+      localgov_featured_teaser:
+        weight: 53
+        enabled: false
+      localgov_featured_teasers:
+        weight: 54
+        enabled: false
+      localgov_ia_block:
+        weight: 55
+        enabled: false
+      localgov_image:
+        weight: 56
+        enabled: false
+      localgov_key_contact_item:
+        weight: 58
+        enabled: false
+      localgov_key_contacts:
+        weight: 57
+        enabled: false
+      localgov_key_fact:
+        weight: 59
+        enabled: false
+      localgov_key_facts:
+        weight: 60
+        enabled: false
+      localgov_labelled_icon:
+        weight: 61
+        enabled: false
+      localgov_link:
+        weight: 62
+        enabled: false
+      localgov_link_and_summary:
+        weight: 63
+        enabled: false
+      localgov_media_with_text:
+        weight: 64
+        enabled: false
+      localgov_newsroom_teaser:
+        weight: 65
+        enabled: false
+      localgov_page_section:
+        weight: 66
+        enabled: false
+      localgov_quote:
+        weight: 67
+        enabled: false
+      localgov_subscribe_panel:
+        weight: 68
+        enabled: false
+      localgov_tab_panel:
+        weight: 71
+        enabled: false
+      localgov_table:
+        weight: 69
+        enabled: false
+      localgov_tabs:
+        weight: 70
+        enabled: false
+      localgov_text:
+        weight: 72
+        enabled: true
+      localgov_video:
+        weight: 73
+        enabled: false
+      page_section:
+        weight: 74
+        enabled: false
+      topic_list_builder:
+        weight: 75
+        enabled: false
+      webform_response_item:
+        weight: 76
+        enabled: true
+field_type: entity_reference_revisions

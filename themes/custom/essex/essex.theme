@@ -115,3 +115,11 @@ function essex_preprocess_block(&$variables) {
     }
   }
 }
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function essex_preprocess_paragraph__webform_response_item(&$variables) {
+  $variables['webform_responses'] = \Drupal::request()->query->all();
+
+}

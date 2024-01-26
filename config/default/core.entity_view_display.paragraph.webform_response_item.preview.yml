@@ -1,0 +1,36 @@
+uuid: bc4ddec6-437e-4acb-b780-2d7e12eb9a6c
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.webform_response_item.field_wri_answer
+    - field.field.paragraph.webform_response_item.field_wri_question
+    - field.field.paragraph.webform_response_item.field_wri_question_id
+    - field.field.paragraph.webform_response_item.field_wri_response
+    - paragraphs.paragraphs_type.webform_response_item
+id: paragraph.webform_response_item.preview
+targetEntityType: paragraph
+bundle: webform_response_item
+mode: preview
+content:
+  field_wri_answer:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_wri_question:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_wri_question_id: true
+  field_wri_response: true
+  search_api_excerpt: true

@@ -1,0 +1,22 @@
+uuid: 84362ffa-9b52-411c-887b-505e81b77a12
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.webform_confirmation_page
+id: node.webform_confirmation_page.promote
+field_name: promote
+entity_type: node
+bundle: webform_confirmation_page
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
