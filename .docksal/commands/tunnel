@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+## Run 'platform tunnel' command for the project
+##
+## Usage: fin tunnel [environment] [command: open/close]
+##
+
+source ${DOCKSAL_PATH}/.docksal/helpers
+
+check_override $@
+
+# Check for set vars
+if [[ -z $1 ]]; then
+  echo-red "Command failed: You must include the environment"
+  exit
+fi
+
+if [[ -z $2 ]]; then
+  $PLATFORM_CMD tunnel:list
+  exit
+fi
+
+# Set environment
+environment=$1
+command=$2
+
+$PLATFORM_CMD tunnel:${command} --environment=${environment} --project=${PLATFORM_ID}

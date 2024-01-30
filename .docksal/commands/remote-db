@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+
+## Imports DB from specified environment. Downloads dump where required & sanitizes
+##
+## Usage: fin remote-db
+##         --fetch Force download
+##
+
+source ${DOCKSAL_PATH}/.docksal/helpers
+ensure_containers_up
+
+check_override $@
+
+sanitize_db() {
+  echo-green "Automatic sanitization of data…"
+  fin drush sql:sanitize -y
+  cd ${DOCROOT_PATH}
+  fin drush sql:dump --result-file=../db/${env}--sanitized.sql --gzip
+}
+fresh_db() {
+  fin db-download ${env} --fetch
+  echo-green "Importing ${env} database"
+  zcat <  ${PROJECT_ROOT}/db/${env}.sql.gz | fin db import --progress
+  fin drush cr
+}
+
+# Check for set vars
+if [ -z $1 ] || [[ $1 == "--fetch" ]]; then
+  echo-green "Environment not specified. Using checked out Git branch."
+  env=$(git rev-parse --abbrev-ref HEAD)
+else
+  env=$1
+fi
+
+if [[ ! -f ${PROJECT_ROOT}/db/${env}--sanitized.sql.gz  || $1 == "--fetch" || $2 == "--fetch" ]]; then
+  fresh_db
+  if [[ ${DB_SAN} == 1 ]]; then
+    sanitize_db
+  fi
+  rm ${PROJECT_ROOT}/db/${env}.sql.gz
+elif [[ ${DB_SAN} == 1 ]]; then
+  echo-green "Import sanitized ${env} database"
+  zcat <  ${PROJECT_ROOT}/db/${env}--sanitized.sql.gz | fin db import --progress
+else
+  fresh_db
+  rm ${PROJECT_ROOT}/db/${env}.sql.gz
+fi

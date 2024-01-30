@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+#: exec_target = cli
+
+## Run 'drush sin minimal' to reset a project.
+##
+## Usage: dev-reset [shorthand] [sitename] [password]
+##                  shorthand: Shorthand for the support email identifier (default: anrt)
+##                  sitename: The Project Name (default: Annertech)
+##                  password: User 1 password (Default: Annertech123) Best use whats in passpack or only use on lcoal.
+##
+
+source ${DOCKSAL_PATH}/.docksal/helpers
+ensure_containers_up
+
+check_override $@
+
+if [ -z "$1" ]; then
+  SHORTHAND=anrt
+else
+  SHORTHAND=$1
+fi
+
+if [ -z "$2" ]; then
+  SITENAME=annertech
+else
+  SITENAME=$2
+fi
+
+if [ -z "$3" ]; then
+  PASSWORD=Annertech123
+else
+  PASSWORD=$3
+fi
+
+cd "${DOCROOT_PATH}" || exit
+db truncate
+drush -y sin minimal --account-name="annertech" --account-mail="support+${SHORTHAND}@annertech.com" --site-name="${SITENAME}" --site-mail="support@annertech.com" --account-pass="${PASSWORD}" --existing-config
+drush cr

@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+## Run npm in the theme folder.
+##
+## Usage: fin npm [command]
+##
+
+source ${DOCKSAL_PATH}/.docksal/helpers
+ensure_containers_up
+
+check_override $@
+
+# Run npm command
+fin exec npm $1 $2

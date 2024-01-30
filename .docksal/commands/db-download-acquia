@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+#: exec_target = cli
+
+## Downloads DB from Acquia Cloud environment (use db-download command).
+##
+## Usage: fin db-download-acquia [environment]
+##
+##  Requires Acquia Cloud API Token, see:
+##  https://docs.docksal.io/tools/acquia-cli/#configuration
+##
+
+source /var/www/.docksal/helpers
+
+env=$1
+db=$2
+
+echo "Downloading $env database for $ACQUIA_ID project"
+
+# Disable telemetry to ensure doesn't block further commands.
+acli telemetry:disable -q --no-interaction
+
+# Get latest backup ID
+backup_latest=$(acli api:environments:database-backup-list $ACQUIA_ID.${env} $ACQUIA_ID --limit="1" -n | jq '.[0] | .id')
+
+# Get URL for latest backup
+backup_url=$(acli api:environments:database-backup-download $ACQUIA_ID.${env} $ACQUIA_ID ${backup_latest} -n | jq -r '.url')
+
+# Download latest back to db folder.
+wget ${backup_url} -O db/${db}.sql.gz
