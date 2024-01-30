@@ -4,6 +4,7 @@ status: true
 dependencies:
   module:
     - cludo_search
+    - content_access_by_path
     - file
     - role_delegation
     - search_api
@@ -20,6 +21,7 @@ label: 'User manager'
 weight: -3
 is_admin: null
 permissions:
+  - 'Administer content access by path'
   - 'access toolbar'
   - 'access user profiles'
   - 'administer cludo search'

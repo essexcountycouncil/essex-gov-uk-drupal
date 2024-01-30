@@ -1,0 +1,6 @@
+_core:
+  default_config_hash: 96gY1x1yZ9yerosA-b5ZbScKZIBE2vDQTbTFxUk6yhA
+roles:
+  administrator: administrator
+  anonymous: 0
+  authenticated: 0
