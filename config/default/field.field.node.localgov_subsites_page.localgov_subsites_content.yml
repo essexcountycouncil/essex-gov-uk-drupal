@@ -20,6 +20,7 @@ dependencies:
     - paragraphs.paragraphs_type.localgov_key_facts
     - paragraphs.paragraphs_type.localgov_link_and_summary
     - paragraphs.paragraphs_type.localgov_media_with_text
+    - paragraphs.paragraphs_type.localgov_page_section
     - paragraphs.paragraphs_type.localgov_quote
     - paragraphs.paragraphs_type.localgov_table
     - paragraphs.paragraphs_type.localgov_tabs
@@ -65,6 +66,7 @@ settings:
       from_library: from_library
       localgov_contact: localgov_contact
       page_section: page_section
+      localgov_page_section: localgov_page_section
     negate: 0
     target_bundles_drag_drop:
       from_library:
@@ -150,7 +152,7 @@ settings:
         enabled: false
       localgov_page_section:
         weight: -40
-        enabled: false
+        enabled: true
       localgov_quote:
         weight: -56
         enabled: true
@@ -177,5 +179,8 @@ settings:
         enabled: true
       topic_list_builder:
         weight: -64
+        enabled: false
+      webform_response_item:
+        weight: 76
         enabled: false
 field_type: entity_reference_revisions
