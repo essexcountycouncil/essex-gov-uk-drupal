@@ -382,7 +382,7 @@ deploy-to-prod:
     - az containerapp revision copy --name portal --resource-group rg-ecc-portal-uks-prod --yaml revision.yml --subscription "Essex County Council (Portal)"
     - az containerapp revision copy --name portal-redirect --resource-group rg-ecc-portal-redirect-uks-prod --image acreccuksprod.azurecr.io/portal-nginx-redirect:${CI_COMMIT_REF_SLUG} --subscription "Essex County Council (Portal)"
   rules:
-    - if: '$CI_COMMIT_BRANCH == main'
+    - if: '$CI_COMMIT_BRANCH == "main"'
       when: manual
     - if: '$CI_COMMIT_BRANCH =~ /^release\//'
       when: manual
@@ -399,7 +399,7 @@ drush-deploy-prod:
   script:
     - timeout 1200 socat EXEC:'az containerapp exec --command /drupal/deploy.sh --name portal --container drupal --resource-group rg-ecc-portal-uks-prod',pty,setsid,ctty STDIO,ignoreeof
   rules:
-    - if: '$CI_COMMIT_BRANCH == main'
+    - if: '$CI_COMMIT_BRANCH == "main"'
       when: manual
     - if: '$CI_COMMIT_BRANCH =~ /^release\//'
       when: manual
