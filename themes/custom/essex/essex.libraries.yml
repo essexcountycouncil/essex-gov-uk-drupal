@@ -30,6 +30,11 @@ featured-teasers:
     theme:
       css/components/featured-teasers.css: {}
 
+events-listing-page:
+  css:
+    theme:
+      css/components/events-listing-page.css: {}
+
 # @TODO: remove this library when
 # https://github.com/localgovdrupal/localgov_base/issues/518
 # is resolved

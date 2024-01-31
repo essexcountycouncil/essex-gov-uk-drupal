@@ -1,6 +1,7 @@
 <?php
 
 use Drupal\block\Entity\Block;
+use Drupal\Core\Url;
 
 /**
  * @file
@@ -113,5 +114,26 @@ function essex_preprocess_block(&$variables) {
       // Attach library.
       $variables['#attached']['library'][] = 'essex/edit-tabs';
     }
+  }
+}
+
+/**
+ * Implements template_preprocess_html().
+ *
+ */
+function essex_preprocess_html(&$variables) {
+  $current_path = \Drupal::service('path.current')->getPath();
+  $route_name = Url::fromUserInput($current_path)->getRouteName();
+  if ($route_name == 'view.localgov_events_listing.page_all_events') {
+    $variables['attributes']['class'][] = 'events-listing-page';
+  }
+}
+
+/**
+ * Implements hook_views_pre_render().
+ */
+function essex_views_pre_render($view) {
+  if ($view->id() == 'localgov_events_listing' && $view->current_display == 'page_all_events') {
+    $view->element['#attached']['library'][] = 'essex/events-listing-page';
   }
 }
