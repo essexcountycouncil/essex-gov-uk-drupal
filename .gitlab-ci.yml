@@ -47,10 +47,6 @@ build-and-push-images:
     - docker push ${DOCKER_REGISTRY}/portal-drupal-fpm
     - docker push ${DOCKER_REGISTRY}/portal-nginx-redirect${tag}
     - docker push ${DOCKER_REGISTRY}/portal-nginx-redirect
-  only:
-    - develop
-    - /^release\//
-    - feature/pipeline-improvements
 
 generate-sbom:
   stage: build
@@ -68,6 +64,7 @@ generate-sbom:
     - syft docker:${DOCKER_REGISTRY}/portal-drupal-fpm${tag} -o json=dockerimage.sbom.json
   only:
     - develop
+    - main
     - /^release\//
     - feature/pipeline-improvements
   artifacts:
@@ -92,6 +89,7 @@ analyse-sbom:
     - grype sbom:./dockerimage.sbom.json --only-fixed --add-cpes-if-none --fail-on critical
   only:
     - develop
+    - main
     - /^release\//
     - feature/pipeline-improvements
   needs:
@@ -183,7 +181,7 @@ deploy-to-dev:
     - az containerapp revision copy --name portal --resource-group rg-ecc-portal-uks-dev --yaml revision.yml --subscription "Essex County Council (Portal)"
   rules:
     - if: '$CI_COMMIT_BRANCH == "develop"'
-    - if: '$CI_COMMIT_BRANCH =~ /^release\//'
+    - when: manual
 
 drush-deploy-dev:
   image: mcr.microsoft.com/azure-cli
@@ -198,7 +196,7 @@ drush-deploy-dev:
     - timeout 1200 socat EXEC:'az containerapp exec --command /drupal/deploy.sh --name portal --container drupal --resource-group rg-ecc-portal-uks-dev',pty,setsid,ctty STDIO,ignoreeof
   rules:
     - if: '$CI_COMMIT_BRANCH == "develop"'
-    - if: '$CI_COMMIT_BRANCH =~ /^release\//'
+    - when: manual
 
 deploy-to-preprod:
   image: mcr.microsoft.com/azure-cli
@@ -284,8 +282,7 @@ deploy-to-preprod:
     - echo "Creating new revision of Container App"
     - az containerapp revision copy --name portal --resource-group rg-ecc-portal-uks-pre --yaml revision.yml --subscription "Essex County Council (Portal)"
   rules:
-    - if: '$CI_COMMIT_BRANCH =~ /^release\//'
-      when: manual
+    - when: manual
 
 drush-deploy-preprod:
   image: mcr.microsoft.com/azure-cli
@@ -299,8 +296,7 @@ drush-deploy-preprod:
   script:
     - timeout 1200 socat EXEC:'az containerapp exec --command /drupal/deploy.sh --name portal --container drupal --resource-group rg-ecc-portal-uks-pre',pty,setsid,ctty STDIO,ignoreeof
   rules:
-    - if: '$CI_COMMIT_BRANCH =~ /^release\//'
-      when: manual
+    - when: manual
 
 deploy-to-prod:
   image: mcr.microsoft.com/azure-cli
@@ -386,6 +382,8 @@ deploy-to-prod:
     - az containerapp revision copy --name portal --resource-group rg-ecc-portal-uks-prod --yaml revision.yml --subscription "Essex County Council (Portal)"
     - az containerapp revision copy --name portal-redirect --resource-group rg-ecc-portal-redirect-uks-prod --image acreccuksprod.azurecr.io/portal-nginx-redirect:${CI_COMMIT_REF_SLUG} --subscription "Essex County Council (Portal)"
   rules:
+    - if: '$CI_COMMIT_BRANCH == main'
+      when: manual
     - if: '$CI_COMMIT_BRANCH =~ /^release\//'
       when: manual
 
@@ -401,5 +399,7 @@ drush-deploy-prod:
   script:
     - timeout 1200 socat EXEC:'az containerapp exec --command /drupal/deploy.sh --name portal --container drupal --resource-group rg-ecc-portal-uks-prod',pty,setsid,ctty STDIO,ignoreeof
   rules:
+    - if: '$CI_COMMIT_BRANCH == main'
+      when: manual
     - if: '$CI_COMMIT_BRANCH =~ /^release\//'
       when: manual
