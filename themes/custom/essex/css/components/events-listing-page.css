@@ -4,9 +4,9 @@
 }
 
 .view-display-id-page_all_events .views-row + .views-row {
-  border-top: var(--border);
-  padding-top: var(--spacing-larger);
   margin-top: var(--spacing-largest);
+  padding-top: var(--spacing-larger);
+  border-top: var(--border);
 }
 
 .view-display-id-page_all_events .field--name-field-media-image img {
@@ -29,8 +29,6 @@
 }
 
 @media screen and (min-width: 768px) {
-
-
   .events-listing-page .sidebar--first {
     border-right: var(--border);
   }
