@@ -160,7 +160,8 @@
                 "Automated Drupal 10 compatibility fixes": "https://www.drupal.org/files/issues/2022-07-18/cludo_search.1.0-beta2.rector.patch"
             },
             "drupal/core": {
-                "Allow chmod to fail in the public namespace if the resultant mode is 777": "patches/filesystem-chmod-0001.patch"
+                "Allow chmod to fail in the public namespace if the resultant mode is 777": "patches/filesystem-chmod-0001.patch",
+                "Claro theme + field_group seems to hide content of dropbutton": "https://www.drupal.org/files/issues/2024-01-19/drupal-claro-theme-field_group-seems-to-hide-content-of-dropdown-3217868-58.patch"
             },
             "drupal/fathom_analytics": {
                 "Issue #3380665: Defer attribute should be boolean": "https://git.drupalcode.org/project/fathom_analytics/-/merge_requests/2.diff",
