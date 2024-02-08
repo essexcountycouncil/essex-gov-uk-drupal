@@ -41,11 +41,8 @@ build-and-push-images:
     - docker build -t ${DOCKER_REGISTRY}/portal-drupal-fpm -t ${DOCKER_REGISTRY}/portal-drupal-fpm${tag} -t portal-drupal-fpm -f Dockerfile-drupal .
     - docker build -t ${DOCKER_REGISTRY}/portal-nginx-drupal -t ${DOCKER_REGISTRY}/portal-nginx-drupal${tag} -t portal-nginx-drupal -f Dockerfile-nginx .
     - docker build -t ${DOCKER_REGISTRY}/portal-nginx-redirect -t ${DOCKER_REGISTRY}/portal-nginx-redirect${tag} -t portal-nginx-redirect -f Dockerfile-nginx-redirect .
-    - docker push ${DOCKER_REGISTRY}/portal-nginx-drupal${tag}
     - docker push ${DOCKER_REGISTRY}/portal-nginx-drupal
-    - docker push ${DOCKER_REGISTRY}/portal-drupal-fpm${tag}
     - docker push ${DOCKER_REGISTRY}/portal-drupal-fpm
-    - docker push ${DOCKER_REGISTRY}/portal-nginx-redirect${tag}
     - docker push ${DOCKER_REGISTRY}/portal-nginx-redirect
 
 generate-sbom:
@@ -210,6 +207,14 @@ deploy-to-preprod:
     - az extension add --name containerapp
     - az login --service-principal -u${ARM_CLIENT_ID} -p${ARM_CLIENT_SECRET} -t${ARM_TENANT_ID}
   script:
+    - |
+      if [[ "$CI_COMMIT_BRANCH" == "$CI_DEFAULT_BRANCH" ]]; then
+        tag=""
+        echo "Running on default branch '$CI_DEFAULT_BRANCH': tag = 'latest'"
+      else
+        tag=":$CI_COMMIT_REF_SLUG"
+        echo "Running on branch '$CI_COMMIT_BRANCH': tag = $tag"
+      fi
     - echo "Importing image from Development  into Pre-Production"
     - az acr import --force --name acreccukspre --source acreccuksdev.azurecr.io/portal-nginx-drupal:${CI_COMMIT_REF_SLUG} --image portal-nginx-drupal:${CI_COMMIT_REF_SLUG} --subscription "Essex County Council (Common)"
     - az acr import --force --name acreccukspre --source acreccuksdev.azurecr.io/portal-nginx-drupal:${CI_COMMIT_REF_SLUG} --image portal-nginx-drupal:latest --subscription "Essex County Council (Common)"
