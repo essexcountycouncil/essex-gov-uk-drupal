@@ -216,12 +216,12 @@ deploy-to-preprod:
         echo "Running on branch '$CI_COMMIT_BRANCH': tag = $tag"
       fi
     - echo "Importing image from Development  into Pre-Production"
-    - az acr import --force --name acreccukspre --source acreccuksdev.azurecr.io/portal-nginx-drupal:${CI_COMMIT_REF_SLUG} --image portal-nginx-drupal:${CI_COMMIT_REF_SLUG} --subscription "Essex County Council (Common)"
-    - az acr import --force --name acreccukspre --source acreccuksdev.azurecr.io/portal-nginx-drupal:${CI_COMMIT_REF_SLUG} --image portal-nginx-drupal:latest --subscription "Essex County Council (Common)"
-    - az acr import --force --name acreccukspre --source acreccuksdev.azurecr.io/portal-drupal-fpm:${CI_COMMIT_REF_SLUG} --image portal-drupal-fpm:${CI_COMMIT_REF_SLUG} --subscription "Essex County Council (Common)"
-    - az acr import --force --name acreccukspre --source acreccuksdev.azurecr.io/portal-drupal-fpm:${CI_COMMIT_REF_SLUG} --image portal-drupal-fpm:latest --subscription "Essex County Council (Common)"
-    - az acr import --force --name acreccukspre --source acreccuksdev.azurecr.io/portal-nginx-redirect:${CI_COMMIT_REF_SLUG} --image portal-nginx-redirect:${CI_COMMIT_REF_SLUG} --subscription "Essex County Council (Common)"
-    - az acr import --force --name acreccukspre --source acreccuksdev.azurecr.io/portal-nginx-redirect:${CI_COMMIT_REF_SLUG} --image portal-nginx-redirect:latest --subscription "Essex County Council (Common)"
+    - az acr import --force --name acreccukspre --source acreccuksdev.azurecr.io/portal-nginx-drupal$tag --image portal-nginx-drupal$tag --subscription "Essex County Council (Common)"
+    - az acr import --force --name acreccukspre --source acreccuksdev.azurecr.io/portal-nginx-drupal$tag --image portal-nginx-drupal:latest --subscription "Essex County Council (Common)"
+    - az acr import --force --name acreccukspre --source acreccuksdev.azurecr.io/portal-drupal-fpm$tag --image portal-drupal-fpm$tag --subscription "Essex County Council (Common)"
+    - az acr import --force --name acreccukspre --source acreccuksdev.azurecr.io/portal-drupal-fpm$tag --image portal-drupal-fpm:latest --subscription "Essex County Council (Common)"
+    - az acr import --force --name acreccukspre --source acreccuksdev.azurecr.io/portal-nginx-redirect$tag --image portal-nginx-redirect$tag --subscription "Essex County Council (Common)"
+    - az acr import --force --name acreccukspre --source acreccuksdev.azurecr.io/portal-nginx-redirect$tag --image portal-nginx-redirect:latest --subscription "Essex County Council (Common)"
     - |
       cat > revision.yml <<EOF
       properties:
@@ -236,7 +236,7 @@ deploy-to-preprod:
                   metadata:
                     concurrentRequests: 40
           containers:
-            - image: acreccukspre.azurecr.io/portal-nginx-drupal:${CI_COMMIT_REF_SLUG}
+            - image: acreccukspre.azurecr.io/portal-nginx-drupal$tag
               name: nginx
               resources:
                 cpu: 0.25
@@ -258,7 +258,7 @@ deploy-to-preprod:
                   port: 80
                 initialDelaySeconds: 5
                 periodSeconds: 3
-            - image: acreccukspre.azurecr.io/portal-drupal-fpm:${CI_COMMIT_REF_SLUG}
+            - image: acreccukspre.azurecr.io/portal-drupal-fpm$tag
               name: drupal
               resources:
                 cpu: 0.75
