@@ -13,7 +13,7 @@ id: node.localgov_services_page.localgov_common_tasks
 field_name: localgov_common_tasks
 entity_type: node
 bundle: localgov_services_page
-label: 'Task buttons'
+label: 'Top tasks'
 description: ''
 required: false
 translatable: true
