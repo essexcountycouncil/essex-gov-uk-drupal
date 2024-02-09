@@ -8481,16 +8481,16 @@
     },
     {
       "name": "essexcountycouncil/ecc_theme",
-      "version": "1.0.15",
+      "version": "1.0.16",
       "source": {
         "type": "git",
         "url": "https://github.com/essexcountycouncil/ecc_theme.git",
-        "reference": "02715e3f838cf65cead2c293444d0718f85b1496"
+        "reference": "d4450b48657e9f8474a24d175f3a7a2f5653f6b2"
       },
       "dist": {
         "type": "zip",
-        "url": "https://api.github.com/repos/essexcountycouncil/ecc_theme/zipball/02715e3f838cf65cead2c293444d0718f85b1496",
-        "reference": "02715e3f838cf65cead2c293444d0718f85b1496",
+        "url": "https://api.github.com/repos/essexcountycouncil/ecc_theme/zipball/d4450b48657e9f8474a24d175f3a7a2f5653f6b2",
+        "reference": "d4450b48657e9f8474a24d175f3a7a2f5653f6b2",
         "shasum": ""
       },
       "type": "drupal-theme",
@@ -8502,10 +8502,10 @@
       ],
       "description": "Consolidated Essex County Council Drupal theme",
       "support": {
-        "source": "https://github.com/essexcountycouncil/ecc_theme/tree/1.0.15",
+        "source": "https://github.com/essexcountycouncil/ecc_theme/tree/1.0.16",
         "issues": "https://github.com/essexcountycouncil/ecc_theme/issues"
       },
-      "time": "2024-02-07T09:23:23+00:00"
+      "time": "2024-02-08T17:23:27+00:00"
     },
     {
       "name": "ezyang/htmlpurifier",
@@ -8693,26 +8693,23 @@
     },
     {
       "name": "geocoder-php/common-http",
-      "version": "4.5.0",
+      "version": "4.6.0",
       "source": {
         "type": "git",
         "url": "https://github.com/geocoder-php/php-common-http.git",
-        "reference": "4ee2cee60d21631e2a09c196bf6b9fd296bca728"
+        "reference": "d8c22a66120daed35ba8017467bc1ebfec28a63e"
       },
       "dist": {
         "type": "zip",
-        "url": "https://api.github.com/repos/geocoder-php/php-common-http/zipball/4ee2cee60d21631e2a09c196bf6b9fd296bca728",
-        "reference": "4ee2cee60d21631e2a09c196bf6b9fd296bca728",
+        "url": "https://api.github.com/repos/geocoder-php/php-common-http/zipball/d8c22a66120daed35ba8017467bc1ebfec28a63e",
+        "reference": "d8c22a66120daed35ba8017467bc1ebfec28a63e",
         "shasum": ""
       },
       "require": {
-        "php": "^7.4 || ^8.0",
-        "php-http/client-implementation": "^1.0",
-        "php-http/discovery": "^1.6",
-        "php-http/httplug": "^1.0 || ^2.0",
-        "php-http/message-factory": "^1.0.2",
-        "psr/http-message": "^1.0",
-        "psr/http-message-implementation": "^1.0",
+        "php": "^8.0",
+        "php-http/discovery": "^1.17",
+        "psr/http-client-implementation": "^1.0",
+        "psr/http-factory-implementation": "^1.0",
         "willdurand/geocoder": "^4.0"
       },
       "require-dev": {
@@ -8720,7 +8717,7 @@
         "php-http/message": "^1.0",
         "php-http/mock-client": "^1.0",
         "phpunit/phpunit": "^9.5",
-        "symfony/stopwatch": "~2.5"
+        "symfony/stopwatch": "~2.5 || ~5.0"
       },
       "type": "library",
       "extra": {
@@ -8752,9 +8749,9 @@
         "http geocoder"
       ],
       "support": {
-        "source": "https://github.com/geocoder-php/php-common-http/tree/4.5.0"
+        "source": "https://github.com/geocoder-php/php-common-http/tree/4.6.0"
       },
-      "time": "2022-07-30T12:09:30+00:00"
+      "time": "2023-12-28T10:51:54+00:00"
     },
     {
       "name": "geocoder-php/nominatim-provider",
@@ -12225,61 +12222,6 @@
         "source": "https://github.com/php-http/message/tree/1.16.0"
       },
       "time": "2023-05-17T06:43:38+00:00"
-    },
-    {
-      "name": "php-http/message-factory",
-      "version": "1.1.0",
-      "source": {
-        "type": "git",
-        "url": "https://github.com/php-http/message-factory.git",
-        "reference": "4d8778e1c7d405cbb471574821c1ff5b68cc8f57"
-      },
-      "dist": {
-        "type": "zip",
-        "url": "https://api.github.com/repos/php-http/message-factory/zipball/4d8778e1c7d405cbb471574821c1ff5b68cc8f57",
-        "reference": "4d8778e1c7d405cbb471574821c1ff5b68cc8f57",
-        "shasum": ""
-      },
-      "require": {
-        "php": ">=5.4",
-        "psr/http-message": "^1.0 || ^2.0"
-      },
-      "type": "library",
-      "extra": {
-        "branch-alias": {
-          "dev-master": "1.x-dev"
-        }
-      },
-      "autoload": {
-        "psr-4": {
-          "Http\\Message\\": "src/"
-        }
-      },
-      "notification-url": "https://packagist.org/downloads/",
-      "license": [
-        "MIT"
-      ],
-      "authors": [
-        {
-          "name": "Márk Sági-Kazár",
-          "email": "mark.sagikazar@gmail.com"
-        }
-      ],
-      "description": "Factory interfaces for PSR-7 HTTP Message",
-      "homepage": "http://php-http.org",
-      "keywords": [
-        "factory",
-        "http",
-        "message",
-        "stream",
-        "uri"
-      ],
-      "support": {
-        "issues": "https://github.com/php-http/message-factory/issues",
-        "source": "https://github.com/php-http/message-factory/tree/1.1.0"
-      },
-      "abandoned": "psr/http-factory",
-      "time": "2023-04-14T14:16:17+00:00"
     },
     {
       "name": "php-http/promise",
@@ -16681,16 +16623,16 @@
     },
     {
       "name": "composer/composer",
-      "version": "2.6.5",
+      "version": "2.7.1",
       "source": {
         "type": "git",
         "url": "https://github.com/composer/composer.git",
-        "reference": "4b0fe89db9e65b1e64df633a992e70a7a215ab33"
+        "reference": "aaf6ed5ccd27c23f79a545e351b4d7842a99d0bc"
       },
       "dist": {
         "type": "zip",
-        "url": "https://api.github.com/repos/composer/composer/zipball/4b0fe89db9e65b1e64df633a992e70a7a215ab33",
-        "reference": "4b0fe89db9e65b1e64df633a992e70a7a215ab33",
+        "url": "https://api.github.com/repos/composer/composer/zipball/aaf6ed5ccd27c23f79a545e351b4d7842a99d0bc",
+        "reference": "aaf6ed5ccd27c23f79a545e351b4d7842a99d0bc",
         "shasum": ""
       },
       "require": {
@@ -16722,7 +16664,7 @@
         "phpstan/phpstan-phpunit": "^1.0",
         "phpstan/phpstan-strict-rules": "^1",
         "phpstan/phpstan-symfony": "^1.2.10",
-        "symfony/phpunit-bridge": "^6.0 || ^7"
+        "symfony/phpunit-bridge": "^6.4.1 || ^7.0.1"
       },
       "suggest": {
         "ext-openssl": "Enabling the openssl extension allows you to access https URLs for repositories and packages",
@@ -16735,7 +16677,7 @@
       "type": "library",
       "extra": {
         "branch-alias": {
-          "dev-main": "2.6-dev"
+          "dev-main": "2.7-dev"
         },
         "phpstan": {
           "includes": [
@@ -16775,7 +16717,7 @@
         "irc": "ircs://irc.libera.chat:6697/composer",
         "issues": "https://github.com/composer/composer/issues",
         "security": "https://github.com/composer/composer/security/policy",
-        "source": "https://github.com/composer/composer/tree/2.6.5"
+        "source": "https://github.com/composer/composer/tree/2.7.1"
       },
       "funding": [
         {
@@ -16791,7 +16733,7 @@
           "type": "tidelift"
         }
       ],
-      "time": "2023-10-06T08:11:52+00:00"
+      "time": "2024-02-09T14:26:28+00:00"
     },
     {
       "name": "composer/metadata-minifier",
