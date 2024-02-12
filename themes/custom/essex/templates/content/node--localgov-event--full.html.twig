@@ -114,7 +114,6 @@
       {% set atc_rrule = node.localgov_event_date.0.rrule %}
       {% set atc_title = node.title.value %}
       {% set atc_details = node.body.value %}
-      {# {% set atc_location = node.localgov_event_location.value %} #}
       {% set atc_location_variable = node.localgov_event_location.entity.postal_address.value.0 %}
       {% if atc_location_variable %}
         {% set atc_location = atc_location_variable.address_line1 ~ ', ' ~ atc_location_variable.locality ~ ', ' ~ atc_location_variable.postal_code %}
