@@ -1,0 +1,58 @@
+{%
+set classes = [
+  "localgov-add-to-calendar"
+]
+%}
+
+{{ attach_library('essex/add-to-calendar') }}
+
+{% set lgdAddToCalendarAttributes = create_attribute() %}
+
+{% set atc_start_date = atc_start_date|default('') %}
+{% set atc_end_date = atc_end_date|default('') %}
+{% set atc_details = atc_details|default('') %}
+{% set atc_location = atc_location|default('') %}
+{% set atc_title = atc_title|default('') %}
+
+{% set ical_link = 'data:text/calendar;charset=utf8,BEGIN:VCALENDAR%0AVERSION:2.0%0ABEGIN:VEVENT%0ADTSTART:' ~ atc_start_date|date("Ymd\\THi00\\Z") ~ '%0ADTEND:' ~ atc_end_date|date("Ymd\\THi00\\Z") ~ '%0ASUMMARY:' ~ atc_title ~ '%0ADESCRIPTION:' ~ atc_details|replace({'<br />': '\n', '<br>': '\\n', '<p>': '', '</p>': '\\n\\n'}) ~ '%0ALOCATION:' ~ atc_location|replace({'<br />': ' ', '<br>': ' ', '<p>': ' ', '</p>': ''})  ~ '%0ARRULE:' ~ atc_rrule ~ '%0AEND:VEVENT%0AEND:VCALENDAR' %}
+{% set google_link = 'https://www.google.com/calendar/r/eventedit?text=' ~ atc_title ~ '&dates=' ~ atc_start_date|date("Ymd\\THi00\\Z") ~ '/' ~ atc_end_date|date("Ymd\\THi00\\Z") ~ '&details=' ~ atc_details ~ '&location=' ~ atc_location ~ '&&recur=RRULE:' ~ atc_rrule %}
+
+
+<div{{ lgdAddToCalendarAttributes.addClass(classes) }}>
+
+<button class="localgov-add-to-calendar__trigger" type="button" name="addToCalendarTrigger" aria-label="{{ 'Toggle List of Calendars to Add Event To'|t }}">
+  {% include "@localgov_base/includes/icons/icon.html.twig" with {
+      icon_name: 'calendar',
+      icon_wrapper_element: 'span',
+      icon_classes: 'localgov-add-to-calendar__trigger-icon',
+    }
+  %}
+  <span class="localgov-add-to-calendar__trigger-text">
+    {{ 'Add to Calendar'|t }}
+  </span>
+</button>
+
+  <dialog class="localgov-add-to-calendar__dialog">
+    <div class="localgov-add-to-calendar__dialog-close">
+      <button class="localgov-add-to-calendar__dialog-close-button" type="button" name="closeAddToCalendarDialog" aria-label="{{ 'Close Add to Calendar Dialog'|t }}">
+        {{ 'Close'|t }}
+      </button>
+    </div>
+    <div class="localgov-add-to-calendar__items">
+
+      <div class="localgov-add-to-calendar__item">
+        <a href="{{ google_link }}" target="_blank" rel="nofollow">{{ 'Add to Google Calendar'|t }}</a>
+      </div>
+
+      <div class="localgov-add-to-calendar__item">
+        <a href="{{ ical_link }}">{{ 'Add to iCal'|t }}</a>
+      </div>
+
+      <div class="localgov-add-to-calendar__item">
+        <a href="{{ ical_link }}">{{ 'Add to Outlook'|t }}</a>
+      </div>
+
+    </div>
+  </dialog>
+
+</div>
