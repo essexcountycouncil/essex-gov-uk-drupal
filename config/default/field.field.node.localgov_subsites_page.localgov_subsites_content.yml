@@ -180,7 +180,4 @@ settings:
       topic_list_builder:
         weight: -64
         enabled: false
-      webform_response_item:
-        weight: 76
-        enabled: false
 field_type: entity_reference_revisions
