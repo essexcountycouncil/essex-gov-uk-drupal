@@ -118,10 +118,12 @@
       {% if atc_location_variable %}
         {% set atc_location = atc_location_variable.address_line1 ~ ', ' ~ atc_location_variable.locality ~ ', ' ~ atc_location_variable.postal_code %}
       {% endif %}
-      {% include "@essex/_components/add-to-calendar.twig" %}
       <div{{ content_attributes.addClass(content_type|clean_class ~ '__content', 'node__content') }}>
-        {{ content }}
+        {{ content.localgov_event_date }}
+        {% include "@essex/_components/add-to-calendar.twig" %}
+        {{ content|without('localgov_event_date') }}
       </div>
+
     </div>
   </div>
 </article>
