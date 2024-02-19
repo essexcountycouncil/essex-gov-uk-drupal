@@ -13,7 +13,6 @@ settings:
     items:
       - heading
       - style
-      - DivManager
       - '|'
       - undo
       - redo
