@@ -14,7 +14,6 @@ Test:Required:
   before_script:
     - ''
   script:
-    - composer self-update
     - composer install && composer tests-required
   allow_failure: false
 
