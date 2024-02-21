@@ -1,5 +1,5 @@
 /**
- * @file JS file for the Guides components.
+ * @file JS file for Add to Calendar.
  */
 
 (function localgovAddToCalendarScript(Drupal) {
