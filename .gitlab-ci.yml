@@ -122,7 +122,7 @@ deploy-to-dev:
           revisionSuffix: ${CI_PIPELINE_ID}
           scale:
             minReplicas: 0
-            maxReplicas: 2
+            maxReplicas: 1
             rules:
               - name: "http-rule"
                 http:
@@ -175,10 +175,93 @@ deploy-to-dev:
                 initialDelaySeconds: 5
                 periodSeconds: 3
       EOF
-    - az containerapp revision copy --name portal --resource-group rg-ecc-portal-uks-dev --yaml revision.yml --subscription "Essex County Council (Portal)"
+    - az containerapp revision copy --name portal --resource-group rg-ecc-portal-uks-dev --yaml revision.yml --subscription "Essex County Council (Portal)" | tee revision.json
   rules:
     - if: '$CI_COMMIT_BRANCH == "develop"'
     - when: manual
+
+
+deploy-to-review:
+  image: mcr.microsoft.com/azure-cli
+  stage: development
+  needs:
+    - job: build-and-push-images
+  environment:
+    name: review/$CI_EXTERNAL_PULL_REQUEST_SOURCE_BRANCH_NAME
+    url: https://${CI_ENVIRONMENT_SLUG}.livelyforest-609fad32.uksouth.azurecontainerapps.io
+  before_script:
+    - az extension add --name containerapp
+    - az login --service-principal -u${ARM_CLIENT_ID} -p${ARM_CLIENT_SECRET} -t${ARM_TENANT_ID}
+    - az containerapp job start --verbose -n portal-dbclone --resource-group rg-ecc-portal-uks-dev --subscription "3246e2d4-9f2e-4f81-9c7c-6c5327e8883e" --image "acreccuksdev.azurecr.io/dbclone" --env-vars 'NEW_DB_SUFFIX=${CI_ENVIRONMENT_SLUG}' 'MYSQL_HOST=mariadb-ecc-uks-dev.mariadb.database.azure.com' 'MYSQL_USER=mariadb-root' 'MYSQL_DATABASE=drupal_portal' 'MYSQL_PASSWORD=secretref:mysql-password' --container-name dbclonea --cpu 0.75 --memory 1.5
+  script:
+    - |
+      tag=":$CI_COMMIT_REF_SLUG"
+      echo "Running on branch '$CI_COMMIT_BRANCH': tag = $tag"
+    - echo "Creating new revision of Container App"
+    - |
+      cat > revision.yml <<EOF
+      properties:
+        template:
+          revisionSuffix: ${CI_PIPELINE_ID}
+          scale:
+            minReplicas: 0
+            maxReplicas: 1
+            rules:
+              - name: "http-rule"
+                http:
+                  metadata:
+                    concurrentRequests: 40
+          containers:
+            - image: acreccuksdev.azurecr.io/portal-nginx-drupal$tag
+              name: nginx
+              resources:
+                cpu: 0.25
+                memory: 0.5Gi
+              volumeMounts:
+              - mountPath: /drupal/web/sites/default/files
+                volumeName: filesharevol
+              env:
+              - name: X_ROBOTS_TAG
+                value: noindex
+              probes:
+              - type: liveness
+                httpGet:
+                  path: "/dd822309-ae33-4e29-addf-869b07453a06"
+                  port: 80
+                initialDelaySeconds: 5
+                periodSeconds: 3
+            - image: acreccuksdev.azurecr.io/portal-drupal-fpm$tag
+              name: drupal
+              resources:
+                cpu: 0.75
+                memory: 1.5Gi
+              volumeMounts:
+              - mountPath: /drupal/web/sites/default/files
+                volumeName: filesharevol
+              - mountPath: /drupal/data/default/private
+                volumeName: privsharevol
+              env:
+              - name: MYSQL_HOST
+                value: mariadb-ecc-uks-dev.mariadb.database.azure.com
+              - name: MYSQL_USER
+                value: mariadb-root
+              - name: MYSQL_DATABASE
+                value: drupal_ci_${CI_ENVIRONMENT_SLUG}
+              - name: MYSQL_PASSWORD
+                secretRef: mysql-password
+              - name: OPENID_CONNECT_PARAMS
+                secretRef: openid-connect-params
+              probes:
+              - type: liveness
+                tcpSocket:
+                  port: 9000
+                initialDelaySeconds: 5
+                periodSeconds: 3
+      EOF
+    - az containerapp revision copy --name portal --resource-group rg-ecc-portal-uks-dev --yaml revision.yml --subscription "Essex County Council (Portal)" | tee revision.json 
+    - az containerapp revision label add --no-prompt --resource-group rg-ecc-portal-uks-dev --name portal --label ${CI_ENVIRONMENT_SLUG}
+  rules:
+    - when: external_pull_requests
 
 drush-deploy-dev:
   image: mcr.microsoft.com/azure-cli
