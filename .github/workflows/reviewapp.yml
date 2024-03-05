@@ -13,10 +13,7 @@ jobs:
         id: deploy
         env:
           ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
-          ARM_CLIENT_ID: ${{ env.ARM_CLIENT_ID }}
-          ARM_TENANT_ID: ${{ env.ARM_TENANT_ID }}
-          ARM_SUBSCRIPTION_ID: ${{ env.ARM_SUBSCRIPTION_ID }}
-          REF_NAME: ${{ github.ref_name }}
+          REF_NAME: ${{ github.head_ref }}
         run: |
           tag=":$CI_COMMIT_REF_SLUG"
           ENV_SLUG=$(echo "${REF_NAME}" | sed -e 's:[\/-_\[\]:-:g')
