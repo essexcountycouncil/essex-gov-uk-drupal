@@ -105,5 +105,5 @@ jobs:
           issue-number: ${{ github.event.pull_request.number }}
           body: |
             Review application
-            https://portal---gh${GITHUB_RUN_ID}.livelyforest-609fad32.uksouth.azurecontainerapps.io/
+            https://portal---gh${{ github.run_id }}.livelyforest-609fad32.uksouth.azurecontainerapps.io/
           edit-mode: replace
