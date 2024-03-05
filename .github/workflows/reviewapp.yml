@@ -11,9 +11,15 @@ jobs:
     steps:
       - name: Deploy review app
         id: deploy
+        env:
+          ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
+          ARM_CLIENT_ID: ${{ env.ARM_CLIENT_ID }}
+          ARM_TENANT_ID: ${{ env.ARM_TENANT_ID }}
+          ARM_SUBSCRIPTION_ID: ${{ env.ARM_SUBSCRIPTION_ID }}
+          REF_NAME: ${{ github.ref_name }}
         run: |
           tag=":$CI_COMMIT_REF_SLUG"
-          ENV_SLUG=$(echo "${CI_EXTERNAL_PULL_REQUEST_SOURCE_BRANCH_NAME}" | sed -e 's:[\/-_\[\]:-:g')
+          ENV_SLUG=$(echo "${REF_NAME}" | sed -e 's:[\/-_\[\]:-:g')
           az extension add --name containerapp
           az login --service-principal -u${ARM_CLIENT_ID} -p${ARM_CLIENT_SECRET} -t${ARM_TENANT_ID}
           az containerapp job start --verbose -n portal-dbclone --resource-group rg-ecc-portal-uks-dev --subscription "${ARM_SUBSCRIPTION_ID}" --image "acreccuksdev.azurecr.io/dbclone" --env-vars "NEW_DB_SUFFIX=${ENV_SLUG}" 'MYSQL_HOST=mariadb-ecc-uks-dev.mariadb.database.azure.com' 'MYSQL_USER=mariadb-root' 'MYSQL_DATABASE=drupal_portal' 'MYSQL_PASSWORD=secretref:mysql-password' --container-name dbclonea --cpu 0.75 --memory 1.5
