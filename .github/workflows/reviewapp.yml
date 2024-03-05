@@ -89,6 +89,7 @@ jobs:
           EOF
           az containerapp revision copy --name portal --resource-group rg-ecc-portal-uks-dev --yaml revision.yml --subscription "Essex County Council (Portal)" | tee revision.json 
           az containerapp revision label add --no-prompt --resource-group rg-ecc-portal-uks-dev --name portal --label ${ENV_SLUG} --revision portal--gh${GITHUB_RUN_ID} --subscription "Essex County Council (Portal)"
+          echo "env_slug=${ENV_SLUG}"" >> "$GITHUB_OUTPUT"
 
       - name: Find Comment
         uses: peter-evans/find-comment@v3
@@ -105,5 +106,5 @@ jobs:
           issue-number: ${{ github.event.pull_request.number }}
           body: |
             Review application
-            https://portal---gh${{ github.run_id }}.livelyforest-609fad32.uksouth.azurecontainerapps.io/
+            https://portal---gh${{ steps.deploy.outputs.env_slug }}.livelyforest-609fad32.uksouth.azurecontainerapps.io/
           edit-mode: replace
