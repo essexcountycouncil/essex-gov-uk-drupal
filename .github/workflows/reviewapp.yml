@@ -1,0 +1,102 @@
+name: Deploy review app
+
+on: pull_request
+
+jobs:
+  pr_commented:
+    # This job only runs for pull request comments
+    name: PR comment
+    #if: ${{ github.event.issue.pull_request }} && contains(github.event.comment.body, '/deploy')
+    runs-on: mcr.microsoft.com/azure-cli
+    steps:
+      - name: Deploy review app
+        id: deploy
+        run: |
+          tag=":$CI_COMMIT_REF_SLUG"
+          ENV_SLUG=$(echo "${CI_EXTERNAL_PULL_REQUEST_SOURCE_BRANCH_NAME}" | sed -e 's:[\/-_\[\]:-:g')
+          az extension add --name containerapp
+          az login --service-principal -u${ARM_CLIENT_ID} -p${ARM_CLIENT_SECRET} -t${ARM_TENANT_ID}
+          az containerapp job start --verbose -n portal-dbclone --resource-group rg-ecc-portal-uks-dev --subscription "${ARM_SUBSCRIPTION_ID}" --image "acreccuksdev.azurecr.io/dbclone" --env-vars "NEW_DB_SUFFIX=${ENV_SLUG}" 'MYSQL_HOST=mariadb-ecc-uks-dev.mariadb.database.azure.com' 'MYSQL_USER=mariadb-root' 'MYSQL_DATABASE=drupal_portal' 'MYSQL_PASSWORD=secretref:mysql-password' --container-name dbclonea --cpu 0.75 --memory 1.5
+          echo "Running on branch '$CI_COMMIT_BRANCH': tag = $tag"
+          echo "Creating new revision of Container App"
+          cat > revision.yml <<EOF
+          properties:
+            template:
+              revisionSuffix: gh${GITHUB_RUN_ID}
+              scale:
+                minReplicas: 0
+                maxReplicas: 1
+                rules:
+                  - name: "http-rule"
+                    http:
+                      metadata:
+                        concurrentRequests: 40
+              containers:
+                - image: acreccuksdev.azurecr.io/portal-nginx-drupal$tag
+                  name: nginx
+                  resources:
+                    cpu: 0.25
+                    memory: 0.5Gi
+                  volumeMounts:
+                  - mountPath: /drupal/web/sites/default/files
+                    volumeName: filesharevol
+                  env:
+                  - name: X_ROBOTS_TAG
+                    value: noindex
+                  probes:
+                  - type: liveness
+                    httpGet:
+                      path: "/dd822309-ae33-4e29-addf-869b07453a06"
+                      port: 80
+                    initialDelaySeconds: 5
+                    periodSeconds: 3
+                - image: acreccuksdev.azurecr.io/portal-drupal-fpm$tag
+                  name: drupal
+                  resources:
+                    cpu: 0.75
+                    memory: 1.5Gi
+                  volumeMounts:
+                  - mountPath: /drupal/web/sites/default/files
+                    volumeName: filesharevol
+                  - mountPath: /drupal/data/default/private
+                    volumeName: privsharevol
+                  env:
+                  - name: MYSQL_HOST
+                    value: mariadb-ecc-uks-dev.mariadb.database.azure.com
+                  - name: MYSQL_USER
+                    value: mariadb-root
+                  - name: MYSQL_DATABASE
+                    value: drupal_ci_${ENV_SLUG}
+                  - name: MYSQL_PASSWORD
+                    secretRef: mysql-password
+                  - name: OPENID_CONNECT_PARAMS
+                    secretRef: openid-connect-params
+                  probes:
+                  - type: liveness
+                    tcpSocket:
+                      port: 9000
+                    initialDelaySeconds: 5
+                    periodSeconds: 3
+          EOF
+          az containerapp revision copy --name portal --resource-group rg-ecc-portal-uks-dev --yaml revision.yml --subscription "Essex County Council (Portal)" | tee revision.json 
+          az containerapp revision label add --no-prompt --resource-group rg-ecc-portal-uks-dev --name portal --label ${ENV_SLUG} --revision portal---gh${GITHUB_RUN_ID} --subscription "Essex County Council (Portal)"          
+        env:
+          NUMBER: ${{ github.event.issue.number }}
+
+      - name: Find Comment
+        uses: peter-evans/find-comment@v3
+        id: fc
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          comment-author: 'github-actions[bot]'
+          body-includes: Review application
+
+      - name: Create or update comment
+        uses: peter-evans/create-or-update-comment@v4
+        with:
+          comment-id: ${{ steps.fc.outputs.comment-id }}
+          issue-number: ${{ github.event.pull_request.number }}
+          body: |
+            Review application
+            https://portal---gh${GITHUB_RUN_ID}.livelyforest-609fad32.uksouth.azurecontainerapps.io/
+          edit-mode: replace
