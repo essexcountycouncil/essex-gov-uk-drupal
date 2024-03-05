@@ -26,6 +26,7 @@ jobs:
           az extension add --name containerapp
           az containerapp job start -n portal-dbclone --resource-group rg-ecc-portal-uks-dev --subscription "Essex County Council (Portal)" --image "acreccuksdev.azurecr.io/dbclone" --env-vars "NEW_DB_SUFFIX=${ENV_SLUG}" 'MYSQL_HOST=mariadb-ecc-uks-dev.mariadb.database.azure.com' 'MYSQL_USER=mariadb-root' 'MYSQL_DATABASE=drupal_portal' 'MYSQL_PASSWORD=secretref:mysql-password' --container-name dbclonea --cpu 0.75 --memory 1.5
           echo "Running on branch '$CI_COMMIT_BRANCH': tag = $tag"
+          sleep 4m
           echo "Creating new revision of Container App"
           cat > revision.yml <<EOF
           properties:
