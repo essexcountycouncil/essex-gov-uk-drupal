@@ -192,7 +192,7 @@ deploy-to-review:
   before_script:
     - az extension add --name containerapp
     - az login --service-principal -u${ARM_CLIENT_ID} -p${ARM_CLIENT_SECRET} -t${ARM_TENANT_ID}
-    - az containerapp job start --verbose -n portal-dbclone --resource-group rg-ecc-portal-uks-dev --subscription "3246e2d4-9f2e-4f81-9c7c-6c5327e8883e" --image "acreccuksdev.azurecr.io/dbclone" --env-vars 'NEW_DB_SUFFIX=${CI_ENVIRONMENT_SLUG}' 'MYSQL_HOST=mariadb-ecc-uks-dev.mariadb.database.azure.com' 'MYSQL_USER=mariadb-root' 'MYSQL_DATABASE=drupal_portal' 'MYSQL_PASSWORD=secretref:mysql-password' --container-name dbclonea --cpu 0.75 --memory 1.5
+    - az containerapp job start --verbose -n portal-dbclone --resource-group rg-ecc-portal-uks-dev --subscription "3246e2d4-9f2e-4f81-9c7c-6c5327e8883e" --image "acreccuksdev.azurecr.io/dbclone" --env-vars "NEW_DB_SUFFIX=${CI_ENVIRONMENT_SLUG}" 'MYSQL_HOST=mariadb-ecc-uks-dev.mariadb.database.azure.com' 'MYSQL_USER=mariadb-root' 'MYSQL_DATABASE=drupal_portal' 'MYSQL_PASSWORD=secretref:mysql-password' --container-name dbclonea --cpu 0.75 --memory 1.5
   script:
     - |
       tag=":$CI_COMMIT_REF_SLUG"
@@ -259,7 +259,7 @@ deploy-to-review:
                 periodSeconds: 3
       EOF
     - az containerapp revision copy --name portal --resource-group rg-ecc-portal-uks-dev --yaml revision.yml --subscription "Essex County Council (Portal)" | tee revision.json 
-    - az containerapp revision label add --no-prompt --resource-group rg-ecc-portal-uks-dev --name portal --label ${CI_ENVIRONMENT_SLUG}
+    - az containerapp revision label add --no-prompt --resource-group rg-ecc-portal-uks-dev --name portal --label ${CI_ENVIRONMENT_SLUG} --revision portal--${CI_PIPELINE_ID} --subscription "Essex County Council (Portal)"
   only:
     - external_pull_requests
 
