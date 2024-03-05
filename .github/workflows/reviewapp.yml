@@ -20,6 +20,7 @@ jobs:
           ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
           REF_NAME: ${{ github.head_ref }}
         run: |
+          CI_COMMIT_REF_SLUG="$REF_NAME"
           tag=":$CI_COMMIT_REF_SLUG"
           ENV_SLUG=$(echo "${REF_NAME}" | sed -e 's:[\/-_\[\]:-:g')
           az extension add --name containerapp
