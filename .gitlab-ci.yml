@@ -41,9 +41,9 @@ build-and-push-images:
     - docker build -t ${DOCKER_REGISTRY}/portal-drupal-fpm -t ${DOCKER_REGISTRY}/portal-drupal-fpm${tag} -t portal-drupal-fpm -f Dockerfile-drupal .
     - docker build -t ${DOCKER_REGISTRY}/portal-nginx-drupal -t ${DOCKER_REGISTRY}/portal-nginx-drupal${tag} -t portal-nginx-drupal -f Dockerfile-nginx .
     - docker build -t ${DOCKER_REGISTRY}/portal-nginx-redirect -t ${DOCKER_REGISTRY}/portal-nginx-redirect${tag} -t portal-nginx-redirect -f Dockerfile-nginx-redirect .
-    - docker push ${DOCKER_REGISTRY}/portal-nginx-drupal
-    - docker push ${DOCKER_REGISTRY}/portal-drupal-fpm
-    - docker push ${DOCKER_REGISTRY}/portal-nginx-redirect
+    - docker push ${DOCKER_REGISTRY}/portal-nginx-drupal${tag}
+    - docker push ${DOCKER_REGISTRY}/portal-drupal-fpm${tag}
+    - docker push ${DOCKER_REGISTRY}/portal-nginx-redirect${tag}
 
 generate-sbom:
   stage: build
