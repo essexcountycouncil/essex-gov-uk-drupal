@@ -175,7 +175,7 @@ deploy-to-dev:
                 initialDelaySeconds: 5
                 periodSeconds: 3
       EOF
-    - az containerapp revision copy --name portal --resource-group rg-ecc-portal-uks-dev --yaml revision.yml --subscription "Essex County Council (Portal)" | tee revision.json
+    - az containerapp revision copy --name portal --resource-group rg-ecc-portal-uks-dev --yaml revision.yml --subscription "Essex County Council (Portal)" | tee revision.json 
   rules:
     - if: '$CI_COMMIT_BRANCH == "develop"'
     - when: manual
