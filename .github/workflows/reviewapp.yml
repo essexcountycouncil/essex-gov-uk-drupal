@@ -86,8 +86,6 @@ jobs:
           EOF
           az containerapp revision copy --name portal --resource-group rg-ecc-portal-uks-dev --yaml revision.yml --subscription "Essex County Council (Portal)" | tee revision.json 
           az containerapp revision label add --no-prompt --resource-group rg-ecc-portal-uks-dev --name portal --label ${ENV_SLUG} --revision portal---gh${GITHUB_RUN_ID} --subscription "Essex County Council (Portal)"          
-        env:
-          NUMBER: ${{ github.event.issue.number }}
 
       - name: Find Comment
         uses: peter-evans/find-comment@v3
