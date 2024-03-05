@@ -187,8 +187,8 @@ deploy-to-review:
   needs:
     - job: build-and-push-images
   environment:
-    name: review/$CI_EXTERNAL_PULL_REQUEST_SOURCE_BRANCH_NAME
-    url: https://${CI_ENVIRONMENT_SLUG}.livelyforest-609fad32.uksouth.azurecontainerapps.io
+    name: $CI_EXTERNAL_PULL_REQUEST_SOURCE_BRANCH_NAME
+    url: https://portal---${CI_ENVIRONMENT_SLUG}.livelyforest-609fad32.uksouth.azurecontainerapps.io
   before_script:
     - az extension add --name containerapp
     - az login --service-principal -u${ARM_CLIENT_ID} -p${ARM_CLIENT_SECRET} -t${ARM_TENANT_ID}
