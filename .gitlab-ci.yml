@@ -190,12 +190,15 @@ deploy-to-review:
     name: $CI_EXTERNAL_PULL_REQUEST_SOURCE_BRANCH_NAME
     url: https://portal---${CI_ENVIRONMENT_SLUG}.livelyforest-609fad32.uksouth.azurecontainerapps.io
   before_script:
+    - ENV_SLUG=$(echo "${CI_ENVIRONMENT_SLUG}" | sed -e 's:[\/-_\[\]:-:g')
     - az extension add --name containerapp
     - az login --service-principal -u${ARM_CLIENT_ID} -p${ARM_CLIENT_SECRET} -t${ARM_TENANT_ID}
-    - az containerapp job start --verbose -n portal-dbclone --resource-group rg-ecc-portal-uks-dev --subscription "3246e2d4-9f2e-4f81-9c7c-6c5327e8883e" --image "acreccuksdev.azurecr.io/dbclone" --env-vars "NEW_DB_SUFFIX=${CI_ENVIRONMENT_SLUG}" 'MYSQL_HOST=mariadb-ecc-uks-dev.mariadb.database.azure.com' 'MYSQL_USER=mariadb-root' 'MYSQL_DATABASE=drupal_portal' 'MYSQL_PASSWORD=secretref:mysql-password' --container-name dbclonea --cpu 0.75 --memory 1.5
+    - az containerapp job start --verbose -n portal-dbclone --resource-group rg-ecc-portal-uks-dev --subscription "3246e2d4-9f2e-4f81-9c7c-6c5327e8883e" --image "acreccuksdev.azurecr.io/dbclone" --env-vars "NEW_DB_SUFFIX=${ENV_SLUG}" 'MYSQL_HOST=mariadb-ecc-uks-dev.mariadb.database.azure.com' 'MYSQL_USER=mariadb-root' 'MYSQL_DATABASE=drupal_portal' 'MYSQL_PASSWORD=secretref:mysql-password' --container-name dbclonea --cpu 0.75 --memory 1.5
+    - env
   script:
     - |
       tag=":$CI_COMMIT_REF_SLUG"
+      ENV_SLUG=$(echo "${CI_ENVIRONMENT_SLUG}" | sed -e 's:[\/-_\[\]:-:g')
       echo "Running on branch '$CI_COMMIT_BRANCH': tag = $tag"
     - echo "Creating new revision of Container App"
     - |
@@ -246,7 +249,7 @@ deploy-to-review:
               - name: MYSQL_USER
                 value: mariadb-root
               - name: MYSQL_DATABASE
-                value: drupal_ci_${CI_ENVIRONMENT_SLUG}
+                value: drupal_ci_${ENV_SLUG}
               - name: MYSQL_PASSWORD
                 secretRef: mysql-password
               - name: OPENID_CONNECT_PARAMS
@@ -259,7 +262,7 @@ deploy-to-review:
                 periodSeconds: 3
       EOF
     - az containerapp revision copy --name portal --resource-group rg-ecc-portal-uks-dev --yaml revision.yml --subscription "Essex County Council (Portal)" | tee revision.json 
-    - az containerapp revision label add --no-prompt --resource-group rg-ecc-portal-uks-dev --name portal --label ${CI_ENVIRONMENT_SLUG} --revision portal--${CI_PIPELINE_ID} --subscription "Essex County Council (Portal)"
+    - az containerapp revision label add --no-prompt --resource-group rg-ecc-portal-uks-dev --name portal --label ${ENV_SLUG} --revision portal--${CI_PIPELINE_ID} --subscription "Essex County Council (Portal)"
   only:
     - external_pull_requests
 
