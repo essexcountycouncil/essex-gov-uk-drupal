@@ -178,8 +178,8 @@ deploy-to-dev:
     - az containerapp revision copy --name portal --resource-group rg-ecc-portal-uks-dev --yaml revision.yml --subscription "Essex County Council (Portal)" | tee revision.json 
   rules:
     - if: '$CI_COMMIT_BRANCH == "develop"'
-    - when: manual
-
+    - if: '$CI_PIPELINE_SOURCE != "external_pull_request_event"'
+      when: manual
 
 deploy-to-review:
   image: mcr.microsoft.com/azure-cli
@@ -279,7 +279,8 @@ drush-deploy-dev:
     - timeout 1200 socat EXEC:'az containerapp exec --command /drupal/deploy.sh --name portal --container drupal --resource-group rg-ecc-portal-uks-dev',pty,setsid,ctty STDIO,ignoreeof
   rules:
     - if: '$CI_COMMIT_BRANCH == "develop"'
-    - when: manual
+    - if: '$CI_PIPELINE_SOURCE != "external_pull_request_event"'
+      when: manual
 
 deploy-to-preprod:
   image: mcr.microsoft.com/azure-cli
@@ -373,7 +374,8 @@ deploy-to-preprod:
     - echo "Creating new revision of Container App"
     - az containerapp revision copy --name portal --resource-group rg-ecc-portal-uks-pre --yaml revision.yml --subscription "Essex County Council (Portal)"
   rules:
-    - when: manual
+    - if: '$CI_PIPELINE_SOURCE != "external_pull_request_event"'
+      when: manual
 
 drush-deploy-preprod:
   image: mcr.microsoft.com/azure-cli
@@ -387,7 +389,8 @@ drush-deploy-preprod:
   script:
     - timeout 1200 socat EXEC:'az containerapp exec --command /drupal/deploy.sh --name portal --container drupal --resource-group rg-ecc-portal-uks-pre',pty,setsid,ctty STDIO,ignoreeof
   rules:
-    - when: manual
+    - if: '$CI_PIPELINE_SOURCE != "external_pull_request_event"'
+      when: manual
 
 deploy-to-prod:
   image: mcr.microsoft.com/azure-cli
