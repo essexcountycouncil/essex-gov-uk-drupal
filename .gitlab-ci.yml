@@ -260,8 +260,8 @@ deploy-to-review:
       EOF
     - az containerapp revision copy --name portal --resource-group rg-ecc-portal-uks-dev --yaml revision.yml --subscription "Essex County Council (Portal)" | tee revision.json 
     - az containerapp revision label add --no-prompt --resource-group rg-ecc-portal-uks-dev --name portal --label ${CI_ENVIRONMENT_SLUG}
-  rules:
-    - when: external_pull_requests
+  only:
+    - external_pull_requests
 
 drush-deploy-dev:
   image: mcr.microsoft.com/azure-cli
