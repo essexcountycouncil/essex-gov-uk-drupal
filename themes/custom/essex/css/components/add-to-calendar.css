@@ -1,0 +1,53 @@
+.localgov-add-to-calendar:has(+ * ) {
+  margin-bottom: var(--vertical-rhythm-spacing);
+}
+
+.localgov-add-to-calendar__trigger {
+  display: flex;
+  gap: var(--spacing);
+  align-items: center;
+  svg path {
+    fill: var(--color-white);
+  }
+  &:focus svg path,
+  &:hover svg path {
+    fill: var(--color-accent);
+  }
+}
+
+.localgov-add-to-calendar__dialog {
+  margin: auto;
+  max-width: 80%;
+  max-height: 80%;
+  overflow: auto;
+  width: 500px;
+  height: 500px;
+}
+
+.localgov-add-to-calendar__dialog[open] {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.localgov-add-to-calendar__dialog-close {
+  display: flex;
+  justify-content: end;
+}
+
+.localgov-add-to-calendar__dialog::backdrop {
+  background-color: #333;
+  opacity: 0.75;
+}
+
+.localgov-add-to-calendar__items {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.localgov-add-to-calendar__item + .localgov-add-to-calendar__item {
+  margin-top: var(--spacing);
+}
