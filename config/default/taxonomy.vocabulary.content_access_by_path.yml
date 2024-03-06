@@ -1,0 +1,10 @@
+uuid: a607840d-ccde-4820-a4f4-6de6a48f9dbd
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: vACx9eu1Ddc2kEifS-FTwyvLjtNBrAcTU8XtL65ox9c
+name: 'Content Access by Path'
+vid: content_access_by_path
+description: ''
+weight: 0

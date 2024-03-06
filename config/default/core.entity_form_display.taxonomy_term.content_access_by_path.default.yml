@@ -1,0 +1,35 @@
+uuid: 8ffe6976-7005-4709-b85d-1a5ed2286ee2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.content_access_by_path.content_access_by_path
+    - taxonomy.vocabulary.content_access_by_path
+_core:
+  default_config_hash: sDbte3WMDkLWl8cvwxKr3s6pi4XbLF9PFT0jBT53mYA
+id: taxonomy_term.content_access_by_path.default
+targetEntityType: taxonomy_term
+bundle: content_access_by_path
+mode: default
+content:
+  content_access_by_path:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  description: true
+  path: true
+  simple_sitemap: true
+  status: true

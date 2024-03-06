@@ -1,0 +1,22 @@
+uuid: 8ef9d380-89d1-4469-98eb-47377cfd55ff
+langcode: en
+status: true
+dependencies:
+  module:
+    - taxonomy
+    - user
+_core:
+  default_config_hash: dWfVitqz7R6AZC8uE8q6dyttf4MhVl-AfKLswK0uFUE
+id: user.content_access_by_path
+field_name: content_access_by_path
+entity_type: user
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
