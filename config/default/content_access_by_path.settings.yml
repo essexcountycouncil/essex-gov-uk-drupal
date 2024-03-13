@@ -1,6 +1,13 @@
 _core:
   default_config_hash: 96gY1x1yZ9yerosA-b5ZbScKZIBE2vDQTbTFxUk6yhA
 roles:
+  localgov_user_manager: localgov_user_manager
   administrator: administrator
   anonymous: 0
+  emergency_publisher: 0
+  localgov_news_editor: 0
+  analytics: 0
   authenticated: 0
+  localgov_contributor: 0
+  localgov_author: 0
+  localgov_editor: 0
