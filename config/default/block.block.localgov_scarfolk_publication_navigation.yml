@@ -1,0 +1,33 @@
+uuid: bdf428b3-d76b-4c34-9e85-756e781e325f
+langcode: en
+status: true
+dependencies:
+  module:
+    - localgov_publications
+    - node
+  theme:
+    - localgov_scarfolk
+_core:
+  default_config_hash: sNJdC2KmKw1pYGEiWHbf9C920rwE_PZ4B8Q-N65gTic
+id: localgov_scarfolk_publication_navigation
+theme: localgov_scarfolk
+region: sidebar_first
+weight: 0
+provider: null
+plugin: publication_navigation
+settings:
+  id: publication_navigation
+  label: 'Publication navigation'
+  label_display: '0'
+  provider: localgov_publications
+  context_mapping:
+    node: '@node.node_route_context:node'
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      localgov_publication_page: localgov_publication_page
+      publication: publication

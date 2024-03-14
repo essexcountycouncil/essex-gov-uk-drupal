@@ -1,0 +1,31 @@
+uuid: 38243d23-9fa9-44fe-8a48-b738f8a09e73
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.publication
+    - field.field.media.document.field_media_document
+    - media.type.document
+  module:
+    - file
+_core:
+  default_config_hash: C5PMI3qBJt4Ntdqir2myiNrL_9ySiiZFQuUXauU8elQ
+id: media.document.publication
+targetEntityType: media
+bundle: document
+mode: publication
+content:
+  field_media_document:
+    type: file_default
+    label: hidden
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  created: true
+  name: true
+  search_api_excerpt: true
+  thumbnail: true
+  uid: true

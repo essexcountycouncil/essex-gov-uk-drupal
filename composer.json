@@ -106,6 +106,8 @@
         "localgovdrupal/localgov_eu_cookie_compliance": "1.x-dev",
         "localgovdrupal/localgov_forms": "1.x-dev",
         "localgovdrupal/localgov_geo": "^2",
+        "localgovdrupal/localgov_paragraphs": "^2.4",
+        "localgovdrupal/localgov_publications": "^1.0.0",
         "mglaman/composer-drupal-lenient": "^1.0",
         "palantirnet/drupal-rector": "^0.18.0",
         "wa72/htmlpagedom": "*"

@@ -1,0 +1,20 @@
+uuid: 9728930b-0236-49a6-a72d-1bcb6d3ebff2
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+_core:
+  default_config_hash: 3WG_c9U35AibhbLl-TqAuq-UACU_PZCHDLIfmGFXtNc
+name: 'Publication page'
+type: localgov_publication_page
+description: ''
+help: ''
+new_revision: true
+preview_mode: 0
+display_submitted: false

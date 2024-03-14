@@ -17,6 +17,8 @@ dependencies:
     - node.type.localgov_guides_page
     - node.type.localgov_news_article
     - node.type.localgov_newsroom
+    - node.type.localgov_publication_cover_page
+    - node.type.localgov_publication_page
     - node.type.localgov_services_landing
     - node.type.localgov_services_page
     - node.type.localgov_services_status
@@ -28,6 +30,7 @@ dependencies:
     - workflows.workflow.localgov_alert_banners
     - workflows.workflow.localgov_editorial
   module:
+    - book
     - content_moderation
     - content_ownership
     - entity_browser
@@ -72,6 +75,7 @@ permissions:
   - 'access toolbar'
   - 'access webform overview'
   - 'add content owner/sme entity'
+  - 'add content to books'
   - 'add scheduled transitions localgov_alert_banner localgov_alert_banner'
   - 'add scheduled transitions node localgov_directories_org'
   - 'add scheduled transitions node localgov_directories_page'
@@ -91,6 +95,7 @@ permissions:
   - 'add scheduled transitions node localgov_step_by_step_page'
   - 'add scheduled transitions node localgov_subsites_overview'
   - 'add scheduled transitions node localgov_subsites_page'
+  - 'administer book outlines'
   - 'administer content owner/sme entity'
   - 'administer menu'
   - 'administer paragraphs library'
@@ -104,6 +109,8 @@ permissions:
   - 'create localgov_guides_page content'
   - 'create localgov_news_article content'
   - 'create localgov_newsroom content'
+  - 'create localgov_publication_cover_page content'
+  - 'create localgov_publication_page content'
   - 'create localgov_services_landing content'
   - 'create localgov_services_page content'
   - 'create localgov_services_sublanding content'
@@ -112,6 +119,7 @@ permissions:
   - 'create localgov_subsites_overview content'
   - 'create localgov_subsites_page content'
   - 'create media'
+  - 'create new books'
   - 'create paragraph library item'
   - 'create remote_video media'
   - 'create url aliases'
@@ -120,6 +128,8 @@ permissions:
   - 'delete any localgov_guides_overview content'
   - 'delete any localgov_guides_page content'
   - 'delete any localgov_news_article content'
+  - 'delete any localgov_publication_cover_page content'
+  - 'delete any localgov_publication_page content'
   - 'delete any localgov_services_landing content'
   - 'delete any localgov_services_page content'
   - 'delete any localgov_services_sublanding content'
@@ -131,8 +141,12 @@ permissions:
   - 'delete content owner/sme entity'
   - 'delete geo'
   - 'delete localgov_event revisions'
+  - 'delete localgov_publication_cover_page revisions'
+  - 'delete localgov_publication_page revisions'
   - 'delete own files'
   - 'delete own localgov_event content'
+  - 'delete own localgov_publication_cover_page content'
+  - 'delete own localgov_publication_page content'
   - 'delete own localgov_subsites_overview content'
   - 'delete own localgov_subsites_page content'
   - 'edit any document media'
@@ -147,6 +161,8 @@ permissions:
   - 'edit any localgov_guides_page content'
   - 'edit any localgov_news_article content'
   - 'edit any localgov_newsroom content'
+  - 'edit any localgov_publication_cover_page content'
+  - 'edit any localgov_publication_page content'
   - 'edit any localgov_services_landing content'
   - 'edit any localgov_services_page content'
   - 'edit any localgov_services_status content'
@@ -172,6 +188,8 @@ permissions:
   - 'edit own localgov_guides_page content'
   - 'edit own localgov_news_article content'
   - 'edit own localgov_newsroom content'
+  - 'edit own localgov_publication_cover_page content'
+  - 'edit own localgov_publication_page content'
   - 'edit own localgov_services_landing content'
   - 'edit own localgov_services_page content'
   - 'edit own localgov_services_status content'
@@ -216,6 +234,8 @@ permissions:
   - 'revert localgov_guides_page revisions'
   - 'revert localgov_news_article revisions'
   - 'revert localgov_newsroom revisions'
+  - 'revert localgov_publication_cover_page revisions'
+  - 'revert localgov_publication_page revisions'
   - 'revert localgov_services_landing revisions'
   - 'revert localgov_services_page revisions'
   - 'revert localgov_services_status revisions'
@@ -257,6 +277,8 @@ permissions:
   - 'view localgov_guides_page revisions'
   - 'view localgov_news_article revisions'
   - 'view localgov_newsroom revisions'
+  - 'view localgov_publication_cover_page revisions'
+  - 'view localgov_publication_page revisions'
   - 'view localgov_services_landing revisions'
   - 'view localgov_services_page revisions'
   - 'view localgov_services_status revisions'

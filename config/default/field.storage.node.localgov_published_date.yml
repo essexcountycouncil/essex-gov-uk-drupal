@@ -1,0 +1,22 @@
+uuid: ff12aa17-47e4-4b08-ade0-928c7504694f
+langcode: en
+status: true
+dependencies:
+  module:
+    - datetime
+    - node
+_core:
+  default_config_hash: fh9NiMnkmbB319Xj2ud-F1jF1NbU9YRNs6Tv4eneA9o
+id: node.localgov_published_date
+field_name: localgov_published_date
+entity_type: node
+type: datetime
+settings:
+  datetime_type: date
+module: datetime
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,21 @@
+uuid: 4a48b323-3cb2-4c7b-8086-4c93cc0bc36b
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.localgov_numbered_text_number
+field_name: localgov_numbered_text_number
+entity_type: paragraph
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

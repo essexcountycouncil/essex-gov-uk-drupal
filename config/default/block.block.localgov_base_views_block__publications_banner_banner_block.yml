@@ -1,0 +1,27 @@
+uuid: 641f0ce7-1231-4156-851b-741f0ec137ab
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.publications_banner
+  module:
+    - views
+  theme:
+    - localgov_base
+_core:
+  default_config_hash: 0wrF5cNJvL063afFmrv0wCqnkms8DbUrJWoGFKpCZnU
+id: localgov_base_views_block__publications_banner_banner_block
+theme: localgov_base
+region: banner
+weight: 0
+provider: null
+plugin: 'views_block:publications_banner-banner_block'
+settings:
+  id: 'views_block:publications_banner-banner_block'
+  label: ''
+  label_display: '0'
+  provider: views
+  views_label: ''
+  items_per_page: none
+  context_mapping: {  }
+visibility: {  }

@@ -1,0 +1,23 @@
+uuid: f7b2a666-7940-4ca1-9993-d6a17d2d3e2b
+langcode: en
+status: true
+dependencies:
+  module:
+    - entity_reference_revisions
+    - node
+    - paragraphs
+_core:
+  default_config_hash: 1C2Ze4YeIjr5DUzYLaPDBNKNRUGL_JWOgos5088u6jY
+id: node.localgov_page_content
+field_name: localgov_page_content
+entity_type: node
+type: entity_reference_revisions
+settings:
+  target_type: paragraph
+module: entity_reference_revisions
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

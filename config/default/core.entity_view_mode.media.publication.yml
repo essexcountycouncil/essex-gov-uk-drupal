@@ -1,0 +1,12 @@
+uuid: c488d68a-a457-48c3-9ccb-b51575eb58cb
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+_core:
+  default_config_hash: GTliUCkQOjHsLrvw1b2jNTLpsUgr3-ITBGxCxSCnlWE
+id: media.publication
+label: Publication
+targetEntityType: media
+cache: true

@@ -9,6 +9,7 @@ module:
   block: 0
   block_classes: 0
   block_content: 0
+  book: 0
   breakpoint: 0
   ckeditor5: 0
   ckeditor5_show_block: 0
@@ -114,6 +115,7 @@ module:
   localgov_paragraphs: 0
   localgov_paragraphs_layout: 0
   localgov_paragraphs_views: 0
+  localgov_publications: 0
   localgov_review_date: 0
   localgov_roles: 0
   localgov_search: 0

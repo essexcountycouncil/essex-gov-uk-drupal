@@ -1,0 +1,24 @@
+uuid: e9c5e0e7-ba49-4261-a916-9fa53f1a5d75
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: nyk_4z7APmAgCBGo3niCv5E3rwtmAKgbpdgf1kGhRTs
+id: publication_page
+label: 'Publication page'
+type: 'canonical_entities:node'
+pattern: '[node:localgov-publication-cover-page-alias]/[node:book:parents:join-path]/[node:title]'
+selection_criteria:
+  0c7a2cf6-df20-4fe3-9020-75fbbf4e559b:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 0c7a2cf6-df20-4fe3-9020-75fbbf4e559b
+    context_mapping:
+      node: node
+    bundles:
+      localgov_publication_page: localgov_publication_page
+selection_logic: and
+weight: -5
+relationships: {  }
