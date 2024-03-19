@@ -4,7 +4,7 @@
     "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
     "This file is @generated automatically"
   ],
-  "content-hash": "5c3daeb65d3c4a51cd0d6cd769dee5c8",
+  "content-hash": "ca2793bd84fb7bff540fa1e1b2d91a80",
   "packages": [
     {
       "name": "asm89/stack-cors",
@@ -6655,17 +6655,11 @@
     },
     {
       "name": "drupal/preview_link",
-      "version": "2.1.0-alpha2",
+      "version": "dev-2.1.x",
       "source": {
         "type": "git",
         "url": "https://git.drupalcode.org/project/preview_link.git",
-        "reference": "2.1.0-alpha2"
-      },
-      "dist": {
-        "type": "zip",
-        "url": "https://ftp.drupal.org/files/projects/preview_link-2.1.0-alpha2.zip",
-        "reference": "2.1.0-alpha2",
-        "shasum": "9e077ecb0f43e9bf5e6d5fba2520b0b46846a5e8"
+        "reference": "9c6d111deec9a41cd3acb4db99aa5281bdca1ecf"
       },
       "require": {
         "drupal/core": "^9.4 || ^10",
@@ -6678,12 +6672,15 @@
       },
       "type": "drupal-module",
       "extra": {
+        "branch-alias": {
+          "dev-2.1.x": "2.1.x-dev"
+        },
         "drupal": {
-          "version": "2.1.0-alpha2",
-          "datestamp": "1698724706",
+          "version": "2.1.0-alpha2+3-dev",
+          "datestamp": "1699841071",
           "security-coverage": {
             "status": "not-covered",
-            "message": "Alpha releases are not covered by Drupal security advisories."
+            "message": "Dev releases are not covered by Drupal security advisories."
           }
         }
       },
@@ -21368,6 +21365,7 @@
   "stability-flags": {
     "drupal/cludo_search": 10,
     "drupal/gin": 5,
+    "drupal/preview_link": 20,
     "drupal/ultimate_cron": 15,
     "localgovdrupal/localgov_eu_cookie_compliance": 20,
     "localgovdrupal/localgov_forms": 20,

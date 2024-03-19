@@ -1,6 +1,7 @@
 _core:
   default_config_hash: op5zJk4bmDxEGOgAYNCkpAQOLG0YZhNMrxlSkdYSQIM
+display_message: subsequent
 enabled_entity_types: {  }
 multiple_entities: false
-expiry_seconds: 604800
-display_message: subsequent
+expiry_seconds: 2592000
+expiry_entry_in_days: true
