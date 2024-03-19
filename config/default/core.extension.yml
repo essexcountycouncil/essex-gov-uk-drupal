@@ -53,6 +53,7 @@ module:
   field_group: 0
   field_ui: 0
   file: 0
+  file_mdm: 0
   filter: 0
   fontawesome: 0
   geo_entity: 0
@@ -167,6 +168,7 @@ module:
   search_api_location_geocoder: 0
   search_api_location_views: 0
   simple_sitemap: 0
+  sophron: 0
   system: 0
   tablefield: 0
   taxonomy: 0
@@ -195,4 +197,6 @@ theme:
   localgov_scarfolk: 0
   essex: 0
   stable9: 0
+  ecc_theme: 0
+  ecc_theme_gov: 0
 profile: localgov

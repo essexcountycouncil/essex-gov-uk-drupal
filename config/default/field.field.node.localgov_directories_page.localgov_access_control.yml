@@ -1,0 +1,27 @@
+uuid: 7db5da20-bca5-4e25-b199-224a0143013e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.localgov_access_control
+    - node.type.localgov_directories_page
+id: node.localgov_directories_page.localgov_access_control
+field_name: localgov_access_control
+entity_type: node
+bundle: localgov_directories_page
+label: 'Access Control'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles: {  }
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,32 @@
+uuid: 54b28016-c429-4baf-98cd-8faf4fcda003
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_classes
+    - localgov_eu_cookie_compliance
+    - system
+  theme:
+    - ecc_theme
+third_party_settings:
+  block_classes:
+    block_class: node__restricted-width-section
+_core:
+  default_config_hash: jbXexLitxSKmYHd94c_MxmymM6bi5L1LTMoUjcdtNgI
+id: ecc_theme_eucookiesettingsblock
+theme: ecc_theme
+region: content_top
+weight: -9
+provider: null
+plugin: cookie_settings_block
+settings:
+  id: cookie_settings_block
+  label: 'EU Cookie settings block'
+  label_display: '0'
+  provider: localgov_eu_cookie_compliance
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    context_mapping: {  }
+    pages: /cookies

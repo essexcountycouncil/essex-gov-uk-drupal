@@ -1,0 +1,25 @@
+uuid: ffbfa720-b187-4e30-a346-d0fc6be9f2fa
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - ecc_theme_gov
+_core:
+  default_config_hash: WOE_zR7p0ezLQ1hycQH7E2EYgfUDEQuzmCF9fxR6-ZI
+id: ecc_theme_gov_localgov_sitebranding_scarfolk
+theme: ecc_theme_gov
+region: header
+weight: 0
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  label_display: '0'
+  provider: system
+  use_site_logo: true
+  use_site_name: true
+  use_site_slogan: false
+visibility: {  }

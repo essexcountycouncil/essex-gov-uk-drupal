@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.localgov_directories_org.body
+    - field.field.node.localgov_directories_org.localgov_access_control
     - field.field.node.localgov_directories_org.localgov_directory_channels
     - field.field.node.localgov_directories_org.localgov_directory_email
     - field.field.node.localgov_directories_org.localgov_directory_facets_select
@@ -23,15 +24,13 @@ third_party_settings:
   field_group:
     group_enquiries:
       children:
-        - localgov_directory_name
-        - localgov_directory_job_title
         - localgov_directory_phone
         - localgov_directory_email
         - localgov_directory_website
       label: Enquiries
       parent_name: ''
       region: content
-      weight: 4
+      weight: 5
       format_type: fieldset
       format_settings:
         classes: ''
@@ -40,12 +39,11 @@ third_party_settings:
     group_organisation:
       children:
         - localgov_location
-        - localgov_directory_opening_times
         - localgov_directory_notes
       label: Venue
       parent_name: ''
       region: content
-      weight: 3
+      weight: 4
       format_type: fieldset
       format_settings:
         classes: ''
@@ -63,6 +61,11 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
+    weight: 2
+    region: content
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
     weight: 0
     region: content
   localgov_directory_email:
@@ -78,7 +81,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 1
+    weight: 3
     region: content
   localgov_directory_notes:
     type: text_default
@@ -98,7 +101,7 @@ content:
   localgov_directory_search:
     settings: {  }
     third_party_settings: {  }
-    weight: -20
+    weight: 1
     region: content
   localgov_directory_website:
     type: link
@@ -124,6 +127,7 @@ content:
 hidden:
   content_moderation_control: true
   links: true
+  localgov_access_control: true
   localgov_directory_channels: true
   localgov_directory_facets_select: true
   search_api_excerpt: true

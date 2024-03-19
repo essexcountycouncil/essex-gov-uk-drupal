@@ -1,0 +1,25 @@
+uuid: 1d855397-7b5c-40ed-9330-e06ff9662638
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.social-media
+  module:
+    - system
+  theme:
+    - ecc_theme_gov
+id: ecc_theme_gov_socialmedia
+theme: ecc_theme_gov
+region: footer_third
+weight: 0
+provider: null
+plugin: 'system_menu_block:social-media'
+settings:
+  id: 'system_menu_block:social-media'
+  label: 'Social Media'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

@@ -1,0 +1,25 @@
+uuid: 0c3a33f0-ff17-4010-9647-9be43b21cd05
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.content_feedback
+  module:
+    - views
+  theme:
+    - ecc_theme_gov
+id: ecc_theme_gov_views_block__content_feedback_block_feedback_form
+theme: ecc_theme_gov
+region: pre_footer
+weight: -12
+provider: null
+plugin: 'views_block:content_feedback-block_feedback_form'
+settings:
+  id: 'views_block:content_feedback-block_feedback_form'
+  label: ''
+  label_display: '0'
+  provider: views
+  context_mapping: {  }
+  views_label: ''
+  items_per_page: none
+visibility: {  }

@@ -13,7 +13,6 @@ settings:
     items:
       - heading
       - style
-      - DivManager
       - '|'
       - undo
       - redo
@@ -48,20 +47,45 @@ settings:
     ckeditor5_show_block_show_block:
       enable_show_block_default: 0
     ckeditor5_sourceEditing:
-      allowed_tags: {  }
+      allowed_tags:
+        - '<cite>'
+        - '<dl>'
+        - '<dt>'
+        - '<dd>'
+        - '<mark>'
+        - '<b>'
+        - '<div class="alert-danger alert-primary alert-success callout callout-primary callout-success callout-danger callout-teal callout-carbon callout-yellow inset inset-text">'
+        - '<blockquote cite>'
+        - '<ol type>'
+        - '<h2 id>'
+        - '<h3 id>'
+        - '<h4 id>'
+        - '<h5 id>'
+        - '<h6 id>'
+        - '<ul type class="list-checked">'
+        - '<img data-entity-type data-entity-uuid data-caption>'
+        - '<drupal-media data-caption title>'
+        - '<a hreflang title class="btn btn-start">'
+        - '<p class="alert-danger alert-primary alert-success callout callout-primary callout-success callout-danger callout-teal callout-carbon callout-yellow inset-text">'
     ckeditor5_style:
       styles:
         -
+          label: 'External link'
+          element: '<a class="external-link">'
+        -
+          label: 'PDF link'
+          element: '<a class="pdf-link">'
+        -
           label: 'Start button'
           element: '<a class="button button-start col-sm-6 mt-3">'
+        -
+          label: 'Alert info'
+          element: '<p class="alert alert-info">'
         -
           label: 'Inset text'
-          element: '<div class="inset">'
+          element: '<p class="inset">'
     ckeditor_link_styles_linkStyles:
-      styles:
-        -
-          label: 'Start button'
-          element: '<a class="button button-start col-sm-6 mt-3">'
+      styles: {  }
     linkit_extension:
       linkit_enabled: true
       linkit_profile: default

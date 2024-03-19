@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_form_mode.localgov_geo.inline
     - field.field.node.localgov_directories_org.body
+    - field.field.node.localgov_directories_org.localgov_access_control
     - field.field.node.localgov_directories_org.localgov_directory_channels
     - field.field.node.localgov_directories_org.localgov_directory_email
     - field.field.node.localgov_directories_org.localgov_directory_facets_select
@@ -130,6 +131,16 @@ content:
     weight: 2
     region: content
     settings: {  }
+    third_party_settings: {  }
+  localgov_access_control:
+    type: entity_reference_autocomplete
+    weight: 101
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   localgov_directory_channels:
     type: localgov_directories_channel_selector

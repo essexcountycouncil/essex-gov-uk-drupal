@@ -41,16 +41,9 @@ build-and-push-images:
     - docker build -t ${DOCKER_REGISTRY}/portal-drupal-fpm -t ${DOCKER_REGISTRY}/portal-drupal-fpm${tag} -t portal-drupal-fpm -f Dockerfile-drupal .
     - docker build -t ${DOCKER_REGISTRY}/portal-nginx-drupal -t ${DOCKER_REGISTRY}/portal-nginx-drupal${tag} -t portal-nginx-drupal -f Dockerfile-nginx .
     - docker build -t ${DOCKER_REGISTRY}/portal-nginx-redirect -t ${DOCKER_REGISTRY}/portal-nginx-redirect${tag} -t portal-nginx-redirect -f Dockerfile-nginx-redirect .
-    - docker push ${DOCKER_REGISTRY}/portal-nginx-drupal${tag}
     - docker push ${DOCKER_REGISTRY}/portal-nginx-drupal
-    - docker push ${DOCKER_REGISTRY}/portal-drupal-fpm${tag}
     - docker push ${DOCKER_REGISTRY}/portal-drupal-fpm
-    - docker push ${DOCKER_REGISTRY}/portal-nginx-redirect${tag}
     - docker push ${DOCKER_REGISTRY}/portal-nginx-redirect
-  only:
-    - develop
-    - /^release\//
-    - feature/pipeline-improvements
 
 generate-sbom:
   stage: build
@@ -68,6 +61,7 @@ generate-sbom:
     - syft docker:${DOCKER_REGISTRY}/portal-drupal-fpm${tag} -o json=dockerimage.sbom.json
   only:
     - develop
+    - main
     - /^release\//
     - feature/pipeline-improvements
   artifacts:
@@ -92,6 +86,7 @@ analyse-sbom:
     - grype sbom:./dockerimage.sbom.json --only-fixed --add-cpes-if-none --fail-on critical
   only:
     - develop
+    - main
     - /^release\//
     - feature/pipeline-improvements
   needs:
@@ -183,9 +178,7 @@ deploy-to-dev:
     - az containerapp revision copy --name portal --resource-group rg-ecc-portal-uks-dev --yaml revision.yml --subscription "Essex County Council (Portal)"
   rules:
     - if: '$CI_COMMIT_BRANCH == "develop"'
-      when: manual
-    - if: '$CI_COMMIT_BRANCH =~ /^release\//'
-      when: manual
+    - when: manual
 
 drush-deploy-dev:
   image: mcr.microsoft.com/azure-cli
@@ -200,9 +193,7 @@ drush-deploy-dev:
     - timeout 1200 socat EXEC:'az containerapp exec --command /drupal/deploy.sh --name portal --container drupal --resource-group rg-ecc-portal-uks-dev',pty,setsid,ctty STDIO,ignoreeof
   rules:
     - if: '$CI_COMMIT_BRANCH == "develop"'
-      when: manual
-    - if: '$CI_COMMIT_BRANCH =~ /^release\//'
-      when: manual
+    - when: manual
 
 deploy-to-preprod:
   image: mcr.microsoft.com/azure-cli
@@ -216,13 +207,21 @@ deploy-to-preprod:
     - az extension add --name containerapp
     - az login --service-principal -u${ARM_CLIENT_ID} -p${ARM_CLIENT_SECRET} -t${ARM_TENANT_ID}
   script:
+    - |
+      if [[ "$CI_COMMIT_BRANCH" == "$CI_DEFAULT_BRANCH" ]]; then
+        tag=""
+        echo "Running on default branch '$CI_DEFAULT_BRANCH': tag = 'latest'"
+      else
+        tag=":$CI_COMMIT_REF_SLUG"
+        echo "Running on branch '$CI_COMMIT_BRANCH': tag = $tag"
+      fi
     - echo "Importing image from Development  into Pre-Production"
-    - az acr import --force --name acreccukspre --source acreccuksdev.azurecr.io/portal-nginx-drupal:${CI_COMMIT_REF_SLUG} --image portal-nginx-drupal:${CI_COMMIT_REF_SLUG} --subscription "Essex County Council (Common)"
-    - az acr import --force --name acreccukspre --source acreccuksdev.azurecr.io/portal-nginx-drupal:${CI_COMMIT_REF_SLUG} --image portal-nginx-drupal:latest --subscription "Essex County Council (Common)"
-    - az acr import --force --name acreccukspre --source acreccuksdev.azurecr.io/portal-drupal-fpm:${CI_COMMIT_REF_SLUG} --image portal-drupal-fpm:${CI_COMMIT_REF_SLUG} --subscription "Essex County Council (Common)"
-    - az acr import --force --name acreccukspre --source acreccuksdev.azurecr.io/portal-drupal-fpm:${CI_COMMIT_REF_SLUG} --image portal-drupal-fpm:latest --subscription "Essex County Council (Common)"
-    - az acr import --force --name acreccukspre --source acreccuksdev.azurecr.io/portal-nginx-redirect:${CI_COMMIT_REF_SLUG} --image portal-nginx-redirect:${CI_COMMIT_REF_SLUG} --subscription "Essex County Council (Common)"
-    - az acr import --force --name acreccukspre --source acreccuksdev.azurecr.io/portal-nginx-redirect:${CI_COMMIT_REF_SLUG} --image portal-nginx-redirect:latest --subscription "Essex County Council (Common)"
+    - az acr import --force --name acreccukspre --source acreccuksdev.azurecr.io/portal-nginx-drupal$tag --image portal-nginx-drupal$tag --subscription "Essex County Council (Common)"
+    - az acr import --force --name acreccukspre --source acreccuksdev.azurecr.io/portal-nginx-drupal$tag --image portal-nginx-drupal:latest --subscription "Essex County Council (Common)"
+    - az acr import --force --name acreccukspre --source acreccuksdev.azurecr.io/portal-drupal-fpm$tag --image portal-drupal-fpm$tag --subscription "Essex County Council (Common)"
+    - az acr import --force --name acreccukspre --source acreccuksdev.azurecr.io/portal-drupal-fpm$tag --image portal-drupal-fpm:latest --subscription "Essex County Council (Common)"
+    - az acr import --force --name acreccukspre --source acreccuksdev.azurecr.io/portal-nginx-redirect$tag --image portal-nginx-redirect$tag --subscription "Essex County Council (Common)"
+    - az acr import --force --name acreccukspre --source acreccuksdev.azurecr.io/portal-nginx-redirect$tag --image portal-nginx-redirect:latest --subscription "Essex County Council (Common)"
     - |
       cat > revision.yml <<EOF
       properties:
@@ -237,7 +236,7 @@ deploy-to-preprod:
                   metadata:
                     concurrentRequests: 40
           containers:
-            - image: acreccukspre.azurecr.io/portal-nginx-drupal:${CI_COMMIT_REF_SLUG}
+            - image: acreccukspre.azurecr.io/portal-nginx-drupal$tag
               name: nginx
               resources:
                 cpu: 0.25
@@ -259,7 +258,7 @@ deploy-to-preprod:
                   port: 80
                 initialDelaySeconds: 5
                 periodSeconds: 3
-            - image: acreccukspre.azurecr.io/portal-drupal-fpm:${CI_COMMIT_REF_SLUG}
+            - image: acreccukspre.azurecr.io/portal-drupal-fpm$tag
               name: drupal
               resources:
                 cpu: 0.75
@@ -288,8 +287,7 @@ deploy-to-preprod:
     - echo "Creating new revision of Container App"
     - az containerapp revision copy --name portal --resource-group rg-ecc-portal-uks-pre --yaml revision.yml --subscription "Essex County Council (Portal)"
   rules:
-    - if: '$CI_COMMIT_BRANCH =~ /^release\//'
-      when: manual
+    - when: manual
 
 drush-deploy-preprod:
   image: mcr.microsoft.com/azure-cli
@@ -303,8 +301,7 @@ drush-deploy-preprod:
   script:
     - timeout 1200 socat EXEC:'az containerapp exec --command /drupal/deploy.sh --name portal --container drupal --resource-group rg-ecc-portal-uks-pre',pty,setsid,ctty STDIO,ignoreeof
   rules:
-    - if: '$CI_COMMIT_BRANCH =~ /^release\//'
-      when: manual
+    - when: manual
 
 deploy-to-prod:
   image: mcr.microsoft.com/azure-cli
@@ -390,6 +387,8 @@ deploy-to-prod:
     - az containerapp revision copy --name portal --resource-group rg-ecc-portal-uks-prod --yaml revision.yml --subscription "Essex County Council (Portal)"
     - az containerapp revision copy --name portal-redirect --resource-group rg-ecc-portal-redirect-uks-prod --image acreccuksprod.azurecr.io/portal-nginx-redirect:${CI_COMMIT_REF_SLUG} --subscription "Essex County Council (Portal)"
   rules:
+    - if: '$CI_COMMIT_BRANCH == "main"'
+      when: manual
     - if: '$CI_COMMIT_BRANCH =~ /^release\//'
       when: manual
 
@@ -405,5 +404,114 @@ drush-deploy-prod:
   script:
     - timeout 1200 socat EXEC:'az containerapp exec --command /drupal/deploy.sh --name portal --container drupal --resource-group rg-ecc-portal-uks-prod',pty,setsid,ctty STDIO,ignoreeof
   rules:
+    - if: '$CI_COMMIT_BRANCH == "main"'
+      when: manual
+    - if: '$CI_COMMIT_BRANCH =~ /^release\//'
+      when: manual
+
+deploy-straight-to-prod:
+  image: mcr.microsoft.com/azure-cli
+  stage: production
+  needs:
+    - job: build-and-push-images
+  environment:
+    name: production
+    url: https://essex.gov.uk/
+  before_script:
+    - az extension add --name containerapp
+    - az login --service-principal -u${ARM_CLIENT_ID} -p${ARM_CLIENT_SECRET} -t${ARM_TENANT_ID}
+  script:
+    - echo "Importing image from Development into Production"
+    - az acr import --force --name acreccuksprod --source acreccuksdev.azurecr.io/portal-nginx-drupal:${CI_COMMIT_REF_SLUG} --image portal-nginx-drupal:${CI_COMMIT_REF_SLUG} --subscription "Essex County Council (Common)"
+    - az acr import --force --name acreccuksprod --source acreccuksdev.azurecr.io/portal-nginx-drupal:${CI_COMMIT_REF_SLUG} --image portal-nginx-drupal:latest --subscription "Essex County Council (Common)"
+    - az acr import --force --name acreccuksprod --source acreccuksdev.azurecr.io/portal-drupal-fpm:${CI_COMMIT_REF_SLUG} --image portal-drupal-fpm:${CI_COMMIT_REF_SLUG} --subscription "Essex County Council (Common)"
+    - az acr import --force --name acreccuksprod --source acreccuksdev.azurecr.io/portal-drupal-fpm:${CI_COMMIT_REF_SLUG} --image portal-drupal-fpm:latest --subscription "Essex County Council (Common)"
+    - az acr import --force --name acreccuksprod --source acreccuksdev.azurecr.io/portal-nginx-redirect:${CI_COMMIT_REF_SLUG} --image portal-nginx-redirect:${CI_COMMIT_REF_SLUG} --subscription "Essex County Council (Common)"
+    - az acr import --force --name acreccuksprod --source acreccuksdev.azurecr.io/portal-nginx-redirect:${CI_COMMIT_REF_SLUG} --image portal-nginx-redirect:latest --subscription "Essex County Council (Common)"
+    - echo "Creating new revision of Container App"
+    - |
+      cat > revision.yml <<EOF
+      properties:
+        template:
+          revisionSuffix: ${CI_PIPELINE_ID}
+          scale:
+            minReplicas: 1
+            maxReplicas: 3
+            rules:
+              - name: "http-rule"
+                http:
+                  metadata:
+                    concurrentRequests: 40
+          containers:
+            - image: acreccuksprod.azurecr.io/portal-nginx-drupal:${CI_COMMIT_REF_SLUG}
+              name: nginx
+              resources:
+                cpu: 0.25
+                memory: 0.5Gi
+              volumeMounts:
+              - mountPath: /drupal/web/sites/default/files
+                volumeName: filesharevol
+              env:
+              - name: X_ROBOTS_TAG
+                value: all
+              - name: CANONICAL_HOST
+                value: www.essex.gov.uk
+              - name: LIMITED_BETA_MODE
+                value: 0
+              probes:
+              - type: liveness
+                httpGet:
+                  path: "/dd822309-ae33-4e29-addf-869b07453a06"
+                  port: 80
+                initialDelaySeconds: 5
+                periodSeconds: 3
+            - image: acreccuksprod.azurecr.io/portal-drupal-fpm:${CI_COMMIT_REF_SLUG}
+              name: drupal
+              resources:
+                cpu: 0.75
+                memory: 1.5Gi
+              volumeMounts:
+              - mountPath: /drupal/web/sites/default/files
+                volumeName: filesharevol
+              env:
+              - name: MYSQL_HOST
+                value: mariadb-ecc-uks-prod.mariadb.database.azure.com
+              - name: MYSQL_USER
+                value: mariadb-root
+              - name: MYSQL_DATABASE
+                value: drupal_portal
+              - name: MYSQL_PASSWORD
+                secretRef: mysql-password
+              - name: OPENID_CONNECT_PARAMS
+                secretRef: openid-connect-params
+              probes:
+              - type: liveness
+                tcpSocket:
+                  port: 9000
+                initialDelaySeconds: 5
+                periodSeconds: 3
+      EOF
+    - az containerapp revision copy --name portal --resource-group rg-ecc-portal-uks-prod --yaml revision.yml --subscription "Essex County Council (Portal)"
+    - az containerapp revision copy --name portal-redirect --resource-group rg-ecc-portal-redirect-uks-prod --image acreccuksprod.azurecr.io/portal-nginx-redirect:${CI_COMMIT_REF_SLUG} --subscription "Essex County Council (Portal)"
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main"'
+      when: manual
+    - if: '$CI_COMMIT_BRANCH =~ /^release\//'
+      when: manual
+
+drush-deploy-straight-to-prod:
+  image: mcr.microsoft.com/azure-cli
+  stage: production-postdeploy
+  needs: ["deploy-straight-to-prod"]
+  before_script:
+    - apk add socat
+    - az extension add --name containerapp
+    - az login --service-principal -u${ARM_CLIENT_ID} -p${ARM_CLIENT_SECRET} -t${ARM_TENANT_ID}
+    - az account set --subscription "Essex County Council (Portal)"
+  script:
+    - timeout 1200 socat EXEC:'az containerapp exec --command /drupal/deploy.sh --name portal --container drupal --resource-group rg-ecc-portal-uks-prod',pty,setsid,ctty STDIO,ignoreeof
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main"'
+      when: manual
     - if: '$CI_COMMIT_BRANCH =~ /^release\//'
       when: manual
