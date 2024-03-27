@@ -1,0 +1,113 @@
+uuid: 0e317e43-f900-44f0-b31f-3ef844bd9c3a
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.localgov_featured_subsite
+id: paragraph--localgov_featured_subsite
+disabled: false
+path: paragraph/localgov_featured_subsite
+resourceType: paragraph--localgov_featured_subsite
+resourceFields:
+  id:
+    disabled: false
+    fieldName: id
+    publicName: id
+    enhancer:
+      id: ''
+  uuid:
+    disabled: false
+    fieldName: uuid
+    publicName: uuid
+    enhancer:
+      id: ''
+  revision_id:
+    disabled: false
+    fieldName: revision_id
+    publicName: revision_id
+    enhancer:
+      id: ''
+  langcode:
+    disabled: false
+    fieldName: langcode
+    publicName: langcode
+    enhancer:
+      id: ''
+  type:
+    disabled: false
+    fieldName: type
+    publicName: type
+    enhancer:
+      id: ''
+  status:
+    disabled: false
+    fieldName: status
+    publicName: status
+    enhancer:
+      id: ''
+  created:
+    disabled: false
+    fieldName: created
+    publicName: created
+    enhancer:
+      id: ''
+  parent_id:
+    disabled: false
+    fieldName: parent_id
+    publicName: parent_id
+    enhancer:
+      id: ''
+  parent_type:
+    disabled: false
+    fieldName: parent_type
+    publicName: parent_type
+    enhancer:
+      id: ''
+  parent_field_name:
+    disabled: false
+    fieldName: parent_field_name
+    publicName: parent_field_name
+    enhancer:
+      id: ''
+  behavior_settings:
+    disabled: false
+    fieldName: behavior_settings
+    publicName: behavior_settings
+    enhancer:
+      id: entity_share_serialized_data
+  default_langcode:
+    disabled: false
+    fieldName: default_langcode
+    publicName: default_langcode
+    enhancer:
+      id: ''
+  revision_default:
+    disabled: false
+    fieldName: revision_default
+    publicName: revision_default
+    enhancer:
+      id: ''
+  revision_translation_affected:
+    disabled: false
+    fieldName: revision_translation_affected
+    publicName: revision_translation_affected
+    enhancer:
+      id: ''
+  localgov_featured_subsite_image:
+    disabled: false
+    fieldName: localgov_featured_subsite_image
+    publicName: localgov_featured_subsite_image
+    enhancer:
+      id: ''
+  localgov_featured_subsite_link:
+    disabled: false
+    fieldName: localgov_featured_subsite_link
+    publicName: localgov_featured_subsite_link
+    enhancer:
+      id: ''
+  localgov_featured_subsite_text:
+    disabled: false
+    fieldName: localgov_featured_subsite_text
+    publicName: localgov_featured_subsite_text
+    enhancer:
+      id: ''
