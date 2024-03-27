@@ -1,0 +1,21 @@
+uuid: 6f6125ac-81c2-4dfa-b38f-1a0883afcf33
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.content_access_by_path
+    - taxonomy.vocabulary.content_access_by_path
+_core:
+  default_config_hash: 0AXqLx3TgSe0o9fdMR-OynsZ9Y9WkLHr2iBbaN_2Rqs
+id: taxonomy_term.content_access_by_path.content_access_by_path
+field_name: content_access_by_path
+entity_type: taxonomy_term
+bundle: content_access_by_path
+label: 'Content Access Path'
+description: 'Add a website path here, e.g. <strong>news</strong>. Then anyone with this taxonomy term attached to their user account will be able to edit content that is within that path, such as <strong>/news</strong>, <strong>/news/business-news</strong>, etc.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
