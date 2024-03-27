@@ -154,6 +154,7 @@ module:
   path_alias: 0
   permissions_filter: 0
   phpass: 0
+  poll: 0
   preview_link: 0
   redirect: 0
   redirect_404: 0
