@@ -1,0 +1,113 @@
+uuid: 3184d2f1-a01f-4819-996c-58fc06006c7f
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.localgov_accordion
+id: paragraph--localgov_accordion
+disabled: false
+path: paragraph/localgov_accordion
+resourceType: paragraph--localgov_accordion
+resourceFields:
+  id:
+    disabled: false
+    fieldName: id
+    publicName: id
+    enhancer:
+      id: ''
+  uuid:
+    disabled: false
+    fieldName: uuid
+    publicName: uuid
+    enhancer:
+      id: ''
+  revision_id:
+    disabled: false
+    fieldName: revision_id
+    publicName: revision_id
+    enhancer:
+      id: ''
+  langcode:
+    disabled: false
+    fieldName: langcode
+    publicName: langcode
+    enhancer:
+      id: ''
+  type:
+    disabled: false
+    fieldName: type
+    publicName: type
+    enhancer:
+      id: ''
+  status:
+    disabled: false
+    fieldName: status
+    publicName: status
+    enhancer:
+      id: ''
+  created:
+    disabled: false
+    fieldName: created
+    publicName: created
+    enhancer:
+      id: ''
+  parent_id:
+    disabled: false
+    fieldName: parent_id
+    publicName: parent_id
+    enhancer:
+      id: ''
+  parent_type:
+    disabled: false
+    fieldName: parent_type
+    publicName: parent_type
+    enhancer:
+      id: ''
+  parent_field_name:
+    disabled: false
+    fieldName: parent_field_name
+    publicName: parent_field_name
+    enhancer:
+      id: ''
+  behavior_settings:
+    disabled: false
+    fieldName: behavior_settings
+    publicName: behavior_settings
+    enhancer:
+      id: entity_share_serialized_data
+  default_langcode:
+    disabled: false
+    fieldName: default_langcode
+    publicName: default_langcode
+    enhancer:
+      id: ''
+  revision_default:
+    disabled: false
+    fieldName: revision_default
+    publicName: revision_default
+    enhancer:
+      id: ''
+  revision_translation_affected:
+    disabled: false
+    fieldName: revision_translation_affected
+    publicName: revision_translation_affected
+    enhancer:
+      id: ''
+  localgov_heading_level:
+    disabled: false
+    fieldName: localgov_heading_level
+    publicName: localgov_heading_level
+    enhancer:
+      id: ''
+  localgov_paragraphs:
+    disabled: false
+    fieldName: localgov_paragraphs
+    publicName: localgov_paragraphs
+    enhancer:
+      id: ''
+  localgov_title:
+    disabled: false
+    fieldName: localgov_title
+    publicName: localgov_title
+    enhancer:
+      id: ''

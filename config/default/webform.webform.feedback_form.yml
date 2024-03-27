@@ -38,9 +38,6 @@ elements: |-
     '#options':
       good: Good
       poor: Poor
-      'Not too bad': 'Not too bad'
-      'Love it': 'Love it'
-    '#options__properties': ''
   what_did_you_like_most_about_the_page_:
     '#type': radios
     '#title': 'What did you like most about the page?'
