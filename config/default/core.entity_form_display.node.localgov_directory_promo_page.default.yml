@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.localgov_directory_promo_page.body
+    - field.field.node.localgov_directory_promo_page.localgov_access_control
     - field.field.node.localgov_directory_promo_page.localgov_directory_address
     - field.field.node.localgov_directory_promo_page.localgov_directory_banner
     - field.field.node.localgov_directory_promo_page.localgov_directory_channels
@@ -129,6 +130,16 @@ content:
     weight: 10
     region: content
     settings: {  }
+    third_party_settings: {  }
+  localgov_access_control:
+    type: entity_reference_autocomplete
+    weight: 121
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   localgov_directory_address:
     type: address_default

@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.search_index
     - field.field.node.localgov_step_by_step_overview.body
+    - field.field.node.localgov_step_by_step_overview.localgov_access_control
     - field.field.node.localgov_step_by_step_overview.localgov_services_parent
     - field.field.node.localgov_step_by_step_overview.localgov_step_by_step_pages
     - field.field.node.localgov_step_by_step_overview.localgov_step_description
@@ -26,6 +27,11 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 0
+    region: content
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
     region: content
   localgov_services_parent:
     type: entity_reference_label
@@ -61,4 +67,5 @@ content:
 hidden:
   content_moderation_control: true
   links: true
+  localgov_access_control: true
   search_api_excerpt: true
