@@ -3,9 +3,13 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.localgov_newsroom.localgov_access_control
     - field.field.node.localgov_newsroom.localgov_newsroom_featured
     - node.type.localgov_newsroom
+    - workflows.workflow.localgov_editorial
   module:
+    - content_moderation
+    - localgov_review_date
     - path
   enforced:
     module:
@@ -22,6 +26,16 @@ content:
     weight: 3
     region: content
     settings: {  }
+    third_party_settings: {  }
+  localgov_access_control:
+    type: entity_reference_autocomplete
+    weight: 101
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   localgov_newsroom_featured:
     type: entity_reference_autocomplete

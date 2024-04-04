@@ -1,0 +1,21 @@
+uuid: 7ab78d68-c6c5-43ce-8427-56ef39c61076
+langcode: en
+status: true
+dependencies:
+  module:
+    - localgov_guides
+  theme:
+    - ecc_theme_gov
+id: ecc_theme_gov_guidesprevnextblock
+theme: ecc_theme_gov
+region: content_bottom
+weight: -11
+provider: null
+plugin: localgov_guides_prev_next_block
+settings:
+  id: localgov_guides_prev_next_block
+  label: 'Guides prev next block'
+  label_display: '0'
+  provider: localgov_guides
+  show_title: false
+visibility: {  }

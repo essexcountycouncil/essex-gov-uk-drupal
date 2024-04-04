@@ -105,3 +105,98 @@ body {
 */
   --spacing-jumbo: 3rem;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.color--red .navigation--main {
+  background-color: var(--color-accent);
+}
+.color--purple .navigation--main {
+  background-color: var(--color-success);
+}
+.color--theme_c .navigation--main {
+  background-color: green;
+}
+.color--theme_b .navigation--main {
+  background-color: yellow;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.subsite .menu--main {
+  display: flex;
+}
+.subsite .menu--main > .menu-item a {
+  display: inline-block;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,31 @@
+uuid: 30964307-0a1f-497b-ac5e-d0ad0a2bee14
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_classes
+    - system
+  theme:
+    - ecc_theme
+third_party_settings:
+  block_classes:
+    block_class: node__restricted-width-section
+id: ecc_theme_strictlynecessarycookies
+theme: ecc_theme
+region: content_top
+weight: -10
+provider: null
+plugin: 'block_content:f9b8c1ba-54d0-482e-adeb-69fb202e05ca'
+settings:
+  id: 'block_content:f9b8c1ba-54d0-482e-adeb-69fb202e05ca'
+  label: 'Strictly Necessary Cookies'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /cookies

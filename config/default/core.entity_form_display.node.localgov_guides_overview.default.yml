@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.localgov_guides_overview.body
     - field.field.node.localgov_guides_overview.field_content_owner
     - field.field.node.localgov_guides_overview.field_non_publishable_notes
+    - field.field.node.localgov_guides_overview.localgov_access_control
     - field.field.node.localgov_guides_overview.localgov_guides_description
     - field.field.node.localgov_guides_overview.localgov_guides_list_format
     - field.field.node.localgov_guides_overview.localgov_guides_pages
@@ -78,6 +79,16 @@ content:
     region: content
     settings:
       rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  localgov_access_control:
+    type: entity_reference_autocomplete
+    weight: 26
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
       placeholder: ''
     third_party_settings: {  }
   localgov_guides_description:

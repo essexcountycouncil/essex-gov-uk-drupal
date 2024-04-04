@@ -1,0 +1,20 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the module.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function ecc_devolved_editor_install() {
+  \Drupal::messenger()->addStatus(__FUNCTION__);
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function ecc_devolved_editor_uninstall() {
+  \Drupal::messenger()->addStatus(__FUNCTION__);
+}

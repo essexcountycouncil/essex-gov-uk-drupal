@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.localgov_services_landing.body
     - field.field.node.localgov_services_landing.field_content_owner
     - field.field.node.localgov_services_landing.field_non_publishable_notes
+    - field.field.node.localgov_services_landing.localgov_access_control
     - field.field.node.localgov_services_landing.localgov_address
     - field.field.node.localgov_services_landing.localgov_address_first_line
     - field.field.node.localgov_services_landing.localgov_common_tasks
@@ -20,17 +21,24 @@ dependencies:
   module:
     - content_moderation
     - field_group
+    - link
     - localgov_review_date
     - path
     - text
 third_party_settings:
   field_group:
     group_description:
-      children: {  }
+      children:
+        - localgov_services_parent
+        - title
+        - body
+        - localgov_destinations
+        - field_non_publishable_notes
+        - group_content_ownership
       label: Description
-      region: hidden
-      parent_name: ''
-      weight: 22
+      region: content
+      parent_name: group_tabs
+      weight: 1
       format_type: tab
       format_settings:
         classes: ''
@@ -41,13 +49,14 @@ third_party_settings:
     group_common_tasks:
       children:
         - localgov_common_tasks
-      label: 'Common tasks'
-      region: hidden
-      parent_name: ''
-      weight: 21
+      label: 'Top tasks'
+      region: content
+      parent_name: group_tabs
+      weight: 2
       format_type: tab
       format_settings:
         classes: ''
+        show_empty_fields: false
         id: ''
         formatter: closed
         description: ''
@@ -57,7 +66,7 @@ third_party_settings:
       label: 'Child pages'
       region: hidden
       parent_name: ''
-      weight: 17
+      weight: 20
       format_type: tab
       format_settings:
         classes: ''
@@ -67,11 +76,12 @@ third_party_settings:
         required_fields: true
     group_tabs:
       children:
-        - group_content_ownership
+        - group_description
+        - group_common_tasks
       label: tabs
-      region: hidden
+      region: content
       parent_name: ''
-      weight: 16
+      weight: 0
       format_type: tabs
       format_settings:
         classes: ''
@@ -84,7 +94,7 @@ third_party_settings:
       label: 'Social media'
       region: hidden
       parent_name: ''
-      weight: 19
+      weight: 22
       format_type: tab
       format_settings:
         classes: ''
@@ -98,7 +108,7 @@ third_party_settings:
       label: 'Popular topics'
       region: hidden
       parent_name: ''
-      weight: 18
+      weight: 21
       format_type: tab
       format_settings:
         classes: ''
@@ -114,7 +124,7 @@ third_party_settings:
       label: Location
       region: hidden
       parent_name: ''
-      weight: 20
+      weight: 23
       format_type: tab
       format_settings:
         classes: ''
@@ -126,8 +136,8 @@ third_party_settings:
       children: {  }
       label: 'Content Ownership'
       region: hidden
-      parent_name: group_tabs
-      weight: 8
+      parent_name: group_description
+      weight: 3
       format_type: tab
       format_settings:
         classes: ''
@@ -145,7 +155,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 4
+    weight: 6
     region: content
     settings:
       rows: 9
@@ -155,21 +165,39 @@ content:
     third_party_settings: {  }
   created:
     type: datetime_timestamp
-    weight: 9
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }
   field_non_publishable_notes:
     type: text_textarea
-    weight: 6
+    weight: 8
     region: content
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
+  localgov_access_control:
+    type: entity_reference_autocomplete
+    weight: 18
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  localgov_common_tasks:
+    type: link_default
+    weight: 0
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
   localgov_destinations:
     type: entity_reference_autocomplete
-    weight: 5
+    weight: 7
     region: content
     settings:
       match_operator: CONTAINS
@@ -179,18 +207,18 @@ content:
     third_party_settings: {  }
   localgov_review_date:
     type: review_date
-    weight: 1
+    weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }
   localgov_services_navigation_children:
-    weight: 0
+    weight: 2
     region: content
     settings: {  }
     third_party_settings: {  }
   localgov_services_parent:
     type: entity_reference_autocomplete
-    weight: 2
+    weight: 4
     region: content
     settings:
       match_operator: CONTAINS
@@ -200,45 +228,45 @@ content:
     third_party_settings: {  }
   moderation_state:
     type: moderation_state_default
-    weight: 7
+    weight: 9
     region: content
     settings: {  }
     third_party_settings: {  }
   path:
     type: path
-    weight: 12
+    weight: 15
     region: content
     settings: {  }
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
-    weight: 10
+    weight: 12
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   simple_sitemap:
-    weight: 10
+    weight: 13
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 14
+    weight: 17
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
-    weight: 11
+    weight: 14
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   title:
     type: string_textfield
-    weight: 3
+    weight: 5
     region: content
     settings:
       size: 60
@@ -246,7 +274,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 8
+    weight: 10
     region: content
     settings:
       match_operator: CONTAINS
@@ -255,7 +283,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   url_redirects:
-    weight: 13
+    weight: 16
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -264,7 +292,6 @@ hidden:
   field_content_owner: true
   localgov_address: true
   localgov_address_first_line: true
-  localgov_common_tasks: true
   localgov_facebook: true
   localgov_link_to_map: true
   localgov_popular_topics: true

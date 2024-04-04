@@ -1,0 +1,4 @@
+# Nomensa approvals for deployment support
+.gitlab-ci.yml  @essexcountycouncil/nomensa
+Dockerfile*     @essexcountycouncil/nomensa
+deploy.sh       @essexcountycouncil/nomensa

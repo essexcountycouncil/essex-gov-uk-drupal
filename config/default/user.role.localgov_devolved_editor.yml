@@ -1,0 +1,78 @@
+uuid: 285c4ee3-3d08-428a-90b4-1c8f66157337
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.localgov_directories_page
+    - node.type.localgov_directories_venue
+    - node.type.localgov_event
+    - node.type.localgov_guides_overview
+    - node.type.localgov_guides_page
+    - node.type.localgov_news_article
+    - node.type.localgov_newsroom
+    - node.type.localgov_services_landing
+    - node.type.localgov_services_page
+    - node.type.localgov_services_status
+    - node.type.localgov_services_sublanding
+    - node.type.localgov_step_by_step_overview
+    - node.type.localgov_step_by_step_page
+    - node.type.localgov_subsites_overview
+    - node.type.localgov_subsites_page
+    - workflows.workflow.localgov_alert_banners
+    - workflows.workflow.localgov_editorial
+  module:
+    - content_moderation
+    - media
+    - node
+    - system
+    - toolbar
+_core:
+  default_config_hash: rwlUC2eR655eEFydq8nHQZJB57N7jR1ZCga82z_lmhY
+id: localgov_devolved_editor
+label: 'Devolved Editor'
+weight: -2
+is_admin: null
+permissions:
+  - 'access administration pages'
+  - 'access content'
+  - 'access site in maintenance mode'
+  - 'access toolbar'
+  - 'access user profiles'
+  - 'create localgov_event content'
+  - 'create localgov_guides_overview content'
+  - 'create localgov_guides_page content'
+  - 'create localgov_news_article content'
+  - 'create localgov_services_page content'
+  - 'create localgov_step_by_step_page content'
+  - 'edit any localgov_directories_page content'
+  - 'edit any localgov_directories_venue content'
+  - 'edit any localgov_event content'
+  - 'edit any localgov_guides_overview content'
+  - 'edit any localgov_guides_page content'
+  - 'edit any localgov_news_article content'
+  - 'edit any localgov_newsroom content'
+  - 'edit any localgov_services_landing content'
+  - 'edit any localgov_services_page content'
+  - 'edit any localgov_services_status content'
+  - 'edit any localgov_services_sublanding content'
+  - 'edit any localgov_step_by_step_overview content'
+  - 'edit any localgov_step_by_step_page content'
+  - 'edit any localgov_subsites_overview content'
+  - 'edit any localgov_subsites_page content'
+  - 'edit own localgov_subsites_overview content'
+  - 'use localgov_alert_banners transition create_new_draft'
+  - 'use localgov_alert_banners transition publish'
+  - 'use localgov_alert_banners transition unpublish'
+  - 'use localgov_editorial transition approve'
+  - 'use localgov_editorial transition archive'
+  - 'use localgov_editorial transition archived_draft'
+  - 'use localgov_editorial transition archived_published'
+  - 'use localgov_editorial transition create_new_draft'
+  - 'use localgov_editorial transition publish'
+  - 'use localgov_editorial transition reject'
+  - 'use localgov_editorial transition submit_for_review'
+  - 'view any unpublished content'
+  - 'view latest version'
+  - 'view media'
+  - 'view own unpublished content'
+  - 'view the administration theme'

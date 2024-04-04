@@ -1,4 +1,4 @@
-# Prototype for essex.gov.uk Drupal project
+Drupal project for essex.gov.uk
 
 Built using the LocalGov Drupal distribution.
 
@@ -23,3 +23,6 @@ equivalent to what is used in production.
 Once again, DDEV has the details configured for NGINX for local development.
 - [See Drupal's web server requirements page](https://www.drupal.org/docs/system-requirements/web-server-requirements)
 - [NGINX with drupal](https://www.nginx.com/resources/wiki/start/topics/recipes/drupal/)
+
+## Contributing
+- [CONTRIBUTING.md](./CONTRIBUTING.md)
