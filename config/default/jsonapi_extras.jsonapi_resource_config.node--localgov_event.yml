@@ -1,0 +1,215 @@
+uuid: 3a1e199c-2e31-48fd-9265-e5468be9558d
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.localgov_event
+id: node--localgov_event
+disabled: false
+path: node/localgov_event
+resourceType: node--localgov_event
+resourceFields:
+  nid:
+    disabled: false
+    fieldName: nid
+    publicName: nid
+    enhancer:
+      id: ''
+  uuid:
+    disabled: false
+    fieldName: uuid
+    publicName: uuid
+    enhancer:
+      id: ''
+  vid:
+    disabled: false
+    fieldName: vid
+    publicName: vid
+    enhancer:
+      id: ''
+  langcode:
+    disabled: false
+    fieldName: langcode
+    publicName: langcode
+    enhancer:
+      id: ''
+  type:
+    disabled: false
+    fieldName: type
+    publicName: type
+    enhancer:
+      id: ''
+  revision_timestamp:
+    disabled: false
+    fieldName: revision_timestamp
+    publicName: revision_timestamp
+    enhancer:
+      id: ''
+  revision_uid:
+    disabled: false
+    fieldName: revision_uid
+    publicName: revision_uid
+    enhancer:
+      id: ''
+  revision_log:
+    disabled: false
+    fieldName: revision_log
+    publicName: revision_log
+    enhancer:
+      id: ''
+  status:
+    disabled: false
+    fieldName: status
+    publicName: status
+    enhancer:
+      id: ''
+  uid:
+    disabled: false
+    fieldName: uid
+    publicName: uid
+    enhancer:
+      id: ''
+  title:
+    disabled: false
+    fieldName: title
+    publicName: title
+    enhancer:
+      id: ''
+  created:
+    disabled: false
+    fieldName: created
+    publicName: created
+    enhancer:
+      id: ''
+  changed:
+    disabled: false
+    fieldName: changed
+    publicName: changed
+    enhancer:
+      id: ''
+  promote:
+    disabled: false
+    fieldName: promote
+    publicName: promote
+    enhancer:
+      id: ''
+  sticky:
+    disabled: false
+    fieldName: sticky
+    publicName: sticky
+    enhancer:
+      id: ''
+  default_langcode:
+    disabled: false
+    fieldName: default_langcode
+    publicName: default_langcode
+    enhancer:
+      id: ''
+  revision_default:
+    disabled: false
+    fieldName: revision_default
+    publicName: revision_default
+    enhancer:
+      id: ''
+  revision_translation_affected:
+    disabled: false
+    fieldName: revision_translation_affected
+    publicName: revision_translation_affected
+    enhancer:
+      id: ''
+  moderation_state:
+    disabled: false
+    fieldName: moderation_state
+    publicName: moderation_state
+    enhancer:
+      id: ''
+  metatag:
+    disabled: false
+    fieldName: metatag
+    publicName: metatag
+    enhancer:
+      id: ''
+  path:
+    disabled: false
+    fieldName: path
+    publicName: path
+    enhancer:
+      id: ''
+  menu_link:
+    disabled: false
+    fieldName: menu_link
+    publicName: menu_link
+    enhancer:
+      id: ''
+  body:
+    disabled: false
+    fieldName: body
+    publicName: body
+    enhancer:
+      id: ''
+  localgov_access_control:
+    disabled: false
+    fieldName: localgov_access_control
+    publicName: localgov_access_control
+    enhancer:
+      id: ''
+  localgov_event_call_to_action:
+    disabled: false
+    fieldName: localgov_event_call_to_action
+    publicName: localgov_event_call_to_action
+    enhancer:
+      id: ''
+  localgov_event_categories:
+    disabled: false
+    fieldName: localgov_event_categories
+    publicName: localgov_event_categories
+    enhancer:
+      id: ''
+  localgov_event_date:
+    disabled: false
+    fieldName: localgov_event_date
+    publicName: localgov_event_date
+    enhancer:
+      id: ''
+  localgov_event_image:
+    disabled: false
+    fieldName: localgov_event_image
+    publicName: localgov_event_image
+    enhancer:
+      id: ''
+  localgov_event_locality:
+    disabled: false
+    fieldName: localgov_event_locality
+    publicName: localgov_event_locality
+    enhancer:
+      id: ''
+  localgov_event_location:
+    disabled: false
+    fieldName: localgov_event_location
+    publicName: localgov_event_location
+    enhancer:
+      id: ''
+  localgov_event_price:
+    disabled: false
+    fieldName: localgov_event_price
+    publicName: localgov_event_price
+    enhancer:
+      id: ''
+  localgov_event_provider:
+    disabled: false
+    fieldName: localgov_event_provider
+    publicName: localgov_event_provider
+    enhancer:
+      id: ''
+  localgov_event_venue:
+    disabled: false
+    fieldName: localgov_event_venue
+    publicName: localgov_event_venue
+    enhancer:
+      id: ''
+  localgov_review_date:
+    disabled: true
+    fieldName: localgov_review_date
+    publicName: localgov_review_date
+    enhancer:
+      id: ''
