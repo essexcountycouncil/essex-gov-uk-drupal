@@ -1,0 +1,191 @@
+uuid: 773746cb-811d-4c4b-a9f0-89277410e0ac
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.localgov_guides_page
+id: node--localgov_guides_page
+disabled: false
+path: node/localgov_guides_page
+resourceType: node--localgov_guides_page
+resourceFields:
+  nid:
+    disabled: false
+    fieldName: nid
+    publicName: nid
+    enhancer:
+      id: ''
+  uuid:
+    disabled: false
+    fieldName: uuid
+    publicName: uuid
+    enhancer:
+      id: ''
+  vid:
+    disabled: false
+    fieldName: vid
+    publicName: vid
+    enhancer:
+      id: ''
+  langcode:
+    disabled: false
+    fieldName: langcode
+    publicName: langcode
+    enhancer:
+      id: ''
+  type:
+    disabled: false
+    fieldName: type
+    publicName: type
+    enhancer:
+      id: ''
+  revision_timestamp:
+    disabled: false
+    fieldName: revision_timestamp
+    publicName: revision_timestamp
+    enhancer:
+      id: ''
+  revision_uid:
+    disabled: false
+    fieldName: revision_uid
+    publicName: revision_uid
+    enhancer:
+      id: ''
+  revision_log:
+    disabled: false
+    fieldName: revision_log
+    publicName: revision_log
+    enhancer:
+      id: ''
+  status:
+    disabled: false
+    fieldName: status
+    publicName: status
+    enhancer:
+      id: ''
+  uid:
+    disabled: false
+    fieldName: uid
+    publicName: uid
+    enhancer:
+      id: ''
+  title:
+    disabled: false
+    fieldName: title
+    publicName: title
+    enhancer:
+      id: ''
+  created:
+    disabled: false
+    fieldName: created
+    publicName: created
+    enhancer:
+      id: ''
+  changed:
+    disabled: false
+    fieldName: changed
+    publicName: changed
+    enhancer:
+      id: ''
+  promote:
+    disabled: false
+    fieldName: promote
+    publicName: promote
+    enhancer:
+      id: ''
+  sticky:
+    disabled: false
+    fieldName: sticky
+    publicName: sticky
+    enhancer:
+      id: ''
+  default_langcode:
+    disabled: false
+    fieldName: default_langcode
+    publicName: default_langcode
+    enhancer:
+      id: ''
+  revision_default:
+    disabled: false
+    fieldName: revision_default
+    publicName: revision_default
+    enhancer:
+      id: ''
+  revision_translation_affected:
+    disabled: false
+    fieldName: revision_translation_affected
+    publicName: revision_translation_affected
+    enhancer:
+      id: ''
+  moderation_state:
+    disabled: false
+    fieldName: moderation_state
+    publicName: moderation_state
+    enhancer:
+      id: ''
+  metatag:
+    disabled: false
+    fieldName: metatag
+    publicName: metatag
+    enhancer:
+      id: ''
+  path:
+    disabled: false
+    fieldName: path
+    publicName: path
+    enhancer:
+      id: ''
+  menu_link:
+    disabled: false
+    fieldName: menu_link
+    publicName: menu_link
+    enhancer:
+      id: ''
+  body:
+    disabled: false
+    fieldName: body
+    publicName: body
+    enhancer:
+      id: ''
+  field_content_owner:
+    disabled: false
+    fieldName: field_content_owner
+    publicName: field_content_owner
+    enhancer:
+      id: ''
+  field_non_publishable_notes:
+    disabled: false
+    fieldName: field_non_publishable_notes
+    publicName: field_non_publishable_notes
+    enhancer:
+      id: ''
+  localgov_access_control:
+    disabled: false
+    fieldName: localgov_access_control
+    publicName: localgov_access_control
+    enhancer:
+      id: ''
+  localgov_guides_parent:
+    disabled: false
+    fieldName: localgov_guides_parent
+    publicName: localgov_guides_parent
+    enhancer:
+      id: ''
+  localgov_guides_section_title:
+    disabled: false
+    fieldName: localgov_guides_section_title
+    publicName: localgov_guides_section_title
+    enhancer:
+      id: ''
+  localgov_page_components:
+    disabled: false
+    fieldName: localgov_page_components
+    publicName: localgov_page_components
+    enhancer:
+      id: ''
+  localgov_review_date:
+    disabled: true
+    fieldName: localgov_review_date
+    publicName: localgov_review_date
+    enhancer:
+      id: ''
