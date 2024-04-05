@@ -1,0 +1,18 @@
+uuid: ddcd0c0d-c73c-4815-bc04-4a8794da3d44
+langcode: en
+status: true
+dependencies: {  }
+id: service_page
+label: 'Service page'
+channel_entity_type: node
+channel_bundle: localgov_services_page
+channel_langcode: und
+channel_filters: null
+channel_groups: null
+channel_sorts: {  }
+channel_searches: null
+channel_maxsize: 50
+access_by_permission: false
+authorized_roles: {  }
+authorized_users:
+  f295b6a8-b35f-48d2-87c7-45d5dc4f392f: f295b6a8-b35f-48d2-87c7-45d5dc4f392f

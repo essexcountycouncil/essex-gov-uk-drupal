@@ -49,7 +49,7 @@ module:
   entity_reference_facet_link: 0
   entity_reference_revisions: 0
   entity_share: 0
-  entity_share_client: 0
+  entity_share_server: 0
   entity_usage: 0
   facets: 0
   fathom_analytics: 0

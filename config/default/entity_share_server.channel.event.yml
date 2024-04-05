@@ -1,0 +1,18 @@
+uuid: b2ab2ea7-6d1a-49c4-8725-353b057c2f14
+langcode: en
+status: true
+dependencies: {  }
+id: event
+label: Event
+channel_entity_type: node
+channel_bundle: localgov_event
+channel_langcode: und
+channel_filters: null
+channel_groups: null
+channel_sorts: {  }
+channel_searches: null
+channel_maxsize: 50
+access_by_permission: false
+authorized_roles: {  }
+authorized_users:
+  f295b6a8-b35f-48d2-87c7-45d5dc4f392f: f295b6a8-b35f-48d2-87c7-45d5dc4f392f

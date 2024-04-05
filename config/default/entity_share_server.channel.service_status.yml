@@ -1,0 +1,18 @@
+uuid: 86a2f78c-3c68-4620-89f0-7441955b7f0b
+langcode: en
+status: true
+dependencies: {  }
+id: service_status
+label: 'Service status'
+channel_entity_type: node
+channel_bundle: localgov_services_status
+channel_langcode: und
+channel_filters: null
+channel_groups: null
+channel_sorts: {  }
+channel_searches: null
+channel_maxsize: 50
+access_by_permission: false
+authorized_roles: {  }
+authorized_users:
+  f295b6a8-b35f-48d2-87c7-45d5dc4f392f: f295b6a8-b35f-48d2-87c7-45d5dc4f392f

@@ -1,0 +1,18 @@
+uuid: 27193a1d-bdcc-421c-9063-6d28936157cc
+langcode: en
+status: true
+dependencies: {  }
+id: media_document
+label: 'Media - document'
+channel_entity_type: media
+channel_bundle: document
+channel_langcode: und
+channel_filters: null
+channel_groups: null
+channel_sorts: {  }
+channel_searches: null
+channel_maxsize: 50
+access_by_permission: false
+authorized_roles: {  }
+authorized_users:
+  f295b6a8-b35f-48d2-87c7-45d5dc4f392f: f295b6a8-b35f-48d2-87c7-45d5dc4f392f

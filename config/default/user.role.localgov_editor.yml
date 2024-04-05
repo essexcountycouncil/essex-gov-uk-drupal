@@ -36,6 +36,8 @@ dependencies:
     - content_ownership
     - entity_browser
     - entity_hierarchy
+    - entity_share
+    - entity_share_server
     - entity_usage
     - file
     - geo_entity
@@ -203,6 +205,8 @@ permissions:
   - 'edit terms in localgov_event_locality'
   - 'edit terms in localgov_event_price'
   - 'edit terms in localgov_topic'
+  - entity_share_access_config_pages
+  - entity_share_server_access_channels
   - 'generate preview links'
   - 'manage localgov alert banner localgov_alert_banner entities'
   - 'reorder entity_hierarchy children'
