@@ -1454,6 +1454,9 @@ display:
     display_plugin: page
     position: 1
     display_options:
+      title: 'Fostering events'
+      defaults:
+        title: false
       exposed_block: true
       display_extenders: {  }
       path: events
