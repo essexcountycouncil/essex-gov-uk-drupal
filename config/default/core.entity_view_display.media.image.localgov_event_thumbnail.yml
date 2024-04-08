@@ -5,9 +5,10 @@ dependencies:
   config:
     - core.entity_view_mode.media.localgov_event_thumbnail
     - field.field.media.image.field_media_image
-    - image.style.square_small
+    - image.style.medium_3_2_600x400
     - media.type.image
   module:
+    - field_formatter_class
     - image
 _core:
   default_config_hash: lCfFrqbeP-s9VRXJNadPdwsBSxYB-nUQXx59HPiFL9Y
@@ -17,14 +18,16 @@ bundle: image
 mode: localgov_event_thumbnail
 content:
   field_media_image:
+    type: image
     label: hidden
     settings:
-      image_style: square_small
       image_link: ''
+      image_style: medium_3_2_600x400
       image_loading:
         attribute: lazy
-    third_party_settings: {  }
-    type: image
+    third_party_settings:
+      field_formatter_class:
+        class: ''
     weight: 1
     region: content
 hidden:
