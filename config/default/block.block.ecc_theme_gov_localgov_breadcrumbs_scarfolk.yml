@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   module:
+    - block_classes
     - node
     - system
   theme:
@@ -17,7 +18,7 @@ provider: null
 plugin: system_breadcrumb_block
 settings:
   id: system_breadcrumb_block
-  label: Breadcrumbs
+  label: 'Breadcrumbs - for node pages'
   label_display: '0'
   provider: system
 visibility:

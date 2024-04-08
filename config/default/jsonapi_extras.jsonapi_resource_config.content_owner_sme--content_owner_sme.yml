@@ -1,0 +1,59 @@
+uuid: 432ff3b0-6966-4762-bf85-77936e05c8b8
+langcode: en
+status: true
+dependencies:
+  module:
+    - content_ownership
+id: content_owner_sme--content_owner_sme
+disabled: true
+path: content_owner_sme/content_owner_sme
+resourceType: content_owner_sme--content_owner_sme
+resourceFields:
+  id:
+    disabled: false
+    fieldName: id
+    publicName: id
+    enhancer:
+      id: ''
+  uuid:
+    disabled: false
+    fieldName: uuid
+    publicName: uuid
+    enhancer:
+      id: ''
+  langcode:
+    disabled: false
+    fieldName: langcode
+    publicName: langcode
+    enhancer:
+      id: ''
+  name:
+    disabled: false
+    fieldName: name
+    publicName: name
+    enhancer:
+      id: ''
+  email:
+    disabled: false
+    fieldName: email
+    publicName: email
+    enhancer:
+      id: ''
+  role:
+    disabled: false
+    fieldName: role
+    publicName: role
+    enhancer:
+      id: ''
+  notes:
+    disabled: false
+    fieldName: notes
+    publicName: notes
+    enhancer:
+      id: ''
+  metatag:
+    disabled: false
+    fieldName: metatag
+    publicName: metatag
+    enhancer:
+      id: ''

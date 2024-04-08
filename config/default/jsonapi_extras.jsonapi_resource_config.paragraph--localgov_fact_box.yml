@@ -1,0 +1,119 @@
+uuid: 7a1ff998-4c98-4843-83d8-d4501ba1a0cc
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.localgov_fact_box
+id: paragraph--localgov_fact_box
+disabled: false
+path: paragraph/localgov_fact_box
+resourceType: paragraph--localgov_fact_box
+resourceFields:
+  id:
+    disabled: false
+    fieldName: id
+    publicName: id
+    enhancer:
+      id: ''
+  uuid:
+    disabled: false
+    fieldName: uuid
+    publicName: uuid
+    enhancer:
+      id: ''
+  revision_id:
+    disabled: false
+    fieldName: revision_id
+    publicName: revision_id
+    enhancer:
+      id: ''
+  langcode:
+    disabled: false
+    fieldName: langcode
+    publicName: langcode
+    enhancer:
+      id: ''
+  type:
+    disabled: false
+    fieldName: type
+    publicName: type
+    enhancer:
+      id: ''
+  status:
+    disabled: false
+    fieldName: status
+    publicName: status
+    enhancer:
+      id: ''
+  created:
+    disabled: false
+    fieldName: created
+    publicName: created
+    enhancer:
+      id: ''
+  parent_id:
+    disabled: false
+    fieldName: parent_id
+    publicName: parent_id
+    enhancer:
+      id: ''
+  parent_type:
+    disabled: false
+    fieldName: parent_type
+    publicName: parent_type
+    enhancer:
+      id: ''
+  parent_field_name:
+    disabled: false
+    fieldName: parent_field_name
+    publicName: parent_field_name
+    enhancer:
+      id: ''
+  behavior_settings:
+    disabled: false
+    fieldName: behavior_settings
+    publicName: behavior_settings
+    enhancer:
+      id: entity_share_serialized_data
+  default_langcode:
+    disabled: false
+    fieldName: default_langcode
+    publicName: default_langcode
+    enhancer:
+      id: ''
+  revision_default:
+    disabled: false
+    fieldName: revision_default
+    publicName: revision_default
+    enhancer:
+      id: ''
+  revision_translation_affected:
+    disabled: false
+    fieldName: revision_translation_affected
+    publicName: revision_translation_affected
+    enhancer:
+      id: ''
+  localgov_above_text:
+    disabled: false
+    fieldName: localgov_above_text
+    publicName: localgov_above_text
+    enhancer:
+      id: ''
+  localgov_background:
+    disabled: false
+    fieldName: localgov_background
+    publicName: localgov_background
+    enhancer:
+      id: ''
+  localgov_below_text:
+    disabled: false
+    fieldName: localgov_below_text
+    publicName: localgov_below_text
+    enhancer:
+      id: ''
+  localgov_fact:
+    disabled: false
+    fieldName: localgov_fact
+    publicName: localgov_fact
+    enhancer:
+      id: ''
