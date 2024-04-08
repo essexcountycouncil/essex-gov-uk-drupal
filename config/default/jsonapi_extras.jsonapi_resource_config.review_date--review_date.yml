@@ -1,0 +1,65 @@
+uuid: d57ce6fd-13ca-4d86-84da-adb3690867ef
+langcode: en
+status: true
+dependencies:
+  module:
+    - localgov_review_date
+id: review_date--review_date
+disabled: true
+path: review_date/review_date
+resourceType: review_date--review_date
+resourceFields:
+  id:
+    disabled: false
+    fieldName: id
+    publicName: id
+    enhancer:
+      id: ''
+  uuid:
+    disabled: false
+    fieldName: uuid
+    publicName: uuid
+    enhancer:
+      id: ''
+  langcode:
+    disabled: false
+    fieldName: langcode
+    publicName: langcode
+    enhancer:
+      id: ''
+  entity:
+    disabled: false
+    fieldName: entity
+    publicName: entity
+    enhancer:
+      id: ''
+  transition:
+    disabled: false
+    fieldName: transition
+    publicName: transition
+    enhancer:
+      id: ''
+  author:
+    disabled: false
+    fieldName: author
+    publicName: author
+    enhancer:
+      id: ''
+  created:
+    disabled: false
+    fieldName: created
+    publicName: created
+    enhancer:
+      id: ''
+  review:
+    disabled: false
+    fieldName: review
+    publicName: review
+    enhancer:
+      id: ''
+  active:
+    disabled: false
+    fieldName: active
+    publicName: active
+    enhancer:
+      id: ''
