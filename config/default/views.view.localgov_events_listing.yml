@@ -1450,7 +1450,7 @@ display:
     display_plugin: page
     position: 1
     display_options:
-      title: 'Fostering Events'
+      title: 'Fostering events'
       defaults:
         title: false
       exposed_block: true
