@@ -25,6 +25,10 @@ dependencies:
     - node.type.localgov_step_by_step_page
     - node.type.localgov_subsites_overview
     - node.type.localgov_subsites_page
+    - taxonomy.vocabulary.localgov_event_category
+    - taxonomy.vocabulary.localgov_event_locality
+    - taxonomy.vocabulary.localgov_event_price
+    - taxonomy.vocabulary.localgov_topic
     - workflows.workflow.localgov_alert_banners
     - workflows.workflow.localgov_editorial
   module:
@@ -48,6 +52,7 @@ dependencies:
     - responsive_preview
     - scheduled_transitions
     - system
+    - taxonomy
     - toolbar
     - webform
   enforced:
@@ -60,6 +65,7 @@ label: Editor
 weight: -4
 is_admin: null
 permissions:
+  - 'access administration pages'
   - 'access content overview'
   - 'access entity usage statistics'
   - 'access geo overview'
@@ -69,6 +75,7 @@ permissions:
   - 'access page_components entity browser pages'
   - 'access paragraphs_library_items entity browser pages'
   - 'access responsive preview'
+  - 'access taxonomy overview'
   - 'access toolbar'
   - 'access webform overview'
   - 'add content owner/sme entity'
@@ -95,6 +102,7 @@ permissions:
   - 'administer menu'
   - 'administer paragraphs library'
   - 'administer redirects'
+  - 'administer taxonomy'
   - 'create directory facets'
   - 'create document media'
   - 'create geo'
@@ -114,6 +122,10 @@ permissions:
   - 'create media'
   - 'create paragraph library item'
   - 'create remote_video media'
+  - 'create terms in localgov_event_category'
+  - 'create terms in localgov_event_locality'
+  - 'create terms in localgov_event_price'
+  - 'create terms in localgov_topic'
   - 'create url aliases'
   - 'create webform'
   - 'delete any localgov_event content'
@@ -135,6 +147,10 @@ permissions:
   - 'delete own localgov_event content'
   - 'delete own localgov_subsites_overview content'
   - 'delete own localgov_subsites_page content'
+  - 'delete terms in localgov_event_category'
+  - 'delete terms in localgov_event_locality'
+  - 'delete terms in localgov_event_price'
+  - 'delete terms in localgov_topic'
   - 'edit any document media'
   - 'edit any image media'
   - 'edit any localgov_directories_org content'
@@ -183,6 +199,10 @@ permissions:
   - 'edit own remote_video media'
   - 'edit own webform'
   - 'edit paragraph library item'
+  - 'edit terms in localgov_event_category'
+  - 'edit terms in localgov_event_locality'
+  - 'edit terms in localgov_event_price'
+  - 'edit terms in localgov_topic'
   - 'generate preview links'
   - 'manage localgov alert banner localgov_alert_banner entities'
   - 'reorder entity_hierarchy children'

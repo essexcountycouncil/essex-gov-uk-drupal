@@ -1,0 +1,185 @@
+uuid: e00819ec-5c76-4c5f-ae7d-4cd591b9b746
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.localgov_contact
+id: paragraph--localgov_contact
+disabled: false
+path: paragraph/localgov_contact
+resourceType: paragraph--localgov_contact
+resourceFields:
+  id:
+    disabled: false
+    fieldName: id
+    publicName: id
+    enhancer:
+      id: ''
+  uuid:
+    disabled: false
+    fieldName: uuid
+    publicName: uuid
+    enhancer:
+      id: ''
+  revision_id:
+    disabled: false
+    fieldName: revision_id
+    publicName: revision_id
+    enhancer:
+      id: ''
+  langcode:
+    disabled: false
+    fieldName: langcode
+    publicName: langcode
+    enhancer:
+      id: ''
+  type:
+    disabled: false
+    fieldName: type
+    publicName: type
+    enhancer:
+      id: ''
+  status:
+    disabled: false
+    fieldName: status
+    publicName: status
+    enhancer:
+      id: ''
+  created:
+    disabled: false
+    fieldName: created
+    publicName: created
+    enhancer:
+      id: ''
+  parent_id:
+    disabled: false
+    fieldName: parent_id
+    publicName: parent_id
+    enhancer:
+      id: ''
+  parent_type:
+    disabled: false
+    fieldName: parent_type
+    publicName: parent_type
+    enhancer:
+      id: ''
+  parent_field_name:
+    disabled: false
+    fieldName: parent_field_name
+    publicName: parent_field_name
+    enhancer:
+      id: ''
+  behavior_settings:
+    disabled: false
+    fieldName: behavior_settings
+    publicName: behavior_settings
+    enhancer:
+      id: entity_share_serialized_data
+  default_langcode:
+    disabled: false
+    fieldName: default_langcode
+    publicName: default_langcode
+    enhancer:
+      id: ''
+  revision_default:
+    disabled: false
+    fieldName: revision_default
+    publicName: revision_default
+    enhancer:
+      id: ''
+  revision_translation_affected:
+    disabled: false
+    fieldName: revision_translation_affected
+    publicName: revision_translation_affected
+    enhancer:
+      id: ''
+  field_localgov_contact_textphone:
+    disabled: false
+    fieldName: field_localgov_contact_textphone
+    publicName: field_localgov_contact_textphone
+    enhancer:
+      id: ''
+  localgov_contact_address:
+    disabled: false
+    fieldName: localgov_contact_address
+    publicName: localgov_contact_address
+    enhancer:
+      id: ''
+  localgov_contact_email:
+    disabled: false
+    fieldName: localgov_contact_email
+    publicName: localgov_contact_email
+    enhancer:
+      id: ''
+  localgov_contact_facebook:
+    disabled: false
+    fieldName: localgov_contact_facebook
+    publicName: localgov_contact_facebook
+    enhancer:
+      id: ''
+  localgov_contact_heading:
+    disabled: false
+    fieldName: localgov_contact_heading
+    publicName: localgov_contact_heading
+    enhancer:
+      id: ''
+  localgov_contact_instagram:
+    disabled: false
+    fieldName: localgov_contact_instagram
+    publicName: localgov_contact_instagram
+    enhancer:
+      id: ''
+  localgov_contact_mobile:
+    disabled: false
+    fieldName: localgov_contact_mobile
+    publicName: localgov_contact_mobile
+    enhancer:
+      id: ''
+  localgov_contact_office_hours:
+    disabled: false
+    fieldName: localgov_contact_office_hours
+    publicName: localgov_contact_office_hours
+    enhancer:
+      id: ''
+  localgov_contact_other_social:
+    disabled: false
+    fieldName: localgov_contact_other_social
+    publicName: localgov_contact_other_social
+    enhancer:
+      id: ''
+  localgov_contact_other_url:
+    disabled: false
+    fieldName: localgov_contact_other_url
+    publicName: localgov_contact_other_url
+    enhancer:
+      id: ''
+  localgov_contact_out_of_hours:
+    disabled: false
+    fieldName: localgov_contact_out_of_hours
+    publicName: localgov_contact_out_of_hours
+    enhancer:
+      id: ''
+  localgov_contact_phone:
+    disabled: false
+    fieldName: localgov_contact_phone
+    publicName: localgov_contact_phone
+    enhancer:
+      id: ''
+  localgov_contact_subheading:
+    disabled: false
+    fieldName: localgov_contact_subheading
+    publicName: localgov_contact_subheading
+    enhancer:
+      id: ''
+  localgov_contact_twitter:
+    disabled: false
+    fieldName: localgov_contact_twitter
+    publicName: localgov_contact_twitter
+    enhancer:
+      id: ''
+  localgov_contact_url:
+    disabled: false
+    fieldName: localgov_contact_url
+    publicName: localgov_contact_url
+    enhancer:
+      id: ''

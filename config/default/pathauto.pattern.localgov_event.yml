@@ -9,12 +9,12 @@ _core:
 id: localgov_event
 label: Event
 type: 'canonical_entities:node'
-pattern: 'events/[node:title]'
+pattern: 'children-young-people-and-families/fostering/events/[node:title]'
 selection_criteria:
-  29d4ed96-d72f-468e-9e44-f3c38f79cbcf:
+  1f812977-85ac-4c66-9e52-2973d3947b16:
     id: 'entity_bundle:node'
     negate: false
-    uuid: 29d4ed96-d72f-468e-9e44-f3c38f79cbcf
+    uuid: 1f812977-85ac-4c66-9e52-2973d3947b16
     context_mapping:
       node: node
     bundles:

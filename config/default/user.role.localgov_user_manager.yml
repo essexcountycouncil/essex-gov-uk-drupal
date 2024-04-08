@@ -2,12 +2,16 @@ uuid: 8e73c6a8-b494-4d29-8bc8-4c15aa65b6d1
 langcode: en
 status: true
 dependencies:
+  config:
+    - taxonomy.vocabulary.content_access_by_path
   module:
     - cludo_search
+    - content_access_by_path
     - file
     - role_delegation
     - search_api
     - system
+    - taxonomy
     - toolbar
     - webform
   enforced:
@@ -20,6 +24,9 @@ label: 'User manager'
 weight: -3
 is_admin: null
 permissions:
+  - 'Administer content access by path'
+  - 'access administration pages'
+  - 'access taxonomy overview'
   - 'access toolbar'
   - 'access user profiles'
   - 'administer cludo search'
@@ -32,8 +39,11 @@ permissions:
   - 'assign localgov_editor role'
   - 'assign localgov_news_editor role'
   - 'assign localgov_user_manager role'
+  - 'create terms in content_access_by_path'
   - 'delete any webform submission'
   - 'delete own files'
+  - 'delete terms in content_access_by_path'
+  - 'edit terms in content_access_by_path'
   - 'view any webform submission'
   - 'view the administration theme'
   - 'view user email addresses'

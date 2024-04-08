@@ -1,0 +1,191 @@
+uuid: fc98bb10-b1ba-4dc4-b915-f3b30c6a8301
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.localgov_services_status
+id: node--localgov_services_status
+disabled: false
+path: node/localgov_services_status
+resourceType: node--localgov_services_status
+resourceFields:
+  nid:
+    disabled: false
+    fieldName: nid
+    publicName: nid
+    enhancer:
+      id: ''
+  uuid:
+    disabled: false
+    fieldName: uuid
+    publicName: uuid
+    enhancer:
+      id: ''
+  vid:
+    disabled: false
+    fieldName: vid
+    publicName: vid
+    enhancer:
+      id: ''
+  langcode:
+    disabled: false
+    fieldName: langcode
+    publicName: langcode
+    enhancer:
+      id: ''
+  type:
+    disabled: false
+    fieldName: type
+    publicName: type
+    enhancer:
+      id: ''
+  revision_timestamp:
+    disabled: false
+    fieldName: revision_timestamp
+    publicName: revision_timestamp
+    enhancer:
+      id: ''
+  revision_uid:
+    disabled: false
+    fieldName: revision_uid
+    publicName: revision_uid
+    enhancer:
+      id: ''
+  revision_log:
+    disabled: false
+    fieldName: revision_log
+    publicName: revision_log
+    enhancer:
+      id: ''
+  status:
+    disabled: false
+    fieldName: status
+    publicName: status
+    enhancer:
+      id: ''
+  uid:
+    disabled: false
+    fieldName: uid
+    publicName: uid
+    enhancer:
+      id: ''
+  title:
+    disabled: false
+    fieldName: title
+    publicName: title
+    enhancer:
+      id: ''
+  created:
+    disabled: false
+    fieldName: created
+    publicName: created
+    enhancer:
+      id: ''
+  changed:
+    disabled: false
+    fieldName: changed
+    publicName: changed
+    enhancer:
+      id: ''
+  promote:
+    disabled: false
+    fieldName: promote
+    publicName: promote
+    enhancer:
+      id: ''
+  sticky:
+    disabled: false
+    fieldName: sticky
+    publicName: sticky
+    enhancer:
+      id: ''
+  default_langcode:
+    disabled: false
+    fieldName: default_langcode
+    publicName: default_langcode
+    enhancer:
+      id: ''
+  revision_default:
+    disabled: false
+    fieldName: revision_default
+    publicName: revision_default
+    enhancer:
+      id: ''
+  revision_translation_affected:
+    disabled: false
+    fieldName: revision_translation_affected
+    publicName: revision_translation_affected
+    enhancer:
+      id: ''
+  moderation_state:
+    disabled: false
+    fieldName: moderation_state
+    publicName: moderation_state
+    enhancer:
+      id: ''
+  metatag:
+    disabled: false
+    fieldName: metatag
+    publicName: metatag
+    enhancer:
+      id: ''
+  path:
+    disabled: false
+    fieldName: path
+    publicName: path
+    enhancer:
+      id: ''
+  menu_link:
+    disabled: false
+    fieldName: menu_link
+    publicName: menu_link
+    enhancer:
+      id: ''
+  body:
+    disabled: false
+    fieldName: body
+    publicName: body
+    enhancer:
+      id: ''
+  localgov_access_control:
+    disabled: false
+    fieldName: localgov_access_control
+    publicName: localgov_access_control
+    enhancer:
+      id: ''
+  localgov_services_parent:
+    disabled: false
+    fieldName: localgov_services_parent
+    publicName: localgov_services_parent
+    enhancer:
+      id: ''
+  localgov_service_status:
+    disabled: false
+    fieldName: localgov_service_status
+    publicName: localgov_service_status
+    enhancer:
+      id: ''
+  localgov_service_status_on_landi:
+    disabled: false
+    fieldName: localgov_service_status_on_landi
+    publicName: localgov_service_status_on_landi
+    enhancer:
+      id: ''
+  localgov_service_status_on_list:
+    disabled: false
+    fieldName: localgov_service_status_on_list
+    publicName: localgov_service_status_on_list
+    enhancer:
+      id: ''
+  localgov_service_status_visibile:
+    disabled: false
+    fieldName: localgov_service_status_visibile
+    publicName: localgov_service_status_visibile
+    enhancer:
+      id: ''
+  localgov_review_date:
+    disabled: true
+    fieldName: localgov_review_date
+    publicName: localgov_review_date
+    enhancer:
+      id: ''
