@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.node.teaser
     - field.storage.node.body
     - field.storage.node.localgov_event_image
     - node.type.localgov_event
@@ -1351,15 +1352,15 @@ display:
           expose:
             operator_limit_selection: false
             operator_list: {  }
-        localgov_event_date_value:
-          id: localgov_event_date_value
-          table: node__localgov_event_date
-          field: localgov_event_date_value
-          relationship: none
+        localgov_event_date_end_value:
+          id: localgov_event_date_end_value
+          table: date_recur__node__localgov_event_date
+          field: localgov_event_date_end_value
+          relationship: localgov_event_date_occurrences
           group_type: group
           admin_label: ''
           plugin_id: datetime
-          operator: '>'
+          operator: '>='
           value:
             min: ''
             max: ''
@@ -1401,25 +1402,19 @@ display:
         groups:
           1: AND
       style:
-        type: grid
+        type: default
         options:
-          grouping: {  }
-          columns: 3
-          automatic_width: false
-          alignment: horizontal
-          row_class_custom: ''
-          row_class_default: true
-          col_class_custom: ''
-          col_class_default: true
+          row_class: ''
+          default_row_class: true
+          uses_fields: false
       row:
-        type: fields
+        type: 'entity:node'
         options:
-          default_field_elements: false
-          inline: {  }
-          separator: ''
-          hide_empty: false
+          relationship: none
+          view_mode: teaser
       defaults:
         title: false
+        css_class: false
         pager: false
         use_more: false
         use_more_always: false
@@ -1431,6 +1426,7 @@ display:
         fields: false
         filters: false
         filter_groups: false
+      css_class: 'view--grid view--grid-thirds view--grid-gap-large'
       display_description: ''
       use_more: true
       use_more_always: true
