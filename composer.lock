@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "185d4c9b4055b736c5ecbc01aba0b35a",
+    "content-hash": "8528483fa82ac33beed697e1983ce6e8",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -11197,22 +11197,21 @@
         },
         {
             "name": "localgovdrupal/localgov_eu_cookie_compliance",
-            "version": "1.x-dev",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/localgovdrupal/localgov_eu_cookie_compliance.git",
-                "reference": "24bba7b48a1b9c9c0136a20f7e007c27a3d57920"
+                "reference": "e9cbcc2ea054db00cc8cc7949d570072cd295fbb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/localgovdrupal/localgov_eu_cookie_compliance/zipball/24bba7b48a1b9c9c0136a20f7e007c27a3d57920",
-                "reference": "24bba7b48a1b9c9c0136a20f7e007c27a3d57920",
+                "url": "https://api.github.com/repos/localgovdrupal/localgov_eu_cookie_compliance/zipball/e9cbcc2ea054db00cc8cc7949d570072cd295fbb",
+                "reference": "e9cbcc2ea054db00cc8cc7949d570072cd295fbb",
                 "shasum": ""
             },
             "require": {
                 "drupal/eu_cookie_compliance": "^1.24.0"
             },
-            "default-branch": true,
             "type": "drupal-module",
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -11222,9 +11221,9 @@
             "homepage": "https://github.com/localgovdrupal/localgov_eu_cookie_compliance",
             "support": {
                 "issues": "https://github.com/localgovdrupal/localgov_eu_cookie_compliance/issues",
-                "source": "https://github.com/localgovdrupal/localgov_eu_cookie_compliance/tree/1.x"
+                "source": "https://github.com/localgovdrupal/localgov_eu_cookie_compliance/tree/1.0.0"
             },
-            "time": "2023-05-15T13:24:43+00:00"
+            "time": "2024-03-12T12:51:10+00:00"
         },
         {
             "name": "localgovdrupal/localgov_events",
@@ -22502,7 +22501,6 @@
         "drupal/gin": 5,
         "drupal/preview_link": 15,
         "drupal/ultimate_cron": 15,
-        "localgovdrupal/localgov_eu_cookie_compliance": 20,
         "localgovdrupal/localgov_forms": 10,
         "roave/security-advisories": 20
     },
