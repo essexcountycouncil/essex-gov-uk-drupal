@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.teaser
+    - core.entity_view_mode.node.card
     - field.storage.node.body
     - field.storage.node.localgov_event_image
     - node.type.localgov_event
@@ -1411,7 +1411,7 @@ display:
         type: 'entity:node'
         options:
           relationship: none
-          view_mode: teaser
+          view_mode: card
       defaults:
         title: false
         css_class: false

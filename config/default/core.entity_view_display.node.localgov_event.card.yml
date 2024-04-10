@@ -1,10 +1,11 @@
-uuid: 945fd7e0-c191-459a-bc46-f854fdf64ed8
+uuid: 6a7b9d67-8059-4087-a88b-0d6a86c27f69
 langcode: en
 status: true
 dependencies:
   config:
     - core.date_format.localgov_event_date_full
     - core.date_format.localgov_event_date_hour
+    - core.entity_view_mode.node.card
     - field.field.node.localgov_event.body
     - field.field.node.localgov_event.localgov_access_control
     - field.field.node.localgov_event.localgov_event_call_to_action
@@ -16,42 +17,28 @@ dependencies:
     - field.field.node.localgov_event.localgov_event_price
     - field.field.node.localgov_event.localgov_event_provider
     - field.field.node.localgov_event.localgov_event_venue
+    - image.style.medium_3_2_600x400
     - node.type.localgov_event
   module:
     - date_recur
-    - link
+    - field_formatter_class
+    - media
     - text
     - user
 _core:
   default_config_hash: ZidxXfdXmkSCEcxtHbLaPne28S4d3CnKsB-tmG57yc0
-id: node.localgov_event.default
+id: node.localgov_event.card
 targetEntityType: node
 bundle: localgov_event
-mode: default
+mode: card
 content:
   body:
-    type: text_default
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    weight: 4
-    region: content
-  content_moderation_control:
-    settings: {  }
-    third_party_settings: {  }
-    weight: 0
-    region: content
-  localgov_event_call_to_action:
-    type: link
+    type: text_summary_or_trimmed
     label: hidden
     settings:
-      trim_length: null
-      url_only: false
-      url_plain: false
-      rel: '0'
-      target: '0'
+      trim_length: 600
     third_party_settings: {  }
-    weight: 3
+    weight: 2
     region: content
   localgov_event_date:
     type: date_recur_basic_formatter
@@ -60,52 +47,38 @@ content:
       timezone_override: ''
       format_type: localgov_event_date_full
       separator: to
-      show_next: 10
+      show_next: 1
       count_per_item: false
       occurrence_format_type: localgov_event_date_full
       same_end_date_format_type: localgov_event_date_hour
       interpreter: ''
-    third_party_settings: {  }
-    weight: 2
-    region: content
-  localgov_event_image:
-    type: entity_reference_entity_view
-    label: hidden
-    settings:
-      view_mode: scale_crop_7_3_large
-      link: false
-    third_party_settings: {  }
+    third_party_settings:
+      field_formatter_class:
+        class: ''
     weight: 1
     region: content
-  localgov_event_location:
-    type: entity_reference_entity_view
+  localgov_event_image:
+    type: media_thumbnail
     label: hidden
     settings:
-      view_mode: embed
-      link: false
-    third_party_settings: {  }
-    weight: 7
-    region: content
-  localgov_event_provider:
-    type: entity_reference_label
-    label: inline
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 5
-    region: content
-  localgov_event_venue:
-    type: entity_reference_label
-    label: inline
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 6
+      image_link: ''
+      image_style: medium_3_2_600x400
+      image_loading:
+        attribute: lazy
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+    weight: 0
     region: content
 hidden:
+  content_moderation_control: true
   links: true
   localgov_access_control: true
+  localgov_event_call_to_action: true
   localgov_event_categories: true
   localgov_event_locality: true
+  localgov_event_location: true
   localgov_event_price: true
+  localgov_event_provider: true
+  localgov_event_venue: true
   search_api_excerpt: true
