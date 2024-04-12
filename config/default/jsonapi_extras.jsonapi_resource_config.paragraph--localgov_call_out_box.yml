@@ -1,0 +1,137 @@
+uuid: 37396873-5360-40a2-a1cb-7df25755b4f4
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.localgov_call_out_box
+id: paragraph--localgov_call_out_box
+disabled: false
+path: paragraph/localgov_call_out_box
+resourceType: paragraph--localgov_call_out_box
+resourceFields:
+  id:
+    disabled: false
+    fieldName: id
+    publicName: id
+    enhancer:
+      id: ''
+  uuid:
+    disabled: false
+    fieldName: uuid
+    publicName: uuid
+    enhancer:
+      id: ''
+  revision_id:
+    disabled: false
+    fieldName: revision_id
+    publicName: revision_id
+    enhancer:
+      id: ''
+  langcode:
+    disabled: false
+    fieldName: langcode
+    publicName: langcode
+    enhancer:
+      id: ''
+  type:
+    disabled: false
+    fieldName: type
+    publicName: type
+    enhancer:
+      id: ''
+  status:
+    disabled: false
+    fieldName: status
+    publicName: status
+    enhancer:
+      id: ''
+  created:
+    disabled: false
+    fieldName: created
+    publicName: created
+    enhancer:
+      id: ''
+  parent_id:
+    disabled: false
+    fieldName: parent_id
+    publicName: parent_id
+    enhancer:
+      id: ''
+  parent_type:
+    disabled: false
+    fieldName: parent_type
+    publicName: parent_type
+    enhancer:
+      id: ''
+  parent_field_name:
+    disabled: false
+    fieldName: parent_field_name
+    publicName: parent_field_name
+    enhancer:
+      id: ''
+  behavior_settings:
+    disabled: false
+    fieldName: behavior_settings
+    publicName: behavior_settings
+    enhancer:
+      id: entity_share_serialized_data
+  default_langcode:
+    disabled: false
+    fieldName: default_langcode
+    publicName: default_langcode
+    enhancer:
+      id: ''
+  revision_default:
+    disabled: false
+    fieldName: revision_default
+    publicName: revision_default
+    enhancer:
+      id: ''
+  revision_translation_affected:
+    disabled: false
+    fieldName: revision_translation_affected
+    publicName: revision_translation_affected
+    enhancer:
+      id: ''
+  localgov_background_image:
+    disabled: false
+    fieldName: localgov_background_image
+    publicName: localgov_background_image
+    enhancer:
+      id: ''
+  localgov_body_text:
+    disabled: false
+    fieldName: localgov_body_text
+    publicName: localgov_body_text
+    enhancer:
+      id: ''
+  localgov_button:
+    disabled: false
+    fieldName: localgov_button
+    publicName: localgov_button
+    enhancer:
+      id: ''
+  localgov_colour_theme:
+    disabled: false
+    fieldName: localgov_colour_theme
+    publicName: localgov_colour_theme
+    enhancer:
+      id: ''
+  localgov_header_text:
+    disabled: false
+    fieldName: localgov_header_text
+    publicName: localgov_header_text
+    enhancer:
+      id: ''
+  localgov_heading_level:
+    disabled: false
+    fieldName: localgov_heading_level
+    publicName: localgov_heading_level
+    enhancer:
+      id: ''
+  localgov_opens_in_a_new_window:
+    disabled: false
+    fieldName: localgov_opens_in_a_new_window
+    publicName: localgov_opens_in_a_new_window
+    enhancer:
+      id: ''
