@@ -284,19 +284,17 @@
             "chmod 444 web/sites/default/default.*.yml",
             "chmod 444 web/sites/default/*.services.yml"
         ],
-        "phpcs": "bin/phpcs --standard=Drupal,DrupalPractice --ignore=*/node_modules/* web/modules/custom web/themes/custom",
-        "checker-php-lint": "bin/parallel-lint web/modules/custom",
+        "phpcs": "bin/phpcs --standard=Drupal,DrupalPractice --ignore=*.js web/modules/custom",
+        "phpcbf": "bin/phpcbf --standard=Drupal,DrupalPractice --ignore=*.js web/modules/custom",
         "phpunit-unit": "bin/phpunit -v --debug -c phpunit-unit.xml",
-        "checker-security": [
-            "composer audit"
-        ],
-        "checker-drupal": "bin/drupal-check -ad web/modules/custom web/themes/custom",
+        "checker-drupal": "bin/drupal-check -ad web/modules/custom",
         "phpunit-modules": "sudo -u www-data -E vendor/bin/phpunit -v --debug modules",
         "cghooks": "[ -h vendor/bin/cghooks -a -w ../.git ] && vendor/bin/cghooks --git-dir=../.git",
         "phpcbf": "bin/phpcbf --standard=Drupal,DrupalPractice web/modules/custom",
         "tests-required": [
             "composer validate",
-            "composer checker-security"
+            "composer audit",
+            "composer phpcs"
         ]
     }
 }
