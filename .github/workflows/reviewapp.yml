@@ -7,7 +7,7 @@ jobs:
     # This job only runs for pull request comments
     name: PR comment
     #if: ${{ github.event.issue.pull_request }} && contains(github.event.comment.body, '/deploy')
-    if: contains(github.event.pull_request_comment.comment, 'reviewapp')
+    if: contains(github.event.comment.body, 'reviewapp')
     runs-on: ubuntu-latest
     steps:
       - name: Log in to Azure
