@@ -54,7 +54,7 @@ settings:
         - '<dd>'
         - '<mark>'
         - '<b>'
-        - '<div class="alert-danger alert-primary alert-success callout callout-primary callout-success callout-danger callout-teal callout-carbon callout-yellow inset-text">'
+        - '<div class="alert-danger alert-primary alert-success callout callout-primary callout-success callout-danger callout-teal callout-carbon callout-yellow inset inset-text">'
         - '<blockquote cite>'
         - '<ol type>'
         - '<h2 id>'

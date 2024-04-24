@@ -20,6 +20,8 @@ module:
   config_filter: 0
   config_ignore: 0
   config_split: 0
+  content_access_by_path: 0
+  content_access_by_path_admin_content: 0
   content_moderation: 0
   content_ownership: 0
   contextual: 0
@@ -80,6 +82,8 @@ module:
   jquery_ui: 0
   jquery_ui_autocomplete: 0
   jquery_ui_menu: 0
+  jsonapi: 0
+  jsonapi_extras: 0
   layout_discovery: 0
   layout_paragraphs: 0
   leaflet: 0
@@ -152,6 +156,7 @@ module:
   path_alias: 0
   permissions_filter: 0
   phpass: 0
+  poll: 0
   preview_link: 0
   redirect: 0
   redirect_404: 0
@@ -167,6 +172,7 @@ module:
   search_api_location: 0
   search_api_location_geocoder: 0
   search_api_location_views: 0
+  serialization: 0
   simple_sitemap: 0
   sophron: 0
   system: 0

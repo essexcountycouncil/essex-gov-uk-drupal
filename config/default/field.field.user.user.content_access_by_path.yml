@@ -1,0 +1,32 @@
+uuid: d284868d-5dc9-43d2-8cc5-6c50d0ef7c67
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.content_access_by_path
+    - taxonomy.vocabulary.content_access_by_path
+  module:
+    - user
+_core:
+  default_config_hash: 109xNpr7QTNDHRiWqC-N75wEhTKB9qqksGvnU3-FS5g
+id: user.user.content_access_by_path
+field_name: content_access_by_path
+entity_type: user
+bundle: user
+label: 'Content Access by Path'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      content_access_by_path: content_access_by_path
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

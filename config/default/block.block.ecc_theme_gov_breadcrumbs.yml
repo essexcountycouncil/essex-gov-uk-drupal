@@ -1,0 +1,25 @@
+uuid: a12bb938-e3e5-40f7-bbfe-8993a32dfe8f
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_classes
+    - system
+  theme:
+    - ecc_theme_gov
+id: ecc_theme_gov_breadcrumbs
+theme: ecc_theme_gov
+region: breadcrumb
+weight: 0
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: 'Breadcrumbs - for views listing pages'
+  label_display: '0'
+  provider: system
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: "/events\r\n/children-young-people-and-families/fostering/events"
