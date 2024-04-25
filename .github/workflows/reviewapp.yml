@@ -1,11 +1,13 @@
 name: Deploy review app
 
-on: pull_request
+on:
+  issue_comment:
+    types: [created]
 
 jobs:
   start_reviewapp:
     name: Start reviewapp
-    if: contains(github.event.comment.body, '/start')
+    if: github.event.issue.pull_request && contains(github.event.comment.body, '/start')
     runs-on: ubuntu-latest
     steps:
       - name: Log in to Azure
@@ -100,7 +102,7 @@ jobs:
 
   stop_reviewapp:
     name: Stop reviewapp
-    if: contains(github.event.comment.body, '/stop')
+    if: github.event.issue.pull_request && contains(github.event.comment.body, '/stop')
     runs-on: ubuntu-latest
     steps:
       - name: Log in to Azure
