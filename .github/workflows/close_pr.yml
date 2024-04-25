@@ -1,0 +1,26 @@
+name: Close PR
+
+on:
+  pull_request:
+    types: [ closed ]
+
+jobs:
+  cleanup:
+    name: Clean up Azure
+    runs-on: ubuntu-latest
+    steps:
+      - name: Log in to Azure
+        uses: azure/login@v1
+        with:
+          creds: '{"clientId":"${{ vars.ARM_CLIENT_ID }}","clientSecret":"${{ secrets.ARM_CLIENT_SECRET }}","subscriptionId":"${{ vars.ARM_SUBSCRIPTION_ID }}","tenantId":"${{ vars.ARM_TENANT_ID }}"}'
+
+      - name: Deactivate revisions
+        id: deactivate
+        env:
+          ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
+          REF_NAME: ${{ github.head_ref }}
+        run: |
+          ENV_SLUG=$(echo "${REF_NAME}" | sed -e 's:[^[:alpha:]|^[:digit:]]:-:g' | sed -e 's/\(.*\)/\L\1/')
+          az containerapp revision label remove --label ${ENV_SLUG} --name portal --resource-group rg-ecc-portal-uks-dev --subscription "Essex County Council (Portal)"
+          export REVISIONS=$(jq -n --argjson revisions $(az containerapp revision list -n portal -g rg-ecc-portal-uks-dev --subscription "Essex County Council (Portal)" | jq -c '[.[].name]') --argjson ingress $(az containerapp ingress show -n portal -g rg-ecc-portal-uks-dev --subscription "Essex County Council (Portal)"  | jq -c ".traffic | [.[].revisionName]") '{"revisions": $revisions, "ingress": $ingress} | .revisions-.ingress | .[]' | tr -d '"')
+          printenv REVISIONS | while read revision; do ; echo Deactivating "$revision" ; az containerapp revision deactivate --revision $revision -g rg-ecc-portal-uks-dev --subscription "Essex County Council (Portal)";  done
