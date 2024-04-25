@@ -1,4 +1,4 @@
-name: Start/stop reviewapp with comment
+name: Start reviewapp when PR is opened
 
 on:
   pull_request:
@@ -30,7 +30,7 @@ jobs:
           CI_COMMIT_BRANCH="$REF_NAME"
           ENV_SLUG=$(echo "${REF_NAME}" | sed -e 's:[^[:alpha:]|^[:digit:]]:-:g' | sed -e 's/\(.*\)/\L\1/')
           tag=":$ENV_SLUG"
-          az extension add --name containerapp
+          az extension add --name containerapp --allow-preview true
           az containerapp job start -n portal-dbclone --resource-group rg-ecc-portal-uks-dev --subscription "Essex County Council (Portal)" --image "acreccuksdev.azurecr.io/dbclone" --env-vars "NEW_DB_SUFFIX=${ENV_SLUG}" 'MYSQL_HOST=mariadb-ecc-uks-dev.mariadb.database.azure.com' 'MYSQL_USER=mariadb-root' 'MYSQL_DATABASE=drupal_portal' 'MYSQL_PASSWORD=secretref:mysql-password' --container-name dbclonea --cpu 0.75 --memory 1.5
           echo "Running on branch '$CI_COMMIT_BRANCH': tag = $tag"
           sleep 4m
