@@ -1,8 +1,7 @@
 name: Deploy review app
 
 on:
-  issue_comment:
-    types: [created]
+  issue_comment
 
 jobs:
   start_reviewapp:
@@ -10,6 +9,22 @@ jobs:
     if: github.event.issue.pull_request && contains(github.event.comment.body, '/start')
     runs-on: ubuntu-latest
     steps:
+      - name: Get PR branch
+        uses: xt0rted/pull-request-comment-branch@v1
+        id: comment-branch
+
+      - name: Set latest commit status as pending
+        uses: myrotvorets/set-commit-status-action@2
+        with:
+          sha: ${{ steps.comment-branch.outputs.head_sha }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          status: pending
+
+      - name: Checkout PR branch
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ steps.comment-branch.outputs.head_ref }}
+
       - name: Log in to Azure
         uses: azure/login@v1
         with:
