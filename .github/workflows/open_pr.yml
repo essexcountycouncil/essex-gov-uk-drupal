@@ -2,7 +2,7 @@ name: Start/stop reviewapp with comment
 
 on:
   pull_request:
-    types: [ opened ]
+    types: [ opened, reopened ]
 
 jobs:
   start_reviewapp:
