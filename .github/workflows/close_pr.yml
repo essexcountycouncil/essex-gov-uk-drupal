@@ -29,9 +29,11 @@ jobs:
         run: |
           ENV_SLUG=$(echo "${REF_NAME}" | sed -e 's:[^[:alpha:]|^[:digit:]]:-:g' | sed -e 's/\(.*\)/\L\1/')
           az containerapp revision label remove --label ${ENV_SLUG} --name portal --resource-group rg-ecc-portal-uks-dev --subscription "Essex County Council (Portal)"
+          sleep 1m
           export REVISIONS=$(jq -n --argjson revisions $(az containerapp revision list -n portal -g rg-ecc-portal-uks-dev --subscription "Essex County Council (Portal)" | jq -c '[.[].name]') --argjson ingress $(az containerapp ingress show -n portal -g rg-ecc-portal-uks-dev --subscription "Essex County Council (Portal)"  | jq -c ".traffic | [.[].revisionName]") '{"revisions": $revisions, "ingress": $ingress} | .revisions-.ingress | .[]' | tr -d '"')
           printenv REVISIONS
-          printenv REVISIONS | while read revision; do ; echo Deactivating "$revision" ; az containerapp revision deactivate --revision $revision -g rg-ecc-portal-uks-dev --subscription "Essex County Council (Portal)";  done
+          export MESSAGES=$(printenv REVISIONS | while read revision; do ; echo Deactivating "$revision" ; az containerapp revision deactivate --revision $revision -g rg-ecc-portal-uks-dev --subscription "Essex County Council (Portal)";  done)
+          printenv MESSAGES
 
       - name: Delete database
         id: delete_db
