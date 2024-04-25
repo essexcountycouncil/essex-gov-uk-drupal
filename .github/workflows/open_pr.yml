@@ -9,6 +9,13 @@ jobs:
     name: Start reviewapp
     runs-on: ubuntu-latest
     steps:
+      - name: Add comment for start of job
+        uses: peter-evans/create-or-update-comment@v4
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          body: |
+            Starting reviewapp
+
       - name: Log in to Azure
         uses: azure/login@v1
         with:
