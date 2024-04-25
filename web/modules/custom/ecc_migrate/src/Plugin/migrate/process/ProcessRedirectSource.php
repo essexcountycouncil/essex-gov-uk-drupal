@@ -5,7 +5,6 @@ namespace Drupal\ecc_migrate\Plugin\migrate\process;
 use Drupal\migrate\MigrateExecutableInterface;
 use Drupal\migrate\ProcessPluginBase;
 use Drupal\migrate\Row;
-use function _PHPStan_582a9cb8b\RingCentral\Psr7\str;
 
 /**
  * Provides a process_redirect_source plugin.
