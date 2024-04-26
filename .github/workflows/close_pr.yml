@@ -28,7 +28,7 @@ jobs:
           REF_NAME: ${{ github.head_ref }}
         run: |
           ENV_SLUG=$(echo "${REF_NAME}" | sed -e 's:[^[:alpha:]|^[:digit:]]:-:g' | sed -e 's/\(.*\)/\L\1/')
-          az containerapp revision label remove --label ${ENV_SLUG} --name portal --resource-group rg-ecc-portal-uks-dev --subscription "Essex County Council (Portal)"
+          az containerapp revision label remove --label ${ENV_SLUG} --name portal -g rg-ecc-portal-uks-dev --subscription "Essex County Council (Portal)"
           sleep 1m
 
       - name: Deactivate revisions
@@ -52,7 +52,7 @@ jobs:
           REF_NAME: ${{ github.head_ref }}
         run: |
           ENV_SLUG=$(echo "${REF_NAME}" | sed -e 's:[^[:alpha:]|^[:digit:]]:-:g' | sed -e 's/\(.*\)/\L\1/')
-          az containerapp job start -n portal-dbclone --resource-group rg-ecc-portal-uks-dev --subscription "Essex County Council (Portal)" --image "acreccuksdev.azurecr.io/dbclone" --env-vars "NEW_DB_SUFFIX=${ENV_SLUG}" "DESTROY_DB=1" 'MYSQL_HOST=mariadb-ecc-uks-dev.mariadb.database.azure.com' 'MYSQL_USER=mariadb-root' 'MYSQL_DATABASE=drupal_portal' 'MYSQL_PASSWORD=secretref:mysql-password' --container-name dbclonea --cpu 0.75 --memory 1.5
+          az containerapp job start -n portal-dbclone -g rg-ecc-portal-uks-dev --subscription "Essex County Council (Portal)" --image "acreccuksdev.azurecr.io/dbclone" --env-vars "NEW_DB_SUFFIX=${ENV_SLUG}" "DESTROY_DB=1" 'MYSQL_HOST=mariadb-ecc-uks-dev.mariadb.database.azure.com' 'MYSQL_USER=mariadb-root' 'MYSQL_DATABASE=drupal_portal' 'MYSQL_PASSWORD=secretref:mysql-password' --container-name dbclonea --cpu 0.75 --memory 1.5
 
       - name: Add comment for end job
         uses: peter-evans/create-or-update-comment@v4
