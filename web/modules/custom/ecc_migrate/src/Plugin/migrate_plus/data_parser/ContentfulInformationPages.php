@@ -3,15 +3,6 @@
 namespace Drupal\ecc_migrate\Plugin\migrate_plus\data_parser;
 
 /**
- * Types of behaviour for restricting the information pages required.
- */
-enum sectionOptions {
-  case IncludeAll;
-  case IncludeWithoutSections;
-  case IncludeWithSections;
-}
-
-/**
  * JSON Parser for finding Information Pages, aka articles.
  *
  * @DataParser(
@@ -60,4 +51,13 @@ class ContentfulInformationPages extends JsonContentful {
     });
   }
 
+}
+
+/**
+ * Types of behaviour for restricting the information pages required.
+ */
+enum sectionOptions {
+  case IncludeAll;
+  case IncludeWithoutSections;
+  case IncludeWithSections;
 }
