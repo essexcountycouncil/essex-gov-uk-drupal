@@ -117,7 +117,7 @@ jobs:
           echo Drush deploy started
           sudo apt-get -qq update
           sudo apt-get -y install socat
-          timeout 1200 socat EXEC:'az containerapp exec --command /drupal/deploy.sh -n portal --container drupal --revision portal--gh${GITHUB_RUN_ID} -g rg-ecc-portal-uks-dev',pty,setsid,ctty STDIO,ignoreeof
+          timeout 1200 socat EXEC:"az containerapp exec --command /drupal/deploy.sh -n portal --container drupal --revision portal--gh${GITHUB_RUN_ID} -g rg-ecc-portal-uks-dev --subscription \'Essex County Council (Portal)\'",pty,setsid,ctty STDIO,ignoreeof
           echo Drush deploy finished
 
       - name: Add comment
