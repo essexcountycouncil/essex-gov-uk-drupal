@@ -114,9 +114,8 @@ jobs:
           CI_COMMIT_BRANCH="$REF_NAME"
           ENV_SLUG=$(echo "${REF_NAME}" | sed -e 's:[^[:alpha:]|^[:digit:]]:-:g' | sed -e 's/\(.*\)/\L\1/')
           tag=":$ENV_SLUG"
-          az extension add -n containerapp --allow-preview true
           echo Drush deploy started
-          az containerapp exec --command /drupal/deploy.sh -n portal --container drupal --revision portal--gh${GITHUB_RUN_ID} -g rg-ecc-portal-uks-dev --subscription "Essex County Council (Portal)"
+          timeout 1200 socat EXEC:'az containerapp exec --command /drupal/deploy.sh -n portal --container drupal --revision portal--gh${GITHUB_RUN_ID} -g rg-ecc-portal-uks-dev --subscription "Essex County Council (Portal)"',pty,setsid,ctty STDIO,ignoreeof
           echo Drush deploy finished
 
       - name: Add comment
