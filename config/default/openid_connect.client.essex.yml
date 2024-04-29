@@ -3,17 +3,26 @@ langcode: en
 status: true
 dependencies:
   module:
-    - openid_connect_azure_b2c
+    - openid_connect_windows_aad
 id: essex
 label: Essex
-plugin: b2c
+plugin: windows_aad
 settings:
   client_id: placeholder
-  client_secret: placeholder
+  client_secret: client_aad_key
+  authorization_endpoint_wa: 'https://login.microsoftonline.com/nomensa.com/oauth2/v2.0/token'
+  token_endpoint_wa: 'https://login.microsoftonline.com/nomensa.com/oauth2/v2.0/token'
+  userinfo_endpoint_wa: ''
+  map_ad_groups_to_roles: false
+  group_mapping:
+    method: 0
+    mappings: ''
+    strict: false
+  userinfo_graph_api_wa: 0
+  userinfo_graph_api_use_other_mails: false
+  userinfo_update_email: false
+  hide_email_address_warning: false
+  subject_key: sub
+  end_session_endpoint: ''
   iss_allowed_domains: ''
-  tenant: placeholder
-  flow: B2C_1_signup_signin
-  scopes:
-    - openid
-    - email
-    - profile
+  front_channel_logout_url: ''
