@@ -134,6 +134,16 @@ jobs:
         with:
           creds: '{"clientId":"${{ vars.ARM_CLIENT_ID }}","clientSecret":"${{ secrets.ARM_CLIENT_SECRET }}","subscriptionId":"${{ vars.ARM_SUBSCRIPTION_ID }}","tenantId":"${{ vars.ARM_TENANT_ID }}"}'
 
+      - name: Remove label
+        id: remove_label
+        env:
+          ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
+          REF_NAME: ${{ steps.comment-branch.outputs.head_ref }}
+        run: |
+          ENV_SLUG=$(echo "${REF_NAME}" | sed -e 's:[^[:alpha:]|^[:digit:]]:-:g' | sed -e 's/\(.*\)/\L\1/')
+          az containerapp revision label remove --label ${ENV_SLUG} --name portal -g rg-ecc-portal-uks-dev --subscription "Essex County Council (Portal)"
+          sleep 1m
+
       - name: Deactivate revisions
         id: deactivate
         env:
@@ -163,47 +173,3 @@ jobs:
           issue-number: ${{ github.event.issue.number }}
           body: |
             Stopped reviewapp
-
-  cleanup_reviewapp:
-    name: Cleanup reviewapp
-    if: github.event.issue.pull_request && contains(github.event.comment.body, '/cleanup')
-    runs-on: ubuntu-latest
-    steps:
-      - name: Get PR branch
-        uses: xt0rted/pull-request-comment-branch@v1
-        id: comment-branch
-
-      - name: Log in to Azure
-        uses: azure/login@v1
-        with:
-          creds: '{"clientId":"${{ vars.ARM_CLIENT_ID }}","clientSecret":"${{ secrets.ARM_CLIENT_SECRET }}","subscriptionId":"${{ vars.ARM_SUBSCRIPTION_ID }}","tenantId":"${{ vars.ARM_TENANT_ID }}"}'
-
-      - name: Deactivate revisions
-        id: deactivate
-        env:
-          ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
-          REF_NAME: ${{ steps.comment-branch.outputs.head_ref }}
-        shell: bash
-        run: |
-          ENV_SLUG=$(echo "${REF_NAME}" | sed -e 's:[^[:alpha:]|^[:digit:]]:-:g' | sed -e 's/\(.*\)/\L\1/')
-          jq -n --argjson revisions $(az containerapp revision list -n portal -g rg-ecc-portal-uks-dev --subscription "Essex County Council (Portal)" | jq -c '[.[].name]') --argjson ingress $(az containerapp ingress show -n portal -g rg-ecc-portal-uks-dev --subscription "Essex County Council (Portal)"  | jq -c ".traffic | [.[].revisionName]") '{"revisions": $revisions, "ingress": $ingress} | .revisions-.ingress | .[]' | tr -d '"' | while read revision
-          do
-            echo Deactivating "$revision"
-            az containerapp revision deactivate --revision $revision -g rg-ecc-portal-uks-dev --subscription "Essex County Council (Portal)"
-          done
-
-      - name: Delete database
-        id: delete_db
-        env:
-          ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
-          REF_NAME: ${{ steps.comment-branch.outputs.head_ref }}
-        run: |
-          ENV_SLUG=$(echo "${REF_NAME}" | sed -e 's:[^[:alpha:]|^[:digit:]]:-:g' | sed -e 's/\(.*\)/\L\1/')
-          az containerapp job start -n portal-dbclone -g rg-ecc-portal-uks-dev --subscription "Essex County Council (Portal)" --image "acreccuksdev.azurecr.io/dbclone" --env-vars "NEW_DB_SUFFIX=${ENV_SLUG}" "DESTROY_DB=1" 'MYSQL_HOST=mariadb-ecc-uks-dev.mariadb.database.azure.com' 'MYSQL_USER=mariadb-root' 'MYSQL_DATABASE=drupal_portal' 'MYSQL_PASSWORD=secretref:mysql-password' --container-name dbclonea --cpu 0.75 --memory 1.5
-
-      - name: Add comment
-        uses: peter-evans/create-or-update-comment@v4
-        with:
-          issue-number: ${{ github.event.issue.number }}
-          body: |
-            Cleaned up reviewapp
