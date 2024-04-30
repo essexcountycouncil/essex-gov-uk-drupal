@@ -154,7 +154,7 @@ jobs:
           ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
           REF_NAME: ${{ steps.comment-branch.outputs.head_ref }}
         run: |
-          ENV_SLUG=$(echo "${:}" | sed -e 's:[^[:alpha:]|^[:digit:]]:-:g' | sed -e 's/\(.*\)/\L\1/')
+          ENV_SLUG=$(echo "${REF_NAME}" | sed -e 's:[^[:alpha:]|^[:digit:]]:-:g' | sed -e 's/\(.*\)/\L\1/')
           az containerapp job start -n portal-dbclone -g rg-ecc-portal-uks-dev --subscription "Essex County Council (Portal)" --image "acreccuksdev.azurecr.io/dbclone" --env-vars "NEW_DB_SUFFIX=${ENV_SLUG}" "DESTROY_DB=1" 'MYSQL_HOST=mariadb-ecc-uks-dev.mariadb.database.azure.com' 'MYSQL_USER=mariadb-root' 'MYSQL_DATABASE=drupal_portal' 'MYSQL_PASSWORD=secretref:mysql-password' --container-name dbclonea --cpu 0.75 --memory 1.5
 
       - name: Add comment
