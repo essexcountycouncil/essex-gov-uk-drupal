@@ -107,7 +107,6 @@ jobs:
           EOF
           az containerapp revision copy -n portal -g rg-ecc-portal-uks-dev --yaml revision.yml --subscription "Essex County Council (Portal)" | tee revision.json 
           az containerapp revision label add --no-prompt -g rg-ecc-portal-uks-dev -n portal --label ${ENV_SLUG} --revision portal--gh${GITHUB_RUN_ID} --subscription "Essex County Council (Portal)"
-          az containerapp exec --command /drupal/deploy.sh -n portal --container drupal -g rg-ecc-portal-uks-dev
           echo "env_slug=${ENV_SLUG}" >> "$GITHUB_OUTPUT"
 
       - name: Drush deploy
