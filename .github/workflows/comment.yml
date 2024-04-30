@@ -18,6 +18,20 @@ jobs:
         with:
           creds: '{"clientId":"${{ vars.ARM_CLIENT_ID }}","clientSecret":"${{ secrets.ARM_CLIENT_SECRET }}","subscriptionId":"${{ vars.ARM_SUBSCRIPTION_ID }}","tenantId":"${{ vars.ARM_TENANT_ID }}"}'
 
+      - name: Deactivate revisions
+        id: deactivate
+        env:
+          ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
+          REF_NAME: ${{ steps.comment-branch.outputs.head_ref }}
+        shell: bash
+        run: |
+          ENV_SLUG=$(echo "${REF_NAME}" | sed -e 's:[^[:alpha:]|^[:digit:]]:-:g' | sed -e 's/\(.*\)/\L\1/')
+          jq -n --argjson revisions $(az containerapp revision list -n portal -g rg-ecc-portal-uks-dev --subscription "Essex County Council (Portal)" | jq -c '[.[].name]') --argjson ingress $(az containerapp ingress show -n portal -g rg-ecc-portal-uks-dev --subscription "Essex County Council (Portal)"  | jq -c ".traffic | [.[].revisionName]") '{"revisions": $revisions, "ingress": $ingress} | .revisions-.ingress | .[]' | tr -d '"' | while read revision
+          do
+            echo Deactivating "$revision"
+            az containerapp revision deactivate --revision $revision -g rg-ecc-portal-uks-dev --subscription "Essex County Council (Portal)"
+          done
+
       - name: Deploy review app
         id: deploy
         env:
