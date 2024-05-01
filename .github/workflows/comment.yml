@@ -1,14 +1,21 @@
-name: Start/stop/cleanup reviewapp with comment
+name: Start or stop Review App with a comment
 
 on:
   issue_comment
 
 jobs:
   start_reviewapp:
-    name: Start reviewapp
+    name: Start Review App
     if: github.event.issue.pull_request && contains(github.event.comment.body, '/start')
     runs-on: ubuntu-latest
     steps:
+      - name: Add comment for start of job
+        uses: peter-evans/create-or-update-comment@v4
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          body: |
+            Starting Review App.
+
       - name: Get PR branch
         uses: xt0rted/pull-request-comment-branch@v1
         id: comment-branch
@@ -130,14 +137,21 @@ jobs:
         with:
           issue-number: ${{ github.event.issue.number }}
           body: |
-            Started reviewapp
+            Started Review App
             https://portal---${{ steps.deploy.outputs.env_slug }}.livelyforest-609fad32.uksouth.azurecontainerapps.io/
 
   stop_reviewapp:
-    name: Stop reviewapp
+    name: Stop Review App
     if: github.event.issue.pull_request && contains(github.event.comment.body, '/stop')
     runs-on: ubuntu-latest
     steps:
+      - name: Add comment for start of job
+        uses: peter-evans/create-or-update-comment@v4
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          body: |
+            Stopping Review App and clearing up
+
       - name: Get PR branch
         uses: xt0rted/pull-request-comment-branch@v1
         id: comment-branch
@@ -185,4 +199,4 @@ jobs:
         with:
           issue-number: ${{ github.event.issue.number }}
           body: |
-            Stopped reviewapp
+            Stopped Review App
