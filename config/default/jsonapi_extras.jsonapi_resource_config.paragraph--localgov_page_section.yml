@@ -1,0 +1,143 @@
+uuid: b6e4e28c-e5c1-46bd-a4f4-b229b7117d74
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.localgov_page_section
+id: paragraph--localgov_page_section
+disabled: false
+path: paragraph/localgov_page_section
+resourceType: paragraph--localgov_page_section
+resourceFields:
+  id:
+    disabled: false
+    fieldName: id
+    publicName: id
+    enhancer:
+      id: ''
+  uuid:
+    disabled: false
+    fieldName: uuid
+    publicName: uuid
+    enhancer:
+      id: ''
+  revision_id:
+    disabled: false
+    fieldName: revision_id
+    publicName: revision_id
+    enhancer:
+      id: ''
+  langcode:
+    disabled: false
+    fieldName: langcode
+    publicName: langcode
+    enhancer:
+      id: ''
+  type:
+    disabled: false
+    fieldName: type
+    publicName: type
+    enhancer:
+      id: ''
+  status:
+    disabled: false
+    fieldName: status
+    publicName: status
+    enhancer:
+      id: ''
+  created:
+    disabled: false
+    fieldName: created
+    publicName: created
+    enhancer:
+      id: ''
+  parent_id:
+    disabled: false
+    fieldName: parent_id
+    publicName: parent_id
+    enhancer:
+      id: ''
+  parent_type:
+    disabled: false
+    fieldName: parent_type
+    publicName: parent_type
+    enhancer:
+      id: ''
+  parent_field_name:
+    disabled: false
+    fieldName: parent_field_name
+    publicName: parent_field_name
+    enhancer:
+      id: ''
+  behavior_settings:
+    disabled: false
+    fieldName: behavior_settings
+    publicName: behavior_settings
+    enhancer:
+      id: entity_share_serialized_data
+  default_langcode:
+    disabled: false
+    fieldName: default_langcode
+    publicName: default_langcode
+    enhancer:
+      id: ''
+  revision_default:
+    disabled: false
+    fieldName: revision_default
+    publicName: revision_default
+    enhancer:
+      id: ''
+  revision_translation_affected:
+    disabled: false
+    fieldName: revision_translation_affected
+    publicName: revision_translation_affected
+    enhancer:
+      id: ''
+  field_margin_after_regions:
+    disabled: false
+    fieldName: field_margin_after_regions
+    publicName: field_margin_after_regions
+    enhancer:
+      id: ''
+  field_margin_regions:
+    disabled: false
+    fieldName: field_margin_regions
+    publicName: field_margin_regions
+    enhancer:
+      id: ''
+  field_section_arc_bottom:
+    disabled: false
+    fieldName: field_section_arc_bottom
+    publicName: field_section_arc_bottom
+    enhancer:
+      id: ''
+  field_section_arc_top:
+    disabled: false
+    fieldName: field_section_arc_top
+    publicName: field_section_arc_top
+    enhancer:
+      id: ''
+  localgov_bg_colour_of_section:
+    disabled: false
+    fieldName: localgov_bg_colour_of_section
+    publicName: localgov_bg_colour_of_section
+    enhancer:
+      id: ''
+  localgov_padding_bottom_section:
+    disabled: false
+    fieldName: localgov_padding_bottom_section
+    publicName: localgov_padding_bottom_section
+    enhancer:
+      id: ''
+  localgov_padding_top_section:
+    disabled: false
+    fieldName: localgov_padding_top_section
+    publicName: localgov_padding_top_section
+    enhancer:
+      id: ''
+  localgov_width_of_section:
+    disabled: false
+    fieldName: localgov_width_of_section
+    publicName: localgov_width_of_section
+    enhancer:
+      id: ''
