@@ -1,4 +1,4 @@
-name: Cleanup when PR closed
+name: Stop Review App and cleanup when PR is closed
 
 on:
   pull_request:
@@ -14,7 +14,7 @@ jobs:
         with:
           issue-number: ${{ github.event.pull_request.number }}
           body: |
-            Stopping reviewapp and clearing up
+            Stopping Review App and clearing up
 
       - name: Log in to Azure
         uses: azure/login@v1
@@ -59,4 +59,4 @@ jobs:
         with:
           issue-number: ${{ github.event.pull_request.number }}
           body: |
-            Stopped reviewapp and cleared up
+            Stopped Review App and cleared up
