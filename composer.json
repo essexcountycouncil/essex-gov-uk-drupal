@@ -105,13 +105,14 @@
         "essexcountycouncil/ecc_content_moderation": "^1.0",
         "essexcountycouncil/ecc_cookie_compliance": "^1.0",
         "essexcountycouncil/ecc_menu": "^1.0",
-        "essexcountycouncil/ecc_theme": "^1.0",
+        "essexcountycouncil/ecc_theme": "dev-feature/FOS-49",
         "localgovdrupal/localgov": "^3",
         "localgovdrupal/localgov_base": "^1.4",
         "localgovdrupal/localgov_content_access_control": "^1.0",
         "localgovdrupal/localgov_eu_cookie_compliance": "^1.0",
         "localgovdrupal/localgov_forms": "^1.0@beta",
         "localgovdrupal/localgov_geo": "^2",
+        "localgovdrupal/localgov_subsites_extras": "1.x-dev",
         "mglaman/composer-drupal-lenient": "^1.0",
         "palantirnet/drupal-rector": "^0.18.0",
         "wa72/htmlpagedom": "*"
@@ -182,6 +183,9 @@
             "drupal/preview_link": {
                 "Option to enter expiry period in days instead of seconds": "https://git.drupalcode.org/project/preview_link/-/merge_requests/22.diff",
                 "Error when accessing a preview link if enabled_entity_types configuration is missing": "https://www.drupal.org/files/issues/2024-04-04/preview_link-3438117-enabled_entity_types.patch"
+            },
+            "localgovdrupal/localgov_base" : {
+                "Added subsites_menu region": "https://patch-diff.githubusercontent.com/raw/localgovdrupal/localgov_base/pull/542.diff"
             },
             "localgovdrupal/localgov_eu_cookie_compliance": {
                 "Pressing either radio button causes the hidden checkbox to be clicked": "https://patch-diff.githubusercontent.com/raw/localgovdrupal/localgov_eu_cookie_compliance/pull/22.diff"
