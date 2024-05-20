@@ -1,7 +1,14 @@
 uuid: 68732545-878c-433c-a027-18b5e40a5586
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+      - subsites
 _core:
   default_config_hash: Ai5i4cKvppU43ERbC7FAphWSwdOqphVHkqm47josjCo
 name: 'Directory page'

@@ -1,7 +1,14 @@
 uuid: 0d462dcc-6431-496b-94e5-974a84a26ed3
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+      - subsites
 _core:
   default_config_hash: arcMQFgGAp74R89W4A4WAfjhVHsxv-UEWTORzfDa42w
 name: 'Directory organisation'

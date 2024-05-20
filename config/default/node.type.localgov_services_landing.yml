@@ -1,7 +1,14 @@
 uuid: 72e5f3d0-c9c9-44dd-8b18-b509fb2a00c0
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+      - subsites
 _core:
   default_config_hash: pz0FetUXygbM1FQplBcj-KBsRr-YjJXpF1ZV1PLCSUg
 name: 'Service landing page'
