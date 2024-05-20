@@ -8998,12 +8998,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/essexcountycouncil/ecc_theme.git",
-                "reference": "94ad58bdc9302e6afc191b823c37722f773ed97c"
+                "reference": "871c4fdeac889cb271497b0e9e50bc446b8a1af5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/essexcountycouncil/ecc_theme/zipball/94ad58bdc9302e6afc191b823c37722f773ed97c",
-                "reference": "94ad58bdc9302e6afc191b823c37722f773ed97c",
+                "url": "https://api.github.com/repos/essexcountycouncil/ecc_theme/zipball/871c4fdeac889cb271497b0e9e50bc446b8a1af5",
+                "reference": "871c4fdeac889cb271497b0e9e50bc446b8a1af5",
                 "shasum": ""
             },
             "type": "drupal-theme",
@@ -9018,7 +9018,7 @@
                 "source": "https://github.com/essexcountycouncil/ecc_theme/tree/feature/FOS-49",
                 "issues": "https://github.com/essexcountycouncil/ecc_theme/issues"
             },
-            "time": "2024-05-15T15:48:31+00:00"
+            "time": "2024-05-20T08:28:45+00:00"
         },
         {
             "name": "ezyang/htmlpurifier",
@@ -22587,6 +22587,7 @@
         "drupal/ultimate_cron": 15,
         "essexcountycouncil/ecc_theme": 20,
         "localgovdrupal/localgov_forms": 10,
+        "localgovdrupal/localgov_subsites_extras": 20,
         "roave/security-advisories": 20
     },
     "prefer-stable": true,
