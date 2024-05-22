@@ -9159,12 +9159,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/essexcountycouncil/ecc_theme.git",
-                "reference": "871c4fdeac889cb271497b0e9e50bc446b8a1af5"
+                "reference": "64be7961e0cb9aeb5960d8be387968f333e0a5cb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/essexcountycouncil/ecc_theme/zipball/871c4fdeac889cb271497b0e9e50bc446b8a1af5",
-                "reference": "871c4fdeac889cb271497b0e9e50bc446b8a1af5",
+                "url": "https://api.github.com/repos/essexcountycouncil/ecc_theme/zipball/64be7961e0cb9aeb5960d8be387968f333e0a5cb",
+                "reference": "64be7961e0cb9aeb5960d8be387968f333e0a5cb",
                 "shasum": ""
             },
             "type": "drupal-theme",
@@ -9179,7 +9179,7 @@
                 "source": "https://github.com/essexcountycouncil/ecc_theme/tree/feature/FOS-49",
                 "issues": "https://github.com/essexcountycouncil/ecc_theme/issues"
             },
-            "time": "2024-05-20T08:28:45+00:00"
+            "time": "2024-05-22T15:39:26+00:00"
         },
         {
             "name": "ezyang/htmlpurifier",
