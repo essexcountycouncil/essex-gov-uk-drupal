@@ -2418,17 +2418,17 @@
         },
         {
             "name": "drupal/ckeditor5_show_block",
-            "version": "1.12.0",
+            "version": "1.13.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/ckeditor5_show_block.git",
-                "reference": "8.x-1.12"
+                "reference": "8.x-1.13"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/ckeditor5_show_block-8.x-1.12.zip",
-                "reference": "8.x-1.12",
-                "shasum": "e0e84f2c9c257af84865e731e145197e5e059910"
+                "url": "https://ftp.drupal.org/files/projects/ckeditor5_show_block-8.x-1.13.zip",
+                "reference": "8.x-1.13",
+                "shasum": "76bdf3914b5628ec0576da9ac86faf3bfc3c5c85"
             },
             "require": {
                 "drupal/core": "^9 || ^10"
@@ -2436,8 +2436,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.12",
-                    "datestamp": "1714809060",
+                    "version": "8.x-1.13",
+                    "datestamp": "1716448338",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Project has not opted into security advisory coverage!"
@@ -9159,12 +9159,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/essexcountycouncil/ecc_theme.git",
-                "reference": "64be7961e0cb9aeb5960d8be387968f333e0a5cb"
+                "reference": "52f0d5cb9dafdcc0df76975faca441575fd181f3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/essexcountycouncil/ecc_theme/zipball/64be7961e0cb9aeb5960d8be387968f333e0a5cb",
-                "reference": "64be7961e0cb9aeb5960d8be387968f333e0a5cb",
+                "url": "https://api.github.com/repos/essexcountycouncil/ecc_theme/zipball/52f0d5cb9dafdcc0df76975faca441575fd181f3",
+                "reference": "52f0d5cb9dafdcc0df76975faca441575fd181f3",
                 "shasum": ""
             },
             "type": "drupal-theme",
@@ -9179,7 +9179,7 @@
                 "source": "https://github.com/essexcountycouncil/ecc_theme/tree/feature/FOS-49",
                 "issues": "https://github.com/essexcountycouncil/ecc_theme/issues"
             },
-            "time": "2024-05-22T15:39:26+00:00"
+            "time": "2024-05-23T11:24:14+00:00"
         },
         {
             "name": "ezyang/htmlpurifier",
@@ -22743,16 +22743,16 @@
         },
         {
             "name": "squizlabs/php_codesniffer",
-            "version": "3.10.0",
+            "version": "3.10.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPCSStandards/PHP_CodeSniffer.git",
-                "reference": "57e09801c2fbae2d257b8b75bebb3deeb7e9deb2"
+                "reference": "8f90f7a53ce271935282967f53d0894f8f1ff877"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPCSStandards/PHP_CodeSniffer/zipball/57e09801c2fbae2d257b8b75bebb3deeb7e9deb2",
-                "reference": "57e09801c2fbae2d257b8b75bebb3deeb7e9deb2",
+                "url": "https://api.github.com/repos/PHPCSStandards/PHP_CodeSniffer/zipball/8f90f7a53ce271935282967f53d0894f8f1ff877",
+                "reference": "8f90f7a53ce271935282967f53d0894f8f1ff877",
                 "shasum": ""
             },
             "require": {
@@ -22819,7 +22819,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2024-05-20T08:11:32+00:00"
+            "time": "2024-05-22T21:24:41+00:00"
         },
         {
             "name": "symfony/browser-kit",
