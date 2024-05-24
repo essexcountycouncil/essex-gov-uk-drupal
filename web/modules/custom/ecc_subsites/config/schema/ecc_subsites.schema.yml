@@ -1,0 +1,11 @@
+ecc_subsites.settings:
+  type: config_object
+  label: "Essex Subsites settings"
+  mapping:
+    fostering_path:
+      type: string
+      label: "Fostering subsite pages path prefix"
+    fostering_homepage:
+      type: int
+      label: "Fostering homepage node id"
+

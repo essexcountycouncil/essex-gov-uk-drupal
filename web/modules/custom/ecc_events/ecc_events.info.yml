@@ -1,0 +1,7 @@
+name: Essex County Council Events
+type: module
+description: Customisation for events.
+package: Custom
+core_version_requirement: ^10 || ^11
+dependencies:
+  - localgov_events:localgov_events
