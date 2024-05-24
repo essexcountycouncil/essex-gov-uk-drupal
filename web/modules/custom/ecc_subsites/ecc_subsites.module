@@ -5,6 +5,7 @@
  * Essex Subsites module hooks.
  */
 
+use Drupal\node\NodeInterface;
 /**
  * Implements hook_block_view_BASE_BLOCK_ID_alter().
  */
@@ -23,6 +24,23 @@ function ecc_subsites_preprocess_block(&$variables) {
     if ($subSiteService->getHomePage()) {
       if ($subSiteService->getCurrentSubsiteTheme() === 'fostering') {
         $variables['content']['site_logo']['#uri'] = '/themes/contrib/ecc_theme/ecc_theme_gov/assets/images/ECC_logo_long_white.svg';
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_localgov_subsites_extras_homepage_alter().
+ */
+function ecc_subsites_localgov_subsites_extras_homepage_alter(?NodeInterface &$homepage) {
+  if (!$homepage) {
+    $config = \Drupal::config('ecc_subsites.settings');
+    $url = \Drupal::request()->getRequestUri();
+    if ($path = $config->get('fostering_path')) {
+      if (str_starts_with($url, $path)) {
+        $homepage = \Drupal::entityTypeManager()
+          ->getStorage('node')
+          ->load($config->get('fostering_homepage'));
       }
     }
   }

@@ -171,7 +171,6 @@
                 "Claro theme + field_group seems to hide content of dropbutton": "https://www.drupal.org/files/issues/2024-01-19/drupal-claro-theme-field_group-seems-to-hide-content-of-dropdown-3217868-58.patch"
             },
             "drupal/fathom_analytics": {
-                "Issue #3380665: Defer attribute should be boolean": "https://git.drupalcode.org/project/fathom_analytics/-/merge_requests/2.diff",
                 "Automated Drupal 10 compatibility fixes": "https://www.drupal.org/files/issues/2022-06-15/fathom_analytics.3.0.0.rector.patch"
             },
             "drupal/migmag": {
@@ -183,9 +182,6 @@
             "drupal/preview_link": {
                 "Option to enter expiry period in days instead of seconds": "https://git.drupalcode.org/project/preview_link/-/merge_requests/22.diff",
                 "Error when accessing a preview link if enabled_entity_types configuration is missing": "https://www.drupal.org/files/issues/2024-04-04/preview_link-3438117-enabled_entity_types.patch"
-            },
-            "localgovdrupal/localgov_eu_cookie_compliance": {
-                "Pressing either radio button causes the hidden checkbox to be clicked": "https://patch-diff.githubusercontent.com/raw/localgovdrupal/localgov_eu_cookie_compliance/pull/22.diff"
             },
             "localgovdrupal/localgov_services": {
                 "New parent bundles for ServicesSelection": "patches/localgov_services.patch"
