@@ -5,4 +5,4 @@ dependencies: {  }
 id: short_formatted_event_date
 label: 'Short formatted event date'
 locked: false
-pattern: 'd M Y, H:ia'
+pattern: 'j M Y, H:ia'
