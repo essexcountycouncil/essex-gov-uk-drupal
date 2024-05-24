@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "391c111600eb91faf2c645a18500d3e3",
+    "content-hash": "0c78cb2905f297510ab58c296690bcc7",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -9159,12 +9159,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/essexcountycouncil/ecc_theme.git",
-                "reference": "52f0d5cb9dafdcc0df76975faca441575fd181f3"
+                "reference": "7a871d77651a5ee0a4895cdfbcce43505c21d563"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/essexcountycouncil/ecc_theme/zipball/52f0d5cb9dafdcc0df76975faca441575fd181f3",
-                "reference": "52f0d5cb9dafdcc0df76975faca441575fd181f3",
+                "url": "https://api.github.com/repos/essexcountycouncil/ecc_theme/zipball/7a871d77651a5ee0a4895cdfbcce43505c21d563",
+                "reference": "7a871d77651a5ee0a4895cdfbcce43505c21d563",
                 "shasum": ""
             },
             "type": "drupal-theme",
@@ -9179,7 +9179,7 @@
                 "source": "https://github.com/essexcountycouncil/ecc_theme/tree/feature/FOS-49",
                 "issues": "https://github.com/essexcountycouncil/ecc_theme/issues"
             },
-            "time": "2024-05-23T11:24:14+00:00"
+            "time": "2024-05-24T08:42:34+00:00"
         },
         {
             "name": "ezyang/htmlpurifier",
