@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.storage.node.localgov_event_categories
     - search_api.index.localgov_events
   module:
     - search_api
@@ -249,6 +250,7 @@ display:
       tags:
         - 'config:field.storage.node.localgov_event_categories'
         - 'config:search_api.index.localgov_events'
+        - 'search_api_list:localgov_events'
   events_page:
     id: events_page
     display_title: Page
@@ -261,7 +263,7 @@ display:
         cache: false
       exposed_block: true
       display_extenders: {  }
-      path: events/search
+      path: children-young-people-and-families/fostering/events/search
     cache_metadata:
       max-age: -1
       contexts:
@@ -274,3 +276,4 @@ display:
       tags:
         - 'config:field.storage.node.localgov_event_categories'
         - 'config:search_api.index.localgov_events'
+        - 'search_api_list:localgov_events'

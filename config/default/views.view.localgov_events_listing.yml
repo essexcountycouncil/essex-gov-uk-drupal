@@ -1459,7 +1459,7 @@ display:
         type: none
         title: Events
         description: ''
-        weight: -46
+        weight: -48
         enabled: false
         expanded: false
         menu_name: subsites
