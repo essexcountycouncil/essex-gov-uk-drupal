@@ -5,4 +5,4 @@ dependencies: {  }
 id: event_date_formatted
 label: 'Event date formatted'
 locked: false
-pattern: 'd F Y, H:i'
+pattern: 'd F Y, H:ia'

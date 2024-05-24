@@ -60,7 +60,7 @@ content:
     settings:
       timezone_override: ''
       format_type: event_date_formatted
-      separator: to
+      separator: 'to '
       show_next: 10
       count_per_item: false
       occurrence_format_type: event_date_formatted
