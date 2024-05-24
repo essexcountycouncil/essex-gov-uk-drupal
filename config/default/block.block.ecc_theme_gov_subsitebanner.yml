@@ -10,7 +10,7 @@ dependencies:
 id: ecc_theme_gov_subsitebanner
 theme: ecc_theme_gov
 region: hero
-weight: -10
+weight: -14
 provider: null
 plugin: localgov_subsite_banner
 settings:

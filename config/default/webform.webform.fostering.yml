@@ -13,19 +13,23 @@ title: Fostering
 description: ''
 categories: {  }
 elements: |-
+  could_you_foster_:
+    '#type': webform_wizard_page
+    '#title': 'Could you foster?'
+    '#prev_button_label': Previous
+    '#next_button_label': 'Start now'
+    intro:
+      '#type': processed_text
+      '#text': '<h2>Could you foster?</h2><p>We want to help you find the information and guidance that’s right for you. Answer a few quick questions to learn more about fostering in Essex and to create your personalised plan.</p><p>If you want to get in touch right away:<br>Call us on <u>0800 801 530</u>.&nbsp;<br>Come to <u>an event</u></p>'
+      '#format': wysiwyg
   almost_anyone_can_foster:
     '#type': webform_wizard_page
     '#title': 'Almost anyone can foster'
     '#prev_button_label': Back
     '#next_button_label': Continue
-    intro:
+    anyone_can:
       '#type': processed_text
-      '#text': |
-        <h2>Almost anyone can foster</h2>
-
-        <p>You can foster if you’re over 21 and want to make a difference to a child’s life.</p>
-
-        <p>Foster carers can be single, married or living with a partner. They can have their own children. They can have pets. They can be retired - age is no barrier. They can have disabilities or impairments. They can identify as LGBTQ+. They can live in rented accommodation.</p>
+      '#text': '<h2>Almost anyone can foster</h2><p dir="ltr">You can foster if you’re over 21 and want to make a difference to a child’s life.</p><p dir="ltr">Foster carers can be single, married or living with a partner. They can have their own children. They can have pets. They can be retired - age is no barrier. They can have disabilities or impairments. They can identify as LGBTQ+. They can live in rented accommodation.</p>'
       '#format': wysiwyg
   supporting_you_all_the_way:
     '#type': webform_wizard_page
@@ -34,21 +38,21 @@ elements: |-
     '#next_button_label': Continue
     supporting_you:
       '#type': processed_text
-      '#text': |
-        <h2>Supporting you all the way</h2>
-
-        <p>Foster carers never feel alone with our support. We make sure our support wraps around you, your foster child and your whole family. When you need advice, guidance or a helping hand, it’s local to you, and there for you 24 hours.</p>
-
-        <p>We provide training before you start fostering and throughout your whole fostering career. We help you to be the best foster carer you can be.</p>
+      '#text': '<h2>Supporting you all the way</h2><p dir="ltr">Foster carers never feel alone with our support. We make sure our support wraps around you, your foster child and your whole family. When you need advice, guidance or a helping hand, it’s local to you, and there for you 24 hours.</p><p dir="ltr">We provide training before you start fostering and throughout your whole fostering career. We help you to be the best foster carer you possibly can.</p>'
       '#format': wysiwyg
   do_you_have_a_spare_bedroom_:
     '#type': webform_wizard_page
     '#title': 'Do you have a spare bedroom?'
     '#prev_button_label': Back
     '#next_button_label': Continue
+    spare_room:
+      '#type': processed_text
+      '#text': '<h2>Do you have a spare bedroom?</h2>'
+      '#format': wysiwyg
     do_you_have_a_spare_bedroom:
       '#type': radios
       '#title': 'Do you have a spare bedroom?'
+      '#title_display': none
       '#options':
         'Yes': 'Yes'
         'No': 'No'
@@ -79,14 +83,12 @@ elements: |-
     '#next_button_label': Continue
     cared_for_children:
       '#type': processed_text
-      '#text': |
-        <h2>Have you worked with or cared for children?</h2>
-
-        <p>Including your own or friends and family's children. Childcare experience can be beneficial, but not required. We’ll provide full training to make sure you’re well-prepared and confident before you take care of a child.</p>
+      '#text': '<h2>Have you worked with or cared for children?</h2><p dir="ltr">Including your own or friends and family’s children, if you''ve been a teacher, a teaching assistant, or a childminder.</p>'
       '#format': wysiwyg
     have_you_worked_with_or_cared_for_children:
       '#type': radios
       '#title': 'Have you worked with or cared for children? '
+      '#title_display': none
       '#options':
         'Yes': 'Yes'
         'Sort of': 'Sort of'
@@ -101,26 +103,30 @@ elements: |-
           value: 'Yes'
     '#prev_button_label': Back
     '#next_button_label': Continue
+    fostered_before:
+      '#type': processed_text
+      '#text': '<h2>Have you fostered before?</h2>'
+      '#format': wysiwyg
     have_you_fostered_before:
       '#type': radios
       '#title': 'Have you fostered before?'
+      '#title_display': none
       '#options':
         'Yes': 'Yes'
         'No': 'No'
+        'Yes currently': 'Yes, I am currently fostering'
       '#options__properties': ''
   do_you_have_experience_of_caring_for_children_with_disabilities_:
     '#type': webform_wizard_page
     '#title': 'Do you have experience of caring for children with disabilities?'
     experience_with_disabilities:
       '#type': processed_text
-      '#text': |
-        <h2>Do you have experience of caring for children with disabilities?</h2>
-
-        <p>It could be personal or professional experience. Or you might have transferable skills, for example XXXX.</p>
+      '#text': '<h2>Do you have experience of caring for children with disabilities?</h2><p dir="ltr">It could be personal or professional experience. Or you might have transferable skills, such as working in health, social care or education.</p>'
       '#format': wysiwyg
     do_you_have_experience_of_caring_for_children_with_disabilities:
       '#type': radios
       '#title': 'Do you have experience of caring for children with disabilities?'
+      '#title_display': none
       '#options':
         'Yes': 'Yes'
         'No': 'No'
@@ -132,16 +138,12 @@ elements: |-
     '#next_button_label': Continue
     around_working_hours:
       '#type': processed_text
-      '#text': |
-        <h2>Could you care for a young person around your working hours?</h2>
-
-        <p>Foster carers are expected to be available to care for children, do school pickups, attend training and support groups, and to support contact with their birth family where appropriate.</p>
-
-        <p>You can be a foster carer and work full-time or part-time. We will support you to find an approach that fits your working pattern.</p>
+      '#text': '<h2>Could you care for a young person around your working hours?</h2><p dir="ltr">Foster carers are expected to be available to care for children and do school pickups. They will also attend training and support groups, and support contact with the child’s birth family where appropriate.</p><p dir="ltr">You can be a foster carer and work full-time or part-time. We will support you to find an approach that fits your working pattern.</p>'
       '#format': wysiwyg
     could_you_care_for_a_young_person_around_your_working_hours:
       '#type': radios
       '#title': 'Could you care for a young person around your working hours?'
+      '#title_display': none
       '#options':
         'Yes': 'Yes'
         "I'm not sure": "I'm not sure"
@@ -152,29 +154,9 @@ elements: |-
     '#title': 'What kind of fostering are you interested in?'
     '#prev_button_label': Back
     '#next_button_label': Continue
-    long_term_fostering_when_you_look_after_a_child_until_they_are_a:
-      '#type': checkbox
-      '#title': 'Long term fostering, when you look after a child until they are an adult'
-    type_long_term:
+    what_type_of_fostering:
       '#type': processed_text
-      '#states':
-        visible:
-          ':input[name="long_term_fostering_when_you_look_after_a_child_until_they_are_a"]':
-            checked: true
-      '#text': |
-        <p>You become the primary long-term carer for a child until they are ready to live independently. Long-term foster carers offer a loving home and a sense of security and stability for children who will have experienced trauma prior to being fostered.</p>
-      '#format': wysiwyg
-    short_term_for_a_few_weeks_or_months_up_to_2_years:
-      '#type': checkbox
-      '#title': 'Short term, for a few weeks or months up to 2 years'
-    type_short_term:
-      '#type': processed_text
-      '#states':
-        visible:
-          ':input[name="short_term_for_a_few_weeks_or_months_up_to_2_years"]':
-            checked: true
-      '#text': |
-        <p>Short-term foster carers usually look after a child for a few weeks or months at a time, though you might care for the same child for up to 2 years. This usually involves looking after a child while social workers and professionals support families to see if their child can return home.</p>
+      '#text': '<h2>What type of fostering are you interested in?</h2>'
       '#format': wysiwyg
     respite_or_sleepover_care_for_a_weekend_or_during_school_holiday:
       '#type': checkbox
@@ -185,11 +167,34 @@ elements: |-
         visible:
           ':input[name="respite_or_sleepover_care_for_a_weekend_or_during_school_holiday"]':
             checked: true
-      '#text': |
-        <p>Looking after a child regularly for a weekend or during the school holidays can give them and their family a much needed break to recharge a bit. When you provide sleepover care, you're becoming part of the child's extended network.</p>
-
-        <p>With some fostering experience, you might also help with emergency fostering - this is usually short notice and unplanned, for example if a single parent needs to go into hospital unexpectedly.</p>
+      '#text': '<p dir="ltr">Looking after a child regularly for a weekend or during the school holidays can give them and their family a much needed break to recharge a bit. When you provide sleepover care, you''re becoming part of the child''s extended network.</p><p dir="ltr">With some fostering experience, you might also help with emergency fostering - this is usually short notice and unplanned, for example if a single parent needs to go into hospital unexpectedly.</p>'
       '#format': wysiwyg
+    short_term_for_a_few_weeks_or_months_up_to_2_years:
+      '#type': checkbox
+      '#title': 'Short term, for a few weeks or months up to 2 years'
+    type_short_term:
+      '#type': processed_text
+      '#states':
+        visible:
+          ':input[name="short_term_for_a_few_weeks_or_months_up_to_2_years"]':
+            checked: true
+      '#text': '<p dir="ltr">Short-term foster carers usually look after a child for a few weeks or months at a time, though you might care for the same child for up to 2 years. This usually involves looking after a child while social workers and professionals support families to see if their child can return home.&nbsp;</p>'
+      '#format': wysiwyg
+    long_term_fostering_when_you_look_after_a_child_until_they_are_a:
+      '#type': checkbox
+      '#title': 'Long term fostering, when you look after a child until they are an adult'
+    type_long_term:
+      '#type': processed_text
+      '#states':
+        visible:
+          ':input[name="long_term_fostering_when_you_look_after_a_child_until_they_are_a"]':
+            checked: true
+      '#text': '<p dir="ltr">You become the primary long-term carer for a child until they are ready to live independently. Long-term foster carers offer a loving home and a sense of security and stability for children who will have experienced trauma prior to being fostered.</p>'
+      '#format': wysiwyg
+  actions:
+    '#type': webform_actions
+    '#title': 'Submit button(s)'
+    '#submit__label': Continue
 css: ''
 javascript: ''
 settings:
@@ -202,7 +207,7 @@ settings:
   page_submit_path: ''
   page_confirm_path: ''
   page_theme_name: ''
-  form_title: both
+  form_title: source_entity_webform
   form_submit_once: false
   form_open_message: ''
   form_close_message: ''
@@ -259,7 +264,7 @@ settings:
   autofill: false
   autofill_message: ''
   autofill_excluded_elements: {  }
-  wizard_progress_bar: true
+  wizard_progress_bar: false
   wizard_progress_pages: false
   wizard_progress_percentage: false
   wizard_progress_link: false
@@ -294,10 +299,10 @@ settings:
   draft_loaded_message: ''
   draft_pending_single_message: ''
   draft_pending_multiple_message: ''
-  confirmation_type: page
-  confirmation_url: ''
+  confirmation_type: url
+  confirmation_url: '/form/fostering/submitted?do_you_have_a_spare_bedroom=[webform_submission:values:do_you_have_a_spare_bedroom:raw]&have_you_worked_with_or_cared_for_children=[webform_submission:values:have_you_worked_with_or_cared_for_children:raw]&have_you_fostered_before=[webform_submission:values:have_you_fostered_before:raw]&do_you_have_experience_of_caring_for_children_with_disabilities=[webform_submission:values:do_you_have_experience_of_caring_for_children_with_disabilities:raw]&could_you_care_for_a_young_person_around_your_working_hours=[webform_submission:values:could_you_care_for_a_young_person_around_your_working_hours:raw]&long_term_fostering_when_you_look_after_a_child_until_they_are_a=[webform_submission:values:long_term_fostering_when_you_look_after_a_child_until_they_are_a:raw]&short_term_for_a_few_weeks_or_months_up_to_2_years=[webform_submission:values:short_term_for_a_few_weeks_or_months_up_to_2_years:raw]&respite_or_sleepover_care_for_a_weekend_or_during_school_holiday=[webform_submission:values:respite_or_sleepover_care_for_a_weekend_or_during_school_holiday]'
   confirmation_title: Thanks
-  confirmation_message: 'CONFIRMATION PAGE - NEED TO GET THE CORRECT ITEMS HERE DEPENDING ON WHAT IS CHOSEN IN THE FORM'
+  confirmation_message: '<p>CONFIRMATION PAGE - NEED TO GET THE CORRECT ITEMS HERE DEPENDING ON WHAT IS CHOSEN IN THE FORM</p><p>&nbsp;</p><p>Title</p><p>[webform_submission:webform:element:title]</p><p>Spare room?</p><p>[webform_submission:webform:element:do_you_have_a_spare_bedroom]</p><p>[webform_submission:webform:element:do_you_have_a_spare_bedroom:value]</p><p>[webform_submission:webform:element:do_you_have_a_spare_bedroom:more]</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>'
   confirmation_attributes: {  }
   confirmation_back: true
   confirmation_back_label: ''
@@ -329,6 +334,7 @@ settings:
 access:
   create:
     roles:
+      - anonymous
       - authenticated
     users: {  }
     permissions: {  }
@@ -372,5 +378,82 @@ access:
     roles: {  }
     users: {  }
     permissions: {  }
-handlers: {  }
+handlers:
+  settings:
+    id: settings
+    handler_id: settings
+    label: 'Worked with children = yes'
+    notes: ''
+    status: true
+    conditions:
+      enabled:
+        ':input[name="have_you_worked_with_or_cared_for_children"]':
+          value: 'Yes'
+    weight: -50
+    settings:
+      debug: false
+      preview_title: ''
+      preview_message: ''
+      confirmation_url: ''
+      confirmation_title: ''
+      confirmation_message: '<p>Yes, I have worked with children before.</p>'
+  settings_1:
+    id: settings
+    handler_id: settings_1
+    label: 'Worked with children = no'
+    notes: ''
+    status: true
+    conditions:
+      enabled:
+        ':input[name="have_you_worked_with_or_cared_for_children"]':
+          value: 'No'
+    weight: -49
+    settings:
+      debug: false
+      preview_title: ''
+      preview_message: ''
+      confirmation_url: ''
+      confirmation_title: ''
+      confirmation_message: '<p>No, I have not worked with children before.</p><ol><li>Supported lodgings</li><li>Long-term fostering</li><li>Short-term fostering</li><li>Respite or "sleepover" care</li></ol>'
+  around_work_yes_don_t_work:
+    id: settings
+    handler_id: around_work_yes_don_t_work
+    label: "Around work = yes/don't work"
+    notes: ''
+    status: true
+    conditions:
+      enabled:
+        -
+          ':input[name="could_you_care_for_a_young_person_around_your_working_hours"]':
+            value: "I don't work"
+        - or
+        -
+          ':input[name="could_you_care_for_a_young_person_around_your_working_hours"]':
+            value: 'Yes'
+    weight: -47
+    settings:
+      debug: false
+      preview_title: ''
+      preview_message: ''
+      confirmation_url: ''
+      confirmation_title: ''
+      confirmation_message: "<p>Around work = yes/don't work</p>"
+  around_work_i_don_t_know:
+    id: settings
+    handler_id: around_work_i_don_t_know
+    label: "Around work = I don't know"
+    notes: ''
+    status: true
+    conditions:
+      enabled:
+        ':input[name="could_you_care_for_a_young_person_around_your_working_hours"]':
+          value: "I'm not sure"
+    weight: -48
+    settings:
+      debug: false
+      preview_title: ''
+      preview_message: ''
+      confirmation_url: ''
+      confirmation_title: ''
+      confirmation_message: '<p>Around work, I''m not sure</p><ol><li>Respite or "Sleepover" care</li><li>Parent and child fostering</li><li>Supported lodgings</li><li>Short breaks schemes for children with disabilities</li></ol>'
 variants: {  }

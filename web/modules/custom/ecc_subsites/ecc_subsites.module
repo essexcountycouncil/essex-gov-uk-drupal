@@ -1,0 +1,47 @@
+<?php
+
+/**
+ * @file
+ * Essex Subsites module hooks.
+ */
+
+use Drupal\node\NodeInterface;
+/**
+ * Implements hook_block_view_BASE_BLOCK_ID_alter().
+ */
+function ecc_subsites_block_view_system_branding_block_alter(array &$build, \Drupal\Core\Block\BlockPluginInterface $block) {
+  $build['#cache']['contexts'][] = 'url.path';
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function ecc_subsites_preprocess_block(&$variables) {
+  if ($variables['base_plugin_id'] == 'system_branding_block') {
+    /** @var \Drupal\localgov_subsites_extras\Service\SubsiteService $subSiteService */
+    $subSiteService = \Drupal::service('localgov_subsites_extras.service');
+
+    if ($subSiteService->getHomePage()) {
+      if ($subSiteService->getCurrentSubsiteTheme() === 'fostering') {
+        $variables['content']['site_logo']['#uri'] = '/themes/contrib/ecc_theme/ecc_theme_gov/assets/images/ECC_logo_long_white.svg';
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_localgov_subsites_extras_homepage_alter().
+ */
+function ecc_subsites_localgov_subsites_extras_homepage_alter(?NodeInterface &$homepage) {
+  if (!$homepage) {
+    $config = \Drupal::config('ecc_subsites.settings');
+    $url = \Drupal::request()->getRequestUri();
+    if ($path = $config->get('fostering_path')) {
+      if (str_starts_with($url, $path)) {
+        $homepage = \Drupal::entityTypeManager()
+          ->getStorage('node')
+          ->load($config->get('fostering_homepage'));
+      }
+    }
+  }
+}

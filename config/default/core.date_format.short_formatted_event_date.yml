@@ -1,0 +1,8 @@
+uuid: 0491fa31-c39e-4f10-9759-fcbbbbbf444f
+langcode: en
+status: true
+dependencies: {  }
+id: short_formatted_event_date
+label: 'Short formatted event date'
+locked: false
+pattern: 'j M Y, H:ia'

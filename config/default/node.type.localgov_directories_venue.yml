@@ -1,7 +1,14 @@
 uuid: 7e0bb2e3-8d83-4827-a385-d253548a5d20
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+      - subsites
 _core:
   default_config_hash: aFAyHHV687JGOdcsXqeVUREICSxQ2Uk5GZ_EfONa0xY
 name: 'Directory venue'
