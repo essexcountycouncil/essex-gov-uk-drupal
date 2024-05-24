@@ -7,7 +7,6 @@ dependencies:
     - field.storage.node.body
     - field.storage.node.localgov_event_image
     - node.type.localgov_event
-    - system.menu.subsites
     - taxonomy.vocabulary.localgov_event_category
     - taxonomy.vocabulary.localgov_event_locality
     - taxonomy.vocabulary.localgov_event_price
@@ -1078,7 +1077,6 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags:
@@ -1458,13 +1456,14 @@ display:
       display_extenders: {  }
       path: children-young-people-and-families/fostering/events
       menu:
-        type: normal
+        type: none
         title: Events
         description: ''
-        weight: 0
+        weight: -46
+        enabled: false
         expanded: false
         menu_name: subsites
-        parent: 'menu_link_content:cc073c45-b99b-409c-a583-3902fdcd130a'
+        parent: ''
         context: '0'
     cache_metadata:
       max-age: -1
@@ -1473,7 +1472,6 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags:
