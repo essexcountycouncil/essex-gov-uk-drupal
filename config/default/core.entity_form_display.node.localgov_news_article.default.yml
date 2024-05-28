@@ -5,7 +5,6 @@ dependencies:
   config:
     - field.field.node.localgov_news_article.body
     - field.field.node.localgov_news_article.field_media_image
-    - field.field.node.localgov_news_article.localgov_access_control
     - field.field.node.localgov_news_article.localgov_news_categories
     - field.field.node.localgov_news_article.localgov_news_date
     - field.field.node.localgov_news_article.localgov_news_related
@@ -238,5 +237,4 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden:
-  localgov_access_control: true
+hidden: {  }

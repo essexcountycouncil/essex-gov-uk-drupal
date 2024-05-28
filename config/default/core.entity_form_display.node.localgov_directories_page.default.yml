@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - field.field.node.localgov_directories_page.body
-    - field.field.node.localgov_directories_page.localgov_access_control
     - field.field.node.localgov_directories_page.localgov_directory_address
     - field.field.node.localgov_directories_page.localgov_directory_channels
     - field.field.node.localgov_directories_page.localgov_directory_email
@@ -261,5 +260,4 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden:
-  localgov_access_control: true
+hidden: {  }

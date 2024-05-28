@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.localgov_subsites_page.localgov_access_control
     - field.field.node.localgov_subsites_page.localgov_subsites_banner
     - field.field.node.localgov_subsites_page.localgov_subsites_content
     - field.field.node.localgov_subsites_page.localgov_subsites_parent
@@ -211,5 +210,4 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden:
-  localgov_access_control: true
+hidden: {  }

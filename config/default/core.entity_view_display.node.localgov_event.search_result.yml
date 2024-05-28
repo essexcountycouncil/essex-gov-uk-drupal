@@ -7,7 +7,6 @@ dependencies:
     - core.date_format.localgov_event_date_hour
     - core.entity_view_mode.node.search_result
     - field.field.node.localgov_event.body
-    - field.field.node.localgov_event.localgov_access_control
     - field.field.node.localgov_event.localgov_event_call_to_action
     - field.field.node.localgov_event.localgov_event_categories
     - field.field.node.localgov_event.localgov_event_date
@@ -106,7 +105,6 @@ content:
 hidden:
   content_moderation_control: true
   links: true
-  localgov_access_control: true
   localgov_event_categories: true
   localgov_event_locality: true
   localgov_event_price: true

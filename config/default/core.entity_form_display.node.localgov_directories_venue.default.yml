@@ -5,7 +5,6 @@ dependencies:
   config:
     - entity_browser.browser.geo_entity_library
     - field.field.node.localgov_directories_venue.body
-    - field.field.node.localgov_directories_venue.localgov_access_control
     - field.field.node.localgov_directories_venue.localgov_directory_channels
     - field.field.node.localgov_directories_venue.localgov_directory_email
     - field.field.node.localgov_directories_venue.localgov_directory_facets_select
@@ -300,5 +299,4 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden:
-  localgov_access_control: true
+hidden: {  }

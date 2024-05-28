@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - field.field.node.localgov_services_sublanding.body
-    - field.field.node.localgov_services_sublanding.localgov_access_control
     - field.field.node.localgov_services_sublanding.localgov_services_parent
     - field.field.node.localgov_services_sublanding.localgov_topics
     - node.type.localgov_services_sublanding
@@ -188,5 +187,4 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden:
-  localgov_access_control: true
+hidden: {  }
