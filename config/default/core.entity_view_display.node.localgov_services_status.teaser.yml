@@ -5,7 +5,6 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.localgov_services_status.body
-    - field.field.node.localgov_services_status.localgov_access_control
     - field.field.node.localgov_services_status.localgov_service_status
     - field.field.node.localgov_services_status.localgov_service_status_on_landi
     - field.field.node.localgov_services_status.localgov_service_status_on_list
@@ -37,7 +36,6 @@ content:
     region: content
 hidden:
   content_moderation_control: true
-  localgov_access_control: true
   localgov_service_status: true
   localgov_service_status_on_landi: true
   localgov_service_status_on_list: true
