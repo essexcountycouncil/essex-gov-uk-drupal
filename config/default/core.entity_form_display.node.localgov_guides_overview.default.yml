@@ -32,7 +32,7 @@ third_party_settings:
       label: 'Content Ownership'
       region: hidden
       parent_name: ''
-      weight: 20
+      weight: 22
       format_type: fieldset
       format_settings:
         classes: ''
@@ -65,7 +65,7 @@ content:
     third_party_settings: {  }
   field_content_owner:
     type: entity_reference_autocomplete
-    weight: 15
+    weight: 16
     region: content
     settings:
       match_operator: CONTAINS
@@ -75,20 +75,10 @@ content:
     third_party_settings: {  }
   field_non_publishable_notes:
     type: text_textarea
-    weight: 16
+    weight: 17
     region: content
     settings:
       rows: 5
-      placeholder: ''
-    third_party_settings: {  }
-  localgov_access_control:
-    type: entity_reference_autocomplete
-    weight: 26
-    region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
       placeholder: ''
     third_party_settings: {  }
   localgov_guides_description:
@@ -101,7 +91,7 @@ content:
     third_party_settings: {  }
   localgov_guides_pages:
     type: localgov_entity_reference_labels
-    weight: 13
+    weight: 14
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -115,7 +105,7 @@ content:
     third_party_settings: {  }
   localgov_page_components:
     type: entity_browser_entity_reference
-    weight: 14
+    weight: 15
     region: content
     settings:
       entity_browser: page_components
@@ -145,7 +135,7 @@ content:
     third_party_settings: {  }
   moderation_state:
     type: moderation_state_default
-    weight: 17
+    weight: 18
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -163,13 +153,13 @@ content:
       display_label: true
     third_party_settings: {  }
   simple_sitemap:
-    weight: 10
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 12
+    weight: 13
     region: content
     settings:
       display_label: true
@@ -200,11 +190,12 @@ content:
       placeholder: ''
     third_party_settings: {  }
   url_redirects:
-    weight: 11
+    weight: 12
     region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
   entitygroupfield: true
+  localgov_access_control: true
   localgov_guides_list_format: true
   localgov_topic_classified: true

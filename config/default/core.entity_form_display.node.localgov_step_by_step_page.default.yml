@@ -24,7 +24,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 4
+    weight: 5
     region: content
     settings:
       rows: 9
@@ -38,25 +38,15 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  localgov_access_control:
-    type: entity_reference_autocomplete
-    weight: 101
-    region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
   localgov_review_date:
     type: review_date
-    weight: -5
+    weight: 0
     region: content
     settings: {  }
     third_party_settings: {  }
   localgov_step_parent:
     type: entity_reference_autocomplete
-    weight: 2
+    weight: 3
     region: content
     settings:
       match_operator: CONTAINS
@@ -66,7 +56,7 @@ content:
     third_party_settings: {  }
   localgov_step_section_title:
     type: string_textfield
-    weight: 1
+    weight: 2
     region: content
     settings:
       size: 60
@@ -74,7 +64,7 @@ content:
     third_party_settings: {  }
   localgov_step_summary:
     type: text_textarea
-    weight: 3
+    weight: 4
     region: content
     settings:
       rows: 5
@@ -82,7 +72,7 @@ content:
     third_party_settings: {  }
   moderation_state:
     type: moderation_state_default
-    weight: 100
+    weight: 14
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -100,7 +90,7 @@ content:
       display_label: true
     third_party_settings: {  }
   simple_sitemap:
-    weight: 10
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -120,7 +110,7 @@ content:
     third_party_settings: {  }
   title:
     type: string_textfield
-    weight: 0
+    weight: 1
     region: content
     settings:
       size: 60
@@ -137,8 +127,9 @@ content:
       placeholder: ''
     third_party_settings: {  }
   url_redirects:
-    weight: 11
+    weight: 12
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  localgov_access_control: true

@@ -151,16 +151,6 @@ content:
       rows: 3
       placeholder: ''
     third_party_settings: {  }
-  localgov_access_control:
-    type: entity_reference_autocomplete
-    weight: 11
-    region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
   localgov_common_tasks:
     type: link_default
     weight: 0
@@ -294,4 +284,5 @@ content:
     third_party_settings: {  }
 hidden:
   entitygroupfield: true
+  localgov_access_control: true
   localgov_download_links: true

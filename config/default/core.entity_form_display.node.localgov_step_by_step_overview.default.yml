@@ -39,16 +39,6 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  localgov_access_control:
-    type: entity_reference_autocomplete
-    weight: 26
-    region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
   localgov_review_date:
     type: review_date
     weight: 0
@@ -154,4 +144,5 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  localgov_access_control: true
