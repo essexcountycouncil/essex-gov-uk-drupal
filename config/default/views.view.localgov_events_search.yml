@@ -263,7 +263,7 @@ display:
         cache: false
       exposed_block: true
       display_extenders: {  }
-      path: children-young-people-and-families/fostering/events/search
+      path: essex-fostering/events/search
     cache_metadata:
       max-age: -1
       contexts:
