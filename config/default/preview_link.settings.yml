@@ -3,5 +3,5 @@ _core:
 display_message: subsequent
 enabled_entity_types: {  }
 multiple_entities: false
-expiry_seconds: 7776000
-expiry_entry_in_days: false
+expiry_seconds: 2592000
+expiry_entry_in_days: true

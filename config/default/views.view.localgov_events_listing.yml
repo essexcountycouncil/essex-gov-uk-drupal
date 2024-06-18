@@ -1454,7 +1454,7 @@ display:
         title: false
       exposed_block: true
       display_extenders: {  }
-      path: essex-fostering/events
+      path: children-young-people-and-families/fostering/events
       menu:
         type: none
         title: Events

@@ -22,4 +22,4 @@ visibility:
   request_path:
     id: request_path
     negate: false
-    pages: "/events\r\n/children-young-people-and-families/fostering/events\r\n/children-young-people-and-families/fostering/events/search\r\n/essex-fostering/events\r\n/essex-fostering/events/search"
+    pages: "/events\r\n/children-young-people-and-families/fostering/events\r\n/children-young-people-and-families/fostering/events/search"

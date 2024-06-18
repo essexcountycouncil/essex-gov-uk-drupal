@@ -1,5 +1,0 @@
-name: 'Essex .GOV deploy'
-type: module
-description: 'Runs tasks primarily with hook_update_N.'
-package: Custom
-core_version_requirement: ^10 || ^11
