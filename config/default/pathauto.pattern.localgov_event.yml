@@ -9,12 +9,12 @@ _core:
 id: localgov_event
 label: Event
 type: 'canonical_entities:node'
-pattern: 'children-young-people-and-families/fostering/events/[node:title]'
+pattern: 'essex-fostering/events/[node:title]'
 selection_criteria:
-  1f812977-85ac-4c66-9e52-2973d3947b16:
+  dcb2841c-2170-4937-8333-e91597bc709c:
     id: 'entity_bundle:node'
     negate: false
-    uuid: 1f812977-85ac-4c66-9e52-2973d3947b16
+    uuid: dcb2841c-2170-4937-8333-e91597bc709c
     context_mapping:
       node: node
     bundles:
