@@ -6,7 +6,6 @@ dependencies:
     - field.field.node.localgov_guides_overview.body
     - field.field.node.localgov_guides_overview.field_content_owner
     - field.field.node.localgov_guides_overview.field_non_publishable_notes
-    - field.field.node.localgov_guides_overview.localgov_access_control
     - field.field.node.localgov_guides_overview.localgov_guides_description
     - field.field.node.localgov_guides_overview.localgov_guides_list_format
     - field.field.node.localgov_guides_overview.localgov_guides_pages
@@ -51,7 +50,6 @@ hidden:
   entitygroupfield: true
   field_content_owner: true
   field_non_publishable_notes: true
-  localgov_access_control: true
   localgov_guides_description: true
   localgov_guides_list_format: true
   localgov_guides_pages: true

@@ -11,10 +11,10 @@ label: 'Subsite page'
 type: 'canonical_entities:node'
 pattern: '[node:localgov_subsites_parent:entity:url:relative]/[node:title]'
 selection_criteria:
-  a17ad9f1-47e0-407c-9351-970cb7dc958c:
+  f8b49777-eee1-48dd-a57c-4138e0f99cd7:
     id: 'entity_bundle:node'
     negate: false
-    uuid: a17ad9f1-47e0-407c-9351-970cb7dc958c
+    uuid: f8b49777-eee1-48dd-a57c-4138e0f99cd7
     context_mapping:
       node: node
     bundles:

@@ -8,5 +8,6 @@ _core:
   default_config_hash: 2BQ3ZnOwkj5LBB199e79_MMjnwSKOA3Bt9GU_Wi-Jm0
 id: node.message
 label: Message
+description: ''
 targetEntityType: node
 cache: true

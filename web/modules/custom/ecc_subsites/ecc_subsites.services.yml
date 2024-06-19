@@ -1,0 +1,7 @@
+services:
+  cache_context.subsites:
+    class: Drupal\ecc_subsites\Cache\SubsitesCacheContext
+    arguments:
+      - '@localgov_subsites_extras.service'
+    tags:
+      - { name: cache.context }

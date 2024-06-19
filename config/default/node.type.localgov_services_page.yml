@@ -10,6 +10,7 @@ third_party_settings:
       - business
       - about-this-website
       - main
+      - subsites
     parent: 'about-this-website:'
 _core:
   default_config_hash: WULkEekP8OdZimuV1w42i5Jm5eEXT6P0ep9hxPyGzUg

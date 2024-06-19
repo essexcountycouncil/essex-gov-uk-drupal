@@ -1,0 +1,26 @@
+uuid: 5f33b29c-02b9-4a4e-b694-5ed7df70b57f
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.subsites
+  module:
+    - block_classes
+    - system
+  theme:
+    - ecc_theme_gov
+id: ecc_theme_gov_subsites
+theme: ecc_theme_gov
+region: subsites_menu
+weight: 0
+provider: null
+plugin: 'system_menu_block:subsites'
+settings:
+  id: 'system_menu_block:subsites'
+  label: 'Subsites menu'
+  label_display: '0'
+  provider: system
+  level: 2
+  depth: 1
+  expand_all_items: false
+visibility: {  }

@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.search_result
-    - field.field.node.localgov_subsites_page.localgov_access_control
     - field.field.node.localgov_subsites_page.localgov_subsites_banner
     - field.field.node.localgov_subsites_page.localgov_subsites_content
     - field.field.node.localgov_subsites_page.localgov_subsites_parent
@@ -30,7 +29,6 @@ content:
 hidden:
   content_moderation_control: true
   links: true
-  localgov_access_control: true
   localgov_subsites_banner: true
   localgov_subsites_content: true
   localgov_subsites_parent: true

@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - field.field.node.localgov_directory_promo_page.body
-    - field.field.node.localgov_directory_promo_page.localgov_access_control
     - field.field.node.localgov_directory_promo_page.localgov_directory_address
     - field.field.node.localgov_directory_promo_page.localgov_directory_banner
     - field.field.node.localgov_directory_promo_page.localgov_directory_channels
@@ -204,7 +203,6 @@ content:
     region: content
 hidden:
   content_moderation_control: true
-  localgov_access_control: true
   localgov_directory_channels: true
   localgov_directory_search: true
   localgov_directory_title_sort: true

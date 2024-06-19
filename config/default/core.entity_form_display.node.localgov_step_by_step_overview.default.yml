@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - field.field.node.localgov_step_by_step_overview.body
-    - field.field.node.localgov_step_by_step_overview.localgov_access_control
     - field.field.node.localgov_step_by_step_overview.localgov_services_parent
     - field.field.node.localgov_step_by_step_overview.localgov_step_by_step_pages
     - field.field.node.localgov_step_by_step_overview.localgov_step_description
@@ -38,16 +37,6 @@ content:
     weight: 5
     region: content
     settings: {  }
-    third_party_settings: {  }
-  localgov_access_control:
-    type: entity_reference_autocomplete
-    weight: 26
-    region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
     third_party_settings: {  }
   localgov_review_date:
     type: review_date

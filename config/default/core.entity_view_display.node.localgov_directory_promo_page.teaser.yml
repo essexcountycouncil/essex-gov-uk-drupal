@@ -5,7 +5,6 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.localgov_directory_promo_page.body
-    - field.field.node.localgov_directory_promo_page.localgov_access_control
     - field.field.node.localgov_directory_promo_page.localgov_directory_address
     - field.field.node.localgov_directory_promo_page.localgov_directory_banner
     - field.field.node.localgov_directory_promo_page.localgov_directory_channels
@@ -59,7 +58,6 @@ content:
 hidden:
   content_moderation_control: true
   links: true
-  localgov_access_control: true
   localgov_directory_address: true
   localgov_directory_channels: true
   localgov_directory_email: true

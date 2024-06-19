@@ -11,10 +11,10 @@ label: 'Services Landing Page'
 type: 'canonical_entities:node'
 pattern: '[node:title]'
 selection_criteria:
-  42d90085-1126-4394-9349-88a26a0317f5:
+  5dc4dbbd-1e2e-48c9-9055-18da12f8bf6b:
     id: 'entity_bundle:node'
     negate: false
-    uuid: 42d90085-1126-4394-9349-88a26a0317f5
+    uuid: 5dc4dbbd-1e2e-48c9-9055-18da12f8bf6b
     context_mapping:
       node: node
     bundles:

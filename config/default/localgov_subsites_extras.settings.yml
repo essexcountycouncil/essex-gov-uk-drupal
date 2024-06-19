@@ -1,0 +1,5 @@
+_core:
+  default_config_hash: SecIapdzLYZEL5seZtn0thUp2i1YUiPtsrrG5Vz1s5I
+subsite_types:
+  - localgov_subsites_overview
+theme_field: localgov_subsites_theme

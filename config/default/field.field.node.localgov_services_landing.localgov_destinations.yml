@@ -11,6 +11,7 @@ dependencies:
     - node.type.localgov_services_status
     - node.type.localgov_services_sublanding
     - node.type.localgov_step_by_step_overview
+    - node.type.localgov_subsites_overview
 _core:
   default_config_hash: pH_-QPb-Vs4nARMi0ve6PIREPABVTGxsNKz1haWGhzA
 id: node.localgov_services_landing.localgov_destinations
@@ -27,15 +28,17 @@ settings:
   handler: 'default:node'
   handler_settings:
     target_bundles:
-      localgov_services_landing: localgov_services_landing
-      localgov_services_sublanding: localgov_services_sublanding
-      localgov_services_page: localgov_services_page
       localgov_directory: localgov_directory
-      localgov_step_by_step_overview: localgov_step_by_step_overview
-      localgov_services_status: localgov_services_status
       localgov_guides_overview: localgov_guides_overview
+      localgov_services_landing: localgov_services_landing
+      localgov_services_page: localgov_services_page
+      localgov_services_status: localgov_services_status
+      localgov_services_sublanding: localgov_services_sublanding
+      localgov_step_by_step_overview: localgov_step_by_step_overview
+      localgov_subsites_overview: localgov_subsites_overview
     sort:
       field: _none
+      direction: ASC
     auto_create: false
-    auto_create_bundle: basic_page
+    auto_create_bundle: localgov_directory
 field_type: entity_reference

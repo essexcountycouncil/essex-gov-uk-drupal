@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.localgov_subsites_page.localgov_access_control
     - field.field.node.localgov_subsites_page.localgov_subsites_banner
     - field.field.node.localgov_subsites_page.localgov_subsites_content
     - field.field.node.localgov_subsites_page.localgov_subsites_parent
@@ -92,16 +91,6 @@ content:
     weight: 3
     region: content
     settings: {  }
-    third_party_settings: {  }
-  localgov_access_control:
-    type: entity_reference_autocomplete
-    weight: 11
-    region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
     third_party_settings: {  }
   localgov_review_date:
     type: review_date

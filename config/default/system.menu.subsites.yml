@@ -1,0 +1,10 @@
+uuid: ac708597-8801-49b8-9585-0ccac5ec8d43
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: vJ8McOb9i2gQebaUOG5pSiexqSd5VFP9_8BHVD-7vd0
+id: subsites
+label: Subsites
+description: 'Subsite menu links'
+locked: false

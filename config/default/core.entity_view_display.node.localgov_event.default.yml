@@ -3,10 +3,9 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.date_format.localgov_event_date_full
+    - core.date_format.event_date_formatted
     - core.date_format.localgov_event_date_hour
     - field.field.node.localgov_event.body
-    - field.field.node.localgov_event.localgov_access_control
     - field.field.node.localgov_event.localgov_event_call_to_action
     - field.field.node.localgov_event.localgov_event_categories
     - field.field.node.localgov_event.localgov_event_date
@@ -19,6 +18,7 @@ dependencies:
     - node.type.localgov_event
   module:
     - date_recur
+    - field_formatter_class
     - link
     - text
     - user
@@ -58,14 +58,16 @@ content:
     label: hidden
     settings:
       timezone_override: ''
-      format_type: localgov_event_date_full
-      separator: to
+      format_type: event_date_formatted
+      separator: 'to '
       show_next: 10
       count_per_item: false
-      occurrence_format_type: localgov_event_date_full
+      occurrence_format_type: event_date_formatted
       same_end_date_format_type: localgov_event_date_hour
       interpreter: ''
-    third_party_settings: {  }
+    third_party_settings:
+      field_formatter_class:
+        class: ''
     weight: 2
     region: content
   localgov_event_image:
@@ -104,7 +106,6 @@ content:
     region: content
 hidden:
   links: true
-  localgov_access_control: true
   localgov_event_categories: true
   localgov_event_locality: true
   localgov_event_price: true

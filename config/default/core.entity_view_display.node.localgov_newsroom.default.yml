@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.localgov_newsroom.localgov_access_control
     - field.field.node.localgov_newsroom.localgov_newsroom_featured
     - node.type.localgov_newsroom
   module:
@@ -40,6 +39,5 @@ content:
     region: content
 hidden:
   content_moderation_control: true
-  localgov_access_control: true
   localgov_newsroom_featured: true
   search_api_excerpt: true

@@ -16,6 +16,9 @@ settings:
     -
       value: theme_a
       label: Default
+    -
+      value: fostering
+      label: Fostering
   allowed_values_function: ''
 module: options
 locked: false

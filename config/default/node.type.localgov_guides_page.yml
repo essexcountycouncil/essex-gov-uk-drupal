@@ -8,6 +8,7 @@ third_party_settings:
   menu_ui:
     available_menus:
       - main
+      - subsites
     parent: 'main:'
 _core:
   default_config_hash: PTUm9cKlwFKCj6fxSWFOWCYukL5L6OjDPg4ioi3Lfeg

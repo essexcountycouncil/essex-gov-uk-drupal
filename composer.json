@@ -78,6 +78,7 @@
         "drupal/health_check_url": "^3.2",
         "drupal/jsonapi_extras": "^3.24",
         "drupal/leaflet": "^10.2",
+        "drupal/mail_login": "^3.0",
         "drupal/migmag": "^1.8",
         "drupal/migrate_plus": "^6.0",
         "drupal/migrate_process_markdown_to_html": "^1",
@@ -104,13 +105,14 @@
         "essexcountycouncil/ecc_content_moderation": "^1.0",
         "essexcountycouncil/ecc_cookie_compliance": "^1.0",
         "essexcountycouncil/ecc_menu": "^1.0",
-        "essexcountycouncil/ecc_theme": "^1.0",
+        "essexcountycouncil/ecc_theme": "^1.1",
         "localgovdrupal/localgov": "^3",
-        "localgovdrupal/localgov_base": "^1.4",
+        "localgovdrupal/localgov_base": "^1.5",
         "localgovdrupal/localgov_content_access_control": "^1.0",
         "localgovdrupal/localgov_eu_cookie_compliance": "^1.0",
         "localgovdrupal/localgov_forms": "^1.0@beta",
         "localgovdrupal/localgov_geo": "^2",
+        "localgovdrupal/localgov_subsites_extras": "1.x-dev",
         "mglaman/composer-drupal-lenient": "^1.0",
         "palantirnet/drupal-rector": "^0.18.0",
         "wa72/htmlpagedom": "*"
@@ -169,7 +171,6 @@
                 "Claro theme + field_group seems to hide content of dropbutton": "https://www.drupal.org/files/issues/2024-01-19/drupal-claro-theme-field_group-seems-to-hide-content-of-dropdown-3217868-58.patch"
             },
             "drupal/fathom_analytics": {
-                "Issue #3380665: Defer attribute should be boolean": "https://git.drupalcode.org/project/fathom_analytics/-/merge_requests/2.diff",
                 "Automated Drupal 10 compatibility fixes": "https://www.drupal.org/files/issues/2022-06-15/fathom_analytics.3.0.0.rector.patch"
             },
             "drupal/migmag": {
@@ -182,14 +183,14 @@
                 "Option to enter expiry period in days instead of seconds": "https://git.drupalcode.org/project/preview_link/-/merge_requests/22.diff",
                 "Error when accessing a preview link if enabled_entity_types configuration is missing": "https://www.drupal.org/files/issues/2024-04-04/preview_link-3438117-enabled_entity_types.patch"
             },
-            "localgovdrupal/localgov_eu_cookie_compliance": {
-                "Pressing either radio button causes the hidden checkbox to be clicked": "https://patch-diff.githubusercontent.com/raw/localgovdrupal/localgov_eu_cookie_compliance/pull/22.diff"
-            },
             "localgovdrupal/localgov_services": {
                 "New parent bundles for ServicesSelection": "patches/localgov_services.patch"
             },
             "localgovdrupal/localgov_subsites": {
                 "Show page heading block for subsites pages": "patches/localgov_subsites.patch"
+            },
+            "localgovdrupal/localgov_subsites_extras": {
+                "Add alter hook to allow other modules to set the subsite homepage": "https://patch-diff.githubusercontent.com/raw/localgovdrupal/localgov_subsites_extras/pull/14.diff"
             },
             "localgovdrupal/localgov_workflows": {
                 "Fix for drush site-install": "patches/localgov_workflows.patch"
@@ -284,19 +285,17 @@
             "chmod 444 web/sites/default/default.*.yml",
             "chmod 444 web/sites/default/*.services.yml"
         ],
-        "phpcs": "bin/phpcs --standard=Drupal,DrupalPractice --ignore=*/node_modules/* web/modules/custom web/themes/custom",
-        "checker-php-lint": "bin/parallel-lint web/modules/custom",
+        "phpcs": "bin/phpcs --standard=Drupal,DrupalPractice --ignore=*.js web/modules/custom",
+        "phpcbf": "bin/phpcbf --standard=Drupal,DrupalPractice --ignore=*.js web/modules/custom",
         "phpunit-unit": "bin/phpunit -v --debug -c phpunit-unit.xml",
-        "checker-security": [
-            "composer audit"
-        ],
-        "checker-drupal": "bin/drupal-check -ad web/modules/custom web/themes/custom",
+        "checker-drupal": "bin/drupal-check -ad web/modules/custom",
         "phpunit-modules": "sudo -u www-data -E vendor/bin/phpunit -v --debug modules",
         "cghooks": "[ -h vendor/bin/cghooks -a -w ../.git ] && vendor/bin/cghooks --git-dir=../.git",
         "phpcbf": "bin/phpcbf --standard=Drupal,DrupalPractice web/modules/custom",
         "tests-required": [
             "composer validate",
-            "composer checker-security"
+            "composer audit",
+            "composer phpcs"
         ]
     }
 }

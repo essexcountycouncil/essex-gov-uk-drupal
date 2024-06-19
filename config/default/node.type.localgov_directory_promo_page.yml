@@ -6,7 +6,8 @@ dependencies:
     - menu_ui
 third_party_settings:
   menu_ui:
-    available_menus: {  }
+    available_menus:
+      - subsites
     parent: ''
 _core:
   default_config_hash: lo2_0Dex7tp30Kf_cdR_qtAxBT6-2LEH55P-dkIwU68

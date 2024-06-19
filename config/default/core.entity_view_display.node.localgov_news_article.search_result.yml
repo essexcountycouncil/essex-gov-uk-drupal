@@ -6,7 +6,6 @@ dependencies:
     - core.entity_view_mode.node.search_result
     - field.field.node.localgov_news_article.body
     - field.field.node.localgov_news_article.field_media_image
-    - field.field.node.localgov_news_article.localgov_access_control
     - field.field.node.localgov_news_article.localgov_news_categories
     - field.field.node.localgov_news_article.localgov_news_date
     - field.field.node.localgov_news_article.localgov_news_related
@@ -37,7 +36,6 @@ hidden:
   entitygroupfield: true
   field_media_image: true
   links: true
-  localgov_access_control: true
   localgov_news_categories: true
   localgov_news_date: true
   localgov_news_related: true

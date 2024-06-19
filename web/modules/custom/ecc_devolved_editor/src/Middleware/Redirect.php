@@ -2,13 +2,13 @@
 
 namespace Drupal\ecc_devolved_editor\Middleware;
 
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\HttpKernelInterface;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 
 /**
- * Class Redirect.
+ * Redirect for http_middleware.ecc_devolved_editor service.
  */
 class Redirect implements HttpKernelInterface {
   /**
@@ -38,7 +38,7 @@ class Redirect implements HttpKernelInterface {
   /**
    * {@inheritdoc}
    */
-  public function handle(Request $request, $type = self::MASTER_REQUEST, $catch = TRUE) {
+  public function handle(Request $request, $type = self::MASTER_REQUEST, $catch = TRUE): Response {
     $response = $this->httpKernel->handle($request, $type, $catch);
     return $this->redirectResponse ?: $response;
   }
