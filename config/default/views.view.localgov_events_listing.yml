@@ -420,7 +420,7 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          date_format: localgov_event_date_full
+          date_format: event_date_formatted
           custom_date_format: 'l, jS F Y, g.ia'
           timezone: ''
         body:
@@ -1077,7 +1077,6 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags:
@@ -1456,6 +1455,16 @@ display:
       exposed_block: true
       display_extenders: {  }
       path: children-young-people-and-families/fostering/events
+      menu:
+        type: none
+        title: Events
+        description: ''
+        weight: -48
+        enabled: false
+        expanded: false
+        menu_name: subsites
+        parent: ''
+        context: '0'
     cache_metadata:
       max-age: -1
       contexts:
@@ -1463,7 +1472,6 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags:

@@ -1,0 +1,31 @@
+<?php
+
+/**
+ * @file
+ * Essex Events module hooks.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter() for the views_exposed_form form.
+ */
+function ecc_events_form_views_exposed_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  // Remove events listing exposed filters where a taxonomy vocabulary is empty.
+  if (isset($form['#id']) && $form['#id'] == 'views-exposed-form-localgov-events-listing-page-all-events') {
+    $taxonomy_filters = ['neighborhood', 'price', 'category'];
+
+    foreach ($taxonomy_filters as $taxonomy_filter) {
+      if (isset($form[$taxonomy_filter])) {
+        // Filters have an 'All' option even when there are no other options.
+        if (count($form[$taxonomy_filter]['#options']) <= 1) {
+          $form[$taxonomy_filter]['#access'] = FALSE;
+        }
+      }
+    }
+    // Refresh the filters whenever a taxonomy term is updated.
+    $form['#cache']['tags'][] = 'taxonomy_term_list';
+  }
+}
+
+

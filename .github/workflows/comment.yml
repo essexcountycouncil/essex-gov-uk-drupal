@@ -1,0 +1,335 @@
+name: Start or stop Review App with a comment
+
+on:
+  issue_comment
+
+jobs:
+  start_reviewapp:
+    name: Start Review App
+    if: github.event.issue.pull_request && contains(github.event.comment.body, '/start')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Add comment for start of job
+        uses: peter-evans/create-or-update-comment@v4
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          body: |
+            Starting Review App.
+
+      - name: Get PR branch
+        uses: xt0rted/pull-request-comment-branch@v1
+        id: comment-branch
+
+      - name: Log in to Azure
+        uses: azure/login@v1
+        with:
+          creds: '{"clientId":"${{ vars.ARM_CLIENT_ID }}","clientSecret":"${{ secrets.ARM_CLIENT_SECRET }}","subscriptionId":"${{ vars.ARM_SUBSCRIPTION_ID }}","tenantId":"${{ vars.ARM_TENANT_ID }}"}'
+
+      - name: Deactivate revisions
+        id: deactivate
+        env:
+          ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
+          REF_NAME: ${{ steps.comment-branch.outputs.head_ref }}
+        shell: bash
+        run: |
+          ENV_SLUG=$(echo "${REF_NAME}" | sed -e 's:[^[:alpha:]|^[:digit:]]:-:g' | sed -e 's/\(.*\)/\L\1/')
+          jq -n --argjson revisions $(az containerapp revision list -n portal -g rg-ecc-portal-uks-dev --subscription "Essex County Council (Portal)" | jq -c '[.[].name]') --argjson ingress $(az containerapp ingress show -n portal -g rg-ecc-portal-uks-dev --subscription "Essex County Council (Portal)"  | jq -c ".traffic | [.[].revisionName]") '{"revisions": $revisions, "ingress": $ingress} | .revisions-.ingress | .[]' | tr -d '"' | while read revision
+          do
+            echo Deactivating "$revision"
+            az containerapp revision deactivate --revision $revision -g rg-ecc-portal-uks-dev --subscription "Essex County Council (Portal)"
+          done
+
+      - name: Deploy review app
+        id: deploy
+        env:
+          ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
+          REF_NAME: ${{ steps.comment-branch.outputs.head_ref }}
+        run: |
+          CI_COMMIT_BRANCH="$REF_NAME"
+          ENV_SLUG=$(echo "${REF_NAME}" | sed -e 's:[^[:alpha:]|^[:digit:]]:-:g' | sed -e 's/\(.*\)/\L\1/')
+          tag=":$ENV_SLUG"
+          az extension add -n containerapp --allow-preview true
+          az containerapp job start -n portal-dbclone -g rg-ecc-portal-uks-dev --subscription "Essex County Council (Portal)" --image "acreccuksdev.azurecr.io/dbclone" --env-vars "NEW_DB_SUFFIX=${ENV_SLUG}" 'MYSQL_HOST=mariadb-ecc-uks-dev.mariadb.database.azure.com' 'MYSQL_USER=mariadb-root' 'MYSQL_DATABASE=drupal_portal' 'MYSQL_PASSWORD=secretref:mysql-password' --container-name dbclonea --cpu 0.75 --memory 1.5
+          echo "Running on branch '$CI_COMMIT_BRANCH': tag = $tag"
+          sleep 4m
+          echo "Creating new revision of Container App"
+          cat > revision.yml <<EOF
+          properties:
+            template:
+              revisionSuffix: gh${GITHUB_RUN_ID}
+              scale:
+                minReplicas: 0
+                maxReplicas: 1
+                rules:
+                  - name: "http-rule"
+                    http:
+                      metadata:
+                        concurrentRequests: 40
+              containers:
+                - image: acreccuksdev.azurecr.io/portal-nginx-drupal$tag
+                  name: nginx
+                  resources:
+                    cpu: 0.25
+                    memory: 0.5Gi
+                  volumeMounts:
+                  - mountPath: /drupal/web/sites/default/files
+                    volumeName: filesharevol
+                  env:
+                  - name: X_ROBOTS_TAG
+                    value: noindex
+                  probes:
+                  - type: liveness
+                    httpGet:
+                      path: "/dd822309-ae33-4e29-addf-869b07453a06"
+                      port: 80
+                    initialDelaySeconds: 5
+                    periodSeconds: 3
+                - image: acreccuksdev.azurecr.io/portal-drupal-fpm$tag
+                  name: drupal
+                  resources:
+                    cpu: 0.75
+                    memory: 1.5Gi
+                  volumeMounts:
+                  - mountPath: /drupal/web/sites/default/files
+                    volumeName: filesharevol
+                  - mountPath: /drupal/data/default/private
+                    volumeName: privsharevol
+                  env:
+                  - name: MYSQL_HOST
+                    value: mariadb-ecc-uks-dev.mariadb.database.azure.com
+                  - name: MYSQL_USER
+                    value: mariadb-root
+                  - name: MYSQL_DATABASE
+                    value: drupal_ci_${ENV_SLUG}
+                  - name: MYSQL_PASSWORD
+                    secretRef: mysql-password
+                  - name: OPENID_CONNECT_PARAMS
+                    secretRef: openid-connect-params
+                  probes:
+                  - type: liveness
+                    tcpSocket:
+                      port: 9000
+                    initialDelaySeconds: 5
+                    periodSeconds: 3
+          EOF
+          az containerapp revision copy -n portal -g rg-ecc-portal-uks-dev --yaml revision.yml --subscription "Essex County Council (Portal)" | tee revision.json 
+          az containerapp revision label add --no-prompt -g rg-ecc-portal-uks-dev -n portal --label ${ENV_SLUG} --revision portal--gh${GITHUB_RUN_ID} --subscription "Essex County Council (Portal)"
+          echo "env_slug=${ENV_SLUG}" >> "$GITHUB_OUTPUT"
+
+      - name: Drush deploy
+        id: drush_deploy
+        env:
+          ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
+          REF_NAME: ${{ steps.comment-branch.outputs.head_ref }}
+        shell: bash
+        run: |
+          CI_COMMIT_BRANCH="$REF_NAME"
+          ENV_SLUG=$(echo "${REF_NAME}" | sed -e 's:[^[:alpha:]|^[:digit:]]:-:g' | sed -e 's/\(.*\)/\L\1/')
+          tag=":$ENV_SLUG"
+          echo Drush deploy started
+          sudo apt-get -qq update
+          sudo apt-get -y install socat
+          timeout 1200 socat EXEC:"az containerapp exec --command /drupal/deploy.sh -n portal --container drupal --revision portal--gh${GITHUB_RUN_ID} -g rg-ecc-portal-uks-dev --subscription \'Essex County Council (Portal)\'",pty,setsid,ctty STDIO,ignoreeof
+          echo Drush deploy finished
+
+      - name: Add comment
+        uses: peter-evans/create-or-update-comment@v4
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          body: |
+            Started Review App
+            https://portal---${{ steps.deploy.outputs.env_slug }}.livelyforest-609fad32.uksouth.azurecontainerapps.io/
+
+  rebuild_reviewapp:
+    name: Rebuild Review App
+    if: github.event.issue.pull_request && contains(github.event.comment.body, '/rebuild')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Add comment for start of job
+        uses: peter-evans/create-or-update-comment@v4
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          body: |
+            Rebuilding the Review App (without resetting the database)
+
+      - name: Get PR branch
+        uses: xt0rted/pull-request-comment-branch@v1
+        id: comment-branch
+
+      - name: Log in to Azure
+        uses: azure/login@v1
+        with:
+          creds: '{"clientId":"${{ vars.ARM_CLIENT_ID }}","clientSecret":"${{ secrets.ARM_CLIENT_SECRET }}","subscriptionId":"${{ vars.ARM_SUBSCRIPTION_ID }}","tenantId":"${{ vars.ARM_TENANT_ID }}"}'
+
+      - name: Deactivate revisions
+        id: deactivate
+        env:
+          ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
+          REF_NAME: ${{ steps.comment-branch.outputs.head_ref }}
+        shell: bash
+        run: |
+          ENV_SLUG=$(echo "${REF_NAME}" | sed -e 's:[^[:alpha:]|^[:digit:]]:-:g' | sed -e 's/\(.*\)/\L\1/')
+          jq -n --argjson revisions $(az containerapp revision list -n portal -g rg-ecc-portal-uks-dev --subscription "Essex County Council (Portal)" | jq -c '[.[].name]') --argjson ingress $(az containerapp ingress show -n portal -g rg-ecc-portal-uks-dev --subscription "Essex County Council (Portal)"  | jq -c ".traffic | [.[].revisionName]") '{"revisions": $revisions, "ingress": $ingress} | .revisions-.ingress | .[]' | tr -d '"' | while read revision
+          do
+            echo Deactivating "$revision"
+            az containerapp revision deactivate --revision $revision -g rg-ecc-portal-uks-dev --subscription "Essex County Council (Portal)"
+          done
+
+      - name: Deploy review app
+        id: deploy
+        env:
+          ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
+          REF_NAME: ${{ steps.comment-branch.outputs.head_ref }}
+        run: |
+          CI_COMMIT_BRANCH="$REF_NAME"
+          ENV_SLUG=$(echo "${REF_NAME}" | sed -e 's:[^[:alpha:]|^[:digit:]]:-:g' | sed -e 's/\(.*\)/\L\1/')
+          tag=":$ENV_SLUG"
+          echo "Running on branch '$CI_COMMIT_BRANCH': tag = $tag"
+          echo "Creating new revision of Container App"
+          cat > revision.yml <<EOF
+          properties:
+            template:
+              revisionSuffix: gh${GITHUB_RUN_ID}
+              scale:
+                minReplicas: 0
+                maxReplicas: 1
+                rules:
+                  - name: "http-rule"
+                    http:
+                      metadata:
+                        concurrentRequests: 40
+              containers:
+                - image: acreccuksdev.azurecr.io/portal-nginx-drupal$tag
+                  name: nginx
+                  resources:
+                    cpu: 0.25
+                    memory: 0.5Gi
+                  volumeMounts:
+                  - mountPath: /drupal/web/sites/default/files
+                    volumeName: filesharevol
+                  env:
+                  - name: X_ROBOTS_TAG
+                    value: noindex
+                  probes:
+                  - type: liveness
+                    httpGet:
+                      path: "/dd822309-ae33-4e29-addf-869b07453a06"
+                      port: 80
+                    initialDelaySeconds: 5
+                    periodSeconds: 3
+                - image: acreccuksdev.azurecr.io/portal-drupal-fpm$tag
+                  name: drupal
+                  resources:
+                    cpu: 0.75
+                    memory: 1.5Gi
+                  volumeMounts:
+                  - mountPath: /drupal/web/sites/default/files
+                    volumeName: filesharevol
+                  - mountPath: /drupal/data/default/private
+                    volumeName: privsharevol
+                  env:
+                  - name: MYSQL_HOST
+                    value: mariadb-ecc-uks-dev.mariadb.database.azure.com
+                  - name: MYSQL_USER
+                    value: mariadb-root
+                  - name: MYSQL_DATABASE
+                    value: drupal_ci_${ENV_SLUG}
+                  - name: MYSQL_PASSWORD
+                    secretRef: mysql-password
+                  - name: OPENID_CONNECT_PARAMS
+                    secretRef: openid-connect-params
+                  probes:
+                  - type: liveness
+                    tcpSocket:
+                      port: 9000
+                    initialDelaySeconds: 5
+                    periodSeconds: 3
+          EOF
+          az containerapp revision copy -n portal -g rg-ecc-portal-uks-dev --yaml revision.yml --subscription "Essex County Council (Portal)" | tee revision.json
+          az containerapp revision label add --no-prompt -g rg-ecc-portal-uks-dev -n portal --label ${ENV_SLUG} --revision portal--gh${GITHUB_RUN_ID} --subscription "Essex County Council (Portal)"
+          echo "env_slug=${ENV_SLUG}" >> "$GITHUB_OUTPUT"
+
+      - name: Drush deploy
+        id: drush_deploy
+        env:
+          ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
+          REF_NAME: ${{ steps.comment-branch.outputs.head_ref }}
+        shell: bash
+        run: |
+          CI_COMMIT_BRANCH="$REF_NAME"
+          ENV_SLUG=$(echo "${REF_NAME}" | sed -e 's:[^[:alpha:]|^[:digit:]]:-:g' | sed -e 's/\(.*\)/\L\1/')
+          tag=":$ENV_SLUG"
+          echo Drush deploy started
+          sudo apt-get -qq update
+          sudo apt-get -y install socat
+          timeout 1200 socat EXEC:"az containerapp exec --command /drupal/deploy.sh -n portal --container drupal --revision portal--gh${GITHUB_RUN_ID} -g rg-ecc-portal-uks-dev --subscription \'Essex County Council (Portal)\'",pty,setsid,ctty STDIO,ignoreeof
+          echo Drush deploy finished
+
+      - name: Add comment
+        uses: peter-evans/create-or-update-comment@v4
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          body: |
+            Rebuilt the Review App
+            https://portal---${{ steps.deploy.outputs.env_slug }}.livelyforest-609fad32.uksouth.azurecontainerapps.io/
+
+  stop_reviewapp:
+    name: Stop Review App
+    if: github.event.issue.pull_request && contains(github.event.comment.body, '/stop')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Add comment for start of job
+        uses: peter-evans/create-or-update-comment@v4
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          body: |
+            Stopping Review App and clearing up
+
+      - name: Get PR branch
+        uses: xt0rted/pull-request-comment-branch@v1
+        id: comment-branch
+
+      - name: Log in to Azure
+        uses: azure/login@v1
+        with:
+          creds: '{"clientId":"${{ vars.ARM_CLIENT_ID }}","clientSecret":"${{ secrets.ARM_CLIENT_SECRET }}","subscriptionId":"${{ vars.ARM_SUBSCRIPTION_ID }}","tenantId":"${{ vars.ARM_TENANT_ID }}"}'
+
+      - name: Remove label
+        id: remove_label
+        env:
+          ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
+          REF_NAME: ${{ steps.comment-branch.outputs.head_ref }}
+        run: |
+          ENV_SLUG=$(echo "${REF_NAME}" | sed -e 's:[^[:alpha:]|^[:digit:]]:-:g' | sed -e 's/\(.*\)/\L\1/')
+          az containerapp revision label remove --label ${ENV_SLUG} --name portal -g rg-ecc-portal-uks-dev --subscription "Essex County Council (Portal)"
+          sleep 1m
+
+      - name: Deactivate revisions
+        id: deactivate
+        env:
+          ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
+          REF_NAME: ${{ steps.comment-branch.outputs.head_ref }}
+        shell: bash
+        run: |
+          ENV_SLUG=$(echo "${REF_NAME}" | sed -e 's:[^[:alpha:]|^[:digit:]]:-:g' | sed -e 's/\(.*\)/\L\1/')
+          jq -n --argjson revisions $(az containerapp revision list -n portal -g rg-ecc-portal-uks-dev --subscription "Essex County Council (Portal)" | jq -c '[.[].name]') --argjson ingress $(az containerapp ingress show -n portal -g rg-ecc-portal-uks-dev --subscription "Essex County Council (Portal)"  | jq -c ".traffic | [.[].revisionName]") '{"revisions": $revisions, "ingress": $ingress} | .revisions-.ingress | .[]' | tr -d '"' | while read revision
+          do
+            echo Deactivating "$revision"
+            az containerapp revision deactivate --revision $revision -g rg-ecc-portal-uks-dev --subscription "Essex County Council (Portal)"
+          done
+
+      - name: Delete database
+        id: delete_db
+        env:
+          ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
+          REF_NAME: ${{ steps.comment-branch.outputs.head_ref }}
+        run: |
+          ENV_SLUG=$(echo "${REF_NAME}" | sed -e 's:[^[:alpha:]|^[:digit:]]:-:g' | sed -e 's/\(.*\)/\L\1/')
+          az containerapp job start -n portal-dbclone -g rg-ecc-portal-uks-dev --subscription "Essex County Council (Portal)" --image "acreccuksdev.azurecr.io/dbclone" --env-vars "NEW_DB_SUFFIX=${ENV_SLUG}" "DESTROY_DB=1" 'MYSQL_HOST=mariadb-ecc-uks-dev.mariadb.database.azure.com' 'MYSQL_USER=mariadb-root' 'MYSQL_DATABASE=drupal_portal' 'MYSQL_PASSWORD=secretref:mysql-password' --container-name dbclonea --cpu 0.75 --memory 1.5
+
+      - name: Add comment
+        uses: peter-evans/create-or-update-comment@v4
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          body: |
+            Stopped Review App

@@ -10,6 +10,7 @@ id: ecc_public
 label: 'ECC Public'
 weight: 0
 container_id: GTM-5T65C4H
+hostname: www.googletagmanager.com
 data_layer: dataLayer
 include_classes: false
 whitelist_classes: ''
@@ -32,4 +33,9 @@ status_toggle: 'exclude listed'
 status_list: |-
   403
   404
-conditions: {  }
+conditions:
+  response_status:
+    id: response_status
+    negate: false
+    status_codes:
+      - 200

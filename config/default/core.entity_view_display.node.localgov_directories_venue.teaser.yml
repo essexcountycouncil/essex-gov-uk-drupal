@@ -5,7 +5,6 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.localgov_directories_venue.body
-    - field.field.node.localgov_directories_venue.localgov_access_control
     - field.field.node.localgov_directories_venue.localgov_directory_channels
     - field.field.node.localgov_directories_venue.localgov_directory_email
     - field.field.node.localgov_directories_venue.localgov_directory_facets_select
@@ -45,7 +44,6 @@ content:
 hidden:
   content_moderation_control: true
   links: true
-  localgov_access_control: true
   localgov_directory_channels: true
   localgov_directory_email: true
   localgov_directory_facets_select: true

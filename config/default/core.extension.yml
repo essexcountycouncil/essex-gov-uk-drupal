@@ -39,7 +39,9 @@ module:
   ecc_cludo_search: 0
   ecc_content_moderation: 0
   ecc_cookie_compliance: 0
+  ecc_events: 0
   ecc_menu: 0
+  ecc_subsites: 0
   editor: 0
   entity_browser: 0
   entity_browser_entity_form: 0
@@ -130,9 +132,11 @@ module:
   localgov_services_sublanding: 0
   localgov_step_by_step: 0
   localgov_subsites: 0
+  localgov_subsites_extras: 0
   localgov_subsites_paragraphs: 0
   localgov_topics: 0
   localgov_workflows: 0
+  mail_login: 0
   media: 0
   media_library: 0
   media_library_edit: 0
@@ -201,7 +205,6 @@ theme:
   gin: 0
   localgov_base: 0
   localgov_scarfolk: 0
-  essex: 0
   stable9: 0
   ecc_theme: 0
   ecc_theme_gov: 0
