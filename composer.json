@@ -173,6 +173,9 @@
             "drupal/fathom_analytics": {
                 "Automated Drupal 10 compatibility fixes": "https://www.drupal.org/files/issues/2022-06-15/fathom_analytics.3.0.0.rector.patch"
             },
+            "drupal/geofield_map": {
+                "polyfill.io Library is no longer considered safe to use": "https://git.drupalcode.org/project/geofield_map/-/merge_requests/16.diff"
+            },
             "drupal/migmag": {
                 "Fix migmag_lookup exception when stubbing non-sql sources. See https://www.drupal.org/project/migmag/issues/3321292#comment-14785506": "https://www.drupal.org/files/issues/2022-11-14/migmag-remove_double_prepareRow-3321292_3.patch"
             },
