@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "947373e8852ebcad6e2ff52bfa6d5617",
+    "content-hash": "1810e21f88ddbca5994175fbcf1b3b65",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -8646,6 +8646,61 @@
                 "issues": "https://www.drupal.org/project/issues/webform?version=8.x",
                 "docs": "https://www.drupal.org/docs/8/modules/webform",
                 "forum": "https://drupal.stackexchange.com/questions/tagged/webform"
+            }
+        },
+        {
+            "name": "drupal/whatlinkshere",
+            "version": "2.1.9",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/whatlinkshere.git",
+                "reference": "2.1.9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/whatlinkshere-2.1.9.zip",
+                "reference": "2.1.9",
+                "shasum": "bcf07953ad6e3d2b6470da3503cf79c5c09a2df4"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9 || ^10"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "2.1.9",
+                    "datestamp": "1705074589",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Project has not opted into security advisory coverage!"
+                    }
+                },
+                "drush": {
+                    "services": {
+                        "drush.services.yml": "^10"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Johan Gant",
+                    "homepage": "https://www.drupal.org/u/johangant",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "omahm",
+                    "homepage": "https://www.drupal.org/user/540058"
+                }
+            ],
+            "description": "Provides a report of what node entities link to the currently viewed node.",
+            "homepage": "https://drupal.org/project/whatlinkshere",
+            "support": {
+                "source": "http://git.drupalcode.org/project/whatlinkshere",
+                "issues": "https://www.drupal.org/project/issues/whatlinkshere"
             }
         },
         {

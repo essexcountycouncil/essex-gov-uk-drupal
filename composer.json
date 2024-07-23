@@ -97,6 +97,7 @@
         "drupal/ultimate_cron": "^2.0@alpha",
         "drupal/upgrade_status": "^4.0",
         "drupal/webform": "^6.2",
+        "drupal/whatlinkshere": "^2.1",
         "drupal/workbench": "^1.4",
         "drupal/workbench_access": "^2.0",
         "drush/drush": "^12",
