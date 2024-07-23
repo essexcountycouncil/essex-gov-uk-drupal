@@ -8,5 +8,6 @@ _core:
   default_config_hash: Yzvvpxwzq-D8nwjNgKjVkQTScJluiYQLWqqKQ8Gg2wU
 id: media.localgov_event_thumbnail
 label: 'Event thumbnail'
+description: ''
 targetEntityType: media
 cache: true

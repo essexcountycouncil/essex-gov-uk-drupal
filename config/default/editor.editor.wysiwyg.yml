@@ -42,8 +42,10 @@ settings:
         - heading3
         - heading4
     ckeditor5_list:
-      reversed: false
-      startIndex: true
+      properties:
+        reversed: false
+        startIndex: true
+      multiBlock: true
     ckeditor5_show_block_show_block:
       enable_show_block_default: 0
     ckeditor5_sourceEditing:
@@ -62,11 +64,10 @@ settings:
         - '<h4 id>'
         - '<h5 id>'
         - '<h6 id>'
-        - '<ul type class="list-checked">'
+        - '<ul type>'
         - '<img data-entity-type data-entity-uuid data-caption>'
         - '<drupal-media data-caption title>'
-        - '<a hreflang title class="btn btn-start">'
-        - '<p class="alert-danger alert-primary alert-success callout callout-primary callout-success callout-danger callout-teal callout-carbon callout-yellow inset-text">'
+        - '<a hreflang title>'
     ckeditor5_style:
       styles:
         -
@@ -78,6 +79,9 @@ settings:
         -
           label: 'Start button'
           element: '<a class="button button-start col-sm-6 mt-3">'
+        -
+          label: 'Start button (Fostering)'
+          element: '<a class="button button-start button-start--fostering col-sm-6 mt-3">'
         -
           label: 'Alert info'
           element: '<p class="alert alert-info">'

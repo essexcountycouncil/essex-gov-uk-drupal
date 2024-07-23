@@ -3,11 +3,10 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.date_format.localgov_event_date_full
+    - core.date_format.event_date_formatted
     - core.date_format.localgov_event_date_hour
     - core.entity_view_mode.node.card
     - field.field.node.localgov_event.body
-    - field.field.node.localgov_event.localgov_access_control
     - field.field.node.localgov_event.localgov_event_call_to_action
     - field.field.node.localgov_event.localgov_event_categories
     - field.field.node.localgov_event.localgov_event_date
@@ -45,11 +44,11 @@ content:
     label: hidden
     settings:
       timezone_override: ''
-      format_type: localgov_event_date_full
-      separator: to
+      format_type: event_date_formatted
+      separator: 'to '
       show_next: 1
       count_per_item: false
-      occurrence_format_type: localgov_event_date_full
+      occurrence_format_type: event_date_formatted
       same_end_date_format_type: localgov_event_date_hour
       interpreter: ''
     third_party_settings:
@@ -73,7 +72,6 @@ content:
 hidden:
   content_moderation_control: true
   links: true
-  localgov_access_control: true
   localgov_event_call_to_action: true
   localgov_event_categories: true
   localgov_event_locality: true
