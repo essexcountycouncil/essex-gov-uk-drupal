@@ -4,4 +4,8 @@
 ## Usage: phpcbf
 ## Example: "ddev phpcbf"
 
-/var/www/html/bin/phpcbf --standard=phpcs-ecc.xml $*
+{
+    /var/www/html/bin/phpcbf --standard=phpcbf-ecc.xml $*
+} || {
+    echo Fix the remaining issues manually.
+}

@@ -4,4 +4,8 @@
 ## Usage: phpcs
 ## Example: "ddev phpcs"
 
-/var/www/html/bin/phpcs --standard=phpcs-ecc.xml $*
+{
+    /var/www/html/bin/phpcs --standard=phpcs-ecc.xml $*
+} || {
+    echo Please fix these issues.
+}
