@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+## Description: Run phpunit in the web container to run phpunit tests on LGD.
+## Usage: phpunit-lgd
+## Example: "ddev phpunit-lgd"
+
+/var/www/html/bin/phpunit -c /var/www/html/phpunit-lgd.xml $*
+

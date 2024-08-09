@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+## Description: Run phpunit in the web container to run phpunit tests.
+## Usage: phpunit-with-deprecations
+## Example: "ddev phpunit-with-deprecations"
+
+/var/www/html/bin/phpunit -c /var/www/html/phpunit-ecc.xml $*
