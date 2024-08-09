@@ -97,6 +97,7 @@
         "drupal/ultimate_cron": "^2.0@alpha",
         "drupal/upgrade_status": "^4.0",
         "drupal/webform": "^6.2",
+        "drupal/webform_xlsx_export": "^1.2",
         "drupal/whatlinkshere": "^2.1",
         "drupal/workbench": "^1.4",
         "drupal/workbench_access": "^2.0",
@@ -295,7 +296,6 @@
         "checker-drupal": "bin/drupal-check -ad web/modules/custom",
         "phpunit-modules": "sudo -u www-data -E vendor/bin/phpunit -v --debug modules",
         "cghooks": "[ -h vendor/bin/cghooks -a -w ../.git ] && vendor/bin/cghooks --git-dir=../.git",
-        "phpcbf": "bin/phpcbf --standard=Drupal,DrupalPractice web/modules/custom",
         "tests-required": [
             "composer validate",
             "composer audit",
