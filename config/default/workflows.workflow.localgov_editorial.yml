@@ -13,6 +13,8 @@ dependencies:
     - node.type.localgov_guides_page
     - node.type.localgov_news_article
     - node.type.localgov_newsroom
+    - node.type.localgov_publication_cover_page
+    - node.type.localgov_publication_page
     - node.type.localgov_services_landing
     - node.type.localgov_services_page
     - node.type.localgov_services_status
@@ -121,6 +123,8 @@ type_settings:
       - localgov_guides_page
       - localgov_news_article
       - localgov_newsroom
+      - localgov_publication_cover_page
+      - localgov_publication_page
       - localgov_services_landing
       - localgov_services_page
       - localgov_services_status
