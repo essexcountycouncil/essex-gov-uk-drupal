@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ec1830d9a36528e76aac90fa13941a4b",
+    "content-hash": "d3a5be20a0dca053a9c758ec087b219a",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -11725,16 +11725,16 @@
         },
         {
             "name": "localgovdrupal/localgov_paragraphs",
-            "version": "2.4.5",
+            "version": "2.4.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/localgovdrupal/localgov_paragraphs.git",
-                "reference": "f85e9be7c5421ff2c23cf2ac3af8c211ead2625e"
+                "reference": "731d0aeae39604e1b263a1fcd4af03dd359ad6e2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/localgovdrupal/localgov_paragraphs/zipball/f85e9be7c5421ff2c23cf2ac3af8c211ead2625e",
-                "reference": "f85e9be7c5421ff2c23cf2ac3af8c211ead2625e",
+                "url": "https://api.github.com/repos/localgovdrupal/localgov_paragraphs/zipball/731d0aeae39604e1b263a1fcd4af03dd359ad6e2",
+                "reference": "731d0aeae39604e1b263a1fcd4af03dd359ad6e2",
                 "shasum": ""
             },
             "require": {
@@ -11779,22 +11779,22 @@
             "homepage": "https://github.com/localgovdrupal/localgov_paragraphs",
             "support": {
                 "issues": "https://github.com/localgovdrupal/localgov_paragraphs/issues",
-                "source": "https://github.com/localgovdrupal/localgov_paragraphs/tree/2.4.5"
+                "source": "https://github.com/localgovdrupal/localgov_paragraphs/tree/2.4.6"
             },
-            "time": "2024-06-13T15:05:39+00:00"
+            "time": "2024-07-09T12:09:21+00:00"
         },
         {
             "name": "localgovdrupal/localgov_publications",
-            "version": "1.0.3",
+            "version": "1.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/localgovdrupal/localgov_publications.git",
-                "reference": "c7449ce44e73ddaf5351b31f7287757abfd6fc67"
+                "reference": "8bc6683264e2510dd7ffeac2a3162b8c3d6d2e62"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/localgovdrupal/localgov_publications/zipball/c7449ce44e73ddaf5351b31f7287757abfd6fc67",
-                "reference": "c7449ce44e73ddaf5351b31f7287757abfd6fc67",
+                "url": "https://api.github.com/repos/localgovdrupal/localgov_publications/zipball/8bc6683264e2510dd7ffeac2a3162b8c3d6d2e62",
+                "reference": "8bc6683264e2510dd7ffeac2a3162b8c3d6d2e62",
                 "shasum": ""
             },
             "require": {
@@ -11820,9 +11820,9 @@
             "homepage": "https://github.com/localgovdrupal/localgov_publications",
             "support": {
                 "issues": "https://github.com/localgovdrupal/localgov_publications/issues",
-                "source": "https://github.com/localgovdrupal/localgov_publications/tree/1.0.3"
+                "source": "https://github.com/localgovdrupal/localgov_publications/tree/1.0.4"
             },
-            "time": "2024-06-18T11:49:16+00:00"
+            "time": "2024-07-23T12:28:11+00:00"
         },
         {
             "name": "localgovdrupal/localgov_scarfolk",

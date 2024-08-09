@@ -1,0 +1,53 @@
+diff --git a/localgov_publications.permissions.yml b/localgov_publications.permissions.yml
+new file mode 100644
+index 0000000..3f1cf39
+--- /dev/null
++++ b/localgov_publications.permissions.yml
+@@ -0,0 +1,47 @@
++create localgov_publication_page content:
++  title: 'Create localgov_publication_page content'
++
++create localgov_publication_cover_page content:
++  title: 'Create localgov_publication_cover_page content'
++
++delete any localgov_publication_page content:
++  title: 'Delete any localgov_publication_page content'
++
++delete any localgov_publication_cover_page content:
++  title: 'Delete any localgov_publication_cover_page content'
++
++delete localgov_publication_page revisions:
++  title: 'Delete localgov_publication_page revisions'
++
++delete localgov_publication_cover_page revisions:
++  title: 'Delete localgov_publication_cover_page revisions'
++
++delete own localgov_publication_page content:
++  title: 'Delete own localgov_publication_page content'
++
++delete own localgov_publication_cover_page content:
++  title: 'Delete own localgov_publication_cover_page content'
++
++edit any localgov_publication_page content:
++  title: 'Edit any localgov_publication_page content'
++
++edit any localgov_publication_cover_page content:
++  title: 'Edit any localgov_publication_cover_page content'
++
++edit own localgov_publication_page content:
++  title: 'Edit own localgov_publication_page content'
++
++edit own localgov_publication_cover_page content:
++  title: 'Edit own localgov_publication_cover_page content'
++
++revert localgov_publication_page revisions:
++  title: 'Revert localgov_publication_page revisions'
++
++revert localgov_publication_cover_page revisions:
++  title: 'Revert localgov_publication_cover_page revisions'
++
++view localgov_publication_page revisions:
++  title: 'View localgov_publication_page revisions'
++
++view localgov_publication_cover_page revisions:
++  title: 'View localgov_publication_cover_page revisions'
