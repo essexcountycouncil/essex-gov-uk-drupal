@@ -53,6 +53,7 @@
         "ckeditor/div": "4.10.1",
         "composer/installers": "^1.10",
         "cweagans/composer-patches": "^1.6",
+        "drupal/antibot": "^2.0",
         "drupal/autosave_form": "^1.4",
         "drupal/block_classes": "^1.0",
         "drupal/ckeditor5_show_block": "^1.9",
