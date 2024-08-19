@@ -11,10 +11,7 @@ third_party_settings:
   menu_ui:
     available_menus:
       - main
-      - subsites
     parent: 'main:'
-_core:
-  default_config_hash: fEivF5JhNRsqti-V-PF7JASMmGOk3zz3h32uXG2eyA8
 name: Newsroom
 type: localgov_newsroom
 description: 'A page for listing and featuring news articles.'

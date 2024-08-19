@@ -11,17 +11,12 @@ dependencies:
   enforced:
     module:
       - localgov_news
-_core:
-  default_config_hash: tIGyhT8iiRyS3Wi0UR5bYB1O5wGXUGrObBfypbxRb7I
 id: localgov_news_search
 label: 'News search'
 index_id: localgov_news
 suggester_settings:
   live_results:
     fields: {  }
-    highlight:
-      enabled: false
-      field: ''
     view_modes: {  }
 suggester_weights: {  }
 suggester_limits: {  }

@@ -17,27 +17,22 @@ dependencies:
   enforced:
     module:
       - localgov_news
-_core:
-  default_config_hash: Bp_VccbFGuUf9EqA_loZYGfGZmLQ-93L6Hi3KB5KerY
 id: node.localgov_news_article.search_result
 targetEntityType: node
 bundle: localgov_news_article
 mode: search_result
 content:
-  body:
-    type: text_default
-    label: hidden
+  search_api_excerpt:
     settings: {  }
     third_party_settings: {  }
     weight: 0
     region: content
 hidden:
+  body: true
   content_moderation_control: true
-  entitygroupfield: true
   field_media_image: true
   links: true
   localgov_news_categories: true
   localgov_news_date: true
   localgov_news_related: true
   localgov_newsroom: true
-  search_api_excerpt: true

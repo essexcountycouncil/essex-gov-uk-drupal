@@ -7,8 +7,6 @@ dependencies:
   enforced:
     module:
       - localgov_news
-_core:
-  default_config_hash: LG2q6Fu3KSlHfgwnnBDC4dHqZ5nCANxWaapXUWk15gQ
 id: localgov_news
 name: News
 description: 'Default news search server. For convenience of installation. Can be used or replaced.'
@@ -20,4 +18,3 @@ backend_config:
   autocomplete:
     suggest_suffix: true
     suggest_words: true
-  phrase: disabled

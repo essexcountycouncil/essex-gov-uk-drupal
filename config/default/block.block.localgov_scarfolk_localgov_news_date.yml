@@ -1,0 +1,31 @@
+uuid: 5cf7d6c7-b04d-4aa6-90ef-da381a79c08f
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.localgov_news_date
+  module:
+    - facets
+    - system
+  theme:
+    - localgov_scarfolk
+_core:
+  default_config_hash: JeSlkVpjM_YmQGGqgy5iViMTF4-0WOvZW9iTfCFUXCA
+id: localgov_scarfolk_localgov_news_date
+theme: localgov_scarfolk
+region: sidebar_second
+weight: 0
+provider: null
+plugin: 'facet_block:localgov_news_date'
+settings:
+  id: 'facet_block:localgov_news_date'
+  label: 'News date'
+  label_display: '0'
+  provider: facets
+  block_id: localgov_news_date
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    context_mapping: {  }
+    pages: '/news/*'

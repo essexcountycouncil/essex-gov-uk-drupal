@@ -5,7 +5,6 @@ dependencies:
   config:
     - system.menu.subsites
   module:
-    - block_classes
     - system
   theme:
     - ecc_theme_gov

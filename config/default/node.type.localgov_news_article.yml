@@ -2,18 +2,9 @@ uuid: 4b0387da-18c6-4db6-95c4-670c55898cd6
 langcode: en
 status: true
 dependencies:
-  module:
-    - menu_ui
   enforced:
     module:
       - localgov_news
-third_party_settings:
-  menu_ui:
-    available_menus:
-      - main
-      - subsites
-_core:
-  default_config_hash: oeLShrBt3cog1ZI2TMZBGIduyGnQ5Df-1NF_QREvguY
 name: 'News article'
 type: localgov_news_article
 description: 'A stand-alone news article that may also appear in a news listing page.'

@@ -10,8 +10,6 @@ dependencies:
   enforced:
     module:
       - localgov_news
-_core:
-  default_config_hash: eAEuOeFmUTm3yKzeUZYGSMHCsJnXxSMGKcKmXh8TsRw
 id: node.localgov_news_article.body
 field_name: body
 entity_type: node
@@ -25,4 +23,5 @@ default_value_callback: ''
 settings:
   display_summary: true
   required_summary: true
+  allowed_formats: {  }
 field_type: text_with_summary

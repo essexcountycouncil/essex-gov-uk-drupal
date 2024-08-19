@@ -4,8 +4,6 @@ status: true
 dependencies:
   module:
     - node
-_core:
-  default_config_hash: xPkWN0LjVL_zCG8vzQf2YG0YtviHFUDzQpH-sp0MA8M
 id: node.localgov_newsroom
 field_name: localgov_newsroom
 entity_type: node

@@ -1,0 +1,28 @@
+uuid: 7c521237-f575-4ee8-938f-6bfeb8f37d68
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.localgov_news_search
+  module:
+    - system
+    - views
+  theme:
+    - ecc_theme_gov
+id: ecc_theme_gov_exposedformlocalgov_news_searchpage_search_news
+theme: ecc_theme_gov
+region: sidebar_second
+weight: -17
+provider: null
+plugin: 'views_exposed_filter_block:localgov_news_search-page_search_news'
+settings:
+  id: 'views_exposed_filter_block:localgov_news_search-page_search_news'
+  label: ''
+  label_display: visible
+  provider: views
+  views_label: ''
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '/news/*'

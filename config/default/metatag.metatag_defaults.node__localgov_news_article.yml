@@ -5,8 +5,6 @@ dependencies:
   enforced:
     module:
       - localgov_news
-_core:
-  default_config_hash: '-dx0M3XnNS-PlRhng1QRKKnXOL4x8wHuU_M8n26WzfI'
 id: node__localgov_news_article
 label: 'Content: News article'
 tags:

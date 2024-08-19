@@ -8,8 +8,6 @@ dependencies:
   enforced:
     module:
       - localgov_news
-_core:
-  default_config_hash: Ch0eETCNzc6xZVlS6h7KKOJ9xE9MFNNnFKKOo1lsQgI
 id: node.localgov_news_article.localgov_news_related
 field_name: localgov_news_related
 entity_type: node
