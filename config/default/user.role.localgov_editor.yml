@@ -49,6 +49,7 @@ dependencies:
     - path
     - preview_link
     - redirect
+    - replicate_ui
     - responsive_preview
     - scheduled_transitions
     - system
@@ -207,6 +208,7 @@ permissions:
   - 'generate preview links'
   - 'manage localgov alert banner localgov_alert_banner entities'
   - 'reorder entity_hierarchy children'
+  - 'replicate entities'
   - 'reschedule scheduled transitions localgov_alert_banner localgov_alert_banner'
   - 'reschedule scheduled transitions node localgov_directories_org'
   - 'reschedule scheduled transitions node localgov_directories_page'
