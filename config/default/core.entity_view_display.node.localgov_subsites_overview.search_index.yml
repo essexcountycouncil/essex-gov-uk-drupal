@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.search_index
+    - field.field.node.localgov_subsites_overview.localgov_common_tasks
     - field.field.node.localgov_subsites_overview.localgov_services_parent
     - field.field.node.localgov_subsites_overview.localgov_subsites_banner
     - field.field.node.localgov_subsites_overview.localgov_subsites_content
@@ -13,6 +14,7 @@ dependencies:
     - node.type.localgov_subsites_overview
   module:
     - layout_paragraphs
+    - link
     - user
 _core:
   default_config_hash: I3klntxojCjVS2TSj7gM8E5rX1ZUmzPAT6TNSnZ_3NA
@@ -21,6 +23,18 @@ targetEntityType: node
 bundle: localgov_subsites_overview
 mode: search_index
 content:
+  localgov_common_tasks:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 12
+    region: content
   localgov_subsites_content:
     type: layout_paragraphs
     label: hidden
