@@ -2,26 +2,150 @@ uuid: 2ad2cd2c-8846-4fca-9693-00399776e70d
 langcode: en
 status: true
 dependencies:
+  config:
+    - localgov_alert_banner.localgov_alert_banner_type.localgov_alert_banner
+    - media.type.document
+    - media.type.image
+    - media.type.remote_video
+    - node.type.localgov_directories_org
+    - node.type.localgov_directories_page
+    - node.type.localgov_directories_venue
+    - node.type.localgov_directory
+    - node.type.localgov_directory_promo_page
+    - node.type.localgov_event
+    - node.type.localgov_guides_overview
+    - node.type.localgov_guides_page
+    - node.type.localgov_news_article
+    - node.type.localgov_newsroom
+    - node.type.localgov_services_landing
+    - node.type.localgov_services_page
+    - node.type.localgov_services_status
+    - node.type.localgov_services_sublanding
+    - node.type.localgov_step_by_step_overview
+    - node.type.localgov_step_by_step_page
+    - node.type.localgov_subsites_overview
+    - node.type.localgov_subsites_page
+    - workflows.workflow.localgov_alert_banners
+    - workflows.workflow.localgov_editorial
+  module:
+    - content_moderation
+    - entity_hierarchy
+    - file
+    - localgov_alert_banner
+    - media
+    - node
+    - paragraphs
+    - paragraphs_library
+    - path
+    - preview_link
+    - redirect
+    - responsive_preview
+    - scheduled_transitions
+    - system
+    - toolbar
   enforced:
     module:
       - localgov_news
+_core:
+  default_config_hash: A11-7cjsAJ9YGcWSITuETyg0AoLa2xGtaxuJ-wdcIYU
 id: localgov_news_editor
 label: 'News editor'
-weight: 4
+weight: -8
 is_admin: null
 permissions:
   - 'access content overview'
+  - 'access localgov alert banner listing page'
   - 'access media overview'
+  - 'access responsive preview'
   - 'access toolbar'
+  - 'add scheduled transitions localgov_alert_banner localgov_alert_banner'
+  - 'add scheduled transitions node localgov_news_article'
+  - 'add scheduled transitions node localgov_newsroom'
+  - 'add scheduled transitions node localgov_subsites_overview'
+  - 'administer redirects'
+  - 'create document media'
   - 'create image media'
   - 'create localgov_news_article content'
+  - 'create paragraph library item'
+  - 'create remote_video media'
+  - 'create url aliases'
   - 'delete any localgov_news_article content'
-  - 'delete own image media'
-  - 'delete own localgov_news_article content'
+  - 'delete any media'
+  - 'delete own files'
   - 'edit any image media'
   - 'edit any localgov_news_article content'
+  - 'edit any localgov_subsites_overview content'
+  - 'edit own document media'
   - 'edit own image media'
+  - 'edit own localgov_directories_org content'
+  - 'edit own localgov_directories_page content'
+  - 'edit own localgov_directories_venue content'
+  - 'edit own localgov_directory content'
+  - 'edit own localgov_directory_promo_page content'
+  - 'edit own localgov_event content'
+  - 'edit own localgov_guides_overview content'
+  - 'edit own localgov_guides_page content'
   - 'edit own localgov_news_article content'
+  - 'edit own localgov_newsroom content'
+  - 'edit own localgov_services_landing content'
+  - 'edit own localgov_services_page content'
+  - 'edit own localgov_services_status content'
+  - 'edit own localgov_services_sublanding content'
+  - 'edit own localgov_step_by_step_overview content'
+  - 'edit own localgov_step_by_step_page content'
+  - 'edit own localgov_subsites_overview content'
+  - 'edit own localgov_subsites_page content'
+  - 'edit own remote_video media'
+  - 'edit paragraph library item'
+  - 'generate preview links'
+  - 'manage localgov alert banner localgov_alert_banner entities'
+  - 'reorder entity_hierarchy children'
+  - 'reschedule scheduled transitions localgov_alert_banner localgov_alert_banner'
+  - 'reschedule scheduled transitions node localgov_news_article'
+  - 'reschedule scheduled transitions node localgov_newsroom'
+  - 'reschedule scheduled transitions node localgov_subsites_overview'
   - 'revert localgov_news_article revisions'
+  - 'revert localgov_newsroom revisions'
+  - 'revert localgov_subsites_overview revisions'
+  - 'use localgov_alert_banners transition create_new_draft'
+  - 'use localgov_alert_banners transition publish'
+  - 'use localgov_alert_banners transition unpublish'
+  - 'use localgov_editorial transition approve'
+  - 'use localgov_editorial transition archive'
+  - 'use localgov_editorial transition archived_draft'
+  - 'use localgov_editorial transition archived_published'
+  - 'use localgov_editorial transition create_new_draft'
+  - 'use localgov_editorial transition publish'
+  - 'use localgov_editorial transition reject'
+  - 'use localgov_editorial transition submit_for_review'
+  - 'view all localgov alert banner entity pages'
+  - 'view all scheduled transitions'
+  - 'view any unpublished content'
+  - 'view latest version'
+  - 'view localgov alert banner localgov_alert_banner pages'
+  - 'view localgov_directories_org revisions'
+  - 'view localgov_directories_page revisions'
+  - 'view localgov_directories_venue revisions'
+  - 'view localgov_directory revisions'
+  - 'view localgov_directory_promo_page revisions'
+  - 'view localgov_event revisions'
+  - 'view localgov_guides_overview revisions'
+  - 'view localgov_guides_page revisions'
   - 'view localgov_news_article revisions'
+  - 'view localgov_newsroom revisions'
+  - 'view localgov_services_landing revisions'
+  - 'view localgov_services_page revisions'
+  - 'view localgov_services_status revisions'
+  - 'view localgov_services_sublanding revisions'
+  - 'view localgov_step_by_step_overview revisions'
+  - 'view localgov_step_by_step_page revisions'
+  - 'view localgov_subsites_overview revisions'
+  - 'view localgov_subsites_page revisions'
+  - 'view own unpublished content'
+  - 'view own unpublished media'
+  - 'view scheduled transitions localgov_alert_banner localgov_alert_banner'
+  - 'view scheduled transitions node localgov_news_article'
+  - 'view scheduled transitions node localgov_newsroom'
+  - 'view scheduled transitions node localgov_subsites_overview'
   - 'view the administration theme'
+  - 'view unpublished paragraphs'
