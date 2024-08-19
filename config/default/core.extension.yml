@@ -4,6 +4,7 @@ module:
   address: 0
   admin_toolbar: 0
   admin_toolbar_tools: 0
+  antibot: 0
   automated_cron: 0
   autosave_form: 0
   block: 0
@@ -79,6 +80,7 @@ module:
   health_check_url: 0
   help: 0
   history: 0
+  honeypot: 0
   image: 0
   image_widget_crop: 0
   inline_entity_form: 0
