@@ -6,8 +6,6 @@ dependencies:
     - field.storage.node.field_media_image
     - media.type.image
     - node.type.localgov_news_article
-_core:
-  default_config_hash: uInSHRr2dqk-319vK2_vLolUHD3S1RpzYiTjZbqX96Y
 id: node.localgov_news_article.field_media_image
 field_name: field_media_image
 entity_type: node

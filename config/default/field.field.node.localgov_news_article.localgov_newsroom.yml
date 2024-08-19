@@ -6,8 +6,6 @@ dependencies:
     - field.storage.node.localgov_newsroom
     - node.type.localgov_news_article
     - node.type.localgov_newsroom
-_core:
-  default_config_hash: gW0Vdn4H1iQ-ph6GClHKGpZre40Uv78WIcyUv4rgHPw
 id: node.localgov_news_article.localgov_newsroom
 field_name: localgov_newsroom
 entity_type: node

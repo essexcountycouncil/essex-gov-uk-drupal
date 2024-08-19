@@ -2,8 +2,11 @@ uuid: e7d80f87-0c9d-429c-ac60-9b9a90ffcabd
 langcode: en
 status: true
 dependencies:
+  content:
+    - 'block_content:custom_block:f9b8c1ba-54d0-482e-adeb-69fb202e05ca'
   module:
     - block_classes
+    - block_content
     - system
   theme:
     - ecc_theme_gov

@@ -4,8 +4,6 @@ status: true
 dependencies:
   config:
     - node.type.localgov_news_article
-_core:
-  default_config_hash: UgO22nf4dK6eQtFg2VGeOsJ-BmPVDwjArxAezGaNgNE
 id: node.localgov_news_article.promote
 field_name: promote
 entity_type: node

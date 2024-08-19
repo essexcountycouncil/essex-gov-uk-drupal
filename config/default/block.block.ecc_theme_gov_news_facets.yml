@@ -1,0 +1,29 @@
+uuid: 9996cadc-6a79-4ccf-8e37-9a63ca175522
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.localgov_directories_facets
+  module:
+    - facets
+    - system
+  theme:
+    - ecc_theme_gov
+id: ecc_theme_gov_news_facets
+theme: ecc_theme_gov
+region: sidebar_second
+weight: -14
+provider: null
+plugin: 'facet_block:localgov_directories_facets'
+settings:
+  id: 'facet_block:localgov_directories_facets'
+  label: Facets
+  label_display: visible
+  provider: facets
+  context_mapping: {  }
+  block_id: ecc_theme_gov_news_facets
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '/news/*'

@@ -14,8 +14,6 @@ dependencies:
   enforced:
     module:
       - localgov_news
-_core:
-  default_config_hash: 3LzfshfzpJMfhGkVwfk7UwiBmFezeZSp0_yEswdxUjY
 id: localgov_news
 name: News
 description: ''
@@ -182,5 +180,4 @@ tracker_settings:
 options:
   cron_limit: 50
   index_directly: true
-  track_changes_in_references: true
 server: localgov_news

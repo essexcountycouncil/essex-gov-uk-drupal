@@ -7,8 +7,6 @@ dependencies:
   enforced:
     module:
       - localgov_news
-_core:
-  default_config_hash: 1MBxSZrsbV7BWVHN0Fw3-WFa4AwZKLXlQ-2I-Foxz5A
 id: localgov_news
 label: News
 type: 'canonical_entities:node'

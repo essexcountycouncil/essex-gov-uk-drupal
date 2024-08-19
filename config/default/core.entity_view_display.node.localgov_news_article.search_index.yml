@@ -17,8 +17,6 @@ dependencies:
   enforced:
     module:
       - localgov_news
-_core:
-  default_config_hash: jCj0jiIfrq3g5piL9nO9jsYX_2e8ov019c71K7urxsY
 id: node.localgov_news_article.search_index
 targetEntityType: node
 bundle: localgov_news_article
@@ -31,9 +29,12 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
 hidden:
-  content_moderation_control: true
-  entitygroupfield: true
   field_media_image: true
   links: true
   localgov_news_categories: true
