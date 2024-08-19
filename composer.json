@@ -67,6 +67,7 @@
         "drupal/core-recommended": "^10.1.8",
         "drupal/devel": "^5.1",
         "drupal/dynamic_entity_reference": "^3.1",
+        "drupal/entity_embed": "^1.6",
         "drupal/entity_share": "^3.0",
         "drupal/eu_cookie_compliance": "^1.24",
         "drupal/fathom_analytics": "^3.0",
