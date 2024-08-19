@@ -43,8 +43,10 @@ module:
   ecc_menu: 0
   ecc_subsites: 0
   editor: 0
+  embed: 0
   entity_browser: 0
   entity_browser_entity_form: 0
+  entity_embed: 0
   entity_hierarchy: 0
   entity_hierarchy_breadcrumb: 0
   entity_reference_facet_link: 0
