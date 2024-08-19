@@ -34,6 +34,7 @@ settings:
       - bold
       - code
       - underline
+      - poll
   plugins:
     ckeditor5_heading:
       enabled_headings:
