@@ -141,6 +141,7 @@ module:
   localgov_subsites_paragraphs: 0
   localgov_topics: 0
   localgov_workflows: 0
+  localgov_workflows_notifications: 0
   mail_login: 0
   media: 0
   media_library: 0
@@ -184,6 +185,7 @@ module:
   serialization: 0
   simple_sitemap: 0
   sophron: 0
+  symfony_mailer: 0
   system: 0
   tablefield: 0
   taxonomy: 0

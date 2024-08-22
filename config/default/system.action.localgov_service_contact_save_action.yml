@@ -1,0 +1,13 @@
+uuid: dacd3fab-a2f6-431c-b286-7ffa73620854
+langcode: en
+status: true
+dependencies:
+  module:
+    - localgov_workflows_notifications
+_core:
+  default_config_hash: WGRmzK_eYqaSnp7VF4NbHtQl9us1kMcGH8fJfRCqkGs
+id: localgov_service_contact_save_action
+label: 'Save service contacts'
+type: localgov_service_contact
+plugin: 'entity:save_action:localgov_service_contact'
+configuration: {  }
