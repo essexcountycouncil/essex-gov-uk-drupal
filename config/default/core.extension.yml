@@ -196,6 +196,7 @@ module:
   ultimate_cron: 0
   update: 0
   user: 0
+  views_core_entity_reference: 0
   views_ui: 0
   viewsreference: 0
   webform: 0

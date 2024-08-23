@@ -65,7 +65,7 @@
         "drupal/content_access_by_path": "^1.0",
         "drupal/core-composer-scaffold": "^10",
         "drupal/core-project-message": "^10",
-        "drupal/core-recommended": "^10.1.8",
+        "drupal/core-recommended": "^10.3.2",
         "drupal/devel": "^5.1",
         "drupal/dynamic_entity_reference": "^3.1",
         "drupal/entity_share": "^3.0",
@@ -98,6 +98,7 @@
         "drupal/structure_sync": "^2.0",
         "drupal/ultimate_cron": "^2.0@alpha",
         "drupal/upgrade_status": "^4.0",
+        "drupal/views_core_entity_reference": "^1.0@alpha",
         "drupal/webform": "^6.2",
         "drupal/webform_xlsx_export": "^1.2",
         "drupal/whatlinkshere": "^2.1",
@@ -173,8 +174,8 @@
                 "Automated Drupal 10 compatibility fixes": "https://www.drupal.org/files/issues/2022-07-18/cludo_search.1.0-beta2.rector.patch"
             },
             "drupal/core": {
-                "Allow chmod to fail in the public namespace if the resultant mode is 777": "patches/filesystem-chmod-0001.patch",
-                "Claro theme + field_group seems to hide content of dropbutton": "https://www.drupal.org/files/issues/2024-01-19/drupal-claro-theme-field_group-seems-to-hide-content-of-dropdown-3217868-58.patch"
+                "Claro theme + field_group seems to hide content of dropbutton": "https://www.drupal.org/files/issues/2024-01-19/drupal-claro-theme-field_group-seems-to-hide-content-of-dropdown-3217868-58.patch",
+                "Add Views EntityReference filter to support better UX for exposed filters": "https://www.drupal.org/files/issues/2024-07-10/3347343-213.patch"
             },
             "drupal/fathom_analytics": {
                 "Automated Drupal 10 compatibility fixes": "https://www.drupal.org/files/issues/2022-06-15/fathom_analytics.3.0.0.rector.patch"

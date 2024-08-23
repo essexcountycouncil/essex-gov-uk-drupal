@@ -412,6 +412,7 @@ display:
         type: mini
         options:
           offset: 0
+          pagination_heading_level: h4
           items_per_page: 50
           total_pages: null
           id: 0
@@ -446,7 +447,67 @@ display:
       empty: {  }
       sorts: {  }
       arguments: {  }
-      filters: {  }
+      filters:
+        localgov_service_contacts_target_id_reference:
+          id: localgov_service_contacts_target_id_reference
+          table: node__localgov_service_contacts
+          field: localgov_service_contacts_target_id_reference
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          entity_field: localgov_service_contacts
+          plugin_id: entity_reference
+          operator: or
+          value: null
+          group: 1
+          exposed: true
+          expose:
+            operator_id: localgov_service_contacts_target_id_reference_op
+            label: 'Service contact'
+            description: ''
+            use_operator: false
+            operator: localgov_service_contacts_target_id_reference_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: localgov_service_contacts_target_id_reference
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              emergency_publisher: '0'
+              localgov_news_editor: '0'
+              analytics: '0'
+              localgov_contributor: '0'
+              localgov_author: '0'
+              localgov_editor: '0'
+              localgov_user_manager: '0'
+              administrator: '0'
+              localgov_devolved_editor: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          sub_handler: service_contact_reference
+          widget: autocomplete
+          sub_handler_settings:
+            target_bundles: null
+            sort:
+              field: _none
+              direction: ASC
+            auto_create: false
       filter_groups:
         operator: AND
         groups: {  }
@@ -560,6 +621,7 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - url.query_args
         - 'user.node_grants:view'
         - user.permissions
@@ -577,6 +639,7 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - url.query_args
         - 'user.node_grants:view'
         - user.permissions
