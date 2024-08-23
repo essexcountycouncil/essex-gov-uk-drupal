@@ -1,0 +1,5 @@
+ecc_gin:
+  version: VERSION
+  css:
+    theme:
+      css/ecc_gin.css: {}
