@@ -1,0 +1,10 @@
+name: 'ECC Directory Import'
+type: module
+description: 'Directory content migration'
+package: Custom
+core_version_requirement: ^10 || ^11
+dependencies:
+  - migrate:migrate
+  - migrate_tools:migrate_tools
+  - migrate_plus:migrate_plus
+  - migrate_source_csv:migrate_source_csv

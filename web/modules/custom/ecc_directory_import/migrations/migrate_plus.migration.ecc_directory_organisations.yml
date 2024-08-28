@@ -1,0 +1,127 @@
+langcode: en
+status: true
+dependencies: {  }
+id: ecc_directory_organisations
+migration_group: ECC Directory
+label: 'ECC Directory Options'
+
+source:
+  plugin: csv
+  path: private://migrate/source/example.csv
+  # Column delimiter. Comma (,) by default.
+  delimiter: ','
+  # Field enclosure. Double quotation marks (") by default.
+  enclosure: '"'
+  # The row to be used as the CSV header (indexed from 0),
+  # or null if there is no header row.
+  header_offset: 0
+  # The column(s) to use as a key. Each column specified will
+  # create an index in the migration table and too many columns
+  # may throw an index size error.
+  ids:
+    - id
+  constants:
+    location_prefix: '{"type":"Point","coordinates":['
+    location_suffix: ']}'
+
+  # Here we identify the columns of interest in the source file.
+  # Each numeric key is the 0-based index of the column.
+  # For each column, the key below is the field name assigned to
+  # the data on import, to be used in field mappings below.
+  # The label value is a user-friendly string for display by the
+  # migration UI.
+  fields:
+    0:
+      name: id
+      label: id
+    1:
+      name: title
+      label: title
+    2:
+      name: summary
+      label: summary
+    3:
+      name: body
+      label: body
+    4:
+      name: age
+      label: age
+    5:
+      name: cost
+      label: cost
+    6:
+      name: eligibility
+      label: eligibility
+    7:
+      name: primary
+      label: primary
+    8:
+      name: facets
+      label: facets
+    9:
+      name: phone
+      label: phone
+    10:
+      name: email
+      label: email
+    11:
+      name: url
+      label: url
+    # 16:
+    #   name: facebook
+    #   label: facebook
+    # 17:
+    #   name: instagram
+    #   label: instagram
+
+process:
+  title:
+    source: title
+    plugin: callback
+    callable: trim
+  localgov_directory_email:
+    source: email
+    plugin: callback
+    callable: trim
+  localgov_directory_website:
+    source: url
+    plugin: callback
+    callable: trim
+  body:
+    source: body
+    plugin: callback
+    callable: trim
+  localgov_directory_phone:
+    source: phone
+    plugin: callback
+    callable: trim
+  localgov_directory_channels/target_id:
+    plugin: default_value
+    default_value: 2101
+  localgov_directory_facets_select:
+  -
+    source: facets
+    plugin: explode
+    delimiter: ','
+  -
+    plugin: callback
+    callable: trim
+  -
+    plugin: entity_lookup
+    value_key: title
+    bundle: localgov_directories_facets_type
+    entity_type: localgov_directories_facets
+
+  moderation_state:
+    plugin: default_value
+    default_value: published
+
+destination:
+  plugin: 'entity:node'
+  default_bundle: localgov_directories_org
+
+# migration_dependencies:
+#   required:
+#     - ecc_waste_items
+
+#   optional: []

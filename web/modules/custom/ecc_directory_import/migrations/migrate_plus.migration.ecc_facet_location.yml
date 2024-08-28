@@ -1,0 +1,45 @@
+id: ecc_directory_facets_location
+label: ECC Directory Facets - Location
+migration_tags:
+  - directory_facets
+
+source:
+  plugin: csv
+  path: private://migrate/source/location.csv
+  # Column delimiter. Comma (,) by default.
+  delimiter: ','
+  # Field enclosure. Double quotation marks (") by default.
+  enclosure: '"'
+  # The row to be used as the CSV header (indexed from 0),
+  # or null if there is no header row.
+  header_offset: 0
+  # The column(s) to use as a key. Each column specified will
+  # create an index in the migration table and too many columns
+  # may throw an index size error.
+  ids:
+    - id
+
+  # Here we identify the columns of interest in the source file.
+  # Each numeric key is the 0-based index of the column.
+  # For each column, the key below is the field name assigned to
+  # the data on import, to be used in field mappings below.
+  # The label value is a user-friendly string for display by the
+  # migration UI.
+  fields:
+    0:
+      name: id
+      label: id
+    1:
+      name: title
+      label: title
+
+destination:
+  plugin: entity:localgov_directories_facets
+  default_bundle: location
+
+process:
+  title: title
+
+  uid:
+    plugin: default_value
+    default_value: 1
