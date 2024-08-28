@@ -1,0 +1,10 @@
+uuid: bd2eefb7-9e4f-4f1d-aa11-389c9439cde8
+langcode: en
+status: true
+dependencies: {  }
+id: 'ECC Directory'
+label: 'ECC Directory'
+description: ''
+source_type: null
+module: null
+shared_configuration: null
