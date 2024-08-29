@@ -76,7 +76,9 @@ display:
           action_title: Action
           include_exclude: include
           selected_actions:
+            - node_publish_action
             - node_save_action
+            - node_unpublish_action
             - pathauto_update_alias_node
         title:
           id: title
