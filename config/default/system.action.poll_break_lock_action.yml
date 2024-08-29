@@ -1,0 +1,11 @@
+uuid: 61ec97f8-d63e-4f14-ac3c-81f92d7fcd9f
+langcode: en
+status: true
+dependencies:
+  module:
+    - content_lock
+id: poll_break_lock_action
+label: 'Break lock poll'
+type: poll
+plugin: 'entity:break_lock:poll'
+configuration: {  }
