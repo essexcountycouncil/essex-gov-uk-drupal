@@ -45,6 +45,7 @@ module:
   ecc_gin: 0
   ecc_menu: 0
   ecc_subsites: 0
+  ecc_workflows: 0
   editor: 0
   entity_browser: 0
   entity_browser_entity_form: 0

@@ -1,0 +1,40 @@
+<?php
+
+/**
+ * @file
+ * Hooks for ECC Workflows module.
+ */
+
+use Drupal\Core\Entity\EntityInterface;
+
+/**
+ * Implements hook_ENTITY_TYPE_presave().
+ *
+ * When a page is created without any service contacts then copy them from
+ * the parent page.
+ */
+function ecc_workflows_node_presave(EntityInterface $entity) {
+  // Add other content types, when required.
+  $content_types = ['localgov_guides_page'];
+
+  /** @var \Drupal\node\NodeInterface $entity */
+  if (in_array($entity->bundle(), $content_types) && $entity->isNew()) {
+    /** @var \Drupal\localgov_workflows_notifications\Entity\LocalgovServiceContactInterface $service_contact */
+    $service_contact = $entity->get('localgov_service_contacts')?->referencedEntities();
+    if (empty($service_contact)) {
+      switch ($entity->bundle()) {
+        // Add other content types, when required.
+        case 'localgov_guides_page':
+          /** @var \Drupal\node\NodeInterface $parent */
+          $parent = $entity->get('localgov_guides_parent')?->entity;
+      }
+
+      if ($parent) {
+        $parent_service_contacts = $parent->get('localgov_service_contacts')->getValue();
+        if ($parent_service_contacts) {
+          $entity->set('localgov_service_contacts', $parent_service_contacts);
+        }
+      }
+    }
+  }
+}
