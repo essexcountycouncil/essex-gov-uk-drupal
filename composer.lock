@@ -9308,31 +9308,26 @@
         },
         {
             "name": "essexcountycouncil/content_ownership",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/essexcountycouncil/content_ownership.git",
-                "reference": "f1963c743b5742870f86f07576bdfae7d8891d6a"
+                "reference": "0fc8f2b297b646e13e16327d92a50419cadb0b44"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/essexcountycouncil/content_ownership/zipball/f1963c743b5742870f86f07576bdfae7d8891d6a",
-                "reference": "f1963c743b5742870f86f07576bdfae7d8891d6a",
+                "url": "https://api.github.com/repos/essexcountycouncil/content_ownership/zipball/0fc8f2b297b646e13e16327d92a50419cadb0b44",
+                "reference": "0fc8f2b297b646e13e16327d92a50419cadb0b44",
                 "shasum": ""
             },
             "type": "drupal-module",
-            "authors": [
-                {
-                    "name": "Nathan Brettell",
-                    "email": "nbrettell@nomensa.com"
-                }
-            ],
             "description": "For specifying an entity for the creation/migration of Content Owners/Content SME",
+            "homepage": "https://github.com/essexcountycouncil/ecc_cludo_search",
             "support": {
-                "source": "https://github.com/essexcountycouncil/content_ownership/tree/1.0.0",
+                "source": "https://github.com/essexcountycouncil/content_ownership/tree/1.0.1",
                 "issues": "https://github.com/essexcountycouncil/content_ownership/issues"
             },
-            "time": "2023-12-06T15:43:48+00:00"
+            "time": "2024-08-27T07:47:23+00:00"
         },
         {
             "name": "essexcountycouncil/ecc_cludo_search",
