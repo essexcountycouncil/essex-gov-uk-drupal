@@ -1,0 +1,24 @@
+uuid: 001e9d3d-1b0a-46ec-9004-3a1e4c87983e
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+  enforced:
+    module:
+      - localgov_publications
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+      - subsites
+    parent: 'main:'
+_core:
+  default_config_hash: SBbDjARv7P-kt6MCqejARLNTWAq3an2vZN7baCF0plY
+name: 'Publication cover page'
+type: localgov_publication_cover_page
+description: ''
+help: ''
+new_revision: true
+preview_mode: 0
+display_submitted: false

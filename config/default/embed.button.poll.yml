@@ -1,0 +1,22 @@
+uuid: e448bc9c-1c25-455e-a32a-b5d12f1c767f
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.poll.teaser
+  module:
+    - entity_embed
+    - poll
+label: Poll
+id: poll
+type_id: entity
+type_settings:
+  entity_type: poll
+  bundles: {  }
+  display_plugins:
+    - 'view_mode:poll.teaser'
+  entity_browser: ''
+  entity_browser_settings:
+    display_review: false
+icon: {  }
+icon_uuid: null
