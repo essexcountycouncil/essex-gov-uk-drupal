@@ -9,6 +9,7 @@ dependencies:
     - core.entity_view_mode.media.square
   module:
     - editor
+    - entity_embed
     - linkit
     - localgov_publications
     - media
@@ -23,6 +24,12 @@ filters:
     provider: editor
     status: true
     weight: -44
+    settings: {  }
+  entity_embed:
+    id: entity_embed
+    provider: entity_embed
+    status: true
+    weight: 100
     settings: {  }
   filter_align:
     id: filter_align
@@ -48,7 +55,7 @@ filters:
     status: true
     weight: -47
     settings:
-      allowed_html: '<br> <p class="alert alert-info inset"> <h1> <h2 id> <h3 id> <h4 id> <a class="external-link pdf-link button button-start col-sm-6 mt-3 button-start--fostering" hreflang title href data-entity-type data-entity-uuid data-entity-substitution> <cite> <dl> <dt> <dd> <mark> <b> <div class="alert-danger alert-primary alert-success callout callout-primary callout-success callout-danger callout-teal callout-carbon callout-yellow inset inset-text"> <blockquote cite> <ol type start> <h5 id> <h6 id> <ul type> <img data-entity-type data-entity-uuid data-caption> <drupal-media data-caption title data-entity-type data-entity-uuid alt data-view-mode data-align> <strong> <em> <u> <code> <li> <table> <tr> <td rowspan colspan> <th rowspan colspan> <thead> <tbody> <tfoot> <caption>'
+      allowed_html: '<br> <p class="alert alert-info inset"> <h1> <h2 id> <h3 id> <h4 id> <a class="external-link pdf-link button button-start col-sm-6 mt-3 button-start--fostering" hreflang title href data-entity-type data-entity-uuid data-entity-substitution> <cite> <dl> <dt> <dd> <mark> <b> <div class="alert-danger alert-primary alert-success callout callout-primary callout-success callout-danger callout-teal callout-carbon callout-yellow inset inset-text"> <blockquote cite> <ol type start> <h5 id> <h6 id> <ul type> <img data-entity-type data-entity-uuid data-caption> <drupal-media data-caption title data-entity-type data-entity-uuid alt data-view-mode data-align> <strong> <em> <u> <code> <li> <table> <tr> <td rowspan colspan> <th rowspan colspan> <thead> <tbody> <tfoot> <caption> <drupal-entity alt title data-align data-caption data-entity-embed-display data-entity-embed-display-settings data-view-mode data-entity-uuid data-langcode data-embed-button="poll node" data-entity-type="poll node">'
       filter_html_help: true
       filter_html_nofollow: false
   filter_html_escape:
