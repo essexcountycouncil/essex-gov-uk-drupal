@@ -47,8 +47,10 @@ module:
   ecc_subsites: 0
   ecc_workflows: 0
   editor: 0
+  embed: 0
   entity_browser: 0
   entity_browser_entity_form: 0
+  entity_embed: 0
   entity_hierarchy: 0
   entity_hierarchy_breadcrumb: 0
   entity_reference_facet_link: 0
@@ -172,6 +174,8 @@ module:
   preview_link: 0
   redirect: 0
   redirect_404: 0
+  replicate: 0
+  replicate_ui: 0
   responsive_image: 0
   responsive_preview: 0
   role_delegation: 0
