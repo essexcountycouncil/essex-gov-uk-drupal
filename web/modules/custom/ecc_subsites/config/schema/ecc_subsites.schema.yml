@@ -8,4 +8,3 @@ ecc_subsites.settings:
     fostering_homepage:
       type: int
       label: "Fostering homepage node id"
-
