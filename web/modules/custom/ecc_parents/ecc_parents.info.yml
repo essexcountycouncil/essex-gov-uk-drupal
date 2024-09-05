@@ -1,0 +1,7 @@
+name: Essex County Council Parents
+type: module
+description: Customisation for LGD content types with parent-child relationship
+package: Custom
+core_version_requirement: ^10 || ^11
+dependencies:
+  - localgov_guides:localgov_guides

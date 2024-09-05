@@ -1,0 +1,96 @@
+<?php
+
+/**
+ * @file
+ * ECC Parents module hooks.
+ */
+
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\node\NodeInterface;
+
+/**
+ * Implements hook_ENTITY_TYPE_presave().
+ *
+ * Set service contacts from parent page if not already set.
+ */
+function ecc_parents_node_presave(EntityInterface $entity) {
+  /** @var \Drupal\node\NodeInterface $entity */
+
+  // Add other content types, when required.
+  $content_types = ['localgov_guides_page'];
+
+  if (in_array($entity->bundle(), $content_types) && $entity->isNew()) {
+    $service_contact = $entity->get('localgov_service_contacts')
+      ?->referencedEntities();
+    if (empty($service_contact)) {
+      switch ($entity->bundle()) {
+        case 'localgov_guides_page':
+          $parent = $entity->get('localgov_guides_parent')?->entity;
+      }
+
+      if ($parent) {
+        $parent_service_contacts = $parent->get('localgov_service_contacts')
+          ->getValue();
+        if ($parent_service_contacts) {
+          $entity->set('localgov_service_contacts', $parent_service_contacts);
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_update().
+ *
+ * When a page is published/unpublished then do the same for its children.
+ *
+ * Beware loops! It doesn't look like it's a problem but saving a guide page
+ * could try to save the overview again.
+ *
+ * @see \Drupal\localgov_guides\ChildParentRelationship
+ */
+function ecc_parents_node_update(EntityInterface $entity) {
+  /** @var \Drupal\node\NodeInterface $entity */
+
+  // Add other content types, when required.
+  $content_types = ['localgov_guides_overview'];
+
+  if (in_array($entity->bundle(), $content_types)) {
+    if (!$entity->original->isPublished() && $entity->isPublished()) {
+      foreach (_ecc_parents_get_children($entity) as $child) {
+        if (!$child->isPublished()) {
+          $child->setPublished();
+          $child->set('moderation_state', 'published');
+          $child->save();
+        }
+      }
+    }
+    elseif ($entity->original->isPublished() && !$entity->isPublished()) {
+      foreach (_ecc_parents_get_children($entity) as $child) {
+        if ($child->isPublished()) {
+          $child->setUnpublished();
+          $child->set('moderation_state', 'archived');
+          $child->save();
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Get child nodes of a parent node.
+ *
+ * @param \Drupal\node\NodeInterface $node
+ *   Parent node.
+ *
+ * @return array|\Drupal\node\NodeInterface[]
+ *   Child nodes.
+ */
+function _ecc_parents_get_children(NodeInterface $node): array {
+  switch ($node->bundle()) {
+    case 'localgov_guides_overview':
+      /** @var \Drupal\node\NodeInterface[] $children */
+      $children = $node->localgov_guides_pages->referencedEntities() ?? [];
+  }
+  return $children ?? [];
+}

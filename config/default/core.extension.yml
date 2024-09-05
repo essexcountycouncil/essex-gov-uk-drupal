@@ -44,8 +44,8 @@ module:
   ecc_events: 0
   ecc_gin: 0
   ecc_menu: 0
+  ecc_parents: 0
   ecc_subsites: 0
-  ecc_workflows: 0
   editor: 0
   embed: 0
   entity_browser: 0

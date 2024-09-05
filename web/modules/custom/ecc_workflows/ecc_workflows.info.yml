@@ -1,8 +1,0 @@
-name: Essex County Council Workflows
-type: module
-description: Customisation for LocalGov Workflows
-package: Custom
-core_version_requirement: ^10 || ^11
-dependencies:
-  - localgov_guides:localgov_guides
-  - localgov_workflows_notifications:localgov_workflows_notifications
