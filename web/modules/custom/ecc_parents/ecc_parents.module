@@ -6,6 +6,7 @@
  */
 
 use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\node\NodeInterface;
 
 /**
@@ -44,7 +45,7 @@ function ecc_parents_node_presave(EntityInterface $entity) {
  *
  * When a page is published/unpublished then do the same for its children.
  *
- * Beware loops! It doesn't look like it's a problem but saving a guide page
+ * Beware of loops! It doesn't look like it's a problem but saving a guide page
  * could try to save the overview again.
  *
  * @see \Drupal\localgov_guides\ChildParentRelationship
@@ -58,7 +59,7 @@ function ecc_parents_node_update(EntityInterface $entity) {
   if (in_array($entity->bundle(), $content_types)) {
     if (!$entity->original->isPublished() && $entity->isPublished()) {
       foreach (_ecc_parents_get_children($entity) as $child) {
-        if (!$child->isPublished()) {
+        if (!$child->isPublished() && $child->field_publish_with_parent->value) {
           $child->setPublished();
           $child->set('moderation_state', 'published');
           $child->save();
@@ -67,7 +68,7 @@ function ecc_parents_node_update(EntityInterface $entity) {
     }
     elseif ($entity->original->isPublished() && !$entity->isPublished()) {
       foreach (_ecc_parents_get_children($entity) as $child) {
-        if ($child->isPublished()) {
+        if ($child->isPublished() && $child->field_publish_with_parent->value) {
           $child->setUnpublished();
           $child->set('moderation_state', 'archived');
           $child->save();
@@ -93,4 +94,20 @@ function _ecc_parents_get_children(NodeInterface $node): array {
       $children = $node->localgov_guides_pages->referencedEntities() ?? [];
   }
   return $children ?? [];
+}
+
+/**
+ * Implements hook_form_alter().
+ *
+ * Move field_publish_with_parent next to published state.
+ */
+function ecc_parents_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if (!isset($form['field_publish_with_parent'])) {
+    return;
+  }
+
+  // Add publish_with_parent advanced group on node edit forms.
+  if (isset($form['advanced'])) {
+    $form['field_publish_with_parent']['#group'] = 'footer';
+  }
 }
