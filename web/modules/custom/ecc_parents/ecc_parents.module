@@ -97,17 +97,12 @@ function _ecc_parents_get_children(NodeInterface $node): array {
 }
 
 /**
- * Implements hook_form_alter().
+ * Implements hook_form_BASE_FORM_ID_alter().
  *
  * Move field_publish_with_parent next to published state.
  */
-function ecc_parents_form_alter(&$form, FormStateInterface $form_state, $form_id) {
-  if (!isset($form['field_publish_with_parent'])) {
-    return;
-  }
-
-  // Add publish_with_parent advanced group on node edit forms.
-  if (isset($form['advanced'])) {
+function ecc_parents_form_node_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if (isset($form['field_publish_with_parent']) && isset($form['advanced'])) {
     $form['field_publish_with_parent']['#group'] = 'footer';
   }
 }
