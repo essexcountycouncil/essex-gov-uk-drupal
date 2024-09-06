@@ -1,0 +1,3 @@
+services:
+  ecc_parents.parents:
+    class: Drupal\ecc_parents\Parents

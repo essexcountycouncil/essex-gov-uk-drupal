@@ -1,0 +1,4 @@
+.views-exposed-form__item.form-item--guide-parent,
+.views-exposed-form__item.form-item--step-parent {
+  display: none;
+}

@@ -7,7 +7,7 @@
 
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\node\NodeInterface;
+use Drupal\views\ViewExecutable;
 
 /**
  * Implements hook_ENTITY_TYPE_presave().
@@ -80,24 +80,6 @@ function ecc_parents_node_update(EntityInterface $entity) {
 }
 
 /**
- * Get child nodes of a parent node.
- *
- * @param \Drupal\node\NodeInterface $node
- *   Parent node.
- *
- * @return array|\Drupal\node\NodeInterface[]
- *   Child nodes.
- */
-function _ecc_parents_get_children(NodeInterface $node): array {
-  switch ($node->bundle()) {
-    case 'localgov_guides_overview':
-      /** @var \Drupal\node\NodeInterface[] $children */
-      $children = $node->localgov_guides_pages->referencedEntities() ?? [];
-  }
-  return $children ?? [];
-}
-
-/**
  * Implements hook_form_BASE_FORM_ID_alter().
  *
  * Move field_publish_with_parent next to published state.
@@ -105,5 +87,31 @@ function _ecc_parents_get_children(NodeInterface $node): array {
 function ecc_parents_form_node_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   if (isset($form['field_publish_with_parent']) && isset($form['advanced'])) {
     $form['field_publish_with_parent']['#group'] = 'footer';
+  }
+}
+
+/**
+ * Implements hook_views_pre_build().
+ *
+ * Copy value of exposed form element to hidden parameters. This allows filter
+ * to work for content types with different parent field.
+ */
+function ecc_parents_views_pre_build(ViewExecutable $view) {
+  if ($view->id() === 'parents') {
+    $request = $view->getRequest();
+    $parameters = $request->query;
+    $parent = $parameters->get('parent');
+    $request->query->set('guide_parent', $parent);
+    $request->query->set('step_parent', $parent);
+    $view->setRequest($request);
+  }
+}
+
+/**
+ * Implements hook_views_pre_render().
+ */
+function ecc_parents_views_pre_render(ViewExecutable $view) {
+  if ($view->id() === 'parents') {
+    $view->element['#attached']['library'][] = 'ecc_parents/views';
   }
 }
