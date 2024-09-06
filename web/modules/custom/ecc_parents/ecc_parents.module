@@ -21,15 +21,13 @@ function ecc_parents_node_presave(EntityInterface $entity) {
   $content_types = ['localgov_guides_page'];
 
   if (in_array($entity->bundle(), $content_types) && $entity->isNew()) {
+    /** @var \Drupal\ecc_parents\Parents $parents_service */
+    $parents_service = \Drupal::service('ecc_parents.parents');
+
     $service_contact = $entity->get('localgov_service_contacts')
       ?->referencedEntities();
     if (empty($service_contact)) {
-      switch ($entity->bundle()) {
-        case 'localgov_guides_page':
-          $parent = $entity->get('localgov_guides_parent')?->entity;
-      }
-
-      if ($parent) {
+      if ($parent = $parents_service->getParent($entity)) {
         $parent_service_contacts = $parent->get('localgov_service_contacts')
           ->getValue();
         if ($parent_service_contacts) {
@@ -57,8 +55,11 @@ function ecc_parents_node_update(EntityInterface $entity) {
   $content_types = ['localgov_guides_overview'];
 
   if (in_array($entity->bundle(), $content_types)) {
+    /** @var \Drupal\ecc_parents\Parents $parents_service */
+    $parents_service = \Drupal::service('ecc_parents.parents');
+
     if (!$entity->original->isPublished() && $entity->isPublished()) {
-      foreach (_ecc_parents_get_children($entity) as $child) {
+      foreach ($parents_service->getChildren($entity) as $child) {
         if (!$child->isPublished() && $child->field_publish_with_parent->value) {
           $child->setPublished();
           $child->set('moderation_state', 'published');
@@ -67,7 +68,7 @@ function ecc_parents_node_update(EntityInterface $entity) {
       }
     }
     elseif ($entity->original->isPublished() && !$entity->isPublished()) {
-      foreach (_ecc_parents_get_children($entity) as $child) {
+      foreach ($parents_service->getChildren($entity) as $child) {
         if ($child->isPublished() && $child->field_publish_with_parent->value) {
           $child->setUnpublished();
           $child->set('moderation_state', 'archived');
