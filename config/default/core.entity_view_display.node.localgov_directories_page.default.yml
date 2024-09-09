@@ -4,6 +4,8 @@ status: true
 dependencies:
   config:
     - field.field.node.localgov_directories_page.body
+    - field.field.node.localgov_directories_page.field_directory_page_access
+    - field.field.node.localgov_directories_page.field_directory_page_age
     - field.field.node.localgov_directories_page.localgov_directory_address
     - field.field.node.localgov_directories_page.localgov_directory_channels
     - field.field.node.localgov_directories_page.localgov_directory_email
@@ -38,7 +40,7 @@ third_party_settings:
       label: Enquiries
       parent_name: ''
       region: content
-      weight: 2
+      weight: 4
       format_type: fieldset
       format_settings:
         classes: ''
@@ -58,19 +60,33 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
+  field_directory_page_access:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_directory_page_age:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
   localgov_directory_address:
     type: address_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 7
+    weight: 17
     region: content
   localgov_directory_email:
     type: email_mailto
     label: inline
     settings: {  }
     third_party_settings: {  }
-    weight: 6
+    weight: 16
     region: content
   localgov_directory_files:
     type: entity_reference_entity_view
@@ -79,7 +95,7 @@ content:
       view_mode: default
       link: true
     third_party_settings: {  }
-    weight: 1
+    weight: 3
     region: content
   localgov_directory_job_title:
     type: string
@@ -87,7 +103,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 4
+    weight: 14
     region: content
   localgov_directory_name:
     type: string
@@ -95,7 +111,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 3
+    weight: 13
     region: content
   localgov_directory_phone:
     type: telephone_link
@@ -103,7 +119,7 @@ content:
     settings:
       title: ''
     third_party_settings: {  }
-    weight: 5
+    weight: 15
     region: content
   localgov_directory_website:
     type: link
@@ -115,7 +131,7 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    weight: 8
+    weight: 18
     region: content
 hidden:
   content_moderation_control: true
