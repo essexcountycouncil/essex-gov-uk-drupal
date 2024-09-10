@@ -115,3 +115,19 @@ function ecc_parents_views_pre_render(ViewExecutable $view) {
     $view->element['#attached']['library'][] = 'ecc_parents/views';
   }
 }
+
+/**
+ * Implements hook_views_data().
+ */
+function ecc_parents_views_data() {
+
+  $data['node']['ecc_parents_views_field'] = [
+    'title' => t('ECC Parent'),
+    'help' => t('Parent page for any ECC (LGD) content type.'),
+    'field' => [
+      'id' => 'ecc_parents_views_field',
+    ],
+  ];
+
+  return $data;
+}

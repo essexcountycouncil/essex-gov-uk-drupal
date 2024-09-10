@@ -48,7 +48,7 @@ class Parents implements ParentsInterface {
         $field = 'localgov_step_by_step_pages';
         break;
     }
-    return $field ?? NULL;
+    return isset($field) && $node->hasField($field) ? $field : NULL;
   }
 
   /**
@@ -86,7 +86,7 @@ class Parents implements ParentsInterface {
         $field = 'localgov_step_parent';
         break;
     }
-    return $field ?? NULL;
+    return isset($field) && $node->hasField($field) ? $field : NULL;
   }
 
 }
