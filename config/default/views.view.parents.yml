@@ -4,11 +4,10 @@ status: true
 dependencies:
   config:
     - field.storage.node.localgov_services_parent
-    - field.storage.node.localgov_updated_date
   module:
-    - datetime
     - node
     - user
+    - views_bulk_operations
 id: parents
 label: Parents
 module: views
@@ -25,16 +24,15 @@ display:
     display_options:
       title: Parents
       fields:
-        node_bulk_form:
-          id: node_bulk_form
-          table: node
-          field: node_bulk_form
+        views_bulk_operations_bulk_form:
+          id: views_bulk_operations_bulk_form
+          table: views
+          field: views_bulk_operations_bulk_form
           relationship: none
           group_type: group
           admin_label: ''
-          entity_type: node
-          plugin_id: node_bulk_form
-          label: 'Node operations bulk form'
+          plugin_id: views_bulk_operations_bulk_form
+          label: 'Views bulk operations'
           exclude: false
           alter:
             alter_text: false
@@ -75,11 +73,19 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
+          batch: true
+          batch_size: 10
+          form_step: true
+          ajax_loader: false
+          buttons: false
           action_title: Action
-          include_exclude: include
+          clear_on_exposed: true
+          force_selection_info: false
           selected_actions:
-            - node_save_action
-            - pathauto_update_alias_node
+            -
+              action_id: 'entity:save_action:node'
+              preconfiguration:
+                add_confirmation: false
         title:
           id: title
           table: node_field_data
@@ -405,15 +411,17 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        localgov_updated_date:
-          id: localgov_updated_date
-          table: node__localgov_updated_date
-          field: localgov_updated_date
+        changed:
+          id: changed
+          table: node_field_data
+          field: changed
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: node
+          entity_field: changed
           plugin_id: field
-          label: 'Last Updated'
+          label: Changed
           exclude: false
           alter:
             alter_text: false
@@ -455,10 +463,21 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: datetime_default
+          type: timestamp
           settings:
-            timezone_override: ''
-            format_type: medium
+            date_format: medium
+            custom_date_format: ''
+            timezone: ''
+            tooltip:
+              date_format: long
+              custom_date_format: ''
+            time_diff:
+              enabled: false
+              future_format: '@interval hence'
+              past_format: '@interval ago'
+              granularity: 2
+              refresh: 60
+              description: ''
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -469,57 +488,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        operations:
-          id: operations
-          table: node
-          field: operations
-          relationship: none
-          group_type: group
-          admin_label: ''
-          entity_type: node
-          plugin_id: entity_operations
-          label: Operations
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          destination: false
       pager:
         type: mini
         options:
@@ -596,7 +564,7 @@ display:
             operator: localgov_services_parent_target_id_reference_op
             operator_limit_selection: false
             operator_list: {  }
-            identifier: parent
+            identifier: localgov_services_parent_target_id_reference
             required: false
             remember: false
             multiple: false
@@ -635,10 +603,10 @@ display:
               direction: ASC
             auto_create: false
             auto_create_bundle: ''
-        localgov_guides_parent_target_id:
-          id: localgov_guides_parent_target_id
+        localgov_guides_parent_target_id_reference:
+          id: localgov_guides_parent_target_id_reference
           table: node__localgov_guides_parent
-          field: localgov_guides_parent_target_id
+          field: localgov_guides_parent_target_id_reference
           relationship: none
           group_type: group
           admin_label: ''
@@ -646,75 +614,16 @@ display:
           operator: or
           value: null
           group: 1
-          exposed: true
+          exposed: false
           expose:
-            operator_id: localgov_guides_parent_target_id_op
+            operator_id: localgov_guides_parent_target_id_reference_op
             label: 'Guide overview'
             description: ''
             use_operator: false
-            operator: localgov_guides_parent_target_id_op
+            operator: localgov_guides_parent_target_id_reference_op
             operator_limit_selection: false
             operator_list: {  }
-            identifier: guide_parent
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              emergency_publisher: '0'
-              localgov_news_editor: '0'
-              analytics: '0'
-              localgov_contributor: '0'
-              localgov_author: '0'
-              localgov_editor: '0'
-              localgov_user_manager: '0'
-              administrator: '0'
-              localgov_devolved_editor: '0'
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          reduce_duplicates: false
-          sub_handler: 'default:node'
-          widget: autocomplete
-          sub_handler_settings:
-            target_bundles: null
-            sort:
-              field: _none
-              direction: ASC
-            auto_create: false
-            auto_create_bundle: ''
-        localgov_step_parent_target_id:
-          id: localgov_step_parent_target_id
-          table: node__localgov_step_parent
-          field: localgov_step_parent_target_id
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: entity_reference
-          operator: or
-          value: null
-          group: 1
-          exposed: true
-          expose:
-            operator_id: localgov_step_parent_target_id_op
-            label: 'Step by step overview'
-            description: ''
-            use_operator: false
-            operator: localgov_step_parent_target_id_op
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: step_parent
+            identifier: localgov_guides_parent_target_id_reference
             required: false
             remember: false
             multiple: false
@@ -756,7 +665,7 @@ display:
       filter_groups:
         operator: AND
         groups:
-          1: OR
+          1: AND
       style:
         type: table
         options:
@@ -819,7 +728,6 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.node.localgov_services_parent'
-        - 'config:field.storage.node.localgov_updated_date'
   page_1:
     id: page_1
     display_title: Page
@@ -839,4 +747,3 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.node.localgov_services_parent'
-        - 'config:field.storage.node.localgov_updated_date'

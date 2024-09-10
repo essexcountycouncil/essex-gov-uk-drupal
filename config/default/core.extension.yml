@@ -44,8 +44,8 @@ module:
   ecc_events: 0
   ecc_gin: 0
   ecc_menu: 0
-  ecc_parents: 0
   ecc_subsites: 0
+  ecc_workflows: 0
   editor: 0
   embed: 0
   entity_browser: 0
@@ -202,6 +202,7 @@ module:
   ultimate_cron: 0
   update: 0
   user: 0
+  views_bulk_operations: 0
   views_core_entity_reference: 0
   views_ui: 0
   viewsreference: 0

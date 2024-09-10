@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "66350fc3f4f36f5e6cb8782e95c20fa4",
+    "content-hash": "c63c02dcb13cfbfc65cbc08795efded1",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -4759,6 +4759,65 @@
             }
         },
         {
+            "name": "drupal/eu_cookie_compliance_gtm",
+            "version": "2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/eu_cookie_compliance_gtm.git",
+                "reference": "2.1.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/eu_cookie_compliance_gtm-2.1.0.zip",
+                "reference": "2.1.0",
+                "shasum": "f02bfd13976a51fe47cf63d06bfd1a29ab6bf35b"
+            },
+            "require": {
+                "drupal/core": "^9.3 || ^10",
+                "drupal/eu_cookie_compliance": "^1.24",
+                "drupal/google_tag": "^1.6 || ^2.0",
+                "php": ">=5.4"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "2.1.0",
+                    "datestamp": "1691746157",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "daften",
+                    "homepage": "https://www.drupal.org/user/176274"
+                },
+                {
+                    "name": "Nick_vh",
+                    "homepage": "https://www.drupal.org/user/122682"
+                },
+                {
+                    "name": "nielsaers",
+                    "homepage": "https://www.drupal.org/user/752444"
+                },
+                {
+                    "name": "reszli",
+                    "homepage": "https://www.drupal.org/user/710368"
+                }
+            ],
+            "description": "Extends EU Cookie Compliance module and allows pushing custom data to GTM for each cookie category.",
+            "homepage": "https://www.drupal.org/project/eu_cookie_compliance_gtm",
+            "support": {
+                "source": "https://git.drupalcode.org/project/eu_cookie_compliance_gtm"
+            }
+        },
+        {
             "name": "drupal/externalauth",
             "version": "2.0.5",
             "source": {
@@ -5686,30 +5745,42 @@
         },
         {
             "name": "drupal/google_tag",
-            "version": "1.7.0",
+            "version": "2.0.6",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/google_tag.git",
-                "reference": "8.x-1.7"
+                "reference": "2.0.6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/google_tag-8.x-1.7.zip",
-                "reference": "8.x-1.7",
-                "shasum": "e46c24b62c3c3c6b5d7232f3b679b46b1fe0c7a9"
+                "url": "https://ftp.drupal.org/files/projects/google_tag-2.0.6.zip",
+                "reference": "2.0.6",
+                "shasum": "c8f2895a81a7898ac909bdc693fcd25ffe6f62be"
             },
             "require": {
-                "drupal/core": "^8.8 || ^9 || ^10"
+                "drupal/core": "^9.5 || ^10 || ^11"
+            },
+            "require-dev": {
+                "drupal/commerce": "^2.0",
+                "drupal/commerce_wishlist": "^3.0@beta",
+                "drupal/csp": "^1.0",
+                "drupal/google_analytics": "^4.0",
+                "drupal/search_api": "^1.28.0",
+                "drupal/token": "^1.11.0",
+                "drupal/webform": "^6.0"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.7",
-                    "datestamp": "1710888941",
+                    "version": "2.0.6",
+                    "datestamp": "1721948116",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
                     }
+                },
+                "branch-alias": {
+                    "dev-main": "2.x-dev"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -5738,7 +5809,7 @@
                     "homepage": "https://www.drupal.org/user/240748"
                 }
             ],
-            "description": "Allows your website analytics to be managed using Google Tag Manager.",
+            "description": "Provides support for Google Tag and Google Tag Manager in Drupal.",
             "homepage": "https://www.drupal.org/project/google_tag",
             "support": {
                 "source": "https://git.drupalcode.org/project/google_tag"
@@ -8866,6 +8937,72 @@
             "homepage": "http://drupal.org/project/upgrade_status",
             "support": {
                 "source": "https://git.drupalcode.org/project/upgrade_status"
+            }
+        },
+        {
+            "name": "drupal/views_bulk_operations",
+            "version": "4.2.7",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/views_bulk_operations.git",
+                "reference": "4.2.7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/views_bulk_operations-4.2.7.zip",
+                "reference": "4.2.7",
+                "shasum": "25c9fa531ac49664a361fdd2202eec0a6e53bc61"
+            },
+            "require": {
+                "drupal/core": "^9.4 || ^10 || ^11",
+                "php": ">=7.4.0"
+            },
+            "require-dev": {
+                "drush/drush": "^12"
+            },
+            "suggest": {
+                "drush/drush": "^11 || ^12"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "4.2.7",
+                    "datestamp": "1717665214",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                },
+                "drush": {
+                    "services": {
+                        "drush.services.yml": "^10 || ^11"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Marcin Grabias",
+                    "homepage": "https://www.drupal.org/u/graber"
+                },
+                {
+                    "name": "Graber",
+                    "homepage": "https://www.drupal.org/user/1599440"
+                },
+                {
+                    "name": "joelpittet",
+                    "homepage": "https://www.drupal.org/user/160302"
+                }
+            ],
+            "description": "Adds an ability to perform bulk operations on selected entities from view results. Provides an API to create such operations.",
+            "homepage": "https://www.drupal.org/project/views_bulk_operations",
+            "support": {
+                "source": "https://git.drupalcode.org/project/views_bulk_operations/-/tree/8.x-3.x",
+                "issues": "https://www.drupal.org/project/issues/views_bulk_operations?version=8.x",
+                "docs": "https://www.drupal.org/docs/8/modules/views-bulk-operations-vbo"
             }
         },
         {
