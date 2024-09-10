@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "66350fc3f4f36f5e6cb8782e95c20fa4",
+    "content-hash": "42430d146b29c23f389ec48b0413bd02",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -9687,6 +9687,29 @@
                 "issues": "https://github.com/essexcountycouncil/ecc_menu/issues"
             },
             "time": "2023-10-04T08:59:52+00:00"
+        },
+        {
+            "name": "essexcountycouncil/ecc_parents",
+            "version": "1.0.0-alpha3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/essexcountycouncil/ecc_parents.git",
+                "reference": "f4639731aba941d2bb83ddcd4828fffd3c12cf7f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/essexcountycouncil/ecc_parents/zipball/f4639731aba941d2bb83ddcd4828fffd3c12cf7f",
+                "reference": "f4639731aba941d2bb83ddcd4828fffd3c12cf7f",
+                "shasum": ""
+            },
+            "type": "drupal-module",
+            "description": "Customisation for LGD content types with parent-child relationship",
+            "homepage": "https://github.com/essexcountycouncil/ecc_parents",
+            "support": {
+                "source": "https://github.com/essexcountycouncil/ecc_parents/tree/1.0.0-alpha3",
+                "issues": "https://github.com/essexcountycouncil/ecc_parents/issues"
+            },
+            "time": "2024-09-10T14:39:33+00:00"
         },
         {
             "name": "essexcountycouncil/ecc_theme",

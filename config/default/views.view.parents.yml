@@ -142,10 +142,10 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        ecc_parents_views_field:
-          id: ecc_parents_views_field
+        nid:
+          id: nid
           table: node
-          field: ecc_parents_views_field
+          field: nid
           relationship: none
           group_type: group
           admin_label: ''
