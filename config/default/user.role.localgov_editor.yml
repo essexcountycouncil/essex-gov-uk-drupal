@@ -29,6 +29,7 @@ dependencies:
     - taxonomy.vocabulary.localgov_event_locality
     - taxonomy.vocabulary.localgov_event_price
     - taxonomy.vocabulary.localgov_topic
+    - taxonomy.vocabulary.media_category
     - workflows.workflow.localgov_alert_banners
     - workflows.workflow.localgov_editorial
   module:
@@ -138,6 +139,7 @@ permissions:
   - 'create terms in localgov_event_locality'
   - 'create terms in localgov_event_price'
   - 'create terms in localgov_topic'
+  - 'create terms in media_category'
   - 'create url aliases'
   - 'create webform'
   - 'delete any localgov_event content'
