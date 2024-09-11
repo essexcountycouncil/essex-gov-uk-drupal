@@ -229,6 +229,7 @@ permissions:
   - 'edit terms in localgov_event_locality'
   - 'edit terms in localgov_event_price'
   - 'edit terms in localgov_topic'
+  - 'edit terms in media_category'
   - 'generate preview links'
   - 'manage localgov alert banner localgov_alert_banner entities'
   - 'reorder entity_hierarchy children'
