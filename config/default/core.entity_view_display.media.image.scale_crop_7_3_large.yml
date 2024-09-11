@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.media.scale_crop_7_3_large
+    - field.field.media.image.field_category
     - field.field.media.image.field_media_image
     - image.style.scale_crop_7_3_large
     - media.type.image
@@ -29,6 +30,7 @@ content:
     region: content
 hidden:
   created: true
+  field_category: true
   name: true
   search_api_excerpt: true
   thumbnail: true
