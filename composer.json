@@ -212,6 +212,9 @@
             },
             "drupal/honeypot": {
               "honeypot clientside": "https://www.drupal.org/files/issues/2024-08-16/clientside_time_limit_2_1_4.patch"
+            },
+            "drupal/core": {
+              "dynamic transitions": "https://git.drupalcode.org/project/drupal/-/merge_requests/8775.patch"
             }
         },
         "drupal-scaffold": {
