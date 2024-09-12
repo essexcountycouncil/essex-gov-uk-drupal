@@ -117,7 +117,7 @@
         "essexcountycouncil/ecc_content_moderation": "^1.0",
         "essexcountycouncil/ecc_cookie_compliance": "^1.0",
         "essexcountycouncil/ecc_menu": "^1.0",
-        "essexcountycouncil/ecc_parents": "^1.0@alpha",
+        "essexcountycouncil/ecc_parents": "^1.0",
         "essexcountycouncil/ecc_theme": "^1.1",
         "localgovdrupal/localgov": "^3",
         "localgovdrupal/localgov_base": "^1.5",
