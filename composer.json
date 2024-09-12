@@ -64,6 +64,7 @@
         "drupal/ckeditor_div_manager": "^3",
         "drupal/ckeditor_link_styles": "^1.0",
         "drupal/cludo_search": "^1.0@beta",
+        "drupal/config_filter": "^2.6",
         "drupal/config_ignore": "^3.3",
         "drupal/config_split": "^2.0",
         "drupal/content_access_by_path": "^1.0",
