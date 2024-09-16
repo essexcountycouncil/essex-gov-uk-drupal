@@ -54,7 +54,7 @@ generate-sbom:
     DOCKER_PASS: ""
   before_script:
     - docker login -u${DOCKER_USER} -p${DOCKER_PASSWORD} ${DOCKER_REGISTRY}
-    - apt-get install bash curl --update-cache
+    - apk add bash curl --update-cache
     - curl -sSfL https://raw.githubusercontent.com/anchore/syft/main/install.sh | sh -s -- -b /usr/local/bin
   script:
     - docker pull ${DOCKER_REGISTRY}/portal-drupal-fpm${tag}
