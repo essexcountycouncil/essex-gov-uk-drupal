@@ -11,7 +11,6 @@ dependencies:
   module:
     - address
     - leaflet
-    - text
 _core:
   default_config_hash: hkLEPDioqgLot0CVhIJxCrihJwm-LDpMEI-6MxY-Djo
 id: geo_entity.address.default
@@ -19,13 +18,6 @@ targetEntityType: geo_entity
 bundle: address
 mode: default
 content:
-  accessibility:
-    type: text_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 2
-    region: content
   location:
     type: leaflet_formatter_default
     label: visually_hidden
@@ -37,11 +29,28 @@ content:
       hide_empty_map: false
       disable_wheel: false
       gesture_handling: false
+      fitbounds_options: '{"padding":[0,0]}'
       reset_map:
         control: false
         position: topright
+      map_scale:
+        control: false
+        options: '{"position":"bottomright","maxWidth":100,"metric":true,"imperial":false,"updateWhenIdle":false}'
+      locate:
+        control: false
+        options: '{"position": "topright", "setView": "untilPanOrZoom", "returnToPrevBounds":true, "keepCurrentZoomLevel": true, "strings": {"title": "Locate my position"}}'
+        automatic: false
+      leaflet_tooltip:
+        value: ''
+        options: '{"permanent":false,"direction":"center"}'
       popup: false
       popup_content: ''
+      leaflet_popup:
+        control: ''
+        content: ''
+        options: '{"maxWidth":"300","minWidth":"50", "autoPan": true}'
+        value: ''
+        view_mode: full
       map_position:
         force: false
         center:
@@ -82,6 +91,8 @@ content:
         control: false
         options: '{"position":"topleft","pseudoFullscreen":false}'
       path: '{"color":"#3388ff","opacity":"1.0","stroke":true,"weight":3,"fill":"depends","fillColor":"*","fillOpacity":"0.2"}'
+      feature_properties:
+        values: ''
       geocoder:
         control: false
         settings:
@@ -108,6 +119,8 @@ content:
           zoom: 16
           popup: false
           options: ''
+      map_lazy_load:
+        lazy_load: false
       weight: null
     third_party_settings: {  }
     weight: 0
@@ -120,6 +133,7 @@ content:
     weight: 1
     region: content
 hidden:
+  accessibility: true
   created: true
   external_id: true
   search_api_excerpt: true

@@ -1,0 +1,19 @@
+uuid: a64d8fcb-d25a-4acc-847e-f3a32a6fa461
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_dir_org_how_to_access
+field_name: field_dir_org_how_to_access
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
