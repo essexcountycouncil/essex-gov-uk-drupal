@@ -43,3 +43,6 @@ certs/
 
 # Ignore config which may contain secrets
 .ddev/.env
+
+# Ignore custom ddev domain
+.ddev/nginx_full/essexgov.conf
