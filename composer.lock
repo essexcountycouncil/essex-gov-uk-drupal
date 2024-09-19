@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c94b6487f2124ced45075d62b2d8fbde",
+    "content-hash": "96f9ce62ae8cb3383b424a16dd9e429b",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3101,16 +3101,16 @@
         },
         {
             "name": "drupal/core",
-            "version": "10.3.4",
+            "version": "10.3.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core.git",
-                "reference": "e5f1264a976a94b5e99c7ab7e15939bd6546d6ad"
+                "reference": "831a269a4d99957638977ec325c3346f896d9f08"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal/core/zipball/e5f1264a976a94b5e99c7ab7e15939bd6546d6ad",
-                "reference": "e5f1264a976a94b5e99c7ab7e15939bd6546d6ad",
+                "url": "https://api.github.com/repos/drupal/core/zipball/831a269a4d99957638977ec325c3346f896d9f08",
+                "reference": "831a269a4d99957638977ec325c3346f896d9f08",
                 "shasum": ""
             },
             "require": {
@@ -3259,9 +3259,9 @@
             ],
             "description": "Drupal is an open source content management platform powering millions of websites and applications.",
             "support": {
-                "source": "https://github.com/drupal/core/tree/10.3.4"
+                "source": "https://github.com/drupal/core/tree/10.3.5"
             },
-            "time": "2024-09-11T16:23:47+00:00"
+            "time": "2024-09-12T09:45:37+00:00"
         },
         {
             "name": "drupal/core-composer-scaffold",
@@ -3356,16 +3356,16 @@
         },
         {
             "name": "drupal/core-recommended",
-            "version": "10.3.4",
+            "version": "10.3.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core-recommended.git",
-                "reference": "798638534011ea71a754b2171068229e5349b679"
+                "reference": "055a27d032e1fdcbac90976a14bdd152b368d761"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal/core-recommended/zipball/798638534011ea71a754b2171068229e5349b679",
-                "reference": "798638534011ea71a754b2171068229e5349b679",
+                "url": "https://api.github.com/repos/drupal/core-recommended/zipball/055a27d032e1fdcbac90976a14bdd152b368d761",
+                "reference": "055a27d032e1fdcbac90976a14bdd152b368d761",
                 "shasum": ""
             },
             "require": {
@@ -3374,7 +3374,7 @@
                 "doctrine/annotations": "~1.14.3",
                 "doctrine/deprecations": "~1.1.3",
                 "doctrine/lexer": "~2.1.1",
-                "drupal/core": "10.3.4",
+                "drupal/core": "10.3.5",
                 "egulias/email-validator": "~4.0.2",
                 "guzzlehttp/guzzle": "~7.8.1",
                 "guzzlehttp/promises": "~2.0.2",
@@ -3435,9 +3435,9 @@
             ],
             "description": "Core and its dependencies with known-compatible minor versions. Require this project INSTEAD OF drupal/core.",
             "support": {
-                "source": "https://github.com/drupal/core-recommended/tree/10.3.4"
+                "source": "https://github.com/drupal/core-recommended/tree/10.3.5"
             },
-            "time": "2024-09-11T16:23:47+00:00"
+            "time": "2024-09-12T09:45:37+00:00"
         },
         {
             "name": "drupal/crop",
@@ -5508,27 +5508,27 @@
         },
         {
             "name": "drupal/gin",
-            "version": "3.0.0-rc10",
+            "version": "3.0.0-rc13",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/gin.git",
-                "reference": "8.x-3.0-rc10"
+                "reference": "8.x-3.0-rc13"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/gin-8.x-3.0-rc10.zip",
-                "reference": "8.x-3.0-rc10",
-                "shasum": "f79fd895dd1f16c3af457bfaed5527f5b5bc752c"
+                "url": "https://ftp.drupal.org/files/projects/gin-8.x-3.0-rc13.zip",
+                "reference": "8.x-3.0-rc13",
+                "shasum": "7b8e9d7ae6fe6de7de0bba930200fe80b437eefe"
             },
             "require": {
-                "drupal/core": "^9 || ^10",
+                "drupal/core": "^9 || ^10 || ^11",
                 "drupal/gin_toolbar": "^1.0@beta"
             },
             "type": "drupal-theme",
             "extra": {
                 "drupal": {
-                    "version": "8.x-3.0-rc10",
-                    "datestamp": "1712686345",
+                    "version": "8.x-3.0-rc13",
+                    "datestamp": "1720416342",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "RC releases are not covered by Drupal security advisories."
@@ -6973,29 +6973,26 @@
         },
         {
             "name": "drupal/office_hours",
-            "version": "1.17.0",
+            "version": "dev-1.x",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/office_hours.git",
-                "reference": "8.x-1.17"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/office_hours-8.x-1.17.zip",
-                "reference": "8.x-1.17",
-                "shasum": "f689fc5c558bc00c01df650025793a678eba1fa2"
+                "reference": "4b1121dde094bff6c1f34e96d0b050b714e8c3b6"
             },
             "require": {
-                "drupal/core": "^8 || ^9 || ^10"
+                "drupal/core": "^8 || ^9 || ^10 || ^11"
             },
             "type": "drupal-module",
             "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
                 "drupal": {
-                    "version": "8.x-1.17",
-                    "datestamp": "1709818119",
+                    "version": "8.x-1.17+51-dev",
+                    "datestamp": "1721219940",
                     "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
+                        "status": "not-covered",
+                        "message": "Dev releases are not covered by Drupal security advisories."
                     }
                 }
             },
@@ -13307,16 +13304,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v5.1.0",
+            "version": "v5.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "683130c2ff8c2739f4822ff7ac5c873ec529abd1"
+                "reference": "23c79fbbfb725fb92af9bcf41065c8e9a0d49ddb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/683130c2ff8c2739f4822ff7ac5c873ec529abd1",
-                "reference": "683130c2ff8c2739f4822ff7ac5c873ec529abd1",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/23c79fbbfb725fb92af9bcf41065c8e9a0d49ddb",
+                "reference": "23c79fbbfb725fb92af9bcf41065c8e9a0d49ddb",
                 "shasum": ""
             },
             "require": {
@@ -13359,9 +13356,9 @@
             ],
             "support": {
                 "issues": "https://github.com/nikic/PHP-Parser/issues",
-                "source": "https://github.com/nikic/PHP-Parser/tree/v5.1.0"
+                "source": "https://github.com/nikic/PHP-Parser/tree/v5.2.0"
             },
-            "time": "2024-07-01T20:03:41+00:00"
+            "time": "2024-09-15T16:40:33+00:00"
         },
         {
             "name": "palantirnet/drupal-rector",
@@ -24231,6 +24228,7 @@
     "stability-flags": {
         "drupal/cludo_search": 10,
         "drupal/gin": 5,
+        "drupal/office_hours": 20,
         "drupal/preview_link": 15,
         "drupal/ultimate_cron": 15,
         "drupal/views_core_entity_reference": 15,
