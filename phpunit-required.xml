@@ -14,8 +14,8 @@
 
   <testsuites>
     <testsuite name="unit">
-      <directory>/var/www/html/web/modules/custom/</directory>
-      <directory>/var/www/html/web/modules/contrib/ecc_parents/</directory>
+      <directory>web/modules/custom/</directory>
+      <directory>web/modules/contrib/ecc_parents/</directory>
     </testsuite>
     <testsuite name="kernel">
       <directory>web/modules/custom/</directory>
