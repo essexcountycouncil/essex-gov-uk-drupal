@@ -14,6 +14,7 @@ Test:Required:
   before_script:
     - ''
   script:
+    - pwd
     - composer install && composer tests-required
   allow_failure: true
 
