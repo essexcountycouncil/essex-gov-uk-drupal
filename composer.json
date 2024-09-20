@@ -313,14 +313,15 @@
         ],
         "phpcs": "bin/phpcs --standard=phpcs-ecc.xml",
         "phpcbf": "bin/phpcbf --standard=phpcbf-ecc.xml",
-        "phpunit-unit": "bin/phpunit -v --debug -c phpunit-unit.xml",
+        "phpunit-required": "cd web && export SYMFONY_DEPRECATIONS_HELPER=weak && ../bin/phpunit -v --debug --verbose -c ../phpunit-required.xml",
         "checker-drupal": "bin/drupal-check -ad web/modules/custom",
         "phpunit-modules": "sudo -u www-data -E vendor/bin/phpunit -v --debug modules",
         "cghooks": "[ -h vendor/bin/cghooks -a -w ../.git ] && vendor/bin/cghooks --git-dir=../.git",
         "tests-required": [
             "composer validate",
             "composer audit",
-            "composer phpcs"
+            "composer phpcs",
+            "composer phpunit-required"
         ]
     }
 }
