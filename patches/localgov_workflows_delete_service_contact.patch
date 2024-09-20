@@ -16,7 +16,7 @@ new file mode 100644
 index 0000000..d0aa929
 --- /dev/null
 +++ b/modules/localgov_workflows_notifications/src/Form/LocalgovServiceContactDeleteForm.php
-@@ -0,0 +1,57 @@
+@@ -0,0 +1,56 @@
 +<?php
 +
 +declare(strict_types = 1);
@@ -27,7 +27,6 @@ index 0000000..d0aa929
 +use Drupal\Core\Link;
 +use Drupal\Core\Url;
 +use Drupal\Core\Form\FormStateInterface;
-+use Drupal\ramled_group\GroupSupport;
 +
 +/**
 + * Class LocalgovServiceContactDeleteForm.
