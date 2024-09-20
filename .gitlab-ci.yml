@@ -1,12 +1,60 @@
 stages:
   - Test1
   - build
+  - tests
+  - metrics
+  - reports
   - development
   - development-postdeploy
   - preproduction
   - preproduction-postdeploy
   - production
   - production-postdeploy
+
+include:
+  - remote: 'https://gitlab.com/mog33/gitlab-ci-drupal/-/raw/4.x-dev/.gitlab-ci/jobs.gitlab-ci.yml'
+
+variables:
+  # This is mandatory to get default variables.
+  # For list of variables see
+  # https://gitlab.com/mog33/gitlab-ci-drupal/-/raw/4.x-dev/.gitlab-ci/ci/variables.yml
+  extends: .default_variables
+
+  # Docker image used for ci, should be the same as include above.
+  CI_REF: "4.x-dev"
+
+  CI_DRUPAL_VERSION:
+    value: "10.3"
+    description: The version of Drupal to use for this Pipeline.
+
+  DRUPAL_WEB_ROOT: web
+
+  PHPUNIT_TESTS: "custom"
+
+  # PHPUNIT_GROUP: my_group_1,my_group_2
+
+  # DIRS_QA: "${WEB_ROOT}/modules/custom,${WEB_ROOT}/themes/custom"
+  # DIRS_JS: "${WEB_ROOT}/**/custom/**/*.js"
+  # DIRS_YAML: "${WEB_ROOT}/**/custom/**/*.yml"
+  # DIRS_CSS: "${WEB_ROOT}/**/custom/**/css/*.css"
+  # DIRS_TWIG: "${WEB_ROOT}/themes/custom"
+  # DIRS_PHP: "${WEB_ROOT}/modules/custom,${WEB_ROOT}/themes/custom"
+  # SKIP_BUILD: 1 # if not running any tests or deploy.
+  # SKIP_TESTS: 1 # Skip all tests, ignore SKIP_TEST_*.
+  # SKIP_TEST_UNITKERNEL: 1
+  SKIP_TEST_FUNCTIONAL: 1
+  SKIP_TEST_FUNCTIONALJS: 1
+  # SKIP_TEST_SECURITY: 1
+  SKIP_TEST_BEHAT: 1
+  SKIP_TEST_NIGHTWATCH: 1
+  # SKIP_QA: 1
+  # SKIP_LINT: 1 # Skip all lint, ignore SKIP_LINT_*.
+  SKIP_LINT_CSS: 1
+  SKIP_LINT_JS: 1
+  SKIP_LINT_YAML: 1
+  SKIP_LINT_TWIG: 1
+
+  SKIP_METRICS: 1
 
 Test:Required:
   stage: Test1
