@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<phpunit bootstrap="/var/www/html/web/core/tests/bootstrap.php" colors="true"
+<phpunit bootstrap="web/core/tests/bootstrap.php" colors="true"
          beStrictAboutTestsThatDoNotTestAnything="true"
          beStrictAboutOutputDuringTests="true"
          beStrictAboutChangesToGlobalState="true"
@@ -18,8 +18,8 @@
       <directory>/var/www/html/web/modules/contrib/ecc_parents/</directory>
     </testsuite>
     <testsuite name="kernel">
-      <directory>/var/www/html/web/modules/custom/</directory>
-      <directory>/var/www/html/web/modules/contrib/ecc_parents/</directory>
+      <directory>web/modules/custom/</directory>
+      <directory>web/modules/contrib/ecc_parents/</directory>
     </testsuite>
   </testsuites>
   <listeners>
