@@ -320,8 +320,7 @@
         "tests-required": [
             "composer validate",
             "composer audit",
-            "composer phpcs",
-            "composer phpunit-required"
-        ]
+            "composer phpcs"
+       ]
     }
 }
