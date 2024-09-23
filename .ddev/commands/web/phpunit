@@ -5,4 +5,4 @@
 ## Example: "ddev phpunit"
 
 export SYMFONY_DEPRECATIONS_HELPER=weak
-/var/www/html/bin/phpunit -c /var/www/html/phpunit-ecc.xml $*
+/var/www/html/bin/phpunit -c /var/www/html/phpunit-ecc.xml --verbose $*

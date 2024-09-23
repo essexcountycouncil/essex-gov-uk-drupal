@@ -17,8 +17,6 @@ dependencies:
     - node.type.localgov_guides_page
     - node.type.localgov_news_article
     - node.type.localgov_newsroom
-    - node.type.localgov_publication_cover_page
-    - node.type.localgov_publication_page
     - node.type.localgov_services_landing
     - node.type.localgov_services_page
     - node.type.localgov_services_status
@@ -31,6 +29,7 @@ dependencies:
     - taxonomy.vocabulary.localgov_event_locality
     - taxonomy.vocabulary.localgov_event_price
     - taxonomy.vocabulary.localgov_topic
+    - taxonomy.vocabulary.media_category
     - workflows.workflow.localgov_alert_banners
     - workflows.workflow.localgov_editorial
   module:
@@ -45,6 +44,8 @@ dependencies:
     - geocoder
     - localgov_alert_banner
     - localgov_directories
+    - localgov_publications
+    - localgov_workflows_notifications
     - media
     - node
     - paragraphs
@@ -106,6 +107,7 @@ permissions:
   - 'add scheduled transitions node localgov_subsites_page'
   - 'administer book outlines'
   - 'administer content owner/sme entity'
+  - 'administer localgov_service_contact'
   - 'administer menu'
   - 'administer paragraphs library'
   - 'administer redirects'
@@ -121,6 +123,7 @@ permissions:
   - 'create localgov_newsroom content'
   - 'create localgov_publication_cover_page content'
   - 'create localgov_publication_page content'
+  - 'create localgov_service_contact'
   - 'create localgov_services_landing content'
   - 'create localgov_services_page content'
   - 'create localgov_services_sublanding content'
@@ -136,6 +139,7 @@ permissions:
   - 'create terms in localgov_event_locality'
   - 'create terms in localgov_event_price'
   - 'create terms in localgov_topic'
+  - 'create terms in media_category'
   - 'create url aliases'
   - 'create webform'
   - 'delete any localgov_event content'
@@ -157,6 +161,7 @@ permissions:
   - 'delete localgov_event revisions'
   - 'delete localgov_publication_cover_page revisions'
   - 'delete localgov_publication_page revisions'
+  - 'delete localgov_service_contact'
   - 'delete own files'
   - 'delete own localgov_event content'
   - 'delete own localgov_publication_cover_page content'
@@ -194,6 +199,7 @@ permissions:
   - 'edit content owner/sme entity'
   - 'edit directory facets'
   - 'edit geo'
+  - 'edit localgov_service_contact'
   - 'edit own document media'
   - 'edit own image media'
   - 'edit own localgov_directories_org content'
@@ -223,6 +229,7 @@ permissions:
   - 'edit terms in localgov_event_locality'
   - 'edit terms in localgov_event_price'
   - 'edit terms in localgov_topic'
+  - 'edit terms in media_category'
   - 'generate preview links'
   - 'manage localgov alert banner localgov_alert_banner entities'
   - 'reorder entity_hierarchy children'
@@ -302,6 +309,7 @@ permissions:
   - 'view localgov_newsroom revisions'
   - 'view localgov_publication_cover_page revisions'
   - 'view localgov_publication_page revisions'
+  - 'view localgov_service_contact'
   - 'view localgov_services_landing revisions'
   - 'view localgov_services_page revisions'
   - 'view localgov_services_status revisions'

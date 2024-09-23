@@ -34,6 +34,7 @@ dependencies:
     - entity_usage
     - file
     - localgov_alert_banner
+    - localgov_workflows_notifications
     - media
     - node
     - paragraphs
@@ -158,6 +159,7 @@ permissions:
   - 'view localgov_guides_page revisions'
   - 'view localgov_news_article revisions'
   - 'view localgov_newsroom revisions'
+  - 'view localgov_service_contact'
   - 'view localgov_services_landing revisions'
   - 'view localgov_services_page revisions'
   - 'view localgov_services_status revisions'

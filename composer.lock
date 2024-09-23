@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "82593c181bb200869ba752c933a12a42",
+    "content-hash": "084636f9f9adfaeb86744ed45c0eaf66",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2376,26 +2376,26 @@
         },
         {
             "name": "drupal/autosave_form",
-            "version": "1.4.0",
+            "version": "1.6.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/autosave_form.git",
-                "reference": "8.x-1.4"
+                "reference": "8.x-1.6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/autosave_form-8.x-1.4.zip",
-                "reference": "8.x-1.4",
-                "shasum": "b1e99ff38d11986b311dac91f7d2cfcfb2152875"
+                "url": "https://ftp.drupal.org/files/projects/autosave_form-8.x-1.6.zip",
+                "reference": "8.x-1.6",
+                "shasum": "f0ed6303b886570a2dcc7e7e4580b45d8245c83a"
             },
             "require": {
-                "drupal/core": "^9 || ^10"
+                "drupal/core": "^9.5 || ^10"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.4",
-                    "datestamp": "1664203243",
+                    "version": "8.x-1.6",
+                    "datestamp": "1719140847",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -2803,27 +2803,30 @@
         },
         {
             "name": "drupal/config_ignore",
-            "version": "2.4.0",
+            "version": "3.3.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/config_ignore.git",
-                "reference": "8.x-2.4"
+                "reference": "8.x-3.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/config_ignore-8.x-2.4.zip",
-                "reference": "8.x-2.4",
-                "shasum": "e0e45dde2d6927c5d26de59f352792fb6cf26554"
+                "url": "https://ftp.drupal.org/files/projects/config_ignore-8.x-3.3.zip",
+                "reference": "8.x-3.3",
+                "shasum": "4446811ecb023820a57c227d35c034e0d4363a70"
             },
             "require": {
-                "drupal/config_filter": "^1 || ^2",
-                "drupal/core": "^8 || ^9 || ^10"
+                "drupal/core": "^8.8 || ^9 || ^10 || ^11"
+            },
+            "require-dev": {
+                "drupal/config_filter": "^1.8||^2.2",
+                "drush/drush": "^10 || ^11 || ^12"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-2.4",
-                    "datestamp": "1676045435",
+                    "version": "8.x-3.3",
+                    "datestamp": "1713299496",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -2851,12 +2854,11 @@
                     "homepage": "https://www.drupal.org/user/413139"
                 }
             ],
-            "description": "Ignore certain configuration during import.",
+            "description": "Ignore certain configuration during import and export.",
             "homepage": "http://drupal.org/project/config_ignore",
             "support": {
                 "source": "https://git.drupalcode.org/project/config_ignore",
-                "issues": "https://drupal.org/project/config_ignore",
-                "irc": "irc://irc.freenode.org/drupal-contribute"
+                "issues": "http://drupal.org/project/config_ignore"
             }
         },
         {
@@ -8341,39 +8343,37 @@
         },
         {
             "name": "drupal/stage_file_proxy",
-            "version": "2.1.4",
+            "version": "3.1.2",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/stage_file_proxy.git",
-                "reference": "2.1.4"
+                "reference": "3.1.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/stage_file_proxy-2.1.4.zip",
-                "reference": "2.1.4",
-                "shasum": "85f8451f123fcfb1b272f5a0cc11e6bd1673476c"
+                "url": "https://ftp.drupal.org/files/projects/stage_file_proxy-3.1.2.zip",
+                "reference": "3.1.2",
+                "shasum": "1aba8488efc193db71a991e8f8f76825af219079"
             },
             "require": {
-                "drupal/core": "^9 || ^10",
-                "php": ">=8"
+                "drupal/core": "^10.3 || ^11",
+                "php": ">=8.1"
+            },
+            "conflict": {
+                "drush/drush": "<12"
             },
             "require-dev": {
                 "drupal/coder": "^8.3",
-                "drush/drush": "^11 || ^12"
+                "drush/drush": ">=12"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.1.4",
-                    "datestamp": "1706627704",
+                    "version": "3.1.2",
+                    "datestamp": "1724012934",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
-                    }
-                },
-                "drush": {
-                    "services": {
-                        "stage_file_proxy.drush.services.yml": "^11"
                     }
                 }
             },
@@ -8863,6 +8863,50 @@
             "homepage": "http://drupal.org/project/upgrade_status",
             "support": {
                 "source": "https://git.drupalcode.org/project/upgrade_status"
+            }
+        },
+        {
+            "name": "drupal/views_core_entity_reference",
+            "version": "1.0.0-alpha2",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/views_core_entity_reference.git",
+                "reference": "1.0.0-alpha2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/views_core_entity_reference-1.0.0-alpha2.zip",
+                "reference": "1.0.0-alpha2",
+                "shasum": "01e65fc389350077d535e33e213a2fb071716144"
+            },
+            "require": {
+                "drupal/core": "^10.2 || ^11"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "1.0.0-alpha2",
+                    "datestamp": "1723014470",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Alpha releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "scott_euser",
+                    "homepage": "https://www.drupal.org/user/3267594"
+                }
+            ],
+            "description": "Opts-in to using the Entity Reference filter provided by Drupal Core.",
+            "homepage": "https://www.drupal.org/project/views_core_entity_reference",
+            "support": {
+                "source": "https://git.drupalcode.org/project/views_core_entity_reference"
             }
         },
         {
@@ -9528,31 +9572,26 @@
         },
         {
             "name": "essexcountycouncil/content_ownership",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/essexcountycouncil/content_ownership.git",
-                "reference": "f1963c743b5742870f86f07576bdfae7d8891d6a"
+                "reference": "0fc8f2b297b646e13e16327d92a50419cadb0b44"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/essexcountycouncil/content_ownership/zipball/f1963c743b5742870f86f07576bdfae7d8891d6a",
-                "reference": "f1963c743b5742870f86f07576bdfae7d8891d6a",
+                "url": "https://api.github.com/repos/essexcountycouncil/content_ownership/zipball/0fc8f2b297b646e13e16327d92a50419cadb0b44",
+                "reference": "0fc8f2b297b646e13e16327d92a50419cadb0b44",
                 "shasum": ""
             },
             "type": "drupal-module",
-            "authors": [
-                {
-                    "name": "Nathan Brettell",
-                    "email": "nbrettell@nomensa.com"
-                }
-            ],
             "description": "For specifying an entity for the creation/migration of Content Owners/Content SME",
+            "homepage": "https://github.com/essexcountycouncil/ecc_cludo_search",
             "support": {
-                "source": "https://github.com/essexcountycouncil/content_ownership/tree/1.0.0",
+                "source": "https://github.com/essexcountycouncil/content_ownership/tree/1.0.1",
                 "issues": "https://github.com/essexcountycouncil/content_ownership/issues"
             },
-            "time": "2023-12-06T15:43:48+00:00"
+            "time": "2024-08-27T07:47:23+00:00"
         },
         {
             "name": "essexcountycouncil/ecc_cludo_search",
@@ -9645,6 +9684,29 @@
                 "issues": "https://github.com/essexcountycouncil/ecc_menu/issues"
             },
             "time": "2023-10-04T08:59:52+00:00"
+        },
+        {
+            "name": "essexcountycouncil/ecc_parents",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/essexcountycouncil/ecc_parents.git",
+                "reference": "85c43e7f0cbc28476b02922b06ea66446c09436b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/essexcountycouncil/ecc_parents/zipball/85c43e7f0cbc28476b02922b06ea66446c09436b",
+                "reference": "85c43e7f0cbc28476b02922b06ea66446c09436b",
+                "shasum": ""
+            },
+            "type": "drupal-module",
+            "description": "Customisation for LGD content types with parent-child relationship",
+            "homepage": "https://github.com/essexcountycouncil/ecc_parents",
+            "support": {
+                "source": "https://github.com/essexcountycouncil/ecc_parents/tree/1.0.1",
+                "issues": "https://github.com/essexcountycouncil/ecc_parents/issues"
+            },
+            "time": "2024-09-20T08:59:54+00:00"
         },
         {
             "name": "essexcountycouncil/ecc_theme",
@@ -12451,16 +12513,16 @@
         },
         {
             "name": "localgovdrupal/localgov_workflows",
-            "version": "1.3.4",
+            "version": "1.3.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/localgovdrupal/localgov_workflows.git",
-                "reference": "449285d625601f044f799436070ede6acd9d1e73"
+                "reference": "d8587a8089e4b98709716e2a4f87b4a12e799778"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/localgovdrupal/localgov_workflows/zipball/449285d625601f044f799436070ede6acd9d1e73",
-                "reference": "449285d625601f044f799436070ede6acd9d1e73",
+                "url": "https://api.github.com/repos/localgovdrupal/localgov_workflows/zipball/d8587a8089e4b98709716e2a4f87b4a12e799778",
+                "reference": "d8587a8089e4b98709716e2a4f87b4a12e799778",
                 "shasum": ""
             },
             "require": {
@@ -12479,9 +12541,9 @@
             "homepage": "https://github.com/localgovdrupal/localgov_workflows",
             "support": {
                 "issues": "https://github.com/localgovdrupal/localgov_workflows/issues",
-                "source": "https://github.com/localgovdrupal/localgov_workflows/tree/1.3.4"
+                "source": "https://github.com/localgovdrupal/localgov_workflows/tree/1.3.5"
             },
-            "time": "2024-06-13T14:59:51+00:00"
+            "time": "2024-08-23T15:00:52+00:00"
         },
         {
             "name": "maennchen/zipstream-php",
@@ -24169,6 +24231,7 @@
         "drupal/office_hours": 20,
         "drupal/preview_link": 15,
         "drupal/ultimate_cron": 15,
+        "drupal/views_core_entity_reference": 15,
         "localgovdrupal/localgov_forms": 10,
         "localgovdrupal/localgov_subsites_extras": 20,
         "roave/security-advisories": 20

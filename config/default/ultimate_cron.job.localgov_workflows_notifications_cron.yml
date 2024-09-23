@@ -1,0 +1,17 @@
+uuid: e286f772-3dc6-4398-b8e8-0c458cbda2d3
+langcode: en
+status: true
+dependencies:
+  module:
+    - localgov_workflows_notifications
+title: 'Default cron handler'
+id: localgov_workflows_notifications_cron
+weight: 0
+module: localgov_workflows_notifications
+callback: localgov_workflows_notifications_cron
+scheduler:
+  id: simple
+launcher:
+  id: serial
+logger:
+  id: database

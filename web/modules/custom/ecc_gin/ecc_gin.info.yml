@@ -1,0 +1,5 @@
+name: Essex County Council Gin
+type: module
+description: Customisation for Gin theme
+package: Custom
+core_version_requirement: ^10 || ^11

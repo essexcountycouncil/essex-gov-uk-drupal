@@ -1,8 +1,9 @@
 _core:
   default_config_hash: UVH1aJ4b44UM-VdPVN7hNNuuVqfReJxwfVeDQH1Hvsk
+mode: simple
 ignored_config_entities:
-  - devel.toolbar.settings
   - devel.settings
+  - devel.toolbar.settings
   - fathom_analytics.settings
   - system.menu.devel
   - system.site

@@ -6,6 +6,5 @@ ecc_subsites.settings:
       type: string
       label: "Fostering subsite pages path prefix"
     fostering_homepage:
-      type: int
+      type: integer
       label: "Fostering homepage node id"
-
