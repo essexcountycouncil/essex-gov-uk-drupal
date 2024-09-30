@@ -28,16 +28,6 @@ content:
     third_party_settings: {  }
     weight: 1
     region: content
-  field_publish_with_parent:
-    type: boolean
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    weight: 3
-    region: content
   links:
     settings: {  }
     third_party_settings: {  }
@@ -57,6 +47,7 @@ hidden:
   entitygroupfield: true
   field_content_owner: true
   field_non_publishable_notes: true
+  field_publish_with_parent: true
   localgov_guides_parent: true
   localgov_guides_section_title: true
   search_api_excerpt: true
