@@ -19,7 +19,6 @@ module:
   cludo_search: 0
   condition_field: 0
   config: 0
-  config_filter: 0
   config_ignore: 0
   config_split: 0
   content_access_by_path: 0

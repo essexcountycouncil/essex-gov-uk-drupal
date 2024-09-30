@@ -1,5 +1,0 @@
-views:
-  version: VERSION
-  css:
-    theme:
-      css/views.css: {}

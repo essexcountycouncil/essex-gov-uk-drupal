@@ -9,9 +9,8 @@ dependencies:
     - field.field.geo_entity.address.postal_address
     - geo_entity.geo_entity_type.address
   module:
+    - geo_entity_address
     - geofield_map
-    - localgov_geo_address
-    - text
 _core:
   default_config_hash: dq_s51tGcrytR_JGtB3BpF17hngcNJo1koJ2boJsE0g
 id: geo_entity.address.default
@@ -19,17 +18,9 @@ targetEntityType: geo_entity
 bundle: address
 mode: default
 content:
-  accessibility:
-    type: text_textarea
-    weight: 2
-    region: content
-    settings:
-      rows: 5
-      placeholder: ''
-    third_party_settings: {  }
   created:
     type: datetime_timestamp
-    weight: 5
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -61,6 +52,8 @@ content:
         max: 22
       click_to_find_marker: false
       click_to_place_marker: false
+      click_to_remove_marker: false
+      hide_geocode_address: false
       hide_coordinates: false
       geoaddress_field:
         field: '0'
@@ -99,17 +92,18 @@ content:
           checked: true
           weight: 0
       geocode_geofield: location
+      wrapper_type: fieldset
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 3
+    weight: 2
     region: content
     settings:
       display_label: false
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 4
+    weight: 3
     region: content
     settings:
       match_operator: CONTAINS
@@ -118,5 +112,6 @@ content:
       placeholder: ''
     third_party_settings: {  }
 hidden:
+  accessibility: true
   external_id: true
   label: true

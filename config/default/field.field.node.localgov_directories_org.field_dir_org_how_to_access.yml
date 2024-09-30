@@ -1,0 +1,24 @@
+uuid: f43c9956-2fe2-4d02-9c39-fd1135c2c21c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dir_org_how_to_access
+    - filter.format.wysiwyg
+    - node.type.localgov_directories_org
+  module:
+    - text
+id: node.localgov_directories_org.field_dir_org_how_to_access
+field_name: field_dir_org_how_to_access
+entity_type: node
+bundle: localgov_directories_org
+label: 'How to Access'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - wysiwyg
+field_type: text_long

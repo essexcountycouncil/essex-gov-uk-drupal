@@ -46,6 +46,7 @@ hidden:
   entitygroupfield: true
   field_content_owner: true
   field_non_publishable_notes: true
+  field_publish_with_parent: true
   localgov_guides_parent: true
   localgov_guides_section_title: true
   search_api_excerpt: true

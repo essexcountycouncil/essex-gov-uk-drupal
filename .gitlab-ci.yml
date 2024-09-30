@@ -15,7 +15,7 @@ Test:Required:
     - ''
   script:
     - composer install && composer tests-required
-  allow_failure: true
+  allow_failure: false
 
 build-and-push-images:
   stage: build
@@ -184,7 +184,7 @@ drush-deploy-dev:
   stage: development-postdeploy
   needs: ["deploy-to-dev"]
   before_script:
-    - apk add socat
+    - tdnf -y install socat
     - az extension add --name containerapp
     - az login --service-principal -u${ARM_CLIENT_ID} -p${ARM_CLIENT_SECRET} -t${ARM_TENANT_ID}
     - az account set --subscription "Essex County Council (Portal)"
@@ -293,7 +293,7 @@ drush-deploy-preprod:
   stage: preproduction-postdeploy
   needs: ["deploy-to-preprod"]
   before_script:
-    - apk add socat
+    - tdnf -y install socat
     - az extension add --name containerapp
     - az login --service-principal -u${ARM_CLIENT_ID} -p${ARM_CLIENT_SECRET} -t${ARM_TENANT_ID}
     - az account set --subscription "Essex County Council (Portal)"
@@ -397,7 +397,7 @@ drush-deploy-prod:
   stage: production-postdeploy
   needs: ["deploy-to-prod"]
   before_script:
-    - apk add socat
+    - tdnf -y install socat
     - az extension add --name containerapp
     - az login --service-principal -u${ARM_CLIENT_ID} -p${ARM_CLIENT_SECRET} -t${ARM_TENANT_ID}
     - az account set --subscription "Essex County Council (Portal)"
@@ -504,7 +504,7 @@ drush-deploy-straight-to-prod:
   stage: production-postdeploy
   needs: ["deploy-straight-to-prod"]
   before_script:
-    - apk add socat
+    - tdnf -y install socat
     - az extension add --name containerapp
     - az login --service-principal -u${ARM_CLIENT_ID} -p${ARM_CLIENT_SECRET} -t${ARM_TENANT_ID}
     - az account set --subscription "Essex County Council (Portal)"

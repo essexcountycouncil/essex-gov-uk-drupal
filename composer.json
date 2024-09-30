@@ -31,6 +31,10 @@
         },
         {
             "type": "github",
+            "url": "https://github.com/essexcountycouncil/ecc_parents"
+        },
+        {
+            "type": "github",
             "url":  "https://github.com/essexcountycouncil/ecc_theme"
         },
         {
@@ -54,13 +58,14 @@
         "composer/installers": "^1.10",
         "cweagans/composer-patches": "^1.6",
         "drupal/antibot": "^2.0",
-        "drupal/autosave_form": "^1.4",
+        "drupal/autosave_form": "^1.6",
         "drupal/block_classes": "^1.0",
         "drupal/ckeditor5_show_block": "^1.9",
         "drupal/ckeditor_div_manager": "^3",
         "drupal/ckeditor_link_styles": "^1.0",
         "drupal/cludo_search": "^1.0@beta",
-        "drupal/config_ignore": "^2.4",
+        "drupal/config_filter": "^2.6",
+        "drupal/config_ignore": "^3.3",
         "drupal/config_split": "^2.0",
         "drupal/content_access_by_path": "^1.0",
         "drupal/core-composer-scaffold": "^10",
@@ -87,7 +92,7 @@
         "drupal/migrate_plus": "^6.0",
         "drupal/migrate_process_markdown_to_html": "^1",
         "drupal/monolog": "^2.2",
-        "drupal/office_hours": "^1.11",
+        "drupal/office_hours": "1.x-dev@dev",
         "drupal/openid_connect": "^3",
         "drupal/openid_connect_azure_b2c": "1.0.1-beta1",
         "drupal/permissions_filter": "^1.3",
@@ -98,7 +103,7 @@
         "drupal/simple_oauth": "^5.2",
         "drupal/single_content_sync": "^1.3",
         "drupal/sophron": "^2.0",
-        "drupal/stage_file_proxy": "^2.0",
+        "drupal/stage_file_proxy": "^3.1",
         "drupal/structure_sync": "^2.0",
         "drupal/ultimate_cron": "^2.0@alpha",
         "drupal/upgrade_status": "^4.0",
@@ -115,6 +120,7 @@
         "essexcountycouncil/ecc_content_moderation": "^1.0",
         "essexcountycouncil/ecc_cookie_compliance": "^1.0",
         "essexcountycouncil/ecc_menu": "^1.0",
+        "essexcountycouncil/ecc_parents": "^1.0",
         "essexcountycouncil/ecc_theme": "^1.1",
         "localgovdrupal/localgov": "^3",
         "localgovdrupal/localgov_base": "^1.5",
@@ -140,7 +146,6 @@
         "phpspec/prophecy-phpunit": "^2",
         "phpstan/phpstan": "^1.0",
         "phpstan/phpstan-deprecation-rules": "^1.0",
-        "roave/security-advisories": "dev-latest",
         "squizlabs/php_codesniffer": "^3.6"
     },
     "conflict": {
@@ -160,6 +165,11 @@
             "php-http/discovery": false,
             "mglaman/composer-drupal-lenient": true,
             "phpstan/extension-installer": true
+        },
+        "audit": {
+            "ignore": {
+                "GHSA-mg8j-w93w-xjgc": "Apache has been configured to block access to applicable paths"
+            }
         }
     },
     "autoload": {
@@ -171,7 +181,7 @@
         "enable-patching": true,
         "patches": {
             "drupal/autosave_form": {
-                "Disable autosaving for layout builder pages": "https://www.drupal.org/files/issues/2022-03-22/3270955-2-layout_builder.patch"
+                "Disable autosaving for layout builder pages": "https://www.drupal.org/files/issues/2024-09-09/3270955-5-layout_builder.patch"
             },
             "drupal/cludo_search": {
                 "Remove search type to use custom template": "patches/cludo_search-0001.patch",
@@ -187,6 +197,9 @@
             },
             "drupal/geofield_map": {
                 "polyfill.io Library is no longer considered safe to use": "https://git.drupalcode.org/project/geofield_map/-/merge_requests/16.diff"
+            },
+            "drupal/honeypot": {
+                "honeypot clientside": "https://www.drupal.org/files/issues/2024-08-16/clientside_time_limit_2_1_4.patch"
             },
             "drupal/migmag": {
                 "Fix migmag_lookup exception when stubbing non-sql sources. See https://www.drupal.org/project/migmag/issues/3321292#comment-14785506": "https://www.drupal.org/files/issues/2022-11-14/migmag-remove_double_prepareRow-3321292_3.patch"
@@ -211,11 +224,8 @@
                 "Add alter hook to allow other modules to set the subsite homepage": "https://patch-diff.githubusercontent.com/raw/localgovdrupal/localgov_subsites_extras/pull/14.diff"
             },
             "localgovdrupal/localgov_workflows": {
-                "Fix for drush site-install": "patches/localgov_workflows.patch",
-                "New Content by owner View": "patches/localgov_workflows_content_owner.patch"
-            },
-            "drupal/honeypot": {
-              "honeypot clientside": "https://www.drupal.org/files/issues/2024-08-16/clientside_time_limit_2_1_4.patch"
+                "New Content by owner View": "https://patch-diff.githubusercontent.com/raw/localgovdrupal/localgov_workflows/pull/104.diff",
+                "Service contact delete form": "patches/localgov_workflows_delete_service_contact.patch"
             }
         },
         "drupal-scaffold": {
@@ -307,9 +317,9 @@
             "chmod 444 web/sites/default/default.*.yml",
             "chmod 444 web/sites/default/*.services.yml"
         ],
-        "phpcs": "bin/phpcs --standard=Drupal,DrupalPractice --ignore=*.js web/modules/custom",
-        "phpcbf": "bin/phpcbf --standard=Drupal,DrupalPractice --ignore=*.js web/modules/custom",
-        "phpunit-unit": "bin/phpunit -v --debug -c phpunit-unit.xml",
+        "phpcs": "bin/phpcs --standard=phpcs-ecc.xml",
+        "phpcbf": "bin/phpcbf --standard=phpcbf-ecc.xml",
+        "phpunit-required": "cd web && export SYMFONY_DEPRECATIONS_HELPER=weak && ../bin/phpunit -v --debug --verbose -c ../phpunit-required.xml",
         "checker-drupal": "bin/drupal-check -ad web/modules/custom",
         "phpunit-modules": "sudo -u www-data -E vendor/bin/phpunit -v --debug modules",
         "cghooks": "[ -h vendor/bin/cghooks -a -w ../.git ] && vendor/bin/cghooks --git-dir=../.git",
@@ -317,6 +327,6 @@
             "composer validate",
             "composer audit",
             "composer phpcs"
-        ]
+       ]
     }
 }

@@ -2,9 +2,14 @@ uuid: d586521d-8c95-4375-9bc0-80dbc5ffeae0
 langcode: en
 status: true
 dependencies:
+<<<<<<< HEAD
   config:
     - field.storage.node.localgov_services_parent
   module:
+=======
+  module:
+    - ecc_parents
+>>>>>>> dda560a321b0cbbcca616f5dd94eef6b637b0f9e
     - node
     - user
     - views_bulk_operations
@@ -151,14 +156,15 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        localgov_services_parent:
-          id: localgov_services_parent
-          table: node__localgov_services_parent
-          field: localgov_services_parent
+        nid:
+          id: nid
+          table: node
+          field: nid
           relationship: none
           group_type: group
           admin_label: ''
-          plugin_id: field
+          entity_type: node
+          plugin_id: ecc_parents_views_field
           label: Parent
           exclude: false
           alter:
@@ -192,28 +198,14 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: false
+          element_label_colon: true
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
           empty: ''
           hide_empty: false
           empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: target_id
-          type: entity_reference_label
-          settings:
-            link: true
-          group_column: target_id
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
+          hide_alter_empty: false
         uid:
           id: uid
           table: node_field_data
@@ -398,9 +390,9 @@ display:
           click_sort_column: value
           type: boolean
           settings:
-            format: default
-            format_custom_false: ''
-            format_custom_true: ''
+            format: custom
+            format_custom_false: Unpublished
+            format_custom_true: Published
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -465,7 +457,11 @@ display:
           click_sort_column: value
           type: timestamp
           settings:
+<<<<<<< HEAD
             date_format: medium
+=======
+            date_format: short
+>>>>>>> dda560a321b0cbbcca616f5dd94eef6b637b0f9e
             custom_date_format: ''
             timezone: ''
             tooltip:
@@ -489,16 +485,18 @@ display:
           separator: ', '
           field_api_classes: false
       pager:
-        type: mini
+        type: full
         options:
           offset: 0
           pagination_heading_level: h4
-          items_per_page: 10
+          items_per_page: 50
           total_pages: null
           id: 0
           tags:
             next: ››
             previous: ‹‹
+            first: '« First'
+            last: 'Last »'
           expose:
             items_per_page: false
             items_per_page_label: 'Items per page'
@@ -507,6 +505,7 @@ display:
             items_per_page_options_all_label: '- All -'
             offset: false
             offset_label: Offset
+          quantity: 9
       exposed_form:
         type: basic
         options:
@@ -726,8 +725,12 @@ display:
         - url.query_args
         - 'user.node_grants:view'
         - user.permissions
+<<<<<<< HEAD
       tags:
         - 'config:field.storage.node.localgov_services_parent'
+=======
+      tags: {  }
+>>>>>>> dda560a321b0cbbcca616f5dd94eef6b637b0f9e
   page_1:
     id: page_1
     display_title: Page
@@ -745,5 +748,9 @@ display:
         - url.query_args
         - 'user.node_grants:view'
         - user.permissions
+<<<<<<< HEAD
       tags:
         - 'config:field.storage.node.localgov_services_parent'
+=======
+      tags: {  }
+>>>>>>> dda560a321b0cbbcca616f5dd94eef6b637b0f9e

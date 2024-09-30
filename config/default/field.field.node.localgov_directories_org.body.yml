@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.node.body
+    - filter.format.wysiwyg
     - node.type.localgov_directories_org
   module:
     - text
@@ -13,7 +14,7 @@ id: node.localgov_directories_org.body
 field_name: body
 entity_type: node
 bundle: localgov_directories_org
-label: Body
+label: 'How It Can Help'
 description: ''
 required: false
 translatable: true
@@ -22,4 +23,6 @@ default_value_callback: ''
 settings:
   display_summary: true
   required_summary: false
+  allowed_formats:
+    - wysiwyg
 field_type: text_with_summary
