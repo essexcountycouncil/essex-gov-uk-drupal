@@ -164,6 +164,11 @@
             "php-http/discovery": false,
             "mglaman/composer-drupal-lenient": true,
             "phpstan/extension-installer": true
+        },
+        "audit": {
+            "ignore": {
+                "GHSA-mg8j-w93w-xjgc": "Apache has been configured to block access to applicable paths"
+            }
         }
     },
     "autoload": {
