@@ -43,6 +43,16 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  localgov_service_contacts:
+    type: entity_reference_autocomplete
+    weight: 101
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   localgov_updated_date:
     type: datetime_default
     weight: 10

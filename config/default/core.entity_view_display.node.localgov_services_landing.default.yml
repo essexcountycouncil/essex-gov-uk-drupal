@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - field.field.node.localgov_services_landing.body
-    - field.field.node.localgov_services_landing.field_content_owner
     - field.field.node.localgov_services_landing.field_non_publishable_notes
     - field.field.node.localgov_services_landing.localgov_address
     - field.field.node.localgov_services_landing.localgov_address_first_line
@@ -106,7 +105,6 @@ content:
 hidden:
   content_moderation_control: true
   entitygroupfield: true
-  field_content_owner: true
   field_non_publishable_notes: true
   links: true
   localgov_common_tasks: true

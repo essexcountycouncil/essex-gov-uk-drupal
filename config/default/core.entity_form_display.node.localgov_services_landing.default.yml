@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - field.field.node.localgov_services_landing.body
-    - field.field.node.localgov_services_landing.field_content_owner
     - field.field.node.localgov_services_landing.field_non_publishable_notes
     - field.field.node.localgov_services_landing.localgov_address
     - field.field.node.localgov_services_landing.localgov_address_first_line
@@ -200,6 +199,16 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  localgov_service_contacts:
+    type: entity_reference_autocomplete
+    weight: 26
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   localgov_services_navigation_children:
     weight: 1
     region: content
@@ -278,7 +287,6 @@ content:
     third_party_settings: {  }
 hidden:
   entitygroupfield: true
-  field_content_owner: true
   localgov_address: true
   localgov_address_first_line: true
   localgov_facebook: true

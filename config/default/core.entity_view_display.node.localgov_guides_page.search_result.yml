@@ -5,7 +5,6 @@ dependencies:
   config:
     - core.entity_view_mode.node.search_result
     - field.field.node.localgov_guides_page.body
-    - field.field.node.localgov_guides_page.field_content_owner
     - field.field.node.localgov_guides_page.field_non_publishable_notes
     - field.field.node.localgov_guides_page.field_publish_with_parent
     - field.field.node.localgov_guides_page.localgov_guides_parent
@@ -33,7 +32,6 @@ content:
 hidden:
   content_moderation_control: true
   entitygroupfield: true
-  field_content_owner: true
   field_non_publishable_notes: true
   field_publish_with_parent: true
   links: true
