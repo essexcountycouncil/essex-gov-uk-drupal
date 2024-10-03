@@ -27,5 +27,3 @@ function ecc_events_form_views_exposed_form_alter(&$form, FormStateInterface $fo
     $form['#cache']['tags'][] = 'taxonomy_term_list';
   }
 }
-
-

@@ -69,5 +69,3 @@ process:
     migration: ecc_users
     source: created_by
     no_stub: true
-
-

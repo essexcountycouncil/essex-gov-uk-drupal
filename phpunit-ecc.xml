@@ -27,6 +27,7 @@
   <testsuites>
     <testsuite name="modules">
       <directory>/var/www/html/web/modules/custom/</directory>
+      <directory>/var/www/html/web/modules/contrib/ecc_parents/</directory>
     </testsuite>
     <testsuite name="themes">
       <directory>/var/www/html/web/themes/contrib/ecc_theme</directory>

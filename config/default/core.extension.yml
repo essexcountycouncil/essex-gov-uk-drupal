@@ -19,7 +19,6 @@ module:
   cludo_search: 0
   condition_field: 0
   config: 0
-  config_filter: 0
   config_ignore: 0
   config_split: 0
   content_access_by_path: 0
@@ -42,7 +41,9 @@ module:
   ecc_content_moderation: 0
   ecc_cookie_compliance: 0
   ecc_events: 0
+  ecc_gin: 0
   ecc_menu: 0
+  ecc_parents: 0
   ecc_subsites: 0
   editor: 0
   embed: 0
@@ -143,6 +144,7 @@ module:
   localgov_subsites_paragraphs: 0
   localgov_topics: 0
   localgov_workflows: 0
+  localgov_workflows_notifications: 0
   mail_login: 0
   media: 0
   media_library: 0
@@ -188,6 +190,7 @@ module:
   serialization: 0
   simple_sitemap: 0
   sophron: 0
+  symfony_mailer: 0
   system: 0
   tablefield: 0
   taxonomy: 0
@@ -199,12 +202,13 @@ module:
   update: 0
   user: 0
   views_bulk_operations: 0
+  views_core_entity_reference: 0
   views_ui: 0
   viewsreference: 0
   webform: 0
   webform_ui: 0
-  whatlinkshere: 0
   webform_xlsx_export: 0
+  whatlinkshere: 0
   workflows: 0
   pathauto: 1
   externalauth: 10

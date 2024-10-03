@@ -1,0 +1,24 @@
+uuid: 8f8fa245-a5d2-4d6c-8ddd-2385d3ddb0a2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_directory_page_access
+    - filter.format.wysiwyg
+    - node.type.localgov_directories_page
+  module:
+    - text
+id: node.localgov_directories_page.field_directory_page_access
+field_name: field_directory_page_access
+entity_type: node
+bundle: localgov_directories_page
+label: 'How to access'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - wysiwyg
+field_type: text_long

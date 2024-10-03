@@ -37,4 +37,3 @@ process:
   localgov_contact_phone:
     plugin: contact_phone
     source: body
-

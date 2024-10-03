@@ -4,6 +4,8 @@ status: true
 dependencies:
   config:
     - field.field.node.localgov_directories_org.body
+    - field.field.node.localgov_directories_org.field_dir_org_how_to_access
+    - field.field.node.localgov_directories_org.field_directory_org_age
     - field.field.node.localgov_directories_org.localgov_directory_channels
     - field.field.node.localgov_directories_org.localgov_directory_email
     - field.field.node.localgov_directories_org.localgov_directory_facets_select
@@ -29,7 +31,7 @@ third_party_settings:
       label: Enquiries
       parent_name: ''
       region: content
-      weight: 5
+      weight: 7
       format_type: fieldset
       format_settings:
         classes: ''
@@ -42,7 +44,7 @@ third_party_settings:
       label: Venue
       parent_name: ''
       region: content
-      weight: 4
+      weight: 6
       format_type: fieldset
       format_settings:
         classes: ''
@@ -57,7 +59,7 @@ mode: default
 content:
   body:
     type: text_default
-    label: hidden
+    label: above
     settings: {  }
     third_party_settings: {  }
     weight: 2
@@ -66,6 +68,20 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 0
+    region: content
+  field_dir_org_how_to_access:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_directory_org_age:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
     region: content
   localgov_directory_email:
     type: basic_string
@@ -80,7 +96,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 3
+    weight: 5
     region: content
   localgov_directory_notes:
     type: text_default
@@ -124,7 +140,6 @@ content:
     weight: 2
     region: content
 hidden:
-  content_moderation_control: true
   links: true
   localgov_directory_channels: true
   localgov_directory_facets_select: true

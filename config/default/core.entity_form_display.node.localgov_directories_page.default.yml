@@ -4,6 +4,8 @@ status: true
 dependencies:
   config:
     - field.field.node.localgov_directories_page.body
+    - field.field.node.localgov_directories_page.field_directory_page_access
+    - field.field.node.localgov_directories_page.field_directory_page_age
     - field.field.node.localgov_directories_page.localgov_directory_address
     - field.field.node.localgov_directories_page.localgov_directory_channels
     - field.field.node.localgov_directories_page.localgov_directory_email
@@ -51,6 +53,8 @@ third_party_settings:
         - title
         - localgov_directory_title_sort
         - body
+        - field_directory_page_age
+        - field_directory_page_access
         - localgov_directory_files
       label: Description
       region: content
@@ -116,13 +120,29 @@ content:
     third_party_settings: {  }
   created:
     type: datetime_timestamp
-    weight: 3
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_directory_page_access:
+    type: text_textarea
+    weight: 4
+    region: content
+    settings:
+      rows: 9
+      placeholder: ''
+    third_party_settings: {  }
+  field_directory_page_age:
+    type: text_textarea
+    weight: 3
+    region: content
+    settings:
+      rows: 3
+      placeholder: ''
+    third_party_settings: {  }
   localgov_directory_address:
     type: address_default
-    weight: 15
+    weight: 17
     region: content
     settings:
       wrapper_type: fieldset
@@ -135,7 +155,7 @@ content:
     third_party_settings: {  }
   localgov_directory_email:
     type: email_default
-    weight: 14
+    weight: 16
     region: content
     settings:
       placeholder: ''
@@ -149,7 +169,7 @@ content:
     third_party_settings: {  }
   localgov_directory_files:
     type: media_library_widget
-    weight: 3
+    weight: 5
     region: content
     settings:
       media_types: {  }
@@ -172,7 +192,7 @@ content:
     third_party_settings: {  }
   localgov_directory_phone:
     type: telephone_default
-    weight: 13
+    weight: 15
     region: content
     settings:
       placeholder: ''
@@ -187,7 +207,7 @@ content:
     third_party_settings: {  }
   localgov_directory_website:
     type: link_default
-    weight: 17
+    weight: 18
     region: content
     settings:
       placeholder_url: ''
@@ -199,40 +219,50 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  localgov_service_contacts:
+    type: entity_reference_autocomplete
+    weight: 26
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   moderation_state:
     type: moderation_state_default
-    weight: 10
+    weight: 12
     region: content
     settings: {  }
     third_party_settings: {  }
   path:
     type: path
-    weight: 6
+    weight: 8
     region: content
     settings: {  }
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
-    weight: 4
+    weight: 6
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   simple_sitemap:
-    weight: 8
+    weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 7
+    weight: 9
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
-    weight: 5
+    weight: 7
     region: content
     settings:
       display_label: true
@@ -247,7 +277,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 2
+    weight: 3
     region: content
     settings:
       match_operator: CONTAINS
@@ -256,7 +286,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   url_redirects:
-    weight: 9
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }

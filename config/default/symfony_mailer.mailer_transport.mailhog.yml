@@ -1,0 +1,20 @@
+uuid: d934a60b-e757-42f0-8b18-993139e451aa
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: tODK07V7WWFFz0aTzjKk750MZrKFmWKHSYanstxNaDw
+id: mailhog
+label: Mailhog
+plugin: smtp
+configuration:
+  user: ''
+  pass: ''
+  host: 127.0.0.1
+  port: 1025
+  query:
+    verify_peer: false
+    local_domain: ''
+    restart_threshold: null
+    restart_threshold_sleep: null
+    ping_threshold: null
