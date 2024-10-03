@@ -189,7 +189,8 @@
             },
             "drupal/core": {
                 "Claro theme + field_group seems to hide content of dropbutton": "https://www.drupal.org/files/issues/2024-01-19/drupal-claro-theme-field_group-seems-to-hide-content-of-dropdown-3217868-58.patch",
-                "Add Views EntityReference filter to support better UX for exposed filters": "https://www.drupal.org/files/issues/2024-07-10/3347343-213.patch"
+                "Add Views EntityReference filter to support better UX for exposed filters": "https://www.drupal.org/files/issues/2024-07-10/3347343-213.patch",
+                "dynamic transitions": "https://www.drupal.org/files/issues/2024-09-24/2797583-8775-235.patch"
             },
             "drupal/fathom_analytics": {
                 "Automated Drupal 10 compatibility fixes": "https://www.drupal.org/files/issues/2022-06-15/fathom_analytics.3.0.0.rector.patch"
@@ -223,13 +224,6 @@
                 "Add alter hook to allow other modules to set the subsite homepage": "https://patch-diff.githubusercontent.com/raw/localgovdrupal/localgov_subsites_extras/pull/14.diff"
             },
             "localgovdrupal/localgov_workflows": {
-                "Fix for drush site-install": "patches/localgov_workflows.patch"
-            },
-            "drupal/honeypot": {
-              "honeypot clientside": "https://www.drupal.org/files/issues/2024-08-16/clientside_time_limit_2_1_4.patch"
-            },
-            "drupal/core": {
-                "dynamic transitions": "https://www.drupal.org/files/issues/2024-09-24/2797583-8775-235.patch",
                 "New Content by owner View": "https://patch-diff.githubusercontent.com/raw/localgovdrupal/localgov_workflows/pull/104.diff",
                 "Service contact delete form": "patches/localgov_workflows_delete_service_contact.patch"
             }
