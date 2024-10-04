@@ -5,7 +5,6 @@ dependencies:
   config:
     - entity_browser.browser.page_components
     - field.field.node.localgov_guides_page.body
-    - field.field.node.localgov_guides_page.field_content_owner
     - field.field.node.localgov_guides_page.field_non_publishable_notes
     - field.field.node.localgov_guides_page.field_publish_with_parent
     - field.field.node.localgov_guides_page.localgov_guides_parent
@@ -57,16 +56,6 @@ content:
     weight: 10
     region: content
     settings: {  }
-    third_party_settings: {  }
-  field_content_owner:
-    type: entity_reference_autocomplete
-    weight: 7
-    region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
     third_party_settings: {  }
   field_non_publishable_notes:
     type: text_textarea

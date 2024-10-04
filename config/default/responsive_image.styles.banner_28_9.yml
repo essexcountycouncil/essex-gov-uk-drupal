@@ -4,8 +4,9 @@ status: true
 dependencies:
   config:
     - image.style.large_28_9
+    - image.style.large_28_9_2x
     - image.style.medium_28_9
-    - image.style.small_21_9
+    - image.style.small_28_9
   module:
     - localgov_media
 _core:
@@ -15,8 +16,13 @@ label: 'Banner (28:9)'
 image_style_mappings:
   -
     image_mapping_type: image_style
-    image_mapping: large_28_9
+    image_mapping: large_28_9_2x
     breakpoint_id: localgov_media.bootstrap4_xl_1200px
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: large_28_9
+    breakpoint_id: localgov_media.bootstrap4_lg_992px
     multiplier: 1x
   -
     image_mapping_type: image_style
@@ -25,8 +31,8 @@ image_style_mappings:
     multiplier: 1x
   -
     image_mapping_type: image_style
-    image_mapping: small_21_9
+    image_mapping: small_28_9
     breakpoint_id: localgov_media.bootstrap4_xs
     multiplier: 1x
 breakpoint_group: localgov_media
-fallback_image_style: small_21_9
+fallback_image_style: small_28_9

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9e007137d5ba01c654a87a8de26d0f83",
+    "content-hash": "efb00111f2ed2e649fb355af1428a887",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3889,21 +3889,22 @@
         },
         {
             "name": "drupal/diff",
-            "version": "1.3.0",
+            "version": "1.8.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/diff.git",
-                "reference": "8.x-1.3"
+                "reference": "8.x-1.8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/diff-8.x-1.3.zip",
-                "reference": "8.x-1.3",
-                "shasum": "7a6e70546d97974600baffd0695105e88699744e"
+                "url": "https://ftp.drupal.org/files/projects/diff-8.x-1.8.zip",
+                "reference": "8.x-1.8",
+                "shasum": "a104bf731a282f06ff0d5a7fb861c01b5b933765"
             },
             "require": {
-                "drupal/core": "^9.3 || ^10",
-                "mkalkbrenner/php-htmldiff-advanced": "~0.0.8"
+                "drupal/core": "^10 || ^11",
+                "mkalkbrenner/php-htmldiff-advanced": "~0.0.8",
+                "php": "^8.1"
             },
             "require-dev": {
                 "jangregor/phpstan-prophecy": "dev-master",
@@ -3913,13 +3914,13 @@
                 "phpstan/phpstan-deprecation-rules": "*",
                 "phpstan/phpstan-phpunit": "1.4.x-dev",
                 "phpstan/phpstan-strict-rules": "^1@stable",
-                "previousnext/coding-standard": "^1"
+                "previousnext/coding-standard": "1.0.1"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.3",
-                    "datestamp": "1712883857",
+                    "version": "8.x-1.8",
+                    "datestamp": "1727892285",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -9710,16 +9711,16 @@
         },
         {
             "name": "essexcountycouncil/ecc_theme",
-            "version": "1.1.7",
+            "version": "dev-task/LP-142",
             "source": {
                 "type": "git",
                 "url": "https://github.com/essexcountycouncil/ecc_theme.git",
-                "reference": "d682c2e192d0ee7f62e99315c5f338acce18ba26"
+                "reference": "320e80b45cc78f7a9870af58b189a4296f817484"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/essexcountycouncil/ecc_theme/zipball/d682c2e192d0ee7f62e99315c5f338acce18ba26",
-                "reference": "d682c2e192d0ee7f62e99315c5f338acce18ba26",
+                "url": "https://api.github.com/repos/essexcountycouncil/ecc_theme/zipball/320e80b45cc78f7a9870af58b189a4296f817484",
+                "reference": "320e80b45cc78f7a9870af58b189a4296f817484",
                 "shasum": ""
             },
             "type": "drupal-theme",
@@ -9731,10 +9732,10 @@
             ],
             "description": "Consolidated Essex County Council Drupal theme",
             "support": {
-                "source": "https://github.com/essexcountycouncil/ecc_theme/tree/1.1.7",
+                "source": "https://github.com/essexcountycouncil/ecc_theme/tree/feature/LP-152",
                 "issues": "https://github.com/essexcountycouncil/ecc_theme/issues"
             },
-            "time": "2024-07-30T11:01:52+00:00"
+            "time": "2024-10-04T07:55:47+00:00"
         },
         {
             "name": "ezyang/htmlpurifier",
@@ -23435,6 +23436,7 @@
         "drupal/preview_link": 15,
         "drupal/ultimate_cron": 15,
         "drupal/views_core_entity_reference": 15,
+        "essexcountycouncil/ecc_theme": 20,
         "localgovdrupal/localgov_forms": 10,
         "localgovdrupal/localgov_subsites_extras": 20
     },
