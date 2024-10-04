@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a9471ca21be354b5bd14bd6d8f256527",
+    "content-hash": "efb00111f2ed2e649fb355af1428a887",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -9710,7 +9710,7 @@
         },
         {
             "name": "essexcountycouncil/ecc_theme",
-            "version": "dev-feature/LP-152",
+            "version": "dev-task/LP-142",
             "source": {
                 "type": "git",
                 "url": "https://github.com/essexcountycouncil/ecc_theme.git",
