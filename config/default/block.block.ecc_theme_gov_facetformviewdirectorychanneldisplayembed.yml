@@ -7,6 +7,7 @@ dependencies:
   module:
     - block_classes
     - facets_form
+    - node
   theme:
     - ecc_theme_gov
 id: ecc_theme_gov_facetformviewdirectorychanneldisplayembed
@@ -17,12 +18,19 @@ provider: null
 plugin: 'facets_form:search_api:views_embed__localgov_directory_channel__node_embed'
 settings:
   id: 'facets_form:search_api:views_embed__localgov_directory_channel__node_embed'
-  label: 'Facet form: View Directory channel, display Embed'
-  label_display: '0'
+  label: 'Filter by'
+  label_display: visible
   provider: facets_form
   button:
     label:
       submit: Search
       reset: Reset
   facets: {  }
-visibility: {  }
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      localgov_directory: localgov_directory
