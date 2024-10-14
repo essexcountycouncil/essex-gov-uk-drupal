@@ -7,7 +7,6 @@ dependencies:
   module:
     - block_classes
     - facets_form
-    - node
   theme:
     - ecc_theme_gov
 id: ecc_theme_gov_facetformviewdirectorychanneldisplayembed
@@ -26,11 +25,4 @@ settings:
       submit: Search
       reset: Reset
   facets: {  }
-visibility:
-  'entity_bundle:node':
-    id: 'entity_bundle:node'
-    negate: false
-    context_mapping:
-      node: '@node.node_route_context:node'
-    bundles:
-      localgov_directory: localgov_directory
+visibility: {  }
