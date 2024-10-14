@@ -35,7 +35,6 @@ dependencies:
   module:
     - book
     - content_moderation
-    - content_ownership
     - entity_browser
     - entity_hierarchy
     - entity_usage
@@ -72,6 +71,7 @@ is_admin: null
 permissions:
   - 'access administration pages'
   - 'access content overview'
+  - 'access directory facets overview'
   - 'access entity usage statistics'
   - 'access geo overview'
   - 'access geo_entity_library entity browser pages'
@@ -84,7 +84,6 @@ permissions:
   - 'access taxonomy overview'
   - 'access toolbar'
   - 'access webform overview'
-  - 'add content owner/sme entity'
   - 'add content to books'
   - 'add scheduled transitions localgov_alert_banner localgov_alert_banner'
   - 'add scheduled transitions node localgov_directories_org'
@@ -106,7 +105,6 @@ permissions:
   - 'add scheduled transitions node localgov_subsites_overview'
   - 'add scheduled transitions node localgov_subsites_page'
   - 'administer book outlines'
-  - 'administer content owner/sme entity'
   - 'administer localgov_service_contact'
   - 'administer menu'
   - 'administer paragraphs library'
@@ -116,6 +114,7 @@ permissions:
   - 'create document media'
   - 'create geo'
   - 'create image media'
+  - 'create localgov_directory content'
   - 'create localgov_event content'
   - 'create localgov_guides_overview content'
   - 'create localgov_guides_page content'
@@ -156,7 +155,6 @@ permissions:
   - 'delete any localgov_subsites_overview content'
   - 'delete any localgov_subsites_page content'
   - 'delete any media'
-  - 'delete content owner/sme entity'
   - 'delete geo'
   - 'delete localgov_event revisions'
   - 'delete localgov_publication_cover_page revisions'
@@ -196,7 +194,6 @@ permissions:
   - 'edit any localgov_subsites_page content'
   - 'edit any remote_video media'
   - 'edit any webform'
-  - 'edit content owner/sme entity'
   - 'edit directory facets'
   - 'edit geo'
   - 'edit localgov_service_contact'
@@ -293,7 +290,6 @@ permissions:
   - 'view all scheduled transitions'
   - 'view any unpublished content'
   - 'view any webform submission'
-  - 'view content owner/sme entity'
   - 'view directory facets'
   - 'view latest version'
   - 'view localgov alert banner localgov_alert_banner pages'

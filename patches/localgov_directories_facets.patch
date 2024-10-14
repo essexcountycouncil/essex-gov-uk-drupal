@@ -1,0 +1,54 @@
+diff --git a/src/DirectoryExtraFieldDisplay.php b/src/DirectoryExtraFieldDisplay.php
+index 3c36e36..ce1c066 100644
+--- a/src/DirectoryExtraFieldDisplay.php
++++ b/src/DirectoryExtraFieldDisplay.php
+@@ -342,11 +342,12 @@ class DirectoryExtraFieldDisplay implements ContainerInjectionInterface, Trusted
+     $facet_storage = $this->entityTypeManager
+       ->getStorage(Directory::FACET_CONFIG_ENTITY_ID);
+     $group_items = [];
++    $all_group_items = [];
+     foreach ($facet_items as $key => $item) {
+       $facet_id = $item['value']['#attributes']['data-drupal-facet-item-value'] ?? $key;
+       if ($facet_entity = $facet_storage->load($facet_id)) {
+         assert($facet_entity instanceof LocalgovDirectoriesFacets);
+-        $group_items[$facet_entity->bundle()]['items'][$key] = $item;
++        $all_group_items[$facet_entity->bundle()]['items'][$key] = $item;
+       }
+     }
+ 
+@@ -359,19 +360,31 @@ class DirectoryExtraFieldDisplay implements ContainerInjectionInterface, Trusted
+     ) {
+       $active_facets = array_column($channel->localgov_directory_facets_enable->getValue(), 'target_id');
+     }
+-    if (!is_null($active_facets)) {
+-      $group_items = array_intersect_key($group_items, array_flip($active_facets));
++    $is_channel = !is_null($active_facets);
++
++    if ($is_channel) {
++      // Use only the groups set on the channel, keeping the order.
++      foreach ($active_facets as $active_facet) {
++        $group_items[$active_facet] = $all_group_items[$active_facet];
++      }
++    }
++    else {
++      // Use all groups if not on a channel.
++      $group_items = $all_group_items;
+     }
+ 
++    $weight = 0;
+     $type_storage = $this->entityTypeManager
+       ->getStorage(Directory::FACET_TYPE_CONFIG_ENTITY_ID);
+     foreach ($group_items as $bundle => $items) {
+       $facet_type_entity = $type_storage->load($bundle);
+       assert($facet_type_entity instanceof LocalgovDirectoriesFacetsType);
+       $group_items[$bundle]['title'] = Html::escape($this->entityRepository->getTranslationFromContext($facet_type_entity)->label());
+-      $group_items[$bundle]['weight'] = $facet_type_entity->get('weight');
++      $group_items[$bundle]['weight'] = $is_channel ? $weight++ : $facet_type_entity->get('weight');
++    }
++    if (!$is_channel) {
++      uasort($group_items, static::compareFacetBundlesByWeight(...));
+     }
+-    uasort($group_items, static::compareFacetBundlesByWeight(...));
+ 
+     return $group_items;
+   }

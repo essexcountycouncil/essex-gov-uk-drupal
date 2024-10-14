@@ -1,0 +1,13 @@
+diff --git a/modules/localgov_subsites_paragraphs/js/localgov-accordion.js b/modules/localgov_subsites_paragraphs/js/localgov-accordion.js
+index cfba2a9..3fc8ca4 100644
+--- a/modules/localgov_subsites_paragraphs/js/localgov-accordion.js
++++ b/modules/localgov_subsites_paragraphs/js/localgov-accordion.js
+@@ -133,6 +133,8 @@
+             // Add aria-controls id to button and un-hide
+             button.setAttribute('aria-controls', id);
+             button.hidden = false;
++            // Set type to button to keep this as a simple button element
++            button.setAttribute('type', 'button');
+           
+             // Add click event listener to the show/hide button.
+             button.addEventListener('click', e => {
