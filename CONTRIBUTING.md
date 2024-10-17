@@ -69,3 +69,10 @@ Start Review App
 Rebuild the Review App (without resetting the database)
 #### /stop
 Stop Review App and clear up
+
+## Code quality
+These are useful commands to run before trying to run a Review App:
+
+- `composer phpcs` - run CodeSniffer
+- `composer phpcbf` - fix some CodeSniffer issues
+- `composer tests-required` - run CodeSniffer and check for security updates - this is run in the pipeline
