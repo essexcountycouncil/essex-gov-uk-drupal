@@ -4,12 +4,14 @@ status: true
 dependencies:
   config:
     - localgov_alert_banner.localgov_alert_banner_type.localgov_alert_banner
+    - search_api_autocomplete.search.localgov_news_search
   module:
     - cludo_search
     - eu_cookie_compliance
     - geo_entity
     - localgov_alert_banner
     - media
+    - poll
     - search_api_autocomplete
     - system
 _core:
@@ -21,6 +23,7 @@ is_admin: false
 permissions:
   - 'access cludo search content'
   - 'access content'
+  - 'access polls'
   - 'display eu cookie compliance popup'
   - 'use search_api_autocomplete for localgov_news_search'
   - 'view all localgov alert banner entities'

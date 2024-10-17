@@ -9,6 +9,7 @@ dependencies:
     - content_moderation
     - file
     - localgov_alert_banner
+    - poll
     - scheduled_transitions
     - system
     - toolbar
@@ -23,6 +24,7 @@ weight: -9
 is_admin: null
 permissions:
   - 'access localgov alert banner listing page'
+  - 'access polls'
   - 'access toolbar'
   - 'add scheduled transitions localgov_alert_banner localgov_alert_banner'
   - 'delete own files'

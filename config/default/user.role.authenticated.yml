@@ -6,6 +6,8 @@ dependencies:
     - filter.format.webform_default
     - filter.format.wysiwyg
     - localgov_alert_banner.localgov_alert_banner_type.localgov_alert_banner
+    - search_api_autocomplete.search.localgov_directory_channel
+    - search_api_autocomplete.search.localgov_news_search
   module:
     - cludo_search
     - content_moderation
@@ -16,6 +18,7 @@ dependencies:
     - geo_entity
     - localgov_alert_banner
     - media
+    - poll
     - search_api_autocomplete
     - system
     - webform
@@ -29,6 +32,7 @@ permissions:
   - 'access cludo search content'
   - 'access content'
   - 'access fontawesome additional settings'
+  - 'access polls'
   - 'delete own files'
   - 'display eu cookie compliance popup'
   - 'edit own webform submission'
