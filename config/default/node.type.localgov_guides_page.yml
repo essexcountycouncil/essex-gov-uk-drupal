@@ -15,7 +15,7 @@ _core:
 name: 'Guide page'
 type: localgov_guides_page
 description: 'Page associated with a guide overview page.'
-help: ''
+help: null
 new_revision: true
 preview_mode: 1
 display_submitted: false

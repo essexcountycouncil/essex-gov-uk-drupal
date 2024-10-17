@@ -31,6 +31,10 @@
         },
         {
             "type": "github",
+            "url": "https://github.com/essexcountycouncil/ecc_parents"
+        },
+        {
+            "type": "github",
             "url":  "https://github.com/essexcountycouncil/ecc_theme"
         },
         {
@@ -53,22 +57,26 @@
         "ckeditor/div": "4.10.1",
         "composer/installers": "^1.10",
         "cweagans/composer-patches": "^1.6",
-        "drupal/autosave_form": "^1.4",
+        "drupal/antibot": "^2.0",
+        "drupal/autosave_form": "^1.6",
         "drupal/block_classes": "^1.0",
         "drupal/ckeditor5_show_block": "^1.9",
         "drupal/ckeditor_div_manager": "^3",
         "drupal/ckeditor_link_styles": "^1.0",
         "drupal/cludo_search": "^1.0@beta",
-        "drupal/config_ignore": "^2.4",
+        "drupal/config_filter": "^2.6",
+        "drupal/config_ignore": "^3.3",
         "drupal/config_split": "^2.0",
         "drupal/content_access_by_path": "^1.0",
         "drupal/core-composer-scaffold": "^10",
         "drupal/core-project-message": "^10",
-        "drupal/core-recommended": "^10.1.8",
+        "drupal/core-recommended": "^10.3.2",
         "drupal/devel": "^5.1",
         "drupal/dynamic_entity_reference": "^3.1",
+        "drupal/entity_embed": "^1.6",
         "drupal/entity_share": "^3.0",
         "drupal/eu_cookie_compliance": "^1.24",
+        "drupal/facets_form": "^1.0",
         "drupal/fathom_analytics": "^3.0",
         "drupal/file_mdm": "^2.6",
         "drupal/geocoder": "^4.23",
@@ -76,6 +84,7 @@
         "drupal/gin": "^3.0@RC",
         "drupal/google_tag": "^1.6",
         "drupal/health_check_url": "^3.2",
+        "drupal/honeypot": "^2.1",
         "drupal/jsonapi_extras": "^3.24",
         "drupal/leaflet": "^10.2",
         "drupal/mail_login": "^3.0",
@@ -83,20 +92,25 @@
         "drupal/migrate_plus": "^6.0",
         "drupal/migrate_process_markdown_to_html": "^1",
         "drupal/monolog": "^2.2",
-        "drupal/office_hours": "^1.11",
+        "drupal/office_hours": "1.x-dev@dev",
         "drupal/openid_connect": "^3",
         "drupal/openid_connect_azure_b2c": "1.0.1-beta1",
         "drupal/permissions_filter": "^1.3",
         "drupal/poll": "^1.6",
         "drupal/preview_link": "^2.1@alpha",
+        "drupal/replicate": "^1.3",
+        "drupal/replicate_ui": "^1.1",
         "drupal/simple_oauth": "^5.2",
         "drupal/single_content_sync": "^1.3",
         "drupal/sophron": "^2.0",
-        "drupal/stage_file_proxy": "^2.0",
+        "drupal/stage_file_proxy": "^3.1",
         "drupal/structure_sync": "^2.0",
         "drupal/ultimate_cron": "^2.0@alpha",
         "drupal/upgrade_status": "^4.0",
+        "drupal/views_core_entity_reference": "^1.0@alpha",
         "drupal/webform": "^6.2",
+        "drupal/webform_xlsx_export": "^1.3",
+        "drupal/whatlinkshere": "^2.1",
         "drupal/workbench": "^1.4",
         "drupal/workbench_access": "^2.0",
         "drush/drush": "^12",
@@ -105,14 +119,18 @@
         "essexcountycouncil/ecc_content_moderation": "^1.0",
         "essexcountycouncil/ecc_cookie_compliance": "^1.0",
         "essexcountycouncil/ecc_menu": "^1.0",
+        "essexcountycouncil/ecc_parents": "^1.0",
         "essexcountycouncil/ecc_theme": "^1.1",
         "localgovdrupal/localgov": "^3",
         "localgovdrupal/localgov_base": "^1.5",
         "localgovdrupal/localgov_content_access_control": "^1.0",
+        "localgovdrupal/localgov_directories": "^3.2",
         "localgovdrupal/localgov_eu_cookie_compliance": "^1.0",
         "localgovdrupal/localgov_forms": "^1.0@beta",
         "localgovdrupal/localgov_geo": "^2",
+        "localgovdrupal/localgov_publications": "^1.0.0",
         "localgovdrupal/localgov_subsites_extras": "1.x-dev",
+        "localgovdrupal/localgov_workflows": "^1.3",
         "mglaman/composer-drupal-lenient": "^1.0",
         "palantirnet/drupal-rector": "^0.18.0",
         "wa72/htmlpagedom": "*"
@@ -128,7 +146,6 @@
         "phpspec/prophecy-phpunit": "^2",
         "phpstan/phpstan": "^1.0",
         "phpstan/phpstan-deprecation-rules": "^1.0",
-        "roave/security-advisories": "dev-latest",
         "squizlabs/php_codesniffer": "^3.6"
     },
     "conflict": {
@@ -148,6 +165,11 @@
             "php-http/discovery": false,
             "mglaman/composer-drupal-lenient": true,
             "phpstan/extension-installer": true
+        },
+        "audit": {
+            "ignore": {
+                "GHSA-mg8j-w93w-xjgc": "Apache has been configured to block access to applicable paths"
+            }
         }
     },
     "autoload": {
@@ -159,7 +181,7 @@
         "enable-patching": true,
         "patches": {
             "drupal/autosave_form": {
-                "Disable autosaving for layout builder pages": "https://www.drupal.org/files/issues/2022-03-22/3270955-2-layout_builder.patch"
+                "Disable autosaving for layout builder pages": "https://www.drupal.org/files/issues/2024-09-09/3270955-5-layout_builder.patch"
             },
             "drupal/cludo_search": {
                 "Remove search type to use custom template": "patches/cludo_search-0001.patch",
@@ -167,11 +189,14 @@
                 "Automated Drupal 10 compatibility fixes": "https://www.drupal.org/files/issues/2022-07-18/cludo_search.1.0-beta2.rector.patch"
             },
             "drupal/core": {
-                "Allow chmod to fail in the public namespace if the resultant mode is 777": "patches/filesystem-chmod-0001.patch",
-                "Claro theme + field_group seems to hide content of dropbutton": "https://www.drupal.org/files/issues/2024-01-19/drupal-claro-theme-field_group-seems-to-hide-content-of-dropdown-3217868-58.patch"
+                "Claro theme + field_group seems to hide content of dropbutton": "https://www.drupal.org/files/issues/2024-01-19/drupal-claro-theme-field_group-seems-to-hide-content-of-dropdown-3217868-58.patch",
+                "Add Views EntityReference filter to support better UX for exposed filters": "https://www.drupal.org/files/issues/2024-07-10/3347343-213.patch"
             },
             "drupal/fathom_analytics": {
                 "Automated Drupal 10 compatibility fixes": "https://www.drupal.org/files/issues/2022-06-15/fathom_analytics.3.0.0.rector.patch"
+            },
+            "drupal/honeypot": {
+                "honeypot clientside": "https://www.drupal.org/files/issues/2024-08-16/clientside_time_limit_2_1_4.patch"
             },
             "drupal/migmag": {
                 "Fix migmag_lookup exception when stubbing non-sql sources. See https://www.drupal.org/project/migmag/issues/3321292#comment-14785506": "https://www.drupal.org/files/issues/2022-11-14/migmag-remove_double_prepareRow-3321292_3.patch"
@@ -183,6 +208,13 @@
                 "Option to enter expiry period in days instead of seconds": "https://git.drupalcode.org/project/preview_link/-/merge_requests/22.diff",
                 "Error when accessing a preview link if enabled_entity_types configuration is missing": "https://www.drupal.org/files/issues/2024-04-04/preview_link-3438117-enabled_entity_types.patch"
             },
+            "localgovdrupal/localgov_directories": {
+                "Support facets form": "https://patch-diff.githubusercontent.com/raw/localgovdrupal/localgov_directories/pull/399.diff",
+                "Set order of facets on channel": "patches/localgov_directories_facets.patch"
+            },
+            "localgovdrupal/localgov_publications": {
+                "Declare permissions for LocalGov Publications": "patches/localgov_publications.patch"
+            },
             "localgovdrupal/localgov_services": {
                 "New parent bundles for ServicesSelection": "patches/localgov_services.patch"
             },
@@ -193,7 +225,14 @@
                 "Add alter hook to allow other modules to set the subsite homepage": "https://patch-diff.githubusercontent.com/raw/localgovdrupal/localgov_subsites_extras/pull/14.diff"
             },
             "localgovdrupal/localgov_workflows": {
-                "Fix for drush site-install": "patches/localgov_workflows.patch"
+                "New Content by owner View": "https://patch-diff.githubusercontent.com/raw/localgovdrupal/localgov_workflows/pull/104.diff",
+                "Service contact delete form": "patches/localgov_workflows_delete_service_contact.patch"
+            },
+            "drupal/facets_form": {
+                "Form submit redirect URL is keeping filter query parameters when all filters are removed": "https://www.drupal.org/files/issues/2022-05-02/facets-form-fix-submit-redirect-url-3255007-5.patch"
+            },
+            "localgovdrupal/localgov_paragraphs": {
+                "Set type of buttons in accordions to prevent form submission": "patches/localgov-accordion-button-type.patch"
             }
         },
         "drupal-scaffold": {
@@ -285,17 +324,16 @@
             "chmod 444 web/sites/default/default.*.yml",
             "chmod 444 web/sites/default/*.services.yml"
         ],
-        "phpcs": "bin/phpcs --standard=Drupal,DrupalPractice --ignore=*.js web/modules/custom",
-        "phpcbf": "bin/phpcbf --standard=Drupal,DrupalPractice --ignore=*.js web/modules/custom",
-        "phpunit-unit": "bin/phpunit -v --debug -c phpunit-unit.xml",
+        "phpcs": "bin/phpcs --standard=phpcs-ecc.xml",
+        "phpcbf": "bin/phpcbf --standard=phpcbf-ecc.xml",
+        "phpunit-required": "cd web && export SYMFONY_DEPRECATIONS_HELPER=weak && ../bin/phpunit -v --debug --verbose -c ../phpunit-required.xml",
         "checker-drupal": "bin/drupal-check -ad web/modules/custom",
         "phpunit-modules": "sudo -u www-data -E vendor/bin/phpunit -v --debug modules",
         "cghooks": "[ -h vendor/bin/cghooks -a -w ../.git ] && vendor/bin/cghooks --git-dir=../.git",
-        "phpcbf": "bin/phpcbf --standard=Drupal,DrupalPractice web/modules/custom",
         "tests-required": [
             "composer validate",
             "composer audit",
             "composer phpcs"
-        ]
+       ]
     }
 }

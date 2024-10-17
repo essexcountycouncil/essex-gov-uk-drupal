@@ -84,6 +84,7 @@ display:
         type: full
         options:
           offset: 0
+          pagination_heading_level: h4
           items_per_page: 10
           total_pages: null
           id: 0
@@ -211,6 +212,7 @@ display:
         options:
           view_modes:
             'entity:node':
+              book: search_result
               localgov_directories_org: search_result
               localgov_directories_page: search_result
               localgov_directories_venue: search_result
@@ -221,6 +223,8 @@ display:
               localgov_guides_page: search_result
               localgov_news_article: search_result
               localgov_newsroom: search_result
+              localgov_publication_cover_page: search_result
+              localgov_publication_page: search_result
               localgov_services_landing: search_result
               localgov_services_page: search_result
               localgov_services_status: search_result
@@ -272,6 +276,7 @@ display:
         - user.permissions
       tags:
         - 'config:search_api.index.localgov_sitewide_search'
+        - 'search_api_list:localgov_sitewide_search'
   sitewide_search_page:
     id: sitewide_search_page
     display_title: Page
@@ -291,3 +296,4 @@ display:
         - user.permissions
       tags:
         - 'config:search_api.index.localgov_sitewide_search'
+        - 'search_api_list:localgov_sitewide_search'

@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.media.image.field_category
     - field.field.media.image.field_media_image
     - media.type.image
     - responsive_image.styles.3_2_image
@@ -15,6 +16,14 @@ targetEntityType: media
 bundle: image
 mode: default
 content:
+  field_category:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
   field_media_image:
     type: responsive_image
     label: hidden

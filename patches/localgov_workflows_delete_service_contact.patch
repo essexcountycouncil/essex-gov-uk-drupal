@@ -1,0 +1,75 @@
+diff --git a/modules/localgov_workflows_notifications/src/Entity/LocalgovServiceContact.php b/modules/localgov_workflows_notifications/src/Entity/LocalgovServiceContact.php
+index 3711469..1ac5731 100644
+--- a/modules/localgov_workflows_notifications/src/Entity/LocalgovServiceContact.php
++++ b/modules/localgov_workflows_notifications/src/Entity/LocalgovServiceContact.php
+@@ -28,7 +28,7 @@ use Drupal\Core\Session\AccountInterface;
+  *     "form" = {
+  *       "add" = "Drupal\localgov_workflows_notifications\Form\LocalgovServiceContactForm",
+  *       "edit" = "Drupal\localgov_workflows_notifications\Form\LocalgovServiceContactForm",
+- *       "delete" = "Drupal\Core\Entity\ContentEntityDeleteForm",
++ *       "delete" = "Drupal\localgov_workflows_notifications\Form\LocalgovServiceContactDeleteForm",
+  *       "delete-multiple-confirm" = "Drupal\Core\Entity\Form\DeleteMultipleForm",
+  *     },
+  *     "route_provider" = {
+diff --git a/modules/localgov_workflows_notifications/src/Form/LocalgovServiceContactDeleteForm.php b/modules/localgov_workflows_notifications/src/Form/LocalgovServiceContactDeleteForm.php
+new file mode 100644
+index 0000000..d0aa929
+--- /dev/null
++++ b/modules/localgov_workflows_notifications/src/Form/LocalgovServiceContactDeleteForm.php
+@@ -0,0 +1,56 @@
++<?php
++
++declare(strict_types = 1);
++
++namespace Drupal\localgov_workflows_notifications\Form;
++
++use Drupal\Core\Entity\ContentEntityDeleteForm;
++use Drupal\Core\Link;
++use Drupal\Core\Url;
++use Drupal\Core\Form\FormStateInterface;
++
++/**
++ * Class LocalgovServiceContactDeleteForm.
++ *
++ * Override the getQuestion method to change the text.
++ *
++ * @package Drupal\localgov_workflows_notifications\Form
++ */
++class LocalgovServiceContactDeleteForm extends ContentEntityDeleteForm {
++
++  /**
++   * {@inheritdoc}
++   */
++  public function buildForm(array $form, FormStateInterface $form_state) {
++    $form = parent::buildForm($form, $form_state);
++    $num_nodes = $this->entityTypeManager->getStorage('node')->getQuery()
++      ->condition('localgov_service_contacts', $this->entity->id())
++      ->accessCheck(FALSE)
++      ->count()
++      ->execute();
++    if ($num_nodes) {
++      $caption = $this->t('<p>You can not remove this service contact until you have removed them from their pages (@link.)</p>', [
++        '@link' => Link::createFromRoute('search here', 'view.localgov_content_by_owner.page_1')->toString(),
++      ]);
++      $form['description'] = ['#markup' => $caption];
++      unset($form['actions']['submit']);
++    }
++
++    return $form;
++  }
++
++  /**
++   * {@inheritdoc}
++   */
++  public function getCancelUrl() {
++    return new Url('entity.localgov_service_contact.collection');
++  }
++
++  /**
++   * {@inheritdoc}
++   */
++  public function getConfirmText() {
++    return $this->t('Delete');
++  }
++
++}

@@ -15,7 +15,7 @@ Test:Required:
     - ''
   script:
     - composer install && composer tests-required
-  allow_failure: true
+  allow_failure: false
 
 build-and-push-images:
   stage: build
@@ -184,7 +184,7 @@ drush-deploy-dev:
   stage: development-postdeploy
   needs: ["deploy-to-dev"]
   before_script:
-    - apk add socat
+    - tdnf -y install socat
     - az extension add --name containerapp
     - az login --service-principal -u${ARM_CLIENT_ID} -p${ARM_CLIENT_SECRET} -t${ARM_TENANT_ID}
     - az account set --subscription "Essex County Council (Portal)"
@@ -293,7 +293,7 @@ drush-deploy-preprod:
   stage: preproduction-postdeploy
   needs: ["deploy-to-preprod"]
   before_script:
-    - apk add socat
+    - tdnf -y install socat
     - az extension add --name containerapp
     - az login --service-principal -u${ARM_CLIENT_ID} -p${ARM_CLIENT_SECRET} -t${ARM_TENANT_ID}
     - az account set --subscription "Essex County Council (Portal)"
@@ -384,7 +384,7 @@ deploy-to-prod:
                 initialDelaySeconds: 5
                 periodSeconds: 3
       EOF
-    - az containerapp revision copy --name portal --resource-group rg-ecc-portal-uks-prod --yaml revision.yml --subscription "Essex County Council (Portal)"
+    - az containerapp revision copy --name portalrb --resource-group rg-ecc-portal-uks-prod --yaml revision.yml --subscription "Essex County Council (Portal)"
     - az containerapp revision copy --name portal-redirect --resource-group rg-ecc-portal-redirect-uks-prod --image acreccuksprod.azurecr.io/portal-nginx-redirect:${CI_COMMIT_REF_SLUG} --subscription "Essex County Council (Portal)"
   rules:
     - if: '$CI_COMMIT_BRANCH == "main"'
@@ -397,12 +397,12 @@ drush-deploy-prod:
   stage: production-postdeploy
   needs: ["deploy-to-prod"]
   before_script:
-    - apk add socat
+    - tdnf -y install socat
     - az extension add --name containerapp
     - az login --service-principal -u${ARM_CLIENT_ID} -p${ARM_CLIENT_SECRET} -t${ARM_TENANT_ID}
     - az account set --subscription "Essex County Council (Portal)"
   script:
-    - timeout 1200 socat EXEC:'az containerapp exec --command /drupal/deploy.sh --name portal --container drupal --resource-group rg-ecc-portal-uks-prod',pty,setsid,ctty STDIO,ignoreeof
+    - timeout 1200 socat EXEC:'az containerapp exec --command /drupal/deploy.sh --name portalrb --container drupal --resource-group rg-ecc-portal-uks-prod',pty,setsid,ctty STDIO,ignoreeof
   rules:
     - if: '$CI_COMMIT_BRANCH == "main"'
       when: manual
@@ -504,12 +504,12 @@ drush-deploy-straight-to-prod:
   stage: production-postdeploy
   needs: ["deploy-straight-to-prod"]
   before_script:
-    - apk add socat
+    - tdnf -y install socat
     - az extension add --name containerapp
     - az login --service-principal -u${ARM_CLIENT_ID} -p${ARM_CLIENT_SECRET} -t${ARM_TENANT_ID}
     - az account set --subscription "Essex County Council (Portal)"
   script:
-    - timeout 1200 socat EXEC:'az containerapp exec --command /drupal/deploy.sh --name portal --container drupal --resource-group rg-ecc-portal-uks-prod',pty,setsid,ctty STDIO,ignoreeof
+    - timeout 1200 socat EXEC:'az containerapp exec --command /drupal/deploy.sh --name portalrb --container drupal --resource-group rg-ecc-portal-uks-prod',pty,setsid,ctty STDIO,ignoreeof
   rules:
     - if: '$CI_COMMIT_BRANCH == "main"'
       when: manual

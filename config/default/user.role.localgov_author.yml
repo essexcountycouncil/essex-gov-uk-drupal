@@ -28,7 +28,6 @@ dependencies:
     - workflows.workflow.localgov_editorial
   module:
     - content_moderation
-    - content_ownership
     - entity_browser
     - entity_hierarchy
     - entity_usage
@@ -37,12 +36,14 @@ dependencies:
     - geocoder
     - localgov_alert_banner
     - localgov_directories
+    - localgov_workflows_notifications
     - media
     - node
     - paragraphs
     - paragraphs_library
     - path
     - preview_link
+    - replicate_ui
     - responsive_preview
     - scheduled_transitions
     - system
@@ -128,6 +129,7 @@ permissions:
   - 'generate preview links'
   - 'manage localgov alert banner localgov_alert_banner entities'
   - 'reorder entity_hierarchy children'
+  - 'replicate entities'
   - 'reschedule scheduled transitions localgov_alert_banner localgov_alert_banner'
   - 'reschedule scheduled transitions node localgov_directories_org'
   - 'reschedule scheduled transitions node localgov_directories_page'
@@ -177,7 +179,6 @@ permissions:
   - 'view all scheduled transitions'
   - 'view any unpublished content'
   - 'view any webform submission'
-  - 'view content owner/sme entity'
   - 'view directory facets'
   - 'view latest version'
   - 'view localgov alert banner localgov_alert_banner pages'
@@ -191,6 +192,7 @@ permissions:
   - 'view localgov_guides_page revisions'
   - 'view localgov_news_article revisions'
   - 'view localgov_newsroom revisions'
+  - 'view localgov_service_contact'
   - 'view localgov_services_landing revisions'
   - 'view localgov_services_page revisions'
   - 'view localgov_services_status revisions'

@@ -8,3 +8,4 @@ name: 'Event category'
 vid: localgov_event_category
 description: 'Category used for filtering events.'
 weight: 0
+new_revision: false

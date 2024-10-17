@@ -1,5 +1,6 @@
 _core:
   default_config_hash: '-4lUZSCZBr1R5SJoy8mSXi6nMk2dC_0NWBoGSgDPAAI'
+langcode: en
 mail_login_enabled: 1
 mail_login_case_sensitive: 1
 mail_login_email_only: 0

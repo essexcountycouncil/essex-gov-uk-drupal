@@ -5,10 +5,12 @@ dependencies:
   config:
     - core.entity_view_mode.media.media_library
     - image.style.media_library
+    - taxonomy.vocabulary.media_category
   module:
     - image
     - media
     - media_library
+    - taxonomy
     - user
   enforced:
     module:
@@ -139,6 +141,7 @@ display:
         type: mini
         options:
           offset: 0
+          pagination_heading_level: h4
           items_per_page: 24
           total_pages: null
           id: 0
@@ -484,19 +487,7 @@ display:
         - 'url.query_args:sort_by'
         - user
         - user.permissions
-      tags:
-        - 'config:core.entity_view_display.media.document.default'
-        - 'config:core.entity_view_display.media.image.default'
-        - 'config:core.entity_view_display.media.image.localgov_event_thumbnail'
-        - 'config:core.entity_view_display.media.image.localgov_featured'
-        - 'config:core.entity_view_display.media.image.localgov_featured_large'
-        - 'config:core.entity_view_display.media.image.localgov_newsroom_teaser'
-        - 'config:core.entity_view_display.media.image.medium_8_7'
-        - 'config:core.entity_view_display.media.image.responsive_3x2'
-        - 'config:core.entity_view_display.media.image.responsive_banner'
-        - 'config:core.entity_view_display.media.image.scale_crop_7_3_large'
-        - 'config:core.entity_view_display.media.image.square'
-        - 'config:core.entity_view_display.media.remote_video.default'
+      tags: {  }
   page:
     id: page
     display_title: Page
@@ -955,6 +946,61 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
+        field_category_target_id:
+          id: field_category_target_id
+          table: media__field_category
+          field: field_category_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: taxonomy_index_tid
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_category_target_id_op
+            label: Category
+            description: ''
+            use_operator: false
+            operator: field_category_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_category_target_id
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              emergency_publisher: '0'
+              localgov_news_editor: '0'
+              analytics: '0'
+              localgov_contributor: '0'
+              localgov_author: '0'
+              localgov_editor: '0'
+              localgov_user_manager: '0'
+              administrator: '0'
+              localgov_devolved_editor: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: media_category
+          type: textfield
+          hierarchy: false
+          limit: true
+          error_message: true
       filter_groups:
         operator: AND
         groups:
@@ -975,19 +1021,7 @@ display:
         - 'url.query_args:sort_by'
         - user
         - user.permissions
-      tags:
-        - 'config:core.entity_view_display.media.document.default'
-        - 'config:core.entity_view_display.media.image.default'
-        - 'config:core.entity_view_display.media.image.localgov_event_thumbnail'
-        - 'config:core.entity_view_display.media.image.localgov_featured'
-        - 'config:core.entity_view_display.media.image.localgov_featured_large'
-        - 'config:core.entity_view_display.media.image.localgov_newsroom_teaser'
-        - 'config:core.entity_view_display.media.image.medium_8_7'
-        - 'config:core.entity_view_display.media.image.responsive_3x2'
-        - 'config:core.entity_view_display.media.image.responsive_banner'
-        - 'config:core.entity_view_display.media.image.scale_crop_7_3_large'
-        - 'config:core.entity_view_display.media.image.square'
-        - 'config:core.entity_view_display.media.remote_video.default'
+      tags: {  }
   widget:
     id: widget
     display_title: Widget
@@ -1264,6 +1298,61 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
+        field_category_target_id:
+          id: field_category_target_id
+          table: media__field_category
+          field: field_category_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: taxonomy_index_tid
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_category_target_id_op
+            label: Category
+            description: ''
+            use_operator: false
+            operator: field_category_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_category_target_id
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              emergency_publisher: '0'
+              localgov_news_editor: '0'
+              analytics: '0'
+              localgov_contributor: '0'
+              localgov_author: '0'
+              localgov_editor: '0'
+              localgov_user_manager: '0'
+              administrator: '0'
+              localgov_devolved_editor: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: media_category
+          type: textfield
+          hierarchy: false
+          limit: true
+          error_message: true
       filter_groups:
         operator: AND
         groups:
@@ -1306,19 +1395,7 @@ display:
         - url.query_args
         - 'url.query_args:sort_by'
         - user.permissions
-      tags:
-        - 'config:core.entity_view_display.media.document.default'
-        - 'config:core.entity_view_display.media.image.default'
-        - 'config:core.entity_view_display.media.image.localgov_event_thumbnail'
-        - 'config:core.entity_view_display.media.image.localgov_featured'
-        - 'config:core.entity_view_display.media.image.localgov_featured_large'
-        - 'config:core.entity_view_display.media.image.localgov_newsroom_teaser'
-        - 'config:core.entity_view_display.media.image.medium_8_7'
-        - 'config:core.entity_view_display.media.image.responsive_3x2'
-        - 'config:core.entity_view_display.media.image.responsive_banner'
-        - 'config:core.entity_view_display.media.image.scale_crop_7_3_large'
-        - 'config:core.entity_view_display.media.image.square'
-        - 'config:core.entity_view_display.media.remote_video.default'
+      tags: {  }
   widget_table:
     id: widget_table
     display_title: 'Widget (table)'
@@ -1566,6 +1643,61 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
+        field_category_target_id:
+          id: field_category_target_id
+          table: media__field_category
+          field: field_category_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: taxonomy_index_tid
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_category_target_id_op
+            label: Category
+            description: ''
+            use_operator: false
+            operator: field_category_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_category_target_id
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              emergency_publisher: '0'
+              localgov_news_editor: '0'
+              analytics: '0'
+              localgov_contributor: '0'
+              localgov_author: '0'
+              localgov_editor: '0'
+              localgov_user_manager: '0'
+              administrator: '0'
+              localgov_devolved_editor: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: media_category
+          type: textfield
+          hierarchy: false
+          limit: true
+          error_message: true
       filter_groups:
         operator: AND
         groups:

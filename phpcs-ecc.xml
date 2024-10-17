@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleset name="ecc">
+  <description>PHP CodeSniffer configuration for ECC.</description>
+
+  <arg name="extensions" value="inc,install,module,php,profile,test,theme,yml"/>
+  <config name="drupal_core_version" value="10"/>
+
+  <file>web/modules/contrib/ecc_parents</file>
+  <file>web/modules/custom/</file>
+  <file>web/themes/contrib/ecc_theme</file>
+
+  <rule ref="./vendor/drupal/coder/coder_sniffer/Drupal"/>
+  <rule ref="./vendor/drupal/coder/coder_sniffer/DrupalPractice"/>
+</ruleset>
