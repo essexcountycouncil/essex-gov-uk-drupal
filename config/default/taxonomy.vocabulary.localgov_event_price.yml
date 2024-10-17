@@ -8,3 +8,4 @@ name: 'Event price'
 vid: localgov_event_price
 description: 'Price used for filtering events.'
 weight: 0
+new_revision: false

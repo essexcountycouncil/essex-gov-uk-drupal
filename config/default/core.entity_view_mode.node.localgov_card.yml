@@ -1,0 +1,11 @@
+uuid: fd64164b-9f9a-449e-b29f-89c1e57e564b
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.localgov_card
+label: 'LocalGov Card'
+description: ''
+targetEntityType: node
+cache: true

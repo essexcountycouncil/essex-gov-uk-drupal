@@ -1,0 +1,35 @@
+_core:
+  default_config_hash: w4afsDnzAk9K2ZOYiadiKgRETWY159wYmgznnLvddUs
+protect_all_forms: false
+unprotected_forms:
+  - user_login_form
+  - search_form
+  - search_block_form
+  - views_exposed_form
+  - honeypot_settings_form
+log: false
+element_name: url
+time_limit: 5
+use_js_for_cached_pages: true
+expire: 300
+form_settings:
+  user_register_form: false
+  user_pass: false
+  node_localgov_directories_org_form: false
+  node_localgov_directories_page_form: false
+  node_localgov_directories_venue_form: false
+  node_localgov_directory_form: false
+  node_localgov_directory_promo_page_form: false
+  node_localgov_event_form: false
+  node_localgov_guides_overview_form: false
+  node_localgov_guides_page_form: false
+  node_localgov_newsroom_form: false
+  node_localgov_news_article_form: false
+  node_localgov_services_landing_form: false
+  node_localgov_services_page_form: false
+  node_localgov_services_status_form: false
+  node_localgov_services_sublanding_form: false
+  node_localgov_step_by_step_overview_form: false
+  node_localgov_step_by_step_page_form: false
+  node_localgov_subsites_overview_form: false
+  node_localgov_subsites_page_form: false

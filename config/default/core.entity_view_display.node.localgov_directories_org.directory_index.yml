@@ -5,6 +5,8 @@ dependencies:
   config:
     - core.entity_view_mode.node.directory_index
     - field.field.node.localgov_directories_org.body
+    - field.field.node.localgov_directories_org.field_dir_org_how_to_access
+    - field.field.node.localgov_directories_org.field_directory_org_age
     - field.field.node.localgov_directories_org.localgov_directory_channels
     - field.field.node.localgov_directories_org.localgov_directory_email
     - field.field.node.localgov_directories_org.localgov_directory_facets_select
@@ -107,5 +109,7 @@ content:
     region: content
 hidden:
   content_moderation_control: true
+  field_dir_org_how_to_access: true
+  field_directory_org_age: true
   localgov_directory_search: true
   search_api_excerpt: true

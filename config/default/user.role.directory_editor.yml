@@ -3,8 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - entity_browser.browser.page_components
-    - entity_browser.browser.paragraphs_library_items
     - node.type.localgov_directories_org
     - node.type.localgov_directories_page
     - node.type.localgov_directories_venue

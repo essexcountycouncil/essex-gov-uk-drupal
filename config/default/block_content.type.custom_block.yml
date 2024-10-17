@@ -4,5 +4,5 @@ status: true
 dependencies: {  }
 id: custom_block
 label: 'Custom block'
-revision: 0
+revision: false
 description: ''

@@ -1,0 +1,24 @@
+uuid: c0783a05-32d8-4220-9c46-91d1a34468fb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_directory_org_age
+    - filter.format.wysiwyg
+    - node.type.localgov_directories_org
+  module:
+    - text
+id: node.localgov_directories_org.field_directory_org_age
+field_name: field_directory_org_age
+entity_type: node
+bundle: localgov_directories_org
+label: Age
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - wysiwyg
+field_type: text_long
