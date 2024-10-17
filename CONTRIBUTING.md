@@ -58,3 +58,21 @@ purpose of the change can be traced.
 
 Multiple commits in a pull request should be squashed unless the individual
 commit messages are informative.
+
+## Review Apps
+An environment can be created from a pull request for testing a new feature before it is merged.
+
+### Commands in a comment
+#### /start
+Start Review App
+#### /rebuild
+Rebuild the Review App (without resetting the database)
+#### /stop
+Stop Review App and clear up
+
+## Code quality
+These are useful commands to run before trying to run a Review App:
+
+- `composer phpcs` - run CodeSniffer
+- `composer phpcbf` - fix some CodeSniffer issues
+- `composer tests-required` - run CodeSniffer and check for security updates - this is run in the pipeline
