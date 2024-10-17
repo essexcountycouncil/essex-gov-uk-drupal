@@ -1,0 +1,18 @@
+uuid: 04ae53e5-50ff-43bb-936c-03184bcfe0e7
+langcode: en
+status: true
+dependencies:
+  module:
+    - localgov_workflows_notifications
+_core:
+  default_config_hash: HKS9520piOLkJSRDO4rhK3vJGSYhwLc1Obo2RIuxF0M
+id: localgov_workflows_notifications.needs_review
+configuration:
+  email_body:
+    content:
+      value: "<p>Dear {{ service_contact.getName() }},</p>\r\n<p>The following content needs reviewing:</p>\r\n<ul>\r\n{% for entity in entities %}\r\n  <li><a href=\"{{ path('entity.node.canonical', {'node': entity.id}) }}\">{{ entity.label }}</li>\r\n{% endfor %}\r\n</ul>\r\n"
+      format: email_html
+  email_subject:
+    value: 'Content needing review on the [site:name] site'
+  email_theme:
+    theme: _default

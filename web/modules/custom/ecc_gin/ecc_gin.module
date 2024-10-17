@@ -1,0 +1,15 @@
+<?php
+
+/**
+ * @file
+ * Hooks for ECC Gin module.
+ */
+
+/**
+ * Implements hook_page_attachments().
+ */
+function ecc_gin_page_attachments(array &$attachments) {
+  if (\Drupal::service('router.admin_context')->isAdminRoute()) {
+    $attachments['#attached']['library'][] = 'ecc_gin/ecc_gin';
+  }
+}

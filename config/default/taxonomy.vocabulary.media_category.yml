@@ -1,0 +1,9 @@
+uuid: 299b3e87-2889-490e-b899-63b254300976
+langcode: en
+status: true
+dependencies: {  }
+name: 'Media category'
+vid: media_category
+description: 'For the purpose of tagging files to aid users in finding files when creating content'
+weight: 0
+new_revision: false

@@ -24,6 +24,7 @@ field_settings:
         - anonymous
       view_mode:
         'entity:node':
+          book: search_index
           localgov_directories_org: search_index
           localgov_directories_page: search_index
           localgov_directories_venue: search_index
@@ -34,6 +35,8 @@ field_settings:
           localgov_guides_page: search_index
           localgov_news_article: search_index
           localgov_newsroom: search_index
+          localgov_publication_cover_page: search_index
+          localgov_publication_page: search_index
           localgov_services_landing: search_index
           localgov_services_page: search_index
           localgov_services_status: search_index
@@ -53,6 +56,7 @@ datasource_settings:
 processor_settings:
   add_url: {  }
   aggregated_field: {  }
+  custom_value: {  }
   entity_status: {  }
   entity_type: {  }
   html_filter:

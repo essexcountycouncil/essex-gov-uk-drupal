@@ -6,7 +6,6 @@
  */
 
 use Drupal\Core\Block\BlockPluginInterface;
-use Drupal\Core\Entity\EntityInterface;
 use Drupal\node\NodeInterface;
 
 /**
@@ -48,21 +47,3 @@ function ecc_subsites_localgov_subsites_extras_homepage_alter(?NodeInterface &$h
     }
   }
 }
-
-/**
- * Implements hook_ENTITY_TYPE_update().
- */
-function ecc_subsites_menu_link_content_update(EntityInterface $entity) {
-  /** @var \Drupal\menu_link_content\MenuLinkContentInterface $entity */
-  $url = $entity->getUrlObject();
-  if ($url->getRouteName() === 'entity.node.canonical') {
-    $route_parameters = $url->getRouteParameters();
-    if (isset($route_parameters['node'])) {
-      $node = \Drupal::entityTypeManager()
-        ->getStorage('node')
-        ->load($route_parameters['node']);
-      $node?->save();
-    }
-  }
-}
-

@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - field.field.node.localgov_services_page.body
-    - field.field.node.localgov_services_page.field_content_owner
     - field.field.node.localgov_services_page.field_non_publishable_notes
     - field.field.node.localgov_services_page.localgov_common_tasks
     - field.field.node.localgov_services_page.localgov_download_links
@@ -44,7 +43,6 @@ content:
 hidden:
   content_moderation_control: true
   entitygroupfield: true
-  field_content_owner: true
   field_non_publishable_notes: true
   links: true
   localgov_common_tasks: true
