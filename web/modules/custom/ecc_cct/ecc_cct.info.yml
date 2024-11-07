@@ -1,0 +1,7 @@
+name: 'ECC Cookie Consent Tracker'
+type: module
+description: 'Tracks cookie consent choices and stores them for reporting.'
+package: Custom
+core_version_requirement: ^10 || ^11
+dependencies:
+  - eu_cookie_consent:eu_cookie_compliance

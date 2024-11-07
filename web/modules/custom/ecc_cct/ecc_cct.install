@@ -1,0 +1,41 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the ECC Cookie Consent Tracker module.
+ */
+
+ /**
+ * Implements hook_schema().
+ */
+function ecc_cct_schema() {
+  $schema['ecc_cct_data'] = [
+    'description' => 'Contains custom cookie consent data.',
+    'fields' => [
+      'id' => [
+        'type' => 'serial',
+        'not null' => TRUE,
+        'description' => 'Primary Key: Unique record ID.',
+      ],
+      'choice' => [
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'size' => 'small',
+        'default' => 0,
+        'description' => 'The value of the choice.',
+      ],
+      'timestamp' => [
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'size' => 'big',
+        'default' => 0,
+        'description' => 'Date of choice.',
+      ],
+    ],
+    'primary key' => ['id'],
+  ];
+
+  return $schema;
+}

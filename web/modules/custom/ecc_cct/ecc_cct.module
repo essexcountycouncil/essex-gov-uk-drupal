@@ -1,0 +1,17 @@
+<?php
+
+use \Drupal\Core\Form\FormStateInterface;
+
+/**
+ * @file
+ * Primary module hooks for ECC Cookie Consent Tracker module.
+ */
+
+/**
+ * Implements hook_preprocess_html().
+ */
+function ecc_cct_preprocess_html(&$vars) {
+  if ($vars['root_path'] !== 'admin') {
+    $vars['#attached']['library'][] = 'ecc_cct/ecc_cct';
+  }
+}

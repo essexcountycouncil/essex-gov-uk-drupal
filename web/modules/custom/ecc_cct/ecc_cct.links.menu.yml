@@ -1,0 +1,8 @@
+# Simple link.
+ecc_cct.report:
+  title: Consent Statistics
+  description: Consent Statistics.
+  menu_name: administration
+  route_name: ecc_cct.report
+  parent: system.admin_reports
+  weight: 10
