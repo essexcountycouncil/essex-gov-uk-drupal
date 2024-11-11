@@ -1,0 +1,13 @@
+<?php
+
+use Drupal\Core\DrupalKernel;
+use Symfony\Component\HttpFoundation\Request;
+use Drupal\webform\WebformSubmissionInterface;
+
+/**
+ * @file
+ * Primary module hooks for ECC Webform module.
+ */
+function ecc_webform_form_alter(&$form, &$form_state, $form_id) {
+  $form['#attached']['library'][] = 'ecc_webform/referrer';
+}
