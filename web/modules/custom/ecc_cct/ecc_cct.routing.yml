@@ -14,3 +14,11 @@ ecc_cct.report:
     _controller: '\Drupal\ecc_cct\Controller\EccCctController:build'
   requirements:
     _permission: 'access site reports'
+
+ecc_cct.settings:
+  path: '/admin/config/system/settings'
+  defaults:
+    _title: 'Settings'
+    _form: 'Drupal\ecc_cct\Form\SettingsForm'
+  requirements:
+    _permission: 'administer site configuration'

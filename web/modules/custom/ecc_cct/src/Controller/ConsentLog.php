@@ -25,6 +25,11 @@ final class ConsentLog extends ControllerBase {
    *   A response object.
    */
   public function log(int $choice, Request $request): Response {
+    // If this isn't turned on, bail.
+    if (!\Drupal::config('ecc_cct.settings')->get('enable')) {
+      throw new ServiceUnavailableHttpException(NULL, t('Service unavailable'));
+    }
+    // Otherwise, let's write some data.
     $content = [
       'status' => 'success',
       'message' => "Received ID: $choice",
@@ -43,5 +48,4 @@ final class ConsentLog extends ControllerBase {
     // but just in case, for testing, let's leave it in.
     return new Response(json_encode($content), 200, ['Content-Type' => 'application/json']);
   }
-
 }

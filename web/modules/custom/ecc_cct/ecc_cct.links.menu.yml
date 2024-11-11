@@ -6,3 +6,9 @@ ecc_cct.report:
   route_name: ecc_cct.report
   parent: system.admin_reports
   weight: 10
+
+ecc_cct.settings:
+  title: Essex Cookie Consent Tracker
+  parent: system.admin_config_system
+  route_name: ecc_cct.settings
+  weight: 10
