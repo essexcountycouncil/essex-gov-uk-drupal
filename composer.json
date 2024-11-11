@@ -117,7 +117,7 @@
         "essexcountycouncil/content_ownership": "^1.0",
         "essexcountycouncil/ecc_cludo_search": "^1.0",
         "essexcountycouncil/ecc_content_moderation": "^1.0",
-        "essexcountycouncil/ecc_cookie_compliance": "^1.0",
+        "essexcountycouncil/ecc_cookie_compliance": "dev-202411_videounavailable_LP_238",
         "essexcountycouncil/ecc_menu": "^1.0",
         "essexcountycouncil/ecc_parents": "^1.0",
         "essexcountycouncil/ecc_theme": "^1.1",
