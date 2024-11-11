@@ -16,9 +16,9 @@ ecc_cct.report:
     _permission: 'access site reports'
 
 ecc_cct.settings:
-  path: '/admin/config/system/settings'
+  path: '/admin/config/system/cookie-consent-tracker'
   defaults:
-    _title: 'Settings'
+    _title: 'Cookie Consent Tracker'
     _form: 'Drupal\ecc_cct\Form\SettingsForm'
   requirements:
     _permission: 'administer site configuration'
