@@ -13,77 +13,45 @@ title: 'Feedback Form'
 description: "For providing feedback to content\r\n<div id=\"extension-host\">&nbsp;</div>"
 categories: {  }
 elements: |-
-  info:
-    '#type': webform_markup
-    '#markup': |-
-      <p data-renderer-start-pos="99">Only use this form to give us feedback about our new website.</p>
-
-      <p data-renderer-start-pos="225">If you want a response, <a aria-label="Link contact the individual service directly." href="https://www.essex.gov.uk/contact-us" rel="noreferrer noopener" target="_blank" title="https://www.essex.gov.uk/contact-us">contact the individual service directly.</a></p>
-
-      <p data-renderer-start-pos="296">The information you provide will only be used for the purpose of improving our online services and will not be shared with anyone outside the council.</p>
-  reference:
-    '#type': hidden
-    '#title': Reference
-    '#prepopulate': true
-  content_display:
-    '#type': view
-    '#display_on': view
-    '#name': content_feedback
-    '#display_id': embed_feedback_reference
-    '#arguments':
-      - '[webform_submission:values:reference]'
-  how_would_you_rate_our_website:
-    '#type': radios
-    '#title': 'How would you rate our website'
-    '#options':
-      good: Good
-      poor: Poor
-      'Not too bad': 'Not too bad'
-      'Love it': 'Love it'
-    '#options__properties': ''
-  what_did_you_like_most_about_the_page_:
-    '#type': radios
-    '#title': 'What did you like most about the page?'
-    '#options':
-      found_quickly: 'I found it quickly'
-      correct_information: 'It had the right information'
-      easy_understand: 'The information was easy to understand'
-      other: 'Another reason'
-    '#states':
-      visible:
-        ':input[name="how_would_you_rate_our_website"]':
-          value: good
-  what_did_you_dislike_most_about_the_page_:
-    '#type': radios
-    '#title': 'What did you dislike most about the page?'
-    '#options':
-      hard_find: 'It was hard to find'
-      wrong_information: 'It doesn''t have the information I need'
-      hard_understand: 'It was hard to understand'
-      other: 'Another reason'
-    '#states':
-      visible:
-        ':input[name="how_would_you_rate_our_website"]':
-          value: poor
-  give_us_more_detailed_feedback:
+  why_did_you_visit_our_website_today:
     '#type': textarea
-    '#title': 'Give us more detailed feedback'
+    '#title': 'Why did you visit our website today?'
+    '#counter_type': character
+    '#counter_maximum': 500
+  did_you_find_what_you_needed:
+    '#type': radios
+    '#title': 'Did you find what you needed?'
+    '#options': yes_no
+    '#options_display': side_by_side
+  how_easy_did_you_find_it_to_use_our_website:
+    '#type': radios
+    '#title': 'How easy did you find it to use our website?'
+    '#options':
+      1: '1 -- Very Difficult'
+      2: '2'
+      3: '3'
+      4: '4'
+      5: '5 -- Very Easy'
+    '#options_display': side_by_side
+  is_there_anything_else_you_would_like_to_tell_us:
+    '#type': textarea
+    '#title': 'Is there anything else you would like to tell us?'
     '#description': |-
-      Do not enter any personal information in this space. Any submissions containing personal information will be deleted.&nbsp;<br />
-      <br />
-      If you want a response, <a aria-label="Link contact the individual service directly." href="https://www.essex.gov.uk/contact-us" rel="noreferrer noopener" target="_blank" title="https://www.essex.gov.uk/contact-us">contact the individual service directly.</a>
-  markup:
-    '#type': webform_markup
-    '#markup': |-
-      Read&nbsp;<a href="https://www.essex.gov.uk/about-essexgovuk/privacy-and-data-protection/your-privacy">the data protection and privacy policy</a>&nbsp;and agree to the council using any personal data that you provide in this form to deal with your request.<br />
-      &nbsp;
-  data_use_policy:
+      <p>Do not enter any personal information in this space. Any submissions containing personal information will be deleted.</p>
+
+      <p>Read the <a href="https://www.essex.gov.uk/about-essexgovuk/privacy-and-data-protection">data protection and privacy policy</a> and agree to the council using any personal data that you provide in the form to deal with your request.</p>
+    '#counter_type': character
+    '#counter_maximum': 500
+  i_confirm_that_i_have_read_the_data_protection_and_privacy_polic:
     '#type': checkbox
     '#title': 'I confirm that I have read the data protection and privacy policy'
     '#required': true
+    '#required_error': 'You must confirm that you have read the data protection and privacy policy.'
+  referrer:
+    '#type': url
+    '#title': referrer
     '#wrapper_attributes':
-      class:
-        - form-checkboxes
+      style: 'display:none'
 css: ''
 javascript: ''
 settings:
@@ -188,16 +156,16 @@ settings:
   draft_loaded_message: ''
   draft_pending_single_message: ''
   draft_pending_multiple_message: ''
-  confirmation_type: page
-  confirmation_url: ''
+  confirmation_type: url
+  confirmation_url: /thank-you-your-feedback
   confirmation_title: ''
-  confirmation_message: "Thank you for your feedback.\r\n<div id=\"coplmfnphahpcknbchcehdikbdieognn\">&nbsp;</div>"
+  confirmation_message: '[webform_submission:node:localgov_submission_confirm:value]'
   confirmation_attributes: {  }
   confirmation_back: true
   confirmation_back_label: ''
   confirmation_back_attributes: {  }
-  confirmation_exclude_query: false
-  confirmation_exclude_token: false
+  confirmation_exclude_query: true
+  confirmation_exclude_token: true
   confirmation_update: false
   limit_total: null
   limit_total_interval: null
@@ -228,15 +196,18 @@ access:
     users: {  }
     permissions: {  }
   view_any:
-    roles: {  }
+    roles:
+      - microsites_trusted_editor
     users: {  }
     permissions: {  }
   update_any:
-    roles: {  }
+    roles:
+      - microsites_trusted_editor
     users: {  }
     permissions: {  }
   delete_any:
-    roles: {  }
+    roles:
+      - microsites_trusted_editor
     users: {  }
     permissions: {  }
   purge_any:
