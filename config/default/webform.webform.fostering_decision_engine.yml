@@ -13,268 +13,289 @@ title: 'Fostering Decision Engine'
 description: ''
 categories: {  }
 elements: |-
-  introduction:
-    '#type': processed_text
-    '#text': "<p>Which type of fostering is best for you?</p><p>If you're over 21, have a spare bedroom and want to make a difference in a child's life. You can:</p><ul><li>be single, married or living with a partner</li><li>have children already</li><li>have pets</li><li>be retired</li><li>be disabled</li><li>identify as LGBTQ+</li><li>live in rented accommodation</li></ul><p>Answer a few questions and find out which type of fostering is best for you and your family.</p><p><strong>Start now</strong></p>"
-    '#format': wysiwyg
-  are_you_21_or_over:
-    '#type': radios
-    '#title': 'Are you 21 or over?'
-    '#options':
-      'Yes': 'Yes'
-      'No': 'No'
-  do_you_have_a_spare_bedroom:
-    '#type': radios
-    '#title': 'Do you have a spare bedroom?'
-    '#options':
-      'Yes': 'Yes'
-      'No': 'No'
-    '#states':
-      visible:
-        ':input[name="are_you_21_or_over"]':
-          value: 'Yes'
-  have_you_fostered_before:
-    '#type': radios
-    '#title': 'Have you fostered before?'
-    '#options':
-      'fostered before': 'Yes, I have fostered before'
-      current: 'Yes, I am currently fostering'
-      'no': 'No'
-    '#states':
-      visible:
-        ':input[name="do_you_have_a_spare_bedroom"]':
-          value: 'Yes'
-  are_you_open_to_fostering_disabled_children:
-    '#type': radios
-    '#title': 'Are you open to fostering disabled children?'
-    '#options':
-      experienced: "Yes, I've cared for disabled children before"
-      'first time': 'Yes, but it would be my first time caring for disabled children'
-      'no': 'No'
-    '#states':
-      visible:
-        ':input[name="have_you_fostered_before"]':
-          checked: true
-  how_long_do_you_want_to_foster_for:
-    '#type': radios
-    '#title': 'How long do you want to foster for?'
-    '#options':
-      weekend: 'Around a weekend a month'
-      weeks: 'Up to a few weeks'
-      months: 'Up to few months'
-      years: 'Up to long term, for years'
-    '#states':
-      visible:
-        ':input[name="are_you_open_to_fostering_disabled_children"]':
-          checked: true
-  under_21_no:
-    '#type': processed_text
-    '#states':
-      visible:
-        ':input[name="are_you_21_or_over"]':
-          value: 'No'
-    '#text': '<p><strong>You’re almost ready to foster</strong></p><p>You need to be over 21 to foster with us.</p><p>In the meantime, you can contact us to find out more so that when the time is right, you’re ready to go.</p>'
-    '#format': wysiwyg
-  spare_bedroom_no:
-    '#type': processed_text
-    '#states':
-      visible:
-        ':input[name="do_you_have_a_spare_bedroom"]':
-          value: 'No'
-    '#text': '<p><strong>You’re almost ready to foster</strong></p><p>You need to have a spare bedroom.</p><p>In the meantime, you can contact us to find out more so that when the time is right, you’re ready to go.</p>'
-    '#format': wysiwyg
-  experienced_disabled_weekend:
-    '#type': processed_text
-    '#states':
-      visible:
-        ':input[name="have_you_fostered_before"]':
-          '!value': 'no'
-        ':input[name="are_you_open_to_fostering_disabled_children"]':
-          '!value': 'no'
-        ':input[name="how_long_do_you_want_to_foster_for"]':
-          value: weekend
-    '#text': '<p>&nbsp;</p><p><strong>Respite fostering</strong></p><p>&nbsp;</p><p><strong>Short breaks for a disabled child</strong></p><p>&nbsp;</p><p><strong>Supported lodgings</strong></p><p>&nbsp;</p><p><strong>Specialist fostering</strong></p>'
-    '#format': wysiwyg
-  experienced_disabled_weeks:
-    '#type': processed_text
-    '#states':
-      visible:
-        ':input[name="have_you_fostered_before"]':
-          '!value': 'no'
-        ':input[name="are_you_open_to_fostering_disabled_children"]':
-          '!value': 'no'
-        ':input[name="how_long_do_you_want_to_foster_for"]':
-          value: weeks
-    '#text': '<p><strong>Sh﻿ort-term fostering</strong></p><p><strong>Respite fostering</strong></p><p><strong>Short breaks for a disabled child</strong></p><p><strong>Short-term fostering for a disabled child</strong></p><p><strong>Supported lodgings</strong></p><p><strong>Specialist fostering</strong></p>'
-    '#format': wysiwyg
-  experienced_disabled_months:
-    '#type': processed_text
-    '#states':
-      visible:
-        ':input[name="have_you_fostered_before"]':
-          '!value': 'no'
-        ':input[name="are_you_open_to_fostering_disabled_children"]':
-          '!value': 'no'
-        ':input[name="how_long_do_you_want_to_foster_for"]':
-          value: months
-    '#text': '<p><strong>Short-term fostering</strong></p><p><strong>Respite fostering</strong></p><p><strong>Short breaks for a disabled child</strong></p><p><strong>Short-term﻿fostering for a disabled child</strong></p><p><strong>Supported lodgings</strong></p><p><strong>Specialist fostering</strong></p>'
-    '#format': wysiwyg
-  experienced_disabled_years:
-    '#type': processed_text
-    '#states':
-      visible:
-        ':input[name="have_you_fostered_before"]':
-          '!value': 'no'
-        ':input[name="are_you_open_to_fostering_disabled_children"]':
-          '!value': 'no'
-        ':input[name="how_long_do_you_want_to_foster_for"]':
-          value: years
-    '#text': '<p><strong>Short-term fostering</strong></p><p><strong>Long-term fostering</strong></p><p><strong>Respite fostering</strong></p><p><strong>Short breaks for a disabled child</strong></p><p><strong>Short-term fostering for a disabled child</strong></p><p><strong>Long-term fostering for a disabled child</strong></p><p><strong>Supported lodgings</strong></p><p><strong>Specialist fostering</strong></p>'
-    '#format': wysiwyg
-  experienced_no_weekend:
-    '#type': processed_text
-    '#states':
-      visible:
-        ':input[name="have_you_fostered_before"]':
-          '!value': 'no'
-        ':input[name="are_you_open_to_fostering_disabled_children"]':
-          value: 'no'
-        ':input[name="how_long_do_you_want_to_foster_for"]':
-          value: weekend
-    '#text': '<p><strong>Respite fostering</strong></p><p><strong>Supported lodgings</strong></p><p><strong>Specialist fostering</strong></p>'
-    '#format': wysiwyg
-  experienced_no_weeks:
-    '#type': processed_text
-    '#states':
-      visible:
-        ':input[name="have_you_fostered_before"]':
-          '!value': 'no'
-        ':input[name="are_you_open_to_fostering_disabled_children"]':
-          value: 'no'
-        ':input[name="how_long_do_you_want_to_foster_for"]':
-          value: weeks
-    '#text': '<p><strong>Short-term fostering</strong></p><p><strong>Respite fostering</strong></p><p><strong>Supported lodgings</strong></p><p><strong>Specialist fostering</strong></p>'
-    '#format': wysiwyg
-  experienced_no_months:
-    '#type': processed_text
-    '#states':
-      visible:
-        ':input[name="have_you_fostered_before"]':
-          '!value': 'no'
-        ':input[name="are_you_open_to_fostering_disabled_children"]':
-          value: 'no'
-        ':input[name="how_long_do_you_want_to_foster_for"]':
-          value: months
-    '#text': '<p><strong>Short-term fostering</strong></p><p><strong>Respite fostering</strong></p><p><strong>Supported lodgings</strong></p><p><strong>Specialist fostering</strong></p>'
-    '#format': wysiwyg
-  experienced_no_years:
-    '#type': processed_text
-    '#states':
-      visible:
-        ':input[name="have_you_fostered_before"]':
-          '!value': 'no'
-        ':input[name="are_you_open_to_fostering_disabled_children"]':
-          value: 'no'
-        ':input[name="how_long_do_you_want_to_foster_for"]':
-          value: years
-    '#text': '<p><strong>Short-term fostering</strong></p><p><strong>Long-term fostering</strong></p><p><strong>Respite fostering</strong></p><p><strong>Supported lodgings</strong></p><p><strong>Specialist fostering</strong></p>'
-    '#format': wysiwyg
-  no_disabled_weekend:
-    '#type': processed_text
-    '#states':
-      visible:
-        ':input[name="have_you_fostered_before"]':
-          value: 'no'
-        ':input[name="are_you_open_to_fostering_disabled_children"]':
-          '!value': 'no'
-        ':input[name="how_long_do_you_want_to_foster_for"]':
-          value: weekend
-    '#text': '<p><strong>Respite fostering</strong></p><p><strong>Short bre﻿aks for a disabled child</strong></p><p>&nbsp;</p>'
-    '#format': wysiwyg
-  no_disabled_weeks:
-    '#type': processed_text
-    '#states':
-      visible:
-        ':input[name="have_you_fostered_before"]':
-          value: 'no'
-        ':input[name="are_you_open_to_fostering_disabled_children"]':
-          '!value': 'no'
-        ':input[name="how_long_do_you_want_to_foster_for"]':
-          value: weeks
-    '#text': '<p><strong>Short-term fostering</strong></p><p><strong>Respite fostering</strong></p><p><strong>Short bre﻿aks for a disabled child</strong></p><p>&nbsp;</p>'
-    '#format': wysiwyg
-  no_disabled_month:
-    '#type': processed_text
-    '#states':
-      visible:
-        ':input[name="have_you_fostered_before"]':
-          value: 'no'
-        ':input[name="are_you_open_to_fostering_disabled_children"]':
-          '!value': 'no'
-        ':input[name="how_long_do_you_want_to_foster_for"]':
-          value: months
-    '#text': '<p><strong>Short-term fostering</strong></p><p><strong>Respite fostering</strong></p><p><strong>Short bre﻿aks for a disabled child</strong></p><p><strong>Short-term fostering for a disabled child</strong></p>'
-    '#format': wysiwyg
-  no_disabled_years:
-    '#type': processed_text
-    '#states':
-      visible:
-        ':input[name="have_you_fostered_before"]':
-          value: 'no'
-        ':input[name="are_you_open_to_fostering_disabled_children"]':
-          '!value': 'no'
-        ':input[name="how_long_do_you_want_to_foster_for"]':
-          value: years
-    '#text': '<p><strong>Short-term fostering</strong></p><p><strong>Long-term fostering</strong></p><p><strong>Respite fostering</strong></p><p><strong>Short breaks for a disabled child</strong></p><p><strong>Short-term fostering for a disabled child</strong></p><p><strong>Long-term fo﻿stering for a disabled child</strong></p>'
-    '#format': wysiwyg
-  no_no_weekend:
-    '#type': processed_text
-    '#states':
-      visible:
-        ':input[name="have_you_fostered_before"]':
-          value: 'no'
-        ':input[name="are_you_open_to_fostering_disabled_children"]':
-          value: 'no'
-        ':input[name="how_long_do_you_want_to_foster_for"]':
-          value: weekend
-    '#text': '<p><strong>Respite fostering</strong></p><p>&nbsp;</p>'
-    '#format': wysiwyg
-  no_no_weeks:
-    '#type': processed_text
-    '#states':
-      visible:
-        ':input[name="have_you_fostered_before"]':
-          value: 'no'
-        ':input[name="are_you_open_to_fostering_disabled_children"]':
-          value: 'no'
-        ':input[name="how_long_do_you_want_to_foster_for"]':
-          value: weeks
-    '#text': '<p><strong>Short-term fostering</strong></p><p><strong>Respite fostering</strong></p><p>&nbsp;</p>'
-    '#format': wysiwyg
-  no_no_month:
-    '#type': processed_text
-    '#states':
-      visible:
-        ':input[name="have_you_fostered_before"]':
-          value: 'no'
-        ':input[name="are_you_open_to_fostering_disabled_children"]':
-          value: 'no'
-        ':input[name="how_long_do_you_want_to_foster_for"]':
-          value: months
-    '#text': '<p><strong>Short-term fostering</strong></p><p><strong>Respite fostering</strong></p>'
-    '#format': wysiwyg
-  no_no_years:
-    '#type': processed_text
-    '#states':
-      visible:
-        ':input[name="have_you_fostered_before"]':
-          value: 'no'
-        ':input[name="are_you_open_to_fostering_disabled_children"]':
-          value: 'no'
-        ':input[name="how_long_do_you_want_to_foster_for"]':
-          value: years
-    '#text': '<p><strong>Short-term fostering</strong></p><p><strong>Long-term fostering</strong></p><p><strong>Respite fostering</strong></p><p>&nbsp;</p>'
-    '#format': wysiwyg
+  eligibility:
+    '#type': webform_wizard_page
+    '#title': 'Eligibility for Fostering'
+    introduction:
+      '#type': processed_text
+      '#text': "<p>Which type of fostering is best for you?</p><p>If you're over 21, have a spare bedroom and want to make a difference in a child's life. You can:</p><ul><li>be single, married or living with a partner</li><li>have children already</li><li>have pets</li><li>be retired</li><li>be disabled</li><li>identify as LGBTQ+</li><li>live in rented accommodation</li></ul><p>Answer a few questions and find out which type of fostering is best for you and your family.</p><p><strong>Start now</strong></p>"
+      '#format': wysiwyg
+  age:
+    '#type': webform_wizard_page
+    '#title': Age
+    are_you_21_or_over:
+      '#type': radios
+      '#title': 'Are you 21 or over?'
+      '#options':
+        'Yes': 'Yes'
+        'No': 'No'
+  room:
+    '#type': webform_wizard_page
+    '#title': Room
+    do_you_have_a_spare_bedroom:
+      '#type': radios
+      '#title': 'Do you have a spare bedroom?'
+      '#options':
+        'Yes': 'Yes'
+        'No': 'No'
+      '#states':
+        visible:
+          ':input[name="are_you_21_or_over"]':
+            value: 'Yes'
+  experience:
+    '#type': webform_wizard_page
+    '#title': Experience
+    have_you_fostered_before:
+      '#type': radios
+      '#title': 'Have you fostered before?'
+      '#options':
+        'fostered before': 'Yes, I have fostered before'
+        current: 'Yes, I am currently fostering'
+        'no': 'No'
+      '#states':
+        visible:
+          ':input[name="do_you_have_a_spare_bedroom"]':
+            value: 'Yes'
+  children_with_special_needs:
+    '#type': webform_wizard_page
+    '#title': 'Children with Special Needs'
+    are_you_open_to_fostering_disabled_children:
+      '#type': radios
+      '#title': 'Are you open to fostering disabled children?'
+      '#options':
+        experienced: "Yes, I've cared for disabled children before"
+        'first time': 'Yes, but it would be my first time caring for disabled children'
+        'no': 'No'
+      '#states':
+        visible:
+          ':input[name="have_you_fostered_before"]':
+            checked: true
+  length_of_time:
+    '#type': webform_wizard_page
+    '#title': 'Length of Time'
+    how_long_do_you_want_to_foster_for:
+      '#type': radios
+      '#title': 'How long do you want to foster for?'
+      '#options':
+        weekend: 'Around a weekend a month'
+        weeks: 'Up to a few weeks'
+        months: 'Up to few months'
+        years: 'Up to long term, for years'
+      '#states':
+        visible:
+          ':input[name="are_you_open_to_fostering_disabled_children"]':
+            checked: true
+  result:
+    '#type': webform_wizard_page
+    '#title': Result
+    under_21_no:
+      '#type': processed_text
+      '#states':
+        visible:
+          ':input[name="are_you_21_or_over"]':
+            value: 'No'
+      '#text': '<p><strong>You’re almost ready to foster</strong></p><p>You need to be over 21 to foster with us.</p><p>In the meantime, you can contact us to find out more so that when the time is right, you’re ready to go.</p>'
+      '#format': wysiwyg
+    spare_bedroom_no:
+      '#type': processed_text
+      '#states':
+        visible:
+          ':input[name="do_you_have_a_spare_bedroom"]':
+            value: 'No'
+      '#text': '<p><strong>You’re almost ready to foster</strong></p><p>You need to have a spare bedroom.</p><p>In the meantime, you can contact us to find out more so that when the time is right, you’re ready to go.</p>'
+      '#format': wysiwyg
+    experienced_disabled_weekend:
+      '#type': processed_text
+      '#states':
+        visible:
+          ':input[name="have_you_fostered_before"]':
+            '!value': 'no'
+          ':input[name="are_you_open_to_fostering_disabled_children"]':
+            '!value': 'no'
+          ':input[name="how_long_do_you_want_to_foster_for"]':
+            value: weekend
+      '#text': '<p>&nbsp;</p><p><strong>Respite fostering</strong></p><p>&nbsp;</p><p><strong>Short breaks for a disabled child</strong></p><p>&nbsp;</p><p><strong>Supported lodgings</strong></p><p>&nbsp;</p><p><strong>Specialist fostering</strong></p>'
+      '#format': wysiwyg
+    experienced_disabled_weeks:
+      '#type': processed_text
+      '#states':
+        visible:
+          ':input[name="have_you_fostered_before"]':
+            '!value': 'no'
+          ':input[name="are_you_open_to_fostering_disabled_children"]':
+            '!value': 'no'
+          ':input[name="how_long_do_you_want_to_foster_for"]':
+            value: weeks
+      '#text': '<p><strong>Sh﻿ort-term fostering</strong></p><p><strong>Respite fostering</strong></p><p><strong>Short breaks for a disabled child</strong></p><p><strong>Short-term fostering for a disabled child</strong></p><p><strong>Supported lodgings</strong></p><p><strong>Specialist fostering</strong></p>'
+      '#format': wysiwyg
+    experienced_disabled_months:
+      '#type': processed_text
+      '#states':
+        visible:
+          ':input[name="have_you_fostered_before"]':
+            '!value': 'no'
+          ':input[name="are_you_open_to_fostering_disabled_children"]':
+            '!value': 'no'
+          ':input[name="how_long_do_you_want_to_foster_for"]':
+            value: months
+      '#text': '<p><strong>Short-term fostering</strong></p><p><strong>Respite fostering</strong></p><p><strong>Short breaks for a disabled child</strong></p><p><strong>Short-term﻿fostering for a disabled child</strong></p><p><strong>Supported lodgings</strong></p><p><strong>Specialist fostering</strong></p>'
+      '#format': wysiwyg
+    experienced_disabled_years:
+      '#type': processed_text
+      '#states':
+        visible:
+          ':input[name="have_you_fostered_before"]':
+            '!value': 'no'
+          ':input[name="are_you_open_to_fostering_disabled_children"]':
+            '!value': 'no'
+          ':input[name="how_long_do_you_want_to_foster_for"]':
+            value: years
+      '#text': '<p><strong>Short-term fostering</strong></p><p><strong>Long-term fostering</strong></p><p><strong>Respite fostering</strong></p><p><strong>Short breaks for a disabled child</strong></p><p><strong>Short-term fostering for a disabled child</strong></p><p><strong>Long-term fostering for a disabled child</strong></p><p><strong>Supported lodgings</strong></p><p><strong>Specialist fostering</strong></p>'
+      '#format': wysiwyg
+    experienced_no_weekend:
+      '#type': processed_text
+      '#states':
+        visible:
+          ':input[name="have_you_fostered_before"]':
+            '!value': 'no'
+          ':input[name="are_you_open_to_fostering_disabled_children"]':
+            value: 'no'
+          ':input[name="how_long_do_you_want_to_foster_for"]':
+            value: weekend
+      '#text': '<p><strong>Respite fostering</strong></p><p><strong>Supported lodgings</strong></p><p><strong>Specialist fostering</strong></p>'
+      '#format': wysiwyg
+    experienced_no_weeks:
+      '#type': processed_text
+      '#states':
+        visible:
+          ':input[name="have_you_fostered_before"]':
+            '!value': 'no'
+          ':input[name="are_you_open_to_fostering_disabled_children"]':
+            value: 'no'
+          ':input[name="how_long_do_you_want_to_foster_for"]':
+            value: weeks
+      '#text': '<p><strong>Short-term fostering</strong></p><p><strong>Respite fostering</strong></p><p><strong>Supported lodgings</strong></p><p><strong>Specialist fostering</strong></p>'
+      '#format': wysiwyg
+    experienced_no_months:
+      '#type': processed_text
+      '#states':
+        visible:
+          ':input[name="have_you_fostered_before"]':
+            '!value': 'no'
+          ':input[name="are_you_open_to_fostering_disabled_children"]':
+            value: 'no'
+          ':input[name="how_long_do_you_want_to_foster_for"]':
+            value: months
+      '#text': '<p><strong>Short-term fostering</strong></p><p><strong>Respite fostering</strong></p><p><strong>Supported lodgings</strong></p><p><strong>Specialist fostering</strong></p>'
+      '#format': wysiwyg
+    experienced_no_years:
+      '#type': processed_text
+      '#states':
+        visible:
+          ':input[name="have_you_fostered_before"]':
+            '!value': 'no'
+          ':input[name="are_you_open_to_fostering_disabled_children"]':
+            value: 'no'
+          ':input[name="how_long_do_you_want_to_foster_for"]':
+            value: years
+      '#text': '<p><strong>Short-term fostering</strong></p><p><strong>Long-term fostering</strong></p><p><strong>Respite fostering</strong></p><p><strong>Supported lodgings</strong></p><p><strong>Specialist fostering</strong></p>'
+      '#format': wysiwyg
+    no_disabled_weekend:
+      '#type': processed_text
+      '#states':
+        visible:
+          ':input[name="have_you_fostered_before"]':
+            value: 'no'
+          ':input[name="are_you_open_to_fostering_disabled_children"]':
+            '!value': 'no'
+          ':input[name="how_long_do_you_want_to_foster_for"]':
+            value: weekend
+      '#text': '<p><strong>Respite fostering</strong></p><p><strong>Short bre﻿aks for a disabled child</strong></p><p>&nbsp;</p>'
+      '#format': wysiwyg
+    no_disabled_weeks:
+      '#type': processed_text
+      '#states':
+        visible:
+          ':input[name="have_you_fostered_before"]':
+            value: 'no'
+          ':input[name="are_you_open_to_fostering_disabled_children"]':
+            '!value': 'no'
+          ':input[name="how_long_do_you_want_to_foster_for"]':
+            value: weeks
+      '#text': '<p><strong>Short-term fostering</strong></p><p><strong>Respite fostering</strong></p><p><strong>Short bre﻿aks for a disabled child</strong></p><p>&nbsp;</p>'
+      '#format': wysiwyg
+    no_disabled_month:
+      '#type': processed_text
+      '#states':
+        visible:
+          ':input[name="have_you_fostered_before"]':
+            value: 'no'
+          ':input[name="are_you_open_to_fostering_disabled_children"]':
+            '!value': 'no'
+          ':input[name="how_long_do_you_want_to_foster_for"]':
+            value: months
+      '#text': '<p><strong>Short-term fostering</strong></p><p><strong>Respite fostering</strong></p><p><strong>Short bre﻿aks for a disabled child</strong></p><p><strong>Short-term fostering for a disabled child</strong></p>'
+      '#format': wysiwyg
+    no_disabled_years:
+      '#type': processed_text
+      '#states':
+        visible:
+          ':input[name="have_you_fostered_before"]':
+            value: 'no'
+          ':input[name="are_you_open_to_fostering_disabled_children"]':
+            '!value': 'no'
+          ':input[name="how_long_do_you_want_to_foster_for"]':
+            value: years
+      '#text': '<p><strong>Short-term fostering</strong></p><p><strong>Long-term fostering</strong></p><p><strong>Respite fostering</strong></p><p><strong>Short breaks for a disabled child</strong></p><p><strong>Short-term fostering for a disabled child</strong></p><p><strong>Long-term fo﻿stering for a disabled child</strong></p>'
+      '#format': wysiwyg
+    no_no_weekend:
+      '#type': processed_text
+      '#states':
+        visible:
+          ':input[name="have_you_fostered_before"]':
+            value: 'no'
+          ':input[name="are_you_open_to_fostering_disabled_children"]':
+            value: 'no'
+          ':input[name="how_long_do_you_want_to_foster_for"]':
+            value: weekend
+      '#text': '<p><strong>Respite fostering</strong></p><p>&nbsp;</p>'
+      '#format': wysiwyg
+    no_no_weeks:
+      '#type': processed_text
+      '#states':
+        visible:
+          ':input[name="have_you_fostered_before"]':
+            value: 'no'
+          ':input[name="are_you_open_to_fostering_disabled_children"]':
+            value: 'no'
+          ':input[name="how_long_do_you_want_to_foster_for"]':
+            value: weeks
+      '#text': '<p><strong>Short-term fostering</strong></p><p><strong>Respite fostering</strong></p><p>&nbsp;</p>'
+      '#format': wysiwyg
+    no_no_month:
+      '#type': processed_text
+      '#states':
+        visible:
+          ':input[name="have_you_fostered_before"]':
+            value: 'no'
+          ':input[name="are_you_open_to_fostering_disabled_children"]':
+            value: 'no'
+          ':input[name="how_long_do_you_want_to_foster_for"]':
+            value: months
+      '#text': '<p><strong>Short-term fostering</strong></p><p><strong>Respite fostering</strong></p>'
+      '#format': wysiwyg
+    no_no_years:
+      '#type': processed_text
+      '#states':
+        visible:
+          ':input[name="have_you_fostered_before"]':
+            value: 'no'
+          ':input[name="are_you_open_to_fostering_disabled_children"]':
+            value: 'no'
+          ':input[name="how_long_do_you_want_to_foster_for"]':
+            value: years
+      '#text': '<p><strong>Short-term fostering</strong></p><p><strong>Long-term fostering</strong></p><p><strong>Respite fostering</strong></p><p>&nbsp;</p>'
+      '#format': wysiwyg
   actions:
     '#type': webform_actions
     '#title': 'Submit button(s)'
