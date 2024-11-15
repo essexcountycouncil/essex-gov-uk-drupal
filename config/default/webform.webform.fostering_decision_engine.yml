@@ -88,9 +88,9 @@ elements: |-
     '#states':
       visible:
         ':input[name="have_you_fostered_before"]':
-          value: 'fostered before'
+          '!value': 'no'
         ':input[name="are_you_open_to_fostering_disabled_children"]':
-          value: experienced
+          '!value': 'no'
         ':input[name="how_long_do_you_want_to_foster_for"]':
           value: weekend
     '#text': '<p>&nbsp;</p><p><strong>Respite fostering</strong></p><p>&nbsp;</p><p><strong>Short breaks for a disabled child</strong></p><p>&nbsp;</p><p><strong>Supported lodgings</strong></p><p>&nbsp;</p><p><strong>Specialist fostering</strong></p>'
@@ -100,9 +100,9 @@ elements: |-
     '#states':
       visible:
         ':input[name="have_you_fostered_before"]':
-          value: 'fostered before'
+          '!value': 'no'
         ':input[name="are_you_open_to_fostering_disabled_children"]':
-          value: experienced
+          '!value': 'no'
         ':input[name="how_long_do_you_want_to_foster_for"]':
           value: weeks
     '#text': '<p><strong>Sh﻿ort-term fostering</strong></p><p><strong>Respite fostering</strong></p><p><strong>Short breaks for a disabled child</strong></p><p><strong>Short-term fostering for a disabled child</strong></p><p><strong>Supported lodgings</strong></p><p><strong>Specialist fostering</strong></p>'
@@ -112,9 +112,9 @@ elements: |-
     '#states':
       visible:
         ':input[name="have_you_fostered_before"]':
-          value: 'fostered before'
+          '!value': 'no'
         ':input[name="are_you_open_to_fostering_disabled_children"]':
-          value: experienced
+          '!value': 'no'
         ':input[name="how_long_do_you_want_to_foster_for"]':
           value: months
     '#text': '<p><strong>Short-term fostering</strong></p><p><strong>Respite fostering</strong></p><p><strong>Short breaks for a disabled child</strong></p><p><strong>Short-term﻿fostering for a disabled child</strong></p><p><strong>Supported lodgings</strong></p><p><strong>Specialist fostering</strong></p>'
@@ -124,9 +124,9 @@ elements: |-
     '#states':
       visible:
         ':input[name="have_you_fostered_before"]':
-          value: 'fostered before'
+          '!value': 'no'
         ':input[name="are_you_open_to_fostering_disabled_children"]':
-          value: experienced
+          '!value': 'no'
         ':input[name="how_long_do_you_want_to_foster_for"]':
           value: years
     '#text': '<p><strong>Short-term fostering</strong></p><p><strong>Long-term fostering</strong></p><p><strong>Respite fostering</strong></p><p><strong>Short breaks for a disabled child</strong></p><p><strong>Short-term fostering for a disabled child</strong></p><p><strong>Long-term fostering for a disabled child</strong></p><p><strong>Supported lodgings</strong></p><p><strong>Specialist fostering</strong></p>'
@@ -136,7 +136,7 @@ elements: |-
     '#states':
       visible:
         ':input[name="have_you_fostered_before"]':
-          value: 'fostered before'
+          '!value': 'no'
         ':input[name="are_you_open_to_fostering_disabled_children"]':
           value: 'no'
         ':input[name="how_long_do_you_want_to_foster_for"]':
@@ -148,7 +148,7 @@ elements: |-
     '#states':
       visible:
         ':input[name="have_you_fostered_before"]':
-          value: 'fostered before'
+          '!value': 'no'
         ':input[name="are_you_open_to_fostering_disabled_children"]':
           value: 'no'
         ':input[name="how_long_do_you_want_to_foster_for"]':
@@ -160,7 +160,7 @@ elements: |-
     '#states':
       visible:
         ':input[name="have_you_fostered_before"]':
-          value: 'fostered before'
+          '!value': 'no'
         ':input[name="are_you_open_to_fostering_disabled_children"]':
           value: 'no'
         ':input[name="how_long_do_you_want_to_foster_for"]':
@@ -172,7 +172,7 @@ elements: |-
     '#states':
       visible:
         ':input[name="have_you_fostered_before"]':
-          value: 'fostered before'
+          '!value': 'no'
         ':input[name="are_you_open_to_fostering_disabled_children"]':
           value: 'no'
         ':input[name="how_long_do_you_want_to_foster_for"]':
@@ -186,7 +186,7 @@ elements: |-
         ':input[name="have_you_fostered_before"]':
           value: 'no'
         ':input[name="are_you_open_to_fostering_disabled_children"]':
-          value: experienced
+          '!value': 'no'
         ':input[name="how_long_do_you_want_to_foster_for"]':
           value: weekend
     '#text': '<p><strong>Respite fostering</strong></p><p><strong>Short bre﻿aks for a disabled child</strong></p><p>&nbsp;</p>'
@@ -198,7 +198,7 @@ elements: |-
         ':input[name="have_you_fostered_before"]':
           value: 'no'
         ':input[name="are_you_open_to_fostering_disabled_children"]':
-          value: experienced
+          '!value': 'no'
         ':input[name="how_long_do_you_want_to_foster_for"]':
           value: weeks
     '#text': '<p><strong>Short-term fostering</strong></p><p><strong>Respite fostering</strong></p><p><strong>Short bre﻿aks for a disabled child</strong></p><p>&nbsp;</p>'
@@ -210,7 +210,7 @@ elements: |-
         ':input[name="have_you_fostered_before"]':
           value: 'no'
         ':input[name="are_you_open_to_fostering_disabled_children"]':
-          value: experienced
+          '!value': 'no'
         ':input[name="how_long_do_you_want_to_foster_for"]':
           value: months
     '#text': '<p><strong>Short-term fostering</strong></p><p><strong>Respite fostering</strong></p><p><strong>Short bre﻿aks for a disabled child</strong></p><p><strong>Short-term fostering for a disabled child</strong></p>'
@@ -222,7 +222,7 @@ elements: |-
         ':input[name="have_you_fostered_before"]':
           value: 'no'
         ':input[name="are_you_open_to_fostering_disabled_children"]':
-          value: experienced
+          '!value': 'no'
         ':input[name="how_long_do_you_want_to_foster_for"]':
           value: years
     '#text': '<p><strong>Short-term fostering</strong></p><p><strong>Long-term fostering</strong></p><p><strong>Respite fostering</strong></p><p><strong>Short breaks for a disabled child</strong></p><p><strong>Short-term fostering for a disabled child</strong></p><p><strong>Long-term fo﻿stering for a disabled child</strong></p>'
