@@ -12,7 +12,6 @@
         // several times per page load.
         count++;
         if (count === 2) {
-          console.log(response);
           if (response.currentStatus === 'granted') {
             ecc_cct_log(1);
           }
