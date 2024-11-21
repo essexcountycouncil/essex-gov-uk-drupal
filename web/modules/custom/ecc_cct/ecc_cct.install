@@ -2,10 +2,10 @@
 
 /**
  * @file
- * Install, update and uninstall functions for the ECC Cookie Consent Tracker module.
+ * Install functions for the ECC Cookie Consent Tracker module.
  */
 
- /**
+/**
  * Implements hook_schema().
  */
 function ecc_cct_schema() {
