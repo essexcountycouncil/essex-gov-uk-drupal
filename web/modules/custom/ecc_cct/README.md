@@ -1,4 +1,4 @@
-# Essex Co Co cookie consent statistics.
+# Essex County Council cookie consent statistics.
 
 This module hooks into the events thown by the EU Cookie Compliance module.
 
