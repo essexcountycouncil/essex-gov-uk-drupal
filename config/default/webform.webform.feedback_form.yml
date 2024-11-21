@@ -10,9 +10,15 @@ template: false
 archive: false
 id: feedback_form
 title: 'Feedback Form'
-description: "For providing feedback to content\r\n<div id=\"extension-host\">&nbsp;</div>"
+description: |-
+  For providing feedback to content
+  <div id="extension-host">&nbsp;</div>
 categories: {  }
 elements: |-
+  processed_text:
+    '#type': processed_text
+    '#text': '<p>Only use this form to give us feedback about our new website.&nbsp;</p><p>For all other enquiries, go to our <a href="/node/1004" data-entity-type="node" data-entity-uuid="56300866-9e5e-4fe9-87e1-aa06ab95966a" data-entity-substitution="canonical" title="Contact us">contact us page.</a></p><p>The information you provide will only be used for the purpose of improving our online services and will not be shared outside the council.</p>'
+    '#format': wysiwyg
   why_did_you_visit_our_website_today:
     '#type': textarea
     '#title': 'Why did you visit our website today?'
