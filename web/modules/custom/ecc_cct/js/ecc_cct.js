@@ -25,17 +25,7 @@
 
 
       async function ecc_cct_log(choice) {
-        const response = await fetch('/ecc-cct/js/log/' + choice).catch(error => {
-          console.error('Error sending integer:', error);
-        });
-
-
-        if (!response.ok) {
-          throw new Error(`Response status: ${response.status}`);
-        }
-        else {
-          console.log(response);
-        }
+        const response = await fetch('/ecc-cct/js/log/' + choice);
       }
     }
   }
