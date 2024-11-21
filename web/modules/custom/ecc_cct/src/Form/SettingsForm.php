@@ -37,19 +37,9 @@ final class SettingsForm extends ConfigFormBase {
         0 => $this->t('Disabled'),
         1 => $this->t('Enabled'),
       ],
-      '#default_value' => $this->config('ecc_cct.settings')->get('enable'),
+      '#config_target' => 'ecc_cct.settings:enable',
     ];
     return parent::buildForm($form, $form_state);
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function submitForm(array &$form, FormStateInterface $form_state): void {
-    $this->config('ecc_cct.settings')
-      ->set('enable', $form_state->getValue('enable'))
-      ->save();
-    parent::submitForm($form, $form_state);
   }
 
 }
