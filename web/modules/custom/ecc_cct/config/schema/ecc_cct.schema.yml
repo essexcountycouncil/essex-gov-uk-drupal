@@ -4,5 +4,5 @@ ecc_cct.settings:
   label: 'ECC Cookie Consent Tracker settings'
   mapping:
     enable:
-      type: string
+      type: integer
       label: 'enable'
