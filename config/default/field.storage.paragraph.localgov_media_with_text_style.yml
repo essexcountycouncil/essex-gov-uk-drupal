@@ -19,6 +19,9 @@ settings:
     -
       value: featured
       label: Featured
+    -
+      value: circle
+      label: Circle
   allowed_values_function: ''
 module: options
 locked: false
