@@ -1,0 +1,11 @@
+uuid: 82991eb6-3035-49c2-b5b2-97bad92aee5f
+langcode: en
+status: true
+dependencies:
+  module:
+    - content_lock
+id: localgov_alert_banner_break_lock_action
+label: 'Break lock localgov_alert_banner'
+type: localgov_alert_banner
+plugin: 'entity:break_lock:localgov_alert_banner'
+configuration: {  }
