@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.localgov_directories_page.body
     - field.field.node.localgov_directories_page.field_directory_page_access
     - field.field.node.localgov_directories_page.field_directory_page_age
+    - field.field.node.localgov_directories_page.field_directory_page_location
     - field.field.node.localgov_directories_page.localgov_directory_address
     - field.field.node.localgov_directories_page.localgov_directory_channels
     - field.field.node.localgov_directories_page.localgov_directory_email
@@ -122,6 +123,7 @@ hidden:
   content_moderation_control: true
   field_directory_page_access: true
   field_directory_page_age: true
+  field_directory_page_location: true
   links: true
   localgov_directory_facets_select: true
   localgov_directory_title_sort: true
