@@ -1,40 +1,42 @@
-uuid: 0adcdf2f-21fa-4402-b08e-47d18e18b826
+uuid: 98142fab-5d34-4250-b233-510ddc4b8f81
 langcode: en
 status: true
 dependencies:
   module:
-    - dblog
+    - content_lock
+    - node
     - user
 _core:
-  default_config_hash: j0txIxY4nkJT_dscmXckM-1vanygDkJAeHPawZKfyH0
-id: watchdog
-label: Watchdog
+  default_config_hash: 20uAZ_mv5QF7jDPAnDEt50LSEJFxnwlJOGLvefWnzko
+id: locked_content
+label: 'Locked content'
 module: views
-description: 'Recent log messages'
+description: ''
 tag: ''
-base_table: watchdog
-base_field: wid
+base_table: node_field_data
+base_field: nid
 display:
   default:
     id: default
-    display_title: Default
+    display_title: Master
     display_plugin: default
     position: 0
     display_options:
-      title: 'Recent log messages'
+      title: 'Locked content'
       fields:
-        nothing:
-          id: nothing
-          table: views
-          field: nothing
+        node_bulk_form:
+          id: node_bulk_form
+          table: node
+          field: node_bulk_form
           relationship: none
           group_type: group
-          admin_label: Icon
-          plugin_id: custom
-          label: ''
+          admin_label: ''
+          entity_type: node
+          plugin_id: node_bulk_form
+          label: 'Node operations bulk form'
           exclude: false
           alter:
-            alter_text: true
+            alter_text: false
             text: ''
             make_link: false
             path: ''
@@ -61,53 +63,41 @@ display:
             preserve_tags: ''
             html: false
           element_type: ''
-          element_class: icon
+          element_class: ''
           element_label_type: ''
           element_label_class: ''
           element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
-          element_default_classes: false
+          element_default_classes: true
           empty: ''
           hide_empty: false
           empty_zero: false
-          hide_alter_empty: false
-        wid:
-          id: wid
-          table: watchdog
-          field: wid
+          hide_alter_empty: true
+          action_title: Action
+          include_exclude: include
+          selected_actions:
+            - node_break_lock_action
+        title:
+          id: title
+          table: node_field_data
+          field: title
           relationship: none
           group_type: group
           admin_label: ''
-          plugin_id: standard
-          label: WID
-          exclude: true
+          entity_type: node
+          entity_field: title
+          plugin_id: field
+          label: Title
+          exclude: false
           alter:
             alter_text: false
-            text: ''
             make_link: false
-            path: ''
             absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
+            word_boundary: false
+            ellipsis: false
             strip_tags: false
             trim: false
-            preserve_tags: ''
             html: false
           element_type: ''
           element_class: ''
@@ -121,65 +111,31 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-        severity:
-          id: severity
-          table: watchdog
-          field: severity
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: machine_name
-          label: Severity
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          machine_name: false
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: true
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
         type:
           id: type
-          table: watchdog
+          table: node_field_data
           field: type
           relationship: none
           group_type: group
           admin_label: ''
-          plugin_id: standard
-          label: Type
+          entity_type: node
+          entity_field: type
+          plugin_id: field
+          label: 'Content type'
           exclude: false
           alter:
             alter_text: false
@@ -220,15 +176,29 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
+          click_sort_column: target_id
+          type: entity_reference_label
+          settings:
+            link: true
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
         timestamp:
           id: timestamp
-          table: watchdog
+          table: content_lock
           field: timestamp
           relationship: none
           group_type: group
           admin_label: ''
           plugin_id: date
-          label: Date
+          label: 'Lock Date/Time'
           exclude: false
           alter:
             alter_text: false
@@ -269,59 +239,9 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          date_format: short
+          date_format: fallback
           custom_date_format: ''
           timezone: ''
-        message:
-          id: message
-          table: watchdog
-          field: message
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: dblog_message
-          label: Message
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: true
-            path: 'admin/reports/dblog/event/{{ wid }}'
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: '{{ message }}'
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 56
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: true
-            trim: true
-            preserve_tags: ''
-            html: true
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          replace_variables: true
         name:
           id: name
           table: users_field_data
@@ -332,7 +252,7 @@ display:
           entity_type: user
           entity_field: name
           plugin_id: field
-          label: User
+          label: 'Lock owner'
           exclude: false
           alter:
             alter_text: false
@@ -387,14 +307,21 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        link:
-          id: link
-          table: watchdog
-          field: link
+        langcode:
+          id: langcode
+          table: content_lock
+          field: langcode
+          plugin_id: langcode
+          exclude: false
+        operations:
+          id: operations
+          table: node
+          field: operations
           relationship: none
           group_type: group
           admin_label: ''
-          plugin_id: dblog_operations
+          entity_type: node
+          plugin_id: entity_operations
           label: Operations
           exclude: false
           alter:
@@ -436,17 +363,19 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
+          destination: false
       pager:
-        type: mini
+        type: full
         options:
           offset: 0
-          pagination_heading_level: h4
           items_per_page: 50
           total_pages: null
           id: 0
           tags:
             next: ››
             previous: ‹‹
+            first: '« First'
+            last: 'Last »'
           expose:
             items_per_page: false
             items_per_page_label: 'Items per page'
@@ -455,66 +384,162 @@ display:
             items_per_page_options_all_label: '- All -'
             offset: false
             offset_label: Offset
+          quantity: 9
       exposed_form:
         type: basic
         options:
-          submit_button: Filter
-          reset_button: true
+          submit_button: Apply
+          reset_button: false
           reset_button_label: Reset
           exposed_sorts_label: 'Sort by'
-          expose_sort_order: false
+          expose_sort_order: true
           sort_asc_label: Asc
           sort_desc_label: Desc
       access:
-        type: perm
+        type: content_lock_access_check
         options:
-          perm: 'access site reports'
+          perm: 'administer nodes'
       cache:
         type: none
         options: {  }
       empty:
-        area:
+        area_text_custom:
           id: area_text_custom
           table: views
           field: area_text_custom
           relationship: none
           group_type: group
-          admin_label: 'No log messages available.'
+          admin_label: ''
           plugin_id: text_custom
           empty: true
-          content: 'No log messages available.'
+          content: 'There is no content currently locked.'
           tokenize: false
       sorts:
-        wid:
-          id: wid
-          table: watchdog
-          field: wid
+        created:
+          id: created
+          table: node_field_data
+          field: created
           relationship: none
           group_type: group
           admin_label: ''
-          plugin_id: standard
+          entity_type: node
+          entity_field: created
+          plugin_id: date
           order: DESC
           expose:
             label: ''
-            field_identifier: wid
+            field_identifier: ''
           exposed: false
+          granularity: second
       arguments: {  }
       filters:
+        is_locked:
+          id: is_locked
+          table: content_lock
+          field: is_locked
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: content_lock_filter
+          operator: '='
+          value: '1'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        status:
+          id: status
+          table: node_field_data
+          field: status
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          entity_field: status
+          plugin_id: boolean
+          operator: '='
+          value: '1'
+          group: 1
+          exposed: true
+          expose:
+            operator_id: ''
+            label: 'Published status'
+            description: ''
+            use_operator: false
+            operator: status_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: status
+            required: true
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              editor: '0'
+              seo: '0'
+              administrator: '0'
+          is_grouped: true
+          group_info:
+            label: 'Published status'
+            description: ''
+            identifier: status
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: Published
+                operator: '='
+                value: '1'
+              2:
+                title: Unpublished
+                operator: '='
+                value: '0'
         type:
           id: type
-          table: watchdog
+          table: node_field_data
           field: type
           relationship: none
           group_type: group
           admin_label: ''
-          plugin_id: dblog_types
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
           operator: in
           value: {  }
           group: 1
           exposed: true
           expose:
             operator_id: type_op
-            label: Type
+            label: 'Content type'
             description: ''
             use_operator: false
             operator: type_op
@@ -523,10 +548,12 @@ display:
             identifier: type
             required: false
             remember: false
-            multiple: true
+            multiple: false
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
+              editor: '0'
+              seo: '0'
               administrator: '0'
             reduce: false
           is_grouped: false
@@ -541,35 +568,39 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-        severity:
-          id: severity
-          table: watchdog
-          field: severity
+        title:
+          id: title
+          table: node_field_data
+          field: title
           relationship: none
           group_type: group
           admin_label: ''
-          plugin_id: in_operator
-          operator: in
-          value: {  }
+          entity_type: node
+          entity_field: title
+          plugin_id: string
+          operator: contains
+          value: ''
           group: 1
           exposed: true
           expose:
-            operator_id: severity_op
-            label: Severity
+            operator_id: title_op
+            label: Title
             description: ''
             use_operator: false
-            operator: severity_op
+            operator: title_op
             operator_limit_selection: false
             operator_list: {  }
-            identifier: severity
+            identifier: title
             required: false
             remember: false
-            multiple: true
+            multiple: false
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
+              editor: '0'
+              seo: '0'
               administrator: '0'
-            reduce: false
+            placeholder: ''
           is_grouped: false
           group_info:
             label: ''
@@ -590,55 +621,34 @@ display:
         type: table
         options:
           grouping: {  }
-          row_class: '{{ type }} {{ severity }}'
+          row_class: ''
           default_row_class: true
           columns:
-            nothing: nothing
-            wid: wid
-            severity: severity
+            title: title
             type: type
             timestamp: timestamp
-            message: message
             name: name
-            link: link
-          default: wid
+            langcode: langcode
+            operations: operations
+          default: timestamp
           info:
-            nothing:
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: priority-medium
-            wid:
-              sortable: false
-              default_sort_order: desc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: priority-low
-            severity:
-              sortable: false
+            title:
+              sortable: true
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
-              responsive: priority-low
+              responsive: ''
             type:
               sortable: true
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
-              responsive: priority-medium
+              responsive: ''
             timestamp:
               sortable: true
               default_sort_order: desc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: priority-low
-            message:
-              sortable: false
-              default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
@@ -649,16 +659,23 @@ display:
               align: ''
               separator: ''
               empty_column: false
-              responsive: priority-medium
-            link:
+              responsive: ''
+            langcode:
+              sortable: true
+              default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
-              responsive: priority-low
+              responsive: ''
+            operations:
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
           override: true
-          sticky: false
+          sticky: true
           summary: ''
-          empty_table: false
+          empty_table: true
           caption: ''
           description: ''
       row:
@@ -668,46 +685,59 @@ display:
         options:
           query_comment: ''
           disable_sql_rewrite: false
-          distinct: false
+          distinct: true
           replica: false
           query_tags: {  }
       relationships:
         uid:
           id: uid
-          table: watchdog
+          table: content_lock
           field: uid
           relationship: none
           group_type: group
-          admin_label: User
+          admin_label: 'Lock owner'
           plugin_id: standard
-          required: false
-      css_class: admin-dblog
+          required: true
       header: {  }
       footer: {  }
       display_extenders: {  }
     cache_metadata:
-      max-age: -1
+      max-age: 0
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
         - url.query_args
+        - 'user.node_grants:view'
         - user.permissions
-      tags: {  }
-  page:
-    id: page
+      tags:
+        - 'config:content_lock.settings'
+  page_1:
+    id: page_1
     display_title: Page
     display_plugin: page
     position: 1
     display_options:
+      enabled: true
       display_extenders: {  }
-      path: admin/reports/dblog
+      path: admin/content/locked-content
+      menu:
+        type: tab
+        title: 'Locked content'
+        description: ''
+        weight: 0
+        expanded: false
+        menu_name: admin
+        parent: system.admin_content
+        context: '0'
     cache_metadata:
-      max-age: -1
+      max-age: 0
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
         - url.query_args
+        - 'user.node_grants:view'
         - user.permissions
-      tags: {  }
+      tags:
+        - 'config:content_lock.settings'

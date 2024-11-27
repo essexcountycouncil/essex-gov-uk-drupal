@@ -1,0 +1,36 @@
+uuid: 421a99fd-f728-433e-b414-883aa2df8a56
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.localgov_directories_facets
+  module:
+    - block_classes
+    - facets_form
+    - node
+  theme:
+    - ecc_theme_gov
+id: ecc_theme_gov_facetformviewdirectorychanneldisplayembed
+theme: ecc_theme_gov
+region: sidebar_first
+weight: 0
+provider: null
+plugin: 'facets_form:search_api:views_embed__localgov_directory_channel__node_embed'
+settings:
+  id: 'facets_form:search_api:views_embed__localgov_directory_channel__node_embed'
+  label: 'Filter by'
+  label_display: visible
+  provider: facets_form
+  button:
+    label:
+      submit: Search
+      reset: Reset
+  facets: {  }
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      localgov_directory: localgov_directory

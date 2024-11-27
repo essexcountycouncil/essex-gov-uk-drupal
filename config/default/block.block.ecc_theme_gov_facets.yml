@@ -1,0 +1,32 @@
+uuid: e9914b02-a477-4220-8050-fdb944b13c28
+langcode: en
+status: false
+dependencies:
+  config:
+    - facets.facet.localgov_directories_facets
+  module:
+    - facets
+    - node
+  theme:
+    - ecc_theme_gov
+id: ecc_theme_gov_facets
+theme: ecc_theme_gov
+region: sidebar_first
+weight: 0
+provider: null
+plugin: 'facet_block:localgov_directories_facets'
+settings:
+  id: 'facet_block:localgov_directories_facets'
+  label: Facets
+  label_display: visible
+  provider: facets
+  context_mapping: {  }
+  block_id: ecc_theme_gov_facets
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      localgov_directory: localgov_directory

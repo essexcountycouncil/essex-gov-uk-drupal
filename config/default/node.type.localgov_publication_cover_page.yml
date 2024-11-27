@@ -13,6 +13,7 @@ third_party_settings:
       - main
       - subsites
       - subsites
+      - subsites
     parent: 'main:'
 _core:
   default_config_hash: SBbDjARv7P-kt6MCqejARLNTWAq3an2vZN7baCF0plY

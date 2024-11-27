@@ -1,0 +1,110 @@
+uuid: 85cbbb17-44c2-4794-acfa-7db433483f7f
+langcode: en
+status: true
+dependencies:
+  config:
+    - entity_browser.browser.page_components
+    - entity_browser.browser.paragraphs_library_items
+    - node.type.localgov_directories_org
+    - node.type.localgov_directories_page
+    - node.type.localgov_directories_venue
+    - node.type.localgov_directory
+    - node.type.localgov_directory_promo_page
+    - node.type.localgov_event
+    - workflows.workflow.localgov_editorial
+  module:
+    - content_moderation
+    - ecc_content_moderation
+    - entity_browser
+    - facets
+    - field_ui
+    - file
+    - geo_entity
+    - help
+    - localgov_directories
+    - media
+    - node
+    - system
+    - toolbar
+id: directory_editor
+label: 'Directory editor'
+weight: -1
+is_admin: null
+permissions:
+  - 'access administration pages'
+  - 'access content overview'
+  - 'access directory facets overview'
+  - 'access files overview'
+  - 'access geo overview'
+  - 'access help pages'
+  - 'access media overview'
+  - 'access page_components entity browser pages'
+  - 'access paragraphs_library_items entity browser pages'
+  - 'access toolbar'
+  - 'administer display modes'
+  - 'administer facets'
+  - 'administer geo_entity display'
+  - 'administer geo_entity form display'
+  - 'administer localgov_directories_facets display'
+  - 'administer localgov_directories_facets form display'
+  - 'administer node display'
+  - 'administer node form display'
+  - 'administer user display'
+  - 'create geo'
+  - 'create localgov_directories_org content'
+  - 'create localgov_directories_page content'
+  - 'create localgov_directories_venue content'
+  - 'create localgov_directory_promo_page content'
+  - 'create localgov_event content'
+  - 'delete any localgov_directories_org content'
+  - 'delete any localgov_directories_page content'
+  - 'delete any localgov_directories_venue content'
+  - 'delete any localgov_directory_promo_page content'
+  - 'delete any localgov_event content'
+  - 'delete localgov_directories_org revisions'
+  - 'delete localgov_directories_page revisions'
+  - 'delete localgov_directories_venue revisions'
+  - 'delete localgov_directory_promo_page revisions'
+  - 'delete localgov_event revisions'
+  - 'delete own localgov_directories_org content'
+  - 'delete own localgov_directories_page content'
+  - 'delete own localgov_directories_venue content'
+  - 'delete own localgov_directory_promo_page content'
+  - 'delete own localgov_event content'
+  - 'edit any localgov_directories_org content'
+  - 'edit any localgov_directories_page content'
+  - 'edit any localgov_directories_venue content'
+  - 'edit any localgov_directory_promo_page content'
+  - 'edit any localgov_event content'
+  - 'edit geo'
+  - 'edit own localgov_directories_org content'
+  - 'edit own localgov_directories_page content'
+  - 'edit own localgov_directories_venue content'
+  - 'edit own localgov_directory_promo_page content'
+  - 'edit own localgov_event content'
+  - 'revert localgov_directories_org revisions'
+  - 'revert localgov_directories_page revisions'
+  - 'revert localgov_directories_venue revisions'
+  - 'revert localgov_directory revisions'
+  - 'revert localgov_directory_promo_page revisions'
+  - 'revert localgov_event revisions'
+  - 'use localgov_editorial transition approve'
+  - 'use localgov_editorial transition archive'
+  - 'use localgov_editorial transition archived_draft'
+  - 'use localgov_editorial transition archived_published'
+  - 'use localgov_editorial transition create_new_draft'
+  - 'use localgov_editorial transition publish'
+  - 'use localgov_editorial transition reject'
+  - 'use localgov_editorial transition submit_for_review'
+  - 'view any unpublished content'
+  - 'view directory facets'
+  - 'view entity moderation form'
+  - 'view geo'
+  - 'view latest version'
+  - 'view localgov_directories_org revisions'
+  - 'view localgov_directories_page revisions'
+  - 'view localgov_directories_venue revisions'
+  - 'view localgov_directory revisions'
+  - 'view localgov_directory_promo_page revisions'
+  - 'view localgov_event revisions'
+  - 'view the administration theme'

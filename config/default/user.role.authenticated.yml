@@ -6,10 +6,11 @@ dependencies:
     - filter.format.webform_default
     - filter.format.wysiwyg
     - localgov_alert_banner.localgov_alert_banner_type.localgov_alert_banner
+    - search_api_autocomplete.search.localgov_directory_channel
+    - search_api_autocomplete.search.localgov_news_search
   module:
     - cludo_search
     - content_moderation
-    - content_ownership
     - eu_cookie_compliance
     - file
     - filter
@@ -17,6 +18,7 @@ dependencies:
     - geo_entity
     - localgov_alert_banner
     - media
+    - poll
     - search_api_autocomplete
     - system
     - webform
@@ -30,6 +32,7 @@ permissions:
   - 'access cludo search content'
   - 'access content'
   - 'access fontawesome additional settings'
+  - 'access polls'
   - 'delete own files'
   - 'display eu cookie compliance popup'
   - 'edit own webform submission'
@@ -39,7 +42,6 @@ permissions:
   - 'use text format wysiwyg'
   - 'view all localgov alert banner entities'
   - 'view any unpublished content'
-  - 'view content owner/sme entity'
   - 'view geo'
   - 'view latest version'
   - 'view localgov alert banner localgov_alert_banner entities'

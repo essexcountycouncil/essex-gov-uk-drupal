@@ -1,7 +1,12 @@
 uuid: 31519699-ba66-4280-9b7d-0ff8e20fa252
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - search_api.index.localgov_directories_index_default
+    - views.view.localgov_directory_channel
+  module:
+    - search_api
 id: localgov_directories_facets
 name: Facets
 weight: 0
@@ -22,16 +27,11 @@ hierarchy:
 expand_hierarchy: false
 enable_parent_when_child_gets_disabled: true
 widget:
-  type: checkbox
+  type: facets_form_checkbox
   config:
-    show_numbers: false
-    soft_limit: 0
-    show_reset_link: false
-    reset_text: 'Show all'
-    hide_reset_when_no_selection: false
-    soft_limit_settings:
-      show_less_label: 'Show less'
-      show_more_label: 'Show more'
+    show_numbers: true
+    disabled_on_empty: false
+    indent_class: indented
 empty_behavior:
   behavior: none
 only_visible_when_facet_source_is_visible: false
@@ -44,6 +44,11 @@ processor_configs:
       sort: 40
     settings:
       sort: ASC
+  hierarchy_processor:
+    processor_id: hierarchy_processor
+    weights:
+      build: 100
+    settings: {  }
   translate_entity:
     processor_id: translate_entity
     weights:

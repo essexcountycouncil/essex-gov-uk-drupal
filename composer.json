@@ -76,6 +76,7 @@
         "drupal/entity_embed": "^1.6",
         "drupal/entity_share": "^3.0",
         "drupal/eu_cookie_compliance": "^1.24",
+        "drupal/facets_form": "^1.0",
         "drupal/fathom_analytics": "^3.0",
         "drupal/file_mdm": "^2.6",
         "drupal/geocoder": "^4.23",
@@ -124,6 +125,7 @@
         "localgovdrupal/localgov": "^3",
         "localgovdrupal/localgov_base": "^1.5",
         "localgovdrupal/localgov_content_access_control": "^1.0",
+        "localgovdrupal/localgov_directories": "^3.2",
         "localgovdrupal/localgov_eu_cookie_compliance": "^1.0",
         "localgovdrupal/localgov_forms": "^1.0@beta",
         "localgovdrupal/localgov_geo": "^2",
@@ -195,9 +197,6 @@
             "drupal/fathom_analytics": {
                 "Automated Drupal 10 compatibility fixes": "https://www.drupal.org/files/issues/2022-06-15/fathom_analytics.3.0.0.rector.patch"
             },
-            "drupal/geofield_map": {
-                "polyfill.io Library is no longer considered safe to use": "https://git.drupalcode.org/project/geofield_map/-/merge_requests/16.diff"
-            },
             "drupal/honeypot": {
                 "honeypot clientside": "https://www.drupal.org/files/issues/2024-08-16/clientside_time_limit_2_1_4.patch"
             },
@@ -210,6 +209,10 @@
             "drupal/preview_link": {
                 "Option to enter expiry period in days instead of seconds": "https://git.drupalcode.org/project/preview_link/-/merge_requests/22.diff",
                 "Error when accessing a preview link if enabled_entity_types configuration is missing": "https://www.drupal.org/files/issues/2024-04-04/preview_link-3438117-enabled_entity_types.patch"
+            },
+            "localgovdrupal/localgov_directories": {
+                "Support facets form": "https://patch-diff.githubusercontent.com/raw/localgovdrupal/localgov_directories/pull/399.diff",
+                "Set order of facets on channel": "patches/localgov_directories_facets.patch"
             },
             "localgovdrupal/localgov_publications": {
                 "Declare permissions for LocalGov Publications": "patches/localgov_publications.patch"
@@ -226,6 +229,12 @@
             "localgovdrupal/localgov_workflows": {
                 "New Content by owner View": "https://patch-diff.githubusercontent.com/raw/localgovdrupal/localgov_workflows/pull/104.diff",
                 "Service contact delete form": "patches/localgov_workflows_delete_service_contact.patch"
+            },
+            "drupal/facets_form": {
+                "Form submit redirect URL is keeping filter query parameters when all filters are removed": "https://www.drupal.org/files/issues/2022-05-02/facets-form-fix-submit-redirect-url-3255007-5.patch"
+            },
+            "localgovdrupal/localgov_paragraphs": {
+                "Set type of buttons in accordions to prevent form submission": "patches/localgov-accordion-button-type.patch"
             }
         },
         "drupal-scaffold": {
