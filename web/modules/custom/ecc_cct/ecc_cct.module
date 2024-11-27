@@ -17,7 +17,6 @@ function ecc_cct_preprocess_html(&$vars) {
     $path_match = \Drupal::service('path.matcher')->matchPath($path, $config->get('exclude_paths'));
     $path_match_url_alias = \Drupal::service('path.matcher')->matchPath($url_alias_path, $config->get('exclude_paths'));
     $path_match = $path_match || $path_match_url_alias;
-    $exclude_paths = $config->get('exclude_paths');
   }
 
   // Check hide cookie compliance on admin theme.
