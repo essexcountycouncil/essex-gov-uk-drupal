@@ -67,6 +67,7 @@ settings:
       localgov_contact: localgov_contact
       page_section: page_section
       localgov_page_section: localgov_page_section
+      webform: webform
     negate: 0
     target_bundles_drag_drop:
       from_library:
@@ -180,4 +181,7 @@ settings:
       topic_list_builder:
         weight: -64
         enabled: false
+      webform:
+        weight: 84
+        enabled: true
 field_type: entity_reference_revisions
