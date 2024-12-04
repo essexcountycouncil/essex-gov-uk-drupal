@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "72e486945504a6e8d8edfab18e07d348",
+    "content-hash": "2b3bd09a38e43671b8a6e6a874d811c2",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -10005,16 +10005,16 @@
         },
         {
             "name": "essexcountycouncil/ecc_theme",
-            "version": "1.1.13",
+            "version": "dev-202411_featured_teaser_LP_280",
             "source": {
                 "type": "git",
                 "url": "https://github.com/essexcountycouncil/ecc_theme.git",
-                "reference": "0243a05aae6e746d2188e6f639200bdf2acfde1e"
+                "reference": "ff22b4feda3f50ab0954b36c9b3cca0e0340b414"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/essexcountycouncil/ecc_theme/zipball/0243a05aae6e746d2188e6f639200bdf2acfde1e",
-                "reference": "0243a05aae6e746d2188e6f639200bdf2acfde1e",
+                "url": "https://api.github.com/repos/essexcountycouncil/ecc_theme/zipball/ff22b4feda3f50ab0954b36c9b3cca0e0340b414",
+                "reference": "ff22b4feda3f50ab0954b36c9b3cca0e0340b414",
                 "shasum": ""
             },
             "type": "drupal-theme",
@@ -10026,10 +10026,10 @@
             ],
             "description": "Consolidated Essex County Council Drupal theme",
             "support": {
-                "source": "https://github.com/essexcountycouncil/ecc_theme/tree/1.1.13",
+                "source": "https://github.com/essexcountycouncil/ecc_theme/tree/202411_featured_teaser_LP_280",
                 "issues": "https://github.com/essexcountycouncil/ecc_theme/issues"
             },
-            "time": "2024-10-28T10:17:40+00:00"
+            "time": "2024-11-27T17:55:26+00:00"
         },
         {
             "name": "ezyang/htmlpurifier",
@@ -23696,6 +23696,7 @@
         "drupal/preview_link": 15,
         "drupal/ultimate_cron": 15,
         "drupal/views_core_entity_reference": 15,
+        "essexcountycouncil/ecc_theme": 20,
         "localgovdrupal/localgov_forms": 10,
         "localgovdrupal/localgov_subsites_extras": 20
     },
