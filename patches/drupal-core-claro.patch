@@ -1,0 +1,36 @@
+diff --git a/themes/claro/claro.theme b/themes/claro/claro.theme
+index 6100a9f0d0..badfd1c9bb 100644
+--- a/themes/claro/claro.theme
++++ b/themes/claro/claro.theme
+@@ -1087,17 +1087,20 @@ function claro_preprocess_field_multiple_value_form(&$variables) {
+       // We will add the 'is-disabled' CSS class to the disabled table header
+       // cells.
+       $header_attributes['class'][] = 'is-disabled';
+-      foreach ($variables['table']['#header'] as &$cell) {
+-        if (is_array($cell) && isset($cell['data'])) {
+-          $cell = $cell + ['class' => []];
+-          $cell['class'][] = 'is-disabled';
+-        }
+-        else {
+-          // We have to modify the structure of this header cell.
+-          $cell = [
+-            'data' => $cell,
+-            'class' => ['is-disabled'],
+-          ];
++
++      if (!empty($variables['table']['#header'])) {
++        foreach ($variables['table']['#header'] as &$cell) {
++          if (is_array($cell) && isset($cell['data'])) {
++            $cell = $cell + ['class' => []];
++            $cell['class'][] = 'is-disabled';
++          }
++          else {
++            // We have to modify the structure of this header cell.
++            $cell = [
++              'data' => $cell,
++              'class' => ['is-disabled'],
++            ];
++          }
+         }
+       }
+     }

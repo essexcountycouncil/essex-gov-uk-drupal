@@ -192,6 +192,7 @@
             "drupal/core": {
                 "Claro theme + field_group seems to hide content of dropbutton": "https://www.drupal.org/files/issues/2024-01-19/drupal-claro-theme-field_group-seems-to-hide-content-of-dropdown-3217868-58.patch",
                 "Add Views EntityReference filter to support better UX for exposed filters": "https://www.drupal.org/files/issues/2024-07-10/3347343-213.patch",
+                "LP-67 - Claro error when table header is missing": "patches/drupal-core-claro.patch",
                 "dynamic transitions": "https://www.drupal.org/files/issues/2024-09-24/2797583-8775-235.patch"
             },
             "drupal/fathom_analytics": {
