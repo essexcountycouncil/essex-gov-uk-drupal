@@ -3,14 +3,13 @@ langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.node.search_index
     - field.storage.node.localgov_event_categories
     - field.storage.node.localgov_event_date
     - field.storage.node.localgov_event_locality
     - field.storage.node.localgov_event_price
     - search_api.server.localgov_events
-    - core.entity_view_mode.node.search_index
   module:
-    - search_api
     - node
 _core:
   default_config_hash: Dl9TdWlJnB_AX1dsT_ct8nFkWCA7DLZ7aN4DrEnJZ24

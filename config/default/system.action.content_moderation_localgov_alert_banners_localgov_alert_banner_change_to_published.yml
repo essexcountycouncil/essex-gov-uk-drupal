@@ -1,0 +1,17 @@
+uuid: 091952fc-6906-4b69-a76d-fa89b5dd519d
+langcode: en
+status: true
+dependencies:
+  config:
+    - workflows.workflow.localgov_alert_banners
+  module:
+    - content_moderation
+    - localgov_alert_banner
+id: content_moderation_localgov_alert_banners_localgov_alert_banner_change_to_published
+label: 'Change moderation state to Published'
+type: localgov_alert_banner
+plugin: 'moderation_state_change:localgov_alert_banner'
+configuration:
+  workflow: localgov_alert_banners
+  state: published
+  revision_log_message: 'Change moderation state to Published'
