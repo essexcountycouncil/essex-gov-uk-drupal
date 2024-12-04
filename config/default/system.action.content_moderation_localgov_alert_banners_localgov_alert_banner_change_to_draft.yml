@@ -1,0 +1,17 @@
+uuid: 91fb9979-6644-4003-a067-22b5791b89e6
+langcode: en
+status: true
+dependencies:
+  config:
+    - workflows.workflow.localgov_alert_banners
+  module:
+    - content_moderation
+    - localgov_alert_banner
+id: content_moderation_localgov_alert_banners_localgov_alert_banner_change_to_draft
+label: 'Change moderation state to Draft'
+type: localgov_alert_banner
+plugin: 'moderation_state_change:localgov_alert_banner'
+configuration:
+  workflow: localgov_alert_banners
+  state: draft
+  revision_log_message: 'Change moderation state to Draft'

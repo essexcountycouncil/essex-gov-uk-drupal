@@ -116,8 +116,6 @@ permissions:
   - 'administer directory facets types'
   - 'administer facets'
   - 'administer localgov_service_contact'
-  - 'administer book outlines'
-  - 'administer localgov_service_contact'
   - 'administer menu'
   - 'administer paragraphs library'
   - 'administer redirects'

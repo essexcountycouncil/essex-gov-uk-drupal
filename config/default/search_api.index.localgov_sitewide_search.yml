@@ -3,10 +3,9 @@ langcode: en
 status: true
 dependencies:
   config:
-    - search_api.server.localgov_sitewide_search
     - core.entity_view_mode.node.search_index
+    - search_api.server.localgov_sitewide_search
   module:
-    - search_api
     - node
 _core:
   default_config_hash: 8yx4BbuOrdkI3Aodg10G3Iec41uVvfYB7d4KKmSs7lw
