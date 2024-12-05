@@ -1,0 +1,6 @@
+# Custom library for general purposes.
+ecc_cct:
+  js:
+    js/ecc_cct.js: {}
+  dependencies:
+    - core/drupalSettings
