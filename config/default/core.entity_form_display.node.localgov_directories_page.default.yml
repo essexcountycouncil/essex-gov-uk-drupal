@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.localgov_directories_page.body
     - field.field.node.localgov_directories_page.field_directory_page_access
     - field.field.node.localgov_directories_page.field_directory_page_age
+    - field.field.node.localgov_directories_page.field_directory_page_location
     - field.field.node.localgov_directories_page.localgov_directory_address
     - field.field.node.localgov_directories_page.localgov_directory_channels
     - field.field.node.localgov_directories_page.localgov_directory_email
@@ -54,6 +55,7 @@ third_party_settings:
         - localgov_directory_title_sort
         - body
         - field_directory_page_age
+        - field_directory_page_location
         - field_directory_page_access
         - localgov_directory_files
       label: Description
@@ -126,7 +128,7 @@ content:
     third_party_settings: {  }
   field_directory_page_access:
     type: text_textarea
-    weight: 4
+    weight: 5
     region: content
     settings:
       rows: 9
@@ -138,6 +140,14 @@ content:
     region: content
     settings:
       rows: 3
+      placeholder: ''
+    third_party_settings: {  }
+  field_directory_page_location:
+    type: text_textarea
+    weight: 4
+    region: content
+    settings:
+      rows: 5
       placeholder: ''
     third_party_settings: {  }
   localgov_directory_address:
@@ -169,7 +179,7 @@ content:
     third_party_settings: {  }
   localgov_directory_files:
     type: media_library_widget
-    weight: 5
+    weight: 6
     region: content
     settings:
       media_types: {  }

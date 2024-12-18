@@ -3,6 +3,9 @@ langcode: en
 status: true
 dependencies:
   config:
+    - entity_browser.browser.geo_entity_library
+    - entity_browser.browser.page_components
+    - entity_browser.browser.paragraphs_library_items
     - localgov_alert_banner.localgov_alert_banner_type.localgov_alert_banner
     - media.type.document
     - media.type.image
@@ -38,6 +41,7 @@ dependencies:
     - entity_browser
     - entity_hierarchy
     - entity_usage
+    - facets
     - file
     - geo_entity
     - geocoder
@@ -50,6 +54,7 @@ dependencies:
     - paragraphs
     - paragraphs_library
     - path
+    - poll
     - preview_link
     - redirect
     - replicate_ui
@@ -59,6 +64,7 @@ dependencies:
     - taxonomy
     - toolbar
     - webform
+    - workflows
   enforced:
     module:
       - localgov_roles
@@ -80,6 +86,8 @@ permissions:
   - 'access media overview'
   - 'access page_components entity browser pages'
   - 'access paragraphs_library_items entity browser pages'
+  - 'access poll overview'
+  - 'access polls'
   - 'access responsive preview'
   - 'access taxonomy overview'
   - 'access toolbar'
@@ -105,11 +113,15 @@ permissions:
   - 'add scheduled transitions node localgov_subsites_overview'
   - 'add scheduled transitions node localgov_subsites_page'
   - 'administer book outlines'
+  - 'administer directory facets types'
+  - 'administer facets'
   - 'administer localgov_service_contact'
   - 'administer menu'
   - 'administer paragraphs library'
   - 'administer redirects'
   - 'administer taxonomy'
+  - 'administer workflows'
+  - 'cancel own vote'
   - 'create directory facets'
   - 'create document media'
   - 'create geo'
@@ -133,6 +145,7 @@ permissions:
   - 'create media'
   - 'create new books'
   - 'create paragraph library item'
+  - 'create polls'
   - 'create remote_video media'
   - 'create terms in localgov_event_category'
   - 'create terms in localgov_event_locality'
@@ -155,6 +168,7 @@ permissions:
   - 'delete any localgov_subsites_overview content'
   - 'delete any localgov_subsites_page content'
   - 'delete any media'
+  - 'delete directory facets'
   - 'delete geo'
   - 'delete localgov_event revisions'
   - 'delete localgov_publication_cover_page revisions'
@@ -219,6 +233,7 @@ permissions:
   - 'edit own localgov_step_by_step_page content'
   - 'edit own localgov_subsites_overview content'
   - 'edit own localgov_subsites_page content'
+  - 'edit own polls'
   - 'edit own remote_video media'
   - 'edit own webform'
   - 'edit paragraph library item'
@@ -316,6 +331,7 @@ permissions:
   - 'view localgov_subsites_page revisions'
   - 'view own unpublished content'
   - 'view own unpublished media'
+  - 'view poll results'
   - 'view scheduled transitions localgov_alert_banner localgov_alert_banner'
   - 'view scheduled transitions node localgov_directories_org'
   - 'view scheduled transitions node localgov_directories_page'

@@ -23,6 +23,7 @@ module:
   config_split: 0
   content_access_by_path: 0
   content_access_by_path_admin_content: 0
+  content_lock: 0
   content_moderation: 0
   contextual: 0
   crop: 0
@@ -99,6 +100,7 @@ module:
   leaflet_views: 0
   link: 0
   link_attributes: 0
+  link_attributes_menu_link_content: 0
   linkit: 0
   localgov_admin_theme_improvements: 0
   localgov_alert_banner: 0
@@ -201,6 +203,7 @@ module:
   ultimate_cron: 0
   update: 0
   user: 0
+  views_bulk_operations: 0
   views_core_entity_reference: 0
   views_ui: 0
   viewsreference: 0

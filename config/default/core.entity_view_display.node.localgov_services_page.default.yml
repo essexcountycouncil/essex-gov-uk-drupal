@@ -10,11 +10,13 @@ dependencies:
     - field.field.node.localgov_services_page.localgov_hide_related_topics
     - field.field.node.localgov_services_page.localgov_override_related_links
     - field.field.node.localgov_services_page.localgov_page_components
+    - field.field.node.localgov_services_page.localgov_paragraph_content
     - field.field.node.localgov_services_page.localgov_related_links
     - field.field.node.localgov_services_page.localgov_services_parent
     - field.field.node.localgov_services_page.localgov_topic_classified
     - node.type.localgov_services_page
   module:
+    - layout_paragraphs
     - text
     - user
 _core:
@@ -37,6 +39,15 @@ content:
     settings:
       view_mode: default
       link: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  localgov_paragraph_content:
+    type: layout_paragraphs
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
     third_party_settings: {  }
     weight: 1
     region: content
