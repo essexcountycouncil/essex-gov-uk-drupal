@@ -15,7 +15,6 @@ dependencies:
     - paragraphs.paragraphs_type.localgov_quote
     - paragraphs.paragraphs_type.localgov_text
     - paragraphs.paragraphs_type.localgov_video
-    - paragraphs.paragraphs_type.map
     - paragraphs.paragraphs_type.webform
   module:
     - entity_reference_revisions
@@ -43,7 +42,6 @@ settings:
       localgov_quote: localgov_quote
       localgov_text: localgov_text
       localgov_video: localgov_video
-      map: map
       webform: webform
     negate: 0
     target_bundles_drag_drop:
