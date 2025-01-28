@@ -49,6 +49,11 @@ processor_configs:
     weights:
       build: 100
     settings: {  }
+  localgov_directories_processor:
+    processor_id: localgov_directories_processor
+    weights:
+      pre_query: 35
+    settings: {  }
   translate_entity:
     processor_id: translate_entity
     weights:
