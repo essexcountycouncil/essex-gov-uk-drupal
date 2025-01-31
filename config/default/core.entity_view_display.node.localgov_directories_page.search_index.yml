@@ -18,6 +18,7 @@ dependencies:
     - field.field.node.localgov_directories_page.localgov_directory_phone
     - field.field.node.localgov_directories_page.localgov_directory_title_sort
     - field.field.node.localgov_directories_page.localgov_directory_website
+    - field.field.node.localgov_directories_page.localgov_paragraph_content
     - node.type.localgov_directories_page
   module:
     - address
@@ -127,4 +128,5 @@ hidden:
   links: true
   localgov_directory_facets_select: true
   localgov_directory_title_sort: true
+  localgov_paragraph_content: true
   search_api_excerpt: true

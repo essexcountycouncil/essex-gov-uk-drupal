@@ -17,12 +17,14 @@ dependencies:
     - field.field.node.localgov_directories_page.localgov_directory_phone
     - field.field.node.localgov_directories_page.localgov_directory_title_sort
     - field.field.node.localgov_directories_page.localgov_directory_website
+    - field.field.node.localgov_directories_page.localgov_paragraph_content
     - node.type.localgov_directories_page
     - workflows.workflow.localgov_editorial
   module:
     - address
     - content_moderation
     - field_group
+    - layout_paragraphs
     - link
     - localgov_directories
     - localgov_review_date
@@ -40,6 +42,7 @@ third_party_settings:
         - group_description
         - group_directory
         - group_enquiries
+        - group_rich_content
       label: tabs
       region: content
       parent_name: ''
@@ -103,6 +106,22 @@ third_party_settings:
         formatter: closed
         description: ''
         required_fields: true
+    group_rich_content:
+      children:
+        - localgov_paragraph_content
+      label: 'Rich Content'
+      region: hidden
+      parent_name: group_tabs
+      weight: 6
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        formatter: closed
+        description: ''
+        required_fields: true
 _core:
   default_config_hash: '-w6k3C9eelLq_KWDTlcv11Qg0-X1A_lUom4OwcKIHr8'
 id: node.localgov_directories_page.default
@@ -122,7 +141,7 @@ content:
     third_party_settings: {  }
   created:
     type: datetime_timestamp
-    weight: 5
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -223,6 +242,18 @@ content:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
+  localgov_paragraph_content:
+    type: layout_paragraphs
+    weight: 2
+    region: content
+    settings:
+      view_mode: default
+      preview_view_mode: default
+      form_display_mode: default
+      nesting_depth: 0
+      require_layouts: 1
+      empty_message: ''
+    third_party_settings: {  }
   localgov_review_date:
     type: review_date
     weight: 0
@@ -231,7 +262,7 @@ content:
     third_party_settings: {  }
   localgov_service_contacts:
     type: entity_reference_autocomplete
-    weight: 26
+    weight: 13
     region: content
     settings:
       match_operator: CONTAINS
@@ -247,13 +278,13 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 8
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
-    weight: 6
+    weight: 5
     region: content
     settings:
       display_label: true
@@ -272,7 +303,7 @@ content:
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
-    weight: 7
+    weight: 6
     region: content
     settings:
       display_label: true
