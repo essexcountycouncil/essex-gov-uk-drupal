@@ -51,13 +51,12 @@ third_party_settings:
         id: ''
         label_as_html: false
         element: div
-        show_label: false
-        label_element: h3
+        show_label: true
+        label_element: h2
         label_element_classes: ''
         attributes: ''
         effect: none
         speed: fast
-        description: ''
 _core:
   default_config_hash: CbFJXKJj2tbKrjoN3eXxIA3dl7AWEGsTiqCggpH20uc
 id: node.localgov_directories_page.default
