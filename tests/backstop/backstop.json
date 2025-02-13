@@ -1,0 +1,95 @@
+{
+  "id": "BS",
+  "viewports": [
+    {
+      "label": "phone",
+      "width": 320,
+      "height": 480
+    },
+    {
+      "label": "hd",
+      "width": 1920,
+      "height": 1080
+    }
+  ],
+  "onBeforeScript": "puppet/onBefore.js",
+  "onReadyScript": "puppet/onReady.js",
+  "scenarios": [
+    {
+      "label": "Fostering Home",
+      "url": "https://essex-public.al.anner.ie/children-young-people-and-families/fostering",
+      "referenceUrl": "https://www.essex.gov.uk/children-young-people-and-families/fostering",
+      "misMatchThreshold": 1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "What is fostering",
+      "url": "https://essex-public.al.anner.ie/children-young-people-and-families/fostering/what-fostering",
+      "referenceUrl": "https://www.essex.gov.uk/children-young-people-and-families/fostering/what-fostering",
+      "misMatchThreshold": 1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "Carer finances",
+      "url": "https://essex-public.al.anner.ie/children-young-people-and-families/fostering/foster-carer-finances-and-expenses",
+      "referenceUrl": "https://www.essex.gov.uk/children-young-people-and-families/fostering/foster-carer-finances-and-expenses",
+      "misMatchThreshold": 1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "Training",
+      "url": "https://essex-public.al.anner.ie/children-young-people-and-families/fostering/training-and-support",
+      "referenceUrl": "https://www.essex.gov.uk/children-young-people-and-families/fostering/training-and-support",
+      "misMatchThreshold": 1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "Foster",
+      "url": "https://essex-public.al.anner.ie/children-young-people-and-families/fostering/foster-your-local-council",
+      "referenceUrl": "https://www.essex.gov.uk/children-young-people-and-families/fostering/foster-your-local-council",
+      "misMatchThreshold": 2,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "Events",
+      "url": "https://essex-public.al.anner.ie/children-young-people-and-families/fostering/events",
+      "referenceUrl": "https://www.essex.gov.uk/children-young-people-and-families/fostering/events",
+      "misMatchThreshold": 1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "Contact",
+      "url": "https://essex-public.al.anner.ie/children-young-people-and-families/fostering/contact-essex-fostering-team",
+      "referenceUrl": "https://www.essex.gov.uk/children-young-people-and-families/fostering/contact-essex-fostering-team",
+      "misMatchThreshold": 2,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "Resources",
+      "url": "https://essex-public.al.anner.ie/children-young-people-and-families/fostering/foster-carer-resource-hub",
+      "referenceUrl": "https://www.essex.gov.uk/children-young-people-and-families/fostering/foster-carer-resource-hub",
+      "misMatchThreshold": 2,
+      "requireSameDimensions": true
+    }
+  ],
+  "paths": {
+    "bitmaps_reference": "backstop_data/bitmaps_reference",
+    "bitmaps_test": "backstop_data/bitmaps_test",
+    "engine_scripts": "backstop_data/engine_scripts",
+    "html_report": "backstop_data/html_report",
+    "ci_report": "backstop_data/ci_report"
+  },
+  "report": [
+    "browser"
+  ],
+  "engine": "puppeteer",
+  "engineOptions": {
+    "args": [
+      "--no-sandbox"
+    ]
+  },
+  "asyncCaptureLimit": 5,
+  "asyncCompareLimit": 50,
+  "debug": false,
+  "debugWindow": false
+}
