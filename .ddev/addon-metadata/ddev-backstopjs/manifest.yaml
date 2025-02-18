@@ -1,0 +1,11 @@
+name: ddev-backstopjs
+repository: mmunz/ddev-backstopjs
+version: v1.0.5
+install_date: "2025-01-28T12:26:12Z"
+project_files:
+    - docker-compose.backstop.yaml
+    - backstopBuild/
+    - commands/backstop/backstop
+    - commands/host/backstop-results
+global_files: []
+removal_actions: []
