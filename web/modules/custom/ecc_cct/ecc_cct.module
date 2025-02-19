@@ -1,0 +1,38 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for ECC Cookie Consent Tracker module.
+ */
+
+/**
+ * Implements hook_preprocess_html().
+ */
+function ecc_cct_preprocess_html(&$vars) {
+  $config = \Drupal::config('eu_cookie_compliance.settings');
+  if (!empty($config->get('exclude_paths'))) {
+    // Check both the URL path and the URL alias against the list to exclude.
+    $path = \Drupal::service('path.current')->getPath();
+    $url_alias_path = \Drupal::service('path_alias.manager')->getAliasByPath($path);
+    $path_match = \Drupal::service('path.matcher')->matchPath($path, $config->get('exclude_paths'));
+    $path_match_url_alias = \Drupal::service('path.matcher')->matchPath($url_alias_path, $config->get('exclude_paths'));
+    $path_match = $path_match || $path_match_url_alias;
+  }
+
+  // Check hide cookie compliance on admin theme.
+  $admin_theme_match = FALSE;
+
+  if ($config->get('exclude_admin_theme')) {
+    // Determines whether the active route is an admin one.
+    $is_route_admin = \Drupal::service('router.admin_context')->isAdminRoute();
+    if ($is_route_admin) {
+      $admin_theme_match = TRUE;
+    }
+  }
+  if ($path_match_url_alias || $path_match || $admin_theme_match) {
+    // Do nothing.
+  }
+  else {
+    $vars['#attached']['library'][] = 'ecc_cct/ecc_cct';
+  }
+}

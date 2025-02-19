@@ -37,6 +37,7 @@ module:
   diff: 0
   dynamic_entity_reference: 0
   dynamic_page_cache: 0
+  ecc_cct: 0
   ecc_cludo_search: 0
   ecc_content_moderation: 0
   ecc_cookie_compliance: 0
