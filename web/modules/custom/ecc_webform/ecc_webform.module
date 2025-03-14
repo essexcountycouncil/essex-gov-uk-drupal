@@ -8,8 +8,6 @@
 /**
  * Implements hook_form_alter().
  */
-function ecc_webform_form_alter(&$form, &$form_state, $form_id) {
-  if ($form_id == 'webform_submission_feedback_form_add_form') {
-    $form['#attached']['library'][] = 'ecc_webform/referrer';
-  }
+function ecc_webform_form_webform_submission_feedback_form_add_form_alter(&$form, &$form_state, $form_id) {
+  $form['#attached']['library'][] = 'ecc_webform/referrer';
 }
