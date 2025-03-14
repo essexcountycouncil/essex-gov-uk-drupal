@@ -101,6 +101,7 @@ module:
   leaflet_views: 0
   link: 0
   link_attributes: 0
+  link_attributes_menu_link_content: 0
   linkit: 0
   localgov_admin_theme_improvements: 0
   localgov_alert_banner: 0

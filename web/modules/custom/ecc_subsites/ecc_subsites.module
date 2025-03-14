@@ -24,7 +24,9 @@ function ecc_subsites_preprocess_block(&$variables) {
     $subSiteService = \Drupal::service('localgov_subsites_extras.service');
 
     if ($subSiteService->getHomePage()) {
-      if ($subSiteService->getCurrentSubsiteTheme() === 'fostering') {
+      $white_logo_themes = ['fostering', 'digitalessex'];
+      $theme = $subSiteService->getCurrentSubsiteTheme();
+      if (in_array($theme, $white_logo_themes)) {
         $variables['content']['site_logo']['#uri'] = '/themes/contrib/ecc_theme/ecc_theme_gov/assets/images/ECC_logo_long_white.svg';
       }
     }

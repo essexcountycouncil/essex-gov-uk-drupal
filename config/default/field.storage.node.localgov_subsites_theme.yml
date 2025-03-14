@@ -19,6 +19,9 @@ settings:
     -
       value: fostering
       label: Fostering
+    -
+      value: digitalessex
+      label: 'Digital Essex'
   allowed_values_function: ''
 module: options
 locked: false
