@@ -1,0 +1,31 @@
+[data-drupal-selector=edit-did-you-find-what-you-needed] .webform-options-display-side-by-side {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+[data-drupal-selector=edit-how-easy-did-you-find-it-to-use-our-website] .webform-options-display-side-by-side {
+  display: flex;
+  justify-content: space-evenly;
+  padding-bottom: 2em;
+
+  .form-item {
+    position: relative;
+
+    .description {
+      position: absolute;
+      width: max-content;
+      left: -50%;
+      border: none;
+      background: none;
+    }
+  }
+}
+
+.form-item-is-there-anything-else-you-would-like-to-tell-us .description {
+  border: none;
+  background: none;
+}
+
+.webform-submission-form .webform-type-radios .form-item label:not(.form-required):after {
+  content: '';
+}

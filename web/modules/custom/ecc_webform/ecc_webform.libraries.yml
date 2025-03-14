@@ -1,0 +1,8 @@
+# Essex Webform module library.
+referrer:
+  version: 1.0.0
+  css:
+    theme:
+      css/feedback.css: {}
+  js:
+    js/referrer.js: {}
