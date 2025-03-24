@@ -1,0 +1,23 @@
+uuid: ceda243a-f9ce-46fa-a361-26775d1c59c8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_p_iframe_size
+    - paragraphs.paragraphs_type.iframe
+  module:
+    - options
+id: paragraph.iframe.field_p_iframe_size
+field_name: field_p_iframe_size
+entity_type: paragraph
+bundle: iframe
+label: Size
+description: 'Sets the height of the iframe.'
+required: true
+translatable: false
+default_value:
+  -
+    value: 750
+default_value_callback: ''
+settings: {  }
+field_type: list_integer
