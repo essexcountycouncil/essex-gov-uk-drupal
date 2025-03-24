@@ -1,0 +1,13 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for ECC Webform module.
+ */
+
+/**
+ * Implements hook_form_alter().
+ */
+function ecc_webform_form_webform_submission_feedback_form_add_form_alter(&$form, &$form_state, $form_id) {
+  $form['#attached']['library'][] = 'ecc_webform/referrer';
+}

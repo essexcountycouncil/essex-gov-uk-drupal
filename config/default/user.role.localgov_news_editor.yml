@@ -28,6 +28,7 @@ dependencies:
     - workflows.workflow.localgov_alert_banners
     - workflows.workflow.localgov_editorial
   module:
+    - content_lock
     - content_moderation
     - entity_hierarchy
     - file
@@ -63,6 +64,7 @@ permissions:
   - 'add scheduled transitions node localgov_newsroom'
   - 'add scheduled transitions node localgov_subsites_overview'
   - 'administer redirects'
+  - 'break content lock'
   - 'create document media'
   - 'create image media'
   - 'create localgov_news_article content'
