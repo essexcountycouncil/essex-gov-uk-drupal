@@ -236,6 +236,9 @@
             },
             "localgovdrupal/localgov_paragraphs": {
                 "Set type of buttons in accordions to prevent form submission": "patches/localgov-accordion-button-type.patch"
+            },
+            "drupal/field_formatter_class": {
+              "prevent WSOD when in a form that is not an entity form.": "https://git.drupalcode.org/project/field_formatter_class/-/commit/e17b4c2553dec42e5f344036e1e5f2f45b51287f.patch"
             }
         },
         "drupal-scaffold": {
