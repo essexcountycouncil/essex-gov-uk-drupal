@@ -118,6 +118,7 @@ permissions:
   - 'administer localgov_service_contact'
   - 'administer menu'
   - 'administer paragraphs library'
+  - 'administer polls'
   - 'administer redirects'
   - 'administer taxonomy'
   - 'administer workflows'
