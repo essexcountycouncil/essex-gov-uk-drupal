@@ -6,6 +6,7 @@ dependencies:
     - field.storage.node.localgov_subsites_content
     - node.type.localgov_subsites_overview
     - paragraphs.paragraphs_type.from_library
+    - paragraphs.paragraphs_type.iframe
     - paragraphs.paragraphs_type.localgov_accordion
     - paragraphs.paragraphs_type.localgov_block_view
     - paragraphs.paragraphs_type.localgov_box_link
@@ -75,10 +76,14 @@ settings:
       from_library: from_library
       localgov_contact: localgov_contact
       page_section: page_section
+      iframe: iframe
     negate: 0
     target_bundles_drag_drop:
       from_library:
         weight: -41
+        enabled: true
+      iframe:
+        weight: 43
         enabled: true
       localgov_accordion:
         weight: -74
@@ -158,9 +163,15 @@ settings:
       localgov_newsroom_teaser:
         weight: -52
         enabled: true
+      localgov_numbered_text:
+        weight: 70
+        enabled: false
       localgov_page_section:
         weight: -43
         enabled: true
+      localgov_publications_banner:
+        weight: 72
+        enabled: false
       localgov_quote:
         weight: -60
         enabled: true
@@ -187,5 +198,8 @@ settings:
         enabled: true
       topic_list_builder:
         weight: -42
+        enabled: false
+      webform:
+        weight: 82
         enabled: false
 field_type: entity_reference_revisions
