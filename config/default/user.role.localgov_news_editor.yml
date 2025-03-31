@@ -63,6 +63,7 @@ permissions:
   - 'add scheduled transitions node localgov_news_article'
   - 'add scheduled transitions node localgov_newsroom'
   - 'add scheduled transitions node localgov_subsites_overview'
+  - 'administer polls'
   - 'administer redirects'
   - 'break content lock'
   - 'create document media'
