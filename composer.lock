@@ -10050,26 +10050,26 @@
         },
         {
             "name": "essexcountycouncil/ecc_parents",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/essexcountycouncil/ecc_parents.git",
-                "reference": "8917f822db594b814ee67968fe72ff1e6c42af93"
+                "reference": "bb6b5bbc3d039eec2cc0166ceb24148459e2f020"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/essexcountycouncil/ecc_parents/zipball/8917f822db594b814ee67968fe72ff1e6c42af93",
-                "reference": "8917f822db594b814ee67968fe72ff1e6c42af93",
+                "url": "https://api.github.com/repos/essexcountycouncil/ecc_parents/zipball/bb6b5bbc3d039eec2cc0166ceb24148459e2f020",
+                "reference": "bb6b5bbc3d039eec2cc0166ceb24148459e2f020",
                 "shasum": ""
             },
             "type": "drupal-module",
             "description": "Customisation for LGD content types with parent-child relationship",
             "homepage": "https://github.com/essexcountycouncil/ecc_parents",
             "support": {
-                "source": "https://github.com/essexcountycouncil/ecc_parents/tree/1.0.2",
+                "source": "https://github.com/essexcountycouncil/ecc_parents/tree/1.0.3",
                 "issues": "https://github.com/essexcountycouncil/ecc_parents/issues"
             },
-            "time": "2024-09-25T13:56:52+00:00"
+            "time": "2025-04-01T14:18:23+00:00"
         },
         {
             "name": "essexcountycouncil/ecc_theme",
