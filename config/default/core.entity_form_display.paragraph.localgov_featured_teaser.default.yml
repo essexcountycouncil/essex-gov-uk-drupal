@@ -10,6 +10,7 @@ dependencies:
     - field.field.paragraph.localgov_featured_teaser.localgov_title
     - paragraphs.paragraphs_type.localgov_featured_teaser
   module:
+    - field_formatter_class
     - link
     - media_library
     - text
@@ -28,22 +29,24 @@ content:
     third_party_settings: {  }
   localgov_image:
     type: media_library_widget
-    weight: 3
+    weight: 4
     region: content
     settings:
       media_types: {  }
     third_party_settings: {  }
   localgov_link:
     type: link_default
-    weight: 4
+    weight: 2
     region: content
     settings:
       placeholder_url: ''
       placeholder_title: ''
-    third_party_settings: {  }
+    third_party_settings:
+      field_formatter_class:
+        class: ''
   localgov_text:
     type: text_textarea
-    weight: 2
+    weight: 3
     region: content
     settings:
       rows: 5

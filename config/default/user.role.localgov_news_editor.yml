@@ -28,6 +28,7 @@ dependencies:
     - workflows.workflow.localgov_alert_banners
     - workflows.workflow.localgov_editorial
   module:
+    - content_lock
     - content_moderation
     - entity_hierarchy
     - file
@@ -56,13 +57,16 @@ permissions:
   - 'access content overview'
   - 'access localgov alert banner listing page'
   - 'access media overview'
+  - 'access poll overview'
   - 'access responsive preview'
   - 'access toolbar'
   - 'add scheduled transitions localgov_alert_banner localgov_alert_banner'
   - 'add scheduled transitions node localgov_news_article'
   - 'add scheduled transitions node localgov_newsroom'
   - 'add scheduled transitions node localgov_subsites_overview'
+  - 'administer polls'
   - 'administer redirects'
+  - 'break content lock'
   - 'create document media'
   - 'create image media'
   - 'create localgov_news_article content'

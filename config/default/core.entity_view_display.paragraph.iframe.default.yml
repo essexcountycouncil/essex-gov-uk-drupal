@@ -1,0 +1,32 @@
+uuid: faec7c28-f89e-4c5d-adc5-f84f8824f29c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.iframe.field_p_iframe_size
+    - field.field.paragraph.iframe.field_p_iframe_url
+    - paragraphs.paragraphs_type.iframe
+  module:
+    - options
+id: paragraph.iframe.default
+targetEntityType: paragraph
+bundle: iframe
+mode: default
+content:
+  field_p_iframe_size:
+    type: list_key
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_p_iframe_url:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  search_api_excerpt: true

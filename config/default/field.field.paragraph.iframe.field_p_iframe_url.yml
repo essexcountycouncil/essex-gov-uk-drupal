@@ -1,0 +1,19 @@
+uuid: c466055d-901b-4a17-858a-91be33e3ee8c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_p_iframe_url
+    - paragraphs.paragraphs_type.iframe
+id: paragraph.iframe.field_p_iframe_url
+field_name: field_p_iframe_url
+entity_type: paragraph
+bundle: iframe
+label: URL
+description: 'Enter a fully qualified URL, with the HTTP bit. This will be the source of the Iframe, i.e. the thing you want to embed.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

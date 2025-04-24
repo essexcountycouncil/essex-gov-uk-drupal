@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.storage.node.localgov_paragraph_content
     - node.type.localgov_directory
+    - paragraphs.paragraphs_type.iframe
     - paragraphs.paragraphs_type.localgov_accordion
     - paragraphs.paragraphs_type.localgov_call_out_box
     - paragraphs.paragraphs_type.localgov_featured_teasers
@@ -32,6 +33,7 @@ settings:
   handler_settings:
     target_bundles:
       localgov_accordion: localgov_accordion
+      iframe: iframe
       localgov_call_out_box: localgov_call_out_box
       localgov_featured_teasers: localgov_featured_teasers
       localgov_image: localgov_image
@@ -46,6 +48,9 @@ settings:
       from_library:
         weight: 37
         enabled: false
+      iframe:
+        weight: 43
+        enabled: true
       localgov_accordion:
         weight: 38
         enabled: true

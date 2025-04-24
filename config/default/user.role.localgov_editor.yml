@@ -37,6 +37,7 @@ dependencies:
     - workflows.workflow.localgov_editorial
   module:
     - book
+    - content_lock
     - content_moderation
     - entity_browser
     - entity_hierarchy
@@ -118,9 +119,11 @@ permissions:
   - 'administer localgov_service_contact'
   - 'administer menu'
   - 'administer paragraphs library'
+  - 'administer polls'
   - 'administer redirects'
   - 'administer taxonomy'
   - 'administer workflows'
+  - 'break content lock'
   - 'cancel own vote'
   - 'create directory facets'
   - 'create document media'

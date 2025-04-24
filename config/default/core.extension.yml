@@ -45,6 +45,7 @@ module:
   ecc_menu: 0
   ecc_parents: 0
   ecc_subsites: 0
+  ecc_webform: 0
   editor: 0
   embed: 0
   entity_browser: 0
@@ -148,6 +149,7 @@ module:
   localgov_workflows: 0
   localgov_workflows_notifications: 0
   mail_login: 0
+  masquerade: 0
   media: 0
   media_library: 0
   media_library_edit: 0

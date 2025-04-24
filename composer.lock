@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "80f2a6d6f61b0d9e867bf53c2a5f93d4",
+    "content-hash": "13ddf427d165103e5e68409d522d0b9b",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -10050,39 +10050,39 @@
         },
         {
             "name": "essexcountycouncil/ecc_parents",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/essexcountycouncil/ecc_parents.git",
-                "reference": "8917f822db594b814ee67968fe72ff1e6c42af93"
+                "reference": "bb6b5bbc3d039eec2cc0166ceb24148459e2f020"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/essexcountycouncil/ecc_parents/zipball/8917f822db594b814ee67968fe72ff1e6c42af93",
-                "reference": "8917f822db594b814ee67968fe72ff1e6c42af93",
+                "url": "https://api.github.com/repos/essexcountycouncil/ecc_parents/zipball/bb6b5bbc3d039eec2cc0166ceb24148459e2f020",
+                "reference": "bb6b5bbc3d039eec2cc0166ceb24148459e2f020",
                 "shasum": ""
             },
             "type": "drupal-module",
             "description": "Customisation for LGD content types with parent-child relationship",
             "homepage": "https://github.com/essexcountycouncil/ecc_parents",
             "support": {
-                "source": "https://github.com/essexcountycouncil/ecc_parents/tree/1.0.2",
+                "source": "https://github.com/essexcountycouncil/ecc_parents/tree/1.0.3",
                 "issues": "https://github.com/essexcountycouncil/ecc_parents/issues"
             },
-            "time": "2024-09-25T13:56:52+00:00"
+            "time": "2025-04-01T14:18:23+00:00"
         },
         {
             "name": "essexcountycouncil/ecc_theme",
-            "version": "1.1.27",
+            "version": "1.1.37",
             "source": {
                 "type": "git",
                 "url": "https://github.com/essexcountycouncil/ecc_theme.git",
-                "reference": "51e9083edf634f0db93722f90eac160107c0f673"
+                "reference": "4db48c2c5da919251bcf6c38f62c5eaaabd83a27"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/essexcountycouncil/ecc_theme/zipball/51e9083edf634f0db93722f90eac160107c0f673",
-                "reference": "51e9083edf634f0db93722f90eac160107c0f673",
+                "url": "https://api.github.com/repos/essexcountycouncil/ecc_theme/zipball/4db48c2c5da919251bcf6c38f62c5eaaabd83a27",
+                "reference": "4db48c2c5da919251bcf6c38f62c5eaaabd83a27",
                 "shasum": ""
             },
             "type": "drupal-theme",
@@ -10094,10 +10094,10 @@
             ],
             "description": "Consolidated Essex County Council Drupal theme",
             "support": {
-                "source": "https://github.com/essexcountycouncil/ecc_theme/tree/1.1.27",
+                "source": "https://github.com/essexcountycouncil/ecc_theme/tree/1.1.37",
                 "issues": "https://github.com/essexcountycouncil/ecc_theme/issues"
             },
-            "time": "2025-02-13T16:13:21+00:00"
+            "time": "2025-04-16T12:10:16+00:00"
         },
         {
             "name": "ezyang/htmlpurifier",
@@ -11970,16 +11970,16 @@
         },
         {
             "name": "localgovdrupal/localgov_base",
-            "version": "1.5.0",
+            "version": "1.8.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/localgovdrupal/localgov_base.git",
-                "reference": "d46e31511d0fa0c95eaa99b208cd9cfd090d8103"
+                "reference": "10ada6f22d5e104814273019da2ed51d308b25db"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/localgovdrupal/localgov_base/zipball/d46e31511d0fa0c95eaa99b208cd9cfd090d8103",
-                "reference": "d46e31511d0fa0c95eaa99b208cd9cfd090d8103",
+                "url": "https://api.github.com/repos/localgovdrupal/localgov_base/zipball/10ada6f22d5e104814273019da2ed51d308b25db",
+                "reference": "10ada6f22d5e104814273019da2ed51d308b25db",
                 "shasum": ""
             },
             "type": "drupal-theme",
@@ -11991,9 +11991,9 @@
             "homepage": "https://github.com/localgovdrupal/localgov_base",
             "support": {
                 "issues": "https://github.com/localgovdrupal/localgov_base/issues",
-                "source": "https://github.com/localgovdrupal/localgov_base/tree/1.5.0"
+                "source": "https://github.com/localgovdrupal/localgov_base/tree/1.8.11"
             },
-            "time": "2024-05-21T13:59:02+00:00"
+            "time": "2025-04-15T15:05:44+00:00"
         },
         {
             "name": "localgovdrupal/localgov_content_access_control",
