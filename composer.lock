@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "395f59d0f270fe71e600f37c9e4862e7",
+    "content-hash": "bb96ddfec480ca2cfdba5594a65e41fc",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -12747,16 +12747,16 @@
         },
         {
             "name": "localgovdrupal/localgov_services",
-            "version": "2.1.15",
+            "version": "2.1.16",
             "source": {
                 "type": "git",
                 "url": "https://github.com/localgovdrupal/localgov_services.git",
-                "reference": "5465774e20c94eca19ec4d6f4e8bbb426c18ef65"
+                "reference": "aff744aaef902add7e15619904d84fd21b27faf1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/localgovdrupal/localgov_services/zipball/5465774e20c94eca19ec4d6f4e8bbb426c18ef65",
-                "reference": "5465774e20c94eca19ec4d6f4e8bbb426c18ef65",
+                "url": "https://api.github.com/repos/localgovdrupal/localgov_services/zipball/aff744aaef902add7e15619904d84fd21b27faf1",
+                "reference": "aff744aaef902add7e15619904d84fd21b27faf1",
                 "shasum": ""
             },
             "require": {
@@ -12774,14 +12774,6 @@
                 "localgovdrupal/localgov_workflows": "^1.3"
             },
             "type": "drupal-module",
-            "extra": {
-                "enable-patching": true,
-                "patches": {
-                    "drupal/core": {
-                        "node_access filters out accessible nodes when node is left joined (1349080)": "https://git.drupalcode.org/project/drupal/-/commit/c271adb.diff"
-                    }
-                }
-            },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-2.0-or-later"
@@ -12790,9 +12782,9 @@
             "homepage": "https://github.com/localgovdrupal/localgov_services",
             "support": {
                 "issues": "https://github.com/localgovdrupal/localgov_services/issues",
-                "source": "https://github.com/localgovdrupal/localgov_services/tree/2.1.15"
+                "source": "https://github.com/localgovdrupal/localgov_services/tree/2.1.16"
             },
-            "time": "2024-10-03T09:36:19+00:00"
+            "time": "2025-01-07T12:28:44+00:00"
         },
         {
             "name": "localgovdrupal/localgov_step_by_step",
