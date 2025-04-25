@@ -1,0 +1,17 @@
+uuid: bff3a181-b1f7-4b04-bc58-a82cb6e63a1f
+langcode: en
+status: true
+dependencies:
+  module:
+    - webform
+id: webform_manager
+label: 'Webform manager'
+weight: 0
+is_admin: null
+permissions:
+  - 'access webform overview'
+  - 'create webform'
+  - 'delete any webform'
+  - 'delete own webform'
+  - 'edit any webform'
+  - 'edit own webform'
