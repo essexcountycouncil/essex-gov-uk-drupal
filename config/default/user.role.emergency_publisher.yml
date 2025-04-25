@@ -6,6 +6,7 @@ dependencies:
     - localgov_alert_banner.localgov_alert_banner_type.localgov_alert_banner
     - workflows.workflow.localgov_alert_banners
   module:
+    - content_lock
     - content_moderation
     - file
     - localgov_alert_banner
@@ -27,6 +28,7 @@ permissions:
   - 'access polls'
   - 'access toolbar'
   - 'add scheduled transitions localgov_alert_banner localgov_alert_banner'
+  - 'break content lock'
   - 'delete own files'
   - 'manage all localgov alert banner entities'
   - 'use localgov_alert_banners transition create_new_draft'

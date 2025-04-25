@@ -51,9 +51,14 @@
                     "type": "zip"
                 }
             }
+        },
+        {
+            "type": "composer",
+            "url": "https://packages.bigbluedoor.net/8"
         }
     ],
     "require": {
+        "bigbluedoor/bbd_versions": "^1.6",
         "ckeditor/div": "4.10.1",
         "composer/installers": "^1.10",
         "cweagans/composer-patches": "^1.6",
@@ -68,9 +73,9 @@
         "drupal/config_ignore": "^3.3",
         "drupal/config_split": "^2.0",
         "drupal/content_access_by_path": "^1.0",
-        "drupal/core-composer-scaffold": "10.3.13",
-        "drupal/core-project-message": "10.3.13",
-        "drupal/core-recommended": "10.3.13",
+        "drupal/core-composer-scaffold": "10.3.14",
+        "drupal/core-project-message": "10.3.14",
+        "drupal/core-recommended": "10.3.14",
         "drupal/devel": "^5.1",
         "drupal/dynamic_entity_reference": "^3.1",
         "drupal/entity_embed": "^1.6",
