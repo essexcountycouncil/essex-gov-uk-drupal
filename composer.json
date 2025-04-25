@@ -51,9 +51,14 @@
                     "type": "zip"
                 }
             }
+        },
+        {
+            "type": "composer",
+            "url": "https://packages.bigbluedoor.net/8"
         }
     ],
     "require": {
+        "bigbluedoor/bbd_versions": "^1.6",
         "ckeditor/div": "4.10.1",
         "composer/installers": "^1.10",
         "cweagans/composer-patches": "^1.6",
