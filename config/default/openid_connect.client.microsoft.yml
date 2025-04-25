@@ -1,0 +1,20 @@
+uuid: 1514d106-a09c-4168-bdad-5ba36e95d107
+langcode: en
+status: true
+dependencies: {  }
+id: microsoft
+label: Microsoft
+plugin: generic
+settings:
+  client_id: token
+  client_secret: token
+  iss_allowed_domains: ''
+  issuer_url: ''
+  authorization_endpoint: ''
+  token_endpoint: ''
+  userinfo_endpoint: ''
+  end_session_endpoint: ''
+  scopes:
+    - openid
+    - email
+  tenant: empty
