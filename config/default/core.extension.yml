@@ -7,7 +7,6 @@ module:
   antibot: 0
   automated_cron: 0
   autosave_form: 0
-  bbd_versions: 0
   block: 0
   block_classes: 0
   block_content: 0

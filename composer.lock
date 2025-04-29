@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bb96ddfec480ca2cfdba5594a65e41fc",
+    "content-hash": "13ddf427d165103e5e68409d522d0b9b",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -61,41 +61,6 @@
                 "source": "https://github.com/asm89/stack-cors/tree/v2.2.0"
             },
             "time": "2023-11-14T13:51:46+00:00"
-        },
-        {
-            "name": "bigbluedoor/bbd_versions",
-            "version": "1.8",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:bigbluedoor/versions-bbd.git",
-                "reference": "52f8563093d466546e4ff3bde66a6f9239e998ac"
-            },
-            "dist": {
-                "type": "tar",
-                "url": "https://packages.bigbluedoor.net/8/dist/bigbluedoor/bbd_versions/bigbluedoor-bbd_versions-52f8563093d466546e4ff3bde66a6f9239e998ac-zip-5d5ad2.tar",
-                "reference": "52f8563093d466546e4ff3bde66a6f9239e998ac",
-                "shasum": "3a6d88767c68f57f224f980831cde82bab6ba608"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "drush": {
-                    "services": {
-                        "drush.services.yml": "^9 || ^10"
-                    }
-                }
-            },
-            "authors": [
-                {
-                    "name": "PK"
-                }
-            ],
-            "description": "Collect and submit information about a Drupal 8/9 environment.",
-            "homepage": "https://versions.bigbluedoor.net",
-            "support": {
-                "source": "https://github.com/bigbluedoor/versions-bbd/tree/1.8",
-                "issues": "https://github.com/bigbluedoor/versions-bbd/issues"
-            },
-            "time": "2023-02-28T09:32:16+00:00"
         },
         {
             "name": "caxy/php-htmldiff",
@@ -23804,7 +23769,7 @@
     },
     "prefer-stable": true,
     "prefer-lowest": false,
-    "platform": [],
-    "platform-dev": [],
+    "platform": {},
+    "platform-dev": {},
     "plugin-api-version": "2.6.0"
 }
