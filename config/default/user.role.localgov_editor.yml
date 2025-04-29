@@ -64,7 +64,6 @@ dependencies:
     - system
     - taxonomy
     - toolbar
-    - webform
     - workflows
   enforced:
     module:
@@ -92,7 +91,6 @@ permissions:
   - 'access responsive preview'
   - 'access taxonomy overview'
   - 'access toolbar'
-  - 'access webform overview'
   - 'add content to books'
   - 'add scheduled transitions localgov_alert_banner localgov_alert_banner'
   - 'add scheduled transitions node localgov_directories_org'
@@ -156,7 +154,6 @@ permissions:
   - 'create terms in localgov_topic'
   - 'create terms in media_category'
   - 'create url aliases'
-  - 'create webform'
   - 'delete any localgov_event content'
   - 'delete any localgov_guides_overview content'
   - 'delete any localgov_guides_page content'
@@ -210,7 +207,6 @@ permissions:
   - 'edit any localgov_subsites_overview content'
   - 'edit any localgov_subsites_page content'
   - 'edit any remote_video media'
-  - 'edit any webform'
   - 'edit directory facets'
   - 'edit geo'
   - 'edit localgov_service_contact'
@@ -238,7 +234,6 @@ permissions:
   - 'edit own localgov_subsites_page content'
   - 'edit own polls'
   - 'edit own remote_video media'
-  - 'edit own webform'
   - 'edit paragraph library item'
   - 'edit terms in localgov_event_category'
   - 'edit terms in localgov_event_locality'
@@ -307,7 +302,6 @@ permissions:
   - 'view all revisions'
   - 'view all scheduled transitions'
   - 'view any unpublished content'
-  - 'view any webform submission'
   - 'view directory facets'
   - 'view latest version'
   - 'view localgov alert banner localgov_alert_banner pages'
