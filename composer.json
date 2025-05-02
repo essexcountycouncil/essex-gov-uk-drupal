@@ -214,7 +214,7 @@
                 "Error when accessing a preview link if enabled_entity_types configuration is missing": "https://www.drupal.org/files/issues/2024-04-04/preview_link-3438117-enabled_entity_types.patch"
             },
             "localgovdrupal/localgov_directories": {
-                "Support facets form": "https://patch-diff.githubusercontent.com/raw/localgovdrupal/localgov_directories/pull/399.diff",
+                "Support facets form": "patches/localgov_directories_facets_form.patch",
                 "Set order of facets on channel": "patches/localgov_directories_facets.patch"
             },
             "localgovdrupal/localgov_publications": {
@@ -227,10 +227,10 @@
                 "Show page heading block for subsites pages": "patches/localgov_subsites.patch"
             },
             "localgovdrupal/localgov_subsites_extras": {
-                "Add alter hook to allow other modules to set the subsite homepage": "https://patch-diff.githubusercontent.com/raw/localgovdrupal/localgov_subsites_extras/pull/14.diff"
+                "Add alter hook to allow other modules to set the subsite homepage": "patches/localgov_subsites_extras_alter_homepage.patch"
             },
             "localgovdrupal/localgov_workflows": {
-                "New Content by owner View": "https://patch-diff.githubusercontent.com/raw/localgovdrupal/localgov_workflows/pull/104.diff",
+                "New Content by owner View": "patches/localgov_workflows_new_content_by_owner_view.patch",
                 "Service contact delete form": "patches/localgov_workflows_delete_service_contact.patch"
             },
             "drupal/facets_form": {
