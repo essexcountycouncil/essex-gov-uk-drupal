@@ -1,0 +1,487 @@
+uuid: cf3d35ef-94a3-4f12-92ef-68b482ee6338
+langcode: en
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 1
+template: false
+archive: false
+id: fostering_decision_engine
+title: 'Fostering Decision Engine'
+description: ''
+categories: {  }
+elements: |-
+  eligibility:
+    '#type': webform_wizard_page
+    '#title': 'Eligibility for Fostering'
+    introduction:
+      '#type': processed_text
+      '#text': "<p>Which type of fostering is best for you?</p><p>If you're over 21, have a spare bedroom and want to make a difference in a child's life. You can:</p><ul><li>be single, married or living with a partner</li><li>have children already</li><li>have pets</li><li>be retired</li><li>be disabled</li><li>identify as LGBTQ+</li><li>live in rented accommodation</li></ul><p>Answer a few questions and find out which type of fostering is best for you and your family.</p><p><strong>Start now</strong></p>"
+      '#format': wysiwyg
+  age:
+    '#type': webform_wizard_page
+    '#title': Age
+    are_you_21_or_over:
+      '#type': radios
+      '#title': 'Are you 21 or over?'
+      '#options':
+        'Yes': 'Yes'
+        'No': 'No'
+  room:
+    '#type': webform_wizard_page
+    '#title': Room
+    do_you_have_a_spare_bedroom:
+      '#type': radios
+      '#title': 'Do you have a spare bedroom?'
+      '#options':
+        'Yes': 'Yes'
+        'No': 'No'
+      '#states':
+        visible:
+          ':input[name="are_you_21_or_over"]':
+            value: 'Yes'
+  experience:
+    '#type': webform_wizard_page
+    '#title': Experience
+    have_you_fostered_before:
+      '#type': radios
+      '#title': 'Have you fostered before?'
+      '#options':
+        'fostered before': 'Yes, I have fostered before'
+        current: 'Yes, I am currently fostering'
+        'no': 'No'
+      '#states':
+        visible:
+          ':input[name="do_you_have_a_spare_bedroom"]':
+            value: 'Yes'
+  children_with_special_needs:
+    '#type': webform_wizard_page
+    '#title': 'Children with Special Needs'
+    are_you_open_to_fostering_disabled_children:
+      '#type': radios
+      '#title': 'Are you open to fostering disabled children?'
+      '#options':
+        experienced: "Yes, I've cared for disabled children before"
+        'first time': 'Yes, but it would be my first time caring for disabled children'
+        'no': 'No'
+      '#states':
+        visible:
+          ':input[name="have_you_fostered_before"]':
+            checked: true
+  length_of_time:
+    '#type': webform_wizard_page
+    '#title': 'Length of Time'
+    how_long_do_you_want_to_foster_for:
+      '#type': radios
+      '#title': 'How long do you want to foster for?'
+      '#options':
+        weekend: 'Around a weekend a month'
+        weeks: 'Up to a few weeks'
+        months: 'Up to few months'
+        years: 'Up to long term, for years'
+      '#states':
+        visible:
+          ':input[name="are_you_open_to_fostering_disabled_children"]':
+            checked: true
+  result:
+    '#type': webform_wizard_page
+    '#title': Result
+    under_21_no:
+      '#type': processed_text
+      '#states':
+        visible:
+          ':input[name="are_you_21_or_over"]':
+            value: 'No'
+      '#text': '<p><strong>You’re almost ready to foster</strong></p><p>You need to be over 21 to foster with us.</p><p>In the meantime, you can contact us to find out more so that when the time is right, you’re ready to go.</p>'
+      '#format': wysiwyg
+    spare_bedroom_no:
+      '#type': processed_text
+      '#states':
+        visible:
+          ':input[name="do_you_have_a_spare_bedroom"]':
+            value: 'No'
+      '#text': '<p><strong>You’re almost ready to foster</strong></p><p>You need to have a spare bedroom.</p><p>In the meantime, you can contact us to find out more so that when the time is right, you’re ready to go.</p>'
+      '#format': wysiwyg
+    experienced_disabled_weekend:
+      '#type': processed_text
+      '#states':
+        visible:
+          ':input[name="have_you_fostered_before"]':
+            '!value': 'no'
+          ':input[name="are_you_open_to_fostering_disabled_children"]':
+            '!value': 'no'
+          ':input[name="how_long_do_you_want_to_foster_for"]':
+            value: weekend
+      '#text': '<p>&nbsp;</p><p><strong>Respite fostering</strong></p><p>&nbsp;</p><p><strong>Short breaks for a disabled child</strong></p><p>&nbsp;</p><p><strong>Supported lodgings</strong></p><p>&nbsp;</p><p><strong>Specialist fostering</strong></p>'
+      '#format': wysiwyg
+    experienced_disabled_weeks:
+      '#type': processed_text
+      '#states':
+        visible:
+          ':input[name="have_you_fostered_before"]':
+            '!value': 'no'
+          ':input[name="are_you_open_to_fostering_disabled_children"]':
+            '!value': 'no'
+          ':input[name="how_long_do_you_want_to_foster_for"]':
+            value: weeks
+      '#text': '<p><strong>Sh﻿ort-term fostering</strong></p><p><strong>Respite fostering</strong></p><p><strong>Short breaks for a disabled child</strong></p><p><strong>Short-term fostering for a disabled child</strong></p><p><strong>Supported lodgings</strong></p><p><strong>Specialist fostering</strong></p>'
+      '#format': wysiwyg
+    experienced_disabled_months:
+      '#type': processed_text
+      '#states':
+        visible:
+          ':input[name="have_you_fostered_before"]':
+            '!value': 'no'
+          ':input[name="are_you_open_to_fostering_disabled_children"]':
+            '!value': 'no'
+          ':input[name="how_long_do_you_want_to_foster_for"]':
+            value: months
+      '#text': '<p><strong>Short-term fostering</strong></p><p><strong>Respite fostering</strong></p><p><strong>Short breaks for a disabled child</strong></p><p><strong>Short-term﻿fostering for a disabled child</strong></p><p><strong>Supported lodgings</strong></p><p><strong>Specialist fostering</strong></p>'
+      '#format': wysiwyg
+    experienced_disabled_years:
+      '#type': processed_text
+      '#states':
+        visible:
+          ':input[name="have_you_fostered_before"]':
+            '!value': 'no'
+          ':input[name="are_you_open_to_fostering_disabled_children"]':
+            '!value': 'no'
+          ':input[name="how_long_do_you_want_to_foster_for"]':
+            value: years
+      '#text': '<p><strong>Short-term fostering</strong></p><p><strong>Long-term fostering</strong></p><p><strong>Respite fostering</strong></p><p><strong>Short breaks for a disabled child</strong></p><p><strong>Short-term fostering for a disabled child</strong></p><p><strong>Long-term fostering for a disabled child</strong></p><p><strong>Supported lodgings</strong></p><p><strong>Specialist fostering</strong></p>'
+      '#format': wysiwyg
+    experienced_no_weekend:
+      '#type': processed_text
+      '#states':
+        visible:
+          ':input[name="have_you_fostered_before"]':
+            '!value': 'no'
+          ':input[name="are_you_open_to_fostering_disabled_children"]':
+            value: 'no'
+          ':input[name="how_long_do_you_want_to_foster_for"]':
+            value: weekend
+      '#text': '<p><strong>Respite fostering</strong></p><p><strong>Supported lodgings</strong></p><p><strong>Specialist fostering</strong></p>'
+      '#format': wysiwyg
+    experienced_no_weeks:
+      '#type': processed_text
+      '#states':
+        visible:
+          ':input[name="have_you_fostered_before"]':
+            '!value': 'no'
+          ':input[name="are_you_open_to_fostering_disabled_children"]':
+            value: 'no'
+          ':input[name="how_long_do_you_want_to_foster_for"]':
+            value: weeks
+      '#text': '<p><strong>Short-term fostering</strong></p><p><strong>Respite fostering</strong></p><p><strong>Supported lodgings</strong></p><p><strong>Specialist fostering</strong></p>'
+      '#format': wysiwyg
+    experienced_no_months:
+      '#type': processed_text
+      '#states':
+        visible:
+          ':input[name="have_you_fostered_before"]':
+            '!value': 'no'
+          ':input[name="are_you_open_to_fostering_disabled_children"]':
+            value: 'no'
+          ':input[name="how_long_do_you_want_to_foster_for"]':
+            value: months
+      '#text': '<p><strong>Short-term fostering</strong></p><p><strong>Respite fostering</strong></p><p><strong>Supported lodgings</strong></p><p><strong>Specialist fostering</strong></p>'
+      '#format': wysiwyg
+    experienced_no_years:
+      '#type': processed_text
+      '#states':
+        visible:
+          ':input[name="have_you_fostered_before"]':
+            '!value': 'no'
+          ':input[name="are_you_open_to_fostering_disabled_children"]':
+            value: 'no'
+          ':input[name="how_long_do_you_want_to_foster_for"]':
+            value: years
+      '#text': '<p><strong>Short-term fostering</strong></p><p><strong>Long-term fostering</strong></p><p><strong>Respite fostering</strong></p><p><strong>Supported lodgings</strong></p><p><strong>Specialist fostering</strong></p>'
+      '#format': wysiwyg
+    no_disabled_weekend:
+      '#type': processed_text
+      '#states':
+        visible:
+          ':input[name="have_you_fostered_before"]':
+            value: 'no'
+          ':input[name="are_you_open_to_fostering_disabled_children"]':
+            '!value': 'no'
+          ':input[name="how_long_do_you_want_to_foster_for"]':
+            value: weekend
+      '#text': '<p><strong>Respite fostering</strong></p><p><strong>Short bre﻿aks for a disabled child</strong></p><p>&nbsp;</p>'
+      '#format': wysiwyg
+    no_disabled_weeks:
+      '#type': processed_text
+      '#states':
+        visible:
+          ':input[name="have_you_fostered_before"]':
+            value: 'no'
+          ':input[name="are_you_open_to_fostering_disabled_children"]':
+            '!value': 'no'
+          ':input[name="how_long_do_you_want_to_foster_for"]':
+            value: weeks
+      '#text': '<p><strong>Short-term fostering</strong></p><p><strong>Respite fostering</strong></p><p><strong>Short bre﻿aks for a disabled child</strong></p><p>&nbsp;</p>'
+      '#format': wysiwyg
+    no_disabled_month:
+      '#type': processed_text
+      '#states':
+        visible:
+          ':input[name="have_you_fostered_before"]':
+            value: 'no'
+          ':input[name="are_you_open_to_fostering_disabled_children"]':
+            '!value': 'no'
+          ':input[name="how_long_do_you_want_to_foster_for"]':
+            value: months
+      '#text': '<p><strong>Short-term fostering</strong></p><p><strong>Respite fostering</strong></p><p><strong>Short bre﻿aks for a disabled child</strong></p><p><strong>Short-term fostering for a disabled child</strong></p>'
+      '#format': wysiwyg
+    no_disabled_years:
+      '#type': processed_text
+      '#states':
+        visible:
+          ':input[name="have_you_fostered_before"]':
+            value: 'no'
+          ':input[name="are_you_open_to_fostering_disabled_children"]':
+            '!value': 'no'
+          ':input[name="how_long_do_you_want_to_foster_for"]':
+            value: years
+      '#text': '<p><strong>Short-term fostering</strong></p><p><strong>Long-term fostering</strong></p><p><strong>Respite fostering</strong></p><p><strong>Short breaks for a disabled child</strong></p><p><strong>Short-term fostering for a disabled child</strong></p><p><strong>Long-term fo﻿stering for a disabled child</strong></p>'
+      '#format': wysiwyg
+    no_no_weekend:
+      '#type': processed_text
+      '#states':
+        visible:
+          ':input[name="have_you_fostered_before"]':
+            value: 'no'
+          ':input[name="are_you_open_to_fostering_disabled_children"]':
+            value: 'no'
+          ':input[name="how_long_do_you_want_to_foster_for"]':
+            value: weekend
+      '#text': '<p><strong>Respite fostering</strong></p><p>&nbsp;</p>'
+      '#format': wysiwyg
+    no_no_weeks:
+      '#type': processed_text
+      '#states':
+        visible:
+          ':input[name="have_you_fostered_before"]':
+            value: 'no'
+          ':input[name="are_you_open_to_fostering_disabled_children"]':
+            value: 'no'
+          ':input[name="how_long_do_you_want_to_foster_for"]':
+            value: weeks
+      '#text': '<p><strong>Short-term fostering</strong></p><p><strong>Respite fostering</strong></p><p>&nbsp;</p>'
+      '#format': wysiwyg
+    no_no_month:
+      '#type': processed_text
+      '#states':
+        visible:
+          ':input[name="have_you_fostered_before"]':
+            value: 'no'
+          ':input[name="are_you_open_to_fostering_disabled_children"]':
+            value: 'no'
+          ':input[name="how_long_do_you_want_to_foster_for"]':
+            value: months
+      '#text': '<p><strong>Short-term fostering</strong></p><p><strong>Respite fostering</strong></p>'
+      '#format': wysiwyg
+    no_no_years:
+      '#type': processed_text
+      '#states':
+        visible:
+          ':input[name="have_you_fostered_before"]':
+            value: 'no'
+          ':input[name="are_you_open_to_fostering_disabled_children"]':
+            value: 'no'
+          ':input[name="how_long_do_you_want_to_foster_for"]':
+            value: years
+      '#text': '<p><strong>Short-term fostering</strong></p><p><strong>Long-term fostering</strong></p><p><strong>Respite fostering</strong></p><p>&nbsp;</p>'
+      '#format': wysiwyg
+  actions:
+    '#type': webform_actions
+    '#title': 'Submit button(s)'
+    '#submit_hide': true
+css: ''
+javascript: ''
+settings:
+  ajax: false
+  ajax_scroll_top: form
+  ajax_progress_type: ''
+  ajax_effect: ''
+  ajax_speed: null
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  page_theme_name: ''
+  form_title: both
+  form_submit_once: false
+  form_open_message: ''
+  form_close_message: ''
+  form_exception_message: ''
+  form_previous_submissions: true
+  form_confidential: false
+  form_confidential_message: ''
+  form_disable_remote_addr: false
+  form_convert_anonymous: false
+  form_prepopulate: false
+  form_prepopulate_source_entity: false
+  form_prepopulate_source_entity_required: false
+  form_prepopulate_source_entity_type: ''
+  form_unsaved: false
+  form_disable_back: false
+  form_submit_back: false
+  form_disable_autocomplete: false
+  form_novalidate: false
+  form_disable_inline_errors: false
+  form_required: false
+  form_autofocus: false
+  form_details_toggle: false
+  form_reset: false
+  form_access_denied: default
+  form_access_denied_title: ''
+  form_access_denied_message: ''
+  form_access_denied_attributes: {  }
+  form_file_limit: ''
+  form_attributes: {  }
+  form_method: ''
+  form_action: ''
+  share: false
+  share_node: false
+  share_theme_name: ''
+  share_title: true
+  share_page_body_attributes: {  }
+  submission_label: ''
+  submission_exception_message: ''
+  submission_locked_message: ''
+  submission_log: false
+  submission_excluded_elements: {  }
+  submission_exclude_empty: false
+  submission_exclude_empty_checkbox: false
+  submission_views: {  }
+  submission_views_replace: {  }
+  submission_user_columns: {  }
+  submission_user_duplicate: false
+  submission_access_denied: default
+  submission_access_denied_title: ''
+  submission_access_denied_message: ''
+  submission_access_denied_attributes: {  }
+  previous_submission_message: ''
+  previous_submissions_message: ''
+  autofill: false
+  autofill_message: ''
+  autofill_excluded_elements: {  }
+  wizard_progress_bar: true
+  wizard_progress_pages: false
+  wizard_progress_percentage: false
+  wizard_progress_link: false
+  wizard_progress_states: false
+  wizard_start_label: ''
+  wizard_preview_link: false
+  wizard_confirmation: true
+  wizard_confirmation_label: ''
+  wizard_auto_forward: true
+  wizard_auto_forward_hide_next_button: false
+  wizard_keyboard: true
+  wizard_track: ''
+  wizard_prev_button_label: ''
+  wizard_next_button_label: ''
+  wizard_toggle: false
+  wizard_toggle_show_label: ''
+  wizard_toggle_hide_label: ''
+  wizard_page_type: container
+  wizard_page_title_tag: h2
+  preview: 0
+  preview_label: ''
+  preview_title: ''
+  preview_message: ''
+  preview_attributes: {  }
+  preview_excluded_elements: {  }
+  preview_exclude_empty: true
+  preview_exclude_empty_checkbox: false
+  draft: none
+  draft_multiple: false
+  draft_auto_save: false
+  draft_saved_message: ''
+  draft_loaded_message: ''
+  draft_pending_single_message: ''
+  draft_pending_multiple_message: ''
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_title: ''
+  confirmation_message: ''
+  confirmation_attributes: {  }
+  confirmation_back: true
+  confirmation_back_label: ''
+  confirmation_back_attributes: {  }
+  confirmation_exclude_query: false
+  confirmation_exclude_token: false
+  confirmation_update: false
+  limit_total: null
+  limit_total_interval: null
+  limit_total_message: ''
+  limit_total_unique: false
+  limit_user: null
+  limit_user_interval: null
+  limit_user_message: ''
+  limit_user_unique: false
+  entity_limit_total: null
+  entity_limit_total_interval: null
+  entity_limit_user: null
+  entity_limit_user_interval: null
+  purge: none
+  purge_days: null
+  results_disabled: false
+  results_disabled_ignore: false
+  results_customize: false
+  token_view: false
+  token_update: false
+  token_delete: false
+  serial_disabled: false
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+  view_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  update_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  purge_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  view_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  update_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  administer:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  test:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  configuration:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+handlers: {  }
+variants: {  }
