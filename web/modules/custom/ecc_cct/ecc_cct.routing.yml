@@ -1,0 +1,24 @@
+ecc_cct.log:
+  path: '/ecc-cct/js/log/{choice}'
+  defaults:
+    _title: 'Content Log'
+    _controller: '\Drupal\ecc_cct\Controller\ConsentLog:log'
+  requirements:
+    _permission: 'access content'
+    choice: '\d+'  # Restricts 'choice' to be numeric only
+
+ecc_cct.report:
+  path: 'admin/reports/consent'
+  defaults:
+    _title: 'Consent Statistics'
+    _controller: '\Drupal\ecc_cct\Controller\EccCctController:build'
+  requirements:
+    _permission: 'access site reports'
+
+ecc_cct.settings:
+  path: '/admin/config/system/cookie-consent-tracker'
+  defaults:
+    _title: 'Cookie Consent Tracker'
+    _form: 'Drupal\ecc_cct\Form\SettingsForm'
+  requirements:
+    _permission: 'administer site configuration'
