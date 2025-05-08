@@ -1,0 +1,166 @@
+diff --git a/localgov_subsites_extras.services.yml b/localgov_subsites_extras.services.yml
+index de367e3..fa6874c 100644
+--- a/localgov_subsites_extras.services.yml
++++ b/localgov_subsites_extras.services.yml
+@@ -1,4 +1,9 @@
+ services:
+   localgov_subsites_extras.service:
+     class: Drupal\localgov_subsites_extras\Service\SubsiteService
+-    arguments: ['@entity_type.manager', '@plugin.manager.menu.link', '@current_route_match', '@config.factory']
++    arguments:
++      - '@entity_type.manager'
++      - '@plugin.manager.menu.link'
++      - '@current_route_match'
++      - '@config.factory'
++      - '@module_handler'
+diff --git a/src/Service/SubsiteService.php b/src/Service/SubsiteService.php
+index 1169f2f..6ee3888 100644
+--- a/src/Service/SubsiteService.php
++++ b/src/Service/SubsiteService.php
+@@ -6,6 +6,7 @@
+ 
+ use Drupal\Core\Config\ConfigFactory;
+ use Drupal\Core\Entity\EntityTypeManagerInterface;
++use Drupal\Core\Extension\ModuleHandlerInterface;
+ use Drupal\Core\Menu\MenuLinkManagerInterface;
+ use Drupal\Core\Routing\RouteMatchInterface;
+ use Drupal\node\NodeInterface;
+@@ -15,30 +16,41 @@
+  */
+ class SubsiteService {
+ 
+-  // Disable phpcs for a bit, so we don't have to add a load of stuff that's
+-  // made redundant by type hints.
+-  // phpcs:disable
+-  private EntityTypeManagerInterface $entityTypeManager;
+-  private MenuLinkManagerInterface $menuLinkService;
+-  private RouteMatchInterface $routeMatch;
+-  private ConfigFactory $configFactory;
++  /**
++   * Subsite homepage.
++   *
++   * @var \Drupal\node\NodeInterface|null
++   */
+   private ?NodeInterface $subsiteHomePage;
+-  private bool $searched = false;
++
++  /**
++   * Searched flag.
++   *
++   * @var bool
++   */
++  private bool $searched = FALSE;
++
++  /**
++   * Subsite content types.
++   *
++   * @var array|null
++   */
+   private ?array $subsiteTypes = [];
++
++  /**
++   * Theme field.
++   *
++   * @var string|null
++   */
+   private ?string $themeField;
+ 
+   public function __construct(
+-    EntityTypeManagerInterface $entityTypeManager,
+-    MenuLinkManagerInterface $menuLinkService,
+-    RouteMatchInterface $routeMatch,
+-    ConfigFactory $configFactory
+-  ) {
+-    $this->entityTypeManager = $entityTypeManager;
+-    $this->menuLinkService = $menuLinkService;
+-    $this->routeMatch = $routeMatch;
+-    $this->configFactory = $configFactory;
+-  }
+-  // phpcs:enable
++    private EntityTypeManagerInterface $entityTypeManager,
++    private MenuLinkManagerInterface $menuLinkService,
++    private RouteMatchInterface $routeMatch,
++    private ConfigFactory $configFactory,
++    private ModuleHandlerInterface $moduleHandler,
++  ) {}
+ 
+   /**
+    * Get the subsite homepage node if we're in a subsite.
+@@ -85,7 +97,7 @@ private function isSubsiteType(NodeInterface $node): bool {
+   /**
+    * Walks up the menu tree to look for a subsite homepage node.
+    */
+-  private function walkMenuTree(NodeInterface $node) {
++  private function walkMenuTree(NodeInterface $node): ?NodeInterface {
+ 
+     if ($this->isSubsiteType($node)) {
+       return $node;
+@@ -96,10 +108,9 @@ private function walkMenuTree(NodeInterface $node) {
+     if (!empty($result)) {
+       $menuLink = reset($result);
+       $parentMenuLinkID = $menuLink->getParent();
+-
+       if ($parentMenuLinkID) {
+         $parentNode = $this->loadNodeForMenuLink($parentMenuLinkID);
+-        return $this->walkMenuTree($parentNode);
++        return $parentNode ? $this->walkMenuTree($parentNode) : NULL;
+       }
+     }
+     return NULL;
+@@ -108,13 +119,14 @@ private function walkMenuTree(NodeInterface $node) {
+   /**
+    * Loads the node for the supplied menu link ID.
+    */
+-  private function loadNodeForMenuLink($menuLinkContentID) {
++  private function loadNodeForMenuLink($menuLinkContentID): ?NodeInterface {
+     $menuLink = $this->menuLinkService->createInstance($menuLinkContentID);
+     $pluginDefinition = $menuLink->getPluginDefinition();
+ 
+     if (!empty($pluginDefinition['route_parameters']['node'])) {
+       $node_id = $pluginDefinition['route_parameters']['node'];
+       // Load the nodes we found.
++      /** @var \Drupal\node\NodeInterface $node */
+       $node = $this->entityTypeManager
+         ->getStorage('node')
+         ->load($node_id);
+@@ -140,24 +152,26 @@ private function findHomePage(?NodeInterface $node = NULL): ?NodeInterface {
+       }
+     }
+ 
+-    if (!$node instanceof NodeInterface) {
+-      return NULL;
+-    }
+-
+-    $subsiteTypes = $this->configFactory->get('localgov_subsites_extras.settings')->get('subsite_types');
+-    if (is_array($subsiteTypes)) {
+-      $this->subsiteTypes = $subsiteTypes;
+-    }
++    $subsiteHomePage = NULL;
++    if ($node instanceof NodeInterface) {
++      $subsiteTypes = $this->configFactory->get('localgov_subsites_extras.settings')
++        ->get('subsite_types');
++      if (is_array($subsiteTypes)) {
++        $this->subsiteTypes = $subsiteTypes;
++      }
+ 
+-    $subsiteHomePage = $this->walkMenuTree($node);
++      $subsiteHomePage = $this->walkMenuTree($node);
+ 
+-    // @todo Move this out to an event or hook or something.
+-    if (empty($subsiteHomePage) && $node->getType() === 'localgov_directories_page') {
+-      /** @var \Drupal\node\NodeInterface $directoryChannel */
+-      $directoryChannel = $node->localgov_directory_channels->entity;
+-      $subsiteHomePage = $this->walkMenuTree($directoryChannel);
++      // @todo Move this out to an event or hook or something.
++      if (empty($subsiteHomePage) && $node->getType() === 'localgov_directories_page') {
++        /** @var \Drupal\node\NodeInterface $directoryChannel */
++        $directoryChannel = $node->localgov_directory_channels->entity;
++        $subsiteHomePage = $this->walkMenuTree($directoryChannel);
++      }
+     }
+ 
++    $this->moduleHandler->alter('localgov_subsites_extras_homepage', $subsiteHomePage);
++
+     return $subsiteHomePage;
+   }
+ 
